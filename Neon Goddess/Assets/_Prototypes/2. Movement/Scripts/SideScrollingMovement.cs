@@ -7,7 +7,8 @@ using UnityEngine.InputSystem;
 public class SideScrollingMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private float _speed;
+    [SerializeField] private float _horizontalSpeed;
+    [SerializeField] private float _verticalSpeed;
     [SerializeField] private bool _blockZMovement;
     
     private InputActions _inputActions;
@@ -58,7 +59,28 @@ public class SideScrollingMovement : MonoBehaviour
     {
         if(!_wannaMove) return;
         
-        var correctDirection = new Vector3(_direction.x, 0, _blockZMovement ? 0 : _direction.y);
-        _rigidbody.velocity = correctDirection.normalized * _speed;
+        _direction.Normalize();
+        var correctDirection = new Vector3(_direction.x * _horizontalSpeed, 0, _blockZMovement ? 0 : _direction.y * _verticalSpeed);
+        _rigidbody.velocity = correctDirection;
+    }
+    
+    public void LockZMovement(bool value)
+    {
+        _blockZMovement = value;
+
+        if (value)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        }
+    }
+
+    public void SetHorizontalSpeed(string speed)
+    {
+        _horizontalSpeed = float.Parse(speed);
+    }
+
+    public void SetVerticalSpeed(string speed)
+    {
+        _verticalSpeed = float.Parse(speed);
     }
 }
