@@ -11,7 +11,7 @@ public class GameBuilder : MonoBehaviour
     {
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
 
-        buildPlayerOptions.scenes = new[] {"Assets/Scenes/SampleScene.unity"};
+        buildPlayerOptions.scenes = new[] {"Assets/_Prototypes/2. Movement/Scenes/MovementPrototype.unity"};
         buildPlayerOptions.locationPathName = "build/Windows/NeonGoddess/NeonGoddess.exe";
         buildPlayerOptions.target = BuildTarget.StandaloneWindows;
         buildPlayerOptions.options = BuildOptions.None;
