@@ -8,6 +8,7 @@ public class SideScrollingMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private float _speed;
+    [SerializeField] private bool _blockZMovement;
     
     private InputActions _inputActions;
     private Vector2 _direction;
@@ -57,7 +58,7 @@ public class SideScrollingMovement : MonoBehaviour
     {
         if(!_wannaMove) return;
         
-        var correctDirection = new Vector3(_direction.x, 0, 0);
+        var correctDirection = new Vector3(_direction.x, 0, _blockZMovement ? 0 : _direction.y);
         _rigidbody.velocity = correctDirection.normalized * _speed;
     }
 }
