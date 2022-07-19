@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{8BED1B29-D933-4D4B-AC16-D5E30D3BEEA2}" SchemaVersion="103">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{8BED1B29-D933-4D4B-AC16-D5E30D3BEEA2}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{8BED1B29-D933-4D4B-AC16-D5E30D3BEEA2}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="mainSoundBank" ID="{FAFEBBD7-D3F3-46AA-AE85-14386F26A35F}">
+					<ObjectInclusionList>
+						<ObjectRef Name="masterBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="dialogueBus" ID="{4D4F0220-8D9A-4367-A8D5-1734BB807DEE}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="accessibilityBus" ID="{CBBA8F98-055B-45CD-BB53-5141A1C4FDC0}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="infoBus" ID="{559CEF86-3C85-4773-A064-970C6652A613}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="musicBus" ID="{716C82E4-0C47-4C1E-A723-F7CCB4E6B8F0}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="awarenessBus" ID="{61EC130C-DB62-4CA8-A7FE-FDFBE8603C1F}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="ambienceBus" ID="{03871B48-F785-4DB0-9067-436D52066127}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>
