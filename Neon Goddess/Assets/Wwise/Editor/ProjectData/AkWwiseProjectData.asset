@@ -38,11 +38,11 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: aca27ecb43a417478e1289c52057adf9
     GuidInternal: 
-    m_lastTime: -8585436856359701818
+    m_lastTime: -8585433485610015540
     List:
-    - name: Master Audio Bus
-      guid: d8a41415a61d2a41a17e75ca0c2149f3
-      id: 3803692087
+    - name: accessibilityBus
+      guid: 988fbacb5b05cd45bb535141a1c4fdc0
+      id: 639560775
       PathAndIcons:
       - ElementName: Master-Mixer Hierarchy
         ObjectType: 5
@@ -50,10 +50,135 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: aca27ecb43a417478e1289c52057adf9
-      - ElementName: Master Audio Bus
+      - ElementName: masterBus
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus
+      - ElementName: infoBus
+        ObjectType: 2
+        guid: 86ef9c55853c7347a064970c6652a613
+      - ElementName: accessibilityBus
+        ObjectType: 2
+        guid: 988fbacb5b05cd45bb535141a1c4fdc0
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\infoBus\accessibilityBus
+    - name: ambienceBus
+      guid: 481b870385f7b04d9067436d52066127
+      id: 612772313
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: ambienceBus
+        ObjectType: 2
+        guid: 481b870385f7b04d9067436d52066127
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\ambienceBus
+    - name: awarenessBus
+      guid: 0c13ec6162dba84ca7fefdfbe8603c1f
+      id: 3086158442
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: infoBus
+        ObjectType: 2
+        guid: 86ef9c55853c7347a064970c6652a613
+      - ElementName: awarenessBus
+        ObjectType: 2
+        guid: 0c13ec6162dba84ca7fefdfbe8603c1f
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\infoBus\awarenessBus
+    - name: dialogueBus
+      guid: 20024f4d9a8d6743a8d51734bb807dee
+      id: 309504875
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: dialogueBus
+        ObjectType: 2
+        guid: 20024f4d9a8d6743a8d51734bb807dee
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\dialogueBus
+    - name: infoBus
+      guid: 86ef9c55853c7347a064970c6652a613
+      id: 151322537
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: infoBus
+        ObjectType: 2
+        guid: 86ef9c55853c7347a064970c6652a613
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\infoBus
+    - name: masterBus
+      guid: d8a41415a61d2a41a17e75ca0c2149f3
+      id: 835198467
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus
+    - name: musicBus
+      guid: e4826c71470c1e4ca723f7ccb4e6b8f0
+      id: 2886307548
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: musicBus
+        ObjectType: 2
+        guid: e4826c71470c1e4ca723f7ccb4e6b8f0
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\musicBus
+    - name: sfxBus
+      guid: ffee025270875c4ba1f3560f70b37124
+      id: 3803850708
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: sfxBus
+        ObjectType: 2
+        guid: ffee025270875c4ba1f3560f70b37124
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\sfxBus
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     PathAndIcons:
@@ -66,8 +191,22 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 291bed8b33d94b4dac16d5e30d3beea2
     GuidInternal: 
-    m_lastTime: -8585436856359651953
-    List: []
+    m_lastTime: -8585433485609590731
+    List:
+    - name: mainSoundBank
+      guid: d7bbfefaf3d3aa46ae8514386f26a35f
+      id: 534561221
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 291bed8b33d94b4dac16d5e30d3beea2
+      - ElementName: mainSoundBank
+        ObjectType: 7
+        guid: d7bbfefaf3d3aa46ae8514386f26a35f
+      Path: SoundBanks\Default Work Unit\mainSoundBank
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -94,8 +233,158 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: b4d32a08d5d398448a9d266b95a7ce94
     GuidInternal: 
-    m_lastTime: -8585436856359711790
-    List: []
+    m_lastTime: -8585433485610529688
+    List:
+    - name: accessibilityBusController
+      guid: 9873ad6b321e564cbdd2ff8740b4b700
+      id: 2133121051
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: accessibilityBusController
+        ObjectType: 13
+        guid: 9873ad6b321e564cbdd2ff8740b4b700
+      Path: Game Parameters\Default Work Unit\bus Controllers\accessibilityBusController
+    - name: ambienceBusController
+      guid: 71d28ffc305ffc45ba7b5b4b79060f2a
+      id: 3767945453
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: ambienceBusController
+        ObjectType: 13
+        guid: 71d28ffc305ffc45ba7b5b4b79060f2a
+      Path: Game Parameters\Default Work Unit\bus Controllers\ambienceBusController
+    - name: awarenessBusController
+      guid: 0cb135095285214598ab2433a550739e
+      id: 4148718858
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: awarenessBusController
+        ObjectType: 13
+        guid: 0cb135095285214598ab2433a550739e
+      Path: Game Parameters\Default Work Unit\bus Controllers\awarenessBusController
+    - name: bus Controllers
+      guid: 4aeee1764347f94584fc5e0401b6c134
+      id: 3647609546
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      Path: Game Parameters\Default Work Unit\bus Controllers
+    - name: dialogueBusController
+      guid: df7d36d8cae7284abcfa0356272d6faf
+      id: 1970181751
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: dialogueBusController
+        ObjectType: 13
+        guid: df7d36d8cae7284abcfa0356272d6faf
+      Path: Game Parameters\Default Work Unit\bus Controllers\dialogueBusController
+    - name: infoBusController
+      guid: e1731e885326ac418f4201f2a48ccefb
+      id: 3037820317
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: infoBusController
+        ObjectType: 13
+        guid: e1731e885326ac418f4201f2a48ccefb
+      Path: Game Parameters\Default Work Unit\bus Controllers\infoBusController
+    - name: masterBusController
+      guid: b8d4caad2802b141b2db058429fdb1f5
+      id: 1444919967
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: masterBusController
+        ObjectType: 13
+        guid: b8d4caad2802b141b2db058429fdb1f5
+      Path: Game Parameters\Default Work Unit\bus Controllers\masterBusController
+    - name: musicBusController
+      guid: 4a943dea87afdd48a9c15e0f20b4b5aa
+      id: 80573052
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: musicBusController
+        ObjectType: 13
+        guid: 4a943dea87afdd48a9c15e0f20b4b5aa
+      Path: Game Parameters\Default Work Unit\bus Controllers\musicBusController
+    - name: sfxBusController
+      guid: 7792743b62dbfa41a2718cc9c98768f5
+      id: 62014404
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: sfxBusController
+        ObjectType: 13
+        guid: 7792743b62dbfa41a2718cc9c98768f5
+      Path: Game Parameters\Default Work Unit\bus Controllers\sfxBusController
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:

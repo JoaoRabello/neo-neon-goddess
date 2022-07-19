@@ -47,7 +47,7 @@ public class SideScrollingMovement : MonoBehaviour
     {
         _wannaMove = false;
 
-        _rigidbody.velocity = Vector2.zero;
+        _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y, 0);
     }
 
     private void Update()
@@ -60,7 +60,7 @@ public class SideScrollingMovement : MonoBehaviour
         if(!_wannaMove) return;
         
         _direction.Normalize();
-        var correctDirection = new Vector3(_direction.x * _horizontalSpeed, 0, _blockZMovement ? 0 : _direction.y * _verticalSpeed);
+        var correctDirection = new Vector3(_direction.x * _horizontalSpeed, _rigidbody.velocity.y, _blockZMovement ? 0 : _direction.y * _verticalSpeed);
         _rigidbody.velocity = correctDirection;
     }
     
