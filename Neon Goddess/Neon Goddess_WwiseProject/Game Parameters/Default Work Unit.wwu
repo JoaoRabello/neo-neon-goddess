@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{082AD3B4-D3D5-4498-8A9D-266B95A7CE94}" SchemaVersion="103">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{082AD3B4-D3D5-4498-8A9D-266B95A7CE94}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{082AD3B4-D3D5-4498-8A9D-266B95A7CE94}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="bus Controllers" ID="{76E1EE4A-4743-45F9-84FC-5E0401B6C134}" ShortID="370821526">
+					<ChildrenList>
+						<GameParameter Name="masterBusController" ID="{ADCAD4B8-0228-41B1-B2DB-058429FDB1F5}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="75"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="infoBusController" ID="{881E73E1-2653-41AC-8F42-01F2A48CCEFB}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="75"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="musicBusController" ID="{EA3D944A-AF87-48DD-A9C1-5E0F20B4B5AA}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="75"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="awarenessBusController" ID="{0935B10C-8552-4521-98AB-2433A550739E}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="75"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="accessibilityBusController" ID="{6BAD7398-1E32-4C56-BDD2-FF8740B4B700}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="75"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="sfxBusController" ID="{3B749277-DB62-41FA-A271-8CC9C98768F5}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="75"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="ambienceBusController" ID="{FC8FD271-5F30-45FC-BA7B-5B4B79060F2A}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="75"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="dialogueBusController" ID="{D8367DDF-E7CA-4A28-BCFA-0356272D6FAF}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="75"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>
