@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{16200787-FF72-464B-96A8-D320381F6A5A}" SchemaVersion="103">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{16200787-FF72-464B-96A8-D320381F6A5A}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{16200787-FF72-464B-96A8-D320381F6A5A}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Music Events" ID="{7F59440A-2B98-4DDF-BB99-E84433F28895}" ShortID="312614020"/>
+				<Folder Name="SFX Events" ID="{E020E75C-8EF9-4D64-B162-3EF8260AAB3C}" ShortID="427469375"/>
+				<Folder Name="Dialogue Events" ID="{88F41BAE-00DD-42A6-A7F7-87B8CAEB7A19}" ShortID="597853482"/>
+				<Folder Name="Ambience Events" ID="{2049795A-6012-4DD8-93FF-E419FBB29CCB}" ShortID="328477678"/>
+				<Folder Name="Awareness Events" ID="{CB0026DF-0A2B-45C8-9AD0-FF694557281B}" ShortID="802809219">
+					<ChildrenList>
+						<Folder Name="Health Events" ID="{3BBCC274-6930-428F-B63F-CD7C4F184148}" ShortID="796608798"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Accessibility Events" ID="{57892167-AA6F-4569-9DCE-1C48C73CC6D1}" ShortID="851733841">
+					<ChildrenList>
+						<Folder Name="Radar Events" ID="{5673EB5C-1495-41C3-A7D4-2F6FFA04A10E}" ShortID="452300112"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Cutscene Events" ID="{1C338A07-5A2E-4575-AAB8-385E22EB789A}" ShortID="195331147"/>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

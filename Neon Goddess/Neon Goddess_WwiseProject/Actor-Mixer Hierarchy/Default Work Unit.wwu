@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}" SchemaVersion="103">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="SFX" ID="{B5AAC2ED-2D5B-47C4-975B-66894297A63C}" ShortID="1070147153"/>
+				<Folder Name="Ambience" ID="{77A522D3-D7C5-40EF-9FCC-47D2941BEB52}" ShortID="457092011"/>
+				<Folder Name="Informative Sounds" ID="{E22AFF35-D180-4AB7-8776-080B7D1F8D25}" ShortID="247500065">
+					<ChildrenList>
+						<Folder Name="Awareness" ID="{C9AACA9A-0FA2-4688-AC77-DB12869F48F7}" ShortID="982326296"/>
+						<Folder Name="Accessibility" ID="{3B448CC6-E221-4ED5-8437-249F77C1E7BC}" ShortID="773365611"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Dialog" ID="{A12892C1-136F-4587-8931-548FACDDAAD4}" ShortID="93415748"/>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>
