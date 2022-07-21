@@ -13,11 +13,14 @@ public class SideScrollingMovement : MonoBehaviour
     
     private InputActions _inputActions;
     private Vector2 _direction;
+    private Vector3 _startPosition;
     private bool _wannaMove;
     
     void Awake()
     {
         _inputActions = new InputActions();
+        
+        _startPosition = transform.position;
     }
 
     private void OnEnable()
@@ -82,5 +85,11 @@ public class SideScrollingMovement : MonoBehaviour
     public void SetVerticalSpeed(string speed)
     {
         _verticalSpeed = float.Parse(speed);
+    }
+    
+    public void ResetPosition()
+    {
+        transform.position = _startPosition;
+        _rigidbody.velocity = Vector3.zero;
     }
 }
