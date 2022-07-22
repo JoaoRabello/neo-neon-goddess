@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class JumpControlPrototype : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class JumpControlPrototype : MonoBehaviour
 
     private InputActions _inputActions;
     private bool _holdingJump;
+    private bool _useLongPress;
     
     void Awake()
     {
@@ -41,7 +43,7 @@ public class JumpControlPrototype : MonoBehaviour
         {
             _rigidbody.velocity += Vector3.up * Physics.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
         }
-        else if(_rigidbody.velocity.y > 0 && !_holdingJump)
+        else if(_rigidbody.velocity.y > 0 && !_holdingJump && _useLongPress)
         {
             _rigidbody.velocity += Vector3.up * Physics.gravity.y * (_lowFallMultiplier - 1) * Time.deltaTime;
         }
@@ -57,5 +59,30 @@ public class JumpControlPrototype : MonoBehaviour
     private void CancelJump(InputAction.CallbackContext context)
     {
         _holdingJump = false;
+    }
+
+    public void FixJumpPosition(bool value)
+    {
+        _fixedPosition = value;
+    }
+    
+    public void LockUseLongPress(bool value)
+    {
+        _useLongPress = value;
+    }
+
+    public void SetGravityValue(string value)
+    {
+        _fallMultiplier = float.Parse(value);
+    }
+
+    public void SetLongPressGravityValue(string value)
+    {
+        _lowFallMultiplier = float.Parse(value);
+    }
+
+    public void SetJumpForce(string value)
+    {
+        _jumpHeight = float.Parse(value);
     }
 }
