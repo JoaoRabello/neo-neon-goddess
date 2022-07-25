@@ -11,10 +11,16 @@ public class JumpControlPrototype : MonoBehaviour
     [SerializeField] private float _fallMultiplier;
     [SerializeField] private float _lowFallMultiplier;
     [SerializeField] private bool _fixedPosition;
+    
+    [Header("Ground Checking")]
+    [SerializeField] private Transform _groundCheckTransform;
+    [SerializeField] private LayerMask _groundMask;
+    [SerializeField] private float _groundCheckRadius;
 
     private InputActions _inputActions;
     private bool _holdingJump;
-    private bool _useLongPress;
+    private bool _useLongPress = true;
+    private bool _isGrounded;
     
     void Awake()
     {
@@ -39,6 +45,8 @@ public class JumpControlPrototype : MonoBehaviour
 
     private void Update()
     {
+        _isGrounded = Physics.CheckSphere(_groundCheckTransform.position, _groundCheckRadius, _groundMask);
+        
         if (_rigidbody.velocity.y < 0)
         {
             _rigidbody.velocity += Vector3.up * Physics.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
@@ -51,9 +59,11 @@ public class JumpControlPrototype : MonoBehaviour
 
     private void PerformJump(InputAction.CallbackContext context)
     {
+        if (!_isGrounded) return;
+        
         _holdingJump = true;
         
-        _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _fixedPosition ? _jumpHeight : 0, _rigidbody.velocity.z);
+        _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _jumpHeight, _rigidbody.velocity.z);
     }
 
     private void CancelJump(InputAction.CallbackContext context)
