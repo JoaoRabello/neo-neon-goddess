@@ -25,6 +25,7 @@ public class JumpControlPrototype : MonoBehaviour
     private bool _hasJumped;
     private bool _lastFrameWasGrounded;
     private bool _canCoyoteJump = true;
+    private bool _coyoteJumpIsLocked = false;
 
     private Coroutine _coyoteJumpTimerCoroutine;
     
@@ -66,7 +67,7 @@ public class JumpControlPrototype : MonoBehaviour
             {
                 if(_coyoteJumpTimerCoroutine is not null) StopCoroutine(_coyoteJumpTimerCoroutine);
 
-                _canCoyoteJump = true;
+                if(!_coyoteJumpIsLocked) _canCoyoteJump = true;
                 _hasJumped = false;
                 break;
             }
@@ -102,7 +103,7 @@ public class JumpControlPrototype : MonoBehaviour
 
     private IEnumerator CoyoteJumpTimer()
     {
-        _canCoyoteJump = true;
+        if(!_coyoteJumpIsLocked) _canCoyoteJump = true;
         yield return new WaitForSeconds(_coyoteTime);
         _canCoyoteJump = false;
     }
@@ -130,5 +131,15 @@ public class JumpControlPrototype : MonoBehaviour
     public void SetJumpForce(string value)
     {
         _jumpHeight = float.Parse(value);
+    }
+
+    public void SetUseCoyoteTime(bool value)
+    {
+        _coyoteJumpIsLocked = !value;
+    }
+
+    public void SetCoyoteTime(string value)
+    {
+        _coyoteTime = float.Parse(value);
     }
 }
