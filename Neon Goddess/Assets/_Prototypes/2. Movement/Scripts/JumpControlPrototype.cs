@@ -10,6 +10,7 @@ public class JumpControlPrototype : MonoBehaviour
     [SerializeField] private float _jumpHeight;
     [SerializeField] private float _fallMultiplier;
     [SerializeField] private float _lowFallMultiplier;
+    [SerializeField] private float _coyoteTime;
     [SerializeField] private bool _fixedPosition;
     
     [Header("Ground Checking")]
@@ -21,6 +22,11 @@ public class JumpControlPrototype : MonoBehaviour
     private bool _holdingJump;
     private bool _useLongPress = true;
     private bool _isGrounded;
+    private bool _hasJumped;
+    private bool _lastFrameWasGrounded;
+    private bool _canCoyoteJump = true;
+
+    private Coroutine _coyoteJumpTimerCoroutine;
     
     void Awake()
     {
@@ -46,6 +52,27 @@ public class JumpControlPrototype : MonoBehaviour
     private void Update()
     {
         _isGrounded = Physics.CheckSphere(_groundCheckTransform.position, _groundCheckRadius, _groundMask);
+
+        switch (_lastFrameWasGrounded)
+        {
+            case true when !_isGrounded:
+            {
+                if(_coyoteJumpTimerCoroutine is not null) StopCoroutine(_coyoteJumpTimerCoroutine);
+            
+                _coyoteJumpTimerCoroutine = StartCoroutine(CoyoteJumpTimer());
+                break;
+            }
+            case false when _isGrounded:
+            {
+                if(_coyoteJumpTimerCoroutine is not null) StopCoroutine(_coyoteJumpTimerCoroutine);
+
+                _canCoyoteJump = true;
+                _hasJumped = false;
+                break;
+            }
+        }
+        
+        _lastFrameWasGrounded = _isGrounded;
         
         if (_rigidbody.velocity.y < 0)
         {
@@ -59,9 +86,11 @@ public class JumpControlPrototype : MonoBehaviour
 
     private void PerformJump(InputAction.CallbackContext context)
     {
-        if (!_isGrounded) return;
+        if ((!_isGrounded && !_canCoyoteJump) || _hasJumped) return;
         
         _holdingJump = true;
+        _canCoyoteJump = false;
+        _hasJumped = true;
         
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _jumpHeight, _rigidbody.velocity.z);
     }
@@ -69,6 +98,13 @@ public class JumpControlPrototype : MonoBehaviour
     private void CancelJump(InputAction.CallbackContext context)
     {
         _holdingJump = false;
+    }
+
+    private IEnumerator CoyoteJumpTimer()
+    {
+        _canCoyoteJump = true;
+        yield return new WaitForSeconds(_coyoteTime);
+        _canCoyoteJump = false;
     }
 
     public void FixJumpPosition(bool value)
