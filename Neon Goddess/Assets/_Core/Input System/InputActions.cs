@@ -35,6 +35,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""ac6fb8bd-2239-44c9-b56e-b792dd875e57"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -147,6 +156,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3a133d4e-eac5-440a-8345-19b01a620660"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -156,6 +176,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         // Prototype
         m_Prototype = asset.FindActionMap("Prototype", throwIfNotFound: true);
         m_Prototype_Movement = m_Prototype.FindAction("Movement", throwIfNotFound: true);
+        m_Prototype_Jump = m_Prototype.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -216,11 +237,13 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Prototype;
     private IPrototypeActions m_PrototypeActionsCallbackInterface;
     private readonly InputAction m_Prototype_Movement;
+    private readonly InputAction m_Prototype_Jump;
     public struct PrototypeActions
     {
         private @InputActions m_Wrapper;
         public PrototypeActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Prototype_Movement;
+        public InputAction @Jump => m_Wrapper.m_Prototype_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Prototype; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -233,6 +256,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Movement.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnMovement;
+                @Jump.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_PrototypeActionsCallbackInterface = instance;
             if (instance != null)
@@ -240,6 +266,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -247,5 +276,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     public interface IPrototypeActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }
