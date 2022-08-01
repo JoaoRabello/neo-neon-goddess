@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class JumpControlPrototype : MonoBehaviour
 {
@@ -141,5 +142,10 @@ public class JumpControlPrototype : MonoBehaviour
     public void SetCoyoteTime(string value)
     {
         _coyoteTime = float.Parse(value);
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(0);
     }
 }
