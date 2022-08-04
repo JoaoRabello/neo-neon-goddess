@@ -9,6 +9,7 @@ public class JumpControlPrototype : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private float _fallMultiplier;
     [SerializeField] private float _lowFallMultiplier;
+    [SerializeField] private float _onJumpGravityMultiplier;
     [SerializeField] private float _coyoteTime;
     [SerializeField] private bool _fixedPosition;
     [SerializeField] private float _gravity = 10f;
@@ -80,6 +81,9 @@ public class JumpControlPrototype : MonoBehaviour
 
         _gravity = -(2 * _jumpHeight) / (Mathf.Pow(_jumpTime, 2));
         
+        // var gravity = -9.81f * _gravity/Physics.gravity.y * Vector3.up;
+        // _rigidbody.AddForce(gravity, ForceMode.Acceleration);
+        
         if (_rigidbody.velocity.y < 0)
         {
             _rigidbody.velocity += Vector3.up * _gravity * (_fallMultiplier - 1) * Time.deltaTime;
@@ -87,6 +91,10 @@ public class JumpControlPrototype : MonoBehaviour
         else if(_rigidbody.velocity.y > 0 && !_holdingJump && _useLongPress)
         {
             _rigidbody.velocity += Vector3.up * _gravity * (_lowFallMultiplier - 1) * Time.deltaTime;
+        }
+        else if(_rigidbody.velocity.y > 0 && _holdingJump && _useLongPress)
+        {
+            _rigidbody.velocity += Vector3.up * _gravity * (_onJumpGravityMultiplier - 1) * Time.deltaTime;
         }
     }
 
