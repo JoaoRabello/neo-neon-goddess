@@ -30,8 +30,11 @@ public class JumpControlPrototype : MonoBehaviour
     private bool _canCoyoteJump = true;
     private bool _coyoteJumpIsLocked = false;
 
-
+    public bool IsGrounded => _isGrounded;
     private Coroutine _coyoteJumpTimerCoroutine;
+
+    public delegate void HitTheGround();
+    public event HitTheGround OnHitTheGround;
     
     void Awake()
     {
@@ -69,6 +72,7 @@ public class JumpControlPrototype : MonoBehaviour
             }
             case false when _isGrounded:
             {
+                OnHitTheGround?.Invoke();
                 if(_coyoteJumpTimerCoroutine is not null) StopCoroutine(_coyoteJumpTimerCoroutine);
 
                 if(!_coyoteJumpIsLocked) _canCoyoteJump = true;

@@ -7,14 +7,17 @@ using UnityEngine.InputSystem;
 public class SideScrollingMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private JumpControlPrototype _jumpControl;
     [SerializeField] private float _horizontalSpeed;
     [SerializeField] private float _verticalSpeed;
     [SerializeField] private bool _blockZMovement;
+    [SerializeField] private bool _blockAirMovement;
     
     private InputActions _inputActions;
     private Vector2 _direction;
     private Vector3 _startPosition;
     private bool _wannaMove;
+    
     
     void Awake()
     {
@@ -29,6 +32,8 @@ public class SideScrollingMovement : MonoBehaviour
         
         _inputActions.Prototype.Movement.performed += PerformMovement;
         _inputActions.Prototype.Movement.canceled += CancelMovement;
+
+        _jumpControl.OnHitTheGround += ResetMovement;
     }
 
     private void OnDisable()
@@ -37,19 +42,29 @@ public class SideScrollingMovement : MonoBehaviour
         
         _inputActions.Prototype.Movement.performed -= PerformMovement;
         _inputActions.Prototype.Movement.canceled -= CancelMovement;
+        
+        _jumpControl.OnHitTheGround -= ResetMovement;
     }
 
     private void PerformMovement(InputAction.CallbackContext context)
     {
-        _wannaMove = true;
-        
         _direction = context.ReadValue<Vector2>();
+
+        _wannaMove = true;
     }
     
     private void CancelMovement(InputAction.CallbackContext context)
     {
+        _direction = Vector2.zero;
+        if(!_jumpControl.IsGrounded && _blockAirMovement) return;
+        
         _wannaMove = false;
 
+        ResetMovement();
+    }
+
+    private void ResetMovement()
+    {
         _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y, 0);
     }
 
@@ -60,7 +75,7 @@ public class SideScrollingMovement : MonoBehaviour
 
     private void Move()
     {
-        if(!_wannaMove) return;
+        if(!_wannaMove || (!_jumpControl.IsGrounded && _blockAirMovement)) return;
         
         _direction.Normalize();
         var correctDirection = new Vector3(_direction.x * _horizontalSpeed, _rigidbody.velocity.y, _blockZMovement ? 0 : _direction.y * _verticalSpeed);
@@ -85,6 +100,11 @@ public class SideScrollingMovement : MonoBehaviour
     public void SetVerticalSpeed(string speed)
     {
         _verticalSpeed = float.Parse(speed);
+    }
+
+    public void BlockAirMovement(bool value)
+    {
+        _blockAirMovement = value;
     }
     
     public void ResetPosition()
