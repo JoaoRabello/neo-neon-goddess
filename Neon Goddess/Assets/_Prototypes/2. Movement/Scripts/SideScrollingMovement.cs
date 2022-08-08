@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class SideScrollingMovement : MonoBehaviour
 {
@@ -111,5 +112,10 @@ public class SideScrollingMovement : MonoBehaviour
     {
         transform.position = _startPosition;
         _rigidbody.velocity = Vector3.zero;
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(0);
     }
 }

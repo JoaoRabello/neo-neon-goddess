@@ -12,9 +12,11 @@ public class JumpControlPrototype : MonoBehaviour
     [SerializeField] private float _onJumpGravityMultiplier;
     [SerializeField] private float _coyoteTime;
     [SerializeField] private bool _fixedPosition;
+    [SerializeField] private bool _useJumpCooldown;
     [SerializeField] private float _gravity = 10f;
     [SerializeField] private float _jumpHeight = 1.5f;
     [SerializeField] private float _jumpTime = 1f;
+    [SerializeField] private float _jumpCooldownTime = 1f;
     
     [Header("Ground Checking")]
     [SerializeField] private Transform _groundCheckTransform;
@@ -26,6 +28,7 @@ public class JumpControlPrototype : MonoBehaviour
     private bool _useLongPress = true;
     private bool _isGrounded;
     private bool _hasJumped;
+    private bool _jumpOnCooldown;
     private bool _lastFrameWasGrounded;
     private bool _canCoyoteJump = true;
     private bool _coyoteJumpIsLocked = false;
@@ -47,6 +50,8 @@ public class JumpControlPrototype : MonoBehaviour
         
         _inputActions.Prototype.Jump.started += PerformJump;
         _inputActions.Prototype.Jump.canceled += CancelJump;
+
+        OnHitTheGround += StartJumpCooldown;
     }
 
     private void OnDisable()
@@ -55,6 +60,8 @@ public class JumpControlPrototype : MonoBehaviour
         
         _inputActions.Prototype.Jump.started -= PerformJump;
         _inputActions.Prototype.Jump.canceled -= CancelJump;
+        
+        OnHitTheGround -= StartJumpCooldown;
     }
 
     private void FixedUpdate()
@@ -85,9 +92,6 @@ public class JumpControlPrototype : MonoBehaviour
 
         _gravity = -(2 * _jumpHeight) / (Mathf.Pow(_jumpTime, 2));
         
-        // var gravity = -9.81f * _gravity/Physics.gravity.y * Vector3.up;
-        // _rigidbody.AddForce(gravity, ForceMode.Acceleration);
-        
         if (_rigidbody.velocity.y < 0)
         {
             _rigidbody.velocity += Vector3.up * _gravity * (_fallMultiplier - 1) * Time.deltaTime;
@@ -104,6 +108,7 @@ public class JumpControlPrototype : MonoBehaviour
 
     private void PerformJump(InputAction.CallbackContext context)
     {
+        if (_jumpOnCooldown) return;
         if ((!_isGrounded && !_canCoyoteJump) || _hasJumped) return;
         
         _holdingJump = true;
@@ -120,11 +125,25 @@ public class JumpControlPrototype : MonoBehaviour
         _holdingJump = false;
     }
 
+    private void StartJumpCooldown()
+    {
+        if (!_useJumpCooldown) return;
+        
+        StartCoroutine(JumpCooldown());
+    }
+
     private IEnumerator CoyoteJumpTimer()
     {
         if(!_coyoteJumpIsLocked) _canCoyoteJump = true;
         yield return new WaitForSeconds(_coyoteTime);
         _canCoyoteJump = false;
+    }
+
+    private IEnumerator JumpCooldown()
+    {
+        _jumpOnCooldown = true;
+        yield return new WaitForSeconds(_jumpCooldownTime);
+        _jumpOnCooldown = false;
     }
 
     public void FixJumpPosition(bool value)
@@ -135,6 +154,11 @@ public class JumpControlPrototype : MonoBehaviour
     public void LockUseLongPress(bool value)
     {
         _useLongPress = value;
+    }
+    
+    public void UseJumpCooldown(bool value)
+    {
+        _useJumpCooldown = value;
     }
 
     public void SetGravityValue(string value)
@@ -160,5 +184,10 @@ public class JumpControlPrototype : MonoBehaviour
     public void SetCoyoteTime(string value)
     {
         _coyoteTime = float.Parse(value);
+    }
+    
+    public void SetJumpCooldownTimeValue(string value)
+    {
+        _jumpCooldownTime = float.Parse(value);
     }
 }
