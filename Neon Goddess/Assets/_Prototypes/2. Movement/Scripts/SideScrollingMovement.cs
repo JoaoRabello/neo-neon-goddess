@@ -13,6 +13,7 @@ public class SideScrollingMovement : MonoBehaviour
     [SerializeField] private float _verticalSpeed;
     [SerializeField] private bool _blockZMovement;
     [SerializeField] private bool _blockAirMovement;
+    [SerializeField] private Transform _visualTransform;
     
     private InputActions _inputActions;
     private Vector2 _direction;
@@ -51,6 +52,7 @@ public class SideScrollingMovement : MonoBehaviour
     {
         _direction = context.ReadValue<Vector2>();
 
+        _visualTransform.rotation = Quaternion.Euler(0, 90 * (_direction.x > 0 ? 1 : -1), 0);
         _wannaMove = true;
     }
     
