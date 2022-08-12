@@ -11,13 +11,28 @@
 
 namespace AK
 {
+    namespace EVENTS
+    {
+        static const AkUniqueID EVENTVOICEASTRID = 4214009878U;
+        static const AkUniqueID EVENTVOICEGUARA = 220902363U;
+        static const AkUniqueID EVENTVOICEKAZIMIR = 607750724U;
+        static const AkUniqueID EVENTVOICEMILORD = 1592018284U;
+        static const AkUniqueID EVENTVOICERAZIEL = 3373072804U;
+        static const AkUniqueID EVENTVOICETALWA = 3492179582U;
+        static const AkUniqueID EVENTVOICEYAVIK = 1676920321U;
+        static const AkUniqueID EVENTVOICEYOHANNA = 1437365791U;
+        static const AkUniqueID EVENTVOICEYOHANNAASSISTENT = 865037345U;
+    } // namespace EVENTS
+
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID ACCESSIBILITYBUSCONTROLLER = 2133121051U;
         static const AkUniqueID AMBIENCEBUSCONTROLLER = 3767945453U;
         static const AkUniqueID AWARENESSBUSCONTROLLER = 4148718858U;
         static const AkUniqueID DIALOGUEBUSCONTROLLER = 1970181751U;
+        static const AkUniqueID HIGHVOICEPITCHER = 3517018448U;
         static const AkUniqueID INFOBUSCONTROLLER = 3037820317U;
+        static const AkUniqueID LOWVOICEPITCHERCONTROLLER = 95401436U;
         static const AkUniqueID MASTERBUSCONTROLLER = 1444919967U;
         static const AkUniqueID MUSICBUSCONTROLLER = 80573052U;
         static const AkUniqueID SFXBUSCONTROLLER = 62014404U;

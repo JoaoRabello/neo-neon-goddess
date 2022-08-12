@@ -11,22 +11,98 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="3943452171">
+		<SoundBank Id="534561221" Language="SFX" Hash="3294460130">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="4214009878" Name="eventVoiceAstrid" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceAstrid" DurationType="OneShot" DurationMin="0.048521" DurationMax="0.048521">
+					<IncludedMemoryFiles>
+						<File Id="846139341" Language="SFX">
+							<ShortName>Character Scribble\Astrid2.wav</ShortName>
+							<Path>SFX\Character Scribble\Astrid2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="220902363" Name="eventVoiceGuara" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceGuara" DurationType="OneShot" DurationMin="0.048521" DurationMax="0.048521">
+					<IncludedMemoryFiles>
+						<File Id="368848235" Language="SFX">
+							<ShortName>Character Scribble\Kazimir T.wav</ShortName>
+							<Path>SFX\Character Scribble\Kazimir T_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="607750724" Name="eventVoiceKazimir" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceKazimir" DurationType="OneShot" DurationMin="0.056917" DurationMax="0.056917">
+					<IncludedMemoryFiles>
+						<File Id="972112759" Language="SFX">
+							<ShortName>Character Scribble\Casimir.wav</ShortName>
+							<Path>SFX\Character Scribble\Casimir_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1592018284" Name="eventVoiceMilord" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceMilord" DurationType="OneShot" DurationMin="0.048521" DurationMax="0.048521">
+					<IncludedMemoryFiles>
+						<File Id="817371568" Language="SFX">
+							<ShortName>Character Scribble\Milord.wav</ShortName>
+							<Path>SFX\Character Scribble\Milord_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3373072804" Name="eventVoiceRaziel" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceRaziel" DurationType="OneShot" DurationMin="0.048521" DurationMax="0.048521">
+					<IncludedMemoryFiles>
+						<File Id="655585714" Language="SFX">
+							<ShortName>Character Scribble\Raziel.wav</ShortName>
+							<Path>SFX\Character Scribble\Raziel_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3492179582" Name="eventVoiceTalwa" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceTalwa" DurationType="OneShot" DurationMin="0.056917" DurationMax="0.056917">
+					<IncludedMemoryFiles>
+						<File Id="116112332" Language="SFX">
+							<ShortName>Character Scribble\Talwa.wav</ShortName>
+							<Path>SFX\Character Scribble\Talwa_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1676920321" Name="eventVoiceYavik" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYavik" DurationType="OneShot" DurationMin="0.048521" DurationMax="0.048521">
+					<IncludedMemoryFiles>
+						<File Id="240535298" Language="SFX">
+							<ShortName>Character Scribble\Yavik.wav</ShortName>
+							<Path>SFX\Character Scribble\Yavik_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1437365791" Name="eventVoiceYohanna" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohanna" DurationType="OneShot" DurationMin="0.048521" DurationMax="0.048521">
+					<IncludedMemoryFiles>
+						<File Id="947437832" Language="SFX">
+							<ShortName>Character Scribble\Yohanna.wav</ShortName>
+							<Path>SFX\Character Scribble\Yohanna_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="865037345" Name="eventVoiceYohannaAssistent" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohannaAssistent" DurationType="OneShot" DurationMin="0.048521" DurationMax="0.048521">
+					<IncludedMemoryFiles>
+						<File Id="832848529" Language="SFX">
+							<ShortName>Character Scribble\Gado.wav</ShortName>
+							<Path>SFX\Character Scribble\Gado_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="62014404" Name="sfxBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\sfxBusController"/>
 				<GameParameter Id="80573052" Name="musicBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\musicBusController"/>
+				<GameParameter Id="95401436" Name="lowVoicePitcherController" ObjectPath="\Game Parameters\Default Work Unit\pitchController\lowVoicePitcherController"/>
 				<GameParameter Id="1444919967" Name="masterBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\masterBusController"/>
 				<GameParameter Id="1970181751" Name="dialogueBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\dialogueBusController"/>
 				<GameParameter Id="2133121051" Name="accessibilityBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\accessibilityBusController"/>
 				<GameParameter Id="3037820317" Name="infoBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\infoBusController"/>
+				<GameParameter Id="3517018448" Name="highVoicePitcher" ObjectPath="\Game Parameters\Default Work Unit\pitchController\highVoicePitcher"/>
 				<GameParameter Id="3767945453" Name="ambienceBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\ambienceBusController"/>
 				<GameParameter Id="4148718858" Name="awarenessBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\awarenessBusController"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="423455512">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3372010780">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

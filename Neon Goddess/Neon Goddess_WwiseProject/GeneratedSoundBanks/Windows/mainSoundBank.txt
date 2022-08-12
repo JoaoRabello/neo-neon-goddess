@@ -1,10 +1,23 @@
+Event	ID	Name			Wwise Object Path	Notes
+	220902363	eventVoiceGuara			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceGuara	
+	607750724	eventVoiceKazimir			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceKazimir	
+	865037345	eventVoiceYohannaAssistent			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohannaAssistent	
+	1437365791	eventVoiceYohanna			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohanna	
+	1592018284	eventVoiceMilord			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceMilord	
+	1676920321	eventVoiceYavik			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYavik	
+	3373072804	eventVoiceRaziel			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceRaziel	
+	3492179582	eventVoiceTalwa			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceTalwa	
+	4214009878	eventVoiceAstrid			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceAstrid	
+
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	62014404	sfxBusController			\Default Work Unit\bus Controllers\sfxBusController	
 	80573052	musicBusController			\Default Work Unit\bus Controllers\musicBusController	
+	95401436	lowVoicePitcherController			\Default Work Unit\pitchController\lowVoicePitcherController	
 	1444919967	masterBusController			\Default Work Unit\bus Controllers\masterBusController	
 	1970181751	dialogueBusController			\Default Work Unit\bus Controllers\dialogueBusController	
 	2133121051	accessibilityBusController			\Default Work Unit\bus Controllers\accessibilityBusController	
 	3037820317	infoBusController			\Default Work Unit\bus Controllers\infoBusController	
+	3517018448	highVoicePitcher			\Default Work Unit\pitchController\highVoicePitcher	
 	3767945453	ambienceBusController			\Default Work Unit\bus Controllers\ambienceBusController	
 	4148718858	awarenessBusController			\Default Work Unit\bus Controllers\awarenessBusController	
 
@@ -17,4 +30,20 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	2886307548	musicBus			\Default Work Unit\masterBus\musicBus	
 	3086158442	awarenessBus			\Default Work Unit\masterBus\infoBus\awarenessBus	
 	3803850708	sfxBus			\Default Work Unit\masterBus\sfxBus	
+
+Effect plug-ins	ID	Name	Type				Notes
+	1176734637	milordVoiceShifter	Wwise Pitch Shifter			
+	2824085564	lowVoicePitcher	Wwise Pitch Shifter			
+	3517018448	highVoicePitcher	Wwise Pitch Shifter			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	116112332	voiceTalwa	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Talwa_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceTalwa		10992
+	240535298	voiceYavik	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Yavik_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYavik		9380
+	368848235	voiceGuara	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Kazimir T_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceGuara		9380
+	655585714	voiceRaziel	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Raziel_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceRaziel		9380
+	817371568	voiceMilord	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Milord_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceMilord		9380
+	832848529	voiceYohannaAssistent	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Gado_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYohannaAssistent		9380
+	846139341	VoiceAstrid	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Astrid2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\VoiceAstrid		9380
+	947437832	voiceYohanna	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Yohanna_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYohanna		9380
+	972112759	VoiceKazimir	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Casimir_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\VoiceKazimir		10992
 

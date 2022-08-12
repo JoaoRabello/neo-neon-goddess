@@ -1,6 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{5E3B483B-8325-48F3-8761-4F6496DC43FE}" SchemaVersion="103">
 	<Effects>
-		<WorkUnit Name="Default Work Unit" ID="{5E3B483B-8325-48F3-8761-4F6496DC43FE}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{5E3B483B-8325-48F3-8761-4F6496DC43FE}" PersistMode="Standalone">
+			<ChildrenList>
+				<Effect Name="highVoicePitcher" ID="{2A90DCA2-F97C-400C-A08E-DB82E8B363A5}" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+					<PropertyList>
+						<Property Name="Pitch" Type="Real32">
+							<RTPCList>
+								<RTPC Name="" ID="{61C81C3E-C63F-43C7-8F1F-1DA34E5EAF65}" ShortID="385699857">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="highVoicePitcher" ID="{9F1C7BE5-E0A6-4C23-8180-9943BE75D3F7}" WorkUnitID="{082AD3B4-D3D5-4498-8A9D-266B95A7CE94}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{E21F42DB-3DD9-4A41-9A13-65C5C52D5643}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="1"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>-300</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>100</XPos>
+												<YPos>450</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+				</Effect>
+				<Effect Name="lowVoicePitcher" ID="{247AF500-CB13-498E-B139-EE78A8974252}" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+					<PropertyList>
+						<Property Name="Pitch" Type="Real32">
+							<RTPCList>
+								<RTPC Name="" ID="{7823A016-9D56-46B4-A4F5-7FBC571DB541}" ShortID="184644438">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="lowVoicePitcherController" ID="{81AFF4CC-E02E-409B-A832-8A2D598FBDFA}" WorkUnitID="{082AD3B4-D3D5-4498-8A9D-266B95A7CE94}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{EBF6FC48-E313-45EB-8042-59896CF6F493}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="1"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>0</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>100</XPos>
+												<YPos>725</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+				</Effect>
+				<Effect Name="milordVoiceShifter" ID="{C925998E-D17C-44E8-832F-7E6D4E0DB8FC}" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+					<PropertyList>
+						<Property Name="Pitch" Type="Real32">
+							<RTPCList>
+								<RTPC Name="" ID="{4A79243D-E8B3-4A14-8CE2-807F5A09AB04}" ShortID="873635220">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="lowVoicePitcherController" ID="{81AFF4CC-E02E-409B-A832-8A2D598FBDFA}" WorkUnitID="{082AD3B4-D3D5-4498-8A9D-266B95A7CE94}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{F7D6E02F-053C-422B-8413-C34162D4542B}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="1"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>-1575</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>100</XPos>
+												<YPos>100</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+				</Effect>
+			</ChildrenList>
+		</WorkUnit>
 	</Effects>
 </WwiseDocument>

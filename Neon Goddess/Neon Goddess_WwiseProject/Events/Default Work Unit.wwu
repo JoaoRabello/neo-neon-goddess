@@ -5,7 +5,113 @@
 			<ChildrenList>
 				<Folder Name="Music Events" ID="{7F59440A-2B98-4DDF-BB99-E84433F28895}" ShortID="312614020"/>
 				<Folder Name="SFX Events" ID="{E020E75C-8EF9-4D64-B162-3EF8260AAB3C}" ShortID="427469375"/>
-				<Folder Name="Dialogue Events" ID="{88F41BAE-00DD-42A6-A7F7-87B8CAEB7A19}" ShortID="597853482"/>
+				<Folder Name="Dialogue Events" ID="{88F41BAE-00DD-42A6-A7F7-87B8CAEB7A19}" ShortID="597853482">
+					<ChildrenList>
+						<Folder Name="voiceEvent" ID="{D86C64D1-D632-400C-8AE8-2FEC092D3BE4}" ShortID="589028074">
+							<ChildrenList>
+								<Event Name="eventVoiceAstrid" ID="{DEFCB105-42B3-4943-B532-DBFC56C090FC}">
+									<ChildrenList>
+										<Action Name="" ID="{DA67F551-6D44-40D5-8314-F55CB36D6AA7}" ShortID="573920584">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="VoiceAstrid" ID="{945900C6-DEB5-4A42-BD3E-DB75D4ED7FA5}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="eventVoiceGuara" ID="{9B73A0AA-81A9-4B3B-89D0-55D0D4C44DC7}">
+									<ChildrenList>
+										<Action Name="" ID="{1C04986C-376A-4825-905C-4DDE6CD3BF8D}" ShortID="598446898">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="voiceGuara" ID="{E1527DF9-2465-48CE-9B1C-5106A6440F6D}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="eventVoiceTalwa" ID="{173F7C70-686F-48C1-AE88-630A80A5C681}">
+									<ChildrenList>
+										<Action Name="" ID="{E541CC4C-7EE2-4C9A-9FCF-682664ABD432}" ShortID="188278115">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="voiceTalwa" ID="{347BD081-80CD-4193-BAA7-AB725FFB51C9}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="eventVoiceMilord" ID="{08549AB4-67BE-4CA2-BF56-6789800F8B2A}">
+									<ChildrenList>
+										<Action Name="" ID="{916AA594-000C-40DE-B85E-64F0C5C3C390}" ShortID="760534755">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="voiceMilord" ID="{D0E59DFA-E818-49BD-826F-D7D441BFBCC5}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="eventVoiceRaziel" ID="{94AFEE67-EE33-4674-9E48-A9ACF8747E61}">
+									<ChildrenList>
+										<Action Name="" ID="{52C6FAF0-6B18-48C1-A89F-8D2CBC2D10FD}" ShortID="626786755">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="voiceRaziel" ID="{96911050-D215-4068-917E-EDA967C8B73E}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="eventVoiceYavik" ID="{4E32E26F-4BDC-42EA-8B93-A2823EB9F21F}">
+									<ChildrenList>
+										<Action Name="" ID="{73ACF006-F259-4555-BA32-CBDF324E7B93}" ShortID="195137205">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="voiceYavik" ID="{83DE893D-611C-4EEC-9982-22D99328D1D3}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="eventVoiceYohanna" ID="{2B785E00-B529-4968-93F1-2A6D8AB8B9B1}">
+									<ChildrenList>
+										<Action Name="" ID="{2B9714BB-A356-4A4C-9252-B1DD9DE2290A}" ShortID="609333250">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="voiceYohanna" ID="{2AD5D963-3A5F-4706-A6C7-31E2571DB223}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="eventVoiceYohannaAssistent" ID="{CDDCA637-0092-4D0A-B770-D322BB14A4C5}">
+									<ChildrenList>
+										<Action Name="" ID="{D7680425-EBFE-48EE-BD92-BCE9C33BCD83}" ShortID="915144212">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="voiceYohannaAssistent" ID="{28F45E6F-1A7B-4B0F-AEC5-B09098B778AA}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="eventVoiceKazimir" ID="{728D2950-48F6-4BDC-8E31-191B7AC1D916}">
+									<ChildrenList>
+										<Action Name="" ID="{3EB8E0A4-76EF-444D-8714-A0EDA7A0F5C1}" ShortID="817565634">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="VoiceKazimir" ID="{38D64AAB-CDDB-4DA8-B4D0-630BF4E233B5}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
 				<Folder Name="Ambience Events" ID="{2049795A-6012-4DD8-93FF-E419FBB29CCB}" ShortID="328477678"/>
 				<Folder Name="Awareness Events" ID="{CB0026DF-0A2B-45C8-9AD0-FF694557281B}" ShortID="802809219">
 					<ChildrenList>
