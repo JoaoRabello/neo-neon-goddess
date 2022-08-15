@@ -23,7 +23,27 @@ namespace AK
         static const AkUniqueID EVENTVOICEYAVIK = 1676920321U;
         static const AkUniqueID EVENTVOICEYOHANNA = 1437365791U;
         static const AkUniqueID EVENTVOICEYOHANNAASSISTENT = 865037345U;
+        static const AkUniqueID HACKSELECTIONEVENT = 3399565108U;
+        static const AkUniqueID HACKSTATUSCANCELEVENT = 2498197966U;
+        static const AkUniqueID HACKSTATUSCONFIRMEVENT = 1494610132U;
     } // namespace EVENTS
+
+    namespace SWITCHES
+    {
+        namespace HACKSWITCHGROUP
+        {
+            static const AkUniqueID GROUP = 3932210399U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID HACK01PARALYSE = 2375960624U;
+                static const AkUniqueID HACK02OVERRIDE = 635696332U;
+                static const AkUniqueID HACK03CONTROL = 1070390048U;
+                static const AkUniqueID HACK04CONVERT = 57838327U;
+            } // namespace SWITCH
+        } // namespace HACKSWITCHGROUP
+
+    } // namespace SWITCHES
 
     namespace GAME_PARAMETERS
     {
@@ -31,6 +51,7 @@ namespace AK
         static const AkUniqueID AMBIENCEBUSCONTROLLER = 3767945453U;
         static const AkUniqueID AWARENESSBUSCONTROLLER = 4148718858U;
         static const AkUniqueID DIALOGUEBUSCONTROLLER = 1970181751U;
+        static const AkUniqueID HACKSWITCHCONTROLLER = 1084512918U;
         static const AkUniqueID HEARTBEATTEMPOCONTROLLER = 2692592512U;
         static const AkUniqueID HIGHVOICEPITCHER = 3517018448U;
         static const AkUniqueID INFOBUSCONTROLLER = 3037820317U;

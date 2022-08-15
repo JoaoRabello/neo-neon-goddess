@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="4076516567">
+		<SoundBank Id="534561221" Language="SFX" Hash="363769823">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
@@ -96,11 +96,70 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3399565108" Name="hackSelectionEvent" ObjectPath="\Events\Default Work Unit\SFX Events\hackEvent\hackSelectionEvent" DurationType="OneShot" DurationMin="0.066158" DurationMax="0.113208">
+					<IncludedMemoryFiles>
+						<File Id="29677609" Language="SFX">
+							<ShortName>Hack Selection\Convert.wav</ShortName>
+							<Path>SFX\Hack Selection\Convert_10C4C929.wem</Path>
+						</File>
+						<File Id="268964971" Language="SFX">
+							<ShortName>Hack Selection\Control.wav</ShortName>
+							<Path>SFX\Hack Selection\Control_10C4C929.wem</Path>
+						</File>
+						<File Id="309065574" Language="SFX">
+							<ShortName>Hack Selection\Paralyse.wav</ShortName>
+							<Path>SFX\Hack Selection\Paralyse_10C4C929.wem</Path>
+						</File>
+						<File Id="690471894" Language="SFX">
+							<ShortName>Hack Selection\Control - Copia.wav</ShortName>
+							<Path>SFX\Hack Selection\Control - Copia_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{BF608959-2541-4EC1-A11C-289E7FB10ECA}">
+							<Media>
+								<File Id="309065574"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{94D9F089-54D1-470A-968F-5023743B092E}">
+							<Media>
+								<File Id="268964971"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{6CE3ECF3-972F-4501-AF60-8175FCF4C451}">
+							<Media>
+								<File Id="690471894"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{7F7817FA-FBD8-4480-B17F-369AA55F3F3D}">
+							<Media>
+								<File Id="29677609"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="2498197966" Name="hackStatusCancelEvent" ObjectPath="\Events\Default Work Unit\SFX Events\hackEvent\hackStatusCancelEvent" DurationType="OneShot" DurationMin="0.2105" DurationMax="0.2105">
+					<IncludedMemoryFiles>
+						<File Id="168953332" Language="SFX">
+							<ShortName>hack_status\hack_cancel.wav</ShortName>
+							<Path>SFX\hack_status\hack_cancel_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1494610132" Name="hackStatusConfirmEvent" ObjectPath="\Events\Default Work Unit\SFX Events\hackEvent\hackStatusConfirmEvent" DurationType="OneShot" DurationMin="0.326479" DurationMax="0.326479">
+					<IncludedMemoryFiles>
+						<File Id="1055927533" Language="SFX">
+							<ShortName>hack_status\hack_confirm.wav</ShortName>
+							<Path>SFX\hack_status\hack_confirm_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="62014404" Name="sfxBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\sfxBusController"/>
 				<GameParameter Id="80573052" Name="musicBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\musicBusController"/>
 				<GameParameter Id="95401436" Name="lowVoicePitcherController" ObjectPath="\Game Parameters\Default Work Unit\pitchController\lowVoicePitcherController"/>
+				<GameParameter Id="1084512918" Name="hackSwitchController" ObjectPath="\Game Parameters\Default Work Unit\SwitchControllers\hackSwitchController"/>
 				<GameParameter Id="1444919967" Name="masterBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\masterBusController"/>
 				<GameParameter Id="1970181751" Name="dialogueBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\dialogueBusController"/>
 				<GameParameter Id="2133121051" Name="accessibilityBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\accessibilityBusController"/>
@@ -110,8 +169,18 @@
 				<GameParameter Id="3767945453" Name="ambienceBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\ambienceBusController"/>
 				<GameParameter Id="4148718858" Name="awarenessBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\awarenessBusController"/>
 			</GameParameters>
+			<SwitchGroups>
+				<SwitchGroup Id="3932210399" Name="hackSwitchGroup" ObjectPath="\Switches\Default Work Unit\HackSwitchGroup\hackSwitchGroup" GUID="{602A6C73-EACF-42E6-A8F3-16870F86154E}">
+					<Switches>
+						<Switch Id="2375960624" Name="hack01Paralyse" ObjectPath="\Switches\Default Work Unit\HackSwitchGroup\hackSwitchGroup\hack01Paralyse" GUID="{BF608959-2541-4EC1-A11C-289E7FB10ECA}"/>
+						<Switch Id="635696332" Name="hack02Override" ObjectPath="\Switches\Default Work Unit\HackSwitchGroup\hackSwitchGroup\hack02Override" GUID="{6CE3ECF3-972F-4501-AF60-8175FCF4C451}"/>
+						<Switch Id="1070390048" Name="hack03Control" ObjectPath="\Switches\Default Work Unit\HackSwitchGroup\hackSwitchGroup\hack03Control" GUID="{94D9F089-54D1-470A-968F-5023743B092E}"/>
+						<Switch Id="57838327" Name="hack04Convert" ObjectPath="\Switches\Default Work Unit\HackSwitchGroup\hackSwitchGroup\hack04Convert" GUID="{7F7817FA-FBD8-4480-B17F-369AA55F3F3D}"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3160898469">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1233164369">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
