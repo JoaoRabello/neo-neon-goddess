@@ -8,33 +8,53 @@ public class LedgeGrabPrototype : MonoBehaviour
     [SerializeField] private SideScrollingMovement _horizontalMovementController;
     [SerializeField] private JumpControlPrototype _jumpControl;
     [SerializeField] private LayerMask _ledgeLayer;
+    [SerializeField] private LayerMask _stepLayer;
     [SerializeField] private Transform _leftLedgeCheckTransform;
     [SerializeField] private Transform _rightLedgeCheckTransform;
     [SerializeField] private Transform _leftClimbTransform;
     [SerializeField] private Transform _rightClimbTransform;
+    
+    [SerializeField] private Transform _leftStepCheckTransform;
+    [SerializeField] private Transform _rightStepCheckTransform;
+    [SerializeField] private Transform _leftStepClimbTransform;
+    [SerializeField] private Transform _rightStepClimbTransform;
     [SerializeField] private float _checkRadius;
 
     public bool IsOnLedge;
     
     void Update()
     {
-        if (_jumpControl.IsGrounded) return;
-        
-        var ledgeCheckPosition = _horizontalMovementController.IsMovingRight ? _rightLedgeCheckTransform.position : _leftLedgeCheckTransform.position;
-
-        var check = Physics.OverlapSphere(ledgeCheckPosition, _checkRadius, _ledgeLayer);
-
-        if (check.Length > 0)
+        switch (_jumpControl.IsGrounded)
         {
-            if (!IsOnLedge)
-            {
-                StartCoroutine(ClimbLedge());
-            }
-            IsOnLedge = true;
-        }
-        else
-        {
-            IsOnLedge = false;
+            case true:
+                var stepCheckPosition = _horizontalMovementController.IsMovingRight ? _rightStepCheckTransform.position : _leftStepCheckTransform.position;
+
+                var stepCheck = Physics.OverlapSphere(stepCheckPosition, _checkRadius, _stepLayer);
+
+                if (stepCheck.Length > 0 && Mathf.Abs(_rigidbody.velocity.x) > 0.1f)
+                {
+                    transform.position =
+                        _horizontalMovementController.IsMovingRight ? _rightStepClimbTransform.position : _leftStepClimbTransform.position;
+                }
+                break;
+            case false:
+                var ledgeCheckPosition = _horizontalMovementController.IsMovingRight ? _rightLedgeCheckTransform.position : _leftLedgeCheckTransform.position;
+
+                var check = Physics.OverlapSphere(ledgeCheckPosition, _checkRadius, _ledgeLayer);
+
+                if (check.Length > 0)
+                {
+                    if (!IsOnLedge)
+                    {
+                        StartCoroutine(ClimbLedge());
+                    }
+                    IsOnLedge = true;
+                }
+                else
+                {
+                    IsOnLedge = false;
+                }
+                break;
         }
     }
 
