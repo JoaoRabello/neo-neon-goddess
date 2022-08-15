@@ -4,7 +4,47 @@
 		<WorkUnit Name="Default Work Unit" ID="{16200787-FF72-464B-96A8-D320381F6A5A}" PersistMode="Standalone">
 			<ChildrenList>
 				<Folder Name="Music Events" ID="{7F59440A-2B98-4DDF-BB99-E84433F28895}" ShortID="312614020"/>
-				<Folder Name="SFX Events" ID="{E020E75C-8EF9-4D64-B162-3EF8260AAB3C}" ShortID="427469375"/>
+				<Folder Name="SFX Events" ID="{E020E75C-8EF9-4D64-B162-3EF8260AAB3C}" ShortID="427469375">
+					<ChildrenList>
+						<Folder Name="hackEvent" ID="{D0823823-D2CD-436E-B35C-10C0C9629E85}" ShortID="363773472">
+							<ChildrenList>
+								<Event Name="hackSelectionEvent" ID="{168EB598-1691-4B61-B40C-643B923CCAD5}">
+									<ChildrenList>
+										<Action Name="" ID="{398C40D3-DAC2-44F8-9FCC-D0F14D5928DF}" ShortID="428481834">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="hackSelectionSwitch" ID="{38D8E5B6-0BCC-4277-AB1F-703FBF7B9C03}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="hackStatusConfirmEvent" ID="{11A48DE5-6199-48C0-99C0-92272F85287D}">
+									<ChildrenList>
+										<Action Name="" ID="{E886941C-22C1-4297-AACF-F5682F648B49}" ShortID="409232416">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="hackStatusConfirm" ID="{8CDF283B-8C9F-4853-852A-8BD4794C4F72}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="hackStatusCancelEvent" ID="{3106C211-D34A-4F28-9ACC-420785E720D5}">
+									<ChildrenList>
+										<Action Name="" ID="{EB3D4B23-B8AB-4980-BC3D-6779DF964370}" ShortID="996879018">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="hackStatusCancel" ID="{49496938-6B6D-4304-AEB0-56D05CA17B30}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
 				<Folder Name="Dialogue Events" ID="{88F41BAE-00DD-42A6-A7F7-87B8CAEB7A19}" ShortID="597853482">
 					<ChildrenList>
 						<Folder Name="voiceEvent" ID="{D86C64D1-D632-400C-8AE8-2FEC092D3BE4}" ShortID="589028074">

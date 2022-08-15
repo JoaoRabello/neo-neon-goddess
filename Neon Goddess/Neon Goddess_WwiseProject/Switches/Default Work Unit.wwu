@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{B2E7411B-CD66-4164-A17F-CD0AAE3921C5}" SchemaVersion="103">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{B2E7411B-CD66-4164-A17F-CD0AAE3921C5}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{B2E7411B-CD66-4164-A17F-CD0AAE3921C5}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="HackSwitchGroup" ID="{894FEE92-3486-4977-921D-261B61629072}" ShortID="779373687">
+					<ChildrenList>
+						<SwitchGroup Name="hackSwitchGroup" ID="{602A6C73-EACF-42E6-A8F3-16870F86154E}">
+							<PropertyList>
+								<Property Name="UseGameParameter" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Switch Name="hack01Paralyse" ID="{BF608959-2541-4EC1-A11C-289E7FB10ECA}"/>
+								<Switch Name="hack02Override" ID="{6CE3ECF3-972F-4501-AF60-8175FCF4C451}"/>
+								<Switch Name="hack03Control" ID="{94D9F089-54D1-470A-968F-5023743B092E}"/>
+								<Switch Name="hack04Convert" ID="{7F7817FA-FBD8-4480-B17F-369AA55F3F3D}"/>
+							</ChildrenList>
+							<SwitchOnRTPC>
+								<GameParameterRef Name="hackSwitchController" ID="{95C2F037-1A33-4095-9EC6-0171530B6101}"/>
+								<Curve Name="" ID="{9B224BA0-F1DA-4651-9B8C-CCBF8365F143}">
+									<PropertyList>
+										<Property Name="Flags" Type="int32" Value="65537"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>0</XPos>
+											<YPos>1</YPos>
+											<Flags>5</Flags>
+										</Point>
+										<Point>
+											<XPos>20</XPos>
+											<YPos>2</YPos>
+											<Flags>0</Flags>
+										</Point>
+										<Point>
+											<XPos>60</XPos>
+											<YPos>3</YPos>
+											<Flags>0</Flags>
+										</Point>
+										<Point>
+											<XPos>80</XPos>
+											<YPos>4</YPos>
+											<Flags>0</Flags>
+										</Point>
+										<Point>
+											<XPos>100</XPos>
+											<YPos>0</YPos>
+											<Flags>37</Flags>
+										</Point>
+									</PointList>
+								</Curve>
+							</SwitchOnRTPC>
+						</SwitchGroup>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>
