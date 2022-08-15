@@ -5,6 +5,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1437365791	eventVoiceYohanna			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohanna	
 	1592018284	eventVoiceMilord			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceMilord	
 	1676920321	eventVoiceYavik			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYavik	
+	2519090655	eventHealthHeartbeat			\Default Work Unit\Awareness Events\Health Events\eventHealthHeartbeat	
 	3373072804	eventVoiceRaziel			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceRaziel	
 	3492179582	eventVoiceTalwa			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceTalwa	
 	4214009878	eventVoiceAstrid			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceAstrid	
@@ -16,6 +17,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	1444919967	masterBusController			\Default Work Unit\bus Controllers\masterBusController	
 	1970181751	dialogueBusController			\Default Work Unit\bus Controllers\dialogueBusController	
 	2133121051	accessibilityBusController			\Default Work Unit\bus Controllers\accessibilityBusController	
+	2692592512	heartbeatTempoController			\Default Work Unit\awarenessSoundController\heartbeatTempoController	
 	3037820317	infoBusController			\Default Work Unit\bus Controllers\infoBusController	
 	3517018448	highVoicePitcher			\Default Work Unit\pitchController\highVoicePitcher	
 	3767945453	ambienceBusController			\Default Work Unit\bus Controllers\ambienceBusController	
@@ -32,6 +34,7 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	3803850708	sfxBus			\Default Work Unit\masterBus\sfxBus	
 
 Effect plug-ins	ID	Name	Type				Notes
+	1042001490	heartbeatTempoChanger	Wwise Time Stretch			
 	1176734637	milordVoiceShifter	Wwise Pitch Shifter			
 	2824085564	lowVoicePitcher	Wwise Pitch Shifter			
 	3517018448	highVoicePitcher	Wwise Pitch Shifter			
@@ -40,6 +43,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	116112332	voiceTalwa	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Talwa_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceTalwa		10992
 	240535298	voiceYavik	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Yavik_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYavik		9380
 	368848235	voiceGuara	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Kazimir T_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceGuara		9380
+	569761510	awarenessHeartbeat	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Heart Beat\Heart Beatwav_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Informative Sounds\Awareness\awarenessHeartbeat		80910
 	655585714	voiceRaziel	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Raziel_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceRaziel		9380
 	817371568	voiceMilord	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Milord_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceMilord		9380
 	832848529	voiceYohannaAssistent	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Gado_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYohannaAssistent		9380

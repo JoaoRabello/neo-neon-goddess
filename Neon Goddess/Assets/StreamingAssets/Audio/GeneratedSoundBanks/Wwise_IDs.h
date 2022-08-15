@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID EVENTHEALTHHEARTBEAT = 2519090655U;
         static const AkUniqueID EVENTVOICEASTRID = 4214009878U;
         static const AkUniqueID EVENTVOICEGUARA = 220902363U;
         static const AkUniqueID EVENTVOICEKAZIMIR = 607750724U;
@@ -30,6 +31,7 @@ namespace AK
         static const AkUniqueID AMBIENCEBUSCONTROLLER = 3767945453U;
         static const AkUniqueID AWARENESSBUSCONTROLLER = 4148718858U;
         static const AkUniqueID DIALOGUEBUSCONTROLLER = 1970181751U;
+        static const AkUniqueID HEARTBEATTEMPOCONTROLLER = 2692592512U;
         static const AkUniqueID HIGHVOICEPITCHER = 3517018448U;
         static const AkUniqueID INFOBUSCONTROLLER = 3037820317U;
         static const AkUniqueID LOWVOICEPITCHERCONTROLLER = 95401436U;

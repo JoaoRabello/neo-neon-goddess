@@ -99,6 +99,43 @@
 						</Property>
 					</PropertyList>
 				</Effect>
+				<Effect Name="heartbeatTempoChanger" ID="{53188B54-49EF-4A44-86F2-2723401CCB89}" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+					<PropertyList>
+						<Property Name="TimeStretch" Type="Real32">
+							<RTPCList>
+								<RTPC Name="" ID="{4E28D7CA-A790-4D23-AA3D-0BEBD0FDAF89}" ShortID="534462061">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="heartbeatTempoController" ID="{4211EC5F-F15D-48EF-892B-B87489C3569A}" WorkUnitID="{082AD3B4-D3D5-4498-8A9D-266B95A7CE94}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{FC3B3EBF-41BE-4A2E-BC46-35BED2703B02}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="1"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>200</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>100</XPos>
+												<YPos>50.03338</YPos>
+												<Flags>0</Flags>
+											</Point>
+											<Point>
+												<XPos>300</XPos>
+												<YPos>33</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+				</Effect>
 			</ChildrenList>
 		</WorkUnit>
 	</Effects>

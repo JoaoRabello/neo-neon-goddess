@@ -11,11 +11,19 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="3294460130">
+		<SoundBank Id="534561221" Language="SFX" Hash="4076516567">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
 			<IncludedEvents>
+				<Event Id="2519090655" Name="eventHealthHeartbeat" ObjectPath="\Events\Default Work Unit\Awareness Events\Health Events\eventHealthHeartbeat" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="569761510" Language="SFX">
+							<ShortName>Heart Beat\Heart Beatwav.wav</ShortName>
+							<Path>SFX\Heart Beat\Heart Beatwav_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="4214009878" Name="eventVoiceAstrid" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceAstrid" DurationType="OneShot" DurationMin="0.048521" DurationMax="0.048521">
 					<IncludedMemoryFiles>
 						<File Id="846139341" Language="SFX">
@@ -96,13 +104,14 @@
 				<GameParameter Id="1444919967" Name="masterBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\masterBusController"/>
 				<GameParameter Id="1970181751" Name="dialogueBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\dialogueBusController"/>
 				<GameParameter Id="2133121051" Name="accessibilityBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\accessibilityBusController"/>
+				<GameParameter Id="2692592512" Name="heartbeatTempoController" ObjectPath="\Game Parameters\Default Work Unit\awarenessSoundController\heartbeatTempoController"/>
 				<GameParameter Id="3037820317" Name="infoBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\infoBusController"/>
 				<GameParameter Id="3517018448" Name="highVoicePitcher" ObjectPath="\Game Parameters\Default Work Unit\pitchController\highVoicePitcher"/>
 				<GameParameter Id="3767945453" Name="ambienceBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\ambienceBusController"/>
 				<GameParameter Id="4148718858" Name="awarenessBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\awarenessBusController"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3969056574">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3160898469">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

@@ -53,6 +53,16 @@
 						<GameParameter Name="lowVoicePitcherController" ID="{81AFF4CC-E02E-409B-A832-8A2D598FBDFA}"/>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="awarenessSoundController" ID="{0DA26A3F-2A1D-4393-9B2E-E8AB91B894B7}" ShortID="576765053">
+					<ChildrenList>
+						<GameParameter Name="heartbeatTempoController" ID="{4211EC5F-F15D-48EF-892B-B87489C3569A}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="100"/>
+								<Property Name="Max" Type="Real64" Value="300"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>
