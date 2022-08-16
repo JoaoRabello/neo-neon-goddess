@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 public class JumpControlPrototype : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private PlayerAnimator _animator;
     [SerializeField] private LedgeGrabPrototype _ledgeGrabController;
     [SerializeField] private float _fallMultiplier;
     [SerializeField] private float _lowFallMultiplier;
@@ -68,6 +69,8 @@ public class JumpControlPrototype : MonoBehaviour
     private void FixedUpdate()
     {
         _isGrounded = Physics.CheckSphere(_groundCheckTransform.position, _groundCheckRadius, _groundMask);
+        
+        if(_isGrounded && !_lastFrameWasGrounded) _animator.OnGrounded();
 
         if (_ledgeGrabController.IsOnLedge) return;
         
@@ -117,6 +120,8 @@ public class JumpControlPrototype : MonoBehaviour
         _holdingJump = true;
         _canCoyoteJump = false;
         _hasJumped = true;
+        
+        _animator.OnJump();
         
         var verticalVelocity = (2 * _jumpHeight) / _jumpTime;
         

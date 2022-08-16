@@ -5164,6 +5164,7 @@ GameObject:
   - component: {fileID: 1272263248}
   - component: {fileID: 1272263250}
   - component: {fileID: 1272263251}
+  - component: {fileID: 1272263252}
   m_Layer: 3
   m_Name: Character
   m_TagString: Untagged
@@ -5211,6 +5212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1272263249}
+  _animator: {fileID: 1272263252}
   _jumpControl: {fileID: 1272263250}
   _ledgeGrabController: {fileID: 1272263251}
   _horizontalSpeed: 6
@@ -5247,6 +5249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1272263249}
+  _animator: {fileID: 1272263252}
   _ledgeGrabController: {fileID: 1272263251}
   _fallMultiplier: 2.5
   _lowFallMultiplier: 1.5
@@ -5276,6 +5279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1272263249}
+  _animator: {fileID: 1272263252}
   _horizontalMovementController: {fileID: 1272263248}
   _jumpControl: {fileID: 1272263250}
   _ledgeLayer:
@@ -5294,6 +5298,25 @@ MonoBehaviour:
   _rightStepClimbTransform: {fileID: 166362592}
   _checkRadius: 0.1
   IsOnLedge: 0
+--- !u!114 &1272263252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272263246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad61e72d524f2764291d2d3a2ba069d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1283557754}
+--- !u!95 &1283557754 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1186731160940879467, guid: 3e0b2aaa8b2727a449c8031081a7b238,
+    type: 3}
+  m_PrefabInstance: {fileID: 611642891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1304446550
 GameObject:
   m_ObjectHideFlags: 0

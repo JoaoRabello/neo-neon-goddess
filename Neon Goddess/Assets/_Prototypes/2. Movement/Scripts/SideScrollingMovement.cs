@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class SideScrollingMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private PlayerAnimator _animator;
     [SerializeField] private JumpControlPrototype _jumpControl;
     [SerializeField] private LedgeGrabPrototype _ledgeGrabController;
     [SerializeField] private float _horizontalSpeed;
@@ -57,6 +58,8 @@ public class SideScrollingMovement : MonoBehaviour
 
         if (_ledgeGrabController.IsOnLedge) return;
         
+        _animator.OnMovement(true);
+        
         if(Mathf.Abs(_direction.x) > 0.1f)
             _isMovingRight = _direction.x > 0;
 
@@ -67,6 +70,9 @@ public class SideScrollingMovement : MonoBehaviour
     private void CancelMovement(InputAction.CallbackContext context)
     {
         _direction = Vector2.zero;
+        
+        _animator.OnMovement(false);
+        
         if(!_jumpControl.IsGrounded && _blockAirMovement) return;
         
         _wannaMove = false;

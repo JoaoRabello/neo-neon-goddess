@@ -5,6 +5,7 @@ using UnityEngine;
 public class LedgeGrabPrototype : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private PlayerAnimator _animator;
     [SerializeField] private SideScrollingMovement _horizontalMovementController;
     [SerializeField] private JumpControlPrototype _jumpControl;
     [SerializeField] private LayerMask _ledgeLayer;
@@ -49,6 +50,7 @@ public class LedgeGrabPrototype : MonoBehaviour
                         StartCoroutine(ClimbLedge());
                     }
                     IsOnLedge = true;
+                    
                 }
                 else
                 {
@@ -60,9 +62,16 @@ public class LedgeGrabPrototype : MonoBehaviour
 
     private IEnumerator ClimbLedge()
     {
+        _animator.OnLedgeGrab();
         _rigidbody.useGravity = false;
         _rigidbody.velocity = Vector3.zero;
-        yield return new WaitForSeconds(0.5f);
+        
+        yield return new WaitForSeconds(1f);
+        
+        _animator.OnClimbLedge();
+        
+        yield return new WaitForSeconds(1f);
+        
         transform.position =
             _horizontalMovementController.IsMovingRight ? _rightClimbTransform.position : _leftClimbTransform.position;
         
