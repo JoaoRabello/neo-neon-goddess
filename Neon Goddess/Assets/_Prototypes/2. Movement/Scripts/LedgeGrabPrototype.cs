@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LedgeGrabPrototype : MonoBehaviour
 {
@@ -21,7 +22,30 @@ public class LedgeGrabPrototype : MonoBehaviour
     [SerializeField] private Transform _rightStepClimbTransform;
     [SerializeField] private float _checkRadius;
 
+    private bool _canClimb;
+    private bool _autoClimb;
     public bool IsOnLedge;
+
+    private InputActions _inputActions;
+    
+    void Awake()
+    {
+        _inputActions = new InputActions();
+    }
+
+    private void OnEnable()
+    {
+        _inputActions.Enable();
+        
+        _inputActions.Prototype.Jump.started += ProcessClimbInput;
+    }
+
+    private void OnDisable()
+    {
+        _inputActions.Disable();
+        
+        _inputActions.Prototype.Jump.started -= ProcessClimbInput;
+    }
     
     void Update()
     {
@@ -47,26 +71,56 @@ public class LedgeGrabPrototype : MonoBehaviour
                 {
                     if (!IsOnLedge)
                     {
-                        StartCoroutine(ClimbLedge());
+                        GrabLedge();
                     }
                     IsOnLedge = true;
-                    
                 }
                 else
                 {
                     IsOnLedge = false;
+                    _canClimb = false;
                 }
                 break;
         }
     }
 
-    private IEnumerator ClimbLedge()
+    public void SetAutoClimb(bool value)
     {
-        _animator.OnLedgeGrab(true);
+        _autoClimb = value;
+    }
+
+    private void GrabLedge()
+    {
         _rigidbody.useGravity = false;
         _rigidbody.velocity = Vector3.zero;
         
-        yield return new WaitForSeconds(1f);
+        _canClimb = true;
+        
+        _animator.OnLedgeGrab(true);
+
+        if (_autoClimb)
+            ClimbLedge();
+    }
+
+    private void ProcessClimbInput(InputAction.CallbackContext context)
+    {
+        if (!_canClimb || _autoClimb) return;
+        
+        ClimbLedge();
+    }
+
+    private void ClimbLedge()
+    {
+        _canClimb = false;
+        
+        StopAllCoroutines();
+        StartCoroutine(ClimbLedgeRoutine());
+    }
+
+    private IEnumerator ClimbLedgeRoutine()
+    {
+        if(_autoClimb)
+            yield return new WaitForSeconds(1f);
         
         _animator.OnClimbLedge(true);
         
@@ -79,5 +133,7 @@ public class LedgeGrabPrototype : MonoBehaviour
             _horizontalMovementController.IsMovingRight ? _rightClimbTransform.position : _leftClimbTransform.position;
         
         _rigidbody.useGravity = true;
+        IsOnLedge = false;
+        _canClimb = false;
     }
 }
