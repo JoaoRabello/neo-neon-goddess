@@ -21,13 +21,13 @@ public class PlayerAnimator : MonoBehaviour
         _animator.SetBool("isMoving", value);
     }
 
-    public void OnLedgeGrab()
+    public void OnLedgeGrab(bool value)
     {
-        _animator.SetBool("onLedge", true);
+        _animator.SetBool("onLedge", value);
     }
 
-    public void OnClimbLedge()
+    public void OnClimbLedge(bool value)
     {
-        _animator.SetBool("isClimbing", true);
+        _animator.SetBool("isClimbing", value);
     }
 }
