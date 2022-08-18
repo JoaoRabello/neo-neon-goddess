@@ -69,11 +69,11 @@ public class LedgeGrabPrototype : MonoBehaviour
         yield return new WaitForSeconds(1f);
         
         _animator.OnClimbLedge(true);
-        _animator.OnLedgeGrab(false);
         
         yield return new WaitForSeconds(1f);
         
         _animator.OnClimbLedge(false);
+        _animator.OnLedgeGrab(false);
         
         transform.position =
             _horizontalMovementController.IsMovingRight ? _rightClimbTransform.position : _leftClimbTransform.position;
