@@ -8,7 +8,9 @@ using UnityEngine.SceneManagement;
 public class SideScrollingMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private PlayerAnimator _animator;
     [SerializeField] private JumpControlPrototype _jumpControl;
+    [SerializeField] private LedgeGrabPrototype _ledgeGrabController;
     [SerializeField] private float _horizontalSpeed;
     [SerializeField] private float _verticalSpeed;
     [SerializeField] private bool _blockZMovement;
@@ -19,7 +21,9 @@ public class SideScrollingMovement : MonoBehaviour
     private Vector2 _direction;
     private Vector3 _startPosition;
     private bool _wannaMove;
-    
+    private bool _isMovingRight;
+
+    public bool IsMovingRight => _isMovingRight;
     
     void Awake()
     {
@@ -52,6 +56,13 @@ public class SideScrollingMovement : MonoBehaviour
     {
         _direction = context.ReadValue<Vector2>();
 
+        if (_ledgeGrabController.IsOnLedge) return;
+        
+        _animator.OnMovement(true);
+        
+        if(Mathf.Abs(_direction.x) > 0.1f)
+            _isMovingRight = _direction.x > 0;
+
         _visualTransform.rotation = Quaternion.Euler(0, 90 * (_direction.x > 0 ? 1 : -1), 0);
         _wannaMove = true;
     }
@@ -59,6 +70,9 @@ public class SideScrollingMovement : MonoBehaviour
     private void CancelMovement(InputAction.CallbackContext context)
     {
         _direction = Vector2.zero;
+        
+        _animator.OnMovement(false);
+        
         if(!_jumpControl.IsGrounded && _blockAirMovement) return;
         
         _wannaMove = false;
@@ -78,7 +92,7 @@ public class SideScrollingMovement : MonoBehaviour
 
     private void Move()
     {
-        if(!_wannaMove || (!_jumpControl.IsGrounded && _blockAirMovement)) return;
+        if(!_wannaMove || _ledgeGrabController.IsOnLedge || (!_jumpControl.IsGrounded && _blockAirMovement)) return;
         
         _direction.Normalize();
         var correctDirection = new Vector3(_direction.x * _horizontalSpeed, _rigidbody.velocity.y, _blockZMovement ? 0 : _direction.y * _verticalSpeed);
