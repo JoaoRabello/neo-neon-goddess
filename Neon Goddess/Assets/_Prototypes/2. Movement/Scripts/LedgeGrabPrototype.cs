@@ -135,6 +135,7 @@ public class LedgeGrabPrototype : MonoBehaviour
             _horizontalMovementController.IsMovingRight ? _rightClimbTransform.position : _leftClimbTransform.position;
         
         _rigidbody.useGravity = true;
+        _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
         IsOnLedge = false;
         _canClimb = false;
     }

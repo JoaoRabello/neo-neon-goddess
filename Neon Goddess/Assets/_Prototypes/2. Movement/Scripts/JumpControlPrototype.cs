@@ -40,6 +40,8 @@ public class JumpControlPrototype : MonoBehaviour
 
     public delegate void HitTheGround();
     public event HitTheGround OnHitTheGround;
+    public delegate void JumpPerformed();
+    public event JumpPerformed OnJumpPerformed;
     
     void Awake()
     {
@@ -122,6 +124,8 @@ public class JumpControlPrototype : MonoBehaviour
         _hasJumped = true;
         
         _animator.OnJump();
+        
+        OnJumpPerformed?.Invoke();
         
         var verticalVelocity = (2 * _jumpHeight) / _jumpTime;
         

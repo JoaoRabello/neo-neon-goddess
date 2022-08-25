@@ -12,16 +12,26 @@ public class SideScrollingMovement : MonoBehaviour
     [SerializeField] private JumpControlPrototype _jumpControl;
     [SerializeField] private LedgeGrabPrototype _ledgeGrabController;
     [SerializeField] private float _horizontalSpeed;
+    [SerializeField] private float _fallingHorizontalSpeed;
+    [SerializeField] private float _fallingHorizontalSpeedDecreaseRate;
     [SerializeField] private float _verticalSpeed;
+    [SerializeField] private float _airMovementCoyoteTime;
     [SerializeField] private bool _blockZMovement;
     [SerializeField] private bool _blockAirMovement;
+    [SerializeField] private bool _blockDifferentFallHorizontalSpeed;
     [SerializeField] private Transform _visualTransform;
     
     private InputActions _inputActions;
     private Vector2 _direction;
+    private Vector2 _airDirection;
     private Vector3 _startPosition;
     private bool _wannaMove;
     private bool _isMovingRight;
+    private bool _canChangeAirDirection = true;
+    private bool _isFirstAirDirectionChange = true;
+    private bool _useAirMovementDueToJump;
+
+    private float _currentHorizontalSpeed;
 
     public bool IsMovingRight => _isMovingRight;
     
@@ -40,6 +50,7 @@ public class SideScrollingMovement : MonoBehaviour
         _inputActions.Prototype.Movement.canceled += CancelMovement;
 
         _jumpControl.OnHitTheGround += ResetMovement;
+        _jumpControl.OnJumpPerformed += StartAirMovement;
     }
 
     private void OnDisable()
@@ -50,21 +61,34 @@ public class SideScrollingMovement : MonoBehaviour
         _inputActions.Prototype.Movement.canceled -= CancelMovement;
         
         _jumpControl.OnHitTheGround -= ResetMovement;
+        _jumpControl.OnJumpPerformed -= StartAirMovement;
     }
 
     private void PerformMovement(InputAction.CallbackContext context)
     {
         _direction = context.ReadValue<Vector2>();
+        _wannaMove = true;
+        
+        _animator.OnMovement(true);
 
         if (_ledgeGrabController.IsOnLedge) return;
         
-        _animator.OnMovement(true);
+        SetAirDirection();
         
         if(Mathf.Abs(_direction.x) > 0.1f)
             _isMovingRight = _direction.x > 0;
 
         _visualTransform.rotation = Quaternion.Euler(0, 90 * (_direction.x > 0 ? 1 : -1), 0);
-        _wannaMove = true;
+    }
+
+    private void SetAirDirection()
+    {
+        if (!_isFirstAirDirectionChange || !_canChangeAirDirection) return;
+        
+        if(Mathf.Abs(_direction.x) < 0.1f) return;
+        
+        _airDirection = _direction;
+        _isFirstAirDirectionChange = false;
     }
     
     private void CancelMovement(InputAction.CallbackContext context)
@@ -77,25 +101,75 @@ public class SideScrollingMovement : MonoBehaviour
         
         _wannaMove = false;
 
-        ResetMovement();
+        ResetVelocity();
     }
 
-    private void ResetMovement()
+    private void StartAirMovement()
+    {
+        _useAirMovementDueToJump = true;
+        _canChangeAirDirection = true;
+        _isFirstAirDirectionChange = true;
+
+        _airDirection = _direction;
+
+        StopAllCoroutines();
+        StartCoroutine(AirMovementCoyoteTime());
+    }
+
+    private IEnumerator AirMovementCoyoteTime()
+    {
+        yield return new WaitForSeconds(_airMovementCoyoteTime);
+
+        _canChangeAirDirection = false;
+    }
+
+    private void ResetVelocity()
     {
         _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y, 0);
     }
 
+    private void ResetMovement()
+    {
+        ResetVelocity();
+        _canChangeAirDirection = false;
+        _useAirMovementDueToJump = false;
+    }
+
     private void Update()
     {
+        if (!_blockDifferentFallHorizontalSpeed && _rigidbody.velocity.y < -0.1f && !_useAirMovementDueToJump)
+        {
+            if(_currentHorizontalSpeed > _fallingHorizontalSpeed)
+                _currentHorizontalSpeed -= Time.deltaTime * _fallingHorizontalSpeedDecreaseRate;
+        }
+        else
+        {
+            _currentHorizontalSpeed = _horizontalSpeed;
+        }
         Move();
     }
 
     private void Move()
     {
-        if(!_wannaMove || _ledgeGrabController.IsOnLedge || (!_jumpControl.IsGrounded && _blockAirMovement)) return;
+        if (_ledgeGrabController.IsOnLedge) return;
         
-        _direction.Normalize();
-        var correctDirection = new Vector3(_direction.x * _horizontalSpeed, _rigidbody.velocity.y, _blockZMovement ? 0 : _direction.y * _verticalSpeed);
+        switch (_jumpControl.IsGrounded)
+        {
+            case true:
+                if (!_wannaMove) return;
+                ApplyVelocity(_direction);
+                break;
+            case false:
+                if (_blockAirMovement) return;
+                ApplyVelocity(_useAirMovementDueToJump ? _airDirection : _direction);
+                break;
+        }
+    }
+
+    private void ApplyVelocity(Vector3 direction)
+    {
+        direction.Normalize();
+        var correctDirection = new Vector3(direction.x * _currentHorizontalSpeed, _rigidbody.velocity.y, _blockZMovement ? 0 : direction.y * _verticalSpeed);
         _rigidbody.velocity = correctDirection;
     }
     
