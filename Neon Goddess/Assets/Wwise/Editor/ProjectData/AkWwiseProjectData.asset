@@ -191,7 +191,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 291bed8b33d94b4dac16d5e30d3beea2
     GuidInternal: 
-    m_lastTime: -8585403054423856768
+    m_lastTime: -8585400664129615782
     List:
     - name: mainSoundBank
       guid: d7bbfefaf3d3aa46ae8514386f26a35f
@@ -219,7 +219,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 8707201672ff4b4696a8d320381f6a5a
     GuidInternal: 
-    m_lastTime: -8585403054424356479
+    m_lastTime: -8585400664130445259
     List:
     - name: Accessibility Events
       guid: 672189576faa69459dce1c48c73cc6d1
@@ -303,6 +303,29 @@ MonoBehaviour:
         ObjectType: 4
         guid: ae1bf488dd00a642a7f787b8caeb7a19
       Path: Events\Default Work Unit\Dialogue Events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: eventHealthHeartbeat
+      guid: 71e5f5be94f9a047b9cf62ccbe4b9145
+      id: 2519090655
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Awareness Events
+        ObjectType: 4
+        guid: df2600cb2b0ac8459ad0ff694557281b
+      - ElementName: Health Events
+        ObjectType: 4
+        guid: 74c2bc3b30698f42b63fcd7c4f184148
+      - ElementName: eventHealthHeartbeat
+        ObjectType: 3
+        guid: 71e5f5be94f9a047b9cf62ccbe4b9145
+      Path: Events\Default Work Unit\Awareness Events\Health Events\eventHealthHeartbeat
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -513,6 +536,95 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.048521
       minDuration: 0.048521
+    - name: hackEvent
+      guid: 233882d0cdd26e43b35c10c0c9629e85
+      id: 536214842
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: hackEvent
+        ObjectType: 4
+        guid: 233882d0cdd26e43b35c10c0c9629e85
+      Path: Events\Default Work Unit\SFX Events\hackEvent
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: hackSelectionEvent
+      guid: 98b58e169116614bb40c643b923ccad5
+      id: 3399565108
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: hackEvent
+        ObjectType: 4
+        guid: 233882d0cdd26e43b35c10c0c9629e85
+      - ElementName: hackSelectionEvent
+        ObjectType: 3
+        guid: 98b58e169116614bb40c643b923ccad5
+      Path: Events\Default Work Unit\SFX Events\hackEvent\hackSelectionEvent
+      maxAttenuation: 0
+      maxDuration: 0.113208
+      minDuration: 0.066158
+    - name: hackStatusCancelEvent
+      guid: 11c206314ad3284f9acc420785e720d5
+      id: 2498197966
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: hackEvent
+        ObjectType: 4
+        guid: 233882d0cdd26e43b35c10c0c9629e85
+      - ElementName: hackStatusCancelEvent
+        ObjectType: 3
+        guid: 11c206314ad3284f9acc420785e720d5
+      Path: Events\Default Work Unit\SFX Events\hackEvent\hackStatusCancelEvent
+      maxAttenuation: 0
+      maxDuration: 0.2105
+      minDuration: 0.2105
+    - name: hackStatusConfirmEvent
+      guid: e58da4119961c04899c092272f85287d
+      id: 1494610132
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: hackEvent
+        ObjectType: 4
+        guid: 233882d0cdd26e43b35c10c0c9629e85
+      - ElementName: hackStatusConfirmEvent
+        ObjectType: 3
+        guid: e58da4119961c04899c092272f85287d
+      Path: Events\Default Work Unit\SFX Events\hackEvent\hackStatusConfirmEvent
+      maxAttenuation: 0
+      maxDuration: 0.326479
+      minDuration: 0.326479
     - name: Health Events
       guid: 74c2bc3b30698f42b63fcd7c4f184148
       id: 2085523002
@@ -619,7 +731,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: b4d32a08d5d398448a9d266b95a7ce94
     GuidInternal: 
-    m_lastTime: -8585403054424326493
+    m_lastTime: -8585400664130405279
     List:
     - name: accessibilityBusController
       guid: 9873ad6b321e564cbdd2ff8740b4b700
@@ -672,6 +784,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: 0cb135095285214598ab2433a550739e
       Path: Game Parameters\Default Work Unit\bus Controllers\awarenessBusController
+    - name: awarenessSoundController
+      guid: 3f6aa20d1d2a93439b2ee8ab91b894b7
+      id: 1061129617
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: awarenessSoundController
+        ObjectType: 4
+        guid: 3f6aa20d1d2a93439b2ee8ab91b894b7
+      Path: Game Parameters\Default Work Unit\awarenessSoundController
     - name: bus Controllers
       guid: 4aeee1764347f94584fc5e0401b6c134
       id: 3647609546
@@ -703,6 +829,40 @@ MonoBehaviour:
         ObjectType: 13
         guid: df7d36d8cae7284abcfa0356272d6faf
       Path: Game Parameters\Default Work Unit\bus Controllers\dialogueBusController
+    - name: hackSwitchController
+      guid: 37f0c295331a95409ec60171530b6101
+      id: 1084512918
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: SwitchControllers
+        ObjectType: 4
+        guid: ccc398925e0dc34a9cecbcbd68cea273
+      - ElementName: hackSwitchController
+        ObjectType: 13
+        guid: 37f0c295331a95409ec60171530b6101
+      Path: Game Parameters\Default Work Unit\SwitchControllers\hackSwitchController
+    - name: heartbeatTempoController
+      guid: 5fec11425df1ef48892bb87489c3569a
+      id: 2692592512
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: awarenessSoundController
+        ObjectType: 4
+        guid: 3f6aa20d1d2a93439b2ee8ab91b894b7
+      - ElementName: heartbeatTempoController
+        ObjectType: 13
+        guid: 5fec11425df1ef48892bb87489c3569a
+      Path: Game Parameters\Default Work Unit\awarenessSoundController\heartbeatTempoController
     - name: highVoicePitcher
       guid: e57b1c9fa6e0234c81809943be75d3f7
       id: 3517018448
@@ -819,6 +979,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: 7792743b62dbfa41a2718cc9c98768f5
       Path: Game Parameters\Default Work Unit\bus Controllers\sfxBusController
+    - name: SwitchControllers
+      guid: ccc398925e0dc34a9cecbcbd68cea273
+      id: 29158768
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: SwitchControllers
+        ObjectType: 4
+        guid: ccc398925e0dc34a9cecbcbd68cea273
+      Path: Game Parameters\Default Work Unit\SwitchControllers
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -845,8 +1019,123 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 1b41e7b266cd6441a17fcd0aae3921c5
     GuidInternal: 
-    m_lastTime: -8585403054423816801
-    List: []
+    m_lastTime: -8585400664129585803
+    List:
+    - name: hackSwitchGroup
+      guid: 736c2a60cfeae642a8f316870f86154e
+      id: 3932210399
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 1b41e7b266cd6441a17fcd0aae3921c5
+      - ElementName: HackSwitchGroup
+        ObjectType: 4
+        guid: 92ee4f8986347749921d261b61629072
+      - ElementName: hackSwitchGroup
+        ObjectType: 11
+        guid: 736c2a60cfeae642a8f316870f86154e
+      Path: Switches\Default Work Unit\HackSwitchGroup\hackSwitchGroup
+      values:
+      - name: hack01Paralyse
+        guid: 598960bf4125c14ea11c289e7fb10eca
+        id: 2375960624
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 1b41e7b266cd6441a17fcd0aae3921c5
+        - ElementName: HackSwitchGroup
+          ObjectType: 4
+          guid: 92ee4f8986347749921d261b61629072
+        - ElementName: hackSwitchGroup
+          ObjectType: 11
+          guid: 736c2a60cfeae642a8f316870f86154e
+        - ElementName: hack01Paralyse
+          ObjectType: 10
+          guid: 598960bf4125c14ea11c289e7fb10eca
+      - name: hack02Override
+        guid: f3ece36c2f970145af608175fcf4c451
+        id: 635696332
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 1b41e7b266cd6441a17fcd0aae3921c5
+        - ElementName: HackSwitchGroup
+          ObjectType: 4
+          guid: 92ee4f8986347749921d261b61629072
+        - ElementName: hackSwitchGroup
+          ObjectType: 11
+          guid: 736c2a60cfeae642a8f316870f86154e
+        - ElementName: hack02Override
+          ObjectType: 10
+          guid: f3ece36c2f970145af608175fcf4c451
+      - name: hack03Control
+        guid: 89f0d994d1540a47968f5023743b092e
+        id: 1070390048
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 1b41e7b266cd6441a17fcd0aae3921c5
+        - ElementName: HackSwitchGroup
+          ObjectType: 4
+          guid: 92ee4f8986347749921d261b61629072
+        - ElementName: hackSwitchGroup
+          ObjectType: 11
+          guid: 736c2a60cfeae642a8f316870f86154e
+        - ElementName: hack03Control
+          ObjectType: 10
+          guid: 89f0d994d1540a47968f5023743b092e
+      - name: hack04Convert
+        guid: fa17787fd8fb8044b17f369aa55f3f3d
+        id: 57838327
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 1b41e7b266cd6441a17fcd0aae3921c5
+        - ElementName: HackSwitchGroup
+          ObjectType: 4
+          guid: 92ee4f8986347749921d261b61629072
+        - ElementName: hackSwitchGroup
+          ObjectType: 11
+          guid: 736c2a60cfeae642a8f316870f86154e
+        - ElementName: hack04Convert
+          ObjectType: 10
+          guid: fa17787fd8fb8044b17f369aa55f3f3d
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+    - name: HackSwitchGroup
+      guid: 92ee4f8986347749921d261b61629072
+      id: 3932210399
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 1b41e7b266cd6441a17fcd0aae3921c5
+      - ElementName: HackSwitchGroup
+        ObjectType: 4
+        guid: 92ee4f8986347749921d261b61629072
+      Path: Switches\Default Work Unit\HackSwitchGroup
+      values: []
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     PathAndIcons:
