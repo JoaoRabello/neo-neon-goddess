@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class LedgeGrabPrototype : MonoBehaviour
     [SerializeField] private Transform _leftClimbTransform;
     [SerializeField] private Transform _rightClimbTransform;
     
+    [SerializeField] private Animator _animator;
     [SerializeField] private Transform _leftStepCheckTransform;
     [SerializeField] private Transform _rightStepCheckTransform;
     [SerializeField] private Transform _leftStepClimbTransform;
@@ -82,6 +84,13 @@ public class LedgeGrabPrototype : MonoBehaviour
                 }
                 break;
         }
+        
+        
+    }
+
+    private void OnAnimatorMove()
+    {
+        throw new NotImplementedException();
     }
 
     public void SetAutoClimb(bool value)
@@ -121,6 +130,8 @@ public class LedgeGrabPrototype : MonoBehaviour
     {
         if(_autoClimb)
             yield return new WaitForSeconds(1f);
+        
+        //TODO: Add _animator and turn on root animation
         
         _animator.OnClimbLedge(true);
         
