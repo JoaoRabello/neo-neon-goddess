@@ -5209,6 +5209,7 @@ GameObject:
   - component: {fileID: 1272263248}
   - component: {fileID: 1272263250}
   - component: {fileID: 1272263251}
+  - component: {fileID: 1272263253}
   - component: {fileID: 1272263252}
   m_Layer: 3
   m_Name: Character
@@ -5260,6 +5261,7 @@ MonoBehaviour:
   _animator: {fileID: 1272263252}
   _jumpControl: {fileID: 1272263250}
   _ledgeGrabController: {fileID: 1272263251}
+  _crouchController: {fileID: 1272263253}
   _horizontalSpeed: 6
   _fallingHorizontalSpeed: 3
   _fallingHorizontalSpeedDecreaseRate: 2
@@ -5360,6 +5362,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1283557754}
+--- !u!114 &1272263253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272263246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b6f635436940341b2f76d1168508a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementController: {fileID: 1272263248}
+  _crouchSpeed: 3
 --- !u!95 &1283557754 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1186731160940879467, guid: 3e0b2aaa8b2727a449c8031081a7b238,

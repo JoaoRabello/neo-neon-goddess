@@ -44,6 +44,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Crouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""e56c52bc-ea86-48c1-bd5c-80844ea3eadd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -167,6 +176,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f82df64-cc9e-4028-bc50-ee7b9842839d"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -177,6 +197,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Prototype = asset.FindActionMap("Prototype", throwIfNotFound: true);
         m_Prototype_Movement = m_Prototype.FindAction("Movement", throwIfNotFound: true);
         m_Prototype_Jump = m_Prototype.FindAction("Jump", throwIfNotFound: true);
+        m_Prototype_Crouch = m_Prototype.FindAction("Crouch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -238,12 +259,14 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private IPrototypeActions m_PrototypeActionsCallbackInterface;
     private readonly InputAction m_Prototype_Movement;
     private readonly InputAction m_Prototype_Jump;
+    private readonly InputAction m_Prototype_Crouch;
     public struct PrototypeActions
     {
         private @InputActions m_Wrapper;
         public PrototypeActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Prototype_Movement;
         public InputAction @Jump => m_Wrapper.m_Prototype_Jump;
+        public InputAction @Crouch => m_Wrapper.m_Prototype_Crouch;
         public InputActionMap Get() { return m_Wrapper.m_Prototype; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -259,6 +282,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnJump;
+                @Crouch.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnCrouch;
+                @Crouch.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnCrouch;
+                @Crouch.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnCrouch;
             }
             m_Wrapper.m_PrototypeActionsCallbackInterface = instance;
             if (instance != null)
@@ -269,6 +295,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Crouch.started += instance.OnCrouch;
+                @Crouch.performed += instance.OnCrouch;
+                @Crouch.canceled += instance.OnCrouch;
             }
         }
     }
@@ -277,5 +306,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnCrouch(InputAction.CallbackContext context);
     }
 }

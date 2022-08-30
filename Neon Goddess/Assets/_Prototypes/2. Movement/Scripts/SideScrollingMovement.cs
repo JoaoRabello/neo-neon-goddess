@@ -11,6 +11,7 @@ public class SideScrollingMovement : MonoBehaviour
     [SerializeField] private PlayerAnimator _animator;
     [SerializeField] private JumpControlPrototype _jumpControl;
     [SerializeField] private LedgeGrabPrototype _ledgeGrabController;
+    [SerializeField] private CrouchPrototype _crouchController;
     [SerializeField] private float _horizontalSpeed;
     [SerializeField] private float _fallingHorizontalSpeed;
     [SerializeField] private float _fallingHorizontalSpeedDecreaseRate;
@@ -77,8 +78,6 @@ public class SideScrollingMovement : MonoBehaviour
         
         if(Mathf.Abs(_direction.x) > 0.1f)
             _isMovingRight = _direction.x > 0;
-
-        
     }
 
     private void SetAirDirection()
@@ -137,6 +136,16 @@ public class SideScrollingMovement : MonoBehaviour
         _useAirMovementDueToJump = false;
     }
 
+    public void SetSpeed(float newSpeed)
+    {
+        _currentHorizontalSpeed = newSpeed;
+    }
+
+    public void ResetSpeed()
+    {
+        _currentHorizontalSpeed = _horizontalSpeed;
+    }
+
     private void Update()
     {
         if (!_blockDifferentFallHorizontalSpeed && _rigidbody.velocity.y < -0.1f && !_useAirMovementDueToJump)
@@ -146,7 +155,8 @@ public class SideScrollingMovement : MonoBehaviour
         }
         else
         {
-            _currentHorizontalSpeed = _horizontalSpeed;
+            if(!_crouchController.IsCrouching)
+                _currentHorizontalSpeed = _horizontalSpeed;
         }
         
         Move();
