@@ -78,7 +78,7 @@ public class SideScrollingMovement : MonoBehaviour
         if(Mathf.Abs(_direction.x) > 0.1f)
             _isMovingRight = _direction.x > 0;
 
-        _visualTransform.rotation = Quaternion.Euler(0, 90 * (_direction.x > 0 ? 1 : -1), 0);
+        
     }
 
     private void SetAirDirection()
@@ -86,6 +86,8 @@ public class SideScrollingMovement : MonoBehaviour
         if (!_isFirstAirDirectionChange || !_canChangeAirDirection) return;
         
         if(Mathf.Abs(_direction.x) < 0.1f) return;
+        
+        _visualTransform.rotation = Quaternion.Euler(0, 90 * (_direction.x > 0 ? 1 : -1), 0);
         
         _airDirection = _direction;
         _isFirstAirDirectionChange = false;
@@ -146,12 +148,16 @@ public class SideScrollingMovement : MonoBehaviour
         {
             _currentHorizontalSpeed = _horizontalSpeed;
         }
+        
         Move();
     }
 
     private void Move()
     {
         if (_ledgeGrabController.IsOnLedge) return;
+        
+        if(_jumpControl.IsGrounded)
+            _visualTransform.rotation = Quaternion.Euler(0, 90 * (_isMovingRight ? 1 : -1), 0);
         
         switch (_jumpControl.IsGrounded)
         {
