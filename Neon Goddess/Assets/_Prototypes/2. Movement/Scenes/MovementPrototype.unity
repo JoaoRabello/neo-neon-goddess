@@ -3740,7 +3740,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.3, z: 1}
+  m_Size: {x: 1, y: 0.05, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &825042761
 Transform:
@@ -4013,7 +4013,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.3, z: 1}
+  m_Size: {x: 1, y: 0.05, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &869883486
 Transform:
@@ -5331,7 +5331,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1272263249}
-  _animator: {fileID: 1272263252}
+  _animator: {fileID: 1283557754}
+  _playerAnimator: {fileID: 1272263252}
   _horizontalMovementController: {fileID: 1272263248}
   _jumpControl: {fileID: 1272263250}
   _ledgeLayer:
@@ -5663,7 +5664,7 @@ Transform:
   m_GameObject: {fileID: 1407728969}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.95, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 249237212}
