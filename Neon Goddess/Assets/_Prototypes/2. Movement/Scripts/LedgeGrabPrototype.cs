@@ -7,7 +7,8 @@ using UnityEngine.InputSystem;
 public class LedgeGrabPrototype : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private PlayerAnimator _animator;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private PlayerAnimator _playerAnimator;
     [SerializeField] private SideScrollingMovement _horizontalMovementController;
     [SerializeField] private JumpControlPrototype _jumpControl;
     [SerializeField] private LayerMask _ledgeLayer;
@@ -17,7 +18,6 @@ public class LedgeGrabPrototype : MonoBehaviour
     [SerializeField] private Transform _leftClimbTransform;
     [SerializeField] private Transform _rightClimbTransform;
     
-    [SerializeField] private Animator _animator;
     [SerializeField] private Transform _leftStepCheckTransform;
     [SerializeField] private Transform _rightStepCheckTransform;
     [SerializeField] private Transform _leftStepClimbTransform;
@@ -84,13 +84,6 @@ public class LedgeGrabPrototype : MonoBehaviour
                 }
                 break;
         }
-        
-        
-    }
-
-    private void OnAnimatorMove()
-    {
-        throw new NotImplementedException();
     }
 
     public void SetAutoClimb(bool value)
@@ -105,7 +98,7 @@ public class LedgeGrabPrototype : MonoBehaviour
         
         _canClimb = true;
         
-        _animator.OnLedgeGrab(true);
+        _playerAnimator.OnLedgeGrab(true);
 
         if (_autoClimb)
             ClimbLedge();
@@ -132,15 +125,18 @@ public class LedgeGrabPrototype : MonoBehaviour
             yield return new WaitForSeconds(1f);
         
         //TODO: Add _animator and turn on root animation
+
+        // _animator.applyRootMotion = true;
+        _playerAnimator.OnClimbLedge(true);
         
-        _animator.OnClimbLedge(true);
+        yield return new WaitForSeconds(0.5f);
+        
+        _playerAnimator.OnClimbLedge(false);
+        _playerAnimator.OnLedgeGrab(false);
         
         yield return new WaitForSeconds(0.5f);
         
-        _animator.OnClimbLedge(false);
-        _animator.OnLedgeGrab(false);
-        
-        yield return new WaitForSeconds(0.5f);
+        // _animator.applyRootMotion = false;
         
         transform.position =
             _horizontalMovementController.IsMovingRight ? _rightClimbTransform.position : _leftClimbTransform.position;
