@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,9 @@ using UnityEngine.InputSystem;
 public class LedgeGrabPrototype : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private PlayerAnimator _animator;
+    [SerializeField] private AnimationRootMovement _animationRootMovement;
+    [SerializeField] private Collider _collider;
+    [SerializeField] private PlayerAnimator _playerAnimator;
     [SerializeField] private SideScrollingMovement _horizontalMovementController;
     [SerializeField] private JumpControlPrototype _jumpControl;
     [SerializeField] private LayerMask _ledgeLayer;
@@ -24,6 +27,7 @@ public class LedgeGrabPrototype : MonoBehaviour
 
     private bool _canClimb;
     private bool _autoClimb;
+    private bool _isClimbing;
     public bool IsOnLedge;
 
     private InputActions _inputActions;
@@ -63,6 +67,8 @@ public class LedgeGrabPrototype : MonoBehaviour
                 }
                 break;
             case false:
+                if (_isClimbing || IsOnLedge) return;
+                
                 var ledgeCheckPosition = _horizontalMovementController.IsMovingRight ? _rightLedgeCheckTransform.position : _leftLedgeCheckTransform.position;
 
                 var check = Physics.OverlapSphere(ledgeCheckPosition, _checkRadius, _ledgeLayer);
@@ -96,7 +102,7 @@ public class LedgeGrabPrototype : MonoBehaviour
         
         _canClimb = true;
         
-        _animator.OnLedgeGrab(true);
+        _playerAnimator.OnLedgeGrab(true);
 
         if (_autoClimb)
             ClimbLedge();
@@ -119,21 +125,35 @@ public class LedgeGrabPrototype : MonoBehaviour
 
     private IEnumerator ClimbLedgeRoutine()
     {
+        _isClimbing = true;
         if(_autoClimb)
             yield return new WaitForSeconds(1f);
         
-        _animator.OnClimbLedge(true);
+        //TODO: Add _animator and turn on root animation
+
+        _animationRootMovement.SetUseRootAnimation(true);
+        _collider.enabled = false;
+        _playerAnimator.OnClimbLedge(true);
         
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         
-        _animator.OnClimbLedge(false);
-        _animator.OnLedgeGrab(false);
+        _playerAnimator.OnClimbLedge(false);
+        _playerAnimator.OnLedgeGrab(false);
         
-        transform.position =
-            _horizontalMovementController.IsMovingRight ? _rightClimbTransform.position : _leftClimbTransform.position;
+        yield return new WaitForSeconds(0.8f);
+        
+        _animationRootMovement.SetUseRootAnimation(false);
+        _collider.enabled = true;
+        
+        _playerAnimator.OnLedgeGrab(false);
+        
+        // transform.position =
+        //     _horizontalMovementController.IsMovingRight ? _rightClimbTransform.position : _leftClimbTransform.position;
         
         _rigidbody.useGravity = true;
+        _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
         IsOnLedge = false;
         _canClimb = false;
+        _isClimbing = false;
     }
 }

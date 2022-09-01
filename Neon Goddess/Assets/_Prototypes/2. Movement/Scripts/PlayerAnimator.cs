@@ -14,6 +14,18 @@ public class PlayerAnimator : MonoBehaviour
     public void OnGrounded()
     {
         _animator.SetBool("isJumping", false);
+        SetIsOnGround(true);
+        SetIsFalling(false);
+    }
+
+    public void SetIsOnGround(bool value)
+    {
+        _animator.SetBool("onGround", value);
+    }
+
+    public void SetIsFalling(bool value)
+    {
+        _animator.SetBool("isFalling", value);
     }
 
     public void OnMovement(bool value)

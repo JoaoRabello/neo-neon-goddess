@@ -40,6 +40,8 @@ public class JumpControlPrototype : MonoBehaviour
 
     public delegate void HitTheGround();
     public event HitTheGround OnHitTheGround;
+    public delegate void JumpPerformed();
+    public event JumpPerformed OnJumpPerformed;
     
     void Awake()
     {
@@ -69,6 +71,7 @@ public class JumpControlPrototype : MonoBehaviour
     private void FixedUpdate()
     {
         _isGrounded = Physics.CheckSphere(_groundCheckTransform.position, _groundCheckRadius, _groundMask);
+        _animator.SetIsOnGround(_isGrounded);
         
         if(_isGrounded && !_lastFrameWasGrounded) _animator.OnGrounded();
 
@@ -86,6 +89,8 @@ public class JumpControlPrototype : MonoBehaviour
             case false when _isGrounded:
             {
                 OnHitTheGround?.Invoke();
+                _animator.SetIsFalling(false);
+                
                 if(_coyoteJumpTimerCoroutine is not null) StopCoroutine(_coyoteJumpTimerCoroutine);
 
                 if(!_coyoteJumpIsLocked) _canCoyoteJump = true;
@@ -97,6 +102,9 @@ public class JumpControlPrototype : MonoBehaviour
         _lastFrameWasGrounded = _isGrounded;
 
         _gravity = -(2 * _jumpHeight) / (Mathf.Pow(_jumpTime, 2));
+        
+        Debug.Log(_rigidbody.velocity.y);
+        _animator.SetIsFalling(_rigidbody.velocity.y < -6f);
         
         if (_rigidbody.velocity.y < 0)
         {
@@ -122,6 +130,8 @@ public class JumpControlPrototype : MonoBehaviour
         _hasJumped = true;
         
         _animator.OnJump();
+        
+        OnJumpPerformed?.Invoke();
         
         var verticalVelocity = (2 * _jumpHeight) / _jumpTime;
         
