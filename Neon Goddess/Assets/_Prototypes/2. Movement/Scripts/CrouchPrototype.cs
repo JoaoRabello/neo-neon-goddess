@@ -6,7 +6,11 @@ using UnityEngine.InputSystem;
 public class CrouchPrototype : MonoBehaviour
 {
     [SerializeField] private SideScrollingMovement _movementController;
+    [SerializeField] private PlayerAnimator _playerAnimator;
     [SerializeField] private float _crouchSpeed;
+    [SerializeField] private bool _useSwitchButton;
+    [SerializeField] private Collider _crouchCollider;
+    [SerializeField] private Collider _standCollider;
     private InputActions _inputActions;
 
     private bool _isCrouching;
@@ -36,15 +40,33 @@ public class CrouchPrototype : MonoBehaviour
 
     private void PerformCrouch(InputAction.CallbackContext context)
     {
-        Debug.Log("Crouch");
-        _isCrouching = true;
-
-        _movementController.SetSpeed(_crouchSpeed);
+        if (_useSwitchButton)
+        {
+            SwitchCrouch();
+        }
+        else
+        {
+            Crouch();
+        }
     }
 
     private void PerformReleaseCrouch(InputAction.CallbackContext context)
     {
+        if (_useSwitchButton) return;
+        
         CancelCrouch();
+    }
+
+    private void Crouch()
+    {
+        _isCrouching = true;
+        
+        _movementController.SetSpeed(_crouchSpeed);
+
+        _standCollider.gameObject.SetActive(false);
+        _crouchCollider.gameObject.SetActive(true);
+        
+        _playerAnimator.OnCrouch(true);
     }
 
     private void CancelCrouch()
@@ -52,20 +74,22 @@ public class CrouchPrototype : MonoBehaviour
         _isCrouching = false;
         
         _movementController.ResetSpeed();
+        
+        _crouchCollider.gameObject.SetActive(false);
+        _standCollider.gameObject.SetActive(true);
+        
+        _playerAnimator.OnCrouch(false);
     }
-
-    //TODO: Check if crouch is hold or switch (like the example below)
-    // private void PerformCrouch(InputAction.CallbackContext context)
-    // {
-    //     _isCrouching = !_isCrouching;
-    //
-    //     if (_isCrouching)
-    //     {
-    //         _movementController.SetSpeed(_crouchSpeed);
-    //     }
-    //     else
-    //     {
-    //         _movementController.ResetSpeed();
-    //     }
-    // }
+    
+    private void SwitchCrouch()
+    {
+        if (!_isCrouching)
+        {
+            Crouch();
+        }
+        else
+        { 
+            CancelCrouch();
+        }
+    }
 }

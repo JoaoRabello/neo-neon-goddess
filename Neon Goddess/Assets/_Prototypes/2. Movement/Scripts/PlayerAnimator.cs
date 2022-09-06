@@ -42,4 +42,9 @@ public class PlayerAnimator : MonoBehaviour
     {
         _animator.SetBool("isClimbing", value);
     }
+    
+    public void OnCrouch(bool value)
+    {
+        _animator.SetBool("isCrouching", value);
+    }
 }
