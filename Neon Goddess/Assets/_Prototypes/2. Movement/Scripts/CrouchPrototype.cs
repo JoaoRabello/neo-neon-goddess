@@ -8,7 +8,7 @@ public class CrouchPrototype : MonoBehaviour
     [SerializeField] private SideScrollingMovement _movementController;
     [SerializeField] private PlayerAnimator _playerAnimator;
     [SerializeField] private float _crouchSpeed;
-    [SerializeField] private bool _useSwitchButton;
+    [SerializeField] private bool _holdCrouchButton;
     [SerializeField] private Collider _crouchCollider;
     [SerializeField] private Collider _standCollider;
     private InputActions _inputActions;
@@ -40,7 +40,7 @@ public class CrouchPrototype : MonoBehaviour
 
     private void PerformCrouch(InputAction.CallbackContext context)
     {
-        if (_useSwitchButton)
+        if (!_holdCrouchButton)
         {
             SwitchCrouch();
         }
@@ -52,7 +52,7 @@ public class CrouchPrototype : MonoBehaviour
 
     private void PerformReleaseCrouch(InputAction.CallbackContext context)
     {
-        if (_useSwitchButton) return;
+        if (!_holdCrouchButton) return;
         
         CancelCrouch();
     }
@@ -91,5 +91,10 @@ public class CrouchPrototype : MonoBehaviour
         { 
             CancelCrouch();
         }
+    }
+
+    public void SetHoldCrouchButton(bool value)
+    {
+        _holdCrouchButton = value;
     }
 }
