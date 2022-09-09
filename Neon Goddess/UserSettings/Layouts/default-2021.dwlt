@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 0
-    y: 43
+    x: 363
+    y: 203
     width: 1366
     height: 685
   m_ShowMode: 4
@@ -23,7 +23,7 @@ MonoBehaviour:
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
-  m_Maximized: 1
+  m_Maximized: 0
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 144
+  controlID: 185
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 51
+  controlID: 184
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: AnimatorControllerTool
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -191,15 +191,15 @@ MonoBehaviour:
     y: 0
     width: 814
     height: 423
-  m_MinSize: {x: 101, y: 121}
+  m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
   - {fileID: 14}
   - {fileID: 16}
-  m_Selected: 2
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 2
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 120
+  controlID: 103
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -325,8 +325,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 496
+    x: 726
+    y: 584
     width: 813
     height: 191
   m_ViewDataDictionary: {fileID: 0}
@@ -450,8 +450,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 73
+    x: 726
+    y: 161
     width: 813
     height: 402
   m_ViewDataDictionary: {fileID: 0}
@@ -706,7 +706,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.0034700173, y: -0.9936304, z: 0.10804253, w: 0.03191332}
     speed: 2
-    m_Value: {x: 0.0034700087, y: -0.9936279, z: 0.10804226, w: 0.031913243}
+    m_Value: {x: -0.0034700173, y: 0.9936304, z: -0.10804253, w: -0.03191332}
   m_Size:
     m_Target: 10.830581
     speed: 2
@@ -756,8 +756,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 73
+    x: 363
+    y: 233
     width: 813
     height: 402
   m_ViewDataDictionary: {fileID: 0}
@@ -768,14 +768,14 @@ MonoBehaviour:
     m_KeySerializationHelper:
     - {fileID: -6298662921979826281, guid: e5d4a3f7dea11344499a9de88f6c07d7, type: 2}
     m_ValueSerializationHelper:
-    - e00: 0.64555866
+    - e00: 0.2830121
       e01: 0
       e02: 0
-      e03: 69.14705
+      e03: -2.322815
       e10: 0
-      e11: 0.64555866
+      e11: 0.2830121
       e12: 0
-      e13: 21.619747
+      e13: 195.32355
       e20: 0
       e21: 0
       e22: 1
@@ -834,9 +834,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: cc33ffff
+      m_SelectedIDs: 48450000
       m_LastClickedID: 0
-      m_ExpandedIDs: 68ebfffff2f9ffff
+      m_ExpandedIDs: ae37ffff92ceffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -881,8 +881,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 814
-    y: 73
+    x: 1540
+    y: 161
     width: 318
     height: 614
   m_ViewDataDictionary: {fileID: 0}
@@ -902,23 +902,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Animation
+    - Assets/_Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Animation
+  - Assets/_Scenes
   m_LastFoldersGridSize: 96
-  m_LastProjectPath: C:\Users\gabri\OneDrive\Documentos\GitHub\neo-neon-goddess\Neon
-    Goddess
+  m_LastProjectPath: C:\Users\Pichau\Documents\GitHub\neo-neon-goddess\Neon Goddess
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b47b0000
-    m_LastClickedID: 31668
-    m_ExpandedIDs: 000000007c7b00007e7b0000807b0000827b0000847b0000867b0000887b000000ca9a3b
+    m_SelectedIDs: 68b70000
+    m_LastClickedID: 46952
+    m_ExpandedIDs: 0000000060b7000094b7000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -946,7 +945,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007c7b00007e7b0000807b0000827b0000847b0000867b0000887b0000
+    m_ExpandedIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -998,7 +997,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 479.5}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 96
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 164
@@ -1023,8 +1022,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1134
-    y: 73
+    x: 1860
+    y: 161
     width: 231
     height: 466
   m_ViewDataDictionary: {fileID: 0}
@@ -1065,8 +1064,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1134
-    y: 560
+    x: 1860
+    y: 648
     width: 231
     height: 127
   m_ViewDataDictionary: {fileID: 0}
