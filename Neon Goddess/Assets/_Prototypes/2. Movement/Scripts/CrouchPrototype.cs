@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class CrouchPrototype : MonoBehaviour
 {
     [SerializeField] private SideScrollingMovement _movementController;
+    [SerializeField] private JumpControlPrototype _jumpController;
     [SerializeField] private PlayerAnimator _playerAnimator;
     [SerializeField] private float _crouchSpeed;
     [SerializeField] private bool _holdCrouchButton;
@@ -28,6 +29,9 @@ public class CrouchPrototype : MonoBehaviour
 
         _inputActions.Prototype.Crouch.started += PerformCrouch;
         _inputActions.Prototype.Crouch.canceled += PerformReleaseCrouch;
+
+        _jumpController.OnJumpPerformed += CancelCrouch;
+        _jumpController.OnFallFromGroundWithoutJump += CancelCrouch;
     }
 
     private void OnDisable()
@@ -36,10 +40,15 @@ public class CrouchPrototype : MonoBehaviour
 
         _inputActions.Prototype.Crouch.started -= PerformCrouch;
         _inputActions.Prototype.Crouch.canceled -= PerformReleaseCrouch;
+        
+        _jumpController.OnJumpPerformed -= CancelCrouch;
+        _jumpController.OnFallFromGroundWithoutJump -= CancelCrouch;
     }
 
     private void PerformCrouch(InputAction.CallbackContext context)
     {
+        if (!_jumpController.IsGrounded) return;
+        
         if (!_holdCrouchButton)
         {
             SwitchCrouch();

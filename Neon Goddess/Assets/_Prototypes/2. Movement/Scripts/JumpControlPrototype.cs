@@ -40,6 +40,8 @@ public class JumpControlPrototype : MonoBehaviour
 
     public delegate void HitTheGround();
     public event HitTheGround OnHitTheGround;
+    public delegate void DropFromGroundWithoutJump();
+    public event DropFromGroundWithoutJump OnFallFromGroundWithoutJump;
     public delegate void JumpPerformed();
     public event JumpPerformed OnJumpPerformed;
     
@@ -81,6 +83,8 @@ public class JumpControlPrototype : MonoBehaviour
         {
             case true when !_isGrounded:
             {
+                OnFallFromGroundWithoutJump?.Invoke();
+
                 if(_coyoteJumpTimerCoroutine is not null) StopCoroutine(_coyoteJumpTimerCoroutine);
             
                 _coyoteJumpTimerCoroutine = StartCoroutine(CoyoteJumpTimer());
