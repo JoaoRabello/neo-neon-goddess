@@ -103,7 +103,6 @@ public class JumpControlPrototype : MonoBehaviour
 
         _gravity = -(2 * _jumpHeight) / (Mathf.Pow(_jumpTime, 2));
         
-        Debug.Log(_rigidbody.velocity.y);
         _animator.SetIsFalling(_rigidbody.velocity.y < -6f);
         
         if (_rigidbody.velocity.y < 0)
