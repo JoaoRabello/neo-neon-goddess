@@ -208,6 +208,11 @@ public class SideScrollingMovement : MonoBehaviour
     {
         _verticalSpeed = float.Parse(speed);
     }
+    
+    public void SetAirMovementCoyoteTime(string time)
+    {
+        _airMovementCoyoteTime = float.Parse(time);
+    }
 
     public void BlockAirMovement(bool value)
     {

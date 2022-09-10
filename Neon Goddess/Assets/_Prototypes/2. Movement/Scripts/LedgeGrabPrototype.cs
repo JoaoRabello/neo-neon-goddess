@@ -137,21 +137,22 @@ public class LedgeGrabPrototype : MonoBehaviour
         
         yield return new WaitForSeconds(0.5f);
         
-        _playerAnimator.OnClimbLedge(false);
         _playerAnimator.OnLedgeGrab(false);
         
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1.3f);
         
         _animationRootMovement.SetUseRootAnimation(false);
         _collider.enabled = true;
-        
+
         _playerAnimator.OnLedgeGrab(false);
+        _playerAnimator.OnClimbLedge(false);
         
         // transform.position =
         //     _horizontalMovementController.IsMovingRight ? _rightClimbTransform.position : _leftClimbTransform.position;
         
         _rigidbody.useGravity = true;
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
+        
         IsOnLedge = false;
         _canClimb = false;
         _isClimbing = false;
