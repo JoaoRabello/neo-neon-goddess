@@ -46,7 +46,6 @@ public class LedgeGrabPrototype : MonoBehaviour
         _inputActions.Enable();
         
         _inputActions.Prototype.Jump.started += ProcessClimbInput;
-        _animationRootMovement.OnEndClimbAnimation += LedgeClimbFinished;
     }
 
     private void OnDisable()
@@ -54,7 +53,6 @@ public class LedgeGrabPrototype : MonoBehaviour
         _inputActions.Disable();
         
         _inputActions.Prototype.Jump.started -= ProcessClimbInput;
-        _animationRootMovement.OnEndClimbAnimation -= LedgeClimbFinished;
     }
     
     void Update()
