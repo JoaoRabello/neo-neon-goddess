@@ -14,6 +14,10 @@ public class LedgeGrabPrototype : MonoBehaviour
     [SerializeField] private JumpControlPrototype _jumpControl;
     [SerializeField] private LayerMask _ledgeLayer;
     [SerializeField] private LayerMask _stepLayer;
+    [SerializeField] private float _checkRadius;
+    [SerializeField] private AnimationClip _ledgeClimbClip;
+    
+    [Header("Transforms")]
     [SerializeField] private Transform _leftLedgeCheckTransform;
     [SerializeField] private Transform _rightLedgeCheckTransform;
     [SerializeField] private Transform _leftClimbTransform;
@@ -23,11 +27,11 @@ public class LedgeGrabPrototype : MonoBehaviour
     [SerializeField] private Transform _rightStepCheckTransform;
     [SerializeField] private Transform _leftStepClimbTransform;
     [SerializeField] private Transform _rightStepClimbTransform;
-    [SerializeField] private float _checkRadius;
 
     private bool _canClimb;
     private bool _autoClimb;
     private bool _isClimbing;
+    private bool _hasClimbed;
     public bool IsOnLedge;
 
     private InputActions _inputActions;
@@ -42,6 +46,7 @@ public class LedgeGrabPrototype : MonoBehaviour
         _inputActions.Enable();
         
         _inputActions.Prototype.Jump.started += ProcessClimbInput;
+        _animationRootMovement.OnEndClimbAnimation += LedgeClimbFinished;
     }
 
     private void OnDisable()
@@ -49,6 +54,7 @@ public class LedgeGrabPrototype : MonoBehaviour
         _inputActions.Disable();
         
         _inputActions.Prototype.Jump.started -= ProcessClimbInput;
+        _animationRootMovement.OnEndClimbAnimation -= LedgeClimbFinished;
     }
     
     void Update()
@@ -123,14 +129,17 @@ public class LedgeGrabPrototype : MonoBehaviour
         StartCoroutine(ClimbLedgeRoutine());
     }
 
+    private void LedgeClimbFinished()
+    {
+        _hasClimbed = true;
+    }
+
     private IEnumerator ClimbLedgeRoutine()
     {
         _isClimbing = true;
         if(_autoClimb)
             yield return new WaitForSeconds(1f);
         
-        //TODO: Add _animator and turn on root animation
-
         _animationRootMovement.SetUseRootAnimation(true);
         _collider.enabled = false;
         _playerAnimator.OnClimbLedge(true);
@@ -139,17 +148,14 @@ public class LedgeGrabPrototype : MonoBehaviour
         
         _playerAnimator.OnLedgeGrab(false);
         
-        yield return new WaitForSeconds(1.3f);
-        
+        yield return new WaitForSeconds(_ledgeClimbClip.length - 0.6f);
+
         _animationRootMovement.SetUseRootAnimation(false);
         _collider.enabled = true;
 
         _playerAnimator.OnLedgeGrab(false);
         _playerAnimator.OnClimbLedge(false);
-        
-        // transform.position =
-        //     _horizontalMovementController.IsMovingRight ? _rightClimbTransform.position : _leftClimbTransform.position;
-        
+
         _rigidbody.useGravity = true;
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
         
