@@ -15,6 +15,7 @@ public class CrouchPrototype : MonoBehaviour
     private InputActions _inputActions;
 
     private bool _isCrouching;
+    private bool _isHoldingCrouchButton;
 
     public bool IsCrouching => _isCrouching;
 
@@ -31,6 +32,7 @@ public class CrouchPrototype : MonoBehaviour
         _inputActions.Prototype.Crouch.canceled += PerformReleaseCrouch;
 
         _jumpController.OnJumpPerformed += CancelCrouch;
+        _jumpController.OnHitTheGround += KeepCrouchAfterJump;
         _jumpController.OnFallFromGroundWithoutJump += CancelCrouch;
     }
 
@@ -42,6 +44,7 @@ public class CrouchPrototype : MonoBehaviour
         _inputActions.Prototype.Crouch.canceled -= PerformReleaseCrouch;
         
         _jumpController.OnJumpPerformed -= CancelCrouch;
+        _jumpController.OnHitTheGround -= KeepCrouchAfterJump;
         _jumpController.OnFallFromGroundWithoutJump -= CancelCrouch;
     }
 
@@ -55,6 +58,7 @@ public class CrouchPrototype : MonoBehaviour
         }
         else
         {
+            _isHoldingCrouchButton = true;
             Crouch();
         }
     }
@@ -63,7 +67,15 @@ public class CrouchPrototype : MonoBehaviour
     {
         if (!_holdCrouchButton) return;
         
+        _isHoldingCrouchButton = false;
         CancelCrouch();
+    }
+
+    private void KeepCrouchAfterJump()
+    {
+        if (!_holdCrouchButton || !_isHoldingCrouchButton) return;
+
+        Crouch();
     }
 
     private void Crouch()
