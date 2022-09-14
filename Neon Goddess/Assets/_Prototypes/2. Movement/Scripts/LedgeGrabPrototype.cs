@@ -38,6 +38,8 @@ public class LedgeGrabPrototype : MonoBehaviour
 
     public delegate void LedgeClimbEnded();
     public event LedgeClimbEnded OnLedgeClimbEnded;
+    public delegate void LedgeGrab();
+    public event LedgeGrab OnLedgeGrab;
     
     void Awake()
     {
@@ -110,6 +112,8 @@ public class LedgeGrabPrototype : MonoBehaviour
         _canClimb = true;
         
         _playerAnimator.OnLedgeGrab(true);
+
+        OnLedgeGrab?.Invoke();
 
         if (_autoClimb)
             ClimbLedge();

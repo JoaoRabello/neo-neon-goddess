@@ -54,6 +54,7 @@ public class SideScrollingMovement : MonoBehaviour
         _jumpControl.OnJumpPerformed += StartAirMovement;
 
         _ledgeGrabController.OnLedgeClimbEnded += LedgeClimbEnded;
+        _ledgeGrabController.OnLedgeGrab += LedgeGrabbed;
     }
 
     private void OnDisable()
@@ -67,6 +68,7 @@ public class SideScrollingMovement : MonoBehaviour
         _jumpControl.OnJumpPerformed -= StartAirMovement;
         
         _ledgeGrabController.OnLedgeClimbEnded -= LedgeClimbEnded;
+        _ledgeGrabController.OnLedgeGrab -= LedgeGrabbed;
     }
 
     private void PerformMovement(InputAction.CallbackContext context)
@@ -95,6 +97,14 @@ public class SideScrollingMovement : MonoBehaviour
     {
         if(Mathf.Abs(_direction.x) > 0.1f)
             _isMovingRight = _direction.x > 0;
+    }
+
+    private void LedgeGrabbed()
+    {
+        if(Mathf.Abs(_direction.x) > 0.1f)
+            _isMovingRight = _direction.x > 0;
+        
+        _visualTransform.rotation = Quaternion.Euler(0, 90 * (_isMovingRight ? 1 : -1), 0);
     }
 
     private void SetAirDirection()
