@@ -67,10 +67,17 @@ public class SideScrollingMovement : MonoBehaviour
 
     private void PerformMovement(InputAction.CallbackContext context)
     {
-        _direction = context.ReadValue<Vector2>();
-        _wannaMove = true;
+        _direction = context.ReadValue<Vector2>().normalized;
+        _direction.x = _direction.x switch
+        {
+            > 0.5f => 1,
+            < -0.5f => -1,
+            _ => _direction.x
+        };
         
-        _animator.OnMovement(true);
+        _wannaMove = true;
+
+        _animator.OnMovement(Mathf.Abs(_direction.x) > 0.1f);
 
         if (_ledgeGrabController.IsOnLedge) return;
         
