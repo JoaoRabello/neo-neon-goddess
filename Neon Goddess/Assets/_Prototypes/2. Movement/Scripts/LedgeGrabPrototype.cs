@@ -35,6 +35,9 @@ public class LedgeGrabPrototype : MonoBehaviour
     public bool IsOnLedge;
 
     private InputActions _inputActions;
+
+    public delegate void LedgeClimbEnded();
+    public event LedgeClimbEnded OnLedgeClimbEnded;
     
     void Awake()
     {
@@ -139,23 +142,25 @@ public class LedgeGrabPrototype : MonoBehaviour
             yield return new WaitForSeconds(1f);
         
         _animationRootMovement.SetUseRootAnimation(true);
-        _collider.enabled = false;
+        _collider.gameObject.SetActive(false);
         _playerAnimator.OnClimbLedge(true);
         
         yield return new WaitForSeconds(0.5f);
         
         _playerAnimator.OnLedgeGrab(false);
         
-        yield return new WaitForSeconds(_ledgeClimbClip.length - 0.6f);
+        yield return new WaitForSeconds(_ledgeClimbClip.length - 1f);
 
         _animationRootMovement.SetUseRootAnimation(false);
-        _collider.enabled = true;
+        _collider.gameObject.SetActive(true);
 
         _playerAnimator.OnLedgeGrab(false);
         _playerAnimator.OnClimbLedge(false);
 
         _rigidbody.useGravity = true;
         _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
+        
+        OnLedgeClimbEnded?.Invoke();
         
         IsOnLedge = false;
         _canClimb = false;
