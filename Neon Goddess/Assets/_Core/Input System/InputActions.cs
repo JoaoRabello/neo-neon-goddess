@@ -53,6 +53,24 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Button"",
+                    ""id"": ""6b6ad8c9-1324-466e-bca0-894abe3e2e9e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""936a1664-2fd1-49cd-8319-801cbd2cde8a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -187,6 +205,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb8a1da7-35fd-4d32-92af-fca3a348e26f"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4c139614-aeb1-4f17-933d-22fbff500ce1"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -198,6 +238,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Prototype_Movement = m_Prototype.FindAction("Movement", throwIfNotFound: true);
         m_Prototype_Jump = m_Prototype.FindAction("Jump", throwIfNotFound: true);
         m_Prototype_Crouch = m_Prototype.FindAction("Crouch", throwIfNotFound: true);
+        m_Prototype_Aim = m_Prototype.FindAction("Aim", throwIfNotFound: true);
+        m_Prototype_Shoot = m_Prototype.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -260,6 +302,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Prototype_Movement;
     private readonly InputAction m_Prototype_Jump;
     private readonly InputAction m_Prototype_Crouch;
+    private readonly InputAction m_Prototype_Aim;
+    private readonly InputAction m_Prototype_Shoot;
     public struct PrototypeActions
     {
         private @InputActions m_Wrapper;
@@ -267,6 +311,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Prototype_Movement;
         public InputAction @Jump => m_Wrapper.m_Prototype_Jump;
         public InputAction @Crouch => m_Wrapper.m_Prototype_Crouch;
+        public InputAction @Aim => m_Wrapper.m_Prototype_Aim;
+        public InputAction @Shoot => m_Wrapper.m_Prototype_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_Prototype; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -285,6 +331,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Crouch.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnCrouch;
                 @Crouch.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnCrouch;
                 @Crouch.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnCrouch;
+                @Aim.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnAim;
+                @Aim.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnAim;
+                @Aim.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnAim;
+                @Shoot.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnShoot;
             }
             m_Wrapper.m_PrototypeActionsCallbackInterface = instance;
             if (instance != null)
@@ -298,6 +350,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Crouch.started += instance.OnCrouch;
                 @Crouch.performed += instance.OnCrouch;
                 @Crouch.canceled += instance.OnCrouch;
+                @Aim.started += instance.OnAim;
+                @Aim.performed += instance.OnAim;
+                @Aim.canceled += instance.OnAim;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
             }
         }
     }
@@ -307,5 +365,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
+        void OnAim(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
 }
