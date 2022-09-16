@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class AimingSystemPrototype : MonoBehaviour
 {
     [SerializeField] private LineRenderer _aimLine;
+    [SerializeField] private GameObject _hitAim;
     [SerializeField] private Camera _mainCamera;
     private InputActions _input;
     
@@ -87,6 +88,7 @@ public class AimingSystemPrototype : MonoBehaviour
         
         if(Physics.Raycast(ray, out rayHit, 20))
         {
+            _hitAim.transform.position = rayHit.point;
             _shotObject = rayHit.collider.gameObject;
         }
     }
@@ -94,6 +96,7 @@ public class AimingSystemPrototype : MonoBehaviour
     private void TurnAimLineOn(bool value)
     {
         _aimLine.gameObject.SetActive(value);
+        _hitAim.SetActive(value);
     }
     
     private void DrawAimLine(Vector2 mousePosition)

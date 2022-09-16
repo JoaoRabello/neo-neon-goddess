@@ -21,6 +21,7 @@ public class DummyHackable : MonoBehaviour, IHackable
         
         _isHacked = true;
 
+        _rigidbody.velocity = Vector3.zero;
         // StopAllCoroutines();
         // StartCoroutine(HackBehaviour());
     }
@@ -49,9 +50,14 @@ public class DummyHackable : MonoBehaviour, IHackable
         _rigidbody.velocity = new Vector3(direction.x, _rigidbody.velocity.y, 0) * _speed;
     }
 
+    public void ClearHack()
+    {
+         _isHacked = false;
+    }
+
     private IEnumerator HackBehaviour()
     {
-        _rigidbody.velocity = Vector3.zero;
+        
         yield return new WaitForSeconds(_timeHacked);
         _isHacked = false;
     }
