@@ -47,15 +47,18 @@ public class AimingSystemPrototype : MonoBehaviour
         OnAimStarted?.Invoke();
 
         _isAiming = true;
+        TurnAimLineOn(true);
     }
 
     private void CancelAim(InputAction.CallbackContext context)
     {
         _isAiming = false;
+        TurnAimLineOn(false);
     }
     
     private void PerformShoot(InputAction.CallbackContext context)
     {
+        if (!_isAiming) return;
         OnShot?.Invoke(_shotObject);
     }
 
@@ -88,9 +91,14 @@ public class AimingSystemPrototype : MonoBehaviour
         }
     }
 
+    private void TurnAimLineOn(bool value)
+    {
+        _aimLine.gameObject.SetActive(value);
+    }
+    
     private void DrawAimLine(Vector2 mousePosition)
     {
         _aimLine.SetPosition(0, transform.position);
-        _aimLine.SetPosition(1, mousePosition);
+        _aimLine.SetPosition(1, (Vector2)transform.position + (mousePosition - (Vector2)transform.position).normalized * 2);
     }
 }

@@ -20,18 +20,15 @@ public class HackingControlPrototype : MonoBehaviour
 
     private void StartHacking(GameObject target)
     {
-        // if(!target.gameObject.GetComponent<GameObject>()) return;
+        var hackable = target.gameObject.GetComponent<IHackable>();
+        if(hackable is null) return;
         
-        if (_instantHack) Hack(target);
+        if (_instantHack) Hack(hackable);
     }
 
-    private void Hack(GameObject target)
+    private void Hack(IHackable target)
     {
-        if(target is null)
-        {
-            Debug.Log("Errou");
-            return;
-        }
-        Debug.Log("Hacked " + target.name);
+        if(_instantHack)
+            target.Hack();
     }
 }
