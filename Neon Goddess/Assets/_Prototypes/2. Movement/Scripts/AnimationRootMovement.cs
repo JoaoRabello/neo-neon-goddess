@@ -9,6 +9,8 @@ public class AnimationRootMovement : MonoBehaviour
     
     [SerializeField] private LedgeGrabPrototype _ledgeGrab;
     [SerializeField] private Animator _animator;
+
+    private Vector3 _handTargetPosition;
     
     void OnAnimatorMove()
     {
@@ -21,5 +23,10 @@ public class AnimationRootMovement : MonoBehaviour
     public void SetUseRootAnimation(bool value)
     {
         _animator.applyRootMotion = value;
+    }
+
+    public void SetHandTargetPosition(Vector3 target)
+    {
+        _handTargetPosition = target;
     }
 }

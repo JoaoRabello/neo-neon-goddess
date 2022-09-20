@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class AimingSystemPrototype : MonoBehaviour
 {
     [SerializeField] private LineRenderer _aimLine;
+    [SerializeField] private AnimationRootMovement _animationRootMovement;
     [SerializeField] private GameObject _hitAim;
     [SerializeField] private Camera _mainCamera;
     private InputActions _input;
@@ -66,6 +67,8 @@ public class AimingSystemPrototype : MonoBehaviour
     private void Update()
     {
         var mousePosition = CalculateMousePosition();
+        
+        _animationRootMovement.SetHandTargetPosition(mousePosition);
         
         AimRaycast(mousePosition);
         DrawAimLine(mousePosition);
