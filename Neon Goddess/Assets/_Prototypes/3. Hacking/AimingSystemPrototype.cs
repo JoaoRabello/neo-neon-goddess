@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem;
 
 public class AimingSystemPrototype : MonoBehaviour
@@ -8,7 +9,10 @@ public class AimingSystemPrototype : MonoBehaviour
     [SerializeField] private LineRenderer _aimLine;
     [SerializeField] private AnimationRootMovement _animationRootMovement;
     [SerializeField] private GameObject _hitAim;
+    [SerializeField] private Transform _weaponEnd;
     [SerializeField] private Camera _mainCamera;
+    [SerializeField] private Rig _aimRig;
+    [SerializeField] private Rig _torsoRig;
     private InputActions _input;
     
     public delegate void AimStartDelegate();
@@ -50,12 +54,14 @@ public class AimingSystemPrototype : MonoBehaviour
 
         _isAiming = true;
         TurnAimLineOn(true);
+        TurnAimRiggingOn(true);
     }
 
     private void CancelAim(InputAction.CallbackContext context)
     {
         _isAiming = false;
         TurnAimLineOn(false);
+        TurnAimRiggingOn(false);
     }
     
     private void PerformShoot(InputAction.CallbackContext context)
@@ -71,7 +77,7 @@ public class AimingSystemPrototype : MonoBehaviour
         _animationRootMovement.SetHandTargetPosition(mousePosition);
         
         AimRaycast(mousePosition);
-        DrawAimLine(mousePosition);
+        DrawAimLine(_hitAim.transform.position);
     }
 
     private Vector3 CalculateMousePosition()
@@ -101,10 +107,16 @@ public class AimingSystemPrototype : MonoBehaviour
         _aimLine.gameObject.SetActive(value);
         _hitAim.SetActive(value);
     }
-    
-    private void DrawAimLine(Vector2 mousePosition)
+
+    private void TurnAimRiggingOn(bool value)
     {
-        _aimLine.SetPosition(0, transform.position);
-        _aimLine.SetPosition(1, (Vector2)transform.position + (mousePosition - (Vector2)transform.position).normalized * 2);
+        _aimRig.weight = value ? 1 : 0;
+        _torsoRig.weight = value ? 1 : 0;
+    }
+    
+    private void DrawAimLine(Vector2 lineEndPosition)
+    {
+        _aimLine.SetPosition(0, _weaponEnd.position);
+        _aimLine.SetPosition(1, (Vector2)_weaponEnd.position + (lineEndPosition - (Vector2)_weaponEnd.position).normalized * 2);
     }
 }
