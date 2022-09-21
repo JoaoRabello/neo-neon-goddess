@@ -26,7 +26,9 @@ namespace FIMSpace.AnimationTools
             }
 
             if (ikSet.IKType == ADClipSettings_IK.IKSet.EIKType.ArmIK)
+            {
                 if (IKArmProcessor == null || reInitialize || IKArmProcessor.IsCorrect == false || ikSet.requestReinitialize)
+                {
                     if (Bones.Count == 4)
                     {
                         for (int i = 0; i < Bones.Count; i++)
@@ -40,6 +42,8 @@ namespace FIMSpace.AnimationTools
                         IKArmProcessor.Init(save.LatestAnimator.transform);
                         ikSet.requestReinitialize = false;
                     }
+                }
+            }
 
             if (ikSet.IKType == ADClipSettings_IK.IKSet.EIKType.FootIK)
                 if (IKLegProcessor == null || reInitialize || ikSet.requestReinitialize || IKLegProcessor.Initialized == false || IKLegProcessor.Bones == null || IKLegProcessor.Bones.Length == 0 || IKLegProcessor.StartBone == null)
@@ -95,7 +99,7 @@ namespace FIMSpace.AnimationTools
 
             if (ik.IKType == ADClipSettings_IK.IKSet.EIKType.ArmIK)
             {
-                if (IKArmProcessor == null || IKArmProcessor.UpperarmTransform == null) { ikError = true; return; }
+                if (IKArmProcessor == null || IKArmProcessor.UpperarmTransform == null  ) { ikError = true; return; }
                 IKArmProcessor.IKWeight = blend;
                 IKArmProcessor.IKPositionWeight = 1f;
                 IKArmProcessor.HandRotationWeight = ik.IKRotationBlend;
@@ -138,15 +142,15 @@ namespace FIMSpace.AnimationTools
 
             if (ik.IKType == ADClipSettings_IK.IKSet.EIKType.ArmIK)
             {
-                IKArmProcessor.CaptureKeyframeAnimation();
+                if (IKArmProcessor != null) IKArmProcessor.CaptureKeyframeAnimation();
             }
             else if (ik.IKType == ADClipSettings_IK.IKSet.EIKType.FootIK)
             {
-                IKLegProcessor.RefreshAnimatorCoords();
+                if (IKLegProcessor != null) IKLegProcessor.RefreshAnimatorCoords();
             }
             else if (ik.IKType == ADClipSettings_IK.IKSet.EIKType.ChainIK)
             {
-                IKCCDProcessor.PreCalibrate();
+                if (IKCCDProcessor != null) IKCCDProcessor.PreCalibrate();
             }
 
         }

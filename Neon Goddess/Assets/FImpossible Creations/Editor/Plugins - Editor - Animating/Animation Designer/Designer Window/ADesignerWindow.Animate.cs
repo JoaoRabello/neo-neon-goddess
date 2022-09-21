@@ -97,8 +97,9 @@ namespace FIMSpace.AnimationTools
 
             if (_anim_MainSet.TurnOnIK)
             {
-                for (int i = 0; i < Limbs.Count; i++)
-                    Limbs[i].IKCapture(_anim_ikSet.GetIKSettingsForLimb(Limbs[i], S));
+                var limbsExecutionListIK = S.GetLimbsExecutionList(_anim_ikSet.LimbIKSetups);
+                for (int i = 0; i < limbsExecutionListIK.Count; i++)
+                    limbsExecutionListIK[i].IKCapture(_anim_ikSet.GetIKSettingsForLimb(limbsExecutionListIK[i], S));
             }
 
             _anim_MainSet.PreUpdateSimulation(S);
@@ -112,8 +113,9 @@ namespace FIMSpace.AnimationTools
 
             if (_anim_MainSet.TurnOnIK)
             {
-                for (int i = 0; i < Limbs.Count; i++)
-                    Limbs[i].IKUpdateSimulation(_anim_ikSet.GetIKSettingsForLimb(Limbs[i], S), deltaTime, animationProgress, 1f);
+                var limbsExecutionListIK = S.GetLimbsExecutionList(_anim_ikSet.LimbIKSetups);
+                for (int i = 0; i < limbsExecutionListIK.Count; i++)
+                    limbsExecutionListIK[i].IKUpdateSimulation(_anim_ikSet.GetIKSettingsForLimb(limbsExecutionListIK[i], S), deltaTime, animationProgress, 1f);
             }
         }
 
@@ -149,8 +151,9 @@ namespace FIMSpace.AnimationTools
 
             if (_anim_MainSet.TurnOnIK)
             {
-                for (int i = 0; i < Limbs.Count; i++)
-                    Limbs[i].IKLateUpdateSimulation(_anim_ikSet.GetIKSettingsForLimb(Limbs[i], S), dt, animationProgress, 1f, _anim_MainSet);
+                var limbsExecutionListIK = S.GetLimbsExecutionList(_anim_ikSet.LimbIKSetups);
+                for (int i = 0; i < limbsExecutionListIK.Count; i++)
+                    limbsExecutionListIK[i].IKLateUpdateSimulation(_anim_ikSet.GetIKSettingsForLimb(limbsExecutionListIK[i], S), dt, animationProgress, 1f, _anim_MainSet);
             }
 
             _anim_modSet.LastLateUpdateModificators(deltaTime, animationProgress, S, _anim_MainSet);
@@ -177,7 +180,7 @@ namespace FIMSpace.AnimationTools
         }
 
 
-        void CheckComponentsInitialization(bool reInitialize)
+        internal void CheckComponentsInitialization(bool reInitialize)
         {
             bool hChanged = false;
             for (int i = 0; i < Limbs.Count; i++)
@@ -202,7 +205,8 @@ namespace FIMSpace.AnimationTools
             _anim_modSet.CheckInitialization(S, reInitialize, _anim_MainSet);
 
             _anim_ikSet = S.GetSetupForClip(S.IKSetupsForClips, TargetClip, _toSet_SetSwitchToHash); //_anim_ikSet = S.GetIKSetupForClip(TargetClip);
-            for (int i = 0; i < Limbs.Count; i++) Limbs[i].CheckForIKInitialization(S, _anim_ikSet.GetIKSettingsForLimb(Limbs[i], S), _anim_MainSet, animationProgress, dt, 1f, reInitialize);
+            var limbsExecutionListIK = S.GetLimbsExecutionList(_anim_ikSet.LimbIKSetups);
+            for (int i = 0; i < limbsExecutionListIK.Count; i++) limbsExecutionListIK[i].CheckForIKInitialization(S, _anim_ikSet.GetIKSettingsForLimb(limbsExecutionListIK[i], S), _anim_MainSet, animationProgress, dt, 1f, reInitialize);
 
             _anim_springsSet = S.GetSetupForClip(S.SpringSetupsForClips, TargetClip, _toSet_SetSwitchToHash); //_anim_springsSet = S.GetSpringSetupForClip(TargetClip);
             _anim_springsSet.CheckInitialization(S);

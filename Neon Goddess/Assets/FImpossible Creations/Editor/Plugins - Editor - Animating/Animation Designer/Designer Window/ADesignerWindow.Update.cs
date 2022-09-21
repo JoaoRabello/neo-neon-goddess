@@ -300,7 +300,7 @@ namespace FIMSpace.AnimationTools
 
             #region Secondary Animator Play
 
-            if (isBaking == false)
+            //if (isBaking == false)
             {
                 if (latestSecondaryAnimator != null)
                     if (latestSecondaryAnimatorClip != null)

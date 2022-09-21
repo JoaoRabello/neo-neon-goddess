@@ -9,6 +9,8 @@ namespace FIMSpace.FTools
 
         public Vector3 initialLocalPosition { get; protected set; }
         public Quaternion initialLocalRotation { get; protected set; }
+        public Vector3 initialLocalPositionInRootSpace { get; protected set; }
+        public Quaternion initialLocalRotationInRootSpace { get; protected set; }
 
         public Vector3 right { get; protected set; }
         public Vector3 up { get; protected set; }
@@ -34,6 +36,12 @@ namespace FIMSpace.FTools
             initialLocalPosition = transform.localPosition;
             initialLocalRotation = transform.localRotation;
 
+            if (root)
+            {
+                initialLocalPositionInRootSpace = root.InverseTransformPoint(t.position);
+                initialLocalRotationInRootSpace = FEngineering.QToLocal(root.rotation, t.rotation);
+            }
+
             forward = transform.InverseTransformDirection(root.forward);
             up = transform.InverseTransformDirection(root.up);
             right = transform.InverseTransformDirection(root.right);
@@ -56,6 +64,7 @@ namespace FIMSpace.FTools
             this.root = root;
         }
 
+
         public Vector3 GetFromParentForward()
         {
             return transform.InverseTransformDirection(transform.position - transform.parent.position);
@@ -69,7 +78,7 @@ namespace FIMSpace.FTools
         public Vector3 rightCrossReference { get; private set; }
         private Vector3 dynamicUpReference = Vector3.up;
 
-        internal Quaternion GetRootCompensateRotation(Quaternion initPelvisInWorld, Quaternion currInWorld, float armsRootCompensate)
+        public Quaternion GetRootCompensateRotation(Quaternion initPelvisInWorld, Quaternion currInWorld, float armsRootCompensate)
         {
             Quaternion pre;
 
@@ -122,6 +131,11 @@ namespace FIMSpace.FTools
             Quaternion lookRot = transform.parent.rotation * Quaternion.LookRotation(lookDir, dynamicUpReference);
             lookRot *= Quaternion.Inverse(transform.parent.rotation * Quaternion.LookRotation(oRef.forwardReference, oRef.upReference));
             return lookRot;
+        }
+
+        internal Quaternion GetSourcePoseRotation()
+        {
+            return FEngineering.QToWorld(root.rotation, initialLocalRotationInRootSpace);
         }
 
         /// <summary> Execute RefreshCustomAxis() before this </summary>
@@ -189,7 +203,12 @@ namespace FIMSpace.FTools
 
         public void RotateBy(Vector3 angles, float blend)
         {
-            RotateBy(BlendAngle( angles.x, blend), BlendAngle(angles.y, blend), BlendAngle(angles.z, blend));
+            RotateBy(BlendAngle(angles.x, blend), BlendAngle(angles.y, blend), BlendAngle(angles.z, blend));
+        }
+
+        public void RotateByDynamic(Vector3 angles)
+        {
+            RotateByDynamic(angles.x, angles.y, angles.z);
         }
 
         public void RotateByDynamic(float x, float y, float z)
@@ -254,7 +273,7 @@ namespace FIMSpace.FTools
         }
 
         /// <summary> Bone must have parent </summary>
-        internal Quaternion RotationTowards(Vector3 toDir)
+        public Quaternion RotationTowards(Vector3 toDir)
         {
             Quaternion fromTo = Quaternion.FromToRotation
             (
@@ -266,7 +285,7 @@ namespace FIMSpace.FTools
         }
 
         /// <summary> Bone must have parent </summary>
-        internal Quaternion RotationTowardsDynamic(Vector3 toDir)
+        public Quaternion RotationTowardsDynamic(Vector3 toDir)
         {
             Quaternion fromTo = Quaternion.FromToRotation
             (
@@ -279,7 +298,7 @@ namespace FIMSpace.FTools
 
         public static float BlendAngle(float angle, float blend) { return Mathf.LerpAngle(0f, angle, blend); }
 
-        internal Vector3 Dir(Vector3 forward) { return transform.TransformDirection(forward); }
-        internal Vector3 IDir(Vector3 forward) { return transform.InverseTransformDirection(forward); }
+        public Vector3 Dir(Vector3 forward) { return transform.TransformDirection(forward); }
+        public Vector3 IDir(Vector3 forward) { return transform.InverseTransformDirection(forward); }
     }
 }

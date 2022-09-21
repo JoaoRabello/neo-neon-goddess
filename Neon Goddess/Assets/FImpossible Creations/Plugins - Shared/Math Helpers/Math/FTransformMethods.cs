@@ -47,7 +47,7 @@ namespace FIMSpace
         /// <summary>
         /// Method which finds all components of given type in all children in choosed transform
         /// </summary>
-        public static List<T> FindComponentsInAllChildren<T>(Transform transformToSearchIn, bool includeInactive = false) where T : Component
+        public static List<T> FindComponentsInAllChildren<T>(Transform transformToSearchIn, bool includeInactive = false, bool tryGetMultipleOutOfSingleObject = false) where T : Component
         {
             List<T> components = new List<T>();
 
@@ -58,8 +58,18 @@ namespace FIMSpace
 
             foreach (Transform child in transformToSearchIn.GetComponentsInChildren<Transform>(includeInactive))
             {
-                T component = child.GetComponent<T>();
-                if (component) if (components.Contains(component) == false) components.Add(component);
+                if (tryGetMultipleOutOfSingleObject == false)
+                {
+                    T component = child.GetComponent<T>();
+                    if (component) if (components.Contains(component) == false) components.Add(component);
+                }
+                else
+                {
+                    foreach (T component in child.GetComponents<T>())
+                    {
+                        if (component) if (components.Contains(component) == false) components.Add(component);
+                    }
+                }
             }
 
             return components;

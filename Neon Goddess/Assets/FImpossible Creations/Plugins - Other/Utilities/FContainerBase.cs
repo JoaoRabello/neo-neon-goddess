@@ -239,15 +239,15 @@ namespace FIMSpace.FTools
                 {
                     EditorGUILayout.BeginHorizontal();
 
-                    bGet.CopyAsset(DragAndDropBox(new Color(0.4f, 0.5f, 1f), 32, "  Drag here to Copy"));
-                    bGet.RemoveAndDestroy(DragAndDropBox(new Color(1f, 0.4f, 0.4f), 32, "  Drag here to REMOVE"));
+                    bGet.CopyAsset(DragAndDropBox(new Color(0.4f, 0.5f, 1f), bGet, 32, "  Drag here to Copy"));
+                    bGet.RemoveAndDestroy(DragAndDropBox(new Color(1f, 0.4f, 0.4f), bGet, 32, "  Drag here to REMOVE"));
 
                     EditorGUILayout.EndHorizontal();
                 }
                 else
                 {
-                    if (DrawDragAndDropToCopy) bGet.CopyAsset(DragAndDropBox(new Color(0.4f, 0.5f, 1f), 32, "  Drag & Drop here to Copy"));
-                    else bGet.RemoveAndDestroy(DragAndDropBox(new Color(1f, 0.4f, 0.4f), 32, "  Drag & Drop here to REMOVE"));
+                    if (DrawDragAndDropToCopy) bGet.CopyAsset(DragAndDropBox(new Color(0.4f, 0.5f, 1f), bGet, 32, "  Drag & Drop here to Copy"));
+                    else bGet.RemoveAndDestroy(DragAndDropBox(new Color(1f, 0.4f, 0.4f), bGet, 32, "  Drag & Drop here to REMOVE"));
                 }
 
                 GUILayout.Space(10f);
@@ -274,7 +274,7 @@ namespace FIMSpace.FTools
         {
             GUILayout.Label("Drop file from inside this pack to release it to project directory", EditorStyles.centeredGreyMiniLabel);
 
-            Object dragged = DragAndDropBox(DragAndDropBoxColor, 44, MainDragAndDropText);
+            Object dragged = DragAndDropBox(DragAndDropBoxColor, bGet, 44, MainDragAndDropText);
 
             if (dragged)
             {
@@ -283,7 +283,7 @@ namespace FIMSpace.FTools
         }
 
 
-        protected Object DragAndDropBox(Color col, float height = 44f, string ddText = "  Drag & Drop your Assets here")
+        public static Object DragAndDropBox(Color col, Object toDirty, float height = 44f, string ddText = "  Drag & Drop your Assets here")
         {
             Object ob = null;
 
@@ -319,7 +319,7 @@ namespace FIMSpace.FTools
                             if (draggedObject)
                             {
                                 ob = draggedObject;
-                                bGet._SetDirty();
+                                EditorUtility.SetDirty(toDirty);
                             }
                         }
 

@@ -27,6 +27,8 @@ namespace FIMSpace.Generating
 #endif
 
             if (newObj == null) newObj = GameObject.Instantiate(obj);
+
+
             return newObj;
 #else
             return GameObject.Instantiate(obj);
@@ -68,7 +70,7 @@ namespace FIMSpace.Generating
             return !CheckIfIsNull(o);
         }
 
-        public static void DestroyObject(GameObject obj)
+        public static void DestroyObject(UnityEngine.Object obj)
         {
             if (obj == null) return;
 
@@ -423,7 +425,7 @@ namespace FIMSpace.Generating
 
 #if UNITY_EDITOR
 
-        public static string RenamePopup(UnityEngine.Object asset, string startNameIfNull = "")
+        public static string RenamePopup(UnityEngine.Object asset, string startNameIfNull = "", bool assetDatabaseRename = true)
         {
             string startName = startNameIfNull;
             if (asset != null) startName = asset.name;
@@ -436,7 +438,11 @@ namespace FIMSpace.Generating
                 {
                     if (asset != null)
                     {
-                        AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(asset), filename);
+                        if (assetDatabaseRename)
+                            AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(asset), filename);
+                        else
+                            asset.name = filename;
+
                         asset.name = filename;
                         EditorUtility.SetDirty(asset);
                         AssetDatabase.SaveAssets();
@@ -643,6 +649,9 @@ namespace FIMSpace.Generating
                         }
                 }
 
+                if (AssetDatabase.GetAssetPath(toAdd) == AssetDatabase.GetAssetPath(parentAsset))
+                    return;
+
                 AssetDatabase.AddObjectToAsset(toAdd, parentAsset);
                 EditorUtility.SetDirty(parentAsset);
 
@@ -848,12 +857,39 @@ return 1f;
     [System.Serializable]
     public class PrefabReference
     {
-        public GameObject Prefab;
-        public Collider MainCollider;
+        public GameObject CoreGameObject { get { return Prefab; } }
+        public Collider CoreCollider { get { return MainCollider; } }
+
+        public GameObject GameObject
+        {
+            get
+            {
+                if (tempReplacePrefab != null) return tempReplacePrefab;
+                return Prefab;
+            }
+        }
+
+        public Collider Collider
+        {
+            get
+            {
+                if (tempReplaceCollider != null) return tempReplaceCollider;
+                return MainCollider;
+            }
+        }
+
+        [SerializeField] private GameObject Prefab;
+        private GameObject tempReplacePrefab;
+        [SerializeField] private Collider MainCollider;
+        private Collider tempReplaceCollider;
 
         private int id;
         public int subID;
         private Texture tex;
+
+
+        #region Prefab Ref Setup
+
 
         public Texture Preview
         {
@@ -928,7 +964,7 @@ return 1f;
 
 
 
-        public static void DrawPrefabField(PrefabReference prefabRef, Color defaultColor, string predicate = "", int previewSize = 72, Action clickCallback = null, Action removeCallback = null, bool drawThumbnail = true, UnityEngine.Object toDiry = null, bool drawPrefabField = true , bool drawAdditionalButtons = true)
+        public static void DrawPrefabField(PrefabReference prefabRef, Color defaultColor, string predicate = "", int previewSize = 72, Action clickCallback = null, Action removeCallback = null, bool drawThumbnail = true, UnityEngine.Object toDiry = null, bool drawPrefabField = true, bool drawAdditionalButtons = true)
         {
 #if UNITY_EDITOR
             Color bc = GUI.backgroundColor;
@@ -1348,6 +1384,34 @@ return 1f;
             if (MainCollider == null) MainCollider = _refCol;
 
             return _refCol;
+        }
+
+
+        #endregion
+
+
+        public void SetPrefab(GameObject pf)
+        {
+            Prefab = pf;
+        }
+
+        public void SetCollider(Collider pf)
+        {
+            MainCollider = pf;
+        }
+
+        public void TemporaryReplace(GameObject tempRepl)
+        {
+            if (tempRepl == null)
+            {
+                tempReplacePrefab = null;
+                tempReplaceCollider = null;
+            }
+            else
+            {
+                tempReplacePrefab = tempRepl;
+                tempReplaceCollider = tempRepl.GetComponentInChildren<Collider>();
+            }
         }
 
 

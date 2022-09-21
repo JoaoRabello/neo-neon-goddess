@@ -1,7 +1,7 @@
 __________________________________________________________________________________________
 
 Package "Animation Designer"
-Version 1.0.8.5
+Version 1.0.9
 
 Made by FImpossible Creations - Filip Moeglich
 https://www.FilipMoeglich.pl
@@ -68,11 +68,12 @@ MAIN FEATURES:
 __________________________________________________________________________________________
 
 
-Version 1.0.8.5
+Version 1.0.9
+- Fixed leg ik grounding mode "Foot offset when grounded, ungrounded, constant offset" parameters
+- Possibility to change IK Limbs execution order under IK Setup foldout ("Alternate execution order" button)
 - Possibility to animate other character in sync with animation designer animation
 Go to Setup Category, Additional Settings foldout, on the bottom select object from scene with animator and select clip to play on it
 
-Version 1.0.8.1
 - New Auto-Hint IK modes for Arm IK and Leg IK, can be switched under "IK Setup" foldout, parameter "Auto Hint Mode"
 - Rotation handle on the scene for 'Additive Rotation' modificators
 - Fixed Axis Rotation mode (rotation button) for 'Additive Rotation' modificator 

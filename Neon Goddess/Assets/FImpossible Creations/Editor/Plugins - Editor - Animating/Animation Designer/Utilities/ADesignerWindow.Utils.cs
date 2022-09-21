@@ -85,6 +85,52 @@ namespace FIMSpace.AnimationTools
         }
 
 
+
+#if UNITY_EDITOR
+
+        public static bool AnimatorHasParam(UnityEditor.Animations.AnimatorController anim, string param)
+        {
+            int hash = Animator.StringToHash(param);
+
+            if (Application.isPlaying == false)
+            {
+                foreach (AnimatorControllerParameter p in anim.parameters)
+                    if (p.nameHash == hash) return true;
+
+                return false;
+            }
+
+            return false;
+
+        }
+
+#endif
+
+
+        public static bool AnimatorHasParam(Animator anim, string param)
+        {
+            int hash = Animator.StringToHash(param);
+
+#if UNITY_EDITOR
+            if (Application.isPlaying == false)
+            {
+                UnityEditor.Animations.AnimatorController aContr = (UnityEditor.Animations.AnimatorController)anim.runtimeAnimatorController;
+
+                foreach (AnimatorControllerParameter p in aContr.parameters)
+                    if (p.nameHash == hash) return true;
+
+                return false;
+            }
+#endif
+
+            foreach (AnimatorControllerParameter p in anim.parameters)
+                if (p.nameHash == hash) return true;
+
+            return false;
+        }
+
+
+
         public static void ArrangeBonesNames(List<Transform> currentList, List<string> currentNamesList, List<Transform> toInclude, Animator anim, string prefix = "Bones/")
         {
             if (toInclude == null) return;

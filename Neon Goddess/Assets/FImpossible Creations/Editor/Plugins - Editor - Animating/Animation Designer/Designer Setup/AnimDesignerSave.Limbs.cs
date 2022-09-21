@@ -80,6 +80,24 @@ namespace FIMSpace.AnimationTools
 
 
         public List<ADArmatureLimb> Limbs = new List<ADArmatureLimb>();
+       
+        // For some reason, private list was serialized so I needed to add [NonSerialized] to make it work as it should o_O 
+        [NonSerialized] private List<ADArmatureLimb> _AltExecutionOrderLimbs = new List<ADArmatureLimb>();
+
+        public void ChangeLimbsOrder(ADArmatureLimb limb, bool moveRight)
+        {
+            int index = limb.Index;
+            int targetIndex = index;
+            if (moveRight) targetIndex += 1; else targetIndex -= 1;
+
+            if (targetIndex >= Limbs.Count) targetIndex = 0; else if (targetIndex < 0) targetIndex = Limbs.Count - 1;
+
+            ADArmatureLimb swapMemory = Limbs[targetIndex];
+            Limbs[targetIndex] = limb;
+            limb.Index = targetIndex;
+            Limbs[index] = swapMemory;
+            swapMemory.Index = index;
+        }
 
         public void PrepareAutoLimbs(ADArmatureSetup armature)
         {

@@ -99,6 +99,28 @@ namespace FIMSpace.AnimationTools
         /// <summary> Different settings setups for different animation clips </summary>
         public List<ADClipSettings_Main> MainSetupsForClips = new List<ADClipSettings_Main>();
 
+        /// <summary> Gets alternated execution order list for ik limbs </summary>
+        internal List<ADArmatureLimb> GetLimbsExecutionList(List<ADClipSettings_IK.IKSet> ikSet)
+        {
+            for (int l = 0; l < Limbs.Count; l++) Limbs[l].AlternateExecutionIndex = -2;
+            if (ikSet.Count != Limbs.Count) return Limbs;
+
+            bool isAlt = false;
+            for (int l = 0; l < ikSet.Count; l++) if (ikSet[l].UseAlternateExecutionIndex) { Limbs[l].AlternateExecutionIndex = ikSet[l].AlternateExecutionIndex; isAlt = true; }
+
+            if (!isAlt) return Limbs;
+
+            if (_AltExecutionOrderLimbs.Count != Limbs.Count)
+            {
+                _AltExecutionOrderLimbs.Clear();
+                for (int l = 0; l < Limbs.Count; l++) _AltExecutionOrderLimbs.Add(Limbs[l]);
+            }
+
+            _AltExecutionOrderLimbs.Sort((a, b) => a.GetExucutionIndex.CompareTo(b.GetExucutionIndex));
+
+            return _AltExecutionOrderLimbs;
+        }
+
         /// <summary> Different settings setups for different animation clips </summary>
         public List<ADClipSettings_Elasticness> ElasticnessSetupsForClips = new List<ADClipSettings_Elasticness>();
 
@@ -457,7 +479,7 @@ namespace FIMSpace.AnimationTools
         {
             ADClipSettings_Main myMain = GetSetupForClip(MainSetupsForClips, fromClip, from);
             if (toClip == null) toClip = fromClip;
-            
+
             for (int i = 0; i < toSave.MainSetupsForClips.Count; i++)
                 if (toSave.MainSetupsForClips[i].SetIDHash == to && MainSetupsForClips[i].SettingsForClip == toClip) { myMain.Copy(toSave.MainSetupsForClips[i], true); break; }
 

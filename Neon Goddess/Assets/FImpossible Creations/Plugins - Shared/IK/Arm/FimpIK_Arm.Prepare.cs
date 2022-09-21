@@ -24,7 +24,7 @@ namespace FIMSpace.FTools
 
         protected virtual void HandBoneRotation()
         {
-            float rotWeight = HandRotationWeight * IKWeight;
+            float rotWeight = HandRotationWeight * IKWeight * _internalIKWeight;
 
             if (rotWeight > 0f)
             {
@@ -38,6 +38,7 @@ namespace FIMSpace.FTools
 
         public void RefreshAnimatorCoords()
         {
+            if (ShoulderIKBone != null) ShoulderIKBone.CaptureSourceAnimation();
             UpperArmIKBone.CaptureSourceAnimation();
             ForeArmIKBone.CaptureSourceAnimation();
             HandIKBone.CaptureSourceAnimation();

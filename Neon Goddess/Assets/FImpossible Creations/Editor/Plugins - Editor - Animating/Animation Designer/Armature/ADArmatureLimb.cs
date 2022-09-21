@@ -15,6 +15,9 @@ namespace FIMSpace.AnimationTools
         public string LimbName = "Limb";
         public string GetName { get { return LimbName; } }
 
+        [NonSerialized] public int AlternateExecutionIndex = -2;
+        public int GetExucutionIndex { get { if (AlternateExecutionIndex > -2) return AlternateExecutionIndex; else return Index; } }
+
         #region Utils
 
         public float GUIAlpha
@@ -124,6 +127,9 @@ namespace FIMSpace.AnimationTools
             EditorGUIUtility.labelWidth = 150;
             EditorGUILayout.BeginHorizontal();
             LimbName = EditorGUILayout.TextField(new GUIContent("Limb Name:", "This name is just for you, to easier identify limb when focusing on animating different parts of the character body."), LimbName);
+
+            //if (GUILayout.Button(new GUIContent(FGUI_Resources.Tex_ArrowLeft, "Change Limbs execution order"), GUILayout.Width(24)) ) { save.ChangeLimbsOrder(this, false); EditorUtility.SetDirty(save); AnimationDesignerWindow.Get.CheckComponentsInitialization(true); }
+            //if (GUILayout.Button(new GUIContent(FGUI_Resources.Tex_ArrowRight, "Change Limbs execution order"), GUILayout.Width(24)) ) { save.ChangeLimbsOrder(this, true); EditorUtility.SetDirty(save); AnimationDesignerWindow.Get.CheckComponentsInitialization(true); }
 
             GUI.backgroundColor = new Color(1f, 0.5f, 0.5f, 1f);
             if (GUILayout.Button(new GUIContent(FGUI_Resources.Tex_Remove), FGUI_Resources.ButtonStyle, GUILayout.Width(22), GUILayout.Height(19))) RemoveMe = true;

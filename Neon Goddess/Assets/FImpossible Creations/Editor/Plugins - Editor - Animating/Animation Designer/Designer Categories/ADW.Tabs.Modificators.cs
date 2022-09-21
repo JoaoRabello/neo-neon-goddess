@@ -17,6 +17,7 @@ namespace FIMSpace.AnimationTools
 
         public Vector3 angle;
         [NonSerialized] ADClipSettings_Modificators editedModSet;
+        bool drawAllModsEval = false;
 
         //bool _ModificatorLimbMode = false;
         void DrawModificatorsTab()
@@ -35,8 +36,13 @@ namespace FIMSpace.AnimationTools
 
             GUILayout.Space(3);
             EditorGUILayout.BeginHorizontal();
-            DrawTargetClipField("Bone Modificators For:", true);
+            if (DrawTargetClipField(FGUI_Resources.GetFoldSimbol(drawAllModsEval, true) + "  Bone Modificators For:", true)) drawAllModsEval = !drawAllModsEval;
+            //DrawTargetClipField("Bone Modificators For:", true);
             EditorGUILayout.EndHorizontal();
+
+            if (drawAllModsEval)
+                AnimationDesignerWindow.DrawCurve(ref _anim_MainSet.ModsEvaluation, "All Mods Blend:");
+
 
             GUILayout.Space(4);
             AnimationDesignerWindow.GUIDrawFloatPercentage(ref modSet.AllModificatorsBlend, new GUIContent("All Modificators Blend:  "));

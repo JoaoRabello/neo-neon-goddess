@@ -110,6 +110,12 @@ namespace FIMSpace.AnimationTools
         {
             [NonSerialized] ADClipSettings_Main refToMainSet = null;
 
+
+            /// <summary> Alternative IK execution index for this animation clip setup </summary>
+            [HideInInspector] public int AlternateExecutionIndex = -2;
+            [HideInInspector] public bool UseAlternateExecutionIndex = false;
+
+
             public int Index;
             public string ID;
 
@@ -783,9 +789,38 @@ namespace FIMSpace.AnimationTools
                         EditorGUILayout.EndHorizontal();
 
                         if (IKType == EIKType.FootIK)
-                            ThighOffset = EditorGUILayout.Vector3Field(new GUIContent( "Thigh Offset:", "If thigh bone seems to be rotated in comparison to original animation, you should be able to fix it with this parameter"), ThighOffset);
+                            ThighOffset = EditorGUILayout.Vector3Field(new GUIContent("Thigh Offset:", "If thigh bone seems to be rotated in comparison to original animation, you should be able to fix it with this parameter"), ThighOffset);
                         else if (IKType == EIKType.ArmIK)
-                            ThighOffset = EditorGUILayout.Vector3Field(new GUIContent( "Upperarm Offset:", "If upperarm bone seems to be rotated in comparison to original animation, you should be able to fix it with this parameter"), ThighOffset);
+                            ThighOffset = EditorGUILayout.Vector3Field(new GUIContent("Upperarm Offset:", "If upperarm bone seems to be rotated in comparison to original animation, you should be able to fix it with this parameter"), ThighOffset);
+                    }
+
+                    GUILayout.Space(6);
+
+                    if (UseAlternateExecutionIndex == false)
+                    {
+                        if (GUILayout.Button("Enable Alternate Execution Order", GUILayout.Width(280)))
+                        {
+                            UseAlternateExecutionIndex = true;
+                            AlternateExecutionIndex = -1;
+                            save._SetDirty();
+                        }
+                    }
+                    else
+                    {
+                        EditorGUILayout.BeginHorizontal();
+
+                        EditorGUI.BeginChangeCheck();
+                        AlternateExecutionIndex = EditorGUILayout.IntSlider("Execution Order: ", AlternateExecutionIndex, -1, save.Limbs.Count);
+
+                        if (GUILayout.Button("Restore Order"))
+                        {
+                            UseAlternateExecutionIndex = false;
+                            AlternateExecutionIndex = -2;
+                        }
+
+                        if (EditorGUI.EndChangeCheck()) save._SetDirty();
+
+                        EditorGUILayout.EndHorizontal();
                     }
 
                     GUILayout.Space(6);
@@ -984,6 +1019,13 @@ namespace FIMSpace.AnimationTools
                                         GUILayout.Space(2);
 
                                         ExportGroundingCurve = EditorGUILayout.Toggle(new GUIContent("Export Grounding Curve", "It can be useful for developers programming procedural leg grounding algorithms"), ExportGroundingCurve);
+
+                                        if (ExportGroundingCurve)
+                                        {
+                                            DrawGroundingAddParamsButton(this);
+                                            //EditorGUILayout.HelpBox("Add '" + GetName + "-H' float variable to the animator to get values with this animation playing", MessageType.None);
+                                            //if (GUI.Button(GUILayoutUtility.GetLastRect(), "", EditorStyles.label)) GUIUtility.systemCopyBuffer = GetName + "-H";
+                                        }
 
                                         GUILayout.Space(2);
                                     }
@@ -1231,6 +1273,12 @@ namespace FIMSpace.AnimationTools
                         AnimationDesignerWindow.DrawCurve(ref MaxLegStretchEvaluation, "", 50);
                         EditorGUILayout.EndHorizontal();
                         GUILayout.Space(4);
+
+
+                        if (ExportGroundingCurve)
+                        {
+                            DrawGroundingAddParamsButton(this);
+                        }
                     }
 
                     GUILayout.Space(6);
@@ -1750,6 +1798,7 @@ namespace FIMSpace.AnimationTools
 
                     #endregion
 
+
                 }
 
 
@@ -1797,6 +1846,26 @@ namespace FIMSpace.AnimationTools
 
             #region Additional GUI Panels
 
+
+            public static void DrawGroundingAddParamsButton(IKSet set)
+            {
+                if (AnimationDesignerWindow.Get)
+                {
+                    if (AnimationDesignerWindow.Get.GetMecanim)
+                    {
+                        UnityEditor.Animations.AnimatorController contr = AnimationGenerateUtils.GetStoredHumanoidIKPreviousController;
+                        if (contr == null) contr = (UnityEditor.Animations.AnimatorController)AnimationDesignerWindow.Get.GetMecanim.runtimeAnimatorController;
+
+                        if (contr != null)
+                            if (AnimationDesignerWindow.AnimatorHasParam(contr, set.GetName + "-H") == false)
+                                if (GUILayout.Button(new GUIContent("Add '" + set.GetName + "-H' Parameter to the Animator", EditorGUIUtility.IconContent("AnimatorController Icon").image), GUILayout.Height(18)))
+                                {
+                                    contr.AddParameter(new AnimatorControllerParameter() { defaultFloat = 0f, name = set.GetName + "-H", type = AnimatorControllerParameterType.Float });
+                                    EditorUtility.SetDirty(AnimationDesignerWindow.Get.GetMecanim);
+                                }
+                    }
+                }
+            }
 
             public static void DrawIKHipsParameters(float progr, ADClipSettings_Main clipMain, AnimationDesignerSave save)
             {
@@ -2227,10 +2296,11 @@ namespace FIMSpace.AnimationTools
 
                 Vector3 constOff = root.TransformVector(IKPositionOffset) * IKPosOffMul * IKPosOffEvaluate.Evaluate(progr);
 
-                if (IKWhenUngroundedPosOffMul > 0f) ikMotionEdit = Vector3.LerpUnclamped(ikMotionEdit, ikMotionEdit + root.TransformVector(IKWhenUngroundedPositionOffset), IKWhenUngroundedPosOffMul * IKWhenUngroundedPosOffEvaluate.Evaluate(progr));
+                if (IKWhenUngroundedPosOffMul > 0f) ikMotionEdit = Vector3.LerpUnclamped(ikMotionEdit, ikMotionEdit + root.TransformVector(IKWhenUngroundedPositionOffset), IKWhenUngroundedPosOffMul * IKWhenUngroundedPosOffEvaluate.Evaluate(progr) * (1f - groundingBlendIn));
 
-                newIKPos = ikMotionEdit;// + constOff;
+                newIKPos = ikMotionEdit;
 
+                if (groundingBlendIn <= 0f) newIKPos += constOff;
 
                 #region Leg stretching limiting when ungrounded
 
@@ -2531,12 +2601,26 @@ namespace FIMSpace.AnimationTools
                     #endregion
 
 
-                    groundIKPos += constOff;
-
                     // Multiply offsets
                     if (IKWhenGroundedPosOffMul > 0f) groundIKPos = Vector3.LerpUnclamped(groundIKPos, groundIKPos + root.TransformVector(IKWhenGroundedPositionOffset), IKWhenGroundedPosOffMul * IKWhenGroundedPosOffEvaluate.Evaluate(progr));
 
-                    newIKPos = Vector3.Lerp(newIKPos, groundIKPos, groundingBlendIn);
+
+                    // Stretch when grounded:
+
+
+                    if (maxStr < 1.1f)
+                    {
+                        float stretch = processor.GetStretchValue(groundIKPos);
+
+                        if (stretch > maxStr)
+                        {
+                            float len = (maxStr * processor.GetLimbLength());
+                            groundIKPos = processor.StartIKBone.srcPosition + (groundIKPos - processor.StartIKBone.srcPosition).normalized * len;
+                        }
+                    }
+
+
+                    newIKPos = Vector3.Lerp(newIKPos, groundIKPos, groundingBlendIn) + constOff;
                     newIKRot = Quaternion.Slerp(newIKRot, footRot, groundingBlendIn);
                 }
                 // Grounding blend in end

@@ -451,7 +451,7 @@ namespace FIMSpace.AnimationTools
                     RotationValue = EditorGUILayout.Vector3Field(" Angles:", RotationValue);
 
                     if (FixedAxisRotation) GUI.backgroundColor = Color.green;
-                    if (GUILayout.Button(new GUIContent(FGUI_Resources.Tex_Rotation, "Turn ON/OFF Fixed Axis Rotation"), GUILayout.Width(24), GUILayout.Height(19)))
+                    if (GUILayout.Button(new GUIContent(FGUI_Resources.Tex_Rotation, "Turn ON/OFF Fixed Axis Rotation ! Whole model rotation 0,0,0 is required !"), GUILayout.Width(24), GUILayout.Height(19)))
                     {
                         FixedAxisRotation = !FixedAxisRotation;
                     }

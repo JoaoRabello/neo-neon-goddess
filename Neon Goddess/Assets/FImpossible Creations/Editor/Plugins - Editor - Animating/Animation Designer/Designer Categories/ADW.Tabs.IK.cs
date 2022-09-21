@@ -84,7 +84,8 @@ namespace FIMSpace.AnimationTools
                 #endregion
 
 
-                DrawSelectorGUI(S.Limbs, ref _sel_ikLimb, 18, position.width - 22);
+                var limbsList = S.GetLimbsExecutionList(setup.LimbIKSetups);
+                DrawSelectorGUI(limbsList, ref _sel_ikLimb, 18, position.width - 22, -1);
 
                 if (_sel_ikLimb > -1)
                     if (Limbs.ContainsIndex(_sel_ikLimb, true))

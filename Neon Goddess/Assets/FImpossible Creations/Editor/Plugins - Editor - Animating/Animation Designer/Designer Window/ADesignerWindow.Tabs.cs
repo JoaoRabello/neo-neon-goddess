@@ -685,7 +685,6 @@ namespace FIMSpace.AnimationTools
                         draftsMenu.AddItem(GUIContent.none, false, () => { });
                         draftsMenu.AddItem(GUIContent.none, false, () => { });
 
-                        UnityEngine.Debug.Log("versions = " + allVersions.Count);
                         for (int i = 0; i < allVersions.Count; i++)
                         {
                             ADClipSettings_Main set = allVersions[i];

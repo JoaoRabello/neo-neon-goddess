@@ -11,6 +11,7 @@ namespace FIMSpace.AnimationTools
         public AnimationClip settingsForClip;
         public bool TurnOnElasticness = true;
         public AnimationCurve ElasticnessEvaluation = AnimationCurve.EaseInOut(0f, 1f, 1f, 1f);
+        public AnimationCurve ModsEvaluation = AnimationCurve.EaseInOut(0f, 1f, 1f, 1f);
         public bool TurnOnIK = true;
         public bool TurnOnMorphs = true;
 
@@ -146,6 +147,7 @@ namespace FIMSpace.AnimationTools
         public string SetID { get { return setId; } }
         public int SetIDHash { get { return setIdHash; } }
         public AnimationClip SettingsForClip { get { return settingsForClip; } }
+
 
         public float ClipDurationMultiplier = 1f;
         public AnimationCurve ClipSampleTimeCurve = AnimationCurve.EaseInOut(0f, 1f, 1f, 1f);
@@ -421,6 +423,14 @@ namespace FIMSpace.AnimationTools
             }
 
             return _Tip_DisplayCount;
+        }
+
+
+        internal float GetModsBlend(float animationProgress)
+        {
+            if (ModsEvaluation == null) return 1f;
+            if (ModsEvaluation.length <= 1) return 1f;
+            return ModsEvaluation.Evaluate(animationProgress);
         }
 
         internal void RefreshPelvisCheck(ADArmatureSetup arm)

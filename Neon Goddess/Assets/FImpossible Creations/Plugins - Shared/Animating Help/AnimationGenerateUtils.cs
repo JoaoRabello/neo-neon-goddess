@@ -110,15 +110,37 @@ namespace FIMSpace.AnimationTools
 
         public static void DistrubuteCurveOnTime(ref AnimationCurve curve, float startTime, float endTime)
         {
+            float curveStart = curve.keys[0].time;
+            float curveEnd = curve.keys[curve.keys.Length - 1].time;
 
-            for (int k = 0; k < curve.keys.Length; k++)
+            Keyframe[] evalKeys = new Keyframe[curve.keys.Length];
+            curve.keys.CopyTo(evalKeys, 0);
+            AnimationCurve refCurve = new AnimationCurve(evalKeys);
+
+            while (curve.keys.Length > 0)
             {
-                Keyframe src = curve.keys[k];
-                Keyframe newK = src;
-                newK.time = Mathf.Lerp(startTime, endTime, Mathf.InverseLerp(curve.keys[0].time, curve.keys[curve.keys.Length - 1].time, src.time));
-
-                curve.MoveKey(k, newK);
+                curve.RemoveKey(curve.keys.Length - 1);
             }
+            
+            for (int k = 0; k < refCurve.keys.Length; k++)
+            //for (int k = refCurve.keys.Length - 1; k >= 0; k--)
+            //for (int k = refCurve.keys.Length - 1; k >= 0; k--)
+            {
+                Keyframe src = refCurve.keys[k];
+                Keyframe newK = src;
+
+                newK.time = Mathf.Lerp(startTime, endTime, Mathf.InverseLerp(curveStart, curveEnd, src.time));
+                curve.AddKey(newK);
+            }
+
+            //for (int k = 0; k < curve.keys.Length; k++)
+            //{
+            //    Keyframe src = curve.keys[k];
+            //    Keyframe newK = src;
+            //    newK.time = Mathf.Lerp(startTime, endTime, Mathf.InverseLerp(curve.keys[0].time, curve.keys[curve.keys.Length - 1].time, src.time));
+
+            //    curve.MoveKey(k, newK);
+            //}
 
         }
 
@@ -168,6 +190,7 @@ namespace FIMSpace.AnimationTools
 
 #if UNITY_EDITOR
         static UnityEditor.Animations.AnimatorController _ikHelperAnimController = null;
+        public static UnityEditor.Animations.AnimatorController GetStoredHumanoidIKPreviousController { get { return _ikHelperAnimController; } }
         static RuntimeAnimatorController _ikHelperAnimRController = null;
 #endif
 
@@ -202,7 +225,7 @@ namespace FIMSpace.AnimationTools
                     layer.stateMachine = new UnityEditor.Animations.AnimatorStateMachine();
                     layer.stateMachine.AddState(state, Vector3.zero);
                     layer.stateMachine.defaultState = state;
-                    
+
                     _ikHelperAnimController.AddLayer(layer);
                 }
 

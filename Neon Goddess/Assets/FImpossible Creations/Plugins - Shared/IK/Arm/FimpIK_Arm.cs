@@ -11,6 +11,7 @@ namespace FIMSpace.FTools
     [System.Serializable]
     public partial class FimpIK_Arm
     {
+        [NonSerialized] public float _internalIKWeight = 1f;
         [Range(0f, 1f)] public float IKWeight = 1f;
         [Tooltip("Blend value for goal position")] [Space(4)] [Range(0f, 1f)] public float IKPositionWeight = 1f;
         [Tooltip("Blend value hand rotation")] [Range(0f, 1f)] public float HandRotationWeight = 1f;
@@ -34,20 +35,40 @@ namespace FIMSpace.FTools
         public void Update()
         {
             if (!Initialized) return;
+
             CalculateLimbLength();
             Refresh();
 
-            ComputeShoulder();
+            ComputeShoulder(IKTargetPosition);
+
+            Vector3 targetIKPos = IKTargetPosition;
+
+            #region Max Stretching Feature
+
+            if (MaxStretching < 1.2f)
+            {
+                CalculateLimbLength();
+                float stretch = GetStretchValue(targetIKPos);
+
+                if (stretch > MaxStretching)
+                {
+                    float len = (MaxStretching * limbLength);
+                    targetIKPos = UpperArmIKBone.transform.position + (targetIKPos - UpperArmIKBone.transform.position).normalized * len;
+                }
+            }
+
+            #endregion
+
 
             // Arm IK Position ---------------------------------------------------
 
-            float posWeight = IKPositionWeight * IKWeight;
+            float posWeight = IKPositionWeight * IKWeight * _internalIKWeight;
             UpperArmIKBone.sqrMagn = (ForeArmIKBone.transform.position - UpperArmIKBone.transform.position).sqrMagnitude;
             ForeArmIKBone.sqrMagn = (HandIKBone.transform.position - ForeArmIKBone.transform.position).sqrMagnitude;
 
             TargetElbowNormal = GetDefaultFlexNormal();
 
-            Vector3 orientationDirection = GetOrientationDirection(IKTargetPosition, TargetElbowNormal);
+            Vector3 orientationDirection = GetOrientationDirection(targetIKPos, TargetElbowNormal);
             if (orientationDirection == Vector3.zero) orientationDirection = ForeArmIKBone.transform.position - UpperArmIKBone.transform.position;
 
             if (posWeight > 0f)
@@ -56,7 +77,7 @@ namespace FIMSpace.FTools
                 if (posWeight < 1f) sBoneRot = Quaternion.LerpUnclamped(UpperArmIKBone.transform.rotation, sBoneRot, posWeight);
                 UpperArmIKBone.transform.rotation = sBoneRot;
 
-                Quaternion sMidBoneRot = ForeArmIKBone.GetRotation(IKTargetPosition - ForeArmIKBone.transform.position, ForeArmIKBone.GetCurrentOrientationNormal());
+                Quaternion sMidBoneRot = ForeArmIKBone.GetRotation(targetIKPos - ForeArmIKBone.transform.position, ForeArmIKBone.GetCurrentOrientationNormal());
                 if (posWeight < 1f) sMidBoneRot = Quaternion.LerpUnclamped(ForeArmIKBone.transform.rotation, sMidBoneRot, posWeight);
                 ForeArmIKBone.transform.rotation = sMidBoneRot;
             }
@@ -64,13 +85,15 @@ namespace FIMSpace.FTools
             HandBoneRotation();
         }
 
+        [NonSerialized] public Vector3 ikCustomHintOffset = Vector3.zero;
 
         /// <summary>
         /// Calculating IK pole position normal for desired flexing bend
         /// </summary>
         private Vector3 GetAutomaticFlexNormal()
         {
-            Vector3 bendNormal = UpperArmIKBone.GetCurrentOrientationNormal();
+            Vector3 bendNormal = UpperArmIKBone.GetCurrentOrientationNormal() ;
+            if (ikCustomHintOffset != Vector3.zero) bendNormal = (bendNormal + ikCustomHintOffset).normalized;
 
             switch (AutoHintMode)
             {
@@ -78,7 +101,7 @@ namespace FIMSpace.FTools
                     return Vector3.LerpUnclamped(bendNormal.normalized, ForeArmIKBone.srcRotation * ForeArmIKBone.forward, 0.5f);
 
 
-                case FIK_HintMode.MiddleBack: return ForeArmIKBone.srcRotation * -ForeArmIKBone.right;
+                case FIK_HintMode.MiddleBack: return ForeArmIKBone.srcRotation * -ForeArmIKBone.right + ikCustomHintOffset;
 
                 case FIK_HintMode.EndForward:
 

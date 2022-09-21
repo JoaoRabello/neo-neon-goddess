@@ -5,7 +5,10 @@ namespace FIMSpace.FTools
 {
    
     public partial class FimpIK_Arm 
-    { 
+    {
+        private Vector3 lastIKBasePosition;
+        private Quaternion lastIKBaseRotation;
+
         public Vector3 IKTargetPosition;
         public Quaternion IKTargetRotation;
 

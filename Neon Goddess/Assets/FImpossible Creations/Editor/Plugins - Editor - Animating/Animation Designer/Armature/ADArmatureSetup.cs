@@ -580,7 +580,7 @@ namespace FIMSpace.AnimationTools
                 {
                     var ikLimb = iks.LimbIKSetups[i];
                     if (ikLimb.IKType != ADClipSettings_IK.IKSet.EIKType.FootIK) continue;
-                    if (ikLimb.LegMode == ADClipSettings_IK.IKSet.ELegMode.BasicIK) continue;
+                    //if (ikLimb.LegMode == ADClipSettings_IK.IKSet.ELegMode.BasicIK) continue;
                     if (ikLimb.ExportGroundingCurve == false) continue;
                     if (ikLimb.FootDataAnalyze == null) continue;
 
@@ -589,6 +589,20 @@ namespace FIMSpace.AnimationTools
                     bind.propertyName = ikLimb.GetName + "-H";
 
                     AnimationCurve tgtCurve = AnimationDesignerWindow.CopyCurve(ikLimb.FootDataAnalyze.GroundingCurve);
+
+                    if (tgtCurve.keys.Length > 1)
+                    {
+                        if (tgtCurve.keys[0].time > 0f)
+                        {
+                            tgtCurve.AddKey(new Keyframe(0f, tgtCurve.keys[0].value));
+                        }
+
+                        if (tgtCurve.keys[tgtCurve.keys.Length - 1].time < 1f)
+                        {
+                            tgtCurve.AddKey(new Keyframe(1f, tgtCurve.keys[tgtCurve.keys.Length - 1].value));
+                        }
+                    }
+
                     AnimationGenerateUtils.DistrubuteCurveOnTime(ref tgtCurve, 0f, clip.length);
                     AnimationUtility.SetEditorCurve(clip, bind, tgtCurve);
                 }

@@ -213,6 +213,7 @@ namespace FIMSpace.AnimationTools
 
         Transform latestAnimator = null;
         Animator currentMecanim = null;
+        public Animator GetMecanim { get { return currentMecanim; } }
         Animation currentLegacy = null;
 
         bool repaintRequest = false;
