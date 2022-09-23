@@ -11,6 +11,8 @@ public class AimingSystemPrototype : MonoBehaviour
     [SerializeField] private GameObject _hitAim;
     [SerializeField] private Transform _weaponEnd;
     [SerializeField] private Camera _mainCamera;
+    [SerializeField] private float _aimInaccuracyMax;
+    [SerializeField] private float _aimInaccuracySpeed;
     [SerializeField] private Rig _aimRig;
     [SerializeField] private Rig _torsoRig;
     private InputActions _input;
@@ -24,6 +26,9 @@ public class AimingSystemPrototype : MonoBehaviour
 
     private bool _isAiming;
     private GameObject _shotObject;
+    private Vector2 _aimInaccuracyOffset;
+    private Vector2 _currentInaccuracyOffset;
+    private Vector2 _currentInaccuracyVelocity;
 
     private void Awake()
     {
@@ -72,6 +77,15 @@ public class AimingSystemPrototype : MonoBehaviour
 
     private void Update()
     {
+        var lastInaccuracyOffset = _currentInaccuracyOffset;
+
+        if (Mathf.Abs(_aimInaccuracyOffset.x - _currentInaccuracyOffset.x) < 0.5f || Mathf.Abs(_aimInaccuracyOffset.x - _currentInaccuracyOffset.x) < 0.5f)
+        {
+            _aimInaccuracyOffset = new Vector2(Random.Range(-_aimInaccuracyMax, _aimInaccuracyMax), Random.Range(-_aimInaccuracyMax, _aimInaccuracyMax));
+        }
+
+        _currentInaccuracyOffset = Vector2.SmoothDamp(lastInaccuracyOffset, _aimInaccuracyOffset, ref _currentInaccuracyVelocity, _aimInaccuracySpeed * Time.deltaTime);
+        
         var mousePosition = CalculateMousePosition();
         
         _animationRootMovement.SetHandTargetPosition(mousePosition);
@@ -93,7 +107,9 @@ public class AimingSystemPrototype : MonoBehaviour
     private void AimRaycast(Vector3 mousePosition)
     {
         var rayHit = new RaycastHit();
-        var ray = new Ray(transform.position, (mousePosition - transform.position).normalized);
+
+        var targetWithOffset = (Vector2)mousePosition + _currentInaccuracyOffset;
+        var ray = new Ray(transform.position, (targetWithOffset - (Vector2)transform.position).normalized);
         
         if(Physics.Raycast(ray, out rayHit, 20))
         {
