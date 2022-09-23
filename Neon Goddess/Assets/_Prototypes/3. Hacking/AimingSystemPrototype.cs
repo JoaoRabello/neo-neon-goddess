@@ -11,8 +11,9 @@ public class AimingSystemPrototype : MonoBehaviour
     [SerializeField] private GameObject _hitAim;
     [SerializeField] private Transform _weaponEnd;
     [SerializeField] private Camera _mainCamera;
-    [SerializeField] private float _aimInaccuracyMax;
-    [SerializeField] private float _aimInaccuracySpeed;
+    [SerializeField] private float _stablePrecisionError;
+    [SerializeField] private float _affectedPercentPrecisionError;
+    [SerializeField] private float _precisionErrorSpeed;
     [SerializeField] private Rig _aimRig;
     [SerializeField] private Rig _torsoRig;
     private InputActions _input;
@@ -26,9 +27,9 @@ public class AimingSystemPrototype : MonoBehaviour
 
     private bool _isAiming;
     private GameObject _shotObject;
-    private Vector2 _aimInaccuracyOffset;
-    private Vector2 _currentInaccuracyOffset;
-    private Vector2 _currentInaccuracyVelocity;
+    private Vector2 _aimPrecisionError;
+    private Vector2 _currentPrecisionError;
+    private Vector2 _currentPrecisionErrorVelocity;
 
     private void Awake()
     {
@@ -77,21 +78,33 @@ public class AimingSystemPrototype : MonoBehaviour
 
     private void Update()
     {
-        var lastInaccuracyOffset = _currentInaccuracyOffset;
+        CalculateAimPrecision();
 
-        if (Mathf.Abs(_aimInaccuracyOffset.x - _currentInaccuracyOffset.x) < 0.5f || Mathf.Abs(_aimInaccuracyOffset.x - _currentInaccuracyOffset.x) < 0.5f)
-        {
-            _aimInaccuracyOffset = new Vector2(Random.Range(-_aimInaccuracyMax, _aimInaccuracyMax), Random.Range(-_aimInaccuracyMax, _aimInaccuracyMax));
-        }
-
-        _currentInaccuracyOffset = Vector2.SmoothDamp(lastInaccuracyOffset, _aimInaccuracyOffset, ref _currentInaccuracyVelocity, _aimInaccuracySpeed * Time.deltaTime);
-        
         var mousePosition = CalculateMousePosition();
         
         _animationRootMovement.SetHandTargetPosition(mousePosition);
         
         AimRaycast(mousePosition);
         DrawAimLine(_hitAim.transform.position);
+    }
+
+    private void CalculateAimPrecision()
+    {
+        var lastPrecisionError = _currentPrecisionError;
+        var precisionError = _stablePrecisionError * (1 + _affectedPercentPrecisionError/100);
+        var precisionErrorSpeed = _precisionErrorSpeed * (1 - _affectedPercentPrecisionError / 100);
+
+        if (Mathf.Abs(_aimPrecisionError.x - _currentPrecisionError.x) < 0.2f || Mathf.Abs(_aimPrecisionError.y - _currentPrecisionError.y) < 0.2f)
+        {
+            CalculateRandomAimPrecisionError(precisionError);
+        }
+
+        _currentPrecisionError = Vector2.SmoothDamp(lastPrecisionError, _aimPrecisionError, ref _currentPrecisionErrorVelocity, precisionErrorSpeed * Time.deltaTime);
+    }
+
+    private void CalculateRandomAimPrecisionError(float precisionError)
+    {
+        _aimPrecisionError = new Vector2(Random.Range(-precisionError, precisionError), Random.Range(-precisionError, precisionError));
     }
 
     private Vector3 CalculateMousePosition()
@@ -108,7 +121,7 @@ public class AimingSystemPrototype : MonoBehaviour
     {
         var rayHit = new RaycastHit();
 
-        var targetWithOffset = (Vector2)mousePosition + _currentInaccuracyOffset;
+        var targetWithOffset = (Vector2)mousePosition + _currentPrecisionError;
         var ray = new Ray(transform.position, (targetWithOffset - (Vector2)transform.position).normalized);
         
         if(Physics.Raycast(ray, out rayHit, 20))

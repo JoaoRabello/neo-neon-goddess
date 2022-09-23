@@ -11688,8 +11688,9 @@ MonoBehaviour:
   _hitAim: {fileID: 1894113829}
   _weaponEnd: {fileID: 769162974}
   _mainCamera: {fileID: 2027789607}
-  _aimInaccuracyMax: 0.7
-  _aimInaccuracySpeed: 100
+  _stablePrecisionError: 0.5
+  _affectedPercentPrecisionError: 0
+  _precisionErrorSpeed: 120
   _aimRig: {fileID: 588067754}
   _torsoRig: {fileID: 1293883485}
 --- !u!1 &1883789345
