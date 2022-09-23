@@ -148,4 +148,19 @@ public class AimingSystemPrototype : MonoBehaviour
         _aimLine.SetPosition(0, _weaponEnd.position);
         _aimLine.SetPosition(1, (Vector2)_weaponEnd.position + (lineEndPosition - (Vector2)_weaponEnd.position).normalized * 2);
     }
+
+    public void SetStablePrecisionError(string value)
+    {
+        _stablePrecisionError = float.Parse(value);
+    }
+    
+    public void SetAffectedPercentPrecisionError(string value)
+    {
+        _affectedPercentPrecisionError = float.Parse(value);
+    }
+
+    public void SetPrecisionErrorSpeed(string value)
+    {
+        _precisionErrorSpeed = float.Parse(value);
+    }
 }
