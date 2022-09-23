@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DummyHackable : MonoBehaviour, IHackable
 {
@@ -10,6 +11,11 @@ public class DummyHackable : MonoBehaviour, IHackable
     [SerializeField] private int _systemArmor;
 
     private int _currentSystemResistance;
+
+    [Header("UI")] 
+    [SerializeField] private Slider _systemResistanceBar;
+    [SerializeField] private Light _hackingLight;
+    [SerializeField] private List<Color> _hackingColors = new List<Color>();
     
     [Header("Movement")] 
     [SerializeField] private float _speed;
@@ -24,10 +30,14 @@ public class DummyHackable : MonoBehaviour, IHackable
     private void Start()
     {
         _currentSystemResistance = _systemResistance;
+            
+        _hackingLight.color = _hackingColors[0];
     }
     
     public void TakeHackShot(int damageAmount)
     {
+        if (_isHacked) return;
+        
         var damageTaken = damageAmount - _systemArmor;
 
         if (damageTaken >= _currentSystemResistance)
@@ -39,7 +49,11 @@ public class DummyHackable : MonoBehaviour, IHackable
         else
         {
             _currentSystemResistance -= damageTaken;
+            
+            _hackingLight.color = _hackingColors[1];
         }
+        
+        _systemResistanceBar.value = (float)_currentSystemResistance / _systemResistance;
     }
 
     public void Hack()
@@ -49,6 +63,9 @@ public class DummyHackable : MonoBehaviour, IHackable
         _isHacked = true;
 
         _rigidbody.velocity = Vector3.zero;
+        
+        _hackingLight.color = _hackingColors[2];
+        _systemResistanceBar.gameObject.SetActive(false);
         // StopAllCoroutines();
         // StartCoroutine(HackBehaviour());
     }
