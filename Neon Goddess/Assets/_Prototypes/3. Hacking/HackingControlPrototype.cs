@@ -6,29 +6,30 @@ using UnityEngine;
 public class HackingControlPrototype : MonoBehaviour
 {
     [SerializeField] private AimingSystemPrototype _aimingSystem;
-    [SerializeField] private bool _instantHack;
+    [SerializeField] private HackAmmoData _hackAmmoData;
+
+    [SerializeField] private HackAmmoData.HackAmmoType _currentAmmoType;
 
     private void OnEnable()
     {
-        _aimingSystem.OnShot += StartHacking;
+        _aimingSystem.OnShot += TryShootTarget;
     }
 
     private void OnDisable()
     {
-        _aimingSystem.OnShot -= StartHacking;
+        _aimingSystem.OnShot -= TryShootTarget;
     }
 
-    private void StartHacking(GameObject target)
+    private void TryShootTarget(GameObject target)
     {
         var hackable = target.gameObject.GetComponent<IHackable>();
         if(hackable is null) return;
         
-        if (_instantHack) Hack(hackable);
+        ShootHackAmmo(hackable);
     }
 
-    private void Hack(IHackable target)
+    private void ShootHackAmmo(IHackable target)
     {
-        if(_instantHack)
-            target.Hack();
+        target.TakeHackShot(_hackAmmoData.GetAmmoDamageByType(_currentAmmoType));
     }
 }

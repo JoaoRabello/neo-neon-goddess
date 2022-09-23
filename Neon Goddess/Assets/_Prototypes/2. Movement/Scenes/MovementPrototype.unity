@@ -8406,7 +8406,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _aimingSystem: {fileID: 1831399346}
-  _instantHack: 1
+  _hackAmmoData: {fileID: 11400000, guid: 9281e2e7e26f6b744b55d0549e38cef3, type: 2}
+  _currentAmmoType: 0
 --- !u!95 &1283557754 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1186731160940879467, guid: 3e0b2aaa8b2727a449c8031081a7b238,
@@ -10425,7 +10426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2d922a78ce78c45a4de865d9813f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeHacked: 5
+  _systemResistance: 10
+  _systemArmor: 2
   _speed: 2
   _rigidbody: {fileID: 1620615511}
   _waypoints:

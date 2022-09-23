@@ -5,16 +5,43 @@ using UnityEngine;
 
 public class DummyHackable : MonoBehaviour, IHackable
 {
-    [SerializeField] private float _timeHacked;
+    [Header("Combat")] 
+    [SerializeField] private int _systemResistance;
+    [SerializeField] private int _systemArmor;
+
+    private int _currentSystemResistance;
+    
+    [Header("Movement")] 
     [SerializeField] private float _speed;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private List<Transform> _waypoints = new List<Transform>();
 
     private int _waypointIndex;
-    
+
     private bool _isHacking;
     private bool _isHacked;
+
+    private void Start()
+    {
+        _currentSystemResistance = _systemResistance;
+    }
     
+    public void TakeHackShot(int damageAmount)
+    {
+        var damageTaken = damageAmount - _systemArmor;
+
+        if (damageTaken >= _currentSystemResistance)
+        {
+            _currentSystemResistance = 0;
+            
+            Hack();
+        }
+        else
+        {
+            _currentSystemResistance -= damageTaken;
+        }
+    }
+
     public void Hack()
     {
         if (_isHacked) return;
@@ -57,8 +84,7 @@ public class DummyHackable : MonoBehaviour, IHackable
 
     private IEnumerator HackBehaviour()
     {
-        
-        yield return new WaitForSeconds(_timeHacked);
+        yield return new WaitForSeconds(0);
         _isHacked = false;
     }
 }
