@@ -1103,7 +1103,7 @@ MonoBehaviour:
       LocalPosition: {x: -0.03008453, y: 0.0023515427, z: 0.019359}
       LocalRotation: {x: 0.6911961, y: -0.50053877, z: 0.14915775, w: 0.49946064}
       LocalScale: {x: 1, y: 1.0000001, z: 1}
-  _Tips_RootAndHipsMakeSureCounter: 14
+  _Tips_RootAndHipsMakeSureCounter: 18
   Export_SetAllOriginalBake: 1
   Export_CopyEvents: 1
   Export_CopyCurves: 0
@@ -1905,8 +1905,446 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    _Tip_WasDisplaying: 0
-    _Tip_DisplayCount: -1
+    _Tip_WasDisplaying: 1
+    _Tip_DisplayCount: 1
+    OffsetHandsIKBlend: 1
+    IKGroundLevel: 0
+    IKGroundNormal: {x: 0, y: 1, z: 0}
+    ElasticnesSettings:
+      Index: -1
+      ID: 
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 0.7
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 1
+    LatestAnimator: {fileID: 0}
+    setId: 
+    setIdHash: 0
+    ClipDurationMultiplier: 1
+    ClipSampleTimeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ClipTimeReverse: 0
+    ClipTrimFirstFrames: 0
+    ClipTrimLastFrames: 0
+    ResetRootPosition: 0
+    AdditionalAnimationCycles: 0
+  - settingsForClip: {fileID: 7400000, guid: e30f2f38f845cd043963b7eb61e23bae, type: 2}
+    TurnOnElasticness: 1
+    ElasticnessEvaluation:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ModsEvaluation:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    TurnOnIK: 1
+    TurnOnMorphs: 1
+    Export_LoopAdditionalKeys: 0
+    Export_ForceRootMotion: 0
+    Export_DisableRootMotionExport: 0
+    Export_JoinRootMotion: 0
+    Additional_UseHumanoidMecanimIK: 0
+    Export_LoopClip: 0
+    AlternativeName: 
+    Pelvis: {fileID: 0}
+    PelvisOffsetsBlend: 1
+    PelvisConstantYOffset: 0
+    PelvisYOffset: 0
+    PelvisOffsetYEvaluate:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    PelvisXOffset: 0
+    PelvisOffsetXEvaluate:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    PelvisZOffset: 0
+    PelvisOffsetZEvaluate:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _Tip_WasDisplaying: 1
+    _Tip_DisplayCount: 0
+    OffsetHandsIKBlend: 1
+    IKGroundLevel: 0
+    IKGroundNormal: {x: 0, y: 1, z: 0}
+    ElasticnesSettings:
+      Index: -1
+      ID: 
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 0.7
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 1
+    LatestAnimator: {fileID: 0}
+    setId: 
+    setIdHash: 0
+    ClipDurationMultiplier: 1
+    ClipSampleTimeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ClipTimeReverse: 0
+    ClipTrimFirstFrames: 0
+    ClipTrimLastFrames: 0
+    ResetRootPosition: 0
+    AdditionalAnimationCycles: 0
+  - settingsForClip: {fileID: 7400000, guid: 7440e220d1e42d24dae66dd91efa176d, type: 2}
+    TurnOnElasticness: 1
+    ElasticnessEvaluation:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ModsEvaluation:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    TurnOnIK: 1
+    TurnOnMorphs: 1
+    Export_LoopAdditionalKeys: 0
+    Export_ForceRootMotion: 0
+    Export_DisableRootMotionExport: 0
+    Export_JoinRootMotion: 0
+    Additional_UseHumanoidMecanimIK: 0
+    Export_LoopClip: 0
+    AlternativeName: 
+    Pelvis: {fileID: 0}
+    PelvisOffsetsBlend: 1
+    PelvisConstantYOffset: 0
+    PelvisYOffset: 0
+    PelvisOffsetYEvaluate:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    PelvisXOffset: 0
+    PelvisOffsetXEvaluate:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    PelvisZOffset: 0
+    PelvisOffsetZEvaluate:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _Tip_WasDisplaying: 1
+    _Tip_DisplayCount: 0
     OffsetHandsIKBlend: 1
     IKGroundLevel: 0
     IKGroundNormal: {x: 0, y: 1, z: 0}
@@ -3025,6 +3463,618 @@ MonoBehaviour:
         m_RotationOrder: 4
       RotationsElasticness: 1
       RotationsBlend: 0.84788734
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 0
+    - Index: 2
+      ID: Spine Chain
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 0.7
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 0
+    - Index: 3
+      ID: Left Leg
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 0.7
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 0
+    - Index: 4
+      ID: Right Leg
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 0.7
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 0
+    - Index: 5
+      ID: Limb
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 0.7
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 0
+    setId: 
+    setIdHash: 0
+  - settingsForClip: {fileID: 7400000, guid: e30f2f38f845cd043963b7eb61e23bae, type: 2}
+    Main:
+      Index: -1
+      ID: 
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 0.7
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 1
+    LimbsSets:
+    - Index: 0
+      ID: Left Arm
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 0.7
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 0
+    - Index: 1
+      ID: Right Arm
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 0.7
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 0
+    - Index: 2
+      ID: Spine Chain
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 0.7
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 0
+    - Index: 3
+      ID: Left Leg
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 0.7
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 0
+    - Index: 4
+      ID: Right Leg
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 0.7
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 0
+    - Index: 5
+      ID: Limb
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 0.7
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 0
+    setId: 
+    setIdHash: 0
+  - settingsForClip: {fileID: 7400000, guid: 7440e220d1e42d24dae66dd91efa176d, type: 2}
+    Main:
+      Index: -1
+      ID: 
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 0.7
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 1
+    LimbsSets:
+    - Index: 0
+      ID: Left Arm
+      Enabled: 1
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 1
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationInfluence: 1
+      EulerMode: 0
+      OnMovementElasticness: 0
+      OnMoveBlend: 0
+      MoveRapidity: 0.6
+      MoveDamping: 0.3
+      MoveSmoothing: 0.6
+      MoveMildRotate: 0
+      MoveStretch: 0
+      MotionInfluence: 0
+    - Index: 1
+      ID: Right Arm
+      Enabled: 1
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsElasticness: 1
+      RotationsBlend: 0.7
       RotationsRapidity: 0.7
       RotationsDamping: 0.25
       RotationsSwinginess: 0.6
@@ -4679,6 +5729,496 @@ MonoBehaviour:
       alignTo: {fileID: 0}
       AlignToBlend: 1
       Foldown: 0
+    AllModificatorsBlend: 1
+    setId: 
+    setIdHash: 0
+  - settingsForClip: {fileID: 7400000, guid: e30f2f38f845cd043963b7eb61e23bae, type: 2}
+    BonesModificators: []
+    AllModificatorsBlend: 1
+    setId: 
+    setIdHash: 0
+  - settingsForClip: {fileID: 7400000, guid: 7440e220d1e42d24dae66dd91efa176d, type: 2}
+    BonesModificators:
+    - Transform: {fileID: 0}
+      Type: 0
+      UpdateOrder: 0
+      ModName: RightLowerArm Mod
+      BoneName: LowManRightForeArm
+      Index: 0
+      FixedAxisRotation: 0
+      ChildRotIndependent: 0
+      Enabled: 1
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationBlend: 1
+      PositionBlend: 1
+      RootMotionTransformSpace: 0
+      RotationValue: {x: 0, y: -23, z: 35.7}
+      RotationEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      PositionValue: {x: 0, y: 0, z: 0}
+      PositionEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationValue2: {x: 0, y: 0, z: 0}
+      RotationEvaluate2:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationsBoost: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      Foldown: 0
+    - Transform: {fileID: 0}
+      Type: 0
+      UpdateOrder: 0
+      ModName: RightShoulder Mod
+      BoneName: LowManRightShoulder
+      Index: 1
+      FixedAxisRotation: 0
+      ChildRotIndependent: 0
+      Enabled: 1
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationBlend: 1
+      PositionBlend: 1
+      RootMotionTransformSpace: 0
+      RotationValue: {x: 0, y: -11.9, z: 4.59}
+      RotationEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      PositionValue: {x: 0, y: 0, z: 0}
+      PositionEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationValue2: {x: 0, y: 0, z: 0}
+      RotationEvaluate2:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationsBoost: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      Foldown: 0
+    - Transform: {fileID: 0}
+      Type: 0
+      UpdateOrder: 0
+      ModName: LeftShoulder Mod
+      BoneName: LowManLeftShoulder
+      Index: 2
+      FixedAxisRotation: 0
+      ChildRotIndependent: 0
+      Enabled: 1
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationBlend: 1
+      PositionBlend: 1
+      RootMotionTransformSpace: 0
+      RotationValue: {x: -0, y: 0, z: 0}
+      RotationEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      PositionValue: {x: 0, y: 0, z: 0}
+      PositionEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationValue2: {x: 0, y: 0, z: 0}
+      RotationEvaluate2:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationsBoost: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      Foldown: 0
+    - Transform: {fileID: 0}
+      Type: 0
+      UpdateOrder: 1
+      ModName: LeftHand Mod
+      BoneName: LowManLeftHand
+      Index: 3
+      FixedAxisRotation: 0
+      ChildRotIndependent: 0
+      Enabled: 1
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationBlend: 0.503876
+      PositionBlend: 1
+      RootMotionTransformSpace: 0
+      RotationValue: {x: -0, y: 0, z: 0}
+      RotationEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      PositionValue: {x: 0, y: 0, z: 0}
+      PositionEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationValue2: {x: 0, y: 0, z: 0}
+      RotationEvaluate2:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationsBoost: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      Foldown: 1
     AllModificatorsBlend: 1
     setId: 
     setIdHash: 0
@@ -12761,7 +14301,4755 @@ MonoBehaviour:
       GeneratedStepEventsTimeOffset: 0
       alignToBoneName: 
       alignTo: {fileID: 0}
+      AlignToBlend: 0.30062893
+      AlignRotationToBlend: 0.30013105
+      OffsetWithPelvisBlend: 1
+      FootDataAnalyze:
+        analyzed: 0
+        targetClip: {fileID: 0}
+        sampledData: []
+        LowestFootCoords: {x: 0, y: 0, z: 0}
+        HighestFootCoords: {x: 0, y: 0, z: 0}
+        FootCoordsDiffs: {x: 0, y: 0, z: 0}
+        startStepFootLocal: {x: 0, y: 0, z: 0}
+        startStepFootLocalIndex: 0
+        startStepFootProgress: 0
+        endStepFootLocal: {x: 0, y: 0, z: 0}
+        endStepFootLocalIndex: 0
+        endStepFootProgress: 0
+        approximateFootPushDirection: {x: 0, y: 0, z: 0}
+        approximateFootPushDirectionDominant: {x: 0, y: 0, z: 0}
+        approximateFootLocalXPosDuringPush: 0
+        approximateFootLocalZPosDuringPush: 0
+        _footForward: {x: 0, y: 0, z: 0}
+        _footToToes: {x: 0, y: 0, z: 0}
+        _footToToesForw: {x: 0, y: 0, z: 0}
+        _footLocalToGround: {x: 0, y: 0, z: 0}
+        _latestToesTesh: 0
+        _latestHeelTesh: 0
+        _latestHoldOnGround: 0
+        _latestFloorOffset: 0
+        _latestAnalyzeMode: 0
+        _groundToFootHeight: 0
+        _initFootRot: {x: 0, y: 0, z: 0, w: 0}
+        _initFootLocRot: {x: 0, y: 0, z: 0, w: 0}
+        _footRotMapping: {x: 0, y: 0, z: 0, w: 0}
+        GroundingCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        i_lowerIndex: 0
+        i_higherIndex: 0
+        i_progress: 0
+        i_forProgress: 0
+    - AlternateExecutionIndex: -2
+      UseAlternateExecutionIndex: 0
+      Index: 2
+      ID: Spine Chain
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKType: 2
+      UpdateOrder: 0
+      AutoHintMode: 0
+      IKPosOffMul: 1
+      IKPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKPositionOffset: {x: 0, y: 0, z: 0}
+      IKPosStillMul: 0
+      IKPosStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillPosition: {x: 0, y: 0, z: 0}
+      IKPosYOriginal: 0
+      IKStillWorldPos: 0
+      IKStillWorldRot: 0
+      IKHintOffset: {x: 0, y: 0, z: 0}
+      ThighOffset: {x: 0, y: 0, z: 0}
+      IKRotationBlend: 1
+      ShoulderBlend: 0.3
+      IKRotOffMul: 1
+      IKRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKRotationOffset: {x: 0, y: 0, z: 0}
+      IKRotStillMul: 0
+      IKRotStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillRotation: {x: 0, y: 0, z: 0}
+      ChainSmoothing: 0
+      UseMultiStillPoints: 0
+      MultiStillPoints: []
+      LegMode: 1
+      LegGrounding: 0
+      HeelGroundedTreshold: 1
+      FloorGroundedOffset: 0
+      FloorGroundingAnalyzeMode: 0
+      ToesGroundedTreshold: 1
+      HoldOnGround: 0
+      ExportGroundingCurve: 0
+      FootGroundBlendDuration: 0.175
+      MaxLegStretchEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      MaxLegStretch: 1.1
+      GroundLater: 0
+      UnGroundLater: 0
+      FootSwingsMultiply: 1
+      FootRaiseMultiply: 0
+      FootMildMotionX: 0
+      FootMildMotionZ: 0
+      FootLinearize: 0
+      FootLinearizeSpeedMul: 1
+      FootSnapToLatestGrounded: 0
+      FootSnapToLatestGroundedEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      FootSnapToGrFrameOffset: 0.5
+      FootSnapToGrFrameOffsetEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      HoldXPosWhenGrounded: 0
+      HoldZPosWhenGrounded: 0
+      IKWhenGroundedPosOffMul: 1
+      IKWhenGroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedPosOffMul: 1
+      IKWhenUngroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenGroundedRotOffMul: 1
+      IKWhenGroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedRotationOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedRotOffMul: 1
+      IKWhenUngroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedRotationOffset: {x: 0, y: 0, z: 0}
+      UseFootRotationMapping: 1
+      LatestLimbName: 
+      GenerateFootGroundCurve: 0
+      GenerateFootStepEvents: 
+      GeneratedStepEventsTimeOffset: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
       AlignToBlend: 1
+      AlignRotationToBlend: 0
+      OffsetWithPelvisBlend: 1
+      FootDataAnalyze:
+        analyzed: 0
+        targetClip: {fileID: 0}
+        sampledData: []
+        LowestFootCoords: {x: 0, y: 0, z: 0}
+        HighestFootCoords: {x: 0, y: 0, z: 0}
+        FootCoordsDiffs: {x: 0, y: 0, z: 0}
+        startStepFootLocal: {x: 0, y: 0, z: 0}
+        startStepFootLocalIndex: 0
+        startStepFootProgress: 0
+        endStepFootLocal: {x: 0, y: 0, z: 0}
+        endStepFootLocalIndex: 0
+        endStepFootProgress: 0
+        approximateFootPushDirection: {x: 0, y: 0, z: 0}
+        approximateFootPushDirectionDominant: {x: 0, y: 0, z: 0}
+        approximateFootLocalXPosDuringPush: 0
+        approximateFootLocalZPosDuringPush: 0
+        _footForward: {x: 0, y: 0, z: 0}
+        _footToToes: {x: 0, y: 0, z: 0}
+        _footToToesForw: {x: 0, y: 0, z: 0}
+        _footLocalToGround: {x: 0, y: 0, z: 0}
+        _latestToesTesh: 0
+        _latestHeelTesh: 0
+        _latestHoldOnGround: 0
+        _latestFloorOffset: 0
+        _latestAnalyzeMode: 0
+        _groundToFootHeight: 0
+        _initFootRot: {x: 0, y: 0, z: 0, w: 0}
+        _initFootLocRot: {x: 0, y: 0, z: 0, w: 0}
+        _footRotMapping: {x: 0, y: 0, z: 0, w: 0}
+        GroundingCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        i_lowerIndex: 0
+        i_higherIndex: 0
+        i_progress: 0
+        i_forProgress: 0
+    - AlternateExecutionIndex: -2
+      UseAlternateExecutionIndex: 0
+      Index: 3
+      ID: Left Leg
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKType: 1
+      UpdateOrder: 0
+      AutoHintMode: 0
+      IKPosOffMul: 1
+      IKPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKPositionOffset: {x: 0, y: 0, z: 0}
+      IKPosStillMul: 0
+      IKPosStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillPosition: {x: 0, y: 0, z: 0}
+      IKPosYOriginal: 0
+      IKStillWorldPos: 0
+      IKStillWorldRot: 0
+      IKHintOffset: {x: 0, y: 0, z: 0}
+      ThighOffset: {x: 0, y: 0, z: 0}
+      IKRotationBlend: 1
+      ShoulderBlend: 0.3
+      IKRotOffMul: 1
+      IKRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKRotationOffset: {x: 0, y: 0, z: 0}
+      IKRotStillMul: 0
+      IKRotStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillRotation: {x: 0, y: 0, z: 0}
+      ChainSmoothing: 0
+      UseMultiStillPoints: 0
+      MultiStillPoints: []
+      LegMode: 1
+      LegGrounding: 0
+      HeelGroundedTreshold: 1
+      FloorGroundedOffset: 0
+      FloorGroundingAnalyzeMode: 0
+      ToesGroundedTreshold: 1
+      HoldOnGround: 0
+      ExportGroundingCurve: 0
+      FootGroundBlendDuration: 0.175
+      MaxLegStretchEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      MaxLegStretch: 1.1
+      GroundLater: 0
+      UnGroundLater: 0
+      FootSwingsMultiply: 1
+      FootRaiseMultiply: 0
+      FootMildMotionX: 0
+      FootMildMotionZ: 0
+      FootLinearize: 0
+      FootLinearizeSpeedMul: 1
+      FootSnapToLatestGrounded: 0
+      FootSnapToLatestGroundedEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      FootSnapToGrFrameOffset: 0.5
+      FootSnapToGrFrameOffsetEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      HoldXPosWhenGrounded: 0
+      HoldZPosWhenGrounded: 0
+      IKWhenGroundedPosOffMul: 1
+      IKWhenGroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedPosOffMul: 1
+      IKWhenUngroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenGroundedRotOffMul: 1
+      IKWhenGroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedRotationOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedRotOffMul: 1
+      IKWhenUngroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedRotationOffset: {x: 0, y: 0, z: 0}
+      UseFootRotationMapping: 1
+      LatestLimbName: 
+      GenerateFootGroundCurve: 0
+      GenerateFootStepEvents: 
+      GeneratedStepEventsTimeOffset: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      AlignRotationToBlend: 0
+      OffsetWithPelvisBlend: 1
+      FootDataAnalyze:
+        analyzed: 0
+        targetClip: {fileID: 0}
+        sampledData: []
+        LowestFootCoords: {x: 0, y: 0, z: 0}
+        HighestFootCoords: {x: 0, y: 0, z: 0}
+        FootCoordsDiffs: {x: 0, y: 0, z: 0}
+        startStepFootLocal: {x: 0, y: 0, z: 0}
+        startStepFootLocalIndex: 0
+        startStepFootProgress: 0
+        endStepFootLocal: {x: 0, y: 0, z: 0}
+        endStepFootLocalIndex: 0
+        endStepFootProgress: 0
+        approximateFootPushDirection: {x: 0, y: 0, z: 0}
+        approximateFootPushDirectionDominant: {x: 0, y: 0, z: 0}
+        approximateFootLocalXPosDuringPush: 0
+        approximateFootLocalZPosDuringPush: 0
+        _footForward: {x: 0, y: 0, z: 0}
+        _footToToes: {x: 0, y: 0, z: 0}
+        _footToToesForw: {x: 0, y: 0, z: 0}
+        _footLocalToGround: {x: 0, y: 0, z: 0}
+        _latestToesTesh: 0
+        _latestHeelTesh: 0
+        _latestHoldOnGround: 0
+        _latestFloorOffset: 0
+        _latestAnalyzeMode: 0
+        _groundToFootHeight: 0
+        _initFootRot: {x: 0, y: 0, z: 0, w: 0}
+        _initFootLocRot: {x: 0, y: 0, z: 0, w: 0}
+        _footRotMapping: {x: 0, y: 0, z: 0, w: 0}
+        GroundingCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        i_lowerIndex: 0
+        i_higherIndex: 0
+        i_progress: 0
+        i_forProgress: 0
+    - AlternateExecutionIndex: -2
+      UseAlternateExecutionIndex: 0
+      Index: 4
+      ID: Right Leg
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKType: 1
+      UpdateOrder: 0
+      AutoHintMode: 0
+      IKPosOffMul: 1
+      IKPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKPositionOffset: {x: 0, y: 0, z: 0}
+      IKPosStillMul: 0
+      IKPosStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillPosition: {x: 0, y: 0, z: 0}
+      IKPosYOriginal: 0
+      IKStillWorldPos: 0
+      IKStillWorldRot: 0
+      IKHintOffset: {x: 0, y: 0, z: 0}
+      ThighOffset: {x: 0, y: 0, z: 0}
+      IKRotationBlend: 1
+      ShoulderBlend: 0.3
+      IKRotOffMul: 1
+      IKRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKRotationOffset: {x: 0, y: 0, z: 0}
+      IKRotStillMul: 0
+      IKRotStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillRotation: {x: 0, y: 0, z: 0}
+      ChainSmoothing: 0
+      UseMultiStillPoints: 0
+      MultiStillPoints: []
+      LegMode: 1
+      LegGrounding: 0
+      HeelGroundedTreshold: 1
+      FloorGroundedOffset: 0
+      FloorGroundingAnalyzeMode: 0
+      ToesGroundedTreshold: 1
+      HoldOnGround: 0
+      ExportGroundingCurve: 0
+      FootGroundBlendDuration: 0.175
+      MaxLegStretchEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      MaxLegStretch: 1.1
+      GroundLater: 0
+      UnGroundLater: 0
+      FootSwingsMultiply: 1
+      FootRaiseMultiply: 0
+      FootMildMotionX: 0
+      FootMildMotionZ: 0
+      FootLinearize: 0
+      FootLinearizeSpeedMul: 1
+      FootSnapToLatestGrounded: 0
+      FootSnapToLatestGroundedEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      FootSnapToGrFrameOffset: 0.5
+      FootSnapToGrFrameOffsetEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      HoldXPosWhenGrounded: 0
+      HoldZPosWhenGrounded: 0
+      IKWhenGroundedPosOffMul: 1
+      IKWhenGroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedPosOffMul: 1
+      IKWhenUngroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenGroundedRotOffMul: 1
+      IKWhenGroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedRotationOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedRotOffMul: 1
+      IKWhenUngroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedRotationOffset: {x: 0, y: 0, z: 0}
+      UseFootRotationMapping: 1
+      LatestLimbName: 
+      GenerateFootGroundCurve: 0
+      GenerateFootStepEvents: 
+      GeneratedStepEventsTimeOffset: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      AlignRotationToBlend: 0
+      OffsetWithPelvisBlend: 1
+      FootDataAnalyze:
+        analyzed: 0
+        targetClip: {fileID: 0}
+        sampledData: []
+        LowestFootCoords: {x: 0, y: 0, z: 0}
+        HighestFootCoords: {x: 0, y: 0, z: 0}
+        FootCoordsDiffs: {x: 0, y: 0, z: 0}
+        startStepFootLocal: {x: 0, y: 0, z: 0}
+        startStepFootLocalIndex: 0
+        startStepFootProgress: 0
+        endStepFootLocal: {x: 0, y: 0, z: 0}
+        endStepFootLocalIndex: 0
+        endStepFootProgress: 0
+        approximateFootPushDirection: {x: 0, y: 0, z: 0}
+        approximateFootPushDirectionDominant: {x: 0, y: 0, z: 0}
+        approximateFootLocalXPosDuringPush: 0
+        approximateFootLocalZPosDuringPush: 0
+        _footForward: {x: 0, y: 0, z: 0}
+        _footToToes: {x: 0, y: 0, z: 0}
+        _footToToesForw: {x: 0, y: 0, z: 0}
+        _footLocalToGround: {x: 0, y: 0, z: 0}
+        _latestToesTesh: 0
+        _latestHeelTesh: 0
+        _latestHoldOnGround: 0
+        _latestFloorOffset: 0
+        _latestAnalyzeMode: 0
+        _groundToFootHeight: 0
+        _initFootRot: {x: 0, y: 0, z: 0, w: 0}
+        _initFootLocRot: {x: 0, y: 0, z: 0, w: 0}
+        _footRotMapping: {x: 0, y: 0, z: 0, w: 0}
+        GroundingCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        i_lowerIndex: 0
+        i_higherIndex: 0
+        i_progress: 0
+        i_forProgress: 0
+    - AlternateExecutionIndex: -2
+      UseAlternateExecutionIndex: 0
+      Index: 5
+      ID: Limb
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKType: 2
+      UpdateOrder: 0
+      AutoHintMode: 0
+      IKPosOffMul: 1
+      IKPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKPositionOffset: {x: 0, y: 0, z: 0}
+      IKPosStillMul: 0
+      IKPosStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillPosition: {x: 0, y: 0, z: 0}
+      IKPosYOriginal: 0
+      IKStillWorldPos: 0
+      IKStillWorldRot: 0
+      IKHintOffset: {x: 0, y: 0, z: 0}
+      ThighOffset: {x: 0, y: 0, z: 0}
+      IKRotationBlend: 1
+      ShoulderBlend: 0.3
+      IKRotOffMul: 1
+      IKRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKRotationOffset: {x: 0, y: 0, z: 0}
+      IKRotStillMul: 0
+      IKRotStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillRotation: {x: 0, y: 0, z: 0}
+      ChainSmoothing: 0
+      UseMultiStillPoints: 0
+      MultiStillPoints: []
+      LegMode: 1
+      LegGrounding: 0
+      HeelGroundedTreshold: 1
+      FloorGroundedOffset: 0
+      FloorGroundingAnalyzeMode: 0
+      ToesGroundedTreshold: 1
+      HoldOnGround: 0
+      ExportGroundingCurve: 0
+      FootGroundBlendDuration: 0.175
+      MaxLegStretchEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      MaxLegStretch: 1.1
+      GroundLater: 0
+      UnGroundLater: 0
+      FootSwingsMultiply: 1
+      FootRaiseMultiply: 0
+      FootMildMotionX: 0
+      FootMildMotionZ: 0
+      FootLinearize: 0
+      FootLinearizeSpeedMul: 1
+      FootSnapToLatestGrounded: 0
+      FootSnapToLatestGroundedEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      FootSnapToGrFrameOffset: 0.5
+      FootSnapToGrFrameOffsetEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      HoldXPosWhenGrounded: 0
+      HoldZPosWhenGrounded: 0
+      IKWhenGroundedPosOffMul: 1
+      IKWhenGroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedPosOffMul: 1
+      IKWhenUngroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenGroundedRotOffMul: 1
+      IKWhenGroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedRotationOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedRotOffMul: 1
+      IKWhenUngroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedRotationOffset: {x: 0, y: 0, z: 0}
+      UseFootRotationMapping: 1
+      LatestLimbName: 
+      GenerateFootGroundCurve: 0
+      GenerateFootStepEvents: 
+      GeneratedStepEventsTimeOffset: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      AlignRotationToBlend: 0
+      OffsetWithPelvisBlend: 1
+      FootDataAnalyze:
+        analyzed: 0
+        targetClip: {fileID: 0}
+        sampledData: []
+        LowestFootCoords: {x: 0, y: 0, z: 0}
+        HighestFootCoords: {x: 0, y: 0, z: 0}
+        FootCoordsDiffs: {x: 0, y: 0, z: 0}
+        startStepFootLocal: {x: 0, y: 0, z: 0}
+        startStepFootLocalIndex: 0
+        startStepFootProgress: 0
+        endStepFootLocal: {x: 0, y: 0, z: 0}
+        endStepFootLocalIndex: 0
+        endStepFootProgress: 0
+        approximateFootPushDirection: {x: 0, y: 0, z: 0}
+        approximateFootPushDirectionDominant: {x: 0, y: 0, z: 0}
+        approximateFootLocalXPosDuringPush: 0
+        approximateFootLocalZPosDuringPush: 0
+        _footForward: {x: 0, y: 0, z: 0}
+        _footToToes: {x: 0, y: 0, z: 0}
+        _footToToesForw: {x: 0, y: 0, z: 0}
+        _footLocalToGround: {x: 0, y: 0, z: 0}
+        _latestToesTesh: 0
+        _latestHeelTesh: 0
+        _latestHoldOnGround: 0
+        _latestFloorOffset: 0
+        _latestAnalyzeMode: 0
+        _groundToFootHeight: 0
+        _initFootRot: {x: 0, y: 0, z: 0, w: 0}
+        _initFootLocRot: {x: 0, y: 0, z: 0, w: 0}
+        _footRotMapping: {x: 0, y: 0, z: 0, w: 0}
+        GroundingCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        i_lowerIndex: 0
+        i_higherIndex: 0
+        i_progress: 0
+        i_forProgress: 0
+    setId: 
+    setIdHash: 0
+  - settingsForClip: {fileID: 7400000, guid: e30f2f38f845cd043963b7eb61e23bae, type: 2}
+    LimbIKSetups:
+    - AlternateExecutionIndex: -2
+      UseAlternateExecutionIndex: 0
+      Index: 0
+      ID: Left Arm
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKType: 0
+      UpdateOrder: 0
+      AutoHintMode: 0
+      IKPosOffMul: 1
+      IKPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKPositionOffset: {x: 0, y: 0, z: 0}
+      IKPosStillMul: 0
+      IKPosStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillPosition: {x: 0, y: 0, z: 0}
+      IKPosYOriginal: 0
+      IKStillWorldPos: 0
+      IKStillWorldRot: 0
+      IKHintOffset: {x: 0, y: 0, z: 0}
+      ThighOffset: {x: 0, y: 0, z: 0}
+      IKRotationBlend: 1
+      ShoulderBlend: 0.3
+      IKRotOffMul: 1
+      IKRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKRotationOffset: {x: 0, y: 0, z: 0}
+      IKRotStillMul: 0
+      IKRotStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillRotation: {x: 0, y: 0, z: 0}
+      ChainSmoothing: 0
+      UseMultiStillPoints: 0
+      MultiStillPoints: []
+      LegMode: 1
+      LegGrounding: 0
+      HeelGroundedTreshold: 1
+      FloorGroundedOffset: 0
+      FloorGroundingAnalyzeMode: 0
+      ToesGroundedTreshold: 1
+      HoldOnGround: 0
+      ExportGroundingCurve: 0
+      FootGroundBlendDuration: 0.175
+      MaxLegStretchEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      MaxLegStretch: 1.1
+      GroundLater: 0
+      UnGroundLater: 0
+      FootSwingsMultiply: 1
+      FootRaiseMultiply: 0
+      FootMildMotionX: 0
+      FootMildMotionZ: 0
+      FootLinearize: 0
+      FootLinearizeSpeedMul: 1
+      FootSnapToLatestGrounded: 0
+      FootSnapToLatestGroundedEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      FootSnapToGrFrameOffset: 0.5
+      FootSnapToGrFrameOffsetEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      HoldXPosWhenGrounded: 0
+      HoldZPosWhenGrounded: 0
+      IKWhenGroundedPosOffMul: 1
+      IKWhenGroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedPosOffMul: 1
+      IKWhenUngroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenGroundedRotOffMul: 1
+      IKWhenGroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedRotationOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedRotOffMul: 1
+      IKWhenUngroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedRotationOffset: {x: 0, y: 0, z: 0}
+      UseFootRotationMapping: 1
+      LatestLimbName: 
+      GenerateFootGroundCurve: 0
+      GenerateFootStepEvents: 
+      GeneratedStepEventsTimeOffset: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      AlignRotationToBlend: 0
+      OffsetWithPelvisBlend: 1
+      FootDataAnalyze:
+        analyzed: 0
+        targetClip: {fileID: 0}
+        sampledData: []
+        LowestFootCoords: {x: 0, y: 0, z: 0}
+        HighestFootCoords: {x: 0, y: 0, z: 0}
+        FootCoordsDiffs: {x: 0, y: 0, z: 0}
+        startStepFootLocal: {x: 0, y: 0, z: 0}
+        startStepFootLocalIndex: 0
+        startStepFootProgress: 0
+        endStepFootLocal: {x: 0, y: 0, z: 0}
+        endStepFootLocalIndex: 0
+        endStepFootProgress: 0
+        approximateFootPushDirection: {x: 0, y: 0, z: 0}
+        approximateFootPushDirectionDominant: {x: 0, y: 0, z: 0}
+        approximateFootLocalXPosDuringPush: 0
+        approximateFootLocalZPosDuringPush: 0
+        _footForward: {x: 0, y: 0, z: 0}
+        _footToToes: {x: 0, y: 0, z: 0}
+        _footToToesForw: {x: 0, y: 0, z: 0}
+        _footLocalToGround: {x: 0, y: 0, z: 0}
+        _latestToesTesh: 0
+        _latestHeelTesh: 0
+        _latestHoldOnGround: 0
+        _latestFloorOffset: 0
+        _latestAnalyzeMode: 0
+        _groundToFootHeight: 0
+        _initFootRot: {x: 0, y: 0, z: 0, w: 0}
+        _initFootLocRot: {x: 0, y: 0, z: 0, w: 0}
+        _footRotMapping: {x: 0, y: 0, z: 0, w: 0}
+        GroundingCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        i_lowerIndex: 0
+        i_higherIndex: 0
+        i_progress: 0
+        i_forProgress: 0
+    - AlternateExecutionIndex: -2
+      UseAlternateExecutionIndex: 0
+      Index: 1
+      ID: Right Arm
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKType: 0
+      UpdateOrder: 0
+      AutoHintMode: 0
+      IKPosOffMul: 1
+      IKPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKPositionOffset: {x: 0, y: 0, z: 0}
+      IKPosStillMul: 0
+      IKPosStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillPosition: {x: 0, y: 0, z: 0}
+      IKPosYOriginal: 0
+      IKStillWorldPos: 0
+      IKStillWorldRot: 0
+      IKHintOffset: {x: 0, y: 0, z: 0}
+      ThighOffset: {x: 0, y: 0, z: 0}
+      IKRotationBlend: 1
+      ShoulderBlend: 0.3
+      IKRotOffMul: 1
+      IKRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKRotationOffset: {x: 0, y: 0, z: 0}
+      IKRotStillMul: 0
+      IKRotStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillRotation: {x: 0, y: 0, z: 0}
+      ChainSmoothing: 0
+      UseMultiStillPoints: 0
+      MultiStillPoints: []
+      LegMode: 1
+      LegGrounding: 0
+      HeelGroundedTreshold: 1
+      FloorGroundedOffset: 0
+      FloorGroundingAnalyzeMode: 0
+      ToesGroundedTreshold: 1
+      HoldOnGround: 0
+      ExportGroundingCurve: 0
+      FootGroundBlendDuration: 0.175
+      MaxLegStretchEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      MaxLegStretch: 1.1
+      GroundLater: 0
+      UnGroundLater: 0
+      FootSwingsMultiply: 1
+      FootRaiseMultiply: 0
+      FootMildMotionX: 0
+      FootMildMotionZ: 0
+      FootLinearize: 0
+      FootLinearizeSpeedMul: 1
+      FootSnapToLatestGrounded: 0
+      FootSnapToLatestGroundedEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      FootSnapToGrFrameOffset: 0.5
+      FootSnapToGrFrameOffsetEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      HoldXPosWhenGrounded: 0
+      HoldZPosWhenGrounded: 0
+      IKWhenGroundedPosOffMul: 1
+      IKWhenGroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedPosOffMul: 1
+      IKWhenUngroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenGroundedRotOffMul: 1
+      IKWhenGroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedRotationOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedRotOffMul: 1
+      IKWhenUngroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedRotationOffset: {x: 0, y: 0, z: 0}
+      UseFootRotationMapping: 1
+      LatestLimbName: 
+      GenerateFootGroundCurve: 0
+      GenerateFootStepEvents: 
+      GeneratedStepEventsTimeOffset: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      AlignRotationToBlend: 0
+      OffsetWithPelvisBlend: 1
+      FootDataAnalyze:
+        analyzed: 0
+        targetClip: {fileID: 0}
+        sampledData: []
+        LowestFootCoords: {x: 0, y: 0, z: 0}
+        HighestFootCoords: {x: 0, y: 0, z: 0}
+        FootCoordsDiffs: {x: 0, y: 0, z: 0}
+        startStepFootLocal: {x: 0, y: 0, z: 0}
+        startStepFootLocalIndex: 0
+        startStepFootProgress: 0
+        endStepFootLocal: {x: 0, y: 0, z: 0}
+        endStepFootLocalIndex: 0
+        endStepFootProgress: 0
+        approximateFootPushDirection: {x: 0, y: 0, z: 0}
+        approximateFootPushDirectionDominant: {x: 0, y: 0, z: 0}
+        approximateFootLocalXPosDuringPush: 0
+        approximateFootLocalZPosDuringPush: 0
+        _footForward: {x: 0, y: 0, z: 0}
+        _footToToes: {x: 0, y: 0, z: 0}
+        _footToToesForw: {x: 0, y: 0, z: 0}
+        _footLocalToGround: {x: 0, y: 0, z: 0}
+        _latestToesTesh: 0
+        _latestHeelTesh: 0
+        _latestHoldOnGround: 0
+        _latestFloorOffset: 0
+        _latestAnalyzeMode: 0
+        _groundToFootHeight: 0
+        _initFootRot: {x: 0, y: 0, z: 0, w: 0}
+        _initFootLocRot: {x: 0, y: 0, z: 0, w: 0}
+        _footRotMapping: {x: 0, y: 0, z: 0, w: 0}
+        GroundingCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        i_lowerIndex: 0
+        i_higherIndex: 0
+        i_progress: 0
+        i_forProgress: 0
+    - AlternateExecutionIndex: -2
+      UseAlternateExecutionIndex: 0
+      Index: 2
+      ID: Spine Chain
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKType: 2
+      UpdateOrder: 0
+      AutoHintMode: 0
+      IKPosOffMul: 1
+      IKPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKPositionOffset: {x: 0, y: 0, z: 0}
+      IKPosStillMul: 0
+      IKPosStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillPosition: {x: 0, y: 0, z: 0}
+      IKPosYOriginal: 0
+      IKStillWorldPos: 0
+      IKStillWorldRot: 0
+      IKHintOffset: {x: 0, y: 0, z: 0}
+      ThighOffset: {x: 0, y: 0, z: 0}
+      IKRotationBlend: 1
+      ShoulderBlend: 0.3
+      IKRotOffMul: 1
+      IKRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKRotationOffset: {x: 0, y: 0, z: 0}
+      IKRotStillMul: 0
+      IKRotStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillRotation: {x: 0, y: 0, z: 0}
+      ChainSmoothing: 0
+      UseMultiStillPoints: 0
+      MultiStillPoints: []
+      LegMode: 1
+      LegGrounding: 0
+      HeelGroundedTreshold: 1
+      FloorGroundedOffset: 0
+      FloorGroundingAnalyzeMode: 0
+      ToesGroundedTreshold: 1
+      HoldOnGround: 0
+      ExportGroundingCurve: 0
+      FootGroundBlendDuration: 0.175
+      MaxLegStretchEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      MaxLegStretch: 1.1
+      GroundLater: 0
+      UnGroundLater: 0
+      FootSwingsMultiply: 1
+      FootRaiseMultiply: 0
+      FootMildMotionX: 0
+      FootMildMotionZ: 0
+      FootLinearize: 0
+      FootLinearizeSpeedMul: 1
+      FootSnapToLatestGrounded: 0
+      FootSnapToLatestGroundedEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      FootSnapToGrFrameOffset: 0.5
+      FootSnapToGrFrameOffsetEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      HoldXPosWhenGrounded: 0
+      HoldZPosWhenGrounded: 0
+      IKWhenGroundedPosOffMul: 1
+      IKWhenGroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedPosOffMul: 1
+      IKWhenUngroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenGroundedRotOffMul: 1
+      IKWhenGroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedRotationOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedRotOffMul: 1
+      IKWhenUngroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedRotationOffset: {x: 0, y: 0, z: 0}
+      UseFootRotationMapping: 1
+      LatestLimbName: 
+      GenerateFootGroundCurve: 0
+      GenerateFootStepEvents: 
+      GeneratedStepEventsTimeOffset: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      AlignRotationToBlend: 0
+      OffsetWithPelvisBlend: 1
+      FootDataAnalyze:
+        analyzed: 0
+        targetClip: {fileID: 0}
+        sampledData: []
+        LowestFootCoords: {x: 0, y: 0, z: 0}
+        HighestFootCoords: {x: 0, y: 0, z: 0}
+        FootCoordsDiffs: {x: 0, y: 0, z: 0}
+        startStepFootLocal: {x: 0, y: 0, z: 0}
+        startStepFootLocalIndex: 0
+        startStepFootProgress: 0
+        endStepFootLocal: {x: 0, y: 0, z: 0}
+        endStepFootLocalIndex: 0
+        endStepFootProgress: 0
+        approximateFootPushDirection: {x: 0, y: 0, z: 0}
+        approximateFootPushDirectionDominant: {x: 0, y: 0, z: 0}
+        approximateFootLocalXPosDuringPush: 0
+        approximateFootLocalZPosDuringPush: 0
+        _footForward: {x: 0, y: 0, z: 0}
+        _footToToes: {x: 0, y: 0, z: 0}
+        _footToToesForw: {x: 0, y: 0, z: 0}
+        _footLocalToGround: {x: 0, y: 0, z: 0}
+        _latestToesTesh: 0
+        _latestHeelTesh: 0
+        _latestHoldOnGround: 0
+        _latestFloorOffset: 0
+        _latestAnalyzeMode: 0
+        _groundToFootHeight: 0
+        _initFootRot: {x: 0, y: 0, z: 0, w: 0}
+        _initFootLocRot: {x: 0, y: 0, z: 0, w: 0}
+        _footRotMapping: {x: 0, y: 0, z: 0, w: 0}
+        GroundingCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        i_lowerIndex: 0
+        i_higherIndex: 0
+        i_progress: 0
+        i_forProgress: 0
+    - AlternateExecutionIndex: -2
+      UseAlternateExecutionIndex: 0
+      Index: 3
+      ID: Left Leg
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKType: 1
+      UpdateOrder: 0
+      AutoHintMode: 0
+      IKPosOffMul: 1
+      IKPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKPositionOffset: {x: 0, y: 0, z: 0}
+      IKPosStillMul: 0
+      IKPosStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillPosition: {x: 0, y: 0, z: 0}
+      IKPosYOriginal: 0
+      IKStillWorldPos: 0
+      IKStillWorldRot: 0
+      IKHintOffset: {x: 0, y: 0, z: 0}
+      ThighOffset: {x: 0, y: 0, z: 0}
+      IKRotationBlend: 1
+      ShoulderBlend: 0.3
+      IKRotOffMul: 1
+      IKRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKRotationOffset: {x: 0, y: 0, z: 0}
+      IKRotStillMul: 0
+      IKRotStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillRotation: {x: 0, y: 0, z: 0}
+      ChainSmoothing: 0
+      UseMultiStillPoints: 0
+      MultiStillPoints: []
+      LegMode: 1
+      LegGrounding: 0
+      HeelGroundedTreshold: 1
+      FloorGroundedOffset: 0
+      FloorGroundingAnalyzeMode: 0
+      ToesGroundedTreshold: 1
+      HoldOnGround: 0
+      ExportGroundingCurve: 0
+      FootGroundBlendDuration: 0.175
+      MaxLegStretchEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      MaxLegStretch: 1.1
+      GroundLater: 0
+      UnGroundLater: 0
+      FootSwingsMultiply: 1
+      FootRaiseMultiply: 0
+      FootMildMotionX: 0
+      FootMildMotionZ: 0
+      FootLinearize: 0
+      FootLinearizeSpeedMul: 1
+      FootSnapToLatestGrounded: 0
+      FootSnapToLatestGroundedEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      FootSnapToGrFrameOffset: 0.5
+      FootSnapToGrFrameOffsetEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      HoldXPosWhenGrounded: 0
+      HoldZPosWhenGrounded: 0
+      IKWhenGroundedPosOffMul: 1
+      IKWhenGroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedPosOffMul: 1
+      IKWhenUngroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenGroundedRotOffMul: 1
+      IKWhenGroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedRotationOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedRotOffMul: 1
+      IKWhenUngroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedRotationOffset: {x: 0, y: 0, z: 0}
+      UseFootRotationMapping: 1
+      LatestLimbName: 
+      GenerateFootGroundCurve: 0
+      GenerateFootStepEvents: 
+      GeneratedStepEventsTimeOffset: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      AlignRotationToBlend: 0
+      OffsetWithPelvisBlend: 1
+      FootDataAnalyze:
+        analyzed: 0
+        targetClip: {fileID: 0}
+        sampledData: []
+        LowestFootCoords: {x: 0, y: 0, z: 0}
+        HighestFootCoords: {x: 0, y: 0, z: 0}
+        FootCoordsDiffs: {x: 0, y: 0, z: 0}
+        startStepFootLocal: {x: 0, y: 0, z: 0}
+        startStepFootLocalIndex: 0
+        startStepFootProgress: 0
+        endStepFootLocal: {x: 0, y: 0, z: 0}
+        endStepFootLocalIndex: 0
+        endStepFootProgress: 0
+        approximateFootPushDirection: {x: 0, y: 0, z: 0}
+        approximateFootPushDirectionDominant: {x: 0, y: 0, z: 0}
+        approximateFootLocalXPosDuringPush: 0
+        approximateFootLocalZPosDuringPush: 0
+        _footForward: {x: 0, y: 0, z: 0}
+        _footToToes: {x: 0, y: 0, z: 0}
+        _footToToesForw: {x: 0, y: 0, z: 0}
+        _footLocalToGround: {x: 0, y: 0, z: 0}
+        _latestToesTesh: 0
+        _latestHeelTesh: 0
+        _latestHoldOnGround: 0
+        _latestFloorOffset: 0
+        _latestAnalyzeMode: 0
+        _groundToFootHeight: 0
+        _initFootRot: {x: 0, y: 0, z: 0, w: 0}
+        _initFootLocRot: {x: 0, y: 0, z: 0, w: 0}
+        _footRotMapping: {x: 0, y: 0, z: 0, w: 0}
+        GroundingCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        i_lowerIndex: 0
+        i_higherIndex: 0
+        i_progress: 0
+        i_forProgress: 0
+    - AlternateExecutionIndex: -2
+      UseAlternateExecutionIndex: 0
+      Index: 4
+      ID: Right Leg
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKType: 1
+      UpdateOrder: 0
+      AutoHintMode: 0
+      IKPosOffMul: 1
+      IKPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKPositionOffset: {x: 0, y: 0, z: 0}
+      IKPosStillMul: 0
+      IKPosStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillPosition: {x: 0, y: 0, z: 0}
+      IKPosYOriginal: 0
+      IKStillWorldPos: 0
+      IKStillWorldRot: 0
+      IKHintOffset: {x: 0, y: 0, z: 0}
+      ThighOffset: {x: 0, y: 0, z: 0}
+      IKRotationBlend: 1
+      ShoulderBlend: 0.3
+      IKRotOffMul: 1
+      IKRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKRotationOffset: {x: 0, y: 0, z: 0}
+      IKRotStillMul: 0
+      IKRotStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillRotation: {x: 0, y: 0, z: 0}
+      ChainSmoothing: 0
+      UseMultiStillPoints: 0
+      MultiStillPoints: []
+      LegMode: 1
+      LegGrounding: 0
+      HeelGroundedTreshold: 1
+      FloorGroundedOffset: 0
+      FloorGroundingAnalyzeMode: 0
+      ToesGroundedTreshold: 1
+      HoldOnGround: 0
+      ExportGroundingCurve: 0
+      FootGroundBlendDuration: 0.175
+      MaxLegStretchEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      MaxLegStretch: 1.1
+      GroundLater: 0
+      UnGroundLater: 0
+      FootSwingsMultiply: 1
+      FootRaiseMultiply: 0
+      FootMildMotionX: 0
+      FootMildMotionZ: 0
+      FootLinearize: 0
+      FootLinearizeSpeedMul: 1
+      FootSnapToLatestGrounded: 0
+      FootSnapToLatestGroundedEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      FootSnapToGrFrameOffset: 0.5
+      FootSnapToGrFrameOffsetEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      HoldXPosWhenGrounded: 0
+      HoldZPosWhenGrounded: 0
+      IKWhenGroundedPosOffMul: 1
+      IKWhenGroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedPosOffMul: 1
+      IKWhenUngroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenGroundedRotOffMul: 1
+      IKWhenGroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedRotationOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedRotOffMul: 1
+      IKWhenUngroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedRotationOffset: {x: 0, y: 0, z: 0}
+      UseFootRotationMapping: 1
+      LatestLimbName: 
+      GenerateFootGroundCurve: 0
+      GenerateFootStepEvents: 
+      GeneratedStepEventsTimeOffset: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      AlignRotationToBlend: 0
+      OffsetWithPelvisBlend: 1
+      FootDataAnalyze:
+        analyzed: 0
+        targetClip: {fileID: 0}
+        sampledData: []
+        LowestFootCoords: {x: 0, y: 0, z: 0}
+        HighestFootCoords: {x: 0, y: 0, z: 0}
+        FootCoordsDiffs: {x: 0, y: 0, z: 0}
+        startStepFootLocal: {x: 0, y: 0, z: 0}
+        startStepFootLocalIndex: 0
+        startStepFootProgress: 0
+        endStepFootLocal: {x: 0, y: 0, z: 0}
+        endStepFootLocalIndex: 0
+        endStepFootProgress: 0
+        approximateFootPushDirection: {x: 0, y: 0, z: 0}
+        approximateFootPushDirectionDominant: {x: 0, y: 0, z: 0}
+        approximateFootLocalXPosDuringPush: 0
+        approximateFootLocalZPosDuringPush: 0
+        _footForward: {x: 0, y: 0, z: 0}
+        _footToToes: {x: 0, y: 0, z: 0}
+        _footToToesForw: {x: 0, y: 0, z: 0}
+        _footLocalToGround: {x: 0, y: 0, z: 0}
+        _latestToesTesh: 0
+        _latestHeelTesh: 0
+        _latestHoldOnGround: 0
+        _latestFloorOffset: 0
+        _latestAnalyzeMode: 0
+        _groundToFootHeight: 0
+        _initFootRot: {x: 0, y: 0, z: 0, w: 0}
+        _initFootLocRot: {x: 0, y: 0, z: 0, w: 0}
+        _footRotMapping: {x: 0, y: 0, z: 0, w: 0}
+        GroundingCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        i_lowerIndex: 0
+        i_higherIndex: 0
+        i_progress: 0
+        i_forProgress: 0
+    - AlternateExecutionIndex: -2
+      UseAlternateExecutionIndex: 0
+      Index: 5
+      ID: Limb
+      Enabled: 0
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKType: 2
+      UpdateOrder: 0
+      AutoHintMode: 0
+      IKPosOffMul: 1
+      IKPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKPositionOffset: {x: 0, y: 0, z: 0}
+      IKPosStillMul: 0
+      IKPosStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillPosition: {x: 0, y: 0, z: 0}
+      IKPosYOriginal: 0
+      IKStillWorldPos: 0
+      IKStillWorldRot: 0
+      IKHintOffset: {x: 0, y: 0, z: 0}
+      ThighOffset: {x: 0, y: 0, z: 0}
+      IKRotationBlend: 1
+      ShoulderBlend: 0.3
+      IKRotOffMul: 1
+      IKRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKRotationOffset: {x: 0, y: 0, z: 0}
+      IKRotStillMul: 0
+      IKRotStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillRotation: {x: 0, y: 0, z: 0}
+      ChainSmoothing: 0
+      UseMultiStillPoints: 0
+      MultiStillPoints: []
+      LegMode: 1
+      LegGrounding: 0
+      HeelGroundedTreshold: 1
+      FloorGroundedOffset: 0
+      FloorGroundingAnalyzeMode: 0
+      ToesGroundedTreshold: 1
+      HoldOnGround: 0
+      ExportGroundingCurve: 0
+      FootGroundBlendDuration: 0.175
+      MaxLegStretchEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      MaxLegStretch: 1.1
+      GroundLater: 0
+      UnGroundLater: 0
+      FootSwingsMultiply: 1
+      FootRaiseMultiply: 0
+      FootMildMotionX: 0
+      FootMildMotionZ: 0
+      FootLinearize: 0
+      FootLinearizeSpeedMul: 1
+      FootSnapToLatestGrounded: 0
+      FootSnapToLatestGroundedEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      FootSnapToGrFrameOffset: 0.5
+      FootSnapToGrFrameOffsetEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      HoldXPosWhenGrounded: 0
+      HoldZPosWhenGrounded: 0
+      IKWhenGroundedPosOffMul: 1
+      IKWhenGroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedPosOffMul: 1
+      IKWhenUngroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenGroundedRotOffMul: 1
+      IKWhenGroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedRotationOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedRotOffMul: 1
+      IKWhenUngroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedRotationOffset: {x: 0, y: 0, z: 0}
+      UseFootRotationMapping: 1
+      LatestLimbName: 
+      GenerateFootGroundCurve: 0
+      GenerateFootStepEvents: 
+      GeneratedStepEventsTimeOffset: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      AlignRotationToBlend: 0
+      OffsetWithPelvisBlend: 1
+      FootDataAnalyze:
+        analyzed: 0
+        targetClip: {fileID: 0}
+        sampledData: []
+        LowestFootCoords: {x: 0, y: 0, z: 0}
+        HighestFootCoords: {x: 0, y: 0, z: 0}
+        FootCoordsDiffs: {x: 0, y: 0, z: 0}
+        startStepFootLocal: {x: 0, y: 0, z: 0}
+        startStepFootLocalIndex: 0
+        startStepFootProgress: 0
+        endStepFootLocal: {x: 0, y: 0, z: 0}
+        endStepFootLocalIndex: 0
+        endStepFootProgress: 0
+        approximateFootPushDirection: {x: 0, y: 0, z: 0}
+        approximateFootPushDirectionDominant: {x: 0, y: 0, z: 0}
+        approximateFootLocalXPosDuringPush: 0
+        approximateFootLocalZPosDuringPush: 0
+        _footForward: {x: 0, y: 0, z: 0}
+        _footToToes: {x: 0, y: 0, z: 0}
+        _footToToesForw: {x: 0, y: 0, z: 0}
+        _footLocalToGround: {x: 0, y: 0, z: 0}
+        _latestToesTesh: 0
+        _latestHeelTesh: 0
+        _latestHoldOnGround: 0
+        _latestFloorOffset: 0
+        _latestAnalyzeMode: 0
+        _groundToFootHeight: 0
+        _initFootRot: {x: 0, y: 0, z: 0, w: 0}
+        _initFootLocRot: {x: 0, y: 0, z: 0, w: 0}
+        _footRotMapping: {x: 0, y: 0, z: 0, w: 0}
+        GroundingCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        i_lowerIndex: 0
+        i_higherIndex: 0
+        i_progress: 0
+        i_forProgress: 0
+    setId: 
+    setIdHash: 0
+  - settingsForClip: {fileID: 7400000, guid: 7440e220d1e42d24dae66dd91efa176d, type: 2}
+    LimbIKSetups:
+    - AlternateExecutionIndex: -2
+      UseAlternateExecutionIndex: 0
+      Index: 0
+      ID: Left Arm
+      Enabled: 1
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKType: 0
+      UpdateOrder: 0
+      AutoHintMode: 0
+      IKPosOffMul: 1
+      IKPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKPositionOffset: {x: 0, y: 0.01, z: 0}
+      IKPosStillMul: 0.13065325
+      IKPosStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillPosition: {x: 0, y: 0, z: 0}
+      IKPosYOriginal: 0
+      IKStillWorldPos: 0
+      IKStillWorldRot: 0
+      IKHintOffset: {x: 0, y: 0, z: 0}
+      ThighOffset: {x: 0, y: 0, z: 0}
+      IKRotationBlend: 1
+      ShoulderBlend: 0.3
+      IKRotOffMul: 0.73
+      IKRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKRotationOffset: {x: 0, y: -30, z: 65}
+      IKRotStillMul: 0
+      IKRotStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillRotation: {x: 0, y: 0, z: 0}
+      ChainSmoothing: 0
+      UseMultiStillPoints: 0
+      MultiStillPoints: []
+      LegMode: 1
+      LegGrounding: 0
+      HeelGroundedTreshold: 1
+      FloorGroundedOffset: 0
+      FloorGroundingAnalyzeMode: 0
+      ToesGroundedTreshold: 1
+      HoldOnGround: 0
+      ExportGroundingCurve: 0
+      FootGroundBlendDuration: 0.175
+      MaxLegStretchEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      MaxLegStretch: 0.989
+      GroundLater: 0
+      UnGroundLater: 0
+      FootSwingsMultiply: 1
+      FootRaiseMultiply: 0
+      FootMildMotionX: 0
+      FootMildMotionZ: 0
+      FootLinearize: 0
+      FootLinearizeSpeedMul: 1
+      FootSnapToLatestGrounded: 0
+      FootSnapToLatestGroundedEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      FootSnapToGrFrameOffset: 0.5
+      FootSnapToGrFrameOffsetEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      HoldXPosWhenGrounded: 0
+      HoldZPosWhenGrounded: 0
+      IKWhenGroundedPosOffMul: 1
+      IKWhenGroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedPosOffMul: 1
+      IKWhenUngroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenGroundedRotOffMul: 1
+      IKWhenGroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedRotationOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedRotOffMul: 1
+      IKWhenUngroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedRotationOffset: {x: 0, y: 0, z: 0}
+      UseFootRotationMapping: 1
+      LatestLimbName: 
+      GenerateFootGroundCurve: 0
+      GenerateFootStepEvents: 
+      GeneratedStepEventsTimeOffset: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      AlignRotationToBlend: 0
+      OffsetWithPelvisBlend: 1
+      FootDataAnalyze:
+        analyzed: 0
+        targetClip: {fileID: 0}
+        sampledData: []
+        LowestFootCoords: {x: 0, y: 0, z: 0}
+        HighestFootCoords: {x: 0, y: 0, z: 0}
+        FootCoordsDiffs: {x: 0, y: 0, z: 0}
+        startStepFootLocal: {x: 0, y: 0, z: 0}
+        startStepFootLocalIndex: 0
+        startStepFootProgress: 0
+        endStepFootLocal: {x: 0, y: 0, z: 0}
+        endStepFootLocalIndex: 0
+        endStepFootProgress: 0
+        approximateFootPushDirection: {x: 0, y: 0, z: 0}
+        approximateFootPushDirectionDominant: {x: 0, y: 0, z: 0}
+        approximateFootLocalXPosDuringPush: 0
+        approximateFootLocalZPosDuringPush: 0
+        _footForward: {x: 0, y: 0, z: 0}
+        _footToToes: {x: 0, y: 0, z: 0}
+        _footToToesForw: {x: 0, y: 0, z: 0}
+        _footLocalToGround: {x: 0, y: 0, z: 0}
+        _latestToesTesh: 0
+        _latestHeelTesh: 0
+        _latestHoldOnGround: 0
+        _latestFloorOffset: 0
+        _latestAnalyzeMode: 0
+        _groundToFootHeight: 0
+        _initFootRot: {x: 0, y: 0, z: 0, w: 0}
+        _initFootLocRot: {x: 0, y: 0, z: 0, w: 0}
+        _footRotMapping: {x: 0, y: 0, z: 0, w: 0}
+        GroundingCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        i_lowerIndex: 0
+        i_higherIndex: 0
+        i_progress: 0
+        i_forProgress: 0
+    - AlternateExecutionIndex: -2
+      UseAlternateExecutionIndex: 0
+      Index: 1
+      ID: Right Arm
+      Enabled: 1
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKType: 0
+      UpdateOrder: 0
+      AutoHintMode: 0
+      IKPosOffMul: 1
+      IKPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKPositionOffset: {x: 0, y: 0, z: 0}
+      IKPosStillMul: 0
+      IKPosStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillPosition: {x: 0, y: 0, z: 0}
+      IKPosYOriginal: 0
+      IKStillWorldPos: 0
+      IKStillWorldRot: 0
+      IKHintOffset: {x: 0.15, y: -0.03, z: -0.15}
+      ThighOffset: {x: 0, y: 0, z: 0}
+      IKRotationBlend: 1
+      ShoulderBlend: 0.3
+      IKRotOffMul: 1
+      IKRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKRotationOffset: {x: 0, y: 0, z: 0}
+      IKRotStillMul: 0
+      IKRotStillEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKStillRotation: {x: 0, y: 0, z: 0}
+      ChainSmoothing: 0
+      UseMultiStillPoints: 0
+      MultiStillPoints: []
+      LegMode: 1
+      LegGrounding: 0
+      HeelGroundedTreshold: 1
+      FloorGroundedOffset: 0
+      FloorGroundingAnalyzeMode: 0
+      ToesGroundedTreshold: 1
+      HoldOnGround: 0
+      ExportGroundingCurve: 0
+      FootGroundBlendDuration: 0.175
+      MaxLegStretchEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      MaxLegStretch: 1.1
+      GroundLater: 0
+      UnGroundLater: 0
+      FootSwingsMultiply: 1
+      FootRaiseMultiply: 0
+      FootMildMotionX: 0
+      FootMildMotionZ: 0
+      FootLinearize: 0
+      FootLinearizeSpeedMul: 1
+      FootSnapToLatestGrounded: 0
+      FootSnapToLatestGroundedEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      FootSnapToGrFrameOffset: 0.5
+      FootSnapToGrFrameOffsetEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      HoldXPosWhenGrounded: 0
+      HoldZPosWhenGrounded: 0
+      IKWhenGroundedPosOffMul: 1
+      IKWhenGroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedPosOffMul: 1
+      IKWhenUngroundedPosOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedPositionOffset: {x: 0, y: 0, z: 0}
+      IKWhenGroundedRotOffMul: 1
+      IKWhenGroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenGroundedRotationOffset: {x: 0, y: 0, z: 0}
+      IKWhenUngroundedRotOffMul: 1
+      IKWhenUngroundedRotOffEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      IKWhenUngroundedRotationOffset: {x: 0, y: 0, z: 0}
+      UseFootRotationMapping: 1
+      LatestLimbName: 
+      GenerateFootGroundCurve: 0
+      GenerateFootStepEvents: 
+      GeneratedStepEventsTimeOffset: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 0.12955464
       AlignRotationToBlend: 0
       OffsetWithPelvisBlend: 1
       FootDataAnalyze:
@@ -14407,6 +20695,16 @@ MonoBehaviour:
     AllSpringsBlend: 1
     setId: 
     setIdHash: 0
+  - settingsForClip: {fileID: 7400000, guid: e30f2f38f845cd043963b7eb61e23bae, type: 2}
+    Springs: []
+    AllSpringsBlend: 1
+    setId: 
+    setIdHash: 0
+  - settingsForClip: {fileID: 7400000, guid: 7440e220d1e42d24dae66dd91efa176d, type: 2}
+    Springs: []
+    AllSpringsBlend: 1
+    setId: 
+    setIdHash: 0
   MorphingSetupsForClips:
   - settingsForClip: {fileID: 7400000, guid: 482f19d6c1a04af48bf96a76bda154bb, type: 2}
     Morphs: []
@@ -14424,7 +20722,15 @@ MonoBehaviour:
     Morphs: []
     setId: 
     setIdHash: 0
-  LatestCorrect: {fileID: 7400000, guid: 2aab4baf5f94a994792a1860978654de, type: 2}
+  - settingsForClip: {fileID: 7400000, guid: e30f2f38f845cd043963b7eb61e23bae, type: 2}
+    Morphs: []
+    setId: 
+    setIdHash: 0
+  - settingsForClip: {fileID: 7400000, guid: 7440e220d1e42d24dae66dd91efa176d, type: 2}
+    Morphs: []
+    setId: 
+    setIdHash: 0
+  LatestCorrect: {fileID: 7400000, guid: 7440e220d1e42d24dae66dd91efa176d, type: 2}
   Limbs:
   - Index: 0
     LimbName: Left Arm
@@ -14494,7 +20800,7 @@ MonoBehaviour:
     _hierarchyChanged: 0
   - Index: 2
     LimbName: Spine Chain
-    GizmosBlend: 0
+    GizmosBlend: 1
     LimbType: 2
     Bones:
     - BoneName: Spine
@@ -14533,7 +20839,7 @@ MonoBehaviour:
     _hierarchyChanged: 0
   - Index: 3
     LimbName: Left Leg
-    GizmosBlend: 0
+    GizmosBlend: 1
     LimbType: 1
     Bones:
     - BoneName: LeftUpperLeg
@@ -14560,7 +20866,7 @@ MonoBehaviour:
     _hierarchyChanged: 0
   - Index: 4
     LimbName: Right Leg
-    GizmosBlend: 0
+    GizmosBlend: 1
     LimbType: 1
     Bones:
     - BoneName: RightUpperLeg
@@ -14581,15 +20887,6 @@ MonoBehaviour:
       AnimationBlend: 1
       ElasticnessBlend: 0.2
       LimbEffectsBlend: 0.25
-    Calibrate: 0
-    AnimationBlend: 1
-    ExecuteFirst: 0
-    _hierarchyChanged: 0
-  - Index: 5
-    LimbName: Limb
-    GizmosBlend: 0
-    LimbType: 3
-    Bones: []
     Calibrate: 0
     AnimationBlend: 1
     ExecuteFirst: 0
