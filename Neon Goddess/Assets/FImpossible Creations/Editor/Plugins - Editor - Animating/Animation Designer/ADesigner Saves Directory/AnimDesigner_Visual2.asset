@@ -1103,7 +1103,7 @@ MonoBehaviour:
       LocalPosition: {x: -0.03008453, y: 0.0023515427, z: 0.019359}
       LocalRotation: {x: 0.6911961, y: -0.50053877, z: 0.14915775, w: 0.49946064}
       LocalScale: {x: 1, y: 1.0000001, z: 1}
-  _Tips_RootAndHipsMakeSureCounter: 11
+  _Tips_RootAndHipsMakeSureCounter: 14
   Export_SetAllOriginalBake: 1
   Export_CopyEvents: 1
   Export_CopyCurves: 0
@@ -1768,7 +1768,7 @@ MonoBehaviour:
     ClipTrimLastFrames: 0
     ResetRootPosition: 0
     AdditionalAnimationCycles: 0
-  - settingsForClip: {fileID: 7400000, guid: 4dc9c592c08c3034d806dd4846e0717e, type: 2}
+  - settingsForClip: {fileID: 7400000, guid: 2aab4baf5f94a994792a1860978654de, type: 2}
     TurnOnElasticness: 1
     ElasticnessEvaluation:
       serializedVersion: 2
@@ -1905,8 +1905,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    _Tip_WasDisplaying: 1
-    _Tip_DisplayCount: 0
+    _Tip_WasDisplaying: 0
+    _Tip_DisplayCount: -1
     OffsetHandsIKBlend: 1
     IKGroundLevel: 0
     IKGroundNormal: {x: 0, y: 1, z: 0}
@@ -2906,7 +2906,7 @@ MonoBehaviour:
       MotionInfluence: 0
     setId: 
     setIdHash: 0
-  - settingsForClip: {fileID: 7400000, guid: 4dc9c592c08c3034d806dd4846e0717e, type: 2}
+  - settingsForClip: {fileID: 7400000, guid: 2aab4baf5f94a994792a1860978654de, type: 2}
     Main:
       Index: -1
       ID: 
@@ -2954,7 +2954,7 @@ MonoBehaviour:
     LimbsSets:
     - Index: 0
       ID: Left Arm
-      Enabled: 0
+      Enabled: 1
       Blend: 1
       BlendEvaluation:
         serializedVersion: 2
@@ -2981,10 +2981,10 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       RotationsElasticness: 1
-      RotationsBlend: 0.7
+      RotationsBlend: 0.79577464
       RotationsRapidity: 0.7
       RotationsDamping: 0.25
-      RotationsSwinginess: 0.6
+      RotationsSwinginess: 0.539
       RotationInfluence: 1
       EulerMode: 0
       OnMovementElasticness: 0
@@ -2994,10 +2994,10 @@ MonoBehaviour:
       MoveSmoothing: 0.6
       MoveMildRotate: 0
       MoveStretch: 0
-      MotionInfluence: 1
+      MotionInfluence: 0
     - Index: 1
       ID: Right Arm
-      Enabled: 0
+      Enabled: 1
       Blend: 1
       BlendEvaluation:
         serializedVersion: 2
@@ -3024,7 +3024,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       RotationsElasticness: 1
-      RotationsBlend: 0.7
+      RotationsBlend: 0.84788734
       RotationsRapidity: 0.7
       RotationsDamping: 0.25
       RotationsSwinginess: 0.6
@@ -3037,7 +3037,7 @@ MonoBehaviour:
       MoveSmoothing: 0.6
       MoveMildRotate: 0
       MoveStretch: 0
-      MotionInfluence: 1
+      MotionInfluence: 0
     - Index: 2
       ID: Spine Chain
       Enabled: 0
@@ -3080,7 +3080,7 @@ MonoBehaviour:
       MoveSmoothing: 0.6
       MoveMildRotate: 0
       MoveStretch: 0
-      MotionInfluence: 1
+      MotionInfluence: 0
     - Index: 3
       ID: Left Leg
       Enabled: 0
@@ -3123,7 +3123,7 @@ MonoBehaviour:
       MoveSmoothing: 0.6
       MoveMildRotate: 0
       MoveStretch: 0
-      MotionInfluence: 1
+      MotionInfluence: 0
     - Index: 4
       ID: Right Leg
       Enabled: 0
@@ -3166,7 +3166,7 @@ MonoBehaviour:
       MoveSmoothing: 0.6
       MoveMildRotate: 0
       MoveStretch: 0
-      MotionInfluence: 1
+      MotionInfluence: 0
     - Index: 5
       ID: Limb
       Enabled: 0
@@ -3209,7 +3209,7 @@ MonoBehaviour:
       MoveSmoothing: 0.6
       MoveMildRotate: 0
       MoveStretch: 0
-      MotionInfluence: 1
+      MotionInfluence: 0
     setId: 
     setIdHash: 0
   ModificatorsSetupsForClips:
@@ -4188,8 +4188,497 @@ MonoBehaviour:
     AllModificatorsBlend: 1
     setId: 
     setIdHash: 0
-  - settingsForClip: {fileID: 7400000, guid: 4dc9c592c08c3034d806dd4846e0717e, type: 2}
-    BonesModificators: []
+  - settingsForClip: {fileID: 7400000, guid: 2aab4baf5f94a994792a1860978654de, type: 2}
+    BonesModificators:
+    - Transform: {fileID: 0}
+      Type: 0
+      UpdateOrder: 0
+      ModName: LeftHand Mod
+      BoneName: LowManLeftHand
+      Index: 0
+      FixedAxisRotation: 0
+      ChildRotIndependent: 0
+      Enabled: 1
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationBlend: 1
+      PositionBlend: 1
+      RootMotionTransformSpace: 0
+      RotationValue: {x: 57.79, y: -165.87, z: -7.33}
+      RotationEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0.8726387
+          inSlope: -1.0616986
+          outSlope: -1.0616986
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.80415446
+          value: 0.018869076
+          inSlope: -1.0616986
+          outSlope: -1.0616986
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      PositionValue: {x: 0, y: 0, z: 0}
+      PositionEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationValue2: {x: 0, y: 0, z: 0}
+      RotationEvaluate2:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationsBoost: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      Foldown: 0
+    - Transform: {fileID: 0}
+      Type: 0
+      UpdateOrder: 0
+      ModName: RightLowerArm Mod
+      BoneName: LowManRightForeArm
+      Index: 1
+      FixedAxisRotation: 0
+      ChildRotIndependent: 0
+      Enabled: 1
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationBlend: 1
+      PositionBlend: 1
+      RootMotionTransformSpace: 0
+      RotationValue: {x: 13.000031, y: 0, z: 0}
+      RotationEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0.0000038146973
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.29017857
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      PositionValue: {x: 0, y: 0, z: 0}
+      PositionEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationValue2: {x: 0, y: 0, z: 0}
+      RotationEvaluate2:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationsBoost: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      Foldown: 0
+    - Transform: {fileID: 0}
+      Type: 0
+      UpdateOrder: 0
+      ModName: LeftHand Mod
+      BoneName: LowManLeftHand
+      Index: 2
+      FixedAxisRotation: 0
+      ChildRotIndependent: 0
+      Enabled: 1
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationBlend: 1
+      PositionBlend: 1
+      RootMotionTransformSpace: 0
+      RotationValue: {x: 8.3, y: -3.7, z: -29}
+      RotationEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      PositionValue: {x: 0, y: 0, z: 0}
+      PositionEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationValue2: {x: 0, y: 0, z: 0}
+      RotationEvaluate2:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationsBoost: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      Foldown: 0
+    - Transform: {fileID: 0}
+      Type: 0
+      UpdateOrder: 0
+      ModName: LeftLowerArm Mod
+      BoneName: LowManLeftForeArm
+      Index: 3
+      FixedAxisRotation: 0
+      ChildRotIndependent: 0
+      Enabled: 1
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationBlend: 1
+      PositionBlend: 1
+      RootMotionTransformSpace: 0
+      RotationValue: {x: 0, y: 18.3, z: 0}
+      RotationEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      PositionValue: {x: 0, y: 0, z: 0}
+      PositionEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationValue2: {x: 0, y: 0, z: 0}
+      RotationEvaluate2:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationsBoost: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      Foldown: 0
     AllModificatorsBlend: 1
     setId: 
     setIdHash: 0
@@ -11523,13 +12012,13 @@ MonoBehaviour:
         i_forProgress: 0
     setId: 
     setIdHash: 0
-  - settingsForClip: {fileID: 7400000, guid: 4dc9c592c08c3034d806dd4846e0717e, type: 2}
+  - settingsForClip: {fileID: 7400000, guid: 2aab4baf5f94a994792a1860978654de, type: 2}
     LimbIKSetups:
     - AlternateExecutionIndex: -2
       UseAlternateExecutionIndex: 0
       Index: 0
       ID: Left Arm
-      Enabled: 0
+      Enabled: 1
       Blend: 1
       BlendEvaluation:
         serializedVersion: 2
@@ -11583,7 +12072,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      IKPositionOffset: {x: 0, y: 0, z: 0}
+      IKPositionOffset: {x: 0.05, y: 0.05, z: 0}
       IKPosStillMul: 0
       IKPosStillEvaluate:
         serializedVersion: 2
@@ -11613,10 +12102,10 @@ MonoBehaviour:
       IKPosYOriginal: 0
       IKStillWorldPos: 0
       IKStillWorldRot: 0
-      IKHintOffset: {x: 0, y: 0, z: 0}
+      IKHintOffset: {x: 0, y: -0.25, z: -0.15}
       ThighOffset: {x: 0, y: 0, z: 0}
       IKRotationBlend: 1
-      ShoulderBlend: 0.3
+      ShoulderBlend: 0.24731183
       IKRotOffMul: 1
       IKRotOffEvaluate:
         serializedVersion: 2
@@ -11879,7 +12368,7 @@ MonoBehaviour:
       alignTo: {fileID: 0}
       AlignToBlend: 1
       AlignRotationToBlend: 0
-      OffsetWithPelvisBlend: 1
+      OffsetWithPelvisBlend: 0.49932885
       FootDataAnalyze:
         analyzed: 0
         targetClip: {fileID: 0}
@@ -11924,7 +12413,7 @@ MonoBehaviour:
       UseAlternateExecutionIndex: 0
       Index: 1
       ID: Right Arm
-      Enabled: 0
+      Enabled: 1
       Blend: 1
       BlendEvaluation:
         serializedVersion: 2
@@ -12100,7 +12589,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      MaxLegStretch: 1.1
+      MaxLegStretch: 0.5
       GroundLater: 0
       UnGroundLater: 0
       FootSwingsMultiply: 1
@@ -13913,7 +14402,7 @@ MonoBehaviour:
     AllSpringsBlend: 1
     setId: 
     setIdHash: 0
-  - settingsForClip: {fileID: 7400000, guid: 4dc9c592c08c3034d806dd4846e0717e, type: 2}
+  - settingsForClip: {fileID: 7400000, guid: 2aab4baf5f94a994792a1860978654de, type: 2}
     Springs: []
     AllSpringsBlend: 1
     setId: 
@@ -13931,15 +14420,15 @@ MonoBehaviour:
     Morphs: []
     setId: 
     setIdHash: 0
-  - settingsForClip: {fileID: 7400000, guid: 4dc9c592c08c3034d806dd4846e0717e, type: 2}
+  - settingsForClip: {fileID: 7400000, guid: 2aab4baf5f94a994792a1860978654de, type: 2}
     Morphs: []
     setId: 
     setIdHash: 0
-  LatestCorrect: {fileID: 7400000, guid: 90772293ba83e85438993f398c1422bd, type: 2}
+  LatestCorrect: {fileID: 7400000, guid: 2aab4baf5f94a994792a1860978654de, type: 2}
   Limbs:
   - Index: 0
     LimbName: Left Arm
-    GizmosBlend: 0
+    GizmosBlend: 1
     LimbType: 0
     Bones:
     - BoneName: LeftShoulder
@@ -13964,15 +14453,15 @@ MonoBehaviour:
       BonePath: 
       BodyBoneId: 17
       AnimationBlend: 1
-      ElasticnessBlend: 0.25
+      ElasticnessBlend: 0.449
       LimbEffectsBlend: 0.2
     Calibrate: 0
-    AnimationBlend: 1
+    AnimationBlend: 0.9
     ExecuteFirst: 0
     _hierarchyChanged: 0
   - Index: 1
     LimbName: Right Arm
-    GizmosBlend: 0
+    GizmosBlend: 1
     LimbType: 0
     Bones:
     - BoneName: RightShoulder
