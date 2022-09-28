@@ -11700,19 +11700,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223bbbd20bdfcf14a825d692ed61c73a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aimLine: {fileID: 228903414}
   _animationRootMovement: {fileID: 1412673557}
   _sideScrollingMovement: {fileID: 1272263248}
   _ledgeGrabPrototype: {fileID: 1272263251}
   _jumpControl: {fileID: 1272263250}
+  _mainCamera: {fileID: 2027789607}
+  _aimLine: {fileID: 228903414}
+  _riggingController: {fileID: 1272263255}
   _hitAim: {fileID: 1894113829}
   _weapon: {fileID: 1461900431}
   _weaponEnd: {fileID: 769162974}
-  _mainCamera: {fileID: 2027789607}
   _stablePrecisionError: 0.5
   _affectedPercentPrecisionError: 0
-  _precisionErrorSpeed: 120
-  _riggingController: {fileID: 1272263255}
+  _stablePrecisionErrorSpeed: 100
+  _affectedPercentPrecisionErrorSpeed: 0
 --- !u!1 &1883789345
 GameObject:
   m_ObjectHideFlags: 0
@@ -13695,6 +13696,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 928498599794048154, guid: fdb5766191647a044a728f83c5f5755c,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 928498599794048154, guid: fdb5766191647a044a728f83c5f5755c,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 928498599794048154, guid: fdb5766191647a044a728f83c5f5755c,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1831399346}
+    - target: {fileID: 928498599794048154, guid: fdb5766191647a044a728f83c5f5755c,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 928498599794048154, guid: fdb5766191647a044a728f83c5f5755c,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetAffectedPercentPrecisionErrorSpeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 928498599794048154, guid: fdb5766191647a044a728f83c5f5755c,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AimingSystemPrototype, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 928498599794048154, guid: fdb5766191647a044a728f83c5f5755c,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1060349245392000961, guid: fdb5766191647a044a728f83c5f5755c,
         type: 3}

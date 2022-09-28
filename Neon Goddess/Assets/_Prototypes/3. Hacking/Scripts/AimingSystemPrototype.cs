@@ -6,19 +6,25 @@ using UnityEngine.InputSystem;
 
 public class AimingSystemPrototype : MonoBehaviour
 {
-    [SerializeField] private LineRenderer _aimLine;
+    [Header("Other Systems")]
     [SerializeField] private AnimationRootMovement _animationRootMovement;
     [SerializeField] private SideScrollingMovement _sideScrollingMovement;
     [SerializeField] private LedgeGrabPrototype _ledgeGrabPrototype;
     [SerializeField] private JumpControlPrototype _jumpControl;
+    [SerializeField] private Camera _mainCamera;
+
+    [Header("Rendering")]
+    [SerializeField] private LineRenderer _aimLine;
+    [SerializeField] private RiggingController _riggingController;
     [SerializeField] private GameObject _hitAim;
     [SerializeField] private GameObject _weapon;
     [SerializeField] private Transform _weaponEnd;
-    [SerializeField] private Camera _mainCamera;
+
+    [Header("Precision System")]
     [SerializeField] private float _stablePrecisionError;
     [SerializeField] private float _affectedPercentPrecisionError;
-    [SerializeField] private float _precisionErrorSpeed;
-    [SerializeField] private RiggingController _riggingController;
+    [SerializeField] private float _stablePrecisionErrorSpeed;
+    [SerializeField] private float _affectedPercentPrecisionErrorSpeed;
     
     private InputActions _input;
     
@@ -127,7 +133,7 @@ public class AimingSystemPrototype : MonoBehaviour
     {
         var lastPrecisionError = _currentPrecisionError;
         var precisionError = _stablePrecisionError * (1 + _affectedPercentPrecisionError/100);
-        var precisionErrorSpeed = _precisionErrorSpeed * (1 - _affectedPercentPrecisionError / 100);
+        var precisionErrorSpeed = _stablePrecisionErrorSpeed * (1 - _affectedPercentPrecisionErrorSpeed / 100);
 
         if (Mathf.Abs(_aimPrecisionError.x - _currentPrecisionError.x) < 0.2f || Mathf.Abs(_aimPrecisionError.y - _currentPrecisionError.y) < 0.2f)
         {
@@ -190,6 +196,11 @@ public class AimingSystemPrototype : MonoBehaviour
 
     public void SetPrecisionErrorSpeed(string value)
     {
-        _precisionErrorSpeed = float.Parse(value);
+        _stablePrecisionErrorSpeed = float.Parse(value);
     }
+    
+    public void SetAffectedPercentPrecisionErrorSpeed(string value)
+        {
+            _affectedPercentPrecisionErrorSpeed = float.Parse(value);
+        }
 }
