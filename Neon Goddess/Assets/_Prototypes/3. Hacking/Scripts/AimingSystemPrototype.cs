@@ -12,6 +12,9 @@ public class AimingSystemPrototype : MonoBehaviour
     [SerializeField] private LedgeGrabPrototype _ledgeGrabPrototype;
     [SerializeField] private JumpControlPrototype _jumpControl;
     [SerializeField] private Camera _mainCamera;
+    [SerializeField] private float _maxY;
+    [SerializeField] private float _minY;
+    [SerializeField] private float _maxX;
 
     [Header("Rendering")]
     [SerializeField] private LineRenderer _aimLine;
@@ -19,6 +22,7 @@ public class AimingSystemPrototype : MonoBehaviour
     [SerializeField] private GameObject _hitAim;
     [SerializeField] private GameObject _weapon;
     [SerializeField] private Transform _weaponEnd;
+    [SerializeField] private Transform _visualTransform;
 
     [Header("Precision System")]
     [SerializeField] private float _stablePrecisionError;
@@ -119,6 +123,8 @@ public class AimingSystemPrototype : MonoBehaviour
 
     private void Update()
     {
+        if (!_isAiming) return;
+        
         CalculateAimPrecision();
 
         var mousePosition = CalculateMousePosition();
@@ -155,6 +161,16 @@ public class AimingSystemPrototype : MonoBehaviour
         var mousePositionCorrected = _mainCamera.ScreenToWorldPoint(mousePosition);
         mousePositionCorrected.z = 0;
 
+        mousePositionCorrected.y = Mathf.Clamp(mousePositionCorrected.y, transform.position.y + _minY, transform.position.y + _maxY);
+        if (mousePositionCorrected.x < transform.position.x)
+        {
+            mousePositionCorrected.x = Mathf.Clamp(mousePositionCorrected.x, mousePositionCorrected.x, transform.position.x - _maxX);
+        }
+        else
+        {
+            mousePositionCorrected.x = Mathf.Clamp(mousePositionCorrected.x, transform.position.x + _maxX, mousePositionCorrected.x);
+        }
+
         return mousePositionCorrected;
     }
 
@@ -163,13 +179,22 @@ public class AimingSystemPrototype : MonoBehaviour
         var rayHit = new RaycastHit();
 
         var targetWithOffset = (Vector2)mousePosition + _currentPrecisionError;
-        var ray = new Ray(transform.position, (targetWithOffset - (Vector2)transform.position).normalized);
+
+        var direction = (targetWithOffset - (Vector2) transform.position).normalized;
+        
+        var ray = new Ray(transform.position, direction);
         
         if(Physics.Raycast(ray, out rayHit, 20))
         {
             _hitAim.transform.position = rayHit.point;
             _shotObject = rayHit.collider.gameObject;
         }
+        else
+        {
+            _hitAim.transform.position = (Vector2)transform.position + direction * 20;
+        }
+        
+        _visualTransform.rotation = Quaternion.Euler(0, 90 * (targetWithOffset.x > transform.position.x ? 1 : -1), 0);
     }
 
     private void TurnAimLineOn(bool value)
@@ -200,7 +225,7 @@ public class AimingSystemPrototype : MonoBehaviour
     }
     
     public void SetAffectedPercentPrecisionErrorSpeed(string value)
-        {
-            _affectedPercentPrecisionErrorSpeed = float.Parse(value);
-        }
+    {
+        _affectedPercentPrecisionErrorSpeed = float.Parse(value);
+    }
 }
