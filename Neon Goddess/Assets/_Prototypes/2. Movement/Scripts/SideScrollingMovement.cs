@@ -27,6 +27,7 @@ public class SideScrollingMovement : MonoBehaviour
     private Vector2 _airDirection;
     private Vector3 _startPosition;
     private bool _wannaMove;
+    private bool _isMoving;
     private bool _isMovingRight;
     private bool _canChangeAirDirection = true;
     private bool _isFirstAirDirectionChange = true;
@@ -35,6 +36,11 @@ public class SideScrollingMovement : MonoBehaviour
     private float _currentHorizontalSpeed;
 
     public bool IsMovingRight => _isMovingRight;
+    public bool IsMoving => _isMoving;
+
+    public delegate void StartMovingDelegate();
+
+    public event StartMovingDelegate OnStartMoving;
     
     void Awake()
     {
@@ -89,6 +95,8 @@ public class SideScrollingMovement : MonoBehaviour
         
         SetAirDirection();
         
+        OnStartMoving?.Invoke();
+        
         if(Mathf.Abs(_direction.x) > 0.1f)
             _isMovingRight = _direction.x > 0;
     }
@@ -105,6 +113,8 @@ public class SideScrollingMovement : MonoBehaviour
             _isMovingRight = _direction.x > 0;
         
         _visualTransform.rotation = Quaternion.Euler(0, 90 * (_isMovingRight ? 1 : -1), 0);
+
+        _isMoving = false;
     }
 
     private void SetAirDirection()
@@ -124,6 +134,8 @@ public class SideScrollingMovement : MonoBehaviour
         _direction = Vector2.zero;
         
         _animator.OnMovement(false);
+
+        _isMoving = false;
         
         if(!_jumpControl.IsGrounded && _blockAirMovement) return;
         
@@ -154,6 +166,8 @@ public class SideScrollingMovement : MonoBehaviour
     private void ResetVelocity()
     {
         _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y, 0);
+        
+        _isMoving = false;
     }
 
     private void ResetMovement()
@@ -191,7 +205,10 @@ public class SideScrollingMovement : MonoBehaviour
 
     private void Move()
     {
-        if (_ledgeGrabController.IsOnLedge) return;
+        if (_ledgeGrabController.IsOnLedge)
+        {
+            return;
+        }
         
         if(_jumpControl.IsGrounded)
             _visualTransform.rotation = Quaternion.Euler(0, 90 * (_isMovingRight ? 1 : -1), 0);
@@ -207,6 +224,8 @@ public class SideScrollingMovement : MonoBehaviour
                 ApplyVelocity(_useAirMovementDueToJump ? _airDirection : _direction);
                 break;
         }
+        
+        _isMoving = true;
     }
 
     private void ApplyVelocity(Vector3 direction)

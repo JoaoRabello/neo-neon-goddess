@@ -8,6 +8,9 @@ public class AimingSystemPrototype : MonoBehaviour
 {
     [SerializeField] private LineRenderer _aimLine;
     [SerializeField] private AnimationRootMovement _animationRootMovement;
+    [SerializeField] private SideScrollingMovement _sideScrollingMovement;
+    [SerializeField] private LedgeGrabPrototype _ledgeGrabPrototype;
+    [SerializeField] private JumpControlPrototype _jumpControl;
     [SerializeField] private GameObject _hitAim;
     [SerializeField] private Transform _weaponEnd;
     [SerializeField] private Camera _mainCamera;
@@ -43,6 +46,10 @@ public class AimingSystemPrototype : MonoBehaviour
         _input.Prototype.Aim.performed += PerformAim;
         _input.Prototype.Aim.canceled += CancelAim;
         _input.Prototype.Shoot.performed += PerformShoot;
+
+        _jumpControl.OnJumpPerformed += CancelAimDueToMovements;
+
+        _sideScrollingMovement.OnStartMoving += CancelAimDueToMovements;
     }
     
     private void OnDisable()
@@ -52,15 +59,26 @@ public class AimingSystemPrototype : MonoBehaviour
         _input.Prototype.Aim.performed -= PerformAim;
         _input.Prototype.Aim.canceled -= CancelAim;
         _input.Prototype.Shoot.performed -= PerformShoot;
+        
+        _jumpControl.OnJumpPerformed -= CancelAimDueToMovements;
+        
+        _sideScrollingMovement.OnStartMoving -= CancelAimDueToMovements;
     }
 
     private void PerformAim(InputAction.CallbackContext context)
     {
+        if (_sideScrollingMovement.IsMoving || _ledgeGrabPrototype.IsOnLedge || !_jumpControl.IsGrounded) return;
+        
         OnAimStarted?.Invoke();
 
         _isAiming = true;
         TurnAimLineOn(true);
         TurnAimRiggingOn(true);
+    }
+
+    private void CancelAimDueToMovements()
+    {
+        CancelAim(new InputAction.CallbackContext());
     }
 
     private void CancelAim(InputAction.CallbackContext context)
