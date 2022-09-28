@@ -8713,6 +8713,7 @@ GameObject:
   - component: {fileID: 1272263253}
   - component: {fileID: 1272263252}
   - component: {fileID: 1272263254}
+  - component: {fileID: 1272263255}
   m_Layer: 3
   m_Name: Character
   m_TagString: Untagged
@@ -8903,6 +8904,22 @@ MonoBehaviour:
   _aimingSystem: {fileID: 1831399346}
   _hackAmmoData: {fileID: 11400000, guid: 9281e2e7e26f6b744b55d0549e38cef3, type: 2}
   _currentAmmoType: 0
+--- !u!114 &1272263255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272263246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca8c35c19a2f822409d4ae5daeb08725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _handsRig: {fileID: 141745454}
+  _bodyAimRig: {fileID: 1293883485}
+  _weaponStandRig: {fileID: 1197774285}
+  _weaponAimRig: {fileID: 588067754}
 --- !u!95 &1283557754 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1186731160940879467, guid: 3e0b2aaa8b2727a449c8031081a7b238,
@@ -11689,13 +11706,13 @@ MonoBehaviour:
   _ledgeGrabPrototype: {fileID: 1272263251}
   _jumpControl: {fileID: 1272263250}
   _hitAim: {fileID: 1894113829}
+  _weapon: {fileID: 1461900431}
   _weaponEnd: {fileID: 769162974}
   _mainCamera: {fileID: 2027789607}
   _stablePrecisionError: 0.5
   _affectedPercentPrecisionError: 0
   _precisionErrorSpeed: 120
-  _aimRig: {fileID: 588067754}
-  _torsoRig: {fileID: 1293883485}
+  _riggingController: {fileID: 1272263255}
 --- !u!1 &1883789345
 GameObject:
   m_ObjectHideFlags: 0

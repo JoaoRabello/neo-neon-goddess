@@ -12,13 +12,14 @@ public class AimingSystemPrototype : MonoBehaviour
     [SerializeField] private LedgeGrabPrototype _ledgeGrabPrototype;
     [SerializeField] private JumpControlPrototype _jumpControl;
     [SerializeField] private GameObject _hitAim;
+    [SerializeField] private GameObject _weapon;
     [SerializeField] private Transform _weaponEnd;
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private float _stablePrecisionError;
     [SerializeField] private float _affectedPercentPrecisionError;
     [SerializeField] private float _precisionErrorSpeed;
-    [SerializeField] private Rig _aimRig;
-    [SerializeField] private Rig _torsoRig;
+    [SerializeField] private RiggingController _riggingController;
+    
     private InputActions _input;
     
     public delegate void AimStartDelegate();
@@ -72,8 +73,9 @@ public class AimingSystemPrototype : MonoBehaviour
         OnAimStarted?.Invoke();
 
         _isAiming = true;
+        
         TurnAimLineOn(true);
-        TurnAimRiggingOn(true);
+        WieldWeapon();
     }
 
     private void CancelAimDueToMovements()
@@ -85,7 +87,22 @@ public class AimingSystemPrototype : MonoBehaviour
     {
         _isAiming = false;
         TurnAimLineOn(false);
-        TurnAimRiggingOn(false);
+        _riggingController.TurnAimRiggingOn(false);
+
+        HideWeapon();
+    }
+
+    private void WieldWeapon()
+    {
+        _riggingController.TurnOnHandsRigging();
+        _riggingController.TurnAimRiggingOn(true);
+        _weapon.SetActive(true);
+    }
+
+    private void HideWeapon()
+    {
+        _riggingController.TurnOffRigs();
+        _weapon.SetActive(false);
     }
     
     private void PerformShoot(InputAction.CallbackContext context)
@@ -153,12 +170,6 @@ public class AimingSystemPrototype : MonoBehaviour
     {
         _aimLine.gameObject.SetActive(value);
         _hitAim.SetActive(value);
-    }
-
-    private void TurnAimRiggingOn(bool value)
-    {
-        _aimRig.weight = value ? 1 : 0;
-        _torsoRig.weight = value ? 1 : 0;
     }
     
     private void DrawAimLine(Vector2 lineEndPosition)
