@@ -9,9 +9,11 @@ public class RiggingController : MonoBehaviour
     [SerializeField] private Rig _bodyAimRig;
     [SerializeField] private Rig _weaponStandRig;
     [SerializeField] private Rig _weaponAimRig;
-
+    
     public void TurnOffRigs()
     {
+        Debug.Log("Turn off rigs");
+
         _handsRig.weight = 0;
         _bodyAimRig.weight = 0;
         _weaponStandRig.weight = 0;
@@ -25,7 +27,16 @@ public class RiggingController : MonoBehaviour
     
     public void TurnAimRiggingOn(bool value)
     {
-        _weaponAimRig.weight = value ? 1 : 0;
-        _bodyAimRig.weight = value ? 1 : 0;
+        StartCoroutine(SetRigWeight(_weaponAimRig, value ? 1 : 0));
+        // _weaponAimRig.weight = value ? 1 : 0;
+        // _bodyAimRig.weight = value ? 1 : 0;
+        StartCoroutine(SetRigWeight(_bodyAimRig, value ? 1 : 0));
+    }
+
+    private IEnumerator SetRigWeight(Rig rig, float weight)
+    {
+        yield return null;
+        
+        rig.weight = weight;
     }
 }
