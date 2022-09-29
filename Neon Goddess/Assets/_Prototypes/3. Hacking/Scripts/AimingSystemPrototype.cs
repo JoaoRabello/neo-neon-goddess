@@ -11,6 +11,7 @@ public class AimingSystemPrototype : MonoBehaviour
     [SerializeField] private SideScrollingMovement _sideScrollingMovement;
     [SerializeField] private LedgeGrabPrototype _ledgeGrabPrototype;
     [SerializeField] private JumpControlPrototype _jumpControl;
+    [SerializeField] private PlayerAnimator _playerAnimator;
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private float _maxY;
     [SerializeField] private float _minY;
@@ -61,6 +62,9 @@ public class AimingSystemPrototype : MonoBehaviour
         _jumpControl.OnJumpPerformed += CancelAimDueToMovements;
 
         _sideScrollingMovement.OnStartMoving += CancelAimDueToMovements;
+
+        _animationRootMovement.OnWieldAnimationComplete += OnWieldComplete;
+        _animationRootMovement.OnGetWeaponFromPocket += DrawWeapon;
     }
     
     private void OnDisable()
@@ -74,6 +78,9 @@ public class AimingSystemPrototype : MonoBehaviour
         _jumpControl.OnJumpPerformed -= CancelAimDueToMovements;
         
         _sideScrollingMovement.OnStartMoving -= CancelAimDueToMovements;
+        
+        _animationRootMovement.OnWieldAnimationComplete -= OnWieldComplete;
+        _animationRootMovement.OnGetWeaponFromPocket -= DrawWeapon;
     }
 
     private void PerformAim(InputAction.CallbackContext context)
@@ -84,7 +91,6 @@ public class AimingSystemPrototype : MonoBehaviour
 
         _isAiming = true;
         
-        TurnAimLineOn(true);
         WieldWeapon();
     }
 
@@ -102,23 +108,38 @@ public class AimingSystemPrototype : MonoBehaviour
         HideWeapon();
     }
 
-    private void WieldWeapon()
+    private void OnWieldComplete()
     {
         _riggingController.TurnOnHandsRigging();
         _riggingController.TurnAimRiggingOn(true);
+        
+        TurnAimLineOn(true);
+    }
+
+    private void DrawWeapon()
+    {
         _weapon.SetActive(true);
+    }
+
+    private void WieldWeapon()
+    {
+        _playerAnimator.OnWeaponWield(true);
     }
 
     private void HideWeapon()
     {
         _riggingController.TurnOffRigs();
         _weapon.SetActive(false);
+        
+        _playerAnimator.OnWeaponWield(false);
     }
     
     private void PerformShoot(InputAction.CallbackContext context)
     {
         if (!_isAiming) return;
         OnShot?.Invoke(_shotObject);
+        
+        _playerAnimator.OnShoot();
     }
 
     private void Update()

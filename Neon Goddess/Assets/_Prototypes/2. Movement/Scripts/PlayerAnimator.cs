@@ -47,4 +47,17 @@ public class PlayerAnimator : MonoBehaviour
     {
         _animator.SetBool("isCrouching", value);
     }
+
+    public void OnWeaponWield(bool value)
+    {
+        _animator.SetLayerWeight(1, value ? 1 : 0);
+        _animator.SetBool("isAiming", value);
+        
+        _animator.Play("saque_arma", 1, 0);
+    }
+
+    public void OnShoot()
+    {
+        _animator.SetTrigger("shoot");
+    }
 }
