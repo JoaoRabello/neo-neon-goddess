@@ -12,14 +12,1144 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae529563ad9a554a9845b52bcc96068, type: 3}
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
-  AcousticTextureWwu: []
-  AuxBusWwu: []
-  BankWwu: []
-  EventWwu: []
-  RtpcWwu: []
-  StateWwu: []
-  SwitchWwu: []
-  TriggerWwu: []
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Virtual Acoustics
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: a6ead49771989b41ac95046be69a4143
+    ParentPath: Virtual Acoustics\Default Work Unit
+    guid: a6ead49771989b41ac95046be69a4143
+    GuidInternal: 
+    m_lastTime: -8585427332133713014
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Master-Mixer Hierarchy
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: aca27ecb43a417478e1289c52057adf9
+    ParentPath: Master-Mixer Hierarchy\Default Work Unit
+    guid: aca27ecb43a417478e1289c52057adf9
+    GuidInternal: 
+    m_lastTime: -8585372028002395881
+    List:
+    - name: accessibilityBus
+      guid: 988fbacb5b05cd45bb535141a1c4fdc0
+      id: 639560775
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: infoBus
+        ObjectType: 2
+        guid: 86ef9c55853c7347a064970c6652a613
+      - ElementName: accessibilityBus
+        ObjectType: 2
+        guid: 988fbacb5b05cd45bb535141a1c4fdc0
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\infoBus\accessibilityBus
+    - name: ambienceBus
+      guid: 481b870385f7b04d9067436d52066127
+      id: 612772313
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: ambienceBus
+        ObjectType: 2
+        guid: 481b870385f7b04d9067436d52066127
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\ambienceBus
+    - name: awarenessBus
+      guid: 0c13ec6162dba84ca7fefdfbe8603c1f
+      id: 3086158442
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: infoBus
+        ObjectType: 2
+        guid: 86ef9c55853c7347a064970c6652a613
+      - ElementName: awarenessBus
+        ObjectType: 2
+        guid: 0c13ec6162dba84ca7fefdfbe8603c1f
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\infoBus\awarenessBus
+    - name: dialogueBus
+      guid: 20024f4d9a8d6743a8d51734bb807dee
+      id: 309504875
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: dialogueBus
+        ObjectType: 2
+        guid: 20024f4d9a8d6743a8d51734bb807dee
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\dialogueBus
+    - name: infoBus
+      guid: 86ef9c55853c7347a064970c6652a613
+      id: 151322537
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: infoBus
+        ObjectType: 2
+        guid: 86ef9c55853c7347a064970c6652a613
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\infoBus
+    - name: masterBus
+      guid: d8a41415a61d2a41a17e75ca0c2149f3
+      id: 835198467
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus
+    - name: musicBus
+      guid: e4826c71470c1e4ca723f7ccb4e6b8f0
+      id: 2886307548
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: musicBus
+        ObjectType: 2
+        guid: e4826c71470c1e4ca723f7ccb4e6b8f0
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\musicBus
+    - name: sfxBus
+      guid: ffee025270875c4ba1f3560f70b37124
+      id: 3803850708
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: sfxBus
+        ObjectType: 2
+        guid: ffee025270875c4ba1f3560f70b37124
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\sfxBus
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: SoundBanks
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 291bed8b33d94b4dac16d5e30d3beea2
+    ParentPath: SoundBanks\Default Work Unit
+    guid: 291bed8b33d94b4dac16d5e30d3beea2
+    GuidInternal: 
+    m_lastTime: -8585372027998218448
+    List:
+    - name: mainSoundBank
+      guid: d7bbfefaf3d3aa46ae8514386f26a35f
+      id: 534561221
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 291bed8b33d94b4dac16d5e30d3beea2
+      - ElementName: mainSoundBank
+        ObjectType: 7
+        guid: d7bbfefaf3d3aa46ae8514386f26a35f
+      Path: SoundBanks\Default Work Unit\mainSoundBank
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 8707201672ff4b4696a8d320381f6a5a
+    ParentPath: Events\Default Work Unit
+    guid: 8707201672ff4b4696a8d320381f6a5a
+    GuidInternal: 
+    m_lastTime: -8585372028002695707
+    List:
+    - name: Accessibility Events
+      guid: 672189576faa69459dce1c48c73cc6d1
+      id: 3208354146
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Accessibility Events
+        ObjectType: 4
+        guid: 672189576faa69459dce1c48c73cc6d1
+      Path: Events\Default Work Unit\Accessibility Events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Ambience Events
+      guid: 5a7949201260d84d93ffe419fbb29ccb
+      id: 2255759592
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Ambience Events
+        ObjectType: 4
+        guid: 5a7949201260d84d93ffe419fbb29ccb
+      Path: Events\Default Work Unit\Ambience Events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Awareness Events
+      guid: df2600cb2b0ac8459ad0ff694557281b
+      id: 3864929963
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Awareness Events
+        ObjectType: 4
+        guid: df2600cb2b0ac8459ad0ff694557281b
+      Path: Events\Default Work Unit\Awareness Events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Cutscene Events
+      guid: 078a331c2e5a7545aab8385e22eb789a
+      id: 2843843504
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Cutscene Events
+        ObjectType: 4
+        guid: 078a331c2e5a7545aab8385e22eb789a
+      Path: Events\Default Work Unit\Cutscene Events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Dialogue Events
+      guid: ae1bf488dd00a642a7f787b8caeb7a19
+      id: 1512284262
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Dialogue Events
+        ObjectType: 4
+        guid: ae1bf488dd00a642a7f787b8caeb7a19
+      Path: Events\Default Work Unit\Dialogue Events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: eventHealthHeartbeat
+      guid: 71e5f5be94f9a047b9cf62ccbe4b9145
+      id: 2519090655
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Awareness Events
+        ObjectType: 4
+        guid: df2600cb2b0ac8459ad0ff694557281b
+      - ElementName: Health Events
+        ObjectType: 4
+        guid: 74c2bc3b30698f42b63fcd7c4f184148
+      - ElementName: eventHealthHeartbeat
+        ObjectType: 3
+        guid: 71e5f5be94f9a047b9cf62ccbe4b9145
+      Path: Events\Default Work Unit\Awareness Events\Health Events\eventHealthHeartbeat
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: eventVoiceAstrid
+      guid: 05b1fcdeb3424349b532dbfc56c090fc
+      id: 4214009878
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Dialogue Events
+        ObjectType: 4
+        guid: ae1bf488dd00a642a7f787b8caeb7a19
+      - ElementName: voiceEvent
+        ObjectType: 4
+        guid: d1646cd832d60c408ae82fec092d3be4
+      - ElementName: eventVoiceAstrid
+        ObjectType: 3
+        guid: 05b1fcdeb3424349b532dbfc56c090fc
+      Path: Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceAstrid
+      maxAttenuation: 0
+      maxDuration: 0.048521
+      minDuration: 0.048521
+    - name: eventVoiceGuara
+      guid: aaa0739ba9813b4b89d055d0d4c44dc7
+      id: 220902363
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Dialogue Events
+        ObjectType: 4
+        guid: ae1bf488dd00a642a7f787b8caeb7a19
+      - ElementName: voiceEvent
+        ObjectType: 4
+        guid: d1646cd832d60c408ae82fec092d3be4
+      - ElementName: eventVoiceGuara
+        ObjectType: 3
+        guid: aaa0739ba9813b4b89d055d0d4c44dc7
+      Path: Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceGuara
+      maxAttenuation: 0
+      maxDuration: 0.048521
+      minDuration: 0.048521
+    - name: eventVoiceKazimir
+      guid: 50298d72f648dc4b8e31191b7ac1d916
+      id: 607750724
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Dialogue Events
+        ObjectType: 4
+        guid: ae1bf488dd00a642a7f787b8caeb7a19
+      - ElementName: voiceEvent
+        ObjectType: 4
+        guid: d1646cd832d60c408ae82fec092d3be4
+      - ElementName: eventVoiceKazimir
+        ObjectType: 3
+        guid: 50298d72f648dc4b8e31191b7ac1d916
+      Path: Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceKazimir
+      maxAttenuation: 0
+      maxDuration: 0.056917
+      minDuration: 0.056917
+    - name: eventVoiceMilord
+      guid: b49a5408be67a24cbf566789800f8b2a
+      id: 1592018284
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Dialogue Events
+        ObjectType: 4
+        guid: ae1bf488dd00a642a7f787b8caeb7a19
+      - ElementName: voiceEvent
+        ObjectType: 4
+        guid: d1646cd832d60c408ae82fec092d3be4
+      - ElementName: eventVoiceMilord
+        ObjectType: 3
+        guid: b49a5408be67a24cbf566789800f8b2a
+      Path: Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceMilord
+      maxAttenuation: 0
+      maxDuration: 0.048521
+      minDuration: 0.048521
+    - name: eventVoiceRaziel
+      guid: 67eeaf9433ee74469e48a9acf8747e61
+      id: 3373072804
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Dialogue Events
+        ObjectType: 4
+        guid: ae1bf488dd00a642a7f787b8caeb7a19
+      - ElementName: voiceEvent
+        ObjectType: 4
+        guid: d1646cd832d60c408ae82fec092d3be4
+      - ElementName: eventVoiceRaziel
+        ObjectType: 3
+        guid: 67eeaf9433ee74469e48a9acf8747e61
+      Path: Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceRaziel
+      maxAttenuation: 0
+      maxDuration: 0.048521
+      minDuration: 0.048521
+    - name: eventVoiceTalwa
+      guid: 707c3f176f68c148ae88630a80a5c681
+      id: 3492179582
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Dialogue Events
+        ObjectType: 4
+        guid: ae1bf488dd00a642a7f787b8caeb7a19
+      - ElementName: voiceEvent
+        ObjectType: 4
+        guid: d1646cd832d60c408ae82fec092d3be4
+      - ElementName: eventVoiceTalwa
+        ObjectType: 3
+        guid: 707c3f176f68c148ae88630a80a5c681
+      Path: Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceTalwa
+      maxAttenuation: 0
+      maxDuration: 0.056917
+      minDuration: 0.056917
+    - name: eventVoiceYavik
+      guid: 6fe2324edc4bea428b93a2823eb9f21f
+      id: 1676920321
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Dialogue Events
+        ObjectType: 4
+        guid: ae1bf488dd00a642a7f787b8caeb7a19
+      - ElementName: voiceEvent
+        ObjectType: 4
+        guid: d1646cd832d60c408ae82fec092d3be4
+      - ElementName: eventVoiceYavik
+        ObjectType: 3
+        guid: 6fe2324edc4bea428b93a2823eb9f21f
+      Path: Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYavik
+      maxAttenuation: 0
+      maxDuration: 0.048521
+      minDuration: 0.048521
+    - name: eventVoiceYohanna
+      guid: 005e782b29b5684993f12a6d8ab8b9b1
+      id: 1437365791
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Dialogue Events
+        ObjectType: 4
+        guid: ae1bf488dd00a642a7f787b8caeb7a19
+      - ElementName: voiceEvent
+        ObjectType: 4
+        guid: d1646cd832d60c408ae82fec092d3be4
+      - ElementName: eventVoiceYohanna
+        ObjectType: 3
+        guid: 005e782b29b5684993f12a6d8ab8b9b1
+      Path: Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohanna
+      maxAttenuation: 0
+      maxDuration: 0.048521
+      minDuration: 0.048521
+    - name: eventVoiceYohannaAssistent
+      guid: 37a6dccd92000a4db770d322bb14a4c5
+      id: 865037345
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Dialogue Events
+        ObjectType: 4
+        guid: ae1bf488dd00a642a7f787b8caeb7a19
+      - ElementName: voiceEvent
+        ObjectType: 4
+        guid: d1646cd832d60c408ae82fec092d3be4
+      - ElementName: eventVoiceYohannaAssistent
+        ObjectType: 3
+        guid: 37a6dccd92000a4db770d322bb14a4c5
+      Path: Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohannaAssistent
+      maxAttenuation: 0
+      maxDuration: 0.048521
+      minDuration: 0.048521
+    - name: hackEvent
+      guid: 233882d0cdd26e43b35c10c0c9629e85
+      id: 536214842
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: hackEvent
+        ObjectType: 4
+        guid: 233882d0cdd26e43b35c10c0c9629e85
+      Path: Events\Default Work Unit\SFX Events\hackEvent
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: hackSelectionEvent
+      guid: 98b58e169116614bb40c643b923ccad5
+      id: 3399565108
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: hackEvent
+        ObjectType: 4
+        guid: 233882d0cdd26e43b35c10c0c9629e85
+      - ElementName: hackSelectionEvent
+        ObjectType: 3
+        guid: 98b58e169116614bb40c643b923ccad5
+      Path: Events\Default Work Unit\SFX Events\hackEvent\hackSelectionEvent
+      maxAttenuation: 0
+      maxDuration: 0.113208
+      minDuration: 0.066158
+    - name: hackStatusCancelEvent
+      guid: 11c206314ad3284f9acc420785e720d5
+      id: 2498197966
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: hackEvent
+        ObjectType: 4
+        guid: 233882d0cdd26e43b35c10c0c9629e85
+      - ElementName: hackStatusCancelEvent
+        ObjectType: 3
+        guid: 11c206314ad3284f9acc420785e720d5
+      Path: Events\Default Work Unit\SFX Events\hackEvent\hackStatusCancelEvent
+      maxAttenuation: 0
+      maxDuration: 0.2105
+      minDuration: 0.2105
+    - name: hackStatusConfirmEvent
+      guid: e58da4119961c04899c092272f85287d
+      id: 1494610132
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: hackEvent
+        ObjectType: 4
+        guid: 233882d0cdd26e43b35c10c0c9629e85
+      - ElementName: hackStatusConfirmEvent
+        ObjectType: 3
+        guid: e58da4119961c04899c092272f85287d
+      Path: Events\Default Work Unit\SFX Events\hackEvent\hackStatusConfirmEvent
+      maxAttenuation: 0
+      maxDuration: 0.326479
+      minDuration: 0.326479
+    - name: Health Events
+      guid: 74c2bc3b30698f42b63fcd7c4f184148
+      id: 2085523002
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Awareness Events
+        ObjectType: 4
+        guid: df2600cb2b0ac8459ad0ff694557281b
+      - ElementName: Health Events
+        ObjectType: 4
+        guid: 74c2bc3b30698f42b63fcd7c4f184148
+      Path: Events\Default Work Unit\Awareness Events\Health Events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Music Events
+      guid: 0a44597f982bdf4dbb99e84433f28895
+      id: 3264800193
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Music Events
+        ObjectType: 4
+        guid: 0a44597f982bdf4dbb99e84433f28895
+      Path: Events\Default Work Unit\Music Events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Radar Events
+      guid: 5ceb73569514c341a7d42f6ffa04a10e
+      id: 2146435154
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Accessibility Events
+        ObjectType: 4
+        guid: 672189576faa69459dce1c48c73cc6d1
+      - ElementName: Radar Events
+        ObjectType: 4
+        guid: 5ceb73569514c341a7d42f6ffa04a10e
+      Path: Events\Default Work Unit\Accessibility Events\Radar Events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SFX Events
+      guid: 5ce720e0f98e644db1623ef8260aab3c
+      id: 3754878377
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      Path: Events\Default Work Unit\SFX Events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: voiceEvent
+      guid: d1646cd832d60c408ae82fec092d3be4
+      id: 4228832235
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Dialogue Events
+        ObjectType: 4
+        guid: ae1bf488dd00a642a7f787b8caeb7a19
+      - ElementName: voiceEvent
+        ObjectType: 4
+        guid: d1646cd832d60c408ae82fec092d3be4
+      Path: Events\Default Work Unit\Dialogue Events\voiceEvent
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Game Parameters
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: b4d32a08d5d398448a9d266b95a7ce94
+    ParentPath: Game Parameters\Default Work Unit
+    guid: b4d32a08d5d398448a9d266b95a7ce94
+    GuidInternal: 
+    m_lastTime: -8585372028002675719
+    List:
+    - name: accessibilityBusController
+      guid: 9873ad6b321e564cbdd2ff8740b4b700
+      id: 2133121051
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: accessibilityBusController
+        ObjectType: 13
+        guid: 9873ad6b321e564cbdd2ff8740b4b700
+      Path: Game Parameters\Default Work Unit\bus Controllers\accessibilityBusController
+    - name: ambienceBusController
+      guid: 71d28ffc305ffc45ba7b5b4b79060f2a
+      id: 3767945453
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: ambienceBusController
+        ObjectType: 13
+        guid: 71d28ffc305ffc45ba7b5b4b79060f2a
+      Path: Game Parameters\Default Work Unit\bus Controllers\ambienceBusController
+    - name: awarenessBusController
+      guid: 0cb135095285214598ab2433a550739e
+      id: 4148718858
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: awarenessBusController
+        ObjectType: 13
+        guid: 0cb135095285214598ab2433a550739e
+      Path: Game Parameters\Default Work Unit\bus Controllers\awarenessBusController
+    - name: awarenessSoundController
+      guid: 3f6aa20d1d2a93439b2ee8ab91b894b7
+      id: 1061129617
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: awarenessSoundController
+        ObjectType: 4
+        guid: 3f6aa20d1d2a93439b2ee8ab91b894b7
+      Path: Game Parameters\Default Work Unit\awarenessSoundController
+    - name: bus Controllers
+      guid: 4aeee1764347f94584fc5e0401b6c134
+      id: 3647609546
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      Path: Game Parameters\Default Work Unit\bus Controllers
+    - name: dialogueBusController
+      guid: df7d36d8cae7284abcfa0356272d6faf
+      id: 1970181751
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: dialogueBusController
+        ObjectType: 13
+        guid: df7d36d8cae7284abcfa0356272d6faf
+      Path: Game Parameters\Default Work Unit\bus Controllers\dialogueBusController
+    - name: hackSwitchController
+      guid: 37f0c295331a95409ec60171530b6101
+      id: 1084512918
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: SwitchControllers
+        ObjectType: 4
+        guid: ccc398925e0dc34a9cecbcbd68cea273
+      - ElementName: hackSwitchController
+        ObjectType: 13
+        guid: 37f0c295331a95409ec60171530b6101
+      Path: Game Parameters\Default Work Unit\SwitchControllers\hackSwitchController
+    - name: heartbeatTempoController
+      guid: 5fec11425df1ef48892bb87489c3569a
+      id: 2692592512
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: awarenessSoundController
+        ObjectType: 4
+        guid: 3f6aa20d1d2a93439b2ee8ab91b894b7
+      - ElementName: heartbeatTempoController
+        ObjectType: 13
+        guid: 5fec11425df1ef48892bb87489c3569a
+      Path: Game Parameters\Default Work Unit\awarenessSoundController\heartbeatTempoController
+    - name: highVoicePitcher
+      guid: e57b1c9fa6e0234c81809943be75d3f7
+      id: 3517018448
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: pitchController
+        ObjectType: 4
+        guid: 5d9a204b27930943af13fe551537f2db
+      - ElementName: highVoicePitcher
+        ObjectType: 13
+        guid: e57b1c9fa6e0234c81809943be75d3f7
+      Path: Game Parameters\Default Work Unit\pitchController\highVoicePitcher
+    - name: infoBusController
+      guid: e1731e885326ac418f4201f2a48ccefb
+      id: 3037820317
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: infoBusController
+        ObjectType: 13
+        guid: e1731e885326ac418f4201f2a48ccefb
+      Path: Game Parameters\Default Work Unit\bus Controllers\infoBusController
+    - name: lowVoicePitcherController
+      guid: ccf4af812ee09b40a8328a2d598fbdfa
+      id: 95401436
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: pitchController
+        ObjectType: 4
+        guid: 5d9a204b27930943af13fe551537f2db
+      - ElementName: lowVoicePitcherController
+        ObjectType: 13
+        guid: ccf4af812ee09b40a8328a2d598fbdfa
+      Path: Game Parameters\Default Work Unit\pitchController\lowVoicePitcherController
+    - name: masterBusController
+      guid: b8d4caad2802b141b2db058429fdb1f5
+      id: 1444919967
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: masterBusController
+        ObjectType: 13
+        guid: b8d4caad2802b141b2db058429fdb1f5
+      Path: Game Parameters\Default Work Unit\bus Controllers\masterBusController
+    - name: musicBusController
+      guid: 4a943dea87afdd48a9c15e0f20b4b5aa
+      id: 80573052
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: musicBusController
+        ObjectType: 13
+        guid: 4a943dea87afdd48a9c15e0f20b4b5aa
+      Path: Game Parameters\Default Work Unit\bus Controllers\musicBusController
+    - name: pitchController
+      guid: 5d9a204b27930943af13fe551537f2db
+      id: 3031620861
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: pitchController
+        ObjectType: 4
+        guid: 5d9a204b27930943af13fe551537f2db
+      Path: Game Parameters\Default Work Unit\pitchController
+    - name: sfxBusController
+      guid: 7792743b62dbfa41a2718cc9c98768f5
+      id: 62014404
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: sfxBusController
+        ObjectType: 13
+        guid: 7792743b62dbfa41a2718cc9c98768f5
+      Path: Game Parameters\Default Work Unit\bus Controllers\sfxBusController
+    - name: SwitchControllers
+      guid: ccc398925e0dc34a9cecbcbd68cea273
+      id: 29158768
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: SwitchControllers
+        ObjectType: 4
+        guid: ccc398925e0dc34a9cecbcbd68cea273
+      Path: Game Parameters\Default Work Unit\SwitchControllers
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: States
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: a13717c7254d9b4fb705e721ec38d50d
+    ParentPath: States\Default Work Unit
+    guid: a13717c7254d9b4fb705e721ec38d50d
+    GuidInternal: 
+    m_lastTime: -8585427332133812959
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Switches
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 1b41e7b266cd6441a17fcd0aae3921c5
+    ParentPath: Switches\Default Work Unit
+    guid: 1b41e7b266cd6441a17fcd0aae3921c5
+    GuidInternal: 
+    m_lastTime: -8585372027998208448
+    List:
+    - name: hackSwitchGroup
+      guid: 736c2a60cfeae642a8f316870f86154e
+      id: 3932210399
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 1b41e7b266cd6441a17fcd0aae3921c5
+      - ElementName: HackSwitchGroup
+        ObjectType: 4
+        guid: 92ee4f8986347749921d261b61629072
+      - ElementName: hackSwitchGroup
+        ObjectType: 11
+        guid: 736c2a60cfeae642a8f316870f86154e
+      Path: Switches\Default Work Unit\HackSwitchGroup\hackSwitchGroup
+      values:
+      - name: hack01Paralyse
+        guid: 598960bf4125c14ea11c289e7fb10eca
+        id: 2375960624
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 1b41e7b266cd6441a17fcd0aae3921c5
+        - ElementName: HackSwitchGroup
+          ObjectType: 4
+          guid: 92ee4f8986347749921d261b61629072
+        - ElementName: hackSwitchGroup
+          ObjectType: 11
+          guid: 736c2a60cfeae642a8f316870f86154e
+        - ElementName: hack01Paralyse
+          ObjectType: 10
+          guid: 598960bf4125c14ea11c289e7fb10eca
+      - name: hack02Override
+        guid: f3ece36c2f970145af608175fcf4c451
+        id: 635696332
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 1b41e7b266cd6441a17fcd0aae3921c5
+        - ElementName: HackSwitchGroup
+          ObjectType: 4
+          guid: 92ee4f8986347749921d261b61629072
+        - ElementName: hackSwitchGroup
+          ObjectType: 11
+          guid: 736c2a60cfeae642a8f316870f86154e
+        - ElementName: hack02Override
+          ObjectType: 10
+          guid: f3ece36c2f970145af608175fcf4c451
+      - name: hack03Control
+        guid: 89f0d994d1540a47968f5023743b092e
+        id: 1070390048
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 1b41e7b266cd6441a17fcd0aae3921c5
+        - ElementName: HackSwitchGroup
+          ObjectType: 4
+          guid: 92ee4f8986347749921d261b61629072
+        - ElementName: hackSwitchGroup
+          ObjectType: 11
+          guid: 736c2a60cfeae642a8f316870f86154e
+        - ElementName: hack03Control
+          ObjectType: 10
+          guid: 89f0d994d1540a47968f5023743b092e
+      - name: hack04Convert
+        guid: fa17787fd8fb8044b17f369aa55f3f3d
+        id: 57838327
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 1b41e7b266cd6441a17fcd0aae3921c5
+        - ElementName: HackSwitchGroup
+          ObjectType: 4
+          guid: 92ee4f8986347749921d261b61629072
+        - ElementName: hackSwitchGroup
+          ObjectType: 11
+          guid: 736c2a60cfeae642a8f316870f86154e
+        - ElementName: hack04Convert
+          ObjectType: 10
+          guid: fa17787fd8fb8044b17f369aa55f3f3d
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+    - name: HackSwitchGroup
+      guid: 92ee4f8986347749921d261b61629072
+      id: 3932210399
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 1b41e7b266cd6441a17fcd0aae3921c5
+      - ElementName: HackSwitchGroup
+        ObjectType: 4
+        guid: 92ee4f8986347749921d261b61629072
+      Path: Switches\Default Work Unit\HackSwitchGroup
+      values: []
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Triggers
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: de2d5a3a4d468f43b43e80a1e4c5b898
+    ParentPath: Triggers\Default Work Unit
+    guid: de2d5a3a4d468f43b43e80a1e4c5b898
+    GuidInternal: 
+    m_lastTime: -8585427332133752988
+    List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
