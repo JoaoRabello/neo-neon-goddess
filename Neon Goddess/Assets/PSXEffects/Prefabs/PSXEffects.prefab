@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 20690878572351014}
   - component: {fileID: 81648212242627884}
   - component: {fileID: 114158257989079230}
+  - component: {fileID: 2295021804682034267}
   m_Layer: 0
   m_Name: PSXEffects
   m_TagString: Untagged
@@ -29,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,18 +98,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b416fbce5a38cc47a3a1e709f95f5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cfuStatus: PSXEffects
+  cfuStatus: PSXEffects v1.18.4 - version ahead?!
   sections: 01010100
-  customRes: {x: 620, y: 480}
+  customRes: {x: 320, y: 180}
   resolutionFactor: 2
   limitFramerate: 60
   skipFrames: 0
   affineMapping: 1
+  clampAffine: 0
+  affineBounds: 0
   polygonalDrawDistance: 0
   vertexInaccuracy: 40
   polygonInaccuracy: 2
   colorDepth: 5
-  scanlines: 0
+  scanlines: 1
   scanlineIntensity: 5
   ditherTexture: {fileID: 0}
   dithering: 1
@@ -120,10 +124,43 @@ MonoBehaviour:
   postProcessing: 1
   verticalScanlines: 1
   shadowIntensity: 0.5
-  downscale: 0
+  downscale: 1
   snapCamera: 1
   camInaccuracy: 0.05
   camSnapping: 0
-  shadowType: 0
-  ditherSky: 0
+  shadowType: 1
+  ditherSky: 1
   ditherType: 1
+--- !u!114 &2295021804682034267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491068631969934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
