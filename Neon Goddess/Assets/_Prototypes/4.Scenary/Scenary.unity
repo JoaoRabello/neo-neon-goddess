@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: 0.2509804, g: 0.3882353, b: 0.5058824, a: 1}
+  m_AmbientEquatorColor: {r: 0.17254902, g: 0.26666668, b: 0.34901962, a: 1}
+  m_AmbientGroundColor: {r: 0.07450981, g: 0.11372549, b: 0.14901961, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 74717618}
   - component: {fileID: 74717617}
   - component: {fileID: 74717619}
+  - component: {fileID: 74717620}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -370,8 +371,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.98236483, g: 1, b: 0.7962264, a: 1}
-  m_Intensity: 0.2
+  m_Color: {r: 0.60866654, g: 0.332, b: 0.83, a: 1}
+  m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -428,7 +429,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74717616}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: -0.4082179, y: 0.2345698, z: -0.10938169, w: -0.8754261}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -456,6 +457,39 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &74717620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74717616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 0.5
+  useScattering: 0
+  overrideScattering: 0
+  overridingScattering: 0.5
+  scatteringBias: 0
+  useColorTemperatureTint: 0
+  overrideColor: 0
+  overridingColor: {r: 0.999999, g: 0.25399533, b: 0.46737605, a: 1}
+  useShadow: 1
+  useCookie: 1
+  cookieMapRenderTexture: {fileID: 0}
+  enableOutOfPhaseColor: 0
+  outOfPhaseColorStrength: 0.1
+  outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
+  customDistanceFalloffThreshold: 0.5
+  customDistanceFalloffPower: 2
+  customCookieDistanceFalloffStartThreshold: 0.1
+  customCookieDistanceFalloffEndThreshold: 0.25
+  customCookieDistanceFalloffPower: 2
+  customAngularFalloffThreshold: 0.8
+  customAngularFalloffPower: 2
 --- !u!1 &78971683
 GameObject:
   m_ObjectHideFlags: 0
@@ -3673,6 +3707,49 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &580825977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8334a49e76cafef4da22976db1613959, type: 3}
+  m_Name: Default Aura Quality Settings
+  m_EditorClassIdentifier: 
+  displayVolumetricLightingBuffer: 0
+  frustumGridResolution: {x: 160, y: 88, z: 128}
+  enableAutomaticStereoResizing: 1
+  farClipPlaneDistance: 128
+  depthBiasCoefficient: 0.35
+  enableVolumes: 1
+  enableVolumesTexture2DMask: 1
+  enableVolumesTexture3DMask: 1
+  enableVolumesNoiseMask: 1
+  enableAmbientLighting: 1
+  enableDirectionalLights: 1
+  enableDirectionalLightsShadows: 1
+  enableSpotLights: 1
+  enableSpotLightsShadows: 1
+  enablePointLights: 1
+  enablePointLightsShadows: 1
+  enableLightsCookies: 1
+  enableDithering: 1
+  texture3DFiltering: 1
+  EXPERIMENTAL_enableDenoisingFilter: 0
+  EXPERIMENTAL_denoisingFilterRange: 0
+  EXPERIMENTAL_enableBlurFilter: 0
+  EXPERIMENTAL_blurFilterRange: 0
+  EXPERIMENTAL_blurFilterType: 0
+  EXPERIMENTAL_blurFilterGaussianDeviation: 0.0025
+  enableTemporalReprojection: 1
+  temporalReprojectionFactor: 0.95
+  enableOcclusionCulling: 1
+  debugOcclusionCulling: 0
+  occlusionCullingAccuracy: 0
+  enableLightProbes: 0
 --- !u!1 &581482047
 GameObject:
   m_ObjectHideFlags: 0
@@ -5705,12 +5782,7 @@ PrefabInstance:
     - target: {fileID: 1186731160940879467, guid: 3e0b2aaa8b2727a449c8031081a7b238,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'LowManSpine1'\n\tTransform 'LowManNeck'\n\tTransform
-        'LowManLeftHand'\n\tTransform 'LowManRightShoulder'\n\tTransform 'LowManRightForeArm'\n\tTransform
-        'LowManRightHand'\n\tTransform 'LowManSpine2'\n\tTransform 'LowManLeftShoulder'\n\tTransform
-        'LowManSpine'\n\tTransform 'LowManLeftForeArm'\n\tand more ..."
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1186731160940879467, guid: 3e0b2aaa8b2727a449c8031081a7b238,
         type: 3}
@@ -8590,7 +8662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1240990008
 Transform:
   m_ObjectHideFlags: 0
@@ -12583,6 +12655,7 @@ GameObject:
   - component: {fileID: 2027789610}
   - component: {fileID: 2027789609}
   - component: {fileID: 2027789611}
+  - component: {fileID: 2027789612}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -12600,7 +12673,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.2924528, g: 0, b: 0.20152485, a: 0}
+  m_BackGroundColor: {r: 0.29411766, g: 0, b: 0.24999999, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -12705,9 +12778,9 @@ MonoBehaviour:
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
+  m_VolumeTrigger: {fileID: 2127465690}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -12717,6 +12790,21 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &2027789612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027789605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdcd06815c47d30489f70df42db56a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frustumSettings:
+    baseSettings: {fileID: 11400000, guid: 714b958c2a241e84c9df671f4caf79cd, type: 2}
+    qualitySettings: {fileID: 580825977}
 --- !u!1 &2048535556
 GameObject:
   m_ObjectHideFlags: 0
@@ -13388,6 +13476,278 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1240990008}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2127465688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2127465690}
+  - component: {fileID: 2127465689}
+  m_Layer: 0
+  m_Name: Aura Preset Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2127465689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127465688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b142c931e4f39c429a012dc68ba0659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeShape:
+    shape: 0
+    fading:
+      falloffExponent: 3
+      xPositiveCubeFade: 0.25
+      xNegativeCubeFade: 0.25
+      yPositiveCubeFade: 0.25
+      yNegativeCubeFade: 0.25
+      zPositiveCubeFade: 0.25
+      zNegativeCubeFade: 0.25
+      angularConeFade: 0.5
+      distanceConeFade: 0.5
+      widthCylinderFade: 0.5
+      yNegativeCylinderFade: 0.25
+      yPositiveCylinderFade: 0.25
+      distanceSphereFade: 0.5
+  useAsLightProbesProxyVolume: 0
+  lightProbesMultiplier: 1
+  texture2DMask:
+    enable: 0
+    texture: {fileID: 0}
+    textureIndex: -1
+    transform:
+      space: 1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: 1, y: 1, z: 1}
+  texture3DMask:
+    enable: 0
+    texture: {fileID: 0}
+    textureIndex: -1
+    transform:
+      space: 1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: 1, y: 1, z: 1}
+  noiseMask:
+    enable: 1
+    speed: 0.15
+    transform:
+      space: 0
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: 3, y: 3, z: 3}
+  densityInjection:
+    enable: 1
+    strength: 0.2
+    useNoiseMask: 1
+    useNoiseMaskLevels: 1
+    noiseMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 1
+      outputLowValue: 0
+      outputHiValue: -1
+      contrast: 15
+      saturateOutputValues: 0
+    useTexture2DMask: 1
+    useTexture2DMaskLevels: 0
+    texture2DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 1
+      outputLowValue: 0
+      outputHiValue: 1
+      contrast: 1
+      saturateOutputValues: 0
+    useTexture3DMask: 1
+    useTexture3DMaskLevels: 0
+    texture3DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 1
+      outputLowValue: 0
+      outputHiValue: 1
+      contrast: 1
+      saturateOutputValues: 0
+  scatteringInjection:
+    enable: 0
+    strength: 0.25
+    useNoiseMask: 1
+    useNoiseMaskLevels: 1
+    noiseMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 1
+      outputLowValue: -1
+      outputHiValue: 1
+      contrast: 3
+      saturateOutputValues: 0
+    useTexture2DMask: 1
+    useTexture2DMaskLevels: 0
+    texture2DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 1
+      outputLowValue: -1
+      outputHiValue: 1
+      contrast: 1
+      saturateOutputValues: 0
+    useTexture3DMask: 1
+    useTexture3DMaskLevels: 0
+    texture3DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 1
+      outputLowValue: -1
+      outputHiValue: 1
+      contrast: 1
+      saturateOutputValues: 0
+  lightInjection:
+    injectionParameters:
+      enable: 0
+      strength: 1
+      useNoiseMask: 1
+      useNoiseMaskLevels: 1
+      noiseMaskLevelParameters:
+        levelLowThreshold: 0
+        levelHiThreshold: 1
+        outputLowValue: 0
+        outputHiValue: 1
+        contrast: 5
+        saturateOutputValues: 0
+      useTexture2DMask: 1
+      useTexture2DMaskLevels: 0
+      texture2DMaskLevelParameters:
+        levelLowThreshold: 0
+        levelHiThreshold: 1
+        outputLowValue: 0
+        outputHiValue: 1
+        contrast: 1
+        saturateOutputValues: 0
+      useTexture3DMask: 1
+      useTexture3DMaskLevels: 0
+      texture3DMaskLevelParameters:
+        levelLowThreshold: 0
+        levelHiThreshold: 1
+        outputLowValue: 0
+        outputHiValue: 1
+        contrast: 1
+        saturateOutputValues: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+  tintInjection:
+    injectionParameters:
+      enable: 0
+      strength: 1
+      useNoiseMask: 1
+      useNoiseMaskLevels: 1
+      noiseMaskLevelParameters:
+        levelLowThreshold: 0
+        levelHiThreshold: 1
+        outputLowValue: 0
+        outputHiValue: 1
+        contrast: 5
+        saturateOutputValues: 0
+      useTexture2DMask: 1
+      useTexture2DMaskLevels: 0
+      texture2DMaskLevelParameters:
+        levelLowThreshold: 0
+        levelHiThreshold: 1
+        outputLowValue: 0
+        outputHiValue: 1
+        contrast: 1
+        saturateOutputValues: 0
+      useTexture3DMask: 1
+      useTexture3DMaskLevels: 0
+      texture3DMaskLevelParameters:
+        levelLowThreshold: 0
+        levelHiThreshold: 1
+        outputLowValue: 0
+        outputHiValue: 1
+        contrast: 1
+        saturateOutputValues: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+  ambientInjection:
+    enable: 0
+    strength: 1
+    useNoiseMask: 1
+    useNoiseMaskLevels: 1
+    noiseMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 1
+      outputLowValue: 0
+      outputHiValue: 1
+      contrast: 5
+      saturateOutputValues: 0
+    useTexture2DMask: 1
+    useTexture2DMaskLevels: 0
+    texture2DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 1
+      outputLowValue: 0
+      outputHiValue: 1
+      contrast: 1
+      saturateOutputValues: 0
+    useTexture3DMask: 1
+    useTexture3DMaskLevels: 0
+    texture3DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 1
+      outputLowValue: 0
+      outputHiValue: 1
+      contrast: 1
+      saturateOutputValues: 0
+  boostInjection:
+    enable: 0
+    strength: 1
+    useNoiseMask: 1
+    useNoiseMaskLevels: 1
+    noiseMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 1
+      outputLowValue: 0
+      outputHiValue: 1
+      contrast: 5
+      saturateOutputValues: 0
+    useTexture2DMask: 1
+    useTexture2DMaskLevels: 0
+    texture2DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 1
+      outputLowValue: 0
+      outputHiValue: 1
+      contrast: 1
+      saturateOutputValues: 0
+    useTexture3DMask: 1
+    useTexture3DMaskLevels: 0
+    texture3DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 1
+      outputLowValue: 0
+      outputHiValue: 1
+      contrast: 1
+      saturateOutputValues: 0
+--- !u!4 &2127465690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127465688}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2132673183
 GameObject:
