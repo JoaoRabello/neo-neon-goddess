@@ -89,16 +89,16 @@ MonoBehaviour:
     m_Value: 1
   speed:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 2
   blockSize:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.5
   maxOffsetX:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 0.3
   maxOffsetY:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 0.3
   mask:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.75
+    m_Value: 0.5
   contrast:
     m_OverrideState: 1
     m_Value: 50
@@ -128,11 +128,11 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: {r: 1.4142135, g: 1.0259981, b: 1.3587542, a: 1}
   hueShift:
-    m_OverrideState: 1
-    m_Value: -10
+    m_OverrideState: 0
+    m_Value: -10.2
   saturation:
     m_OverrideState: 1
-    m_Value: 30
+    m_Value: 25
 --- !u!114 &2158304298155343093
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -204,25 +204,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7669d352906143fa9d142177f6d4c3c, type: 3}
   m_Name: LimitlessGlitch1
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   x:
     m_OverrideState: 1
-    m_Value: 13
+    m_Value: 10
   y:
     m_OverrideState: 1
-    m_Value: 13
+    m_Value: 10
   z:
     m_OverrideState: 1
-    m_Value: 13
+    m_Value: 10
   fade:
     m_OverrideState: 1
     m_Value: 0.07
   amount:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.4
   stretch:
     m_OverrideState: 1
     m_Value: 2
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4fb513f6d87104b8b8aa6b656d2468, type: 3}
   m_Name: PictureCorrection
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -354,7 +354,7 @@ MonoBehaviour:
     m_Value: 1
   GranularityAmount:
     m_OverrideState: 1
-    m_Value: 0.005
+    m_Value: 0.002
   TapeNoise:
     m_OverrideState: 0
     m_Value: 0
@@ -431,10 +431,10 @@ MonoBehaviour:
   active: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.13
   intensity:
     m_OverrideState: 1
-    m_Value: 0.3
+    m_Value: 0.39
   scatter:
     m_OverrideState: 1
     m_Value: 0.7

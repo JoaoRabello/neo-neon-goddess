@@ -16,7 +16,7 @@ MonoBehaviour:
   distanceGradient:
     serializedVersion: 2
     key0: {r: 0.33725485, g: 0.96862745, b: 0.85287577, a: 0}
-    key1: {r: 0, g: 0.38679248, b: 0.16078436, a: 1}
+    key1: {r: 0.2647059, g: 0, b: 0.3529412, a: 1}
     key2: {r: 0.1875, g: 0, b: 0.25, a: 1}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -42,15 +42,15 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 3
-  near: 15
-  far: 500
-  distanceFogIntensity: 0.5
+  near: 75
+  far: 100
+  distanceFogIntensity: 1
   useDistanceFogOnSky: 1
   useHeight: 1
   heightGradient:
     serializedVersion: 2
     key0: {r: 0.33725485, g: 0.96862745, b: 0.85287577, a: 0}
-    key1: {r: 0, g: 0.38679248, b: 0.16078436, a: 1}
+    key1: {r: 0.2647059, g: 0, b: 0.3529412, a: 1}
     key2: {r: 0.1875, g: 0, b: 0.25, a: 1}
     key3: {r: 0, g: 0, b: 0, a: 1}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -76,9 +76,9 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 3
-  low: 15
-  high: 500
-  heightFogIntensity: 1
+  low: 4
+  high: 100
+  heightFogIntensity: 0.85
   useHeightFogOnSky: 1
   distanceHeightBlend: 1
   renderEvent: 550
