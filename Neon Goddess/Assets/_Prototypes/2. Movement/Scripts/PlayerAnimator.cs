@@ -56,6 +56,11 @@ public class PlayerAnimator : MonoBehaviour
         _animator.Play("saque_arma", 1, 0);
     }
 
+    public void OnWeaponHide()
+    {
+        _animator.SetBool("isAiming", false);
+    }
+
     public void OnShoot()
     {
         _animator.SetTrigger("shoot");

@@ -8617,11 +8617,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 169547600023056874, guid: a67482ba5cdea2c47b58b6c546dd23c6,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'LowManSpine1'\n\tTransform 'LowManNeck'\n\tTransform
+        'LowManLeftHand'\n\tTransform 'LowManRightShoulder'\n\tTransform 'LowManRightForeArm'\n\tTransform
+        'LowManRightHand'\n\tTransform 'LowManSpine2'\n\tTransform 'LowManLeftShoulder'\n\tTransform
+        'LowManSpine'\n\tTransform 'LowManLeftForeArm'\n\tand more ..."
+      objectReference: {fileID: 0}
     - target: {fileID: 1306684978443873848, guid: a67482ba5cdea2c47b58b6c546dd23c6,
         type: 3}
       propertyPath: _hitAim
       value: 
       objectReference: {fileID: 1894113829}
+    - target: {fileID: 1306684978828358044, guid: a67482ba5cdea2c47b58b6c546dd23c6,
+        type: 3}
+      propertyPath: m_RigLayers.Array.data[0].m_Active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306684978828358044, guid: a67482ba5cdea2c47b58b6c546dd23c6,
+        type: 3}
+      propertyPath: m_RigLayers.Array.data[2].m_Active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306684978828358044, guid: a67482ba5cdea2c47b58b6c546dd23c6,
+        type: 3}
+      propertyPath: m_RigLayers.Array.data[3].m_Active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1306684978947535812, guid: a67482ba5cdea2c47b58b6c546dd23c6,
         type: 3}
       propertyPath: m_Name
