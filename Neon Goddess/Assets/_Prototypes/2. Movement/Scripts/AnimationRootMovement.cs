@@ -14,6 +14,10 @@ public class AnimationRootMovement : MonoBehaviour
     public event WieldAnimationDelegate OnWieldAnimationComplete;
     public delegate void GetWeaponFromPocketDelegate();
     public event GetWeaponFromPocketDelegate OnGetWeaponFromPocket;
+    public delegate void HideAnimationDelegate();
+    public event HideAnimationDelegate OnHideAnimationComplete;
+    public delegate void HideWeaponOnPocketDelegate();
+    public event HideWeaponOnPocketDelegate OnHideWeaponOnPocket;
 
     private Vector3 _handTargetPosition;
     
@@ -29,10 +33,20 @@ public class AnimationRootMovement : MonoBehaviour
     {
         OnWieldAnimationComplete?.Invoke();
     }
+    
+    public void CompleteHideAnimation()
+    {
+        OnHideAnimationComplete?.Invoke();
+    }
 
     public void GetWeaponFromPocket()
     {
         OnGetWeaponFromPocket?.Invoke();
+    }
+
+    public void HideWeaponOnPocket()
+    {
+        OnHideWeaponOnPocket?.Invoke();
     }
 
     public void SetUseRootAnimation(bool value)

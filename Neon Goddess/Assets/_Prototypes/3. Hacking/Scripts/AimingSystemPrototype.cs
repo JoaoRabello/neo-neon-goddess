@@ -65,6 +65,9 @@ public class AimingSystemPrototype : MonoBehaviour
 
         _animationRootMovement.OnWieldAnimationComplete += OnWieldComplete;
         _animationRootMovement.OnGetWeaponFromPocket += DrawWeapon;
+        
+        _animationRootMovement.OnHideAnimationComplete += OnHideWeaponComplete;
+        _animationRootMovement.OnHideWeaponOnPocket += HideWeapon;
     }
     
     private void OnDisable()
@@ -81,6 +84,9 @@ public class AimingSystemPrototype : MonoBehaviour
         
         _animationRootMovement.OnWieldAnimationComplete -= OnWieldComplete;
         _animationRootMovement.OnGetWeaponFromPocket -= DrawWeapon;
+        
+        _animationRootMovement.OnHideAnimationComplete -= OnHideWeaponComplete;
+        _animationRootMovement.OnHideWeaponOnPocket -= HideWeapon;
     }
 
     private void PerformAim(InputAction.CallbackContext context)
@@ -105,7 +111,7 @@ public class AimingSystemPrototype : MonoBehaviour
         TurnAimLineOn(false);
         _riggingController.TurnAimRiggingOn(false);
 
-        HideWeapon();
+        StartHideWeapon();
     }
 
     private void OnWieldComplete()
@@ -121,17 +127,26 @@ public class AimingSystemPrototype : MonoBehaviour
         _weapon.SetActive(true);
     }
 
+    private void HideWeapon()
+    {
+        _weapon.SetActive(false);
+    }
+
     private void WieldWeapon()
     {
         _playerAnimator.OnWeaponWield(true);
     }
 
-    private void HideWeapon()
+    private void OnHideWeaponComplete()
+    {
+        _playerAnimator.OnWeaponWield(false);
+    }
+
+    private void StartHideWeapon()
     {
         _riggingController.TurnOffRigs();
-        _weapon.SetActive(false);
         
-        _playerAnimator.OnWeaponWield(false);
+        _playerAnimator.OnWeaponHide();
     }
     
     private void PerformShoot(InputAction.CallbackContext context)
@@ -215,7 +230,14 @@ public class AimingSystemPrototype : MonoBehaviour
             _hitAim.transform.position = (Vector2)transform.position + direction * 20;
         }
         
-        _visualTransform.rotation = Quaternion.Euler(0, 90 * (targetWithOffset.x > transform.position.x ? 1 : -1), 0);
+        StartCoroutine(Rotate(targetWithOffset.x));
+        Debug.Log(_visualTransform.rotation);
+    }
+
+    private IEnumerator Rotate(float value)
+    {
+        yield return null;
+        _visualTransform.rotation = Quaternion.Euler(0, 90 * (value > transform.position.x ? 1 : -1), 0);
     }
 
     private void TurnAimLineOn(bool value)
