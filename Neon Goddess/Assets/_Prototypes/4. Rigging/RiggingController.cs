@@ -12,8 +12,6 @@ public class RiggingController : MonoBehaviour
     
     public void TurnOffRigs()
     {
-        Debug.Log("Turn off rigs");
-
         _handsRig.weight = 0;
         _bodyAimRig.weight = 0;
         _weaponStandRig.weight = 0;
