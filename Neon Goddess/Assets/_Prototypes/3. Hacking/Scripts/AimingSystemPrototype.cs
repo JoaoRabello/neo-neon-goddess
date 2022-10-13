@@ -24,6 +24,7 @@ public class AimingSystemPrototype : MonoBehaviour
     [SerializeField] private GameObject _weapon;
     [SerializeField] private Transform _weaponEnd;
     [SerializeField] private Transform _visualTransform;
+    [SerializeField] private float _aimLineVisualDistance;
 
     [Header("Precision System")]
     [SerializeField] private float _stablePrecisionError;
@@ -249,7 +250,7 @@ public class AimingSystemPrototype : MonoBehaviour
     private void DrawAimLine(Vector2 lineEndPosition)
     {
         _aimLine.SetPosition(0, _weaponEnd.position);
-        _aimLine.SetPosition(1, (Vector2)_weaponEnd.position + (lineEndPosition - (Vector2)_weaponEnd.position).normalized * 2);
+        _aimLine.SetPosition(1, (Vector2)_weaponEnd.position + (lineEndPosition - (Vector2)_weaponEnd.position).normalized * _aimLineVisualDistance);
     }
 
     public void SetStablePrecisionError(string value)
