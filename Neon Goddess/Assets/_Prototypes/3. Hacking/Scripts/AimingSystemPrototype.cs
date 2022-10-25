@@ -232,7 +232,6 @@ public class AimingSystemPrototype : MonoBehaviour
         }
         
         StartCoroutine(Rotate(targetWithOffset.x));
-        Debug.Log(_visualTransform.rotation);
     }
 
     private IEnumerator Rotate(float value)

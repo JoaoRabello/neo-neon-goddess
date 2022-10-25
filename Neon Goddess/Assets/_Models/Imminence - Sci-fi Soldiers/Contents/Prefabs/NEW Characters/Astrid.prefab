@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 1186731160933396871}
   - component: {fileID: 1186731160940879467}
   - component: {fileID: 1306684978828358044}
-  - component: {fileID: 1306684978828358047}
+  - component: {fileID: 4914501391285285697}
   m_Layer: 0
   m_Name: Astrid
   m_TagString: Untagged
@@ -565,7 +565,7 @@ MonoBehaviour:
   - m_Rig: {fileID: 1306684979964959908}
     m_Active: 1
   m_Effectors: []
---- !u!114 &1306684978828358047
+--- !u!114 &4914501391285285697
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parent: {fileID: 0}
-  _centerOfMass: {fileID: 0}
+  _centerOfMass: {fileID: 225761689635010767}
   _ledgeGrab: {fileID: 0}
   _animator: {fileID: 1186731160940879467}
 --- !u!1 &1306684978185696520
@@ -2721,7 +2721,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5715000630685432015}
   m_LocalRotation: {x: 0.45830598, y: 0.09692001, z: 0.87753534, w: -0.102439836}
-  m_LocalPosition: {x: 1.3581339, y: -12.513324, z: 29.198137}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.053850014, y: 0.07000002, z: 0.20203006}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2966,7 +2966,7 @@ Transform:
   m_Children:
   - {fileID: 1214340133980535022}
   m_Father: {fileID: 5101919247927221711}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6984070535372204072
 GameObject:
@@ -3838,6 +3838,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8779415817951622987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 225761689635010767}
+  m_Layer: 0
+  m_Name: Center Of Mass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &225761689635010767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779415817951622987}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.491, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5101919247927221711}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8828626664460330661
 GameObject:
   m_ObjectHideFlags: 0
@@ -3879,6 +3910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5101919247927221711}
   - component: {fileID: 8422850515264545268}
+  - component: {fileID: 1959464670291277692}
   m_Layer: 0
   m_Name: Astrid_Rigged
   m_TagString: Untagged
@@ -3899,6 +3931,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3731037020938590570}
+  - {fileID: 225761689635010767}
   - {fileID: 572116611594437095}
   m_Father: {fileID: 1186731160933396871}
   m_RootOrder: 0
@@ -3923,6 +3956,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1959464670291277692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879501715498500242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04650bdd94f21924e800d8694c69487a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parent: {fileID: 1186731160933396871}
+  _centerOfMass: {fileID: 225761689635010767}
+  _ledgeGrab: {fileID: 0}
+  _animator: {fileID: 8422850515264545268}
 --- !u!1 &9210825068739721038
 GameObject:
   m_ObjectHideFlags: 0
