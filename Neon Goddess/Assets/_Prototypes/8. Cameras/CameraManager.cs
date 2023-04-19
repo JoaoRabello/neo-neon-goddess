@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
+    public static CameraManager Instance;
     [SerializeField] private GameObject _cameraButtonsParent;
     [SerializeField] private CameraButtonObject _cameraButtonPrefab;
     [SerializeField] private List<CameraButtonObject> _cameraButtons;
@@ -12,6 +13,14 @@ public class CameraManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance is null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
         var cameras = FindObjectsOfType<Camera>();
         _cameras = new List<Camera>();
         _cameraButtons = new List<CameraButtonObject>();
@@ -50,6 +59,14 @@ public class CameraManager : MonoBehaviour
         for (int i = 0; i < _cameras.Count; i++)
         {
             _cameras[i].gameObject.SetActive(i == index);
+        }
+    }
+
+    public void SelectCamera(Camera cameraToSelect)
+    {
+        foreach (var searchCamera in _cameras)
+        {
+            searchCamera.gameObject.SetActive(searchCamera.Equals(cameraToSelect));
         }
     }
 }
