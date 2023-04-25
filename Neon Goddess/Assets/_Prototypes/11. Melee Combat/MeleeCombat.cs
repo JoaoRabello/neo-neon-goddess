@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public class MeleeCombat : MonoBehaviour
 {
     [SerializeField] private LayerMask _enemyLayerMask;
-    [SerializeField] private float _range;
+    [SerializeField] private MeleeWeapon _weapon;
+    
     private InputActions _inputActions;
     
     private void Awake()
@@ -29,7 +30,7 @@ public class MeleeCombat : MonoBehaviour
     private void MeleePerformed(InputAction.CallbackContext context)
     {
         Collider[] enemies = new Collider[10];
-        var size = Physics.OverlapSphereNonAlloc(transform.position, _range, enemies, _enemyLayerMask);
+        var size = Physics.OverlapSphereNonAlloc(transform.position, _weapon.Range, enemies, _enemyLayerMask);
 
         for (int i = 0; i < size; i++)
         {
@@ -41,6 +42,6 @@ public class MeleeCombat : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, _range);
+        Gizmos.DrawWireSphere(transform.position, _weapon.Range);
     }
 }
