@@ -35,7 +35,8 @@ public class MeleeCombat : MonoBehaviour
         for (int i = 0; i < size; i++)
         {
             var enemy = enemies[i];
-            Debug.Log($"Hit: {enemy.name}");
+            enemy.GetComponent<DummyHackable>().TakeHackShot(_weapon.Damage);
+            Debug.Log($"Hit: {enemy.name} with {_weapon.Damage} damage");
         }
     }
     
