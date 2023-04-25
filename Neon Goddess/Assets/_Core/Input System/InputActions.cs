@@ -71,6 +71,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Melee"",
+                    ""type"": ""Button"",
+                    ""id"": ""d6ac92a3-664b-4749-a029-9567fca84d27"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -227,6 +236,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""00220778-b8b4-41c1-87b3-3e02e87756f6"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Melee"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea4b438a-5fff-45ae-88e7-42adfc4e7ebb"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Melee"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -240,6 +271,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Prototype_Crouch = m_Prototype.FindAction("Crouch", throwIfNotFound: true);
         m_Prototype_Aim = m_Prototype.FindAction("Aim", throwIfNotFound: true);
         m_Prototype_Shoot = m_Prototype.FindAction("Shoot", throwIfNotFound: true);
+        m_Prototype_Melee = m_Prototype.FindAction("Melee", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -304,6 +336,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Prototype_Crouch;
     private readonly InputAction m_Prototype_Aim;
     private readonly InputAction m_Prototype_Shoot;
+    private readonly InputAction m_Prototype_Melee;
     public struct PrototypeActions
     {
         private @InputActions m_Wrapper;
@@ -313,6 +346,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Crouch => m_Wrapper.m_Prototype_Crouch;
         public InputAction @Aim => m_Wrapper.m_Prototype_Aim;
         public InputAction @Shoot => m_Wrapper.m_Prototype_Shoot;
+        public InputAction @Melee => m_Wrapper.m_Prototype_Melee;
         public InputActionMap Get() { return m_Wrapper.m_Prototype; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -337,6 +371,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnShoot;
+                @Melee.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnMelee;
+                @Melee.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnMelee;
+                @Melee.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnMelee;
             }
             m_Wrapper.m_PrototypeActionsCallbackInterface = instance;
             if (instance != null)
@@ -356,6 +393,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @Melee.started += instance.OnMelee;
+                @Melee.performed += instance.OnMelee;
+                @Melee.canceled += instance.OnMelee;
             }
         }
     }
@@ -367,5 +407,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnMelee(InputAction.CallbackContext context);
     }
 }
