@@ -71,6 +71,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ledge"",
+                    ""type"": ""Button"",
+                    ""id"": ""09b240db-896c-43ca-87b7-624138bafe28"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -227,6 +236,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6e321522-86da-47db-b4f2-8c8970cd1a3e"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ledge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -240,6 +260,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Prototype_Crouch = m_Prototype.FindAction("Crouch", throwIfNotFound: true);
         m_Prototype_Aim = m_Prototype.FindAction("Aim", throwIfNotFound: true);
         m_Prototype_Shoot = m_Prototype.FindAction("Shoot", throwIfNotFound: true);
+        m_Prototype_Ledge = m_Prototype.FindAction("Ledge", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -304,6 +325,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Prototype_Crouch;
     private readonly InputAction m_Prototype_Aim;
     private readonly InputAction m_Prototype_Shoot;
+    private readonly InputAction m_Prototype_Ledge;
     public struct PrototypeActions
     {
         private @InputActions m_Wrapper;
@@ -313,6 +335,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Crouch => m_Wrapper.m_Prototype_Crouch;
         public InputAction @Aim => m_Wrapper.m_Prototype_Aim;
         public InputAction @Shoot => m_Wrapper.m_Prototype_Shoot;
+        public InputAction @Ledge => m_Wrapper.m_Prototype_Ledge;
         public InputActionMap Get() { return m_Wrapper.m_Prototype; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -337,6 +360,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnShoot;
+                @Ledge.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnLedge;
+                @Ledge.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnLedge;
+                @Ledge.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnLedge;
             }
             m_Wrapper.m_PrototypeActionsCallbackInterface = instance;
             if (instance != null)
@@ -356,6 +382,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @Ledge.started += instance.OnLedge;
+                @Ledge.performed += instance.OnLedge;
+                @Ledge.canceled += instance.OnLedge;
             }
         }
     }
@@ -367,5 +396,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnLedge(InputAction.CallbackContext context);
     }
 }
