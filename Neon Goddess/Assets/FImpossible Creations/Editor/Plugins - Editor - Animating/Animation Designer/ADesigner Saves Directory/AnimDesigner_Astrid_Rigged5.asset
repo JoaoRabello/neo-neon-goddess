@@ -1201,7 +1201,7 @@ MonoBehaviour:
       HumanoidBodyBone: 0
       wasInitializing: 0
       BoneBakePathName: 
-      HumToGenericBoneBakePathName: 
+      HumToGenericBoneBakePathName: root/root.x
       HumanoidBoneDefined: 0
       BakePosition: 0
       _Bake_PivotSpace: 0
@@ -1787,7 +1787,7 @@ MonoBehaviour:
       LocalPosition: {x: -0.0000000047683715, y: 0.033087533, z: -0.000000039339064}
       LocalRotation: {x: -0.17290543, y: -0.0155426115, z: 0.026269184, w: 0.9844654}
       LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
-  _Tips_RootAndHipsMakeSureCounter: 4
+  _Tips_RootAndHipsMakeSureCounter: 8
   Export_SetAllOriginalBake: 1
   Export_CopyEvents: 1
   Export_CopyCurves: 0
@@ -7629,7 +7629,7 @@ MonoBehaviour:
       RotationBlend: 1
       PositionBlend: 1
       RootMotionTransformSpace: 0
-      RotationValue: {x: 11, y: 0, z: -2.5}
+      RotationValue: {x: 10.75, y: 1.9499987, z: 1.1090018}
       RotationEvaluate:
         serializedVersion: 2
         m_Curve:
@@ -7655,6 +7655,126 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       PositionValue: {x: 0, y: 0, z: 0}
+      PositionEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationValue2: {x: 0, y: 0, z: 0}
+      RotationEvaluate2:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0.5
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationsRapidity: 0.7
+      RotationsDamping: 0.25
+      RotationsSwinginess: 0.6
+      RotationsBoost: 0
+      alignToBoneName: 
+      alignTo: {fileID: 0}
+      AlignToBlend: 1
+      Foldown: 0
+    - Transform: {fileID: 0}
+      Type: 2
+      UpdateOrder: 0
+      ModName: Hips Mod
+      BoneName: root.x
+      Index: 1
+      FixedAxisRotation: 0
+      ChildRotIndependent: 0
+      Enabled: 1
+      Blend: 1
+      BlendEvaluation:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      RotationBlend: 1
+      PositionBlend: 1
+      RootMotionTransformSpace: 0
+      RotationValue: {x: -0, y: 0, z: 0}
+      RotationEvaluate:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      PositionValue: {x: 0, y: 0, z: 0.07}
       PositionEvaluate:
         serializedVersion: 2
         m_Curve:
@@ -26235,11 +26355,11 @@ MonoBehaviour:
     Morphs: []
     setId: 
     setIdHash: 0
-  LatestCorrect: {fileID: 7400000, guid: 5332f9f4c192ba94e996639fad63e17f, type: 2}
+  LatestCorrect: {fileID: 7400000, guid: 6fe1be5ce0124764fb5cfe844018482f, type: 2}
   Limbs:
   - Index: 0
     LimbName: Left Arm
-    GizmosBlend: 0
+    GizmosBlend: 1
     LimbType: 0
     Bones:
     - BoneName: LeftShoulder
@@ -26272,7 +26392,7 @@ MonoBehaviour:
     _hierarchyChanged: 0
   - Index: 1
     LimbName: Right Arm
-    GizmosBlend: 0
+    GizmosBlend: 1
     LimbType: 0
     Bones:
     - BoneName: RightShoulder
@@ -26305,7 +26425,7 @@ MonoBehaviour:
     _hierarchyChanged: 0
   - Index: 2
     LimbName: Spine Chain
-    GizmosBlend: 0
+    GizmosBlend: 1
     LimbType: 2
     Bones:
     - BoneName: Spine
@@ -26344,7 +26464,7 @@ MonoBehaviour:
     _hierarchyChanged: 0
   - Index: 3
     LimbName: Left Leg
-    GizmosBlend: 0
+    GizmosBlend: 1
     LimbType: 1
     Bones:
     - BoneName: LeftUpperLeg
@@ -26371,7 +26491,7 @@ MonoBehaviour:
     _hierarchyChanged: 0
   - Index: 4
     LimbName: Right Leg
-    GizmosBlend: 0
+    GizmosBlend: 1
     LimbType: 1
     Bones:
     - BoneName: RightUpperLeg
