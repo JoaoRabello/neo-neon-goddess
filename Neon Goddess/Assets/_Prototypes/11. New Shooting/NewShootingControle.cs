@@ -14,11 +14,14 @@ public class NewShootingControle : MonoBehaviour
     }
 
     [SerializeField] private TankMovement _tankMovement;
+    [SerializeField] private Animator _animator;
     private AimDirection _currentAimingDirection;
     private Vector3 _currentAimingDirectionVector3;
     private bool _isAiming;
     
     private InputActions _inputActions;
+    private static readonly int IsAiming = Animator.StringToHash("isAiming");
+    private static readonly int Direction = Animator.StringToHash("aimDirection");
 
     private void Awake()
     {
@@ -52,6 +55,8 @@ public class NewShootingControle : MonoBehaviour
         //Start Aiming
         _isAiming = true;
         _tankMovement.BlockMovement();
+        
+        _animator.SetBool(IsAiming, true);
     }
     
     private void MovePerformed(InputAction.CallbackContext context)
@@ -76,18 +81,29 @@ public class NewShootingControle : MonoBehaviour
         //Cancel Aiming
         _isAiming = false;
         _tankMovement.UnlockMovement();
+        
+        _animator.SetBool(IsAiming, false);
     }
 
     private void Update()
     {
         if (!_isAiming) return;
-        
-        _currentAimingDirectionVector3 = _currentAimingDirection switch
+
+        switch (_currentAimingDirection)
         {
-            AimDirection.Up => transform.forward + Vector3.up * 0.75f,
-            AimDirection.Front => transform.forward,
-            AimDirection.Down => transform.forward + Vector3.down * 0.75f
-        };
+            case AimDirection.Up:
+                _currentAimingDirectionVector3 = transform.forward + Vector3.up * 0.75f;
+                _animator.SetFloat(Direction, 0f);
+                break;
+            case AimDirection.Front:
+                _currentAimingDirectionVector3 = transform.forward;
+                _animator.SetFloat(Direction, 0.5f);
+                break;
+            case AimDirection.Down:
+                _currentAimingDirectionVector3 = transform.forward + Vector3.down * 0.75f;
+                _animator.SetFloat(Direction, 1f);
+                break;
+        }
     }
 
     private void OnDrawGizmos()
