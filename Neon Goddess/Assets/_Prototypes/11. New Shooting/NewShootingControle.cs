@@ -13,6 +13,7 @@ public class NewShootingControle : MonoBehaviour
         Down
     }
 
+    [SerializeField] private TankMovement _tankMovement;
     private AimDirection _currentAimingDirection;
     private Vector3 _currentAimingDirectionVector3;
     private bool _isAiming;
@@ -50,6 +51,7 @@ public class NewShootingControle : MonoBehaviour
     {
         //Start Aiming
         _isAiming = true;
+        _tankMovement.BlockMovement();
     }
     
     private void MovePerformed(InputAction.CallbackContext context)
@@ -62,25 +64,30 @@ public class NewShootingControle : MonoBehaviour
             <= -0.1f => AimDirection.Down,
             _ => AimDirection.Front
         };
-
-        _currentAimingDirectionVector3 = _currentAimingDirection switch
-        {
-            AimDirection.Up => transform.forward + Vector3.up * 0.75f,
-            AimDirection.Front => transform.forward,
-            AimDirection.Down => transform.forward + Vector3.down * 0.75f
-        };
     }
     
     private void MoveCanceled(InputAction.CallbackContext obj)
     {
         _currentAimingDirection = AimDirection.Front;
-        _currentAimingDirectionVector3 = transform.forward;
     }
 
     private void AimCanceled(InputAction.CallbackContext context)
     {
         //Cancel Aiming
         _isAiming = false;
+        _tankMovement.UnlockMovement();
+    }
+
+    private void Update()
+    {
+        if (!_isAiming) return;
+        
+        _currentAimingDirectionVector3 = _currentAimingDirection switch
+        {
+            AimDirection.Up => transform.forward + Vector3.up * 0.75f,
+            AimDirection.Front => transform.forward,
+            AimDirection.Down => transform.forward + Vector3.down * 0.75f
+        };
     }
 
     private void OnDrawGizmos()
