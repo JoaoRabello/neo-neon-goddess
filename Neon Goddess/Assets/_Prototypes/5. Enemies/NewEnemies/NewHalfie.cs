@@ -18,6 +18,7 @@ public class NewHalfie : MonoBehaviour
     private Vector3 _basePosition;
 
     private bool _attackCooldown;
+    private bool _startedAttackCooldown;
 
     private void Start()
     {
@@ -49,12 +50,8 @@ public class NewHalfie : MonoBehaviour
             transform.position = new Vector3(transform.position.x, 0.2f, transform.position.z);
             
             RotateTowards(_player.position);
-            
-            if (Vector3.Distance(transform.position, _player.position) <= _attackRange)
-            {
-                _currentSpeed = 20;
-                StartCoroutine(AttackCooldown());
-            }
+
+            Attack();
         }
         else
         {
@@ -65,6 +62,17 @@ public class NewHalfie : MonoBehaviour
         }
     }
 
+    private void Attack()
+    {
+        if (_startedAttackCooldown) return;
+        
+        if (Vector3.Distance(transform.position, _player.position) <= _attackRange)
+        {
+            _currentSpeed = 20;
+            StartCoroutine(AttackCooldown());
+        }
+    }
+
     private void RotateTowards(Vector3 targetPos)
     {
         transform.forward = (targetPos - transform.position).normalized;
@@ -72,14 +80,27 @@ public class NewHalfie : MonoBehaviour
 
     private IEnumerator AttackCooldown()
     {
+        _startedAttackCooldown = true;
+
         yield return new WaitForSeconds(0.1f);
 
         _attackCooldown = true;
         _currentSpeed = _speed;
 
+        var playerHealth = _player.GetComponent<HealthSystem>();
+        if (playerHealth.CurrentPhysicalHealth > 1)
+        {
+            playerHealth.TakeDirectSetPhysicalDamage(1);
+        }
+        else
+        {
+            playerHealth.TakePhysicalDamage(2);
+        }
+
         yield return new WaitForSeconds(3);
         
         _attackCooldown = false;
+        _startedAttackCooldown = false;
     }
 
     private void OnDrawGizmos()
