@@ -4,8 +4,10 @@ Event	ID	Name			Wwise Object Path	Notes
 	865037345	eventVoiceYohannaAssistent			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohannaAssistent	
 	1437365791	eventVoiceYohanna			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohanna	
 	1494610132	hackStatusConfirmEvent			\Default Work Unit\SFX Events\hackEvent\hackStatusConfirmEvent	
+	1510770975	radioVoices			\Default Work Unit\SFX Events\SpecialEvents\radioVoices	
 	1592018284	eventVoiceMilord			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceMilord	
 	1676920321	eventVoiceYavik			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYavik	
+	2162101802	chorusVoices			\Default Work Unit\SFX Events\SpecialEvents\chorusVoices	
 	2498197966	hackStatusCancelEvent			\Default Work Unit\SFX Events\hackEvent\hackStatusCancelEvent	
 	2519090655	eventHealthHeartbeat			\Default Work Unit\Awareness Events\Health Events\eventHealthHeartbeat	
 	3373072804	eventVoiceRaziel			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceRaziel	
@@ -26,13 +28,17 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	62014404	sfxBusController			\Default Work Unit\bus Controllers\sfxBusController	
 	80573052	musicBusController			\Default Work Unit\bus Controllers\musicBusController	
 	95401436	lowVoicePitcherController			\Default Work Unit\pitchController\lowVoicePitcherController	
+	682147685	chorus01Control			\Default Work Unit\voiceController\chorus01Control	
+	936584782	chorus04Control			\Default Work Unit\voiceController\chorus04Control	
 	1084512918	hackSwitchController			\Default Work Unit\SwitchControllers\hackSwitchController	
 	1444919967	masterBusController			\Default Work Unit\bus Controllers\masterBusController	
+	1574828856	chorus02Control			\Default Work Unit\voiceController\chorus02Control	
 	1970181751	dialogueBusController			\Default Work Unit\bus Controllers\dialogueBusController	
 	2133121051	accessibilityBusController			\Default Work Unit\bus Controllers\accessibilityBusController	
 	2692592512	heartbeatTempoController			\Default Work Unit\awarenessSoundController\heartbeatTempoController	
 	3037820317	infoBusController			\Default Work Unit\bus Controllers\infoBusController	
 	3517018448	highVoicePitcher			\Default Work Unit\pitchController\highVoicePitcher	
+	3628988595	chorus03Control			\Default Work Unit\voiceController\chorus03Control	
 	3767945453	ambienceBusController			\Default Work Unit\bus Controllers\ambienceBusController	
 	4148718858	awarenessBusController			\Default Work Unit\bus Controllers\awarenessBusController	
 
@@ -53,20 +59,25 @@ Effect plug-ins	ID	Name	Type				Notes
 	3517018448	highVoicePitcher	Wwise Pitch Shifter			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	29677609	hackConvert	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Hack Selection\Convert_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\Hack Selection\hackSelectionSwitch\hackConvert		10932
-	116112332	voiceTalwa	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Talwa_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceTalwa		10992
-	168953332	hackStatusCancel	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\hack_status\hack_cancel_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\hack_status\hackStatusCancel		20272
-	240535298	voiceYavik	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Yavik_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYavik		9380
-	268964971	hackControl	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Hack Selection\Control_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\Hack Selection\hackSelectionSwitch\hackControl		10932
-	309065574	hackParalyse	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Hack Selection\Paralyse_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\Hack Selection\hackSelectionSwitch\hackParalyse		10932
-	368848235	voiceGuara	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Kazimir T_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceGuara		9380
-	569761510	awarenessHeartbeat	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Heart Beat\Heart Beatwav_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Informative Sounds\Awareness\awarenessHeartbeat		80910
-	655585714	voiceRaziel	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Raziel_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceRaziel		9380
-	690471894	hackOverride	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Hack Selection\Control - Copia_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\Hack Selection\hackSelectionSwitch\hackOverride		10932
-	817371568	voiceMilord	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Milord_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceMilord		9380
-	832848529	voiceYohannaAssistent	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Gado_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYohannaAssistent		9380
-	846139341	VoiceAstrid	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Astrid2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\VoiceAstrid		9380
-	947437832	voiceYohanna	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Yohanna_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYohanna		9380
-	972112759	VoiceKazimir	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Casimir_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\VoiceKazimir		10992
-	1055927533	hackStatusConfirm	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\hack_status\hack_confirm_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\hack_status\hackStatusConfirm		31406
+	29677609	hackConvert	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Hack Selection\Convert_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\Hack Selection\hackSelectionSwitch\hackConvert		1853
+	116112332	voiceTalwa	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Talwa_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceTalwa		1461
+	152880994	Chorus 04	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Chorus\Chorus 04_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Chorus\Chorus 04		85408
+	168953332	hackStatusCancel	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\hack_status\hack_cancel_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\hack_status\hackStatusCancel		3661
+	240535298	voiceYavik	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Yavik_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYavik		1363
+	268964971	hackControl	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Hack Selection\Control_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\Hack Selection\hackSelectionSwitch\hackControl		2422
+	309065574	hackParalyse	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Hack Selection\Paralyse_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\Hack Selection\hackSelectionSwitch\hackParalyse		1826
+	368848235	voiceGuara	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Kazimir T_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceGuara		1753
+	569761510	awarenessHeartbeat	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Heart Beat\Heart Beatwav_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Informative Sounds\Awareness\awarenessHeartbeat		7721
+	635549386	Chorus 01	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Chorus\Chorus 01_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Chorus\Chorus 01		88597
+	655585714	voiceRaziel	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Raziel_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceRaziel		2361
+	690471894	hackOverride	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Hack Selection\Control - Copia_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\Hack Selection\hackSelectionSwitch\hackOverride		2422
+	739233669	Chorus 02	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Chorus\Chorus 02_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Chorus\Chorus 02		89700
+	817371568	voiceMilord	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Milord_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceMilord		1911
+	832848529	voiceYohannaAssistent	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Gado_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYohannaAssistent		1014
+	846139341	VoiceAstrid	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Astrid2_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\VoiceAstrid		1463
+	872065834	Voices in the Radio Full	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Voices in the Radio Full_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\RadioEvent\Voices in the Radio Full		613392
+	947437832	voiceYohanna	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Yohanna_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYohanna		1386
+	972112759	VoiceKazimir	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Casimir_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\VoiceKazimir		1288
+	1009022336	Chorus 03	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Chorus\Chorus 03_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Chorus\Chorus 03		87424
+	1055927533	hackStatusConfirm	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\hack_status\hack_confirm_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\hack_status\hackStatusConfirm		5187
 
