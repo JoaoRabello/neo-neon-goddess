@@ -191,7 +191,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 291bed8b33d94b4dac16d5e30d3beea2
     GuidInternal: 
-    m_lastTime: -8585203519961350057
+    m_lastTime: -8585182132091248638
     List:
     - name: mainSoundBank
       guid: d7bbfefaf3d3aa46ae8514386f26a35f
@@ -219,7 +219,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 8707201672ff4b4696a8d320381f6a5a
     GuidInternal: 
-    m_lastTime: -8585203519961579426
+    m_lastTime: -8585182132094052568
     List:
     - name: Accessibility Events
       guid: 672189576faa69459dce1c48c73cc6d1
@@ -269,6 +269,29 @@ MonoBehaviour:
         ObjectType: 4
         guid: df2600cb2b0ac8459ad0ff694557281b
       Path: Events\Default Work Unit\Awareness Events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: chorusVoices
+      guid: 6818d89efb516e4a98e7338107d0e4a6
+      id: 2162101802
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: SpecialEvents
+        ObjectType: 4
+        guid: 231b6e5b32cdb14c8d9db58636d982fa
+      - ElementName: chorusVoices
+        ObjectType: 3
+        guid: 6818d89efb516e4a98e7338107d0e4a6
+      Path: Events\Default Work Unit\SFX Events\SpecialEvents\chorusVoices
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -682,6 +705,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: radioVoices
+      guid: 48c41e09fbeb204293fe5754711fd502
+      id: 1510770975
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: SpecialEvents
+        ObjectType: 4
+        guid: 231b6e5b32cdb14c8d9db58636d982fa
+      - ElementName: radioVoices
+        ObjectType: 3
+        guid: 48c41e09fbeb204293fe5754711fd502
+      Path: Events\Default Work Unit\SFX Events\SpecialEvents\radioVoices
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: SFX Events
       guid: 5ce720e0f98e644db1623ef8260aab3c
       id: 3754878377
@@ -696,6 +742,26 @@ MonoBehaviour:
         ObjectType: 4
         guid: 5ce720e0f98e644db1623ef8260aab3c
       Path: Events\Default Work Unit\SFX Events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SpecialEvents
+      guid: 231b6e5b32cdb14c8d9db58636d982fa
+      id: 1981534377
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: SpecialEvents
+        ObjectType: 4
+        guid: 231b6e5b32cdb14c8d9db58636d982fa
+      Path: Events\Default Work Unit\SFX Events\SpecialEvents
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -731,7 +797,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: b4d32a08d5d398448a9d266b95a7ce94
     GuidInternal: 
-    m_lastTime: -8585203519961569459
+    m_lastTime: -8585182132094007575
     List:
     - name: accessibilityBusController
       guid: 9873ad6b321e564cbdd2ff8740b4b700
@@ -812,6 +878,74 @@ MonoBehaviour:
         ObjectType: 4
         guid: 4aeee1764347f94584fc5e0401b6c134
       Path: Game Parameters\Default Work Unit\bus Controllers
+    - name: chorus01Control
+      guid: 0d67ad0d202d5e4990cccbf1add0d05f
+      id: 682147685
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: voiceController
+        ObjectType: 4
+        guid: 198c85e701b5064a99bc9181dd372b44
+      - ElementName: chorus01Control
+        ObjectType: 13
+        guid: 0d67ad0d202d5e4990cccbf1add0d05f
+      Path: Game Parameters\Default Work Unit\voiceController\chorus01Control
+    - name: chorus02Control
+      guid: 3ab3c9883614104fb931bd660d5f79a7
+      id: 1574828856
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: voiceController
+        ObjectType: 4
+        guid: 198c85e701b5064a99bc9181dd372b44
+      - ElementName: chorus02Control
+        ObjectType: 13
+        guid: 3ab3c9883614104fb931bd660d5f79a7
+      Path: Game Parameters\Default Work Unit\voiceController\chorus02Control
+    - name: chorus03Control
+      guid: 6eae0ecb24070349980b06fc534fa8f0
+      id: 3628988595
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: voiceController
+        ObjectType: 4
+        guid: 198c85e701b5064a99bc9181dd372b44
+      - ElementName: chorus03Control
+        ObjectType: 13
+        guid: 6eae0ecb24070349980b06fc534fa8f0
+      Path: Game Parameters\Default Work Unit\voiceController\chorus03Control
+    - name: chorus04Control
+      guid: 5b0bc09776f1af4981e3382becbda957
+      id: 936584782
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: voiceController
+        ObjectType: 4
+        guid: 198c85e701b5064a99bc9181dd372b44
+      - ElementName: chorus04Control
+        ObjectType: 13
+        guid: 5b0bc09776f1af4981e3382becbda957
+      Path: Game Parameters\Default Work Unit\voiceController\chorus04Control
     - name: dialogueBusController
       guid: df7d36d8cae7284abcfa0356272d6faf
       id: 1970181751
@@ -993,6 +1127,20 @@ MonoBehaviour:
         ObjectType: 4
         guid: ccc398925e0dc34a9cecbcbd68cea273
       Path: Game Parameters\Default Work Unit\SwitchControllers
+    - name: voiceController
+      guid: 198c85e701b5064a99bc9181dd372b44
+      id: 3300053589
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: voiceController
+        ObjectType: 4
+        guid: 198c85e701b5064a99bc9181dd372b44
+      Path: Game Parameters\Default Work Unit\voiceController
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
