@@ -44,13 +44,24 @@ public class ConeVision : MonoBehaviour
 
         if (dotResult >= 0.5f)
         {
-            var ray = new Ray(transform.position, (_playerTransform.position - transform.position).normalized);
+            var playerCover = _playerTransform.GetComponentInParent<PlayerCover>();
+            var coverHitboxesList = playerCover.HitBoxes;
             
-            if (!Physics.Raycast(ray, out var hit, _visionRange)) return;
+            foreach (var hitBox in coverHitboxesList)
+            {
+                var direction = (hitBox.transform.position - transform.position).normalized;
+                var ray = new Ray(transform.position, direction);
             
-            Debug.Log($"ray hit: {hit.collider.name} vs result: {playerResult.name}");
+                if (!Physics.Raycast(ray, out var hit, _visionRange)) continue;
+                if (hit.collider != hitBox) continue;
+                    
+                Debug.DrawRay(transform.position, hitBox.transform.position - transform.position, Color.green);
 
-            _playerIsVisible = hit.collider == playerResult;
+                _playerIsVisible = true;
+                return;
+            }
+
+            _playerIsVisible = false;
         }
         else
         {
@@ -67,8 +78,9 @@ public class ConeVision : MonoBehaviour
         Gizmos.DrawRay(transform.position, transform.forward * _visionRange);
 
         if (!_playerTransform) return;
+        if (_playerIsVisible) return;
         
-        Gizmos.color = _playerIsVisible ? Color.green : Color.red;
+        Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, (_playerTransform.position - transform.position));
     }
 }
