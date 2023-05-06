@@ -35,14 +35,22 @@ public class ConeVision : MonoBehaviour
             return;
         }
 
-        _playerTransform = results[0].transform;
-        var playerPos = results[0].transform.position;
+        var playerResult = results[0];
+
+        _playerTransform = playerResult.transform;
+        var playerPos = playerResult.transform.position;
         var directionToPlayer = (playerPos - myPos).normalized;
         var dotResult = Vector3.Dot(transform.forward, directionToPlayer);
 
         if (dotResult >= 0.5f)
         {
-            _playerIsVisible = true;
+            var ray = new Ray(transform.position, (_playerTransform.position - transform.position).normalized);
+            
+            if (!Physics.Raycast(ray, out var hit, _visionRange)) return;
+            
+            Debug.Log($"ray hit: {hit.collider.name} vs result: {playerResult.name}");
+
+            _playerIsVisible = hit.collider == playerResult;
         }
         else
         {
