@@ -1,13 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ConeVision : MonoBehaviour
 {
+    [SerializeField] private Renderer _renderer;
+    [SerializeField] private Transform _pointer;
     [SerializeField] private float _visionRange;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private LayerMask _playerMask;
+    [SerializeField] private TMP_Text _playerLimbText;
 
     private Transform _playerTransform;
     private bool _playerIsVisible;
@@ -46,26 +50,45 @@ public class ConeVision : MonoBehaviour
         {
             var playerCover = _playerTransform.GetComponentInParent<PlayerCover>();
             var coverHitboxesList = playerCover.HitBoxes;
-            
-            foreach (var hitBox in coverHitboxesList)
+
+            for (var index = 0; index < coverHitboxesList.Count; index++)
             {
+                var hitBox = coverHitboxesList[index];
                 var direction = (hitBox.transform.position - transform.position).normalized;
                 var ray = new Ray(transform.position, direction);
-            
+
                 if (!Physics.Raycast(ray, out var hit, _visionRange)) continue;
                 if (hit.collider != hitBox) continue;
-                    
+
                 Debug.DrawRay(transform.position, hitBox.transform.position - transform.position, Color.green);
 
+                _pointer.forward = direction;
+                _playerLimbText.SetText(index switch
+                {
+                    0 => "Head",
+                    1 => "Torso",
+                    _ => "Legs"
+                });
+                _renderer.material.color = Color.green;
                 _playerIsVisible = true;
                 return;
             }
 
             _playerIsVisible = false;
+            _playerLimbText.SetText("Nothing");
+            
+            _pointer.forward = transform.forward;
+            
+            _renderer.material.color = Color.white;
         }
         else
         {
             _playerIsVisible = false;
+            _playerLimbText.SetText("Nothing");
+            
+            _pointer.forward = transform.forward;
+            
+            _renderer.material.color = Color.white;
         }
     }
 
