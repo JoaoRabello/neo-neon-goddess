@@ -6,6 +6,7 @@ public class NewRobbie : MonoBehaviour
 {
     [SerializeField] private LayerMask _playerLayerMask;
     [SerializeField] private float _attackRange;
+    [SerializeField] private float _specialAttackRange;
     [SerializeField] private float _forgetRange;
     [SerializeField] private float _range;
     [SerializeField] private float _speed;
@@ -95,11 +96,17 @@ public class NewRobbie : MonoBehaviour
     private void Attack()
     {
         if (_startedAttackCooldown) return;
+
+        var distanceToPlayer = Vector3.Distance(transform.position, _player.position);
         
-        if (Vector3.Distance(transform.position, _player.position) <= _attackRange)
+        if (distanceToPlayer <= _specialAttackRange)
         {
             _currentSpeed = 20;
-            StartCoroutine(AttackCooldown());
+            StartCoroutine(AttackCooldown(false));
+        }
+        else if (distanceToPlayer <= _attackRange)
+        {
+            StartCoroutine(AttackCooldown(true));
         }
     }
 
@@ -108,7 +115,7 @@ public class NewRobbie : MonoBehaviour
         transform.forward = (targetPos - transform.position).normalized;
     }
 
-    private IEnumerator AttackCooldown()
+    private IEnumerator AttackCooldown(bool basicAttack)
     {
         _startedAttackCooldown = true;
 
@@ -118,13 +125,21 @@ public class NewRobbie : MonoBehaviour
         _currentSpeed = _speed;
 
         var playerHealth = _player.GetComponent<HealthSystem>();
-        if (playerHealth.CurrentPhysicalHealth > 1)
+
+        if (basicAttack)
         {
-            playerHealth.TakeDirectSetPhysicalDamage(1);
+            playerHealth.TakePhysicalDamage(2);
         }
         else
         {
-            playerHealth.TakePhysicalDamage(2);
+            if (playerHealth.CurrentPhysicalHealth > 1)
+            {
+                playerHealth.TakeDirectSetPhysicalDamage(1);
+            }
+            else
+            {
+                playerHealth.TakePhysicalDamage(2);
+            }
         }
 
         yield return new WaitForSeconds(3);
@@ -137,7 +152,11 @@ public class NewRobbie : MonoBehaviour
     {
         Gizmos.color = new Color(1, 1, 0, 0.2f);
         Gizmos.DrawSphere(transform.position, _range);
+        
         Gizmos.color = new Color(1, 0, 0, 0.2f);
+        Gizmos.DrawSphere(transform.position, _specialAttackRange);
+        
+        Gizmos.color = new Color(0, 1, 1, 0.2f);
         Gizmos.DrawSphere(transform.position, _attackRange);
         
         Gizmos.color = new Color(0, 1, 0, 0.2f);
