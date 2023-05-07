@@ -14,7 +14,9 @@ public class TankMovement : MonoBehaviour
     private InputActions _inputActions;
 
     private bool _wannaMove;
+    private bool _canMove = true;
     private Vector3 _movementDirection;
+    
     private static readonly int IsMoving = Animator.StringToHash("isMoving");
     private static readonly int IsTurning = Animator.StringToHash("isTurning");
     private static readonly int IsMovingBackwards = Animator.StringToHash("isMovingBackwards");
@@ -53,8 +55,24 @@ public class TankMovement : MonoBehaviour
         _movementDirection = Vector3.zero;
         
         _wannaMove = false;
+        Stop();
+    }
+
+    private void Stop()
+    {
         _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y, 0);
         _animator.SetBool(IsMoving, false);
+    }
+
+    public void BlockMovement()
+    {
+        _canMove = false;
+        Stop();
+    }
+
+    public void UnlockMovement()
+    {
+        _canMove = true;
     }
 
     private void Update()
@@ -65,15 +83,17 @@ public class TankMovement : MonoBehaviour
         }
         
         if (!_wannaMove) return;
-        
-        _animator.SetBool(IsMovingBackwards, _movementDirection.y < 0);
-
-        if (Mathf.Abs(_movementDirection.y) > 0.1f)
-            _animator.SetBool(IsMoving, true);
 
         var myTransform = transform;
         
         myTransform.Rotate(new Vector3(0, _movementDirection.x * _rotationSpeed, 0));
+        
+        if (!_canMove) return;
+
+        _animator.SetBool(IsMovingBackwards, _movementDirection.y < 0);
+
+        if (Mathf.Abs(_movementDirection.y) > 0.1f)
+            _animator.SetBool(IsMoving, true);
         
         _rigidbody.velocity = myTransform.forward * (_movementDirection.y * _movementSpeed);
     }
