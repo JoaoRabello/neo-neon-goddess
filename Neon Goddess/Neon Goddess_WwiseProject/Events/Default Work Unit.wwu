@@ -43,6 +43,53 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="SpecialEvents" ID="{5B6E1B23-CD32-4CB1-8D9D-B58636D982FA}" ShortID="123986476">
+							<ChildrenList>
+								<Event Name="chorusVoices" ID="{9ED81868-51FB-4A6E-98E7-338107D0E4A6}">
+									<ChildrenList>
+										<Action Name="" ID="{872BBD5A-267B-4B29-BFD5-D995BCA39555}" ShortID="488558502">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Chorus 03" ID="{25D977E1-C734-4BC9-8A83-6A387B5A3E24}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{D6F0D16C-8C44-4439-B50E-AE33D5D06B58}" ShortID="148715828">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Chorus 01" ID="{61FDAFBD-63F5-404C-91FD-28130EE71549}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{42D55525-7FC2-42B1-A2C1-1AFB534A31FB}" ShortID="1061188361">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Chorus 02" ID="{2BAEB4A1-2F06-43D0-A757-A5597B1C5B3B}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{AC3B84CC-DC95-4B03-894D-470FC560538A}" ShortID="356469468">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Chorus 04" ID="{4682D459-F86D-4731-9093-4274E753A825}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="radioVoices" ID="{091EC448-EBFB-4220-93FE-5754711FD502}">
+									<ChildrenList>
+										<Action Name="" ID="{97A419B0-04D1-4B0F-89D9-5EE76BD152BA}" ShortID="1027055412">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Voices in the Radio Full" ID="{4B27AA3E-D8E6-459C-8E5F-AB962B1DD36C}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Dialogue Events" ID="{88F41BAE-00DD-42A6-A7F7-87B8CAEB7A19}" ShortID="597853482">
