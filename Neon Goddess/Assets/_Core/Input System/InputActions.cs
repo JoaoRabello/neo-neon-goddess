@@ -73,9 +73,18 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Melee"",
+                    ""type"": ""Button"",
+                    ""id"": ""d6ac92a3-664b-4749-a029-9567fca84d27"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Ledge"",
                     ""type"": ""Button"",
-                    ""id"": ""09b240db-896c-43ca-87b7-624138bafe28"",
+                    ""id"": ""6513baf3-0972-43c9-8d8d-9907f16b5e8b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -239,8 +248,30 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6e321522-86da-47db-b4f2-8c8970cd1a3e"",
-                    ""path"": ""<Keyboard>/c"",
+                    ""id"": ""00220778-b8b4-41c1-87b3-3e02e87756f6"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Melee"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea4b438a-5fff-45ae-88e7-42adfc4e7ebb"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Melee"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dedd85b8-a0d5-4e43-bd77-5ea95b9f08a8"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -260,6 +291,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Prototype_Crouch = m_Prototype.FindAction("Crouch", throwIfNotFound: true);
         m_Prototype_Aim = m_Prototype.FindAction("Aim", throwIfNotFound: true);
         m_Prototype_Shoot = m_Prototype.FindAction("Shoot", throwIfNotFound: true);
+        m_Prototype_Melee = m_Prototype.FindAction("Melee", throwIfNotFound: true);
         m_Prototype_Ledge = m_Prototype.FindAction("Ledge", throwIfNotFound: true);
     }
 
@@ -325,6 +357,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Prototype_Crouch;
     private readonly InputAction m_Prototype_Aim;
     private readonly InputAction m_Prototype_Shoot;
+    private readonly InputAction m_Prototype_Melee;
     private readonly InputAction m_Prototype_Ledge;
     public struct PrototypeActions
     {
@@ -335,6 +368,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Crouch => m_Wrapper.m_Prototype_Crouch;
         public InputAction @Aim => m_Wrapper.m_Prototype_Aim;
         public InputAction @Shoot => m_Wrapper.m_Prototype_Shoot;
+        public InputAction @Melee => m_Wrapper.m_Prototype_Melee;
         public InputAction @Ledge => m_Wrapper.m_Prototype_Ledge;
         public InputActionMap Get() { return m_Wrapper.m_Prototype; }
         public void Enable() { Get().Enable(); }
@@ -360,6 +394,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnShoot;
+                @Melee.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnMelee;
+                @Melee.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnMelee;
+                @Melee.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnMelee;
                 @Ledge.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnLedge;
                 @Ledge.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnLedge;
                 @Ledge.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnLedge;
@@ -382,6 +419,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @Melee.started += instance.OnMelee;
+                @Melee.performed += instance.OnMelee;
+                @Melee.canceled += instance.OnMelee;
                 @Ledge.started += instance.OnLedge;
                 @Ledge.performed += instance.OnLedge;
                 @Ledge.canceled += instance.OnLedge;
@@ -396,6 +436,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnMelee(InputAction.CallbackContext context);
         void OnLedge(InputAction.CallbackContext context);
     }
 }
