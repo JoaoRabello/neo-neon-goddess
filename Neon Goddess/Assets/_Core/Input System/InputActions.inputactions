@@ -51,9 +51,18 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Melee",
+                    "type": "Button",
+                    "id": "d6ac92a3-664b-4749-a029-9567fca84d27",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Ledge",
                     "type": "Button",
-                    "id": "09b240db-896c-43ca-87b7-624138bafe28",
+                    "id": "6513baf3-0972-43c9-8d8d-9907f16b5e8b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -217,8 +226,30 @@
                 },
                 {
                     "name": "",
-                    "id": "6e321522-86da-47db-b4f2-8c8970cd1a3e",
-                    "path": "<Keyboard>/c",
+                    "id": "00220778-b8b4-41c1-87b3-3e02e87756f6",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Melee",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea4b438a-5fff-45ae-88e7-42adfc4e7ebb",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Melee",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dedd85b8-a0d5-4e43-bd77-5ea95b9f08a8",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
