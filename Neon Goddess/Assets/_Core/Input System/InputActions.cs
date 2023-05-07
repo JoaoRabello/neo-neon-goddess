@@ -80,6 +80,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ledge"",
+                    ""type"": ""Button"",
+                    ""id"": ""6513baf3-0972-43c9-8d8d-9907f16b5e8b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -258,6 +267,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Melee"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dedd85b8-a0d5-4e43-bd77-5ea95b9f08a8"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ledge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -272,6 +292,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Prototype_Aim = m_Prototype.FindAction("Aim", throwIfNotFound: true);
         m_Prototype_Shoot = m_Prototype.FindAction("Shoot", throwIfNotFound: true);
         m_Prototype_Melee = m_Prototype.FindAction("Melee", throwIfNotFound: true);
+        m_Prototype_Ledge = m_Prototype.FindAction("Ledge", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -337,6 +358,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Prototype_Aim;
     private readonly InputAction m_Prototype_Shoot;
     private readonly InputAction m_Prototype_Melee;
+    private readonly InputAction m_Prototype_Ledge;
     public struct PrototypeActions
     {
         private @InputActions m_Wrapper;
@@ -347,6 +369,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Aim => m_Wrapper.m_Prototype_Aim;
         public InputAction @Shoot => m_Wrapper.m_Prototype_Shoot;
         public InputAction @Melee => m_Wrapper.m_Prototype_Melee;
+        public InputAction @Ledge => m_Wrapper.m_Prototype_Ledge;
         public InputActionMap Get() { return m_Wrapper.m_Prototype; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -374,6 +397,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Melee.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnMelee;
                 @Melee.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnMelee;
                 @Melee.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnMelee;
+                @Ledge.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnLedge;
+                @Ledge.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnLedge;
+                @Ledge.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnLedge;
             }
             m_Wrapper.m_PrototypeActionsCallbackInterface = instance;
             if (instance != null)
@@ -396,6 +422,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Melee.started += instance.OnMelee;
                 @Melee.performed += instance.OnMelee;
                 @Melee.canceled += instance.OnMelee;
+                @Ledge.started += instance.OnLedge;
+                @Ledge.performed += instance.OnLedge;
+                @Ledge.canceled += instance.OnLedge;
             }
         }
     }
@@ -408,5 +437,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnMelee(InputAction.CallbackContext context);
+        void OnLedge(InputAction.CallbackContext context);
     }
 }

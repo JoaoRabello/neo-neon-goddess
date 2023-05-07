@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID CHORUSVOICES = 2162101802U;
         static const AkUniqueID EVENTHEALTHHEARTBEAT = 2519090655U;
         static const AkUniqueID EVENTVOICEASTRID = 4214009878U;
         static const AkUniqueID EVENTVOICEGUARA = 220902363U;
@@ -26,6 +27,7 @@ namespace AK
         static const AkUniqueID HACKSELECTIONEVENT = 3399565108U;
         static const AkUniqueID HACKSTATUSCANCELEVENT = 2498197966U;
         static const AkUniqueID HACKSTATUSCONFIRMEVENT = 1494610132U;
+        static const AkUniqueID RADIOVOICES = 1510770975U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -50,6 +52,10 @@ namespace AK
         static const AkUniqueID ACCESSIBILITYBUSCONTROLLER = 2133121051U;
         static const AkUniqueID AMBIENCEBUSCONTROLLER = 3767945453U;
         static const AkUniqueID AWARENESSBUSCONTROLLER = 4148718858U;
+        static const AkUniqueID CHORUS01CONTROL = 682147685U;
+        static const AkUniqueID CHORUS02CONTROL = 1574828856U;
+        static const AkUniqueID CHORUS03CONTROL = 3628988595U;
+        static const AkUniqueID CHORUS04CONTROL = 936584782U;
         static const AkUniqueID DIALOGUEBUSCONTROLLER = 1970181751U;
         static const AkUniqueID HACKSWITCHCONTROLLER = 1084512918U;
         static const AkUniqueID HEARTBEATTEMPOCONTROLLER = 2692592512U;

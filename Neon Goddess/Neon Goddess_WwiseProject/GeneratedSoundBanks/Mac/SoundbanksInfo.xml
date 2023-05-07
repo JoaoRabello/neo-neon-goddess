@@ -11,16 +11,36 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="363769823">
+		<SoundBank Id="534561221" Language="SFX" Hash="617476707">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
 			<IncludedEvents>
+				<Event Id="2162101802" Name="chorusVoices" ObjectPath="\Events\Default Work Unit\SFX Events\SpecialEvents\chorusVoices" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="152880994" Language="SFX">
+							<ShortName>Chorus\Chorus 04.wav</ShortName>
+							<Path>SFX\Chorus\Chorus 04_6AF693E7.wem</Path>
+						</File>
+						<File Id="635549386" Language="SFX">
+							<ShortName>Chorus\Chorus 01.wav</ShortName>
+							<Path>SFX\Chorus\Chorus 01_6AF693E7.wem</Path>
+						</File>
+						<File Id="739233669" Language="SFX">
+							<ShortName>Chorus\Chorus 02.wav</ShortName>
+							<Path>SFX\Chorus\Chorus 02_6AF693E7.wem</Path>
+						</File>
+						<File Id="1009022336" Language="SFX">
+							<ShortName>Chorus\Chorus 03.wav</ShortName>
+							<Path>SFX\Chorus\Chorus 03_6AF693E7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2519090655" Name="eventHealthHeartbeat" ObjectPath="\Events\Default Work Unit\Awareness Events\Health Events\eventHealthHeartbeat" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="569761510" Language="SFX">
 							<ShortName>Heart Beat\Heart Beatwav.wav</ShortName>
-							<Path>SFX\Heart Beat\Heart Beatwav_D79FB2B7.wem</Path>
+							<Path>SFX\Heart Beat\Heart Beatwav_6AF693E7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -28,7 +48,7 @@
 					<IncludedMemoryFiles>
 						<File Id="846139341" Language="SFX">
 							<ShortName>Character Scribble\Astrid2.wav</ShortName>
-							<Path>SFX\Character Scribble\Astrid2_10C4C929.wem</Path>
+							<Path>SFX\Character Scribble\Astrid2_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -36,7 +56,7 @@
 					<IncludedMemoryFiles>
 						<File Id="368848235" Language="SFX">
 							<ShortName>Character Scribble\Kazimir T.wav</ShortName>
-							<Path>SFX\Character Scribble\Kazimir T_10C4C929.wem</Path>
+							<Path>SFX\Character Scribble\Kazimir T_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -44,7 +64,7 @@
 					<IncludedMemoryFiles>
 						<File Id="972112759" Language="SFX">
 							<ShortName>Character Scribble\Casimir.wav</ShortName>
-							<Path>SFX\Character Scribble\Casimir_10C4C929.wem</Path>
+							<Path>SFX\Character Scribble\Casimir_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -52,7 +72,7 @@
 					<IncludedMemoryFiles>
 						<File Id="817371568" Language="SFX">
 							<ShortName>Character Scribble\Milord.wav</ShortName>
-							<Path>SFX\Character Scribble\Milord_10C4C929.wem</Path>
+							<Path>SFX\Character Scribble\Milord_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -60,7 +80,7 @@
 					<IncludedMemoryFiles>
 						<File Id="655585714" Language="SFX">
 							<ShortName>Character Scribble\Raziel.wav</ShortName>
-							<Path>SFX\Character Scribble\Raziel_10C4C929.wem</Path>
+							<Path>SFX\Character Scribble\Raziel_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -68,7 +88,7 @@
 					<IncludedMemoryFiles>
 						<File Id="116112332" Language="SFX">
 							<ShortName>Character Scribble\Talwa.wav</ShortName>
-							<Path>SFX\Character Scribble\Talwa_10C4C929.wem</Path>
+							<Path>SFX\Character Scribble\Talwa_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -76,7 +96,7 @@
 					<IncludedMemoryFiles>
 						<File Id="240535298" Language="SFX">
 							<ShortName>Character Scribble\Yavik.wav</ShortName>
-							<Path>SFX\Character Scribble\Yavik_10C4C929.wem</Path>
+							<Path>SFX\Character Scribble\Yavik_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -84,7 +104,7 @@
 					<IncludedMemoryFiles>
 						<File Id="947437832" Language="SFX">
 							<ShortName>Character Scribble\Yohanna.wav</ShortName>
-							<Path>SFX\Character Scribble\Yohanna_10C4C929.wem</Path>
+							<Path>SFX\Character Scribble\Yohanna_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -92,7 +112,7 @@
 					<IncludedMemoryFiles>
 						<File Id="832848529" Language="SFX">
 							<ShortName>Character Scribble\Gado.wav</ShortName>
-							<Path>SFX\Character Scribble\Gado_10C4C929.wem</Path>
+							<Path>SFX\Character Scribble\Gado_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -100,19 +120,19 @@
 					<IncludedMemoryFiles>
 						<File Id="29677609" Language="SFX">
 							<ShortName>Hack Selection\Convert.wav</ShortName>
-							<Path>SFX\Hack Selection\Convert_10C4C929.wem</Path>
+							<Path>SFX\Hack Selection\Convert_05842A19.wem</Path>
 						</File>
 						<File Id="268964971" Language="SFX">
 							<ShortName>Hack Selection\Control.wav</ShortName>
-							<Path>SFX\Hack Selection\Control_10C4C929.wem</Path>
+							<Path>SFX\Hack Selection\Control_05842A19.wem</Path>
 						</File>
 						<File Id="309065574" Language="SFX">
 							<ShortName>Hack Selection\Paralyse.wav</ShortName>
-							<Path>SFX\Hack Selection\Paralyse_10C4C929.wem</Path>
+							<Path>SFX\Hack Selection\Paralyse_05842A19.wem</Path>
 						</File>
 						<File Id="690471894" Language="SFX">
 							<ShortName>Hack Selection\Control - Copia.wav</ShortName>
-							<Path>SFX\Hack Selection\Control - Copia_10C4C929.wem</Path>
+							<Path>SFX\Hack Selection\Control - Copia_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 					<SwitchContainers>
@@ -142,7 +162,7 @@
 					<IncludedMemoryFiles>
 						<File Id="168953332" Language="SFX">
 							<ShortName>hack_status\hack_cancel.wav</ShortName>
-							<Path>SFX\hack_status\hack_cancel_10C4C929.wem</Path>
+							<Path>SFX\hack_status\hack_cancel_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -150,7 +170,15 @@
 					<IncludedMemoryFiles>
 						<File Id="1055927533" Language="SFX">
 							<ShortName>hack_status\hack_confirm.wav</ShortName>
-							<Path>SFX\hack_status\hack_confirm_10C4C929.wem</Path>
+							<Path>SFX\hack_status\hack_confirm_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1510770975" Name="radioVoices" ObjectPath="\Events\Default Work Unit\SFX Events\SpecialEvents\radioVoices" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="872065834" Language="SFX">
+							<ShortName>Voices in the Radio Full.wav</ShortName>
+							<Path>SFX\Voices in the Radio Full_6AF693E7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -159,13 +187,17 @@
 				<GameParameter Id="62014404" Name="sfxBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\sfxBusController"/>
 				<GameParameter Id="80573052" Name="musicBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\musicBusController"/>
 				<GameParameter Id="95401436" Name="lowVoicePitcherController" ObjectPath="\Game Parameters\Default Work Unit\pitchController\lowVoicePitcherController"/>
+				<GameParameter Id="682147685" Name="chorus01Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus01Control"/>
+				<GameParameter Id="936584782" Name="chorus04Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus04Control"/>
 				<GameParameter Id="1084512918" Name="hackSwitchController" ObjectPath="\Game Parameters\Default Work Unit\SwitchControllers\hackSwitchController"/>
 				<GameParameter Id="1444919967" Name="masterBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\masterBusController"/>
+				<GameParameter Id="1574828856" Name="chorus02Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus02Control"/>
 				<GameParameter Id="1970181751" Name="dialogueBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\dialogueBusController"/>
 				<GameParameter Id="2133121051" Name="accessibilityBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\accessibilityBusController"/>
 				<GameParameter Id="2692592512" Name="heartbeatTempoController" ObjectPath="\Game Parameters\Default Work Unit\awarenessSoundController\heartbeatTempoController"/>
 				<GameParameter Id="3037820317" Name="infoBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\infoBusController"/>
 				<GameParameter Id="3517018448" Name="highVoicePitcher" ObjectPath="\Game Parameters\Default Work Unit\pitchController\highVoicePitcher"/>
+				<GameParameter Id="3628988595" Name="chorus03Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus03Control"/>
 				<GameParameter Id="3767945453" Name="ambienceBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\ambienceBusController"/>
 				<GameParameter Id="4148718858" Name="awarenessBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\awarenessBusController"/>
 			</GameParameters>
@@ -180,7 +212,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1233164369">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1218330643">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

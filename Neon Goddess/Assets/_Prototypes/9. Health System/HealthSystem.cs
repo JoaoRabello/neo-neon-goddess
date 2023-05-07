@@ -22,6 +22,8 @@ public class HealthSystem : MonoBehaviour
     
     private int _currentPhysicalHealth;
     private int _currentMentalHealth;
+    
+    public int CurrentPhysicalHealth => _currentPhysicalHealth;
 
     private void Start()
     {
@@ -40,6 +42,20 @@ public class HealthSystem : MonoBehaviour
     public void TakePhysicalDamage(int amount)
     {
         _currentPhysicalHealth -= amount;
+
+        UpdatePhysicalBar();
+    }
+    
+    public void TakePhysicalDamage(float percentage)
+    {
+        _currentPhysicalHealth -= Mathf.FloorToInt(_physicalMaxHealth * percentage);
+
+        UpdatePhysicalBar();
+    }
+    
+    public void TakeDirectSetPhysicalDamage(int desiredHealthAmount)
+    {
+        _currentPhysicalHealth = desiredHealthAmount;
 
         UpdatePhysicalBar();
     }
