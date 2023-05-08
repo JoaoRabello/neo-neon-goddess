@@ -5,5 +5,7 @@ using UnityEngine;
 public class PagerMessage : ScriptableObject
 {
     public int ID;
+    public int SenderFrequency;
     public string Text;
+    public bool Read;
 }
