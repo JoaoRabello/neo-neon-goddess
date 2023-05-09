@@ -22,7 +22,7 @@ namespace FIMSpace.FTools
         public FIK_IKBoneBase[] Bones { get; protected set; }
         public FIK_IKBoneBase StartBone { get { return Bones[0]; } }
         public FIK_IKBoneBase EndBone { get { return Bones[Bones.Length - 1]; } }
-        public Quaternion StartBoneRotationOffset { get; set; } = Quaternion.identity;
+        public Quaternion StartBoneRotationOffset { get; set; }
 
 
         public virtual void Init(Transform root) 

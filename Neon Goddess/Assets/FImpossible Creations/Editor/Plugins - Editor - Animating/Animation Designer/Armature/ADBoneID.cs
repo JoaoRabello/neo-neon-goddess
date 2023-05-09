@@ -30,6 +30,10 @@ namespace FIMSpace.AnimationTools
         public float ElasticnessBlend = 1f;
         public float LimbEffectsBlend = 1f;
 
+        public Vector3 ForwardInRoot { get; private set; }
+        public Vector3 UpInRoot { get; private set; }
+        public Vector3 RightInRoot { get; private set; }
+
 
         public ADBoneID(string name, string bonePath = "", float effBlend = 1f)
         {
@@ -46,6 +50,7 @@ namespace FIMSpace.AnimationTools
             GatheredTransform = t;
             BoneName = t.name;
             if (skelRoot != null) BonePath = GetBonePath(skelRoot);
+            CalculateAxis(skelRoot);
         }
 
         public void ClearTransform()
@@ -67,6 +72,8 @@ namespace FIMSpace.AnimationTools
             BoneName = t.name;
             BonePath = GetBonePath(skelRoot);
             LimbEffectsBlend = effBlend;
+
+            CalculateAxis(skelRoot);
         }
 
         public ADBoneID(ADArmatureSetup armature, HumanBodyBones id)
@@ -167,6 +174,17 @@ namespace FIMSpace.AnimationTools
                         GatheredTransform = FTransformMethods.FindChildByNameInDepth(BoneName, armature.LatestAnimator.transform);
                     }
             }
+
+            CalculateAxis(armature.LatestAnimator);
+        }
+
+        public void CalculateAxis(Transform root)
+        {
+            if (T == null) return;
+            if (root == null) return;
+            RightInRoot = T.InverseTransformDirection(root.right);
+            UpInRoot = T.InverseTransformDirection(root.up);
+            ForwardInRoot = T.InverseTransformDirection(root.forward);
         }
     }
 }

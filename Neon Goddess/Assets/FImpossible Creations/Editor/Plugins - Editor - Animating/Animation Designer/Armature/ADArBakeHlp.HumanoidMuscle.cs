@@ -23,11 +23,11 @@ namespace FIMSpace.AnimationTools
                 Reset();
             }
 
-            public void SaveCurves(ref AnimationClip clip, float reduction, float legsReduMul)
+            public void SaveCurves(ADBoneReference.EWrapBakeAlgrithmType wrapLoopMode, ref AnimationClip clip, float reduction, float legsReduMul)
             {
                 if (ADBoneReference.LoopBakedPose)
                 {
-                    ADBoneReference.WrapBake(curve);
+                    ADBoneReference.WrapBake(wrapLoopMode, curve);
                 }
 
                 if (isLeg) { reduction *= 1f - legsReduMul; }
@@ -54,7 +54,7 @@ namespace FIMSpace.AnimationTools
                 return propName.ToLower().Contains("leg") || propName.ToLower().Contains("foot");
             }
 
-            private string CorrectFingersPropertyNames(string b)
+            public static string CorrectFingersPropertyNames(string b)
             {
                 if (b == "Left Index 1 Stretched") return "LeftHand.Index.1 Stretched";
                 if (b == "Left Index 2 Stretched") return "LeftHand.Index.2 Stretched";
@@ -109,11 +109,6 @@ namespace FIMSpace.AnimationTools
                 if (b == "Right Thumb Spread") return "RightHand.Thumb.Spread";
 
                 return b;
-            }
-
-            internal void SaveCurves(ref AnimationClip clip, object bakeReduction, float lengthMlp)
-            {
-                throw new NotImplementedException();
             }
 
 

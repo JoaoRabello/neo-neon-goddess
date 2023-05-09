@@ -40,7 +40,6 @@ namespace FIMSpace.AnimationTools
                         }
                 }
             }
-
         }
 
     }

@@ -53,7 +53,7 @@ namespace FIMSpace.FTail
 #endif
 #endif
 
-#endregion
+            #endregion
 
 
             if (UseMaxDistance)
@@ -65,8 +65,35 @@ namespace FIMSpace.FTail
                 conditionalWeight = OverrideWeight;
 
 
-            if (OptimizeWithMesh != null) if (OptimizeWithMesh.isVisible == false) { updateTailAnimator = false; return; }
+            #region Force disable transition implementation
 
+            if (_forceDisable) // fade to disabled state
+            {
+                if (FadeDuration > 0f)
+                {
+                    _forceDisableElapsed += Time.unscaledDeltaTime * (1f / FadeDuration);
+                    if (_forceDisableElapsed > 1f) _forceDisableElapsed = 1f;
+                }
+                else
+                    _forceDisableElapsed = 1f;
+
+                conditionalWeight *= 1f - _forceDisableElapsed;
+            }
+            else // Fade back in
+            {
+                if (_forceDisableElapsed > 0f)
+                    if (FadeDuration > 0f)
+                    {
+                        _forceDisableElapsed -= Time.unscaledDeltaTime * (1f / FadeDuration);
+                        if (_forceDisableElapsed < 0f) _forceDisableElapsed = 0f;
+                        conditionalWeight *= 1f - _forceDisableElapsed;
+                    }
+            }
+
+            #endregion
+
+
+            if (DisabledByInvisibility()) return;
 
             //#region Triggering Animate Physics Support
 
@@ -107,7 +134,7 @@ namespace FIMSpace.FTail
             }
 
             if (IncludeParent) if (TailSegments.Count > 0) if (!TailSegments[0].transform.parent) IncludeParent = false;
-            
+
             if (TailSegments.Count < 1)
             {
                 updateTailAnimator = false;
@@ -115,6 +142,30 @@ namespace FIMSpace.FTail
             }
 
             updateTailAnimator = true;
+        }
+
+
+        public bool DisabledByInvisibility()
+        {
+            if (OptimizeWithMesh != null)
+            {
+                bool somethingVisible = false;
+                if (OptimizeWithMesh.isVisible) somethingVisible = true;
+                else
+                {
+                    if (OptimizeWithMeshes != null)
+                        if (OptimizeWithMeshes.Length > 0)
+                            for (int i = 0; i < OptimizeWithMeshes.Length; i++)
+                            {
+                                if (OptimizeWithMeshes[i] == null) continue;
+                                if (OptimizeWithMeshes[i].isVisible) { somethingVisible = true; break; }
+                            }
+                }
+
+                if (somethingVisible == false) { updateTailAnimator = false; return true; }
+            }
+
+            return false; // Not Disabled
         }
 
 
@@ -133,6 +184,7 @@ namespace FIMSpace.FTail
                     case EFDeltaType.FixedDeltaTime: justDelta = Time.fixedDeltaTime; break;
                 }
 
+                justDelta *= TimeScale;
                 secPeriodDelta = 1f;
                 deltaForLerps = secPeriodDelta;
                 rateDelta = 1f / (float)UpdateRate;
@@ -150,8 +202,9 @@ namespace FIMSpace.FTail
                     case EFDeltaType.FixedDeltaTime: justDelta = Time.fixedDeltaTime; break;
                 }
 
-                deltaForLerps = Mathf.Pow(secPeriodDelta, 0.1f) * 0.02f;
                 rateDelta = justDelta;
+                deltaForLerps = Mathf.Pow(secPeriodDelta, 0.1f) * 0.02f;
+                justDelta *= TimeScale;
 
                 // Helper parameter to not calculate "*60" i-times
                 secPeriodDelta = Mathf.Min(1f, justDelta * 60f);
@@ -159,6 +212,7 @@ namespace FIMSpace.FTail
                 framesToSimulate = 1;
                 previousframesToSimulate = 1;
             }
+
         }
 
 
@@ -318,6 +372,9 @@ namespace FIMSpace.FTail
 
         /// <summary> Getting helper bone marker used for animating last bone in chain </summary>
         public TailSegment GetGhostChild() { return GhostChild; }
+
+        /// <summary> Helper flag for basic animate physics mode </summary>
+        bool fixedUpdated = false;
 
         // Supporting second solution for fixed animate physics mode
         private bool lateFixedIsRunning = false;

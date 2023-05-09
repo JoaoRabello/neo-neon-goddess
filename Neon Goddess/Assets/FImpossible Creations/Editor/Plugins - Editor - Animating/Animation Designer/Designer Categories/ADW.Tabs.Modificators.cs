@@ -13,11 +13,13 @@ namespace FIMSpace.AnimationTools
         #region GUI Related
 
 
-        int _sel_mod_index = -1;
+        [SerializeField] int _sel_mod_index = -1;
 
         public Vector3 angle;
         [NonSerialized] ADClipSettings_Modificators editedModSet;
         bool drawAllModsEval = false;
+
+
 
         //bool _ModificatorLimbMode = false;
         void DrawModificatorsTab()
@@ -32,20 +34,44 @@ namespace FIMSpace.AnimationTools
             GUILayout.Space(3);
             ADClipSettings_Modificators modSet = S.GetSetupForClip(S.ModificatorsSetupsForClips, TargetClip, _toSet_SetSwitchToHash);
             editedModSet = modSet;
-
+            
 
             GUILayout.Space(3);
             EditorGUILayout.BeginHorizontal();
-            if (DrawTargetClipField(FGUI_Resources.GetFoldSimbol(drawAllModsEval, true) + "  Bone Modificators For:", true)) drawAllModsEval = !drawAllModsEval;
+            if (DrawTargetClipField(FGUI_Resources.GetFoldSimbol(drawAllModsEval, true) + "  Bone Modifiers For:", true)) drawAllModsEval = !drawAllModsEval;
             //DrawTargetClipField("Bone Modificators For:", true);
+
+
+            #region Copy Paste Buttons
+
+            Color preBG = GUI.backgroundColor;
+            if (ADClipSettings_Modificators.CopyingFrom != null)
+            {
+                if (GUILayout.Button(new GUIContent(EditorGUIUtility.IconContent("Clipboard").image, "Paste copied values"), FGUI_Resources.ButtonStyle, GUILayout.Width(22), GUILayout.Height(19)))
+                {
+                    ADClipSettings_Modificators.PasteValuesTo(ADClipSettings_Modificators.CopyingFrom, modSet);
+                }
+            }
+
+            if (ADClipSettings_Modificators.CopyingFrom == modSet) GUI.backgroundColor = new Color(0.6f, 1f, 0.6f, 1f);
+            if (GUILayout.Button(new GUIContent(EditorGUIUtility.IconContent("TreeEditor.Duplicate").image, "Copy Elasticity parameters values below to paste them into other limb"), FGUI_Resources.ButtonStyle, GUILayout.Width(22), GUILayout.Height(19)))
+            {
+                ADClipSettings_Modificators.CopyingFrom = modSet;
+            }
+            if (ADClipSettings_Modificators.CopyingFrom == modSet) GUI.backgroundColor = preBG;
+
+            #endregion
+
+
             EditorGUILayout.EndHorizontal();
+
 
             if (drawAllModsEval)
                 AnimationDesignerWindow.DrawCurve(ref _anim_MainSet.ModsEvaluation, "All Mods Blend:");
 
 
             GUILayout.Space(4);
-            AnimationDesignerWindow.GUIDrawFloatPercentage(ref modSet.AllModificatorsBlend, new GUIContent("All Modificators Blend:  "));
+            AnimationDesignerWindow.GUIDrawFloatPercentage(ref modSet.AllModificatorsBlend, new GUIContent("All Modifiers Blend:  "));
             FGUI_Inspector.DrawUILine(0.3f, 0.5f, 1, 14, 0.975f);
 
             #region Adding Modificator
@@ -111,7 +137,7 @@ namespace FIMSpace.AnimationTools
 
             if (modSet.BonesModificators.Count == 0)
             {
-                EditorGUILayout.HelpBox("No Bones Modificators in '" + TargetClip.name + "' animation clip yet!", MessageType.Info);
+                EditorGUILayout.HelpBox("No Bones Modifiers in '" + TargetClip.name + "' animation clip yet!", MessageType.Info);
             }
             else
             {
@@ -128,9 +154,13 @@ namespace FIMSpace.AnimationTools
 
                 #region Modificators Selector and Mod GUI
 
+
+                StartUndoCheckFor(this, ": Modificator Limbs");
                 DrawSelectorGUI(modSet.BonesModificators, ref _sel_mod_index, 18, position.width - 22);
+                EndUndoCheckFor(this);
 
                 if (_sel_mod_index >= modSet.BonesModificators.Count) _sel_mod_index = modSet.BonesModificators.Count - 1;
+
 
                 if (_sel_mod_index > -1)
                 {
@@ -138,6 +168,8 @@ namespace FIMSpace.AnimationTools
                     GUILayout.Space(5);
 
                     EditorGUILayout.BeginVertical(FGUI_Resources.BGInBoxStyle);
+
+                    StartUndoCheck(" :Modificator");
 
                     mod.DrawHeaderGUI(modSet.BonesModificators, !sectionFocusMode, ref _sel_mod_index);
 
@@ -178,9 +210,11 @@ namespace FIMSpace.AnimationTools
 
                         }
 
-                        mod.DrawTopGUI(animationProgress, _anim_MainSet, _sel_mod_index);
-                        mod.DrawParamsGUI(animationProgress, S);
+                        mod.DrawTopGUI(animationProgressForEval, _anim_MainSet, _sel_mod_index);
+                        mod.DrawParamsGUI(animationProgressForEval, S);
                     }
+
+                    EndUndoCheck();
 
                     GUILayout.Space(4);
                     EditorGUILayout.EndVertical();
@@ -199,15 +233,19 @@ namespace FIMSpace.AnimationTools
 
             }
 
+
+
+
             if (sectionFocusMode)
             {
-                if (AnimationDesignerWindow.Get)
+                if (Get)
                 {
                     GUILayout.Space(3);
                     EditorGUILayout.BeginHorizontal();
-                    AnimationDesignerWindow.Get.DrawPlaybackButton();
+                    DrawPlaybackStopButton();
+                    DrawPlaybackButton();
                     GUILayout.Space(5);
-                    AnimationDesignerWindow.Get.DrawPlaybackTimeSlider();
+                    DrawPlaybackTimeSlider();
                     EditorGUILayout.EndHorizontal();
                     GUILayout.Space(5);
                 }

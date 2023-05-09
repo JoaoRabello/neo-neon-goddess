@@ -26,6 +26,8 @@ namespace FIMSpace.AnimationTools
         public float Export_OptimizeCurves = 0.01f;
         //public float Export_AdaptBakeFramerate = 1f;
         public bool Export_IncludeRootMotionInKeyAnimation = false;
+        public bool Export_BakeRootIndividually = false;
+        internal AnimationCurve Export_DebugCurve;
 
 
 
@@ -131,10 +133,42 @@ namespace FIMSpace.AnimationTools
         public List<ADClipSettings_IK> IKSetupsForClips = new List<ADClipSettings_IK>();
 
         /// <summary> Different settings setups for different animation clips </summary>
-        public List<ADClipSettings_Springs> SpringSetupsForClips = new List<ADClipSettings_Springs>();
+        public List<ADClipSettings_CustomModules> CustomModuleSetupsForClips = new List<ADClipSettings_CustomModules>();
+
+
+        //public List<ADClipSettings_Springs> SpringSetupsForClips = new List<ADClipSettings_Springs>();
 
         /// <summary> Different settings setups for different animation clips </summary>
         public List<ADClipSettings_Morphing> MorphingSetupsForClips = new List<ADClipSettings_Morphing>();
+
+
+
+        internal void RemoveSaveDataForClip(AnimationClip toRemove)
+        {
+            RemoveSetupOfClip(MainSetupsForClips, toRemove);
+            RemoveSetupOfClip(ElasticnessSetupsForClips, toRemove);
+            RemoveSetupOfClip(ModificatorsSetupsForClips, toRemove);
+            RemoveSetupOfClip(IKSetupsForClips, toRemove);
+            RemoveSetupOfClip(CustomModuleSetupsForClips, toRemove);
+            //RemoveSetupOfClip(SpringSetupsForClips, toRemove);
+            RemoveSetupOfClip(MorphingSetupsForClips, toRemove);
+        }
+
+
+        public void RemoveSetupOfClip<T>(List<T> list, AnimationClip clip) where T : IADSettings, new()
+        {
+            CheckForNulls(list);
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].SettingsForClip == clip)
+                {
+                    list.RemoveAt(i);
+                    return;
+                }
+            }
+        }
+
 
         #endregion
 
@@ -184,6 +218,7 @@ namespace FIMSpace.AnimationTools
 
         #region Main Utilities
 
+
         public float ScaleRef { get; private set; }
         public Transform SkelRootBone { get { if (Armature == null) return null; if (Armature.RootBoneReference == null) return null; return Armature.RootBoneReference.TempTransform; } }
         public Transform ReferencePelvis { get { if (Armature == null) return null; if (Armature.PelvisBoneReference == null) return null; return Armature.PelvisBoneReference.TempTransform; } }
@@ -231,7 +266,9 @@ namespace FIMSpace.AnimationTools
 
             RefreshSkeleton(LatestAnimator);
             Armature.Prepare(LatestAnimator);
+
             if (TPose.BonesCoords.Count != Armature.BonesSetup.Count) CaptureTPose();
+
         }
 
         internal void GatherBones()
@@ -241,7 +278,25 @@ namespace FIMSpace.AnimationTools
             Armature.RefreshBonesSpecifics(LatestAnimator);
             RefreshLimbsReferences(Armature);
             AnimationDesignerWindow.AddEditorEvent(() => { AnimationDesignerWindow.ReInitializeCalibration(); });
+            OnAfterRefreshSkeleton();
         }
+
+        public Bounds InitialBounds { get; private set; }
+
+        void OnAfterRefreshSkeleton()
+        {
+            if (Armature == null) return;
+            if (Armature.LatestAnimator == null) return;
+
+            Vector3 prePos = Armature.LatestAnimator.position;
+            Armature.LatestAnimator.position = Vector3.zero;
+
+            if (TPose != null) TPose.RestoreOn(Armature);
+            InitialBounds = Armature.CalculateBounds();
+
+            Armature.LatestAnimator.position = prePos;
+        }
+
 
         internal void CaptureTPose()
         {
@@ -587,6 +642,13 @@ namespace FIMSpace.AnimationTools
             if (rootB == null) UnityEngine.Debug.Log("[Animation Designer] Root bone not found! Your bones hierarchy seems to not exist!");
 
             return rootB;
+        }
+
+
+        public Transform SearchForBoneInAllAnimatorChildren(string s_ArmatureParentName)
+        {
+            if (LatestAnimator == null) return null;
+            return FTransformMethods.FindChildByNameInDepth(s_ArmatureParentName, LatestAnimator);
         }
 
 

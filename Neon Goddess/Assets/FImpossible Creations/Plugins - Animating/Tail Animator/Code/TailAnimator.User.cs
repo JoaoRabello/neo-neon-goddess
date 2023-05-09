@@ -89,5 +89,15 @@ namespace FIMSpace.FTail
         }
 
 
+        bool _forceDisable = false;
+        float _forceDisableElapsed = 0f;
+        /// <summary>
+        /// Disable tail animator with fade transition as "Max Distance" fade
+        /// </summary>
+        public void User_ForceDisabled(bool disable)
+        {
+            _forceDisable = disable;
+        }
+
     }
 }

@@ -12,7 +12,7 @@ namespace FIMSpace.AnimationTools
 
         #region GUI Related
 
-        int _sel_ikLimb = -1;
+        [SerializeField] int _sel_ikLimb = -1;
         public static ADClipSettings_IK IKettingsCopyFrom = null;
 
         void DrawIKTab()
@@ -85,7 +85,9 @@ namespace FIMSpace.AnimationTools
 
 
                 var limbsList = S.GetLimbsExecutionList(setup.LimbIKSetups);
+                StartUndoCheckFor(this, ": IK Limbs");
                 DrawSelectorGUI(limbsList, ref _sel_ikLimb, 18, position.width - 22, -1);
+                EndUndoCheckFor(this);
 
                 if (_sel_ikLimb > -1)
                     if (Limbs.ContainsIndex(_sel_ikLimb, true))
@@ -96,11 +98,15 @@ namespace FIMSpace.AnimationTools
                         GUILayout.Space(3);
                         EditorGUILayout.BeginVertical(FGUI_Resources.BGInBoxStyle);
 
+                        StartUndoCheck(": IK");
+
                         DrawNullTweakGUI(selectedLimb, _sel_ikLimb);
 
                         settings.DrawTopGUI(selectedLimb.GetName, animationProgress);
                         settings.DrawParamsGUI(animationProgress, selectedLimb, _anim_MainSet, S, setup);
                         //settings.DrawIKHipsParameters(selectedLimb, _anim_MainSet, S);
+
+                        EndUndoCheck();
 
                         EditorGUILayout.EndVertical();
 
@@ -272,16 +278,22 @@ namespace FIMSpace.AnimationTools
                                 }
 
 
-                                if (ikSet.IKPosStillMul > 0f)
+                                bool positionForStillPoints = false;
+                                if (ikSet.UseMultiStillPoints)
                                 {
+                                    if (ADClipSettings_IK.IKSet._SelectedStillPoint != null) positionForStillPoints = true;
+                                }
 
-                                    if (ikSet.UseMultiStillPoints == false)
+                                if (positionForStillPoints)
+                                {
+                                    var p = ADClipSettings_IK.IKSet._SelectedStillPoint;
+                                    if (p != null)
                                     {
                                         Vector3 prePos;
                                         if (ikSet.IKStillWorldPos)
-                                        { if (latestAnimator.parent == null) prePos = ikSet.IKStillPosition; else prePos = latestAnimator.parent.TransformPoint(ikSet.IKStillPosition); }
+                                        { if (latestAnimator.parent == null) prePos = p.pos; else prePos = latestAnimator.parent.TransformPoint(p.pos); }
                                         else
-                                            prePos = latestAnimator.transform.TransformPoint(ikSet.IKStillPosition);
+                                            prePos = latestAnimator.transform.TransformPoint(p.pos);
 
                                         float scale = 0.24f;
                                         if (currentMecanim) if (currentMecanim.isHuman) scale = Mathf.Clamp(currentMecanim.humanScale * 0.14f, 0.175f, 1f);
@@ -291,21 +303,46 @@ namespace FIMSpace.AnimationTools
                                         if (Vector3.Distance(prePos, newPos) > 0.001f)
                                         {
                                             if (ikSet.IKStillWorldPos)
-                                            { if (latestAnimator.parent == null) ikSet.IKStillPosition = (newPos); else ikSet.IKStillPosition = latestAnimator.parent.InverseTransformPoint(newPos); }
+                                            { if (latestAnimator.parent == null) p.pos = (newPos); else p.pos = latestAnimator.parent.InverseTransformPoint(newPos); }
                                             else
-                                                ikSet.IKStillPosition = latestAnimator.transform.InverseTransformPoint(newPos);
+                                                p.pos = latestAnimator.transform.InverseTransformPoint(newPos);
                                         }
+                                    }
+                                }
+                                else
+                                {
+                                    if (ikSet.LatelyAdjusted == ADClipSettings_IK.IKSet.EWasAdjusted.Offset)
+                                    {
+                                        if (playPreview == false)
+                                            if (ikSet.IKPositionOffset != Vector3.zero)
+                                                if (ikSet.IKPosOffMul > 0.001f)
+                                                    if (ikSet.LastUsedProcessor != null)
+                                                    {
+                                                        Vector3 prePos = Vector3.zero;
+                                                        prePos = limb.LastBone.pos;
+
+                                                        float scale = 0.24f;
+
+                                                        Handles.color = new Color(0.2f, 1f, 0.4f, 1f);
+                                                        Vector3 newPos = FEditor_TransformHandles.PositionHandle(prePos, Quaternion.identity, scale, false, true, false);
+                                                        Handles.color = Color.white;
+
+                                                        if ((prePos - newPos).sqrMagnitude > 0.0001f)
+                                                        {
+                                                            //root.TransformVector(IKPositionOffset) * IKPosOffMul * IKPosOffEvaluate.Evaluate(progr)
+                                                            ikSet.IKPositionOffset += Ar.LatestAnimator.InverseTransformVector(newPos - prePos);
+                                                        }
+                                                    }
                                     }
                                     else
                                     {
-                                        var p = ADClipSettings_IK.IKSet._SelectedStillPoint;
-                                        if ( p != null)
+                                        if (ikSet.IKPosStillMul > 0f)
                                         {
                                             Vector3 prePos;
                                             if (ikSet.IKStillWorldPos)
-                                            { if (latestAnimator.parent == null) prePos = p.pos; else prePos = latestAnimator.parent.TransformPoint(p.pos); }
+                                            { if (latestAnimator.parent == null) prePos = ikSet.IKStillPosition; else prePos = latestAnimator.parent.TransformPoint(ikSet.IKStillPosition); }
                                             else
-                                                prePos = latestAnimator.transform.TransformPoint(p.pos);
+                                                prePos = latestAnimator.transform.TransformPoint(ikSet.IKStillPosition);
 
                                             float scale = 0.24f;
                                             if (currentMecanim) if (currentMecanim.isHuman) scale = Mathf.Clamp(currentMecanim.humanScale * 0.14f, 0.175f, 1f);
@@ -315,9 +352,9 @@ namespace FIMSpace.AnimationTools
                                             if (Vector3.Distance(prePos, newPos) > 0.001f)
                                             {
                                                 if (ikSet.IKStillWorldPos)
-                                                { if (latestAnimator.parent == null) p.pos = (newPos); else p.pos = latestAnimator.parent.InverseTransformPoint(newPos); }
+                                                { if (latestAnimator.parent == null) ikSet.IKStillPosition = (newPos); else ikSet.IKStillPosition = latestAnimator.parent.InverseTransformPoint(newPos); }
                                                 else
-                                                    p.pos = latestAnimator.transform.InverseTransformPoint(newPos);
+                                                    ikSet.IKStillPosition = latestAnimator.transform.InverseTransformPoint(newPos);
                                             }
                                         }
                                     }
@@ -340,14 +377,10 @@ namespace FIMSpace.AnimationTools
 
         void _Update_IKCategory()
         {
-
             IK_UpdateTooltips();
-
         }
 
         #endregion
-
-
 
 
         #region Tip Field
@@ -409,8 +442,6 @@ namespace FIMSpace.AnimationTools
         }
 
         #endregion
-
-
 
     }
 

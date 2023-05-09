@@ -113,7 +113,7 @@ namespace FIMSpace.FTail
                     GUI.color = new Color(1f, 1f, 1f, .5f);
                     EditorGUILayout.BeginHorizontal(EditorStyles.helpBox);
 
-                    if (Get.OptimizeWithMesh.isVisible)
+                    if (!Get.DisabledByInvisibility())
                         EditorGUILayout.LabelField("Spine Animator Is Active", FGUI_Resources.HeaderStyle);
                     else
                     {
@@ -162,6 +162,13 @@ namespace FIMSpace.FTail
             }
 
             EditorGUILayout.EndHorizontal();
+
+            if ( Get.OptimizeWithMesh)
+            {
+                SerializedProperty spc = sp_OptimizeWithMesh.Copy();
+                spc.Next(false);
+                EditorGUILayout.PropertyField(spc);
+            }
         }
 
 
@@ -738,12 +745,20 @@ namespace FIMSpace.FTail
                                     if (tail.CollisionMode == TailAnimator2.ECollisionMode.m_3DCollision)
                                     {
                                         Collider[] coll = draggedObject.GetComponents<Collider>();
-                                        for (int ci = 0; ci < coll.Length; ci++) tail.AddCollider(coll[ci]);
+                                        for (int ci = 0; ci < coll.Length; ci++) 
+                                        {
+                                            if (coll[ci] is CharacterController) continue;
+                                            tail.AddCollider(coll[ci]); 
+                                        }
                                     }
                                     else
                                     {
                                         Collider2D[] coll = draggedObject.GetComponents<Collider2D>();
-                                        for (int ci = 0; ci < coll.Length; ci++) tail.AddCollider(coll[ci]);
+                                        for (int ci = 0; ci < coll.Length; ci++)
+                                        {
+                                            if (coll[ci] is CharacterController) continue;
+                                            tail.AddCollider(coll[ci]);
+                                        }
                                     }
 
                                     EditorUtility.SetDirty(tail);

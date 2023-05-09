@@ -163,7 +163,7 @@ namespace FIMSpace.FEditor
         private static GUIContent __guicMore = null;
         public static GUIContent GUIC_Remove { get { if (__guicRemv != null) return __guicRemv; __guicRemv = new GUIContent(Tex_Remove, "Click to remove element"); return __guicRemv; } }
         private static GUIContent __guicRemv = null;
-        public static GUIContent GUIC_Save { get { if (__guicInfo != null) return __guicInfo; __guicInfo = new GUIContent(Tex_Save, "Click to save file in project files."); return __guicInfo; } }
+        public static GUIContent GUIC_Save { get { if (__guicSave != null) return __guicSave; __guicSave = new GUIContent(Tex_Save, "Click to save file in project files."); return __guicSave; } }
         private static GUIContent __guicSave = null;
 
 
@@ -194,7 +194,9 @@ namespace FIMSpace.FEditor
         public static Texture2D Tex_MiniGear { get { if (__texSGear != null) return __texSGear; __texSGear = Resources.Load<Texture2D>("Fimp/Small Icons/MiniGear"); return __texSGear; } }
         private static Texture2D __texSGear = null;
         public static Texture2D Tex_Debug { get { if (__texDebg != null) return __texDebg; __texDebg = Resources.Load<Texture2D>("Fimp/Small Icons/FDebug"); return __texDebg; } }
-        private static Texture2D __texDebg = null;
+        private static Texture2D __texDebg = null;    
+        public static Texture2D Tex_Customize { get { if (__texCstm != null) return __texCstm; __texCstm = Resources.Load<Texture2D>("Fimp/Small Icons/FCustomize"); return __texCstm; } }
+        private static Texture2D __texCstm = null;
         public static Texture2D Tex_Refresh { get { if (__texRefresh != null) return __texRefresh; __texRefresh = Resources.Load<Texture2D>("Fimp/Small Icons/FRefresh"); return __texRefresh; } }
         private static Texture2D __texRefresh = null;
         public static Texture2D Tex_MiniMotion { get { if (__texMiniMotion != null) return __texMiniMotion; __texMiniMotion = Resources.Load<Texture2D>("Fimp/Small Icons/MiniMotion"); return __texMiniMotion; } }

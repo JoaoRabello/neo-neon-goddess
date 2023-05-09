@@ -12,7 +12,7 @@ namespace FIMSpace.AnimationTools
     {
         public static bool debugLogs = false;
         bool debugTabFoldout = false;
-        public enum ECategory { Setup, Elasticness, Modificators, IK, Morphing, Springs }
+        public enum ECategory { Setup, Elasticity, Modifiers, IK, Morphing, Custom }
         public ECategory Category = ECategory.Setup;
 
         #region Fitting Save Check
@@ -35,6 +35,8 @@ namespace FIMSpace.AnimationTools
 
         #endregion
 
+        GUIContent _undoTex = null;
+
         void DisplaySaveHeaderTab()
         {
             if (latestAnimator == null) return;
@@ -49,6 +51,19 @@ namespace FIMSpace.AnimationTools
 
             EditorGUILayout.BeginHorizontal();
 
+            #region Experimental Undo Switch
+
+            if (_undoTex == null || _undoTex.image == null)
+            {
+                _undoTex = new GUIContent(Resources.Load<Texture2D>("Fimp/Misc Icons/FUndo"), "Enable experimental Ctrl+Z undo function for Animation Designer Window.\n(As for now Undo is not working with Animation Curves!)");
+            }
+
+            Color preBg = GUI.backgroundColor;
+            GUI.backgroundColor = EnableExperimentalUndo ? Color.white : Color.gray * 0.6f;
+            if (GUILayout.Button(_undoTex, FGUI_Resources.ButtonStyle, GUILayout.Height(18), GUILayout.Width(24))) { EnableExperimentalUndo = !EnableExperimentalUndo; }
+            GUI.backgroundColor = preBg;
+
+            #endregion
 
             #region Found fitting save - refresh button
 
@@ -83,7 +98,7 @@ namespace FIMSpace.AnimationTools
             if (BaseDirectory)
             {
 
-                if (GUILayout.Button(new GUIContent(FGUI_Resources.Tex_DownFold, "Display quick selection menu for FieldSetups contained in the drafts directory"), EditorStyles.label, GUILayout.Width(16), GUILayout.Height(16)))
+                if (GUILayout.Button(new GUIContent(FGUI_Resources.Tex_DownFold, "Display quick selection menu for AnimationDesigner Saves contained in the target directory"), EditorStyles.label, GUILayout.Width(16), GUILayout.Height(16)))
                 {
                     CheckDraftsFoldersForFileCount(true);
 
@@ -281,6 +296,11 @@ namespace FIMSpace.AnimationTools
         }
 
 
+        public void DrawPlaybackStopButton()
+        {
+            if (GUILayout.Button(new GUIContent(Tex_Stop), EditorStyles.label, GUILayout.Width(22), GUILayout.Height(20))) { playPreview = false; animationElapsed = 0f; SampleCurrentAnimation(); }
+        }
+
         public void DrawPlaybackButton()
         {
             if (playPreview) GUI.color = Color.gray;
@@ -391,7 +411,7 @@ namespace FIMSpace.AnimationTools
         public void DrawPlaybackPanel()
         {
             EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button(new GUIContent(Tex_Stop), EditorStyles.label, GUILayout.Width(22), GUILayout.Height(20))) { playPreview = false; animationElapsed = 0f; SampleCurrentAnimation(); }
+            DrawPlaybackStopButton();
             DrawPlaybackButton();
             GUILayout.Space(6);
             DrawPlaybackSpeedSlider();
@@ -462,6 +482,15 @@ namespace FIMSpace.AnimationTools
                         {
                             var clp = clips[i];
                             clipsMenu.AddItem(new GUIContent(clp.name), TargetClip == clp, () => { TargetClip = clp; });
+                        }
+
+                        if (TargetClip != null)
+                        {
+                            clipsMenu.AddItem(new GUIContent(""), false, () => { });
+                            clipsMenu.AddItem(new GUIContent(""), false, () => { });
+                            clipsMenu.AddItem(new GUIContent(""), false, () => { });
+                            AnimationClip toRemove = TargetClip;
+                            clipsMenu.AddItem(new GUIContent("REMOVE Designer Save Data for '" + TargetClip.name + "'"), false, () => { TargetClip = null; ProjectFileSave.RemoveSaveDataForClip(toRemove); });
                         }
 
                         clipsMenu.ShowAsContext();
@@ -786,10 +815,11 @@ namespace FIMSpace.AnimationTools
                     {
                         case ECategory.Setup: DrawSetupTab(); break;
                         case ECategory.IK: DrawIKTab(); break;
-                        case ECategory.Modificators: DrawModificatorsTab(); break;
-                        case ECategory.Springs: DrawSpringsTab(); break;
-                        case ECategory.Elasticness: DrawElasticnessTab(); break;
+                        case ECategory.Modifiers: DrawModificatorsTab(); break;
+                        //case ECategory.Springs: DrawSpringsTab(); break;
+                        case ECategory.Elasticity: DrawElasticnessTab(); break;
                         case ECategory.Morphing: DrawMorphingTab(); break;
+                        case ECategory.Custom: DrawCustomModulesTab(); break;
                     }
                 }
             }
@@ -831,51 +861,64 @@ namespace FIMSpace.AnimationTools
         public static Texture2D Tex_Pixel { get { if (__texpixl != null) return __texpixl; __texpixl = new Texture2D(1, 1); __texpixl.SetPixel(0, 0, Color.white); __texpixl.Apply(false, true); return __texpixl; } }
         private static Texture2D __texpixl = null;
 
+        public static Texture2D Tex_CModules { get { if (__texCMods != null) return __texCMods; __texCMods = Resources.Load<Texture2D>("AnimationDesigner/ADModuleIcon"); return __texCMods; } }
+        private static Texture2D __texCMods = null;
+
         private void DrawCategorySelector(ref ECategory categoryVar)
         {
             EditorGUILayout.BeginHorizontal();
 
             int height = 30;
 
+            StartUndoCheckFor(this, ": Category");
             DrawSectionSelButton(ref Category, ECategory.Setup, FGUI_Resources.Tex_GearSetup, height);
-            DrawSectionSelButton(ref Category, ECategory.Elasticness, Tex_Elastic, height);
-            DrawSectionSelButton(ref Category, ECategory.Modificators, FGUI_Resources.Tex_Limits, height);
+            DrawSectionSelButton(ref Category, ECategory.Elasticity, Tex_Elastic, height);
+            DrawSectionSelButton(ref Category, ECategory.Modifiers, FGUI_Resources.Tex_Limits, height);
             DrawSectionSelButton(ref Category, ECategory.IK, Tex_IK, height);
             //DrawSectionSelButton(ref Category, ECategory.Springs, Tex_Hips, height);
             DrawSectionSelButton(ref Category, ECategory.Morphing, FGUI_Resources.TexBehaviourIcon, height);
+            DrawSectionSelButton(ref Category, ECategory.Custom, Tex_CModules, height, 32);
             GUI.color = preGuiC;
+            EndUndoCheckFor(this);
 
             EditorGUILayout.EndHorizontal();
 
 
             #region Selection Helper Guide
 
-            float animVal = 0f;
-            if (!sectionFocusMode) animVal = timeSin01;
+            if ((int)Category < 5)
+            {
+                float animVal = 0f;
+                if (!sectionFocusMode) animVal = timeSin01;
 
-            Rect preR = GUILayoutUtility.GetLastRect();
-            float startWdth = preR.width;
-            float startPx = preR.position.x;
-            float elWdth = (startWdth / 5f);
-            preR.position += new Vector2(0, preR.height + 1);
-            preR.height = 3;
-            preR.width = elWdth * 0.5f;
-            float barWdth = preR.width;
-            preR.position = new Vector2(startPx * 1.0f + elWdth * (float)((int)Category) + elWdth * 0.5f - barWdth * 0.5f, preR.position.y);
+                Rect preR = GUILayoutUtility.GetLastRect();
+                float startWdth = preR.width - 32f;
+                float startPx = preR.position.x;
+                float elWdth = (startWdth / 5f); // 5 but Custom modules button is shorter
+                preR.position += new Vector2(0, preR.height + 1);
+                preR.height = 3;
+                preR.width = elWdth * 0.5f;
+                float barWdth = preR.width - 32f; // 32 is custom modules button width
+                preR.position = new Vector2(startPx * 1.0f + elWdth * (float)((int)Category) + elWdth * 0.5f - barWdth * 0.5f - 16f, preR.position.y);
 
-            GUI.color = new Color(0.3f, 0.85f, 0.3f, 0.4f - animVal * 0.2f);
-            GUI.DrawTexture(preR, Tex_Blank);
-            GUI.color = preGuiC;
+                GUI.color = new Color(0.3f, 0.85f, 0.3f, 0.4f - animVal * 0.2f);
+                GUI.DrawTexture(preR, Tex_Blank);
+                GUI.color = preGuiC;
+            }
 
             #endregion
 
         }
 
-        void DrawSectionSelButton(ref ECategory cat, ECategory target, Texture icon, int height)
+        void DrawSectionSelButton(ref ECategory cat, ECategory target, Texture icon, int height, int overrideWidth = 0)
         {
             if (cat == target) GUI.backgroundColor = Color.green;
 
-            if (GUILayout.Button(new GUIContent(icon, target.ToString()), FGUI_Resources.ButtonStyle, GUILayout.Height(height)))
+            GUILayoutOption opt2 = null;
+            if (overrideWidth > 0) opt2 = GUILayout.Width(overrideWidth);
+            else opt2 = GUILayout.MinWidth(32);
+
+            if (GUILayout.Button(new GUIContent(icon, target.ToString()), FGUI_Resources.ButtonStyle, GUILayout.Height(height), opt2))
             {
                 if (target == ECategory.Setup)
                 {
@@ -901,6 +944,7 @@ namespace FIMSpace.AnimationTools
         bool _Trigger_PrepareArmature = false;
         public static bool _exportLegacy = false;
         public static bool _forceExportGeneric = false;
+        bool _foldout_rareExport = false;
 
         void DrawBakingTab()
         {
@@ -943,7 +987,7 @@ namespace FIMSpace.AnimationTools
 
                         if (GUILayout.Button(gc_SaveAsClip, GUILayout.Height(22), GUILayout.Width(wd)))
                         {
-                            string newClip = SaveClipPopup();
+                            string newClip = SaveClipPopup(Event.current.button == 1);
                             if (string.IsNullOrEmpty(newClip) == false) { _exportLegacy = false; AddEditorEvent(() => { ExportToFile(newClip); }); }
                         }
 
@@ -963,7 +1007,7 @@ namespace FIMSpace.AnimationTools
 
                         if (GUILayout.Button(new GUIContent("  Save As Legacy Animation Clip", EditorGUIUtility.IconContent("Animation Icon").image), GUILayout.Height(22), GUILayout.Width(wd)))
                         {
-                            string newClip = SaveClipPopup();
+                            string newClip = SaveClipPopup(Event.current.button == 1);
                             if (string.IsNullOrEmpty(newClip) == false) { _exportLegacy = true; AddEditorEvent(() => { ExportToFile(newClip); }); }
                         }
 
@@ -1023,6 +1067,7 @@ namespace FIMSpace.AnimationTools
                     {
                         EditorGUILayout.BeginHorizontal();
 
+                        StartUndoCheck(": Export Settings");
 
                         EditorGUIUtility.labelWidth = 118;
                         EditorGUIUtility.fieldWidth = 46;
@@ -1072,11 +1117,12 @@ namespace FIMSpace.AnimationTools
                                 {
                                     EditorGUILayout.BeginHorizontal();
                                     _anim_MainSet.Export_LoopAdditionalKeys = EditorGUILayout.IntSlider(new GUIContent("Loop Addional Frames:", "Trying to smooth additional frames from end of the clip towards first frame pose. In some models it will solve looping perfectly, in some it can produce some noticable body-rotation swap."), _anim_MainSet.Export_LoopAdditionalKeys, 0, 8);
-                                    ADBoneReference.FramesWrapType = (ADBoneReference.EWrapBakeAlgrithmType)EditorGUILayout.EnumPopup(GUIContent.none, ADBoneReference.FramesWrapType, GUILayout.Width(39));
+                                    Anim_MainSet.Export_WrapLoopBakeMode = (ADBoneReference.EWrapBakeAlgrithmType)EditorGUILayout.EnumPopup(GUIContent.none, Anim_MainSet.Export_WrapLoopBakeMode, GUILayout.Width(39));
                                     EditorGUILayout.EndHorizontal();
                                 }
                         }
 
+                        EndUndoCheck();
                     }
 
                 }
@@ -1097,9 +1143,13 @@ namespace FIMSpace.AnimationTools
 
                     if (additionalBakeSettingsFoldout)
                     {
+
+                        StartUndoCheck(": Export Settings");
+
+
                         GUILayout.Space(2);
                         EditorGUIUtility.labelWidth = 240;
-                        S.Export_SetAllOriginalBake = EditorGUILayout.Toggle(new GUIContent("Set Root Motion Original + Baked", "Automatically switching all animation clip settings to be baked + original motion"), S.Export_SetAllOriginalBake);
+                        S.Export_SetAllOriginalBake = EditorGUILayout.Toggle(new GUIContent("Set Root Motion Original + Baked", "Automatically switching all animation clip settings to be baked + original motion.\n(the settings of the animation clip you see in the inspector window when animation clip is selected)"), S.Export_SetAllOriginalBake);
 
                         if (latestAnimator.IsHuman())
                         {
@@ -1116,20 +1166,27 @@ namespace FIMSpace.AnimationTools
                         //GUIDrawFloatPercentage(ref S.Export_AdaptBakeFramerate, new GUIContent("Adapt Baking Framerate", "This parameter puts effect on the elasticness limbs. Setting it up to 100% will result in motion adapted to 60fps, it means that animation clip motion should look the same like in editor scene view, otherwise elasticness simulation can get more stiff when working with source animation clip framerate."));
                         //GUILayout.Space(4);
 
-                        if (latestAnimator.IsHuman() == false)
-                        {
-                            S.Export_IncludeRootMotionInKeyAnimation = EditorGUILayout.Toggle(new GUIContent("RootMotion+Key", "Enable it if your rig requires both root motion curves and keyframe animation in the same time to work correctly with root motion (rare case)"), S.Export_IncludeRootMotionInKeyAnimation);
-                        }
-                        else
-                        {
-
-                        }
 
                         if (_anim_MainSet != null)
                         {
                             _anim_MainSet.Export_ForceRootMotion = EditorGUILayout.Toggle(new GUIContent("Force Original with RootMotion", "Some models don't contains root motion curves but unity applies it internally which makes detecting it problematically, in such case this toggle should be enabled"), _anim_MainSet.Export_ForceRootMotion);
                             _anim_MainSet.Export_LoopClip = (ADClipSettings_Main.ELoopClipDetection)EditorGUILayout.EnumPopup("Export with Loop:", _anim_MainSet.Export_LoopClip);
                         }
+
+                        GUILayout.Space(4);
+                        FGUI_Inspector.FoldHeaderStart(ref _foldout_rareExport, "Rare Export Settings", FGUI_Resources.BGInBoxStyle, null, 20);
+                        if (_foldout_rareExport)
+                        {
+                            if (latestAnimator.IsHuman() == false)
+                                S.Export_IncludeRootMotionInKeyAnimation = EditorGUILayout.Toggle(new GUIContent("RootMotion+Key", "Enable it if your rig requires both root motion curves and keyframe animation in the same time to work correctly with root motion (rare case)"), S.Export_IncludeRootMotionInKeyAnimation);
+
+                            S.Export_BakeRootIndividually = EditorGUILayout.Toggle(new GUIContent("Bake Root Individually", "(Whole Setup Variable) Required if root bone is containing root motion curves and individual keyframe position/rotation animation. If it's not required, enabling this feature can cause problems in exported animation!"), S.Export_BakeRootIndividually);
+
+                            _anim_MainSet.Export_RootMotionTangents = (ADClipSettings_Main.ERootMotionCurveAdjust)EditorGUILayout.EnumPopup("Root Motion Tangents:", _anim_MainSet.Export_RootMotionTangents);
+                            //EditorGUILayout.CurveField("DebugCRV:", S.Export_DebugCurve);
+                        }
+                        GUILayout.EndVertical();
+                        GUILayout.Space(4);
 
                         EditorGUIUtility.labelWidth = 0;
 
@@ -1161,7 +1218,7 @@ namespace FIMSpace.AnimationTools
                             }
                         }
 
-
+                        EndUndoCheck();
                     }
 
                     EditorGUILayout.EndVertical();
@@ -1180,17 +1237,28 @@ namespace FIMSpace.AnimationTools
             }
         }
 
+        static string staticExportDirectory = "";
 
         void DrawBakeDebugSwitchButton()
         {
 
             if (!debugLogs) GUI.color = new Color(0.7f, 0.7f, 0.7f, 0.8f);
-            if (GUILayout.Button(new GUIContent(FGUI_Resources.Tex_Debug, "Turn on/off export logs"), FGUI_Resources.ButtonStyle, GUILayout.Height(18), GUILayout.Width(22)))
+            if (GUILayout.Button(new GUIContent(FGUI_Resources.Tex_Debug, "Turn on/off export logs"), FGUI_Resources.ButtonStyle, GUILayout.Height(19), GUILayout.Width(22)))
             {
                 debugLogs = !debugLogs;
             }
             GUI.color = preGuiC;
 
+
+            if (GUILayout.Button(new GUIContent(FGUI_Resources.Tex_ExportIcon, "Set constant target export directory for saving clip."), GUILayout.Width(25), GUILayout.Height(21)))
+            {
+                staticExportDirectory = EditorUtility.SaveFolderPanel("Choose target directory in the project for saving animation clips.", Application.dataPath, "");
+                staticExportDirectory = "Assets" + staticExportDirectory.Replace(Application.dataPath, "");
+                if (staticExportDirectory == "Assets") staticExportDirectory = "";
+
+                //UnityEngine.Debug.Log("dire " + staticExportDirectory + " Is Valid? " + AssetDatabase.IsValidFolder(staticExportDirectory));
+                //UnityEngine.Debug.Log("clipPath " + AssetDatabase.GetAssetPath(Get.TargetClip));
+            }
         }
 
         bool DrawTargetClipField(string title, bool withFoldDown = false)
@@ -1240,6 +1308,22 @@ namespace FIMSpace.AnimationTools
             }
         }
 
+
+
+        void DrawRootBoneField()
+        {
+            EditorGUILayout.BeginHorizontal();
+            Transform skelRoot = (Transform)EditorGUILayout.ObjectField(new GUIContent("Skeleton Root"), S.Armature.RootBoneReference.TempTransform, typeof(Transform), true);
+            if (skelRoot != S.SkelRootBone) { S.Armature.SetRootBoneRef(skelRoot); S._SetDirty(); }
+
+            GUI.color = preGuiC;
+            if (S.SkelRootBone == latestAnimator) GUILayout.Label(new GUIContent(FGUI_Resources.Tex_Warning, "Skeleton root is same as animator transform, it probably will produce glitches!"), GUILayout.Width(16));
+
+            EditorGUILayout.EndHorizontal();
+        }
+
+
+
         void DrawBaseToolsTab()
         {
             if (S.Armature.BonesSetup.Count == 0)
@@ -1263,6 +1347,9 @@ namespace FIMSpace.AnimationTools
                     GUI.backgroundColor = Color.green;
                     DrawRefreshArmatureStartDesignButton(); // if (GUILayout.Button(new GUIContent("     Refresh Armature Bone References\n   Start Design", Tex_AD), GUILayout.Height(40))) { S.GatherBones(); repaintRequest = true; }
                     GUI.backgroundColor = preBG;
+
+                    //DrawRootBoneField();
+                    //for (int i = 0; i < S.Armature.BonesSetup.Count; i++) EditorGUILayout.LabelField("[" + i + "] " + S.Armature.BonesSetup[i].BoneName);
                 }
             }
 

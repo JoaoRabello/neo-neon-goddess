@@ -62,6 +62,8 @@ namespace FIMSpace.FTail
 
         [Tooltip("Smoothing motion values change over time style to be applied for 'Reaction Speed' and 'Rotation Relevancy' parameters")]
         public EAnimationStyle SmoothingStyle = EAnimationStyle.Accelerating;
+        [Tooltip("Slowmo or speedup tail animation reaction")]
+        public float TimeScale = 1f;
 
         [Tooltip("Delta time type to be used by algorithm")]
         public EFDeltaType DeltaType = EFDeltaType.SafeDelta;
@@ -81,6 +83,8 @@ namespace FIMSpace.FTail
 
         [Tooltip("If you want Tail Animator to stop computing when choosed mesh is not visible in any camera view (editor's scene camera is detecting it too)")]
         public Renderer OptimizeWithMesh;
+        [Tooltip("If you want to check multiple meshes visibility on screen to define if you want to disable tail animator. (useful when using LOD for skinned mesh renderer)")]
+        public Renderer[] OptimizeWithMeshes = null;
 
         [Tooltip("Blend Source Animation (keyframed / unanimated) and Tail Animator")]
         [FPD_Suffix(0f, 1f)]
@@ -163,6 +167,7 @@ namespace FIMSpace.FTail
             if (!updateTailAnimator) return;
             if (DetachChildren) { if (_tc_rootBone != null) if (_tc_rootBone.transform) _tc_rootBone.PreCalibrate(); return; }
 
+            fixedUpdated = true;
             PreCalibrateBones();
         }
 
@@ -182,9 +187,20 @@ namespace FIMSpace.FTail
                 if (!lateFixedIsRunning) { StartCoroutine(LateFixed()); }
                 if (fixedAllow) fixedAllow = false; else return;
             }
-            else if (lateFixedIsRunning) { StopCoroutine(LateFixed()); lateFixedIsRunning = false; }
+            else
+            {
+                if (lateFixedIsRunning) { StopCoroutine(LateFixed()); lateFixedIsRunning = false; }
 
+                if (AnimatePhysics == EFixedMode.Basic)
+                {
+                    if (fixedUpdated == false) return;
+                    fixedUpdated = false;
+                }
+            }
             #endregion
+
+
+
 
             #region Override Keyframe Animation
 
@@ -267,6 +283,7 @@ namespace FIMSpace.FTail
 
             // Shaping / expert parameters refresh + motion influence
             EndUpdate();
+
         }
 
 
