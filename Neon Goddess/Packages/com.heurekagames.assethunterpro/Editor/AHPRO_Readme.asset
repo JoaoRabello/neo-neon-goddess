@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b27603d2be0e81488eb446378c435df, type: 3}
   m_Name: AHPRO_Readme
   m_EditorClassIdentifier: 
-  Icon: {fileID: 2800000, guid: 94411db6691648e4590eb22360ba6934, type: 3}
+  Icon: {fileID: 2800000, guid: 931681cc0eefb7e4985cecbad117a822, type: 3}
   PackageShowPrio: 100
   AssetName: Asset Hunter PRO
   Subheader: Project Cleaning Tool
@@ -420,3 +420,39 @@ MonoBehaviour:
       Patch: 12
     VersionChanges:
     - Fix for BuildReport.Files being deprecated in 2022
+  - VersionNum:
+      Major: 2
+      Minor: 2
+      Patch: 13
+    VersionChanges:
+    - Improved icon loading
+  - VersionNum:
+      Major: 2
+      Minor: 2
+      Patch: 14
+    VersionChanges:
+    - Added 'News' button in main window
+  - VersionNum:
+      Major: 2
+      Minor: 2
+      Patch: 15
+    VersionChanges:
+    - Now able to load icons outside packages
+  - VersionNum:
+      Major: 2
+      Minor: 2
+      Patch: 16
+    VersionChanges:
+    - Can now export report in both json and csv
+  - VersionNum:
+      Major: 2
+      Minor: 2
+      Patch: 17
+    VersionChanges:
+    - Minor bugfix
+  - VersionNum:
+      Major: 2
+      Minor: 2
+      Patch: 18
+    VersionChanges:
+    - Removed potentially problematic debug code

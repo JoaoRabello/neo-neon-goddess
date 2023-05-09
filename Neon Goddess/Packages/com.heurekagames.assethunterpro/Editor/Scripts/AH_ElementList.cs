@@ -1,4 +1,5 @@
 ﻿using HeurekaGames.AssetHunterPRO.BaseTreeviewImpl.AssetTreeView;
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -15,13 +16,31 @@ namespace HeurekaGames.AssetHunterPRO
             this.elements = elements;
         }
 
-        internal static void DumpCurrentListToFile(AH_TreeViewWithTreeModel m_TreeView)
+        internal static void DumpCurrentListToJSONFile(AH_TreeViewWithTreeModel view, string buildinfo)
         {
-            var path = EditorUtility.SaveFilePanel(
+            if (TryDumpToFile(view, "json", buildinfo, out AH_ElementList list, out string path))
+            {
+                AH_SerializationHelper.SerializeAndSaveJSON(list, path);
+                Debug.Log($"File saved at {path}");
+            }
+        }
+
+        internal static void DumpCurrentListToCSVFile(AH_TreeViewWithTreeModel view, string buildinfo)
+        {
+            if (TryDumpToFile(view, "csv", buildinfo, out AH_ElementList list, out string path))
+            {
+                AH_SerializationHelper.SerializeAndSaveCSV(list, path);
+                Debug.Log($"File saved at {path}");
+            }
+        }
+
+        private static bool TryDumpToFile(AH_TreeViewWithTreeModel m_TreeView, string ext, string buildinfo, out AH_ElementList content, out string path)
+        {
+            path = EditorUtility.SaveFilePanel(
             "Dump current list to file",
             AH_SerializationHelper.GetBuildInfoFolder(),
-            "AH_Listdump_" + System.Environment.UserName,
-            AH_SerializationHelper.FileDumpExtension);
+            $"AHP_AssetUsage_{PlayerSettings.productName}_{buildinfo}",
+            ext);
 
             if (path.Length != 0)
             {
@@ -30,9 +49,13 @@ namespace HeurekaGames.AssetHunterPRO
                 foreach (var element in m_TreeView.GetRows())
                     populateDumpListRecursively(m_TreeView.treeModel.Find(element.id), ((AH_MultiColumnHeader)m_TreeView.multiColumnHeader).ShowMode, ref elements);
 
-                AH_ElementList objectToSave = new AH_ElementList(elements);
-                AH_SerializationHelper.SerializeAndSave(objectToSave, path);
+                content = new AH_ElementList(elements);
+                return true;
             }
+
+            Debug.LogWarning("Export Failed");
+            content = null;
+            return false;
         }
 
         private static void populateDumpListRecursively(AH_TreeviewElement element, AH_MultiColumnHeader.AssetShowMode showmode, ref List<AssetDumpData> elements)
@@ -44,36 +67,31 @@ namespace HeurekaGames.AssetHunterPRO
                     populateDumpListRecursively((AH_TreeviewElement)child, showmode, ref elements);
                 }
             }
-            else if(element.AssetMatchesState(showmode))
+            else if (element.AssetMatchesState(showmode))
             {
-               UnityEngine.Debug.Log("Adding " + element.Name);
-                elements.Add(new AssetDumpData(element.GUID,/*element.AbsPath,*/element.RelativePath, /*element.AssetSize,*/ element.FileSize, element.UsedInBuild,element.ScenesReferencingAsset));
+                elements.Add(new AssetDumpData(element.GUID, element.RelativePath, element.FileSize, element.UsedInBuild, element.ScenesReferencingAsset));
             }
         }
         [System.Serializable]
         public struct AssetDumpData
         {
-            #pragma warning disable
-            [SerializeField] private string GUID;
-            //[SerializeField] private string absPath;
-            [SerializeField] private string relativePath;
-            //[SerializeField] private long assetSize;
-            [SerializeField] private long fileSize;
-            [SerializeField] private bool usedInBuild;
-            [SerializeField] private List<string> scenesReferencingAsset;
-            #pragma warning restore
+#pragma warning disable
+            [SerializeField] public string GUID;
+            [SerializeField] public string relativePath;
+            [SerializeField] public long fileSize;
+            [SerializeField] public bool usedInBuild;
+            [SerializeField] public List<string> scenesReferencingAsset;
+#pragma warning restore
 
-            public AssetDumpData(string guid, /*string absPath,*/ string relativePath, /*long assetSize,*/ long fileSize, bool usedInBuild, List<string> scenesReferencingAsset)
+            public AssetDumpData(string guid, string relativePath, long fileSize, bool usedInBuild, List<string> scenesReferencingAsset)
             {
                 this.GUID = guid;
-                //this.absPath = absPath;
                 this.relativePath = relativePath;
-                //this.assetSize = assetSize;
                 this.fileSize = fileSize;
                 this.usedInBuild = usedInBuild;
                 this.scenesReferencingAsset = scenesReferencingAsset;
             }
         }
     }
-    
+
 }

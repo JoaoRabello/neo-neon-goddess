@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using HeurekaGames.AssetHunterPRO.BaseTreeviewImpl.AssetTreeView;
+using System.Text;
 using UnityEditor;
 using UnityEngine;
 
@@ -36,9 +36,51 @@ namespace HeurekaGames.AssetHunterPRO
             return DateTime.Now.ToString(DateTimeFormat);
         }
 
-        internal static void SerializeAndSave(object instance, string path)
+        internal static void SerializeAndSaveJSON(object instance, string path)
         {
             System.IO.File.WriteAllText(path, JsonUtility.ToJson(instance));
+        }
+
+        internal static void SerializeAndSaveCSV(AH_ElementList elementList, string path)
+        {
+            List<string[]> rowData = new List<string[]>();
+
+            // Creating First row of titles manually..
+            string[] rowDataTemp = new string[5];
+            rowDataTemp[0] = "GUID";
+            rowDataTemp[1] = "Path";
+            rowDataTemp[2] = "Bytes";
+            rowDataTemp[3] = "UsedInBuild";
+            rowDataTemp[4] = "RefScenes";
+            rowData.Add(rowDataTemp);
+
+            foreach (var item in elementList.elements)
+            {
+                rowDataTemp = new string[5];
+                rowDataTemp[0] = item.GUID;
+                rowDataTemp[1] = item.relativePath;
+                rowDataTemp[2] = item.fileSize.ToString();
+                rowDataTemp[3] = item.usedInBuild.ToString();
+                rowDataTemp[4] = (item.scenesReferencingAsset != null)?string.Join(",", item.scenesReferencingAsset):"";
+                rowData.Add(rowDataTemp);
+            }
+
+            string[][] output = new string[rowData.Count][];
+
+            for (int i = 0; i < output.Length; i++)
+            {
+                output[i] = rowData[i];
+            }
+
+            int length = output.GetLength(0);
+            string delimiter = ",";
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int index = 0; index < length; index++)
+                sb.AppendLine(string.Join(delimiter, output[index]));
+
+            System.IO.File.WriteAllText(path, sb.ToString());
         }
 
         internal static AH_SerializedBuildInfo LoadBuildReport(string path)
