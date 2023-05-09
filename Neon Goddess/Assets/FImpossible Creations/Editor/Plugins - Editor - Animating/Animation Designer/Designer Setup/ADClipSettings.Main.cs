@@ -12,15 +12,22 @@ namespace FIMSpace.AnimationTools
         public bool TurnOnElasticness = true;
         public AnimationCurve ElasticnessEvaluation = AnimationCurve.EaseInOut(0f, 1f, 1f, 1f);
         public AnimationCurve ModsEvaluation = AnimationCurve.EaseInOut(0f, 1f, 1f, 1f);
+
         public bool TurnOnIK = true;
         public bool TurnOnMorphs = true;
+        public bool TurnOnModules = true;
 
         public int Export_LoopAdditionalKeys = 0;
+        public ADBoneReference.EWrapBakeAlgrithmType Export_WrapLoopBakeMode = ADBoneReference.EWrapBakeAlgrithmType.None;
         public bool Export_ForceRootMotion = false;
         public bool Export_DisableRootMotionExport = false;
         public bool Export_JoinRootMotion = false;
+        public float Export_ClipTimeOffset = 0;
 
         public bool Additional_UseHumanoidMecanimIK = false;
+
+        public enum ERootMotionCurveAdjust { None, SmoothTangents, LinearTangents }
+        public ERootMotionCurveAdjust Export_RootMotionTangents = ERootMotionCurveAdjust.LinearTangents;
 
         public enum ELoopClipDetection { AutoDetect, NoLoop, ForceLoop }
         public ELoopClipDetection Export_LoopClip = ELoopClipDetection.AutoDetect;
@@ -57,6 +64,8 @@ namespace FIMSpace.AnimationTools
         public float PelvisZOffset = 0f;
         public AnimationCurve PelvisOffsetZEvaluate = AnimationCurve.EaseInOut(0f, 1f, 1f, 1f);
 
+        public bool PelvisCurves01Mode = false;
+
         [SerializeField, HideInInspector] private bool _Tip_WasDisplaying = false;
         [SerializeField, HideInInspector] private int _Tip_DisplayCount = -1;
 
@@ -79,11 +88,22 @@ namespace FIMSpace.AnimationTools
             cpy.ResetRootPosition = ResetRootPosition;
             cpy.ClipDurationMultiplier = ClipDurationMultiplier;
             cpy.ClipSampleTimeCurve = AnimationDesignerWindow.CopyCurve(ClipSampleTimeCurve);
+            cpy.ClipEvaluateTimeCurve = AnimationDesignerWindow.CopyCurve(ClipEvaluateTimeCurve);
             cpy.ClipTimeReverse = ClipTimeReverse;
             cpy.ClipTrimFirstFrames = ClipTrimFirstFrames;
             cpy.ClipTrimLastFrames = ClipTrimLastFrames;
             cpy.ResetRootPosition = ResetRootPosition;
             cpy.AdditionalAnimationCycles = AdditionalAnimationCycles;
+
+            cpy.Additional_UseHumanoidMecanimIK = Additional_UseHumanoidMecanimIK;
+            cpy.Export_LoopClip = Export_LoopClip;
+
+            cpy.TurnOnModules = TurnOnModules;
+
+            cpy.Export_ForceRootMotion = Export_ForceRootMotion;
+            cpy.Export_DisableRootMotionExport = Export_DisableRootMotionExport;
+            cpy.Export_JoinRootMotion = Export_JoinRootMotion;
+            cpy.Export_ClipTimeOffset = Export_ClipTimeOffset;
 
             cpy.ElasticnesSettings = new ADClipSettings_Elasticness.ElasticnessSet();
             cpy.ElasticnesSettings.Enabled = to.ElasticnesSettings.Enabled;
@@ -120,6 +140,7 @@ namespace FIMSpace.AnimationTools
             return Mathf.Ceil(frame);
         }
 
+
         internal int GetClipFramesCount(bool useDurMult = true)
         {
             return Mathf.RoundToInt(SettingsForClip.frameRate * (SettingsForClip.length * (useDurMult ? ClipDurationMultiplier : 1f)));
@@ -148,14 +169,41 @@ namespace FIMSpace.AnimationTools
         public int SetIDHash { get { return setIdHash; } }
         public AnimationClip SettingsForClip { get { return settingsForClip; } }
 
+        /// <summary> Dedicated for custom modules modify </summary>
+        public Vector3 PelvisFrameCustomPositionOffset { get; internal set; }
 
         public float ClipDurationMultiplier = 1f;
+
         public AnimationCurve ClipSampleTimeCurve = AnimationCurve.EaseInOut(0f, 1f, 1f, 1f);
+        public AnimationCurve ClipEvaluateTimeCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
+        public bool IsUsingDefaultTimeEvaluation()
+        {
+            if (ClipEvaluateTimeCurve.length < 2) return true;
+
+            var key0 = ClipEvaluateTimeCurve.keys[0];
+
+            if (key0.time == 0f && key0.value == 0f)
+            {
+                var key1 = ClipEvaluateTimeCurve.keys[1];
+
+                if (key1.time == 1f && key1.value == 1f)
+                    if ( (key0.inTangent == 1f && key0.outTangent == 1f) || (key0.inTangent == 0f && key0.outTangent == 1f))
+                        if ((key1.inTangent == 1f && key1.outTangent == 1f) || (key1.inTangent == 1f && key1.outTangent == 0f))
+                        {
+                            return true;
+                        }
+            }
+
+            return false;
+        }
+
         public bool ClipTimeReverse = false;
         public float ClipTrimFirstFrames = 0f;
         public float ClipTrimLastFrames = 0f;
         public bool ResetRootPosition = false;
         public int AdditionalAnimationCycles = 0;
+
+        public bool _GUI_DrawAdvanvedTime = false;
 
         public void OnConstructed(AnimationClip clip, int hash)
         {
@@ -344,12 +392,17 @@ namespace FIMSpace.AnimationTools
             if (Pelvis)
             {
                 //if (System.Single.IsNaN(Pelvis.transform.position.x)) Pelvis.transform.localPosition = Vector3.zero;
-                Pelvis.transform.position += save.LatestAnimator.transform.TransformVector(GetHipsOffset(progr));
+                Vector3 pelvisOffset = GetHipsOffset(progr);
+                PelvisFrameCustomPositionOffset = Vector3.zero;
+
+                Pelvis.transform.position += save.LatestAnimator.transform.TransformVector(pelvisOffset);
             }
 
             UpdateHipsElasticMotion(elasticDt);
             frameAccumulatedHipsOffset = Vector3.zero;
         }
+
+
 
         internal void LateUpdateAfterAllSimulation()
         {
@@ -375,9 +428,10 @@ namespace FIMSpace.AnimationTools
             frameAccumulatedHipsOffset += v;
         }
 
-        internal Vector3 GetHipsOffset(float progr)
+        internal Vector3 GetHipsOffset(float progr, bool withCustomOff = true)
         {
             Vector3 posOffset = RootMotionTransform.TransformDirection(frameAccumulatedHipsOffset);
+            if ( withCustomOff) posOffset += PelvisFrameCustomPositionOffset;
 
             posOffset.x += PelvisXOffset * PelvisOffsetXEvaluate.Evaluate(progr) * PelvisOffsetsBlend;
             posOffset.y += PelvisYOffset * PelvisOffsetYEvaluate.Evaluate(progr) * PelvisOffsetsBlend + PelvisConstantYOffset;

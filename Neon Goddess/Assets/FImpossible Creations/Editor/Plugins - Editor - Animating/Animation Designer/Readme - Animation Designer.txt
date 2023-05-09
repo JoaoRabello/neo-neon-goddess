@@ -1,7 +1,7 @@
 __________________________________________________________________________________________
 
 Package "Animation Designer"
-Version 1.0.9
+Version 1.2.2.2
 
 Made by FImpossible Creations - Filip Moeglich
 https://www.FilipMoeglich.pl
@@ -67,6 +67,54 @@ MAIN FEATURES:
 
 __________________________________________________________________________________________
 
+Version 1.2.2.2
+- Animation Clip Internal Crop fixes
+- Animation Clip Internal Crop preview support 
+uncorrectly exporting source root motion curves when editing internally cropped animation clips (still center of mass motion can be used)
+(need to be handled in a different way for generics, differently for humanoids and differently for humanoid IK, it's not implemented fully yet)
+
+Version 1.2.2.1
+- You can set constant animation clips export directory with the button on the right to export button
+- Hit export button with right mouse button to save clip without Save File popup
+- Updated and upgraded IK position handles display
+- Reworked some parts of root motion export procedure
+- Fixed some time cropping related calculations for animation previewing
+- If root bone of the character is using keyframe animation, you can enable baking it under additional settings (export tab)
+but you also need to remember about including it in the armature report
+
+Version 1.2.2
+- New Module: Basic Hips Stabilizer (automatic stable pose keeper when using Leg IKs)
+- New Module: Hand Reach Helper (automatic spine rotation on stretched arm IKs)
+- Few small fixes
+
+Version 1.2.1
+- IK Offset parameter now can be adjusted with the scene gizmos when animation playback is paused
+- New Module for setting up Custom Animation Curves for the animation clip
+- Few GUI improvements
+
+Version 1.2.0
+- New way for handling extra features for Animation Designer, introducing "Custom Modules" 
+- New Module for Humanoid Fist Open/Close posing
+- New Module for Humanoid hand fingers posing
+- New Module for Humanoid arms posing
+- New Module for Humanoid legs posing
+- New Module for Humanoid spine posing
+- New Module for Humanoid head and face posing
+- New Module for Stylizing Animation with variable Framerate
+- New Module for Designing Strafe animation (helps making 8 directional movement)
+
+- Now IK 'Align With' will be remembered after loading setup again
+(if it was assigned to some skeleton bone or bone was parent of target transform)
+- Time Evaluation Curve ("Time Flow") switch for easier control over animation clip time modify
+- Grounder Foot IK Start/End Alignment offset params
+- Each morph contains now it's own Time Evaluation curve ("Time Flow")
+- Changed "Modificators" display name as "Modifiers" and "Elasticness" as "Elasticity"
+- Few small GUI Changes
+
+version 1.1.0
+- Copy/Paste button for copying all modificators in animation
+- Few GUI reminding warnings
+- Experimental Ctrl+Z undo implementation (enable it with the button on the top left part of the Animation Designer window)
 
 Version 1.0.9
 - Fixed leg ik grounding mode "Foot offset when grounded, ungrounded, constant offset" parameters

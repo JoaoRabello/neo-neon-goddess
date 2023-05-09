@@ -13,7 +13,7 @@ namespace FIMSpace.AnimationTools
 
         #region GUI Related
 
-        int _sel_morph_index = -1;
+        [SerializeField] int _sel_morph_index = -1;
         public static ADClipSettings_Morphing MorphSettingsCopyFrom = null;
 
         void DrawMorphingTab()
@@ -36,7 +36,6 @@ namespace FIMSpace.AnimationTools
             EditorGUILayout.BeginHorizontal();
 
             _anim_MainSet.TurnOnMorphs = EditorGUILayout.Toggle(_anim_MainSet.TurnOnMorphs, GUILayout.Width(24));
-
             if (_anim_MainSet.TurnOnMorphs == false) GUI.enabled = false;
 
             DrawTargetClipField("Morphs Configuration For: ", true);
@@ -86,7 +85,9 @@ namespace FIMSpace.AnimationTools
 
                     #endregion
 
+                    StartUndoCheckFor(this, " :Morph Select");
                     DrawSelectorGUI(setup.Morphs, ref _sel_morph_index, 18, position.width - 22);
+                    EndUndoCheckFor(this);
 
                     GUILayout.Space(5);
 
@@ -99,6 +100,8 @@ namespace FIMSpace.AnimationTools
                         GUILayout.Space(5);
 
                         EditorGUILayout.BeginVertical(FGUI_Resources.BGInBoxStyle);
+
+                        StartUndoCheck(": Morphs");
 
                         mod.DrawHeaderGUI(setup.Morphs, !sectionFocusMode, ref _sel_morph_index);
 
@@ -142,6 +145,8 @@ namespace FIMSpace.AnimationTools
                             mod.DrawTopGUI(animationProgress, _anim_MainSet, _sel_morph_index);
                             mod.DrawParamsGUI(animationProgress, S);
                         }
+
+                        EndUndoCheck();
 
                         GUILayout.Space(4);
                         EditorGUILayout.EndVertical();

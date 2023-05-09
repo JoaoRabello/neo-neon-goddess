@@ -20,8 +20,12 @@ namespace FIMSpace.AnimationTools
     {
         public static AnimationDesignerWindow Get;
 
+        public bool EnableExperimentalUndo = false;
+
         /// <summary> Assign through script inspector window </summary>
         public UnityEngine.Object BaseDirectory;
+        public UnityEngine.Object ModuleSetupsDirectory;
+        public UnityEngine.Object CustomModuleScriptFilesDirectory;
 
         [MenuItem("Window/FImpossible Creations/Animation Designer Window", false, 221)]
         #region Initialize and show window
@@ -207,8 +211,8 @@ namespace FIMSpace.AnimationTools
         bool IsReady { get { return (S != null && S.Armature != null && S.Armature.BonesSetup.Count > 0 && S.Armature.BonesSetup[0].TempTransform != null); } }
         bool isReady = false;
 
-        AnimationDesignerSave S { get { return DisplaySave; } }
-        ADArmatureSetup Ar { get { return S.Armature; } }
+        public AnimationDesignerSave S { get { return DisplaySave; } }
+        public ADArmatureSetup Ar { get { return S.Armature; } }
         List<ADArmatureLimb> Limbs { get { return DisplaySave.Limbs; } }
 
         Transform latestAnimator = null;
@@ -233,6 +237,7 @@ namespace FIMSpace.AnimationTools
         bool _toSet_ProjectFileSave_Clear = false;
         //string _toSet_AdditionalDesignerSetSwitchTo = "";
         public static int _toSet_SetSwitchToHash = 0;
+        public static int _last_toSet_SetSwitchToHash = 0;
         //int _toSet_ProjectFileSaveDelay = 0;
         bool _triggerSkeletonRefresh = false;
         bool _switchingReferences = false;
@@ -268,7 +273,6 @@ namespace FIMSpace.AnimationTools
                 GUILayout.Space(10);
                 return;
             }
-
 
             bool isLayoutEvent = false;
             //bool isRepaintEvent = false;
@@ -408,6 +412,21 @@ namespace FIMSpace.AnimationTools
 
 
             #region Define data to display
+
+
+            if (_latestClip != TargetClip)
+            {
+                _latestClip = TargetClip;
+                OnTargetAnimationClipChange();
+            }
+
+            if (TargetClip != null) if (currentClipSettings == null) GetTargetClipSettings();
+
+            if (_last_toSet_SetSwitchToHash != _toSet_SetSwitchToHash)
+            {
+                _last_toSet_SetSwitchToHash = _toSet_SetSwitchToHash;
+                OnTargetAnimationClipChange();
+            }
 
 
             // Assigning Designer Save to view through layout event
@@ -687,16 +706,20 @@ namespace FIMSpace.AnimationTools
             #endregion
             //
 
+            #region Unity Editor Version Related IFDEFS
+
 #if UNITY_2019_4_OR_NEWER
 #else
             try
             {
 #endif
 
-#pragma warning disable
+            #endregion
+
+
             EditorGUIUtility.wideMode = true;
-            scroll = GUILayout.BeginScrollView(scroll, _style_horScroll, _style_vertScroll);
-#pragma warning restore
+            scroll = GUILayout.BeginScrollView(scroll, GUIStyle.none, GUIStyle.none);
+
 
             GUILayout.Space(3);
             DisplaySaveHeaderTab();
@@ -773,7 +796,7 @@ namespace FIMSpace.AnimationTools
 
                     if (isReady)
                     {
-                        if (sectionFocusMode) { GUILayout.Space(2); DrawPlaybackButton(); GUILayout.Space(6); }
+                        //if (sectionFocusMode) { GUILayout.Space(2); DrawPlaybackButton(); GUILayout.Space(6); }
                         FocusModeSwitchButton();
                         GizmosModsButton();
                     }
@@ -849,6 +872,15 @@ namespace FIMSpace.AnimationTools
                             //GUILayout.Space(4);
 
                             if (!IsReady) RefreshArmatureButton(26);
+                            else
+                            {
+                                EditorGUILayout.BeginHorizontal();
+                                DrawPlaybackStopButton();
+                                DrawPlaybackButton();
+                                GUILayout.Space(6);
+                                DrawPlaybackTimeSlider();
+                                EditorGUILayout.EndHorizontal();
+                            }
                         }
 
                         #endregion
@@ -989,7 +1021,6 @@ namespace FIMSpace.AnimationTools
 
             }
 
-
             GUILayout.Space(3);
 
             GUILayout.EndScrollView();
@@ -1021,6 +1052,8 @@ namespace FIMSpace.AnimationTools
             #endregion
 
 
+            #region Unity Editor Version Related IFDEFS
+
 #if UNITY_2019_4_OR_NEWER
 #else
             }
@@ -1040,12 +1073,29 @@ namespace FIMSpace.AnimationTools
             }
 #endif
 
+            #endregion
+
+
             if (repaintRequest && !_serializationChanges)
             {
                 SceneView.RepaintAll();
                 repaintRequest = false;
             }
 
+        }
+
+
+        AnimationClipSettings currentClipSettings = null;
+        void GetTargetClipSettings()
+        {
+            if (TargetClip == null) { currentClipSettings = null; return; }
+            currentClipSettings = AnimationUtility.GetAnimationClipSettings(TargetClip);
+        }
+
+        void OnTargetAnimationClipChange()
+        {
+            GetTargetClipSettings();
+            CheckComponentsInitialization(false);
         }
 
         void RefreshSave()

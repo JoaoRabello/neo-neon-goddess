@@ -191,7 +191,7 @@ namespace FIMSpace.AnimationTools
 #if UNITY_EDITOR
         static UnityEditor.Animations.AnimatorController _ikHelperAnimController = null;
         public static UnityEditor.Animations.AnimatorController GetStoredHumanoidIKPreviousController { get { return _ikHelperAnimController; } }
-        static RuntimeAnimatorController _ikHelperAnimRController = null;
+        //static RuntimeAnimatorController _ikHelperAnimRController = null;
 #endif
 
         /// <summary>

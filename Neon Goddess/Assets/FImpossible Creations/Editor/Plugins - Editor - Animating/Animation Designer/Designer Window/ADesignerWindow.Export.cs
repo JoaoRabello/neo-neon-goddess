@@ -238,7 +238,7 @@ namespace FIMSpace.AnimationTools
 
                     for (int o = 0; o < origCurves.Length; o++)
                     {
-                        var origB = origCurves[o];
+                        EditorCurveBinding origB = origCurves[o];
 
                         bool contains = false;
                         for (int n = 0; n < newCurves.Length; n++)
@@ -259,6 +259,10 @@ namespace FIMSpace.AnimationTools
 
                     }
                 }
+
+
+                if (_anim_cModuleSet != null) _anim_cModuleSet.OnExportFinalizeModules(originalClip, newGeneratedClip, S, _anim_MainSet);
+
 
                 if (_anim_ikSet != null)
                     if (_anim_ikSet.LimbIKSetups != null)
@@ -364,8 +368,14 @@ namespace FIMSpace.AnimationTools
                 else
                 {
                     newGeneratedClip.wrapMode = WrapMode.Default;
+                    originalSettings.loopTime = false;
                 }
             }
+
+
+
+
+            if (_anim_MainSet.Export_ClipTimeOffset > 0.001f) originalSettings.cycleOffset = 0f;
 
             originalSettings.startTime = _play_mod_Length_PlusJustMul * _play_mod_clipStartTrim;
             originalSettings.stopTime = originalSettings.startTime + _play_mod_Length;

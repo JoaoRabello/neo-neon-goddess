@@ -120,12 +120,20 @@ namespace FIMSpace.AnimationTools
         [NonSerialized] public AnimationCurve _Bake_RootMPosY;
         [NonSerialized] public AnimationCurve _Bake_RootMPosZ;
 
+        [NonSerialized] public AnimationCurve _Original_RootMPosX;
+        [NonSerialized] public AnimationCurve _Original_RootMPosY;
+        [NonSerialized] public AnimationCurve _Original_RootMPosZ;
+
         /// <summary> Just for generic rigs root motion </summary>
         void PrepareRootMotionPosition()
         {
             _Bake_RootMPosX = new AnimationCurve();
             _Bake_RootMPosY = new AnimationCurve();
             _Bake_RootMPosZ = new AnimationCurve();
+
+            _Original_RootMPosX = new AnimationCurve();
+            _Original_RootMPosY = new AnimationCurve();
+            _Original_RootMPosZ = new AnimationCurve();
         }
 
 
@@ -134,6 +142,10 @@ namespace FIMSpace.AnimationTools
         [NonSerialized] public AnimationCurve _Bake_RootMRotZ;
         [NonSerialized] public AnimationCurve _Bake_RootMRotW;
 
+        [NonSerialized] public AnimationCurve _Original_RootMRotX;
+        [NonSerialized] public AnimationCurve _Original_RootMRotY;
+        [NonSerialized] public AnimationCurve _Original_RootMRotZ;
+        [NonSerialized] public AnimationCurve _Original_RootMRotW;
 
         /// <summary> Just for generic rigs root motion </summary>
         void PrepareRootMotionRotation()
@@ -142,6 +154,11 @@ namespace FIMSpace.AnimationTools
             _Bake_RootMRotY = new AnimationCurve();
             _Bake_RootMRotZ = new AnimationCurve();
             _Bake_RootMRotW = new AnimationCurve();
+
+            _Original_RootMRotX = new AnimationCurve();
+            _Original_RootMRotY = new AnimationCurve();
+            _Original_RootMRotZ = new AnimationCurve();
+            _Original_RootMRotW = new AnimationCurve();
         }
 
         #endregion
@@ -152,17 +169,65 @@ namespace FIMSpace.AnimationTools
         {
             if (_Bake_RootMPosX == null || _Bake_RootMPosY == null || _Bake_RootMPosZ == null) return;
 
-            if (GetRootPositionCurvesMagnitude() < 0.0001f) return;
+            if (_Original_RootMPosX != null && (_Original_RootMPosX.length > 0 || _Original_RootMPosY.length > 0 || _Original_RootMPosZ.length > 0))
+                if (MainSet.IsUsingDefaultTimeEvaluation() == false)
+                {
+                    _Original_RootMPosX = ModifyCurveWithTimeWarpCurve(_Original_RootMPosX, MainSet.ClipEvaluateTimeCurve, BakingClip.length);
+                    _Original_RootMPosY = ModifyCurveWithTimeWarpCurve(_Original_RootMPosY, MainSet.ClipEvaluateTimeCurve, BakingClip.length);
+                    _Original_RootMPosZ = ModifyCurveWithTimeWarpCurve(_Original_RootMPosZ, MainSet.ClipEvaluateTimeCurve, BakingClip.length);
+                }
+
+            if (GetRootPositionCurvesMagnitude() < 0.0001f)
+            {
+                //_Bake_RootMPosX = AnimationDesignerWindow.CopyCurve(GetEditorCurve(BakingClip, motionStr + "T.x"));
+                //_Bake_RootMPosY = AnimationDesignerWindow.CopyCurve(GetEditorCurve(BakingClip, motionStr + "T.y"));
+                //_Bake_RootMPosZ = AnimationDesignerWindow.CopyCurve(GetEditorCurve(BakingClip, motionStr + "T.z"));
+
+                return;
+            }
 
             if (joinWith != null)
             {
-                AnimationCurve orig_x = AnimationDesignerWindow.CopyCurve(GetEditorCurve(joinWith, motionStr + "T.x"));
-                AnimationCurve orig_y = AnimationDesignerWindow.CopyCurve(GetEditorCurve(joinWith, motionStr + "T.y"));
-                AnimationCurve orig_z = AnimationDesignerWindow.CopyCurve(GetEditorCurve(joinWith, motionStr + "T.z"));
+                //UnityEngine.Debug.Log("joint");
+                //AnimationCurve orig_x = AnimationDesignerWindow.CopyCurve(GetEditorCurve(BakingClip, motionStr + "T.x"));
+                //AnimationCurve orig_y = AnimationDesignerWindow.CopyCurve(GetEditorCurve(BakingClip, motionStr + "T.y"));
+                //AnimationCurve orig_z = AnimationDesignerWindow.CopyCurve(GetEditorCurve(BakingClip, motionStr + "T.z"));
 
-                _Bake_RootMPosX = JoinAdditiveCurves(_Bake_RootMPosX, orig_x);
-                _Bake_RootMPosY = JoinAdditiveCurves(_Bake_RootMPosY, orig_y);
-                _Bake_RootMPosZ = JoinAdditiveCurves(_Bake_RootMPosZ, orig_z);
+                _Bake_RootMPosX = JoinAdditiveCurves(_Bake_RootMPosX, _Original_RootMPosX);
+                _Bake_RootMPosY = JoinAdditiveCurves(_Bake_RootMPosY, _Original_RootMPosY);
+                _Bake_RootMPosZ = JoinAdditiveCurves(_Bake_RootMPosZ, _Original_RootMPosZ);
+            }
+            else
+            {
+                _Bake_RootMPosX = _Original_RootMPosX;
+                _Bake_RootMPosY = _Original_RootMPosY;
+                _Bake_RootMPosZ = _Original_RootMPosZ;
+            }
+
+
+            if (MainSet.Export_RootMotionTangents != ADClipSettings_Main.ERootMotionCurveAdjust.None)
+                if (MainSet.ClipDurationMultiplier != 1f)
+                    if (_Bake_RootMPosZ.length > 0)
+                    {
+                        float start = _Bake_RootMPosZ.keys[0].time;
+                        float newLen = BakingClip.length * MainSet.ClipDurationMultiplier;
+                        AnimationGenerateUtils.DistrubuteCurveOnTime(ref _Bake_RootMPosX, start, newLen);
+                        AnimationGenerateUtils.DistrubuteCurveOnTime(ref _Bake_RootMPosY, start, newLen);
+                        AnimationGenerateUtils.DistrubuteCurveOnTime(ref _Bake_RootMPosZ, start, newLen);
+                    }
+
+
+            if (MainSet.Export_RootMotionTangents == ADClipSettings_Main.ERootMotionCurveAdjust.LinearTangents)
+            {
+                _Bake_RootMPosX = LinearizeCurveTangents(_Bake_RootMPosX);
+                _Bake_RootMPosY = LinearizeCurveTangents(_Bake_RootMPosY);
+                _Bake_RootMPosZ = LinearizeCurveTangents(_Bake_RootMPosZ);
+            }
+            else if (MainSet.Export_RootMotionTangents == ADClipSettings_Main.ERootMotionCurveAdjust.SmoothTangents)
+            {
+                _Bake_RootMPosX = SmoothCurveTangents(_Bake_RootMPosX);
+                _Bake_RootMPosY = SmoothCurveTangents(_Bake_RootMPosY);
+                _Bake_RootMPosZ = SmoothCurveTangents(_Bake_RootMPosZ);
             }
 
             clip.SetCurve("", typeof(Animator), motionStr + "T.x", _Bake_RootMPosX);
@@ -170,6 +235,64 @@ namespace FIMSpace.AnimationTools
             clip.SetCurve("", typeof(Animator), motionStr + "T.z", _Bake_RootMPosZ);
         }
 
+        AnimationCurve SmoothCurveTangents(AnimationCurve original, float smooth = 1f)
+        {
+            AnimationCurve nCurve = AnimationDesignerWindow.CopyCurve(original);
+
+            for (int k = 0; k < nCurve.keys.Length; k++)
+            {
+                nCurve.SmoothTangents(k, 1f);
+            }
+
+            return nCurve;
+        }
+
+        AnimationCurve LinearizeCurveTangents(AnimationCurve original)
+        {
+            AnimationCurve nCurve = AnimationDesignerWindow.CopyCurve(original);
+
+            for (int k = 0; k < nCurve.keys.Length; k++)
+            {
+                AnimationUtility.SetKeyLeftTangentMode(nCurve, k, AnimationUtility.TangentMode.Linear);
+                AnimationUtility.SetKeyRightTangentMode(nCurve, k, AnimationUtility.TangentMode.Linear);
+            }
+
+            return nCurve;
+        }
+
+        AnimationCurve ModifyCurveWithTimeWarpCurve(AnimationCurve original, AnimationCurve timeWarp, float originalClipLength)
+        {
+            //float fCount = (float)(nCurve.keys.Length - 1);
+            if (original.length <= 0f) return original;
+
+            float timeStep = (1f / (float)BakingClip.frameRate);// / MainSet.ClipDurationMultiplier;
+            float elapsed = 0f;
+
+            AnimationCurve nCurve = new AnimationCurve();
+
+            // To make it work universally, we need to make key per frame (since there are two curves time combination)
+            while (elapsed <= BakingClip.length)
+            {
+                float warpedTime = timeWarp.Evaluate(elapsed / originalClipLength);//(float)k / fCount
+                warpedTime = Mathf.Clamp01(warpedTime);
+                float targetValue = original.Evaluate(warpedTime * originalClipLength);
+
+                nCurve.AddKey(new Keyframe(elapsed, targetValue));
+                elapsed += timeStep;
+            }
+
+            //for (int k = 0; k < nCurve.keys.Length; k++)
+            //{
+            //    Keyframe nKey = nCurve.keys[k];
+            //    float warpedTime = timeWarp.Evaluate(nKey.time / originalClipLength);//(float)k / fCount
+            //    warpedTime = Mathf.Clamp01(warpedTime);
+            //    nKey.value = original.Evaluate(warpedTime * originalClipLength);
+
+            //    nCurve.MoveKey(k, nKey);
+            //}
+
+            return nCurve;
+        }
 
         private AnimationCurve JoinAdditiveCurves(AnimationCurve a, AnimationCurve b)
         {
@@ -196,21 +319,62 @@ namespace FIMSpace.AnimationTools
         {
             if (_Bake_RootMRotX == null || _Bake_RootMRotY == null || _Bake_RootMRotZ == null || _Bake_RootMRotW == null) return;
 
-            if (GetRootRotationCurvesMagnitude() < 0.0001f) return;
+            if (_Original_RootMRotX != null && (_Original_RootMRotX.length > 0 || _Original_RootMRotY.length > 0 || _Original_RootMRotZ.length > 0 || _Original_RootMRotW.length > 0))
+            {
+                if (MainSet.IsUsingDefaultTimeEvaluation() == false)
+                {
+                    _Original_RootMRotX = ModifyCurveWithTimeWarpCurve(_Original_RootMRotX, MainSet.ClipEvaluateTimeCurve, BakingClip.length);
+                    _Original_RootMRotY = ModifyCurveWithTimeWarpCurve(_Original_RootMRotY, MainSet.ClipEvaluateTimeCurve, BakingClip.length);
+                    _Original_RootMRotZ = ModifyCurveWithTimeWarpCurve(_Original_RootMRotZ, MainSet.ClipEvaluateTimeCurve, BakingClip.length);
+                    _Original_RootMRotW = ModifyCurveWithTimeWarpCurve(_Original_RootMRotW, MainSet.ClipEvaluateTimeCurve, BakingClip.length);
+                }
+            }
 
 
-            //if (joinWith != null)
-            //{
-            //    AnimationCurve orig_x = AnimationDesignerWindow.CopyCurve(GetEditorCurve(joinWith, motionStr + "Q.x"));
-            //    AnimationCurve orig_y = AnimationDesignerWindow.CopyCurve(GetEditorCurve(joinWith, motionStr + "Q.y"));
-            //    AnimationCurve orig_z = AnimationDesignerWindow.CopyCurve(GetEditorCurve(joinWith, motionStr + "Q.z"));
-            //    AnimationCurve orig_w = AnimationDesignerWindow.CopyCurve(GetEditorCurve(joinWith, motionStr + "Q.w"));
 
-            //    _Bake_RootMRotX = JoinAdditiveCurves(_Bake_RootMRotX, orig_x);
-            //    _Bake_RootMRotY = JoinAdditiveCurves(_Bake_RootMRotY, orig_y);
-            //    _Bake_RootMRotZ = JoinAdditiveCurves(_Bake_RootMRotZ, orig_z);
-            //    _Bake_RootMRotW = JoinAdditiveCurves(_Bake_RootMRotW, orig_w);
-            //}
+            if (joinWith != null)
+            {
+                _Bake_RootMRotX = JoinAdditiveCurves(_Bake_RootMRotX, _Original_RootMRotX);
+                _Bake_RootMRotY = JoinAdditiveCurves(_Bake_RootMRotY, _Original_RootMRotY);
+                _Bake_RootMRotZ = JoinAdditiveCurves(_Bake_RootMRotZ, _Original_RootMRotZ);
+                _Bake_RootMRotW = JoinAdditiveCurves(_Bake_RootMRotW, _Original_RootMRotW);
+            }
+            else
+            {
+                _Bake_RootMRotX = _Original_RootMRotX;
+                _Bake_RootMRotY = _Original_RootMRotY;
+                _Bake_RootMRotZ = _Original_RootMRotZ;
+                _Bake_RootMRotW = _Original_RootMRotW;
+            }
+
+
+            if (GetRootRotationCurvesMagnitude() < 0.0001f)
+            {
+                //_Bake_RootMRotX = AnimationDesignerWindow.CopyCurve(GetEditorCurve(BakingClip, motionStr + "Q.x"));
+                //_Bake_RootMRotY = AnimationDesignerWindow.CopyCurve(GetEditorCurve(BakingClip, motionStr + "Q.y"));
+                //_Bake_RootMRotZ = AnimationDesignerWindow.CopyCurve(GetEditorCurve(BakingClip, motionStr + "Q.z"));
+                //_Bake_RootMRotW = AnimationDesignerWindow.CopyCurve(GetEditorCurve(BakingClip, motionStr + "Q.w"));
+                return;
+            }
+
+
+
+
+            if (MainSet.Export_RootMotionTangents == ADClipSettings_Main.ERootMotionCurveAdjust.LinearTangents)
+            {
+                _Bake_RootMRotX = LinearizeCurveTangents(_Bake_RootMRotX);
+                _Bake_RootMRotY = LinearizeCurveTangents(_Bake_RootMRotY);
+                _Bake_RootMRotZ = LinearizeCurveTangents(_Bake_RootMRotZ);
+                _Bake_RootMRotW = LinearizeCurveTangents(_Bake_RootMRotW);
+            }
+            else if (MainSet.Export_RootMotionTangents == ADClipSettings_Main.ERootMotionCurveAdjust.SmoothTangents)
+            {
+                _Bake_RootMRotX = SmoothCurveTangents(_Bake_RootMRotX);
+                _Bake_RootMRotY = SmoothCurveTangents(_Bake_RootMRotY);
+                _Bake_RootMRotZ = SmoothCurveTangents(_Bake_RootMRotZ);
+                _Bake_RootMRotW = SmoothCurveTangents(_Bake_RootMRotW);
+            }
+
 
             clip.SetCurve("", typeof(Animator), motionStr + "Q.x", _Bake_RootMRotX);
             clip.SetCurve("", typeof(Animator), motionStr + "Q.y", _Bake_RootMRotY);
@@ -234,7 +398,7 @@ namespace FIMSpace.AnimationTools
             _Bake_RootMRotW.AddKey(keyTime, rot.w);
         }
 
-        internal void CopyRootMotionFrom(AnimationClip clip, bool allowRoot = false)
+        internal string CheckForMotionOrRootTag(AnimationClip clip, bool allowRoot = false)
         {
             string motionStr = "Motion";
             if (ClipContainsRootPositionCurves(clip) == false)
@@ -246,6 +410,13 @@ namespace FIMSpace.AnimationTools
                     }
             }
 
+            return motionStr;
+        }
+
+        internal void CopyRootMotionFrom(AnimationClip clip, bool allowRoot = false)
+        {
+            string motionStr = CheckForMotionOrRootTag(clip, allowRoot);
+
             _Bake_RootMPosX = AnimationDesignerWindow.CopyCurve(GetEditorCurve(clip, motionStr + "T.x"));
             _Bake_RootMPosY = AnimationDesignerWindow.CopyCurve(GetEditorCurve(clip, motionStr + "T.y"));
             _Bake_RootMPosZ = AnimationDesignerWindow.CopyCurve(GetEditorCurve(clip, motionStr + "T.z"));
@@ -254,6 +425,19 @@ namespace FIMSpace.AnimationTools
             _Bake_RootMRotY = AnimationDesignerWindow.CopyCurve(GetEditorCurve(clip, motionStr + "Q.y"));
             _Bake_RootMRotZ = AnimationDesignerWindow.CopyCurve(GetEditorCurve(clip, motionStr + "Q.z"));
             _Bake_RootMRotW = AnimationDesignerWindow.CopyCurve(GetEditorCurve(clip, motionStr + "Q.w"));
+        }
+
+        internal void PreapreOriginalRootMotionFrom(AnimationClip clip, bool allowRoot = false)
+        {
+            string motionStr = CheckForMotionOrRootTag(clip, allowRoot);
+            _Original_RootMPosX = AnimationDesignerWindow.CopyCurve(GetEditorCurve(clip, motionStr + "T.x"));
+            _Original_RootMPosY = AnimationDesignerWindow.CopyCurve(GetEditorCurve(clip, motionStr + "T.y"));
+            _Original_RootMPosZ = AnimationDesignerWindow.CopyCurve(GetEditorCurve(clip, motionStr + "T.z"));
+
+            _Original_RootMRotX = AnimationDesignerWindow.CopyCurve(GetEditorCurve(clip, motionStr + "Q.x"));
+            _Original_RootMRotY = AnimationDesignerWindow.CopyCurve(GetEditorCurve(clip, motionStr + "Q.y"));
+            _Original_RootMRotZ = AnimationDesignerWindow.CopyCurve(GetEditorCurve(clip, motionStr + "Q.z"));
+            _Original_RootMRotW = AnimationDesignerWindow.CopyCurve(GetEditorCurve(clip, motionStr + "Q.w"));
         }
 
         internal bool BakedSomePositionRootMotion()
@@ -289,6 +473,11 @@ namespace FIMSpace.AnimationTools
             float magn = ADBoneReference.ComputePositionMagn(_Bake_RootMPosX);
             magn += ADBoneReference.ComputePositionMagn(_Bake_RootMPosY);
             magn += ADBoneReference.ComputePositionMagn(_Bake_RootMPosZ);
+
+            magn += ADBoneReference.ComputePositionMagn(_Original_RootMPosX);
+            magn += ADBoneReference.ComputePositionMagn(_Original_RootMPosY);
+            magn += ADBoneReference.ComputePositionMagn(_Original_RootMPosZ);
+
             return magn;
         }
 
@@ -298,11 +487,17 @@ namespace FIMSpace.AnimationTools
             magn += ADBoneReference.ComputePositionMagn(_Bake_RootMRotY);
             magn += ADBoneReference.ComputePositionMagn(_Bake_RootMRotZ);
             magn += ADBoneReference.ComputePositionMagn(_Bake_RootMRotW);
+
+            magn += ADBoneReference.ComputePositionMagn(_Original_RootMRotX);
+            magn += ADBoneReference.ComputePositionMagn(_Original_RootMRotY);
+            magn += ADBoneReference.ComputePositionMagn(_Original_RootMRotZ);
+            magn += ADBoneReference.ComputePositionMagn(_Original_RootMRotW);
+
             return magn;
         }
 
 
-        private static AnimationCurve GetEditorCurve(AnimationClip clip, string propertyPath)
+        internal static AnimationCurve GetEditorCurve(AnimationClip clip, string propertyPath)
         {
             EditorCurveBinding binding = EditorCurveBinding.FloatCurve(string.Empty, typeof(Animator), propertyPath);
             return AnimationUtility.GetEditorCurve(clip, binding);

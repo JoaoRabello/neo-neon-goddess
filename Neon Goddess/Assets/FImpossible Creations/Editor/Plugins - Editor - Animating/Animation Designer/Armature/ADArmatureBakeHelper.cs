@@ -49,9 +49,9 @@ namespace FIMSpace.AnimationTools
             if (originalClip)
             {
                 OriginalClipWithRootMotionPos = ADRootMotionBakeHelper.ClipContainsRootPositionCurves(originalClip);
-                //if (! OriginalClipWithRootMotionPos) OriginalClipWithRootMotionPos = ADRootMotionBakeHelper.ClipContainsRootPositionCurves(originalClip, "Root");
+                if (! OriginalClipWithRootMotionPos) OriginalClipWithRootMotionPos = ADRootMotionBakeHelper.ClipContainsRootPositionCurves(originalClip, "Root");
                 OriginalClipWithRootMotionRot = ADRootMotionBakeHelper.ClipContainsRootRotationCurves(originalClip);
-                //if (!OriginalClipWithRootMotionRot) OriginalClipWithRootMotionRot = ADRootMotionBakeHelper.ClipContainsRootRotationCurves(originalClip, "Root");
+                if (!OriginalClipWithRootMotionRot) OriginalClipWithRootMotionRot = ADRootMotionBakeHelper.ClipContainsRootRotationCurves(originalClip, "Root");
                 OriginalClipWithAnyRootMotion = OriginalClipWithRootMotionPos || OriginalClipWithRootMotionRot;
                 if (main != null) if (main.Export_ForceRootMotion) OriginalClipWithAnyRootMotion = true;
             }
@@ -167,7 +167,7 @@ namespace FIMSpace.AnimationTools
             {
                 for (int i = 0; i < muscleHelpers.Length; i++)
                 {
-                    muscleHelpers[i].SaveCurves(ref clip, reduction, legsReductionMul);
+                    muscleHelpers[i].SaveCurves(BakeMain.Export_WrapLoopBakeMode, ref clip, reduction, legsReductionMul);
                 }
             }
         }

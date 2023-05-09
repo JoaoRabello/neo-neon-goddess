@@ -100,6 +100,14 @@ namespace FIMSpace.AnimationTools
             Depth = GetDepth(TempTransform, skelRootBone);
         }
 
+        public static Transform GetTransformUsingPath(AnimationDesignerSave save, string path)
+        {
+            Transform t = null;
+            if ( save.LatestAnimator) t = save.LatestAnimator.transform.Find(path);
+            if (t == null) if (save.SkelRootBone) t = save.SkelRootBone.Find(path);
+            return t;
+        }
+
         public static int GetDepth(Transform t, Transform skelRootBone, int notFoundReturn = 0)
         {
             int depth = 0;
@@ -242,7 +250,10 @@ namespace FIMSpace.AnimationTools
 
         public static float ComputePositionMagn(AnimationCurve c)
         {
+            if (c == null) return 0f;
+            if (c.length < 2) return 0f;
             float sum = 0f;
+
             for (int i = 0; i < c.length - 1; i++) { sum += Mathf.Abs(c[i].value - c[i + 1].value); }
             return sum;
         }
@@ -258,7 +269,10 @@ namespace FIMSpace.AnimationTools
         }
         public static float ComputeRotationMagn(AnimationCurve c)
         {
+            if (c == null) return 0f;
+            if (c.length < 2) return 0f;
             float sum = 0f;
+
             for (int i = 0; i < c.length - 1; i++) { sum += Mathf.Abs(Quaternion.Angle(Quaternion.Euler(c[i].value, 0f, 0f), Quaternion.Euler(c[i + 1].value, 0f, 0f))); }
             return sum;
         }
@@ -437,8 +451,15 @@ namespace FIMSpace.AnimationTools
 
         public bool DontDoInitialFramesWrap = false;
         public static bool LoopBakedPose = false;
-        public static EWrapBakeAlgrithmType FramesWrapType = EWrapBakeAlgrithmType.V1_MildFade;
-        public static bool DoingIdleWrap { get { return FramesWrapType == EWrapBakeAlgrithmType.V3_Snap; } }
+        //public static EWrapBakeAlgrithmType FramesWrapType = EWrapBakeAlgrithmType.V1_MildFade;
+        public static bool DoingIdleWrap { get 
+            {
+                if (AnimationDesignerWindow.Get == null) return false;
+                var main = AnimationDesignerWindow.Get.Anim_MainSet;
+                if (main == null) return false;
+                return main.Export_WrapLoopBakeMode == EWrapBakeAlgrithmType.V3_Snap; 
+            } }
+        //public static bool DoingIdleWrap { get { return FramesWrapType == EWrapBakeAlgrithmType.V3_Snap; } }
         public static int LoopWrapAdditionalFrames = 0;
 
         public enum EWrapBakeAlgrithmType
@@ -449,9 +470,9 @@ namespace FIMSpace.AnimationTools
             None
         }
 
-        public static void WrapBake(AnimationCurve curve, bool useAdditionalFrames = true)
+        public static void WrapBake(EWrapBakeAlgrithmType wrapLoopMode, AnimationCurve curve, bool useAdditionalFrames = true)
         {
-            switch (FramesWrapType)
+            switch (wrapLoopMode)
             {
                 case EWrapBakeAlgrithmType.V1_MildFade:
                     WrapBakeV1Mild(curve, useAdditionalFrames);
@@ -591,22 +612,22 @@ namespace FIMSpace.AnimationTools
             _Bake_LocalPosZ = new AnimationCurve(new Keyframe(0f, start.z));
         }
 
-        internal void WrapBakeKeys(bool useAdditionalFrames)
+        internal void WrapBakeKeys(EWrapBakeAlgrithmType wrapLoopMode, bool useAdditionalFrames)
         {
             if (DontDoInitialFramesWrap) return;
-            if (FramesWrapType == EWrapBakeAlgrithmType.None) return;
+            if (wrapLoopMode == EWrapBakeAlgrithmType.None) return;
 
             if (BakePosition)
             {
-                WrapBake(_Bake_LocalPosX, useAdditionalFrames);
-                WrapBake(_Bake_LocalPosY, useAdditionalFrames);
-                WrapBake(_Bake_LocalPosZ, useAdditionalFrames);
+                WrapBake(wrapLoopMode, _Bake_LocalPosX, useAdditionalFrames);
+                WrapBake(wrapLoopMode, _Bake_LocalPosY, useAdditionalFrames);
+                WrapBake(wrapLoopMode, _Bake_LocalPosZ, useAdditionalFrames);
             }
 
-            WrapBake(_Bake_LocalRotX, useAdditionalFrames);
-            WrapBake(_Bake_LocalRotY, useAdditionalFrames);
-            WrapBake(_Bake_LocalRotZ, useAdditionalFrames);
-            WrapBake(_Bake_LocalRotW, useAdditionalFrames);
+            WrapBake(wrapLoopMode, _Bake_LocalRotX, useAdditionalFrames);
+            WrapBake(wrapLoopMode, _Bake_LocalRotY, useAdditionalFrames);
+            WrapBake(wrapLoopMode, _Bake_LocalRotZ, useAdditionalFrames);
+            WrapBake(wrapLoopMode, _Bake_LocalRotW, useAdditionalFrames);
 
             #region (Commented) Ensuring - fixing rotation after adjustements for loop
             //if (LoopWrapAdditionalFrames > 0)
@@ -650,7 +671,7 @@ namespace FIMSpace.AnimationTools
             All, JustPosition, JustRotation
         }
 
-        internal void SaveCurvesForClip(ref AnimationClip clip, float reduction, bool animType = false, SaveCurvesMode mode = SaveCurvesMode.All)
+        internal void SaveCurvesForClip(EWrapBakeAlgrithmType wrapLoopMode, ref AnimationClip clip, float reduction, bool animType = false, SaveCurvesMode mode = SaveCurvesMode.All)
         {
             string relPath = string.Empty;
 
@@ -670,7 +691,7 @@ namespace FIMSpace.AnimationTools
 
             if (LoopBakedPose)
             {
-                WrapBakeKeys(UseAdditionalFramesLoop);
+                WrapBakeKeys(wrapLoopMode, UseAdditionalFramesLoop);
             }
 
 

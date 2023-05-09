@@ -100,21 +100,24 @@ namespace FIMSpace.FTail
 
         void OnTriggerEnter(Collider other)
         {
-            TailCollisionHelper helper = other.transform.GetComponent<TailCollisionHelper>();
-
             if (other.isTrigger) return;
 
-            if (helper)
-            {
-                if (ParentTail.CollideWithOtherTails == false) return;
-                if (helper.ParentTail == ParentTail) return;
-            }
+            if (ParentTail.IgnoreMeshColliders)
+                if (other is MeshCollider) return;
+
+            if (other is CharacterController) return;
+
 
             if (ParentTail._TransformsGhostChain.Contains(other.transform)) return;
             if (ParentTail.IgnoredColliders.Contains(other)) return;
 
-            if (ParentTail.IgnoreMeshColliders)
-                if (other is MeshCollider) return;
+            if (ParentTail.CollideWithOtherTails == false)
+            {
+                TailCollisionHelper helper = other.transform.GetComponent<TailCollisionHelper>();
+                if (helper) return;
+                //if (ParentTail.CollideWithOtherTails == false) return;
+                //if (helper.ParentTail == ParentTail) return;
+            }
 
             ParentTail.AddCollider(other);
         }
@@ -131,24 +134,29 @@ namespace FIMSpace.FTail
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            TailCollisionHelper helper = other.transform.GetComponent<TailCollisionHelper>();
-
             if (other.isTrigger) return;
-
-            if (helper)
-            {
-                if (ParentTail.CollideWithOtherTails == false) return;
-                if (helper.ParentTail == ParentTail) return;
-            }
-
-            if (ParentTail._TransformsGhostChain.Contains(other.transform)) return;
-            if (ParentTail.IgnoredColliders2D.Contains(other)) return;
 
             if (other is CompositeCollider2D) return;
 #if UNITY_2019_4_OR_NEWER
             if (other is TilemapCollider2D) return;
 #endif
             if (other is EdgeCollider2D) return;
+
+            if (ParentTail._TransformsGhostChain.Contains(other.transform)) return;
+            if (ParentTail.IgnoredColliders2D.Contains(other)) return;
+
+            //TailCollisionHelper helper = other.transform.GetComponent<TailCollisionHelper>();
+            //if (helper)
+            //{
+            //    if (ParentTail.CollideWithOtherTails == false) return;
+            //    if (helper.ParentTail == ParentTail) return;
+            //}
+
+            if (ParentTail.CollideWithOtherTails == false)
+            {
+                TailCollisionHelper helper = other.transform.GetComponent<TailCollisionHelper>();
+                if (helper) return;
+            }
 
             ParentTail.AddCollider(other);
         }

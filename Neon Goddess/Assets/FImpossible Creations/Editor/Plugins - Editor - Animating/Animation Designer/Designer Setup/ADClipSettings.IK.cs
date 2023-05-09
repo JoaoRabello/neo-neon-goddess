@@ -1,6 +1,5 @@
 ﻿using FIMSpace.FEditor;
 using FIMSpace.FTools;
-using FIMSpace.Generating;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
@@ -110,11 +109,11 @@ namespace FIMSpace.AnimationTools
         {
             [NonSerialized] ADClipSettings_Main refToMainSet = null;
 
-
             /// <summary> Alternative IK execution index for this animation clip setup </summary>
             [HideInInspector] public int AlternateExecutionIndex = -2;
             [HideInInspector] public bool UseAlternateExecutionIndex = false;
 
+            public object LastUsedProcessor = null;
 
             public int Index;
             public string ID;
@@ -126,11 +125,14 @@ namespace FIMSpace.AnimationTools
             public enum EIKType { ArmIK, FootIK, ChainIK }
             public EIKType IKType = EIKType.ChainIK;
 
-            public enum EOrder { OverrideElasticness, InheritElasticness }
-            public EOrder UpdateOrder = EOrder.OverrideElasticness;
+            public enum EOrder { OverrideElasticity, InheritElasticity }
+            public EOrder UpdateOrder = EOrder.OverrideElasticity;
 
             public enum EIKAutoHintMode { Default, FollowHipsRotation }
             public EIKAutoHintMode AutoHintMode = EIKAutoHintMode.Default;
+
+            [NonSerialized] public EWasAdjusted LatelyAdjusted = EWasAdjusted.Offset;
+            public enum EWasAdjusted { Offset, Still }
 
             public IKSet(bool enabled = false, string id = "", int index = -1, float blend = 1f)
             {
@@ -310,10 +312,18 @@ namespace FIMSpace.AnimationTools
             public float FootMildMotionZ = 0f;
             public float FootLinearize = 0f;
             public float FootLinearizeSpeedMul = 1f;
+            public Vector3 FootLinearStartAdjust = Vector3.zero;
+            public Vector3 FootLinearEndAdjust = Vector3.zero;
             public float FootSnapToLatestGrounded = 0f;
             public AnimationCurve FootSnapToLatestGroundedEvaluation = AnimationCurve.EaseInOut(0f, 1f, 1f, 1f);
             public float FootSnapToGrFrameOffset = 0.5f;
             public AnimationCurve FootSnapToGrFrameOffsetEvaluation = AnimationCurve.EaseInOut(0f, 1f, 1f, 1f);
+
+            public bool UseGroundedFeet = false;
+            private List<ADBoneKeyPose> feetBones = null;
+
+
+            //public Vector3 GroundedFeetRotation = Vector3.zero;
 
             bool displayProcessingGroundingCurve = false;
 
@@ -354,8 +364,9 @@ namespace FIMSpace.AnimationTools
             public string GenerateFootStepEvents = "";
             public float GeneratedStepEventsTimeOffset = 0.0f;
 
-            public string alignToBoneName = "";
-            public Transform alignTo = null;
+            public ADTransformMemory AlignTo = new ADTransformMemory();
+            //public string alignToBoneName = "";
+            //public Transform alignTo = null;
             public float AlignToBlend = 1f;
             public float AlignRotationToBlend = 0f;
 
@@ -540,6 +551,7 @@ namespace FIMSpace.AnimationTools
                 to.IKRotStillEvaluate = from.IKRotStillEvaluate;
                 to.IKStillRotation = from.IKStillRotation;
                 to.IKHintOffset = from.IKHintOffset;
+                to.UseGroundedFeet = from.UseGroundedFeet;
 
                 to.FloorGroundedOffset = from.FloorGroundedOffset;
                 to.FloorGroundingAnalyzeMode = from.FloorGroundingAnalyzeMode;
@@ -574,23 +586,33 @@ namespace FIMSpace.AnimationTools
                 to.FootMildMotionZ = from.FootMildMotionZ;
                 to.FootLinearize = from.FootLinearize;
                 to.FootLinearizeSpeedMul = from.FootLinearizeSpeedMul;
+                to.FootLinearStartAdjust = from.FootLinearStartAdjust;
+                to.FootLinearEndAdjust = from.FootLinearEndAdjust;
                 to.HoldXPosWhenGrounded = from.HoldXPosWhenGrounded;
                 to.HoldZPosWhenGrounded = from.HoldZPosWhenGrounded;
+                to.UseGroundedFeet = from.UseGroundedFeet;
             }
 
             public void RefreshMod(AnimationDesignerSave save, ADClipSettings_Main main)
             {
+                if (main == null) return;
+                if (main.settingsForClip == null) return;
+
                 clipLength = main.settingsForClip.length;
                 clipFramerate = main.settingsForClip.frameRate;
                 clipKeyStep = 1f / clipFramerate;
 
-                if (alignToBoneName != "")
-                {
-                    if (alignTo == null || alignTo.name != alignToBoneName)
-                    {
-                        alignTo = save.GetBoneByName(alignToBoneName);
-                    }
-                }
+                if (AlignTo == null) AlignTo = new ADTransformMemory();
+                AlignTo.InitializeReference(save);
+                AlignTo.DisplayName = "Align To:";
+
+                //if (alignToBoneName != "")
+                //{
+                //    if (alignTo == null || alignTo.name != alignToBoneName)
+                //    {
+                //        alignTo = save.GetBoneByName(alignToBoneName);
+                //    }
+                //}
 
                 refToMainSet = main;
             }
@@ -618,7 +640,7 @@ namespace FIMSpace.AnimationTools
 
             static bool ikMainGroundFoldout = false;
 
-            string selectorHelperId = "";
+            //string selectorHelperId = "";
 
             bool grIkSwingsFoldout = true;
             bool grIkOffsFoldout = false;
@@ -685,6 +707,26 @@ namespace FIMSpace.AnimationTools
                 Color preBC = GUI.backgroundColor;
 
                 FGUI_Inspector.DrawUILine(0.3f, 0.5f, 1, 15, 0.975f);
+
+                #region Lately Adjusted Switches
+
+                if (IKPositionOffset == Vector3.zero)
+                {
+                    if (IKPosStillMul > 0.01f)
+                        if (IKStillPosition.sqrMagnitude > 0.0001f)
+                            LatelyAdjusted = EWasAdjusted.Still;
+                }
+
+                if (IKPosOffMul < 0.01f)
+                {
+                    if (IKPosStillMul > 0.01f)
+                    { LatelyAdjusted = EWasAdjusted.Still; }
+                }
+
+
+                if (UseMultiStillPoints) LatelyAdjusted = EWasAdjusted.Offset;
+
+                #endregion
 
 
                 #region IK Setup Mode
@@ -1082,6 +1124,8 @@ namespace FIMSpace.AnimationTools
                         if (FootLinearize > 0f)
                         {
                             //FootLinearizeSpeedMul = EditorGUILayout.FloatField("Linear Speed Multiplier:", FootLinearizeSpeedMul);
+                            FootLinearStartAdjust = EditorGUILayout.Vector3Field("Linear Start Adjust:", FootLinearStartAdjust);
+                            if (FootLinearStartAdjust != Vector3.zero) FootLinearEndAdjust = EditorGUILayout.Vector3Field("Linear End Adjust:", FootLinearEndAdjust);
                             if (FootLinearizeSpeedMul < 0.1f) FootLinearizeSpeedMul = 1f; else if (FootLinearizeSpeedMul > 2f) FootLinearizeSpeedMul = 2f;
                         }
 
@@ -1109,8 +1153,10 @@ namespace FIMSpace.AnimationTools
 
                         GUILayout.Space(6);
 
-
-                        FGUI_Inspector.FoldHeaderStart(ref grIkOffsFoldout, " Extra IK Position Offsets", FGUI_Resources.BGInBoxStyle);
+                        if (LegMode == ELegMode.Grounding)
+                            FGUI_Inspector.FoldHeaderStart(ref grIkOffsFoldout, " Extra IK Offsets", FGUI_Resources.BGInBoxStyle);
+                        else
+                            FGUI_Inspector.FoldHeaderStart(ref grIkOffsFoldout, " Extra IK Position Offsets", FGUI_Resources.BGInBoxStyle);
 
                         if (grIkOffsFoldout)
                         {
@@ -1154,6 +1200,9 @@ namespace FIMSpace.AnimationTools
                                     EditorGUILayout.EndHorizontal();
                                 }
 
+                                GUILayout.Space(4);
+
+                                UseGroundedFeet = EditorGUILayout.Toggle(new GUIContent("Fix Feet Rotation", "Transitioning leg child bones rotations to the T-Pose local rotation when foot is being grounded to solve rare case of feet animation when foot is on the ground"), UseGroundedFeet);
                                 GUILayout.Space(4);
                             }
                             EditorGUILayout.EndVertical();
@@ -1331,11 +1380,17 @@ namespace FIMSpace.AnimationTools
                         }
                         else
                         {
+                            EditorGUI.BeginChangeCheck();
+
+                            EditorGUIUtility.labelWidth = 104;
                             IKStillPosition = EditorGUILayout.Vector3Field(" IK Still Position:", IKStillPosition);
+                            EditorGUIUtility.labelWidth = 0;
 
                             //IKStillPosition = EditorGUILayout.Vector3Field(new GUIContent("  IK Still Position:", FGUI_Resources.Tex_Movement), IKStillPosition);
                             if (IKPosStillMul < 0.1f) { if (GUILayout.Button(new GUIContent(FGUI_Resources.Tex_Refresh, "Copy current animator hand position and paste into stil position"), EditorStyles.label, GUILayout.Width(20), GUILayout.Height(17))) { IKStillPosition = GatherStillPosition(limb.LastBone.T); IKPosStillMul = 1f; } }
                             //if (IKPosStillMul < 0.1f) { if (GUILayout.Button(new GUIContent(FGUI_Resources.Tex_Refresh, "Copy current animator hand position and paste into stil position"), EditorStyles.label, GUILayout.Width(20), GUILayout.Height(17))) { if (IKStillWorldPos) { if (refToMainSet.LatestAnimator.parent == null) IKStillPosition = limb.LastBone.pos; else IKStillPosition = refToMainSet.LatestAnimator.parent.InverseTransformPoint(limb.LastBone.pos); } else IKStillPosition = refToMainSet.LatestAnimator.transform.InverseTransformPoint(limb.LastBone.pos); IKPosStillMul = 1f; } }
+
+                            if (EditorGUI.EndChangeCheck()) LatelyAdjusted = EWasAdjusted.Still;
                         }
 
                         GUILayout.Space(6);
@@ -1345,12 +1400,15 @@ namespace FIMSpace.AnimationTools
 
                         EditorGUILayout.EndHorizontal();
 
+                        EditorGUI.BeginChangeCheck();
 
                         GUILayout.Space(4);
                         EditorGUILayout.BeginHorizontal();
                         AnimationDesignerWindow.GUIDrawFloatPercentage(ref IKPosStillMul, new GUIContent("Still Blend:", "How much still ik target position should be applied."));
                         AnimationDesignerWindow.DrawCurve(ref IKPosStillEvaluate, "", 70);
                         EditorGUILayout.EndHorizontal();
+
+                        if (EditorGUI.EndChangeCheck()) if (!UseMultiStillPoints) LatelyAdjusted = EWasAdjusted.Still;
 
                         Rect r = AnimationDesignerWindow.DrawSliderProgress(IKPosStillMul * IKPosStillEvaluate.Evaluate(animProgr), 68f, 127f);
                         AnimationDesignerWindow.DrawCurveProgressOnR(animProgr, 140f, 60f, r);
@@ -1698,43 +1756,50 @@ namespace FIMSpace.AnimationTools
 
 
                         FGUI_Inspector.DrawUILine(0.3f, 0.5f, 1, 15, 0.975f);
-                        EditorGUILayout.BeginHorizontal();
-                        GUI.color = new Color(1f, 1f, 1f, 0.7f);
-                        alignTo = (Transform)EditorGUILayout.ObjectField(new GUIContent("Align IK With:", "You can assign some custom transform reference to for ik target to follow. Can be useful for carrying animation - then you can put here counter arm bone and adjust positioning with ik position offset parameter above."), alignTo, typeof(Transform), true);
-                        GUI.color = preC;
-                        GUILayout.Space(6);
+                        //EditorGUILayout.BeginHorizontal();
+                        //GUI.color = new Color(1f, 1f, 1f, 0.7f);
 
-                        if (Searchable.IsSetted)
-                            if (selectorHelperId != "")
-                                if (selectorHelperId == "algn" + GetIndex)
-                                {
-                                    object g = Searchable.Get();
-
-                                    if (g == null) alignTo = null; else alignTo = (Transform)g;
-
-                                    if (alignTo)
-                                        alignToBoneName = alignTo.name;
-                                    else
-                                        alignToBoneName = "";
-
-                                    selectorHelperId = "";
-                                }
-
-
-                        if (GUILayout.Button(new GUIContent(FGUI_Resources.Tex_DownFold), EditorStyles.label, GUILayout.Width(20), GUILayout.Height(18)))
+                        if (AlignTo != null)
                         {
-                            selectorHelperId = "algn" + GetIndex;
-                            AnimationDesignerWindow.ShowBonesSelector("Choose Your Character Model Bone", save.GetAllArmatureBonesList, AnimationDesignerWindow.GetMenuDropdownRect(), true);
+                            //EditorGUILayout.BeginVertical();
+                            AlignTo.DrawGUI();
+                            //EditorGUILayout.EndVertical();
                         }
 
-                        EditorGUILayout.EndHorizontal();
-                        AnimationDesignerWindow.GUIDrawFloatPercentage(ref AlignToBlend, new GUIContent("Align To Blend:"));
-                        if (alignTo != null) if (IKPosStillMul > 0.6f) if (AlignToBlend > 0.1f)
+                        //alignTo = (Transform)EditorGUILayout.ObjectField(new GUIContent("Align IK With:", "You can assign some custom transform reference to for ik target to follow. Can be useful for carrying animation - then you can put here counter arm bone and adjust positioning with ik position offset parameter above."), alignTo, typeof(Transform), true);
+                        GUI.color = preC;
+                        //GUILayout.Space(6);
+
+                        //if (Searchable.IsSetted)
+                        //    if (selectorHelperId != "")
+                        //        if (selectorHelperId == "algn" + GetIndex)
+                        //        {
+                        //            object g = Searchable.Get();
+                        //            if (g != null) if (g is Transform)
+                        //                    AlignTo.DefineNewBoneArmatureRelation(g as Transform);
+
+                        //            selectorHelperId = "";
+                        //        }
+
+
+                        //if (GUILayout.Button(new GUIContent(FGUI_Resources.Tex_DownFold), EditorStyles.label, GUILayout.Width(20), GUILayout.Height(18)))
+                        //{
+                        //    selectorHelperId = "algn" + GetIndex;
+                        //    AnimationDesignerWindow.ShowBonesSelector("Choose Your Character Model Bone", save.GetAllArmatureBonesList, AnimationDesignerWindow.GetMenuDropdownRect(), true);
+                        //}
+
+                        //EditorGUILayout.EndHorizontal();
+
+                        if (AlignTo.IsSet)
+                        {
+                            AnimationDesignerWindow.GUIDrawFloatPercentage(ref AlignToBlend, new GUIContent("Align To Blend:"));
+                            if (IKPosStillMul > 0.6f) if (AlignToBlend > 0.1f)
                                 {
                                     EditorGUILayout.HelpBox("IK Still Position Blend is overriding 'Aling To' feature!", MessageType.None);
                                 }
+                        }
 
-                        if (alignTo != null)
+                        if (AlignTo.IsSet)
                             AnimationDesignerWindow.GUIDrawFloatPercentage(ref AlignRotationToBlend, new GUIContent("Align Rotation Blend:"));
 
                         GUILayout.Space(3);
@@ -1909,13 +1974,22 @@ namespace FIMSpace.AnimationTools
                     GUILayout.Space(4);
 
                     EditorGUIUtility.labelWidth = 180;
+                    EditorGUILayout.BeginHorizontal();
                     clipMain.PelvisConstantYOffset = EditorGUILayout.FloatField("Pelvis Constant Y Offset:", clipMain.PelvisConstantYOffset);
+
+                    if (clipMain.PelvisCurves01Mode) GUI.backgroundColor = Color.green;
+                    if (GUILayout.Button("Curve 01", GUILayout.Width(70))) clipMain.PelvisCurves01Mode = !clipMain.PelvisCurves01Mode;
+                    if (clipMain.PelvisCurves01Mode) GUI.backgroundColor = Color.white;
+
+                    float minVal = clipMain.PelvisCurves01Mode ? 0f : -1f;
+
+                    EditorGUILayout.EndHorizontal();
 
                     EditorGUILayout.BeginHorizontal();
                     EditorGUIUtility.labelWidth = 150;
                     clipMain.PelvisYOffset = EditorGUILayout.FloatField("Pelvis Y Offset:", clipMain.PelvisYOffset);
                     EditorGUIUtility.labelWidth = 0;
-                    AnimationDesignerWindow.DrawCurve(ref clipMain.PelvisOffsetYEvaluate, "", 50, 0f, -1f, 1f, 1f);
+                    AnimationDesignerWindow.DrawCurve(ref clipMain.PelvisOffsetYEvaluate, "", 50, 0f, minVal, 1f, 1f);
                     EditorGUILayout.EndHorizontal();
 
                     float rrOffset = 94f;
@@ -1927,7 +2001,7 @@ namespace FIMSpace.AnimationTools
                     EditorGUIUtility.labelWidth = 150;
                     clipMain.PelvisXOffset = EditorGUILayout.FloatField("Pelvis Sides (x) Offset:", clipMain.PelvisXOffset);
                     EditorGUIUtility.labelWidth = 0;
-                    AnimationDesignerWindow.DrawCurve(ref clipMain.PelvisOffsetXEvaluate, "", 50, 0f, -1f, 1f, 1f);
+                    AnimationDesignerWindow.DrawCurve(ref clipMain.PelvisOffsetXEvaluate, "", 50, 0f, minVal, 1f, 1f);
                     EditorGUILayout.EndHorizontal();
 
                     AnimationDesignerWindow.DrawCurveProgressOnR(progr, rrOffset);
@@ -1937,7 +2011,7 @@ namespace FIMSpace.AnimationTools
                     EditorGUIUtility.labelWidth = 150;
                     clipMain.PelvisZOffset = EditorGUILayout.FloatField("Pelvis Forward (z) Offset:", clipMain.PelvisZOffset);
                     EditorGUIUtility.labelWidth = 0;
-                    AnimationDesignerWindow.DrawCurve(ref clipMain.PelvisOffsetZEvaluate, "", 50, 0f, -1f, 1f, 1f);
+                    AnimationDesignerWindow.DrawCurve(ref clipMain.PelvisOffsetZEvaluate, "", 50, 0f, minVal, 1f, 1f);
                     EditorGUILayout.EndHorizontal();
 
                     AnimationDesignerWindow.DrawCurveProgressOnR(progr, rrOffset);
@@ -1987,7 +2061,7 @@ namespace FIMSpace.AnimationTools
 
                     if (mainSetFoldoutExtra)
                     {
-                        clipMain.ElasticnesSettings.Enabled = EditorGUILayout.Toggle("Use Hips Elasticness", clipMain.ElasticnesSettings.Enabled);
+                        clipMain.ElasticnesSettings.Enabled = EditorGUILayout.Toggle("Use Hips Elasticity", clipMain.ElasticnesSettings.Enabled);
 
                         if (clipMain.ElasticnesSettings.Enabled)
                         {
@@ -2013,7 +2087,7 @@ namespace FIMSpace.AnimationTools
                                             if (rootOrig)
                                             {
                                                 if (anim) EditorGUILayout.BeginHorizontal();
-                                                EditorGUILayout.HelpBox("To avoid elasticness loop-bounce, enable on your animator 'Apply Root Motion' (but it will move your model to zero scene position) and remember to set 'Motion Influence' to ZERO!", MessageType.Warning);
+                                                EditorGUILayout.HelpBox("To avoid Elasticity loop-bounce, enable on your animator 'Apply Root Motion' (but it will move your model to zero scene position) and remember to set 'Motion Influence' to ZERO!", MessageType.Warning);
                                                 if (anim)
                                                 {
                                                     if (GUILayout.Button("Apply\nRoot Motion", GUILayout.Height(40)))
@@ -2057,6 +2131,8 @@ namespace FIMSpace.AnimationTools
 
             void DrawIkBasicPositionOffsetsGUI(float progr, ref Vector3 IKPositionOffset, ref float IKPosOffMul, ref AnimationCurve IKPosOffEvaluate, string hintName = "Elbow", float xOff = 0f)
             {
+                EditorGUI.BeginChangeCheck();
+
                 IKPositionOffset = EditorGUILayout.Vector3Field(new GUIContent("  IK Position Offset:", FGUI_Resources.Tex_Movement), IKPositionOffset);
                 GUILayout.Space(4);
 
@@ -2075,6 +2151,8 @@ namespace FIMSpace.AnimationTools
                 }
 
                 GUILayout.Space(12);
+
+                if (EditorGUI.EndChangeCheck()) LatelyAdjusted = EWasAdjusted.Offset;
             }
 
 
@@ -2120,7 +2198,7 @@ namespace FIMSpace.AnimationTools
                 if (refToMainSet != null)
                 {
                     if (IKType == EIKType.ArmIK)
-                        defHintPos += refToMainSet.LatestAnimator.transform.TransformVector(refToMainSet.GetHipsOffset(progr) * (refToMainSet.OffsetHandsIKBlend * OffsetWithPelvisBlend));
+                        defHintPos += refToMainSet.LatestAnimator.transform.TransformVector(refToMainSet.GetHipsOffset(progr, false) * (refToMainSet.OffsetHandsIKBlend * OffsetWithPelvisBlend));
 
                     if (IKType != EIKType.ChainIK)
                         if (AutoHintMode == EIKAutoHintMode.FollowHipsRotation)
@@ -2357,14 +2435,25 @@ namespace FIMSpace.AnimationTools
 
                         float preUngr, nextUngr;
                         Vector3 newLinPos = rootMxInv.MultiplyPoint(groundIKPos);
+                        bool transitioning = false;
+                        bool transitioningIn = false;
 
                         if (!ComputeGroundedIn(progr)) // Not Grounded Yet - Transitioning
                         {
+                            transitioning = true;
                             preUngr = FindPreviousUngroundedProgr(progr, true);
                             nextUngr = FindNextUngroundedProgr(progr, true);
 
                             float nearerProgr = preUngr;
-                            if (Mathf.Abs(preUngr - progr) > Mathf.Abs(nextUngr - progr)) nearerProgr = nextUngr;
+                            if (Mathf.Abs(preUngr - progr) > Mathf.Abs(nextUngr - progr))
+                            {
+                                nearerProgr = nextUngr;
+                                transitioningIn = false;
+                            }
+                            else
+                            {
+                                transitioningIn = true;
+                            }
 
                             Vector3 transitionInPos = FootDataAnalyze.GetFootLocalPosition(nearerProgr);
                             Vector3 localCurr = rootMxInv.MultiplyPoint(groundIKPos);
@@ -2394,6 +2483,7 @@ namespace FIMSpace.AnimationTools
                             nextUngr = FindNextUngroundedProgr(progr, false);
 
                             Vector3 startPos = (FootDataAnalyze.GetFootLocalPosition(preUngr));
+
                             Vector3 endPos = (FootDataAnalyze.GetFootLocalPosition(nextUngr));
 
                             float progrBetween = Mathf.InverseLerp(preUngr, nextUngr, progr);
@@ -2417,14 +2507,20 @@ namespace FIMSpace.AnimationTools
                                 newLinPos.z = Mathf.Lerp(startPos.z * FootLinearizeSpeedMul, endPos.z * FootLinearizeSpeedMul, progrBetween);
                             }
 
-
+                            newLinPos += Vector3.Lerp(FootLinearEndAdjust, FootLinearStartAdjust, progrBetween); // * progrBetween;
                         }
-
 
                         newLinPos = rootMx.MultiplyPoint(newLinPos);
 
                         groundIKPos = Vector3.Lerp(groundIKPos, newLinPos, FootLinearize * groundingBlendIn);
 
+                        if (transitioning)
+                        {
+                            if (transitioningIn)
+                                groundIKPos += rootMx.MultiplyVector(FootLinearStartAdjust * FootLinearize * groundingBlendIn);
+                            else
+                                groundIKPos += rootMx.MultiplyVector(FootLinearEndAdjust * FootLinearize * groundingBlendIn);
+                        }
 
                         #region Backup
 
@@ -2497,6 +2593,52 @@ namespace FIMSpace.AnimationTools
 
 
                     if (IKRotOffMul > 0f) footRot = Quaternion.SlerpUnclamped(footRot, footRot * Quaternion.Euler(IKRotationOffset), IKRotOffMul * IKRotOffEvaluate.Evaluate(progr));
+
+
+                    #region Grounding feet rotations 
+
+                    if (UseGroundedFeet)
+                    {
+                        if (groundingBlendIn > 0f)
+                            if (processor != null)
+                                if (processor.EndIKBone != null)
+                                    if (processor.EndIKBone.transform != null)
+                                    {
+                                        Transform foot = processor.EndIKBone.transform;
+
+                                        #region Reset list of feet child bones
+
+                                        if (feetBones == null || feetBones.Count == 0 || feetBones[0] == null || feetBones[0].TempTransform == null)
+                                        {
+                                            feetBones = new List<ADBoneKeyPose>();
+                                            var bones = AnimationDesignerWindow.Get.S.TPose.BonesCoords;
+                                            if (bones != null)
+                                                foreach (Transform item in foot.GetComponentsInChildren<Transform>())
+                                                {
+                                                    if (item == foot) continue;
+                                                    for (int i = 0; i < bones.Count; i++)
+                                                    {
+                                                        if (bones[i].BoneName == item.name) { bones[i].TempTransform = item; feetBones.Add(bones[i]); break; }
+                                                    }
+                                                }
+                                        }
+
+                                        #endregion
+
+                                        if (feetBones != null)
+                                            if (feetBones.Count > 0)
+                                            {
+                                                for (int f = 0; f < feetBones.Count; f++)
+                                                {
+                                                    var bn = feetBones[f];
+                                                    bn.TempTransform.localRotation = Quaternion.Lerp(bn.TempTransform.localRotation, bn.LocalRotation, groundingBlendIn);
+                                                }
+                                            }
+                                    }
+                    }
+
+                    #endregion
+
 
                     #endregion
 
@@ -2703,12 +2845,13 @@ namespace FIMSpace.AnimationTools
                 return -1f;
             }
 
+            public Vector3 LastTargetIKPosition { get; private set; }
             internal Vector3 GetTargetIKPosition(Vector3 newIKPos, Transform root, float progr, FimpIK_Arm armIK, FIK_IKProcessor footIK)
             {
 
                 Vector3 initIk = newIKPos;
 
-                if (alignTo != null) if (AlignToBlend > 0f) newIKPos = Vector3.LerpUnclamped(newIKPos, alignTo.position, AlignToBlend);
+                if (AlignTo.IsSet) if (AlignToBlend > 0f) newIKPos = Vector3.LerpUnclamped(newIKPos, AlignTo.Position, AlignToBlend);
                 if (IKPosStillMul > 0f)
                 {
 
@@ -2734,6 +2877,8 @@ namespace FIMSpace.AnimationTools
 
                 if (IKType == EIKType.ArmIK)
                 {
+                    LastUsedProcessor = armIK;
+
                     if (refToMainSet != null)
                     {
                         newIKPos += refToMainSet.LatestAnimator.transform.TransformVector(refToMainSet.GetHipsOffset(progr) * (refToMainSet.OffsetHandsIKBlend * OffsetWithPelvisBlend));
@@ -2753,7 +2898,7 @@ namespace FIMSpace.AnimationTools
                             if (stretch > maxStr)
                             {
                                 float len = (maxStr * armIK.limbLength);
-                                newIKPos = armIK.UpperArmIKBone.srcPosition + (newIKPos - armIK.UpperArmIKBone.transform.position).normalized * len;
+                                newIKPos = armIK.UpperArmIKBone.transform.position + (newIKPos - armIK.UpperArmIKBone.transform.position).normalized * len;
                             }
                         }
                     }
@@ -2762,9 +2907,20 @@ namespace FIMSpace.AnimationTools
 
                 }
 
+
+                if (IKType == EIKType.FootIK)
+                {
+                    LastUsedProcessor = footIK;
+                }
+                else if (IKType == EIKType.ArmIK)
+                {
+                    LastUsedProcessor = armIK;
+                }
+
                 if (IKType == EIKType.FootIK && LegMode == ELegMode.BasicIK)
                     if (footIK != null)
                     {
+                        LastUsedProcessor = footIK;
 
                         #region Leg stretching limiting when ungrounded
 
@@ -2785,13 +2941,14 @@ namespace FIMSpace.AnimationTools
                     }
 
 
+                LastTargetIKPosition = newIKPos;
                 return newIKPos;
             }
 
             internal Quaternion GetTargetIKRotation(Quaternion newIKRot, Transform root, float progr)
             {
                 Quaternion initIk = newIKRot;
-                if (alignTo != null) if (AlignRotationToBlend > 0f) newIKRot = Quaternion.SlerpUnclamped(newIKRot, alignTo.rotation, AlignRotationToBlend);
+                if (AlignTo.IsSet) if (AlignRotationToBlend > 0f) newIKRot = Quaternion.SlerpUnclamped(newIKRot, AlignTo.Rotation, AlignRotationToBlend);
 
                 if (UseMultiStillPoints)
                 {

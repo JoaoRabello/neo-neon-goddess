@@ -19,7 +19,7 @@ public class FlatKitReadme : ScriptableObject {
     public bool FlatKitInstalled;
 
     [NonSerialized]
-    public readonly string FlatKitVersion = "3.0.5";
+    public readonly string FlatKitVersion = "3.5.0";
 
     [NonSerialized]
     public bool? UrpInstalled;
@@ -36,8 +36,7 @@ public class FlatKitReadme : ScriptableObject {
 
     private const string UrpPackageID = "com.unity.render-pipelines.universal";
 
-    private static readonly GUID StylizedShaderGuid =
-        new GUID("bee44b4a58655ee4cbff107302a3e131");
+    private static readonly GUID StylizedShaderGuid = new GUID("bee44b4a58655ee4cbff107302a3e131");
 
     public void Refresh() {
         UrpInstalled = false;

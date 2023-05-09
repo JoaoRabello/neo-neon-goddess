@@ -44,7 +44,9 @@ namespace FIMSpace
                     closest = Physics.ClosestPoint(positionOffsetted, Mesh, Mesh.transform.position, Mesh.transform.rotation);
                     if (Vector3.Distance(closest, positionOffsetted) > segmentRadius * 1.01f) return false;
 
-                    Vector2 dir = (closest - positionOffsetted);
+                    Vector3 dir = (closest - positionOffsetted);
+                    if (dir == Vector3.zero) return false;
+
                     RaycastHit meshHit;
                     Mesh.Raycast(new Ray(positionOffsetted, dir.normalized), out meshHit, segmentRadius * castMul);
 

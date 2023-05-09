@@ -30,7 +30,7 @@ namespace FIMSpace.AnimationTools
 
                     string name = prefix;
 
-                    if ( i == 0)
+                    if (i == 0)
                     {
                         name += "Spine/" + ((HumanBodyBones)i).ToString();
                     }
@@ -82,8 +82,57 @@ namespace FIMSpace.AnimationTools
 
             DisplayMenu(title, bones, names, searchableRect);
 
+        
         }
 
+
+        #region Undo Related
+
+        void StartUndoCheckFor(UnityEngine.Object obj, string action = "")
+        {
+            if (!EnableExperimentalUndo) return;
+            Undo.RecordObject(obj, "Animation Designer" + action);
+            EditorGUI.BeginChangeCheck();
+        }
+
+        void StartUndoCheck(string action = "", bool captureWindow = false)
+        {
+            if (!EnableExperimentalUndo) return;
+
+            if (!captureWindow)
+                Undo.RecordObject(S, "Animation Designer Change" + action);
+            else
+                Undo.RecordObjects(new UnityEngine.Object[] { S, this }, "Animation Designer Change" + action);
+
+            EditorGUI.BeginChangeCheck();
+        }
+
+        void EndUndoCheck(bool captureWindow = false)
+        {
+            if (!EnableExperimentalUndo) return;
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                Undo.ClearUndo(S);
+                if (captureWindow) Undo.ClearUndo(this);
+            }
+            else
+            {
+                //Undo.FlushUndoRecordObjects();
+            }
+        }
+
+        void EndUndoCheckFor(UnityEngine.Object obj)
+        {
+            if (!EnableExperimentalUndo) return;
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                Undo.ClearUndo(obj);
+            }
+        }
+
+        #endregion
 
 
 #if UNITY_EDITOR
@@ -246,7 +295,7 @@ namespace FIMSpace.AnimationTools
         internal static void ReInitializeCalibration()
         {
             if (Get == null) return;
-            if ( Get.S == null) return;
+            if (Get.S == null) return;
             ForceTPose();
             for (int i = 0; i < Get.S.Limbs.Count; i++) Get.S.Limbs[i].CheckComponentsBlendingInitialization(true);
         }
@@ -268,8 +317,8 @@ namespace FIMSpace.AnimationTools
         {
             if (t == null) return null;
             return t.GetComponent<Animator>();
-        }        
-        
+        }
+
         public static Avatar GetAvatar(this Transform t)
         {
             Animator a = GetAnimator(t);
