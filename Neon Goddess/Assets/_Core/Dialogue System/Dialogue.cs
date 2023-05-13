@@ -13,8 +13,11 @@ public class Dialogue : ScriptableObject
     private void Awake()
     {
         if (_nodes.Count > 0) return;
-        
-        _nodes.Add(new DialogueNode());
+
+        var rootNode = new DialogueNode();
+
+        rootNode.Id = Guid.NewGuid().ToString();
+        _nodes.Add(rootNode);
         OnValidate();
     }
 #endif
@@ -47,5 +50,17 @@ public class Dialogue : ScriptableObject
             
             yield return _nodeLookup[childId];
         }
+    }
+
+    public void CreateNode(DialogueNode parentNode)
+    {
+        var newNode = new DialogueNode
+        {
+            Id = Guid.NewGuid().ToString()
+        };
+        parentNode.Children.Add(newNode.Id);
+        _nodes.Add(newNode);
+        
+        OnValidate();
     }
 }

@@ -6,10 +6,11 @@ using UnityEngine;
 public class DialogueEditor : EditorWindow
 {
     private Dialogue _selectedDialogue;
-    private GUIStyle _nodeStyle;
+    [NonSerialized] private GUIStyle _nodeStyle;
 
-    private DialogueNode _draggingNode = null;
-    private Vector2 _draggingOffset;
+    [NonSerialized] private DialogueNode _draggingNode;
+    [NonSerialized] private DialogueNode _creatingNode;
+    [NonSerialized] private Vector2 _draggingOffset;
 
     [MenuItem("Dialogue Designer/Open Editor")]
     public static void ShowEditorWindow()
@@ -67,6 +68,12 @@ public class DialogueEditor : EditorWindow
         {
             OnDrawNode(node);
         }
+
+        if (_creatingNode is null) return;
+
+        Undo.RecordObject(_selectedDialogue, "Added Dialogue Node");
+        _selectedDialogue.CreateNode(_creatingNode);
+        _creatingNode = null;
     }
 
     private void DrawConnections(DialogueNode node)
@@ -127,15 +134,17 @@ public class DialogueEditor : EditorWindow
         GUILayout.BeginArea(node.Rect, _nodeStyle);
         EditorGUI.BeginChangeCheck();
 
-        EditorGUILayout.LabelField("Node: ");
         var newText = EditorGUILayout.TextField(node.Text);
-        var newId = EditorGUILayout.TextField(node.Id);
 
         if (EditorGUI.EndChangeCheck())
         {
             Undo.RecordObject(_selectedDialogue, "Update Dialogue Text");
             node.Text = newText;
-            node.Id = newId;
+        }
+
+        if (GUILayout.Button("+"))
+        {
+            _creatingNode = node;
         }
         
         GUILayout.EndArea();
