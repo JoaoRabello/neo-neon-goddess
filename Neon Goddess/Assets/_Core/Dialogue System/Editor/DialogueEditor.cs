@@ -10,6 +10,7 @@ public class DialogueEditor : EditorWindow
 
     [NonSerialized] private DialogueNode _draggingNode;
     [NonSerialized] private DialogueNode _creatingNode;
+    [NonSerialized] private DialogueNode _deletingNode;
     [NonSerialized] private Vector2 _draggingOffset;
 
     [MenuItem("Dialogue Designer/Open Editor")]
@@ -69,11 +70,18 @@ public class DialogueEditor : EditorWindow
             OnDrawNode(node);
         }
 
-        if (_creatingNode is null) return;
-
-        Undo.RecordObject(_selectedDialogue, "Added Dialogue Node");
-        _selectedDialogue.CreateNode(_creatingNode);
-        _creatingNode = null;
+        if (_creatingNode is not null)
+        {
+            Undo.RecordObject(_selectedDialogue, "Added Dialogue Node");
+            _selectedDialogue.CreateNode(_creatingNode);
+            _creatingNode = null;
+        }
+        if (_deletingNode is not null)
+        {
+            Undo.RecordObject(_selectedDialogue, "Deleted Dialogue Node");
+            _selectedDialogue.DeleteNode(_deletingNode);
+            _deletingNode = null;
+        }
     }
 
     private void DrawConnections(DialogueNode node)
@@ -142,11 +150,16 @@ public class DialogueEditor : EditorWindow
             node.Text = newText;
         }
 
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Button("x"))
+        {
+            _deletingNode = node;
+        }
         if (GUILayout.Button("+"))
         {
             _creatingNode = node;
         }
-        
+        GUILayout.EndHorizontal();
         GUILayout.EndArea();
     }
 }
