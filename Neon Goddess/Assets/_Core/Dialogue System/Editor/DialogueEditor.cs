@@ -11,6 +11,7 @@ public class DialogueEditor : EditorWindow
     [NonSerialized] private DialogueNode _draggingNode;
     [NonSerialized] private DialogueNode _creatingNode;
     [NonSerialized] private DialogueNode _deletingNode;
+    [NonSerialized] private DialogueNode _linkingParentNode;
     [NonSerialized] private Vector2 _draggingOffset;
 
     [MenuItem("Dialogue Designer/Open Editor")]
@@ -159,7 +160,45 @@ public class DialogueEditor : EditorWindow
         {
             _creatingNode = node;
         }
+
+        DrawLinkButtons(node);
         GUILayout.EndHorizontal();
         GUILayout.EndArea();
+    }
+
+    private void DrawLinkButtons(DialogueNode node)
+    {
+        if (_linkingParentNode is null)
+        {
+            if (GUILayout.Button("link"))
+            {
+                _linkingParentNode = node;
+            }
+        }
+        else if (_linkingParentNode == node)
+        {
+            if (GUILayout.Button("cancel"))
+            {
+                _linkingParentNode = null;
+            }
+        }
+        else if (_linkingParentNode.Children.Contains(node.Id))
+        {
+            if (GUILayout.Button("unlink"))
+            {
+                Undo.RecordObject(_selectedDialogue, "Remove Dialogue Link");
+                _linkingParentNode.Children.Remove(node.Id);
+                _linkingParentNode = null;
+            }
+        }
+        else
+        {
+            if (GUILayout.Button("child"))
+            {
+                Undo.RecordObject(_selectedDialogue, "Add Dialogue Link");
+                _linkingParentNode.Children.Add(node.Id);
+                _linkingParentNode = null;
+            }
+        }
     }
 }
