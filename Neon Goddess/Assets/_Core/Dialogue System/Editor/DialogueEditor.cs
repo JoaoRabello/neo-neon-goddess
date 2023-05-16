@@ -13,6 +13,13 @@ public class DialogueEditor : EditorWindow
     [NonSerialized] private DialogueNode _deletingNode;
     [NonSerialized] private DialogueNode _linkingParentNode;
     [NonSerialized] private Vector2 _draggingOffset;
+    [NonSerialized] private Vector2 _draggingCanvasOffset;
+    [NonSerialized] private bool _isDraggingCanvas;
+
+    private Vector2 _scrollPosition;
+
+    private const float CANVAS_SIZE = 4000;
+    private const float BACKGROUND_SIZE = 50;
 
     [MenuItem("Dialogue Designer/Open Editor")]
     public static void ShowEditorWindow()
@@ -62,6 +69,14 @@ public class DialogueEditor : EditorWindow
         }
 
         ProcessEvents();
+
+        _scrollPosition = EditorGUILayout.BeginScrollView(_scrollPosition);
+
+        Rect canvas = GUILayoutUtility.GetRect(CANVAS_SIZE, CANVAS_SIZE);
+        var backgroundTexture = Resources.Load("background") as Texture2D;
+        var textureCoords = new Rect(0, 0, CANVAS_SIZE / BACKGROUND_SIZE, CANVAS_SIZE / BACKGROUND_SIZE);
+        GUI.DrawTextureWithTexCoords(canvas, backgroundTexture, textureCoords);
+        
         foreach (var node in _selectedDialogue.GetAllNodes())
         {
             DrawConnections(node);
@@ -70,6 +85,8 @@ public class DialogueEditor : EditorWindow
         {
             OnDrawNode(node);
         }
+        
+        EditorGUILayout.EndScrollView();
 
         if (_creatingNode is not null)
         {
@@ -106,11 +123,18 @@ public class DialogueEditor : EditorWindow
     {
         if (Event.current.type == EventType.MouseDown && _draggingNode is null)
         {
-            _draggingNode = GetNodeAtPosition(Event.current.mousePosition);
+            _draggingNode = GetNodeAtPosition(Event.current.mousePosition + _scrollPosition);
 
-            if (_draggingNode is null) return;
+            if (_draggingNode != null)
+            {
+                _draggingOffset = _draggingNode.Rect.position - Event.current.mousePosition;
+            }
+            else
+            {
+                _isDraggingCanvas = true;
+                _draggingCanvasOffset = Event.current.mousePosition + _scrollPosition;
+            }
 
-            _draggingOffset = _draggingNode.Rect.position - Event.current.mousePosition;
         }
         else if (Event.current.type == EventType.MouseDrag && _draggingNode is not null)
         {
@@ -118,9 +142,19 @@ public class DialogueEditor : EditorWindow
             _draggingNode.Rect.position = Event.current.mousePosition + _draggingOffset;
             GUI.changed = true;
         }
+        else if (Event.current.type == EventType.MouseDrag && _isDraggingCanvas)
+        {
+            _scrollPosition = _draggingCanvasOffset - Event.current.mousePosition;
+
+            GUI.changed = true;
+        }
         else if (Event.current.type == EventType.MouseUp && _draggingNode is not null)
         {
             _draggingNode = null;
+        }
+        else if (Event.current.type == EventType.MouseUp && _isDraggingCanvas)
+        {
+            _isDraggingCanvas = false;
         }
     }
 
