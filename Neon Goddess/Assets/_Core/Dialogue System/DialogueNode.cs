@@ -5,9 +5,8 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 [Serializable]
-public class DialogueNode
+public class DialogueNode : ScriptableObject
 {
-    public string Id;
     public string Text;
     public List<String> Children = new List<string>();
     public Rect Rect = new Rect(50, 150, 200, 100);

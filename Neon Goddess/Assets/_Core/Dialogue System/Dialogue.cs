@@ -1,26 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogues/Dialogue")]
-public class Dialogue : ScriptableObject
+public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
 {
     [SerializeField] private List<DialogueNode> _nodes = new List<DialogueNode>();
     private Dictionary<string, DialogueNode> _nodeLookup = new Dictionary<string, DialogueNode>();
-
-#if UNITY_EDITOR
-    private void Awake()
-    {
-        if (_nodes.Count > 0) return;
-
-        var rootNode = new DialogueNode();
-
-        rootNode.Id = Guid.NewGuid().ToString();
-        _nodes.Add(rootNode);
-        OnValidate();
-    }
-#endif
 
     private void OnValidate()
     {
@@ -28,7 +16,7 @@ public class Dialogue : ScriptableObject
 
         foreach (var node in GetAllNodes())
         {
-            _nodeLookup[node.Id] = node;
+            _nodeLookup[node.name] = node;
         }
     }
 
@@ -54,13 +42,16 @@ public class Dialogue : ScriptableObject
 
     public void CreateNode(DialogueNode parentNode)
     {
-        var newNode = new DialogueNode
-        {
-            Id = Guid.NewGuid().ToString()
-        };
-        parentNode.Children.Add(newNode.Id);
-        _nodes.Add(newNode);
+        var newNode = CreateInstance<DialogueNode>();
+        newNode.name = Guid.NewGuid().ToString();
         
+        Undo.RegisterCreatedObjectUndo(newNode, "Created Dialogue Node");
+
+        if (parentNode != null)
+        {
+            parentNode.Children.Add(newNode.name);
+        }
+        _nodes.Add(newNode);
         OnValidate();
     }
 
@@ -69,13 +60,39 @@ public class Dialogue : ScriptableObject
         _nodes.Remove(nodeToDelete);
         OnValidate();
         ClearDanglingChildren(nodeToDelete);
+        
+        Undo.DestroyObjectImmediate(nodeToDelete);
     }
 
     private void ClearDanglingChildren(DialogueNode nodeToDelete)
     {
         foreach (var node in GetAllNodes())
         {
-            node.Children.Remove(nodeToDelete.Id);
+            node.Children.Remove(nodeToDelete.name);
         }
+    }
+
+    public void OnBeforeSerialize()
+    {
+        if (_nodes.Count == 0)
+        {
+            CreateNode(null);
+        }
+        
+        if (AssetDatabase.GetAssetPath(this) != "")
+        {
+            foreach (var node in GetAllNodes())
+            {
+                if (AssetDatabase.GetAssetPath(node) == "")
+                {
+                    AssetDatabase.AddObjectToAsset(node, this);
+                }
+            }
+        }
+    }
+
+    public void OnAfterDeserialize()
+    {
+        throw new NotImplementedException();
     }
 }

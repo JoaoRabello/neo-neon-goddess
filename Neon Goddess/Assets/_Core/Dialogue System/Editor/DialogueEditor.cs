@@ -128,11 +128,13 @@ public class DialogueEditor : EditorWindow
             if (_draggingNode != null)
             {
                 _draggingOffset = _draggingNode.Rect.position - Event.current.mousePosition;
+                Selection.activeObject = _draggingNode;
             }
             else
             {
                 _isDraggingCanvas = true;
                 _draggingCanvasOffset = Event.current.mousePosition + _scrollPosition;
+                Selection.activeObject = _selectedDialogue;
             }
 
         }
@@ -216,12 +218,12 @@ public class DialogueEditor : EditorWindow
                 _linkingParentNode = null;
             }
         }
-        else if (_linkingParentNode.Children.Contains(node.Id))
+        else if (_linkingParentNode.Children.Contains(node.name))
         {
             if (GUILayout.Button("unlink"))
             {
                 Undo.RecordObject(_selectedDialogue, "Remove Dialogue Link");
-                _linkingParentNode.Children.Remove(node.Id);
+                _linkingParentNode.Children.Remove(node.name);
                 _linkingParentNode = null;
             }
         }
@@ -230,7 +232,7 @@ public class DialogueEditor : EditorWindow
             if (GUILayout.Button("child"))
             {
                 Undo.RecordObject(_selectedDialogue, "Add Dialogue Link");
-                _linkingParentNode.Children.Add(node.Id);
+                _linkingParentNode.Children.Add(node.name);
                 _linkingParentNode = null;
             }
         }
