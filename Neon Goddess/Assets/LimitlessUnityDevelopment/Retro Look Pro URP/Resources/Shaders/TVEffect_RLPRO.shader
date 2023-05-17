@@ -10,7 +10,6 @@ Shader "Hidden/Shader/TV_RLPRO"
 	#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
 	#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Filtering.hlsl"
 	#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-	#include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
 	SAMPLER(_MainTex);
 	TEXTURE2D(_Mask);
 	SAMPLER(sampler_Mask);
@@ -26,7 +25,29 @@ Shader "Hidden/Shader/TV_RLPRO"
 	float resScale;
 	float scale;
 	float fade;
-	
+		        struct Attributes
+        {
+            float4 positionOS       : POSITION;
+            float2 uv               : TEXCOORD0;
+        };
+
+        struct Varyings
+        {
+            float2 uv        : TEXCOORD0;
+            float4 positionCS : SV_POSITION;
+            UNITY_VERTEX_OUTPUT_STEREO
+        };
+        Varyings Vert(Attributes input)
+        {
+            Varyings output = (Varyings)0;
+            UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+            VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+            output.positionCS = vertexInput.positionCS;
+            output.uv = input.uv;
+
+            return output;
+        }
 	float3 Fetch(float2 pos, float2 off)
 	{
 		pos = floor(pos * res + off) / res;
@@ -109,7 +130,8 @@ Shader "Hidden/Shader/TV_RLPRO"
     {
         UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
         half2 positionSS = input.uv;
-        float4 outColor = tex2D(_MainTex, positionSS);			
+        float4 outColor = tex2D(_MainTex, positionSS);
+		resScale*=_ScreenParams.zw;
 		res = _ScreenParams.xy / resScale;
 		float2 fragCoord = input.uv* _ScreenParams.xy;
 		float4 fragColor = 0;
@@ -135,6 +157,7 @@ Shader "Hidden/Shader/TV_RLPRO"
 
 		half2 positionSS = input.uv;
 		float4 outColor = tex2D(_MainTex, positionSS);
+		//resScale*=_ScreenParams.zw;
 		res = _ScreenParams.xy / resScale;
 		float2 fragCoord = input.uv* _ScreenParams.xy;
 		float4 fragColor = 0;

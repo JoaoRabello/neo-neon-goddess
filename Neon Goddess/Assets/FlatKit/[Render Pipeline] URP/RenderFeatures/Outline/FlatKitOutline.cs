@@ -2,10 +2,6 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-// TODO: Remove for URP 13.
-// https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@13.1/manual/upgrade-guide-2022-1.html
-#pragma warning disable CS0618
-
 namespace FlatKit {
 public class FlatKitOutline : ScriptableRendererFeature {
     [Tooltip("To create new settings use 'Create > FlatKit > Outline Settings'.")]
@@ -27,53 +23,54 @@ public class FlatKitOutline : ScriptableRendererFeature {
     private static readonly int ColorThresholdMax = Shader.PropertyToID("_ColorThresholdMax");
 
     public override void Create() {
+#if UNITY_EDITOR
+        if (_effectMaterial == null) {
+            AlwaysIncludedShaders.Add(BlitTexturePass.CopyEffectShaderName);
+            AlwaysIncludedShaders.Add(OutlineShaderName);
+        }
+#endif
+
         if (settings == null) {
-            Debug.LogWarning("[FlatKit] Missing Outline Settings");
             return;
         }
 
-        _blitTexturePass ??= new BlitTexturePass() {
-            renderPassEvent = settings.renderEvent
-        };
+        if (!CreateMaterials()) {
+            return;
+        }
+
+        SetMaterialProperties();
+
+        _blitTexturePass ??=
+            new BlitTexturePass(_effectMaterial, settings.useDepth, settings.useNormals, useColor: true);
+    }
+
+    protected override void Dispose(bool disposing) {
+        _blitTexturePass.Dispose();
     }
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData) {
-// #if UNITY_EDITOR
-//         if (renderingData.cameraData.isPreviewCamera) {
-//             return;
-//         }
-// #endif
+#if UNITY_EDITOR
+        if (renderingData.cameraData.isPreviewCamera) return;
+        if (!settings.applyInSceneView && renderingData.cameraData.cameraType == CameraType.SceneView) return;
+#endif
 
-        if (settings == null) {
-            Debug.LogWarning("[FlatKit] Missing Outline Settings");
-            return;
-        }
-
-        if (!CreateMaterials()) return;
         SetMaterialProperties();
 
-        _blitTexturePass.Setup(_effectMaterial, settings.useDepth, settings.useNormals, useColor: true);
+        _blitTexturePass.Setup(renderingData);
+        _blitTexturePass.renderPassEvent = settings.renderEvent;
+
         renderer.EnqueuePass(_blitTexturePass);
     }
-
-#if UNITY_2020_3_OR_NEWER
-    protected override void Dispose(bool disposing) {
-        CoreUtils.Destroy(_effectMaterial);
-    }
-#endif
 
     private bool CreateMaterials() {
         if (_effectMaterial == null) {
             var effectShader = Shader.Find(OutlineShaderName);
             var blitShader = Shader.Find(BlitTexturePass.CopyEffectShaderName);
-            // Prevents Unity error on first import.
             if (effectShader == null || blitShader == null) return false;
             _effectMaterial = CoreUtils.CreateEngineMaterial(effectShader);
         }
 
-        Debug.Assert(_effectMaterial != null, $"[Flat Kit] Missing Material {OutlineShaderName}");
-
-        return true;
+        return _effectMaterial != null;
     }
 
     private void SetMaterialProperties() {

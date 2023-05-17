@@ -75,9 +75,10 @@ public class LimitlessVHSTapeRewind : ScriptableRendererFeature
                 Debug.LogError("Material not created.");
                 return;
             }
-
             var stack = VolumeManager.instance.stack;
             m_VHSNoise = stack.GetComponent<VHSTapeRewind>();
+            if (!renderingData.cameraData.postProcessEnabled && m_VHSNoise.GlobalPostProcessingSettings.value) return;
+
             if (m_VHSNoise == null) { return; }
             if (!m_VHSNoise.IsActive()) { return; }
 

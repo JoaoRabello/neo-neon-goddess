@@ -19,6 +19,7 @@ using UnityEditor.Rendering;
 		SerializedDataParameter blueNoise;
 		SerializedDataParameter mask;
 		SerializedDataParameter alphaCH;
+		SerializedDataParameter globalPost;
 		SerializedDataParameter enable;
 		string[] palettePresets;
 
@@ -28,6 +29,7 @@ using UnityEditor.Rendering;
 
 			var o = new PropertyFetcher<ColormapPalette>(serializedObject);
 		enable = Unpack(o.Find(x => x.enable));
+		globalPost = Unpack(o.Find(x => x.GlobalPostProcessingSettings));
 		pixelSize = Unpack(o.Find(x => x.pixelSize));
 			opacity = Unpack(o.Find(x => x.opacity));
 			dither = Unpack(o.Find(x => x.dither));
@@ -77,6 +79,7 @@ using UnityEditor.Rendering;
 			PropertyField(dither);
 		PropertyField(mask);
 		PropertyField(alphaCH);
+		PropertyField(globalPost);
 
 		presetIndex.overrideState.boolValue = true;
 			presetsList.overrideState.boolValue = true;

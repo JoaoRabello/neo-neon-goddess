@@ -73,6 +73,9 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 1
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-6859224873268720024
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -115,6 +118,9 @@ MonoBehaviour:
     m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-6808292983693474930
 MonoBehaviour:
@@ -163,6 +169,9 @@ MonoBehaviour:
     m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-6306431356589615504
 MonoBehaviour:
@@ -258,6 +267,9 @@ MonoBehaviour:
   unscaledTime:
     m_OverrideState: 1
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-5996900097813829688
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -300,6 +312,9 @@ MonoBehaviour:
     m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-5786424355971490158
 MonoBehaviour:
@@ -346,67 +361,8 @@ MonoBehaviour:
   noiseTexture:
     m_OverrideState: 1
     m_Value: {fileID: 2800000, guid: 695b615b33506ce45a175ff428ab7b91, type: 3}
---- !u!114 &-4301834212413710963
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1c62bdc7f018b43a75aef3da42496f, type: 3}
-  m_Name: TVEffect
-  m_EditorClassIdentifier: 
-  active: 0
-  m_AdvancedMode: 0
-  enable:
-    m_OverrideState: 1
-    m_Value: 1
-  fade:
-    m_OverrideState: 1
-    m_Value: 1
-    min: 0
-    max: 1
-  maskDark:
-    m_OverrideState: 1
-    m_Value: 0.81
-    min: 0
-    max: 2
-  maskLight:
-    m_OverrideState: 1
-    m_Value: 0.93
-    min: 0
-    max: 2
-  hardScan:
-    m_OverrideState: 1
-    m_Value: -5.3
-    min: -8
-    max: 16
-  resScale:
-    m_OverrideState: 1
-    m_Value: 3.3
-    min: 1
-    max: 16
-  hardPix:
-    m_OverrideState: 1
-    m_Value: -2.83
-    min: -3
-    max: 1
-  warpMode:
-    m_OverrideState: 1
-    m_Value: 0
-  warp:
-    m_OverrideState: 1
-    m_Value: {x: 0, y: 0}
-  scale:
-    m_OverrideState: 1
-    m_Value: 0.45
-  mask:
-    m_OverrideState: 1
-    m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
-  maskChannel:
-    m_OverrideState: 1
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-3558126968303480448
 MonoBehaviour:
@@ -444,6 +400,9 @@ MonoBehaviour:
     m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-2635490515145384864
 MonoBehaviour:
@@ -500,34 +459,9 @@ MonoBehaviour:
   distortRandomly:
     m_OverrideState: 1
     m_Value: 0
---- !u!114 &-713192231392468082
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc5d2777661194196b68af01098c12a7, type: 3}
-  m_Name: CustomTexture
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  enable:
-    m_OverrideState: 1
-    m_Value: 1
-  texture:
-    m_OverrideState: 1
-    m_Value: {fileID: 8400000, guid: a05bd0e40cc87a3458d3bdb92f1a7aa0, type: 2}
-  alpha:
-    m_OverrideState: 1
-    m_Value: 1
-  fade:
-    m_OverrideState: 1
-    m_Value: 1
-    min: 0
-    max: 1
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-531527479557895433
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -597,6 +531,9 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 1
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,8 +554,7 @@ MonoBehaviour:
   - {fileID: 957274662106092306}
   - {fileID: -5996900097813829688}
   - {fileID: 1024410380686912413}
-  - {fileID: -4301834212413710963}
-  - {fileID: -713192231392468082}
+  - {fileID: 3119970754537012052}
   - {fileID: 1721998840925045550}
   - {fileID: -531527479557895433}
   - {fileID: 7232982760839890189}
@@ -632,6 +568,7 @@ MonoBehaviour:
   - {fileID: -6808292983693474930}
   - {fileID: 7098491215546838013}
   - {fileID: 454502421034933847}
+  - {fileID: 8875724885162433574}
 --- !u!114 &454502421034933847
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -687,6 +624,9 @@ MonoBehaviour:
   distortRandomly:
     m_OverrideState: 1
     m_Value: 1
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &503452372352362079
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -719,6 +659,9 @@ MonoBehaviour:
     m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &522814062353059484
 MonoBehaviour:
@@ -765,6 +708,9 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 1
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &957274662106092306
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -807,6 +753,9 @@ MonoBehaviour:
     m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &1024410380686912413
 MonoBehaviour:
@@ -873,6 +822,9 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 1
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &1721998840925045550
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -931,6 +883,9 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 0
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &2645370999024299080
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -986,6 +941,108 @@ MonoBehaviour:
   distortRandomly:
     m_OverrideState: 0
     m_Value: 1
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
+--- !u!114 &3119970754537012052
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1c62bdc7f018b43a75aef3da42496f, type: 3}
+  m_Name: TVEffect
+  m_EditorClassIdentifier: 
+  active: 0
+  m_AdvancedMode: 0
+  enable:
+    m_OverrideState: 1
+    m_Value: 1
+  fade:
+    m_OverrideState: 1
+    m_Value: 1
+    min: 0
+    max: 1
+  maskDark:
+    m_OverrideState: 1
+    m_Value: 0.5
+    min: 0
+    max: 2
+  maskLight:
+    m_OverrideState: 1
+    m_Value: 1.5
+    min: 0
+    max: 2
+  hardScan:
+    m_OverrideState: 1
+    m_Value: -8
+    min: -8
+    max: 16
+  resScale:
+    m_OverrideState: 1
+    m_Value: 11.32
+    min: 1
+    max: 16
+  ScaleWithActualScreenSize:
+    m_OverrideState: 1
+    m_Value: 1
+  hardPix:
+    m_OverrideState: 1
+    m_Value: -2.49
+    min: -3
+    max: 1
+  warpMode:
+    m_OverrideState: 1
+    m_Value: 0
+  warp:
+    m_OverrideState: 1
+    m_Value: {x: 0, y: 0}
+  scale:
+    m_OverrideState: 1
+    m_Value: 0.5
+  mask:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+  maskChannel:
+    m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 1
+    m_Value: 1
+--- !u!114 &3841907683935122689
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc5d2777661194196b68af01098c12a7, type: 3}
+  m_Name: CustomTexture
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  enable:
+    m_OverrideState: 0
+    m_Value: 0
+  texture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  alpha:
+    m_OverrideState: 0
+    m_Value: 1
+  fade:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+    max: 1
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &3921447312873088750
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1042,6 +1099,9 @@ MonoBehaviour:
     m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &4070411283747754233
 MonoBehaviour:
@@ -1136,6 +1196,9 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 1
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &6685025854960132614
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1194,6 +1257,9 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 1
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &7098491215546838013
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1239,6 +1305,9 @@ MonoBehaviour:
   noiseTexture:
     m_OverrideState: 1
     m_Value: {fileID: 2800000, guid: d94011d49b672f348bf39275fd487de9, type: 3}
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &7232982760839890189
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1277,6 +1346,9 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 0
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &7329529228371038628
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1309,6 +1381,9 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 1
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
   bleedModeIndex: 0
 --- !u!114 &8529981556450144210
 MonoBehaviour:
@@ -1335,4 +1410,69 @@ MonoBehaviour:
     m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
+--- !u!114 &8875724885162433574
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc5d2777661194196b68af01098c12a7, type: 3}
+  m_Name: CustomTexture
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  enable:
+    m_OverrideState: 1
+    m_Value: 1
+  texture:
+    m_OverrideState: 1
+    m_Value: {fileID: 8400000, guid: a05bd0e40cc87a3458d3bdb92f1a7aa0, type: 2}
+  alpha:
+    m_OverrideState: 1
+    m_Value: 1
+  fade:
+    m_OverrideState: 1
+    m_Value: 1
+    min: 0
+    max: 1
+  GlobalPostProcessingSettings:
+    m_OverrideState: 1
+    m_Value: 1
+--- !u!114 &9190712438988199654
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc5d2777661194196b68af01098c12a7, type: 3}
+  m_Name: CustomTexture
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  enable:
+    m_OverrideState: 0
+    m_Value: 0
+  texture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  alpha:
+    m_OverrideState: 0
+    m_Value: 1
+  fade:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+    max: 1
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0

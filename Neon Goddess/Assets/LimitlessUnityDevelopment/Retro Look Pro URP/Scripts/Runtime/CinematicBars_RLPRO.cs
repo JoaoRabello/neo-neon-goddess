@@ -69,10 +69,11 @@ public class CinematicBars_RLPRO : ScriptableRendererFeature
                 Debug.LogError("Material not created.");
                 return;
             }
-            if (!renderingData.cameraData.postProcessEnabled) return;
 
             var stack = VolumeManager.instance.stack;
             retroEffect = stack.GetComponent<CinematicBars>();
+            if (!renderingData.cameraData.postProcessEnabled && retroEffect.GlobalPostProcessingSettings.value) return;
+
             if (retroEffect == null) { return; }
             if (!retroEffect.IsActive()) { return; }
 

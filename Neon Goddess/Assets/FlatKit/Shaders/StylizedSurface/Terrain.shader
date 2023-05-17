@@ -58,11 +58,14 @@
         _UnityShadowColor("[_UNITYSHADOWMODE_COLOR]Color", Color) = (0.85023, 0.85034, 0.85045, 0.85056)
         _UnityShadowSharpness("Sharpness", Range(1, 10)) = 1.0
 
+    	[Space]
+    	[Space]
+
         // --------------------------------
         // --- From `TerrainLit.shader` ---
         // --------------------------------
         [HideInInspector] [ToggleUI] _EnableHeightBlend("EnableHeightBlend", Float) = 0.0
-        _HeightTransition("Height Transition", Range(0, 1.0)) = 0.0
+        [HideInInspector] _HeightTransition("Height Transition", Range(0, 1.0)) = 0.0
         // Layer count is passed down to guide height-blend enable/disable, due
         // to the fact that heigh-based blend will be broken with multipass.
         [HideInInspector] [PerRendererData] _NumLayersCount ("Total Layer Count", Float) = 1.0
@@ -96,7 +99,7 @@
 
 		[HideInInspector] _TerrainHolesTexture("Holes Map (RGB)", 2D) = "white" {}
 
-        [ToggleUI] _EnableInstancedPerPixelNormal("Enable Instanced per-pixel normal", Float) = 1.0
+        [HideInInspector] [ToggleUI] _EnableInstancedPerPixelNormal("Enable Instanced per-pixel normal", Float) = 1.0
 
 		/* start CurvedWorld */
 		//[CurvedWorldBendSettings] _CurvedWorldBendSettings("0|1|1", Vector) = (0, 0, 0, 0)
@@ -112,6 +115,10 @@
     SubShader
     {
         Tags { "Queue" = "Geometry-100" "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" "UniversalMaterialType" = "Lit" "IgnoreProjector" = "False" "TerrainCompatible" = "True"}
+
+    	HLSLINCLUDE
+    	#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Version.hlsl"
+    	ENDHLSL
 
         Pass
         {
@@ -137,7 +144,6 @@
 
             // -------------------------------------
             // Universal Pipeline keywords
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Version.hlsl"
             #if VERSION_GREATER_EQUAL(11, 0)
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
             #else
@@ -145,10 +151,10 @@
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
             #endif
             #pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
-            #pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
-            #pragma multi_compile_fragment _ _SHADOWS_SOFT
             #pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
             #pragma multi_compile _ SHADOWS_SHADOWMASK
+            #pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
+            #pragma multi_compile_fragment _ _SHADOWS_SOFT
             #pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
             #if VERSION_GREATER_EQUAL(12, 0)
             #pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
@@ -156,19 +162,24 @@
             #pragma multi_compile_fragment _ _LIGHT_COOKIES
             #pragma multi_compile _ _CLUSTERED_RENDERING
             #endif
+            #if VERSION_GREATER_EQUAL(14, 0)
+            #pragma multi_compile _ _FORWARD_PLUS
+            #pragma multi_compile_fragment _ _WRITE_RENDERING_LAYERS
+            #endif
 
             // -------------------------------------
             // Unity defined keywords
             #pragma multi_compile _ DIRLIGHTMAP_COMBINED
             #pragma multi_compile _ LIGHTMAP_ON
             #pragma multi_compile_fog
-            #if VERSION_GREATER_EQUAL(12, 0)
-            // #pragma multi_compile _ DYNAMICLIGHTMAP_ON
-            #pragma multi_compile_fragment _ DEBUG_DISPLAY
-            #endif
-
             #pragma multi_compile_instancing
+            #if VERSION_GREATER_EQUAL(14, 0)
+            #pragma multi_compile _ DYNAMICLIGHTMAP_ON
+            #pragma multi_compile_fragment _ DEBUG_DISPLAY
+            #pragma instancing_options norenderinglayer assumeuniformscaling nomatrices nolightprobe nolightmap
+            #else
             #pragma instancing_options assumeuniformscaling nomatrices nolightprobe nolightmap
+            #endif
 
             #pragma shader_feature_local_fragment _TERRAIN_BLEND_HEIGHT
             #pragma shader_feature_local _NORMALMAP
@@ -210,12 +221,7 @@
             #pragma fragment ShadowPassFragment
 
             #pragma multi_compile_instancing
-            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Version.hlsl"
-            #if VERSION_GREATER_EQUAL(12, 0)
-            #pragma instancing_options norenderinglayer assumeuniformscaling nomatrices nolightprobe nolightmap
-            #else
             #pragma instancing_options assumeuniformscaling nomatrices nolightprobe nolightmap
-            #endif
 
             // -------------------------------------
             // Universal Pipeline keywords
@@ -286,7 +292,7 @@
             #pragma instancing_options assumeuniformscaling nomatrices nolightprobe nolightmap
 
             #include "Packages/com.unity.render-pipelines.universal/Shaders/Terrain/TerrainLitInput.hlsl"
-            #if VERSION_GREATER_EQUAL(12, 1)
+            #if VERSION_GREATER_EQUAL(12, 0)
             #include "Packages/com.unity.render-pipelines.universal/Shaders/Terrain/TerrainLitDepthNormalsPass.hlsl"
             #else
             #include "Packages/com.unity.render-pipelines.universal/Shaders/Terrain/TerrainLitPasses.hlsl"

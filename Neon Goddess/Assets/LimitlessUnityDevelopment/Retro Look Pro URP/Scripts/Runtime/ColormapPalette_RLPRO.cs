@@ -86,6 +86,8 @@ public class ColormapPalette_RLPRO : ScriptableRendererFeature
 
             var stack = VolumeManager.instance.stack;
             retroEffect = stack.GetComponent<ColormapPalette>();
+            if (!renderingData.cameraData.postProcessEnabled && retroEffect.GlobalPostProcessingSettings.value) return;
+
             if (retroEffect == null) { return; }
             if (!retroEffect.IsActive()) { return; }
 

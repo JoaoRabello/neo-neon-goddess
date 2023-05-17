@@ -25,7 +25,11 @@ public class EdgeStretch : VolumeComponent, IPostProcessComponent
 	public ClampedFloatParameter speed = new ClampedFloatParameter(0.2f, 0.0f, 50f);
 	[Tooltip("Enable noise distortion random frequency.")]
 	public BoolParameter distortRandomly = new BoolParameter(true);
-	public bool IsActive() => (bool)enable;
+    [Space]
+    [Tooltip("Use Global Post Processing Settings to enable or disable Post Processing in scene view or via camera setup. THIS SETTING SHOULD BE TURNED OFF FOR EFFECTS, IN CASE OF USING THEM FOR SEPARATE LAYERS")]
+    public BoolParameter GlobalPostProcessingSettings = new BoolParameter(false);
+
+    public bool IsActive() => (bool)enable;
 
     public bool IsTileCompatible() => false;
 }

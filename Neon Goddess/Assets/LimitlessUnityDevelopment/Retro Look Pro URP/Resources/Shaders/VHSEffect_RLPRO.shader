@@ -10,7 +10,6 @@ Shader "Hidden/Shader/VHSEffect_RLPRO"
 	#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
 	#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Filtering.hlsl"
 	#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-	#include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
 	SAMPLER(_MainTex);
 #pragma shader_feature ALPHA_CHANNEL
 	sampler2D _Mask;
@@ -52,6 +51,29 @@ Shader "Hidden/Shader/VHSEffect_RLPRO"
 	float tileY = 0;
 	float smooth1 = 0;
 	float Time;
+		        struct Attributes
+        {
+            float4 positionOS       : POSITION;
+            float2 uv               : TEXCOORD0;
+        };
+
+        struct Varyings
+        {
+            float2 uv        : TEXCOORD0;
+            float4 positionCS : SV_POSITION;
+            UNITY_VERTEX_OUTPUT_STEREO
+        };
+        Varyings Vert(Attributes input)
+        {
+            Varyings output = (Varyings)0;
+            UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+            VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+            output.positionCS = vertexInput.positionCS;
+            output.uv = input.uv;
+
+            return output;
+        }
 	#define unity_ColorSpaceLuminance half4(0.0396819152, 0.458021790, 0.00609653955, 1.0) 
 	float smoothCut(float colR) {
 		if (smooth1)

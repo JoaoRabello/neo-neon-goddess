@@ -1,18 +1,45 @@
 Shader "Hidden/Shader/PulsatingVignetteEffect_RLPRO"
 {
+	        Properties
+    {
+        _MainTex("Texture", 2D) = "white" {}
+    }
+
     HLSLINCLUDE
 
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Filtering.hlsl"
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-#include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
-		SAMPLER(_InputTexture);
+
+		SAMPLER(_MainTex);
 
 	float vignetteAmount = 1.0;
 	float vignetteSpeed = 1.0;
 	float Time = 0.0;
+		        struct Attributes
+        {
+            float4 positionOS       : POSITION;
+            float2 uv               : TEXCOORD0;
+        };
 
+        struct Varyings
+        {
+            float2 uv        : TEXCOORD0;
+            float4 positionCS : SV_POSITION;
+            UNITY_VERTEX_OUTPUT_STEREO
+        };
+        Varyings Vert(Attributes input)
+        {
+            Varyings output = (Varyings)0;
+            UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+            VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+            output.positionCS = vertexInput.positionCS;
+            output.uv = input.uv;
+
+            return output;
+        }
 	float vignette(float2 uv, float t)
 	{
 		float vigAmt = 2.5 + 0.1 * sin(t + 5.0 * cos(t * 5.0));
@@ -26,7 +53,7 @@ Shader "Hidden/Shader/PulsatingVignetteEffect_RLPRO"
 		UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
 
 		float2 p = i.uv;
-		float4 col = tex2D(_InputTexture,p);
+		float4 col = tex2D(_MainTex,p);
 		col.rgb *= vignette(p, Time * vignetteSpeed);
 		return half4(col);
 

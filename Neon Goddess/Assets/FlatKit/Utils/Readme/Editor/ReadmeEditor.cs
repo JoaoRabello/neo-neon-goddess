@@ -11,8 +11,7 @@ public class ReadmeEditor : Editor {
 
     private static readonly GUID UnityPackageUrpGuid = new GUID("41e59f562b69648719f2424c438758f3");
     private static readonly GUID UnityPackageBuiltInGuid = new GUID("f4227764308e84f89a765fbf315e2945");
-    private static readonly GUID UrpPipelineAssetGuid = new GUID("ecbd363870e07455ea237f5753668d30");
-    
+
     // 2b85f0b7-3248-4e28-8900-a861e01241ba
     // 95b02117-de66-49f0-91e7-cc5f4291cf90
 

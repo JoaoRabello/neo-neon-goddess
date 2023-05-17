@@ -11,7 +11,6 @@ Shader "Hidden/Shader/EdgeStretchEffect_RLPRO"
     #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
     #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Filtering.hlsl"
     #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-    #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
 
     SAMPLER(_MainTex);
 	float amplitude;
@@ -23,7 +22,29 @@ Shader "Hidden/Shader/EdgeStretchEffect_RLPRO"
 	#pragma shader_feature bottom_ON
 	#pragma shader_feature left_ON
 	#pragma shader_feature right_ON
+		        struct Attributes
+        {
+            float4 positionOS       : POSITION;
+            float2 uv               : TEXCOORD0;
+        };
 
+        struct Varyings
+        {
+            float2 uv        : TEXCOORD0;
+            float4 positionCS : SV_POSITION;
+            UNITY_VERTEX_OUTPUT_STEREO
+        };
+        Varyings Vert(Attributes input)
+        {
+            Varyings output = (Varyings)0;
+            UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+            VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+            output.positionCS = vertexInput.positionCS;
+            output.uv = input.uv;
+
+            return output;
+        }
 	float onOff(float a, float b, float c, float t)
 	{
 		return step(c, sin(t + a * cos(t * b)));
