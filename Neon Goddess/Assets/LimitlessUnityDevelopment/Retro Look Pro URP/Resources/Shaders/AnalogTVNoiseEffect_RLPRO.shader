@@ -9,9 +9,7 @@ Shader "Hidden/Shader/AnalogTVNoiseEffect_RLPRO"
 
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
-        #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Filtering.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-        #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
         struct Attributes1
     {
         uint vertexID : SV_VertexID;
@@ -110,6 +108,7 @@ Shader "Hidden/Shader/AnalogTVNoiseEffect_RLPRO"
             HLSLPROGRAM
                 #pragma fragment CustomPostProcess
                 #pragma vertex Vert1
+                
             ENDHLSL
         }
     }

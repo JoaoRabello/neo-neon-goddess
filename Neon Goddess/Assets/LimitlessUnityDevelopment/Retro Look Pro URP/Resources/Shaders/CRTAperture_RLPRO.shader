@@ -10,7 +10,6 @@ Shader "Hidden/Shader/CRTAperture_RLPRO"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Filtering.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-        #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
 	
 	#define FIX(c) max(abs(c), 1e-5)
 	#define saturate(c) clamp(c, 0.0, 1.0)
@@ -19,7 +18,29 @@ Shader "Hidden/Shader/CRTAperture_RLPRO"
 	SAMPLER(sampler_Mask);
 	float _FadeMultiplier;
 	#pragma shader_feature ALPHA_CHANNEL
+		        struct Attributes
+        {
+            float4 positionOS       : POSITION;
+            float2 uv               : TEXCOORD0;
+        };
 
+        struct Varyings
+        {
+            float2 uv        : TEXCOORD0;
+            float4 positionCS : SV_POSITION;
+            UNITY_VERTEX_OUTPUT_STEREO
+        };
+        Varyings Vert(Attributes input)
+        {
+            Varyings output = (Varyings)0;
+            UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+            VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+            output.positionCS = vertexInput.positionCS;
+            output.uv = input.uv;
+
+            return output;
+        }
 	float GLOW_HALATION = 0.1;
 	float GLOW_DIFFUSION = 0.05;
 	float MASK_COLORS = 2.0;

@@ -10,7 +10,6 @@ Shader "Hidden/Shader/VHSScanlinesEffect_RLPRO"
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Filtering.hlsl"
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-#include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
 		SAMPLER(_MainTex);
 	TEXTURE2D(_Mask);
 	SAMPLER(sampler_Mask);
@@ -28,7 +27,29 @@ Shader "Hidden/Shader/VHSScanlinesEffect_RLPRO"
 	float _OffsetColor;
 	float2 _OffsetColorAngle;
 	float Time;
+		        struct Attributes
+        {
+            float4 positionOS       : POSITION;
+            float2 uv               : TEXCOORD0;
+        };
 
+        struct Varyings
+        {
+            float2 uv        : TEXCOORD0;
+            float4 positionCS : SV_POSITION;
+            UNITY_VERTEX_OUTPUT_STEREO
+        };
+        Varyings Vert(Attributes input)
+        {
+            Varyings output = (Varyings)0;
+            UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+            VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+            output.positionCS = vertexInput.positionCS;
+            output.uv = input.uv;
+
+            return output;
+        }
 		float2 FisheyeDistortion(float2 coord, float spherical, float barrel, float scale)
 	{
 		float2 h = coord.xy - float2(0.5, 0.5);

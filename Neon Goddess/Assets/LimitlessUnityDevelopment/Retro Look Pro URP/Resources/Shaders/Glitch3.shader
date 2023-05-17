@@ -9,7 +9,6 @@
     #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
     #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Filtering.hlsl"
     #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-    #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
     TEXTURE2D(_MainTex);
     SAMPLER(sampler_MainTex);
     TEXTURE2D(_Mask);
@@ -21,7 +20,29 @@
     float blockSize;
     float maxOffsetX;
     float maxOffsetY;
+    	        struct Attributes
+        {
+            float4 positionOS       : POSITION;
+            float2 uv               : TEXCOORD0;
+        };
 
+        struct Varyings
+        {
+            float2 uv        : TEXCOORD0;
+            float4 positionCS : SV_POSITION;
+            UNITY_VERTEX_OUTPUT_STEREO
+        };
+        Varyings Vert(Attributes input)
+        {
+            Varyings output = (Varyings)0;
+            UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+            VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+            output.positionCS = vertexInput.positionCS;
+            output.uv = input.uv;
+
+            return output;
+        }
     inline float rand(float2 seed)
     {
         return frac(sin(dot(seed * floor(_Time.y * speed), float2(127.1, 311.7))) * 43758.5453123);

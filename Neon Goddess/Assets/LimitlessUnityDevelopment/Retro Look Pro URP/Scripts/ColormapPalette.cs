@@ -31,7 +31,9 @@ public class ColormapPalette : VolumeComponent, IPostProcessComponent
 	[Tooltip("Mask texture")]
 	public TextureParameter mask = new TextureParameter(null);
 	public maskChannelModeParameter maskChannel = new maskChannelModeParameter();
+    [Space]
+    [Tooltip("Use Global Post Processing Settings to enable or disable Post Processing in scene view or via camera setup. THIS SETTING SHOULD BE TURNED OFF FOR EFFECTS, IN CASE OF USING THEM FOR SEPARATE LAYERS")]
+    public BoolParameter GlobalPostProcessingSettings = new BoolParameter(false);
 
-
-	public bool IsTileCompatible() => false;
+    public bool IsTileCompatible() => false;
 }

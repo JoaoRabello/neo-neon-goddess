@@ -10,7 +10,6 @@ Shader "Hidden/Shader/PictureCorrectionEffect_RLPRO"
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Filtering.hlsl"
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-#include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
 		SAMPLER(_MainTex);
 #pragma shader_feature ALPHA_CHANNEL
 	TEXTURE2D(_Mask);
@@ -25,6 +24,29 @@ Shader "Hidden/Shader/PictureCorrectionEffect_RLPRO"
 	float signalShiftI = 0.0;
 	float signalShiftQ = 0.0;
 	float gammaCorection = 1.0;
+		        struct Attributes
+        {
+            float4 positionOS       : POSITION;
+            float2 uv               : TEXCOORD0;
+        };
+
+        struct Varyings
+        {
+            float2 uv        : TEXCOORD0;
+            float4 positionCS : SV_POSITION;
+            UNITY_VERTEX_OUTPUT_STEREO
+        };
+        Varyings Vert(Attributes input)
+        {
+            Varyings output = (Varyings)0;
+            UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+            VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+            output.positionCS = vertexInput.positionCS;
+            output.uv = input.uv;
+
+            return output;
+        }
 	half3 rgb2yiq(half3 c) {
 		return half3(
 			(0.2989 * c.x + 0.5959 * c.y + 0.2115 * c.z),

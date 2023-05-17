@@ -78,10 +78,11 @@ public class Jitter_RLPRO : ScriptableRendererFeature
 				Debug.LogError("Material not created.");
 				return;
 			}
-
-			var stack = VolumeManager.instance.stack;
+            var stack = VolumeManager.instance.stack;
 			retroEffect = stack.GetComponent<Jitter>();
-			if (retroEffect == null) { return; }
+            if (!renderingData.cameraData.postProcessEnabled && retroEffect.GlobalPostProcessingSettings.value) return;
+
+            if (retroEffect == null) { return; }
 			if (!retroEffect.IsActive()) { return; }
 
 			var cmd = CommandBufferPool.Get(k_RenderTag);

@@ -83,9 +83,10 @@ public class Glitch1 : ScriptableRendererFeature
                 Debug.LogError("Material not created.");
                 return;
             }
-
             var stack = VolumeManager.instance.stack;
             glitch1 = stack.GetComponent<LimitlessGlitch1>();
+            if (!renderingData.cameraData.postProcessEnabled && glitch1.GlobalPostProcessingSettings.value) return;
+
             if (glitch1 == null) { return; }
             if (!glitch1.IsActive()) { return; }
 

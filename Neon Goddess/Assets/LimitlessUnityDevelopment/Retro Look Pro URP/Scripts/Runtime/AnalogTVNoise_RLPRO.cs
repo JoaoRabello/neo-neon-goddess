@@ -86,10 +86,11 @@ public class AnalogTVNoise_RLPRO : ScriptableRendererFeature
 				Debug.LogError("Material not created.");
 				return;
 			}
-
-			var stack = VolumeManager.instance.stack;
+            var stack = VolumeManager.instance.stack;
 			retroEffect = stack.GetComponent<AnalogTVNoise>();
-			if (retroEffect == null) { return; }
+            if (!renderingData.cameraData.postProcessEnabled && retroEffect.GlobalPostProcessingSettings.value) return;
+
+            if (retroEffect == null) { return; }
 			if (!retroEffect.IsActive()) { return; }
 
 			var cmd = CommandBufferPool.Get(k_RenderTag);

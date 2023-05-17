@@ -76,10 +76,11 @@ public class TVEffect_RLPRO : ScriptableRendererFeature
 				Debug.LogError("Material not created.");
 				return;
 			}
-
-			var stack = VolumeManager.instance.stack;
+            var stack = VolumeManager.instance.stack;
 			retroEffect = stack.GetComponent<TVEffect>();
-			if (retroEffect == null) { return; }
+            if (!renderingData.cameraData.postProcessEnabled && retroEffect.GlobalPostProcessingSettings.value) return;
+
+            if (retroEffect == null) { return; }
 			if (!retroEffect.IsActive()) { return; }
 
 			var cmd = CommandBufferPool.Get(k_RenderTag);
@@ -92,7 +93,8 @@ public class TVEffect_RLPRO : ScriptableRendererFeature
 		{
 			this.currentTarget = currentTarget;
 		}
-
+	
+		float scaler;
 		void Render(CommandBuffer cmd, ref RenderingData renderingData)
 		{
 			ref var cameraData = ref renderingData.cameraData;
@@ -108,7 +110,15 @@ public class TVEffect_RLPRO : ScriptableRendererFeature
 			RetroEffectMaterial.SetFloat(scale, retroEffect.scale.value);
 			RetroEffectMaterial.SetFloat(hardScan, retroEffect.hardScan.value);
 			RetroEffectMaterial.SetFloat(hardPix, retroEffect.hardPix.value);
-			RetroEffectMaterial.SetFloat(resScale, retroEffect.resScale.value);
+
+			if (retroEffect.ScaleWithActualScreenSize.value)
+				scaler = retroEffect.resScale.value * (Screen.height * (Screen.width / Screen.height) / 1000f);
+			else
+				scaler = retroEffect.resScale.value;
+
+
+
+            RetroEffectMaterial.SetFloat(resScale, scaler);
 			RetroEffectMaterial.SetFloat(maskDark, retroEffect.maskDark.value);
 			RetroEffectMaterial.SetFloat(maskLight, retroEffect.maskLight.value);
 			RetroEffectMaterial.SetVector(warp, retroEffect.warp.value);
@@ -132,7 +142,12 @@ public class TVEffect_RLPRO : ScriptableRendererFeature
 			if (paramValue) mat.EnableKeyword(paramName);
 			else mat.DisableKeyword(paramName);
 		}
+        private float GetScale(int width, int height, Vector2 scalerReferenceResolution, float scalerMatchWidthOrHeight)
+        {
+            return Mathf.Pow(width / scalerReferenceResolution.x, 1f - scalerMatchWidthOrHeight) *
+                   Mathf.Pow(height / scalerReferenceResolution.y, scalerMatchWidthOrHeight);
+        }
 
-	}
+    }
 
 }

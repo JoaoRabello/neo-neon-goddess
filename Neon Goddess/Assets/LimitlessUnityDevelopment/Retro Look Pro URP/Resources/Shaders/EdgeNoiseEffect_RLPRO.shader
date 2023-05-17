@@ -10,7 +10,6 @@ Shader "Hidden/Shader/EdgeNoiseEffect_RLPRO"
     #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
     #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Filtering.hlsl"
     #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-    #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
 
 	SAMPLER(_MainTex);
 	SAMPLER(_NoiseTexture);
