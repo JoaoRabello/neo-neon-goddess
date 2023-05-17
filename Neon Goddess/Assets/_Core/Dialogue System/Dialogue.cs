@@ -40,23 +40,39 @@ public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
         }
     }
 
+#if UNITY_EDITOR
     public void CreateNode(DialogueNode parentNode)
+    {
+        var newNode = BuildNode(parentNode);
+        Undo.RegisterCreatedObjectUndo(newNode, "Created Dialogue Node");
+        Undo.RecordObject(this, "Added Dialogue Node");
+
+        AddNode(newNode);
+    }
+
+    private static DialogueNode BuildNode(DialogueNode parentNode)
     {
         var newNode = CreateInstance<DialogueNode>();
         newNode.name = Guid.NewGuid().ToString();
-        
-        Undo.RegisterCreatedObjectUndo(newNode, "Created Dialogue Node");
 
         if (parentNode != null)
         {
-            parentNode.Children.Add(newNode.name);
+            parentNode.AddChild(newNode.name);
         }
+
+        return newNode;
+    }
+    
+    private void AddNode(DialogueNode newNode)
+    {
         _nodes.Add(newNode);
         OnValidate();
     }
 
     public void DeleteNode(DialogueNode nodeToDelete)
     {
+        Undo.RecordObject(this, "Deleted Dialogue Node");
+
         _nodes.Remove(nodeToDelete);
         OnValidate();
         ClearDanglingChildren(nodeToDelete);
@@ -68,15 +84,18 @@ public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
     {
         foreach (var node in GetAllNodes())
         {
-            node.Children.Remove(nodeToDelete.name);
+            node.RemoveChild(nodeToDelete.name);
         }
     }
+#endif
 
     public void OnBeforeSerialize()
     {
+#if UNITY_EDITOR
         if (_nodes.Count == 0)
         {
-            CreateNode(null);
+            var newNode = BuildNode(null);
+            AddNode(newNode);
         }
         
         if (AssetDatabase.GetAssetPath(this) != "")
@@ -89,10 +108,10 @@ public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
                 }
             }
         }
+#endif
     }
 
     public void OnAfterDeserialize()
     {
-        throw new NotImplementedException();
     }
 }

@@ -90,13 +90,11 @@ public class DialogueEditor : EditorWindow
 
         if (_creatingNode is not null)
         {
-            Undo.RecordObject(_selectedDialogue, "Added Dialogue Node");
             _selectedDialogue.CreateNode(_creatingNode);
             _creatingNode = null;
         }
         if (_deletingNode is not null)
         {
-            Undo.RecordObject(_selectedDialogue, "Deleted Dialogue Node");
             _selectedDialogue.DeleteNode(_deletingNode);
             _deletingNode = null;
         }
@@ -104,11 +102,11 @@ public class DialogueEditor : EditorWindow
 
     private void DrawConnections(DialogueNode node)
     {
-        var startPosition = new Vector2(node.Rect.xMax, node.Rect.center.y);
+        var startPosition = new Vector2(node.NodeRect.xMax, node.NodeRect.center.y);
 
         foreach (var childNode in _selectedDialogue.GetAllChildren(node))
         {
-            var endPosition = new Vector2(childNode.Rect.xMin, childNode.Rect.center.y);
+            var endPosition = new Vector2(childNode.NodeRect.xMin, childNode.NodeRect.center.y);
             var controlPointOffset = endPosition - startPosition;
             controlPointOffset.y = 0;
             controlPointOffset.x *= 0.8f;
@@ -127,7 +125,7 @@ public class DialogueEditor : EditorWindow
 
             if (_draggingNode != null)
             {
-                _draggingOffset = _draggingNode.Rect.position - Event.current.mousePosition;
+                _draggingOffset = _draggingNode.NodeRect.position - Event.current.mousePosition;
                 Selection.activeObject = _draggingNode;
             }
             else
@@ -140,8 +138,7 @@ public class DialogueEditor : EditorWindow
         }
         else if (Event.current.type == EventType.MouseDrag && _draggingNode is not null)
         {
-            Undo.RecordObject(_selectedDialogue, "Move Dialogue Node");
-            _draggingNode.Rect.position = Event.current.mousePosition + _draggingOffset;
+            _draggingNode.SetPosition(Event.current.mousePosition + _draggingOffset);
             GUI.changed = true;
         }
         else if (Event.current.type == EventType.MouseDrag && _isDraggingCanvas)
@@ -165,7 +162,7 @@ public class DialogueEditor : EditorWindow
         DialogueNode foundNode = null;
         foreach (var node in _selectedDialogue.GetAllNodes())
         {
-            if (node.Rect.Contains(currentMousePosition))
+            if (node.NodeRect.Contains(currentMousePosition))
             {
                 foundNode =  node;
             }
@@ -176,16 +173,9 @@ public class DialogueEditor : EditorWindow
 
     private void OnDrawNode(DialogueNode node)
     {
-        GUILayout.BeginArea(node.Rect, _nodeStyle);
-        EditorGUI.BeginChangeCheck();
+        GUILayout.BeginArea(node.NodeRect, _nodeStyle);
 
-        var newText = EditorGUILayout.TextField(node.Text);
-
-        if (EditorGUI.EndChangeCheck())
-        {
-            Undo.RecordObject(_selectedDialogue, "Update Dialogue Text");
-            node.Text = newText;
-        }
+        node.SetText(EditorGUILayout.TextField(node.Text));
 
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("x"))
@@ -222,8 +212,7 @@ public class DialogueEditor : EditorWindow
         {
             if (GUILayout.Button("unlink"))
             {
-                Undo.RecordObject(_selectedDialogue, "Remove Dialogue Link");
-                _linkingParentNode.Children.Remove(node.name);
+                _linkingParentNode.RemoveChild(node.name);
                 _linkingParentNode = null;
             }
         }
@@ -231,8 +220,7 @@ public class DialogueEditor : EditorWindow
         {
             if (GUILayout.Button("child"))
             {
-                Undo.RecordObject(_selectedDialogue, "Add Dialogue Link");
-                _linkingParentNode.Children.Add(node.name);
+                _linkingParentNode.AddChild(node.name);
                 _linkingParentNode = null;
             }
         }
