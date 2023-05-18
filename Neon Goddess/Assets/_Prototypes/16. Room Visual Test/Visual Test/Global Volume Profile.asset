@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   mode:
     m_OverrideState: 1
     m_Value: 1
@@ -258,19 +258,19 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.3
   contrast:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 25
   colorFilter:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
     m_OverrideState: 1
-    m_Value: -25
+    m_Value: 10
   saturation:
     m_OverrideState: 1
-    m_Value: 15
+    m_Value: -15
 --- !u!114 &-2498313683906913111
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -550,7 +550,7 @@ MonoBehaviour:
   active: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.35
+    m_Value: 0.3
   intensity:
     m_OverrideState: 1
     m_Value: 1.5
@@ -561,8 +561,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 65472
   tint:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.781801, g: 0.8962264, b: 0.6468049, a: 1}
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
@@ -676,16 +676,16 @@ MonoBehaviour:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.0053050397
+          time: 0.009036144
           value: 0
-          inSlope: 0.5294942
-          outSlope: 0.5294942
+          inSlope: 0.28559145
+          outSlope: 0.28559145
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.64986736
+          time: 0.57530123
           value: 1
           inSlope: 1
           outSlope: 1
@@ -709,7 +709,7 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 1
+          inSlope: 0
           outSlope: 1
           tangentMode: 0
           weightedMode: 0
@@ -719,7 +719,7 @@ MonoBehaviour:
           time: 1
           value: 1
           inSlope: 1
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
