@@ -58,6 +58,7 @@ public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
         if (parentNode != null)
         {
             parentNode.AddChild(newNode.name);
+            newNode.SetPosition(parentNode.NodeRect.position + new Vector2(250, 0));
         }
 
         return newNode;
