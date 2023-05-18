@@ -95,6 +95,7 @@ public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
         if (_nodes.Count == 0)
         {
             var newNode = BuildNode(null);
+            newNode.SetAsRootNode();
             AddNode(newNode);
         }
         

@@ -173,15 +173,35 @@ public class DialogueEditor : EditorWindow
 
     private void OnDrawNode(DialogueNode node)
     {
-        GUILayout.BeginArea(node.NodeRect, _nodeStyle);
+        var nodeStyleCopy = new GUIStyle(_nodeStyle);
+        var characters = Resources.LoadAll<DialogueCharacter>("Characters");
+        var characterNames = new string[characters.Length];
+        var selectedCharacterIndex = 0;
+        for (var index = 0; index < characters.Length; index++)
+        {
+            var character = characters[index];
+            if (node.Character == character)
+            {
+                selectedCharacterIndex = index;
+            }
+            characterNames[index] = character.CharacterName;
+        }
+        if(node.IsRootNode)
+            nodeStyleCopy.normal.background = EditorGUIUtility.Load("node2") as Texture2D;
+        
+        GUILayout.BeginArea(node.NodeRect, nodeStyleCopy);
 
-        node.SetText(EditorGUILayout.TextField(node.Text));
+        int characterIndex = EditorGUILayout.Popup(selectedCharacterIndex, characterNames);
+        node.SetCharacter(characters[characterIndex]);
+        
+        node.SetText(EditorGUILayout.TextArea(node.Text));
 
         GUILayout.BeginHorizontal();
-        if (GUILayout.Button("x"))
-        {
-            _deletingNode = node;
-        }
+        if(!node.IsRootNode)
+            if (GUILayout.Button("x"))
+            {
+                _deletingNode = node;
+            }
         if (GUILayout.Button("+"))
         {
             _creatingNode = node;
@@ -189,6 +209,7 @@ public class DialogueEditor : EditorWindow
 
         DrawLinkButtons(node);
         GUILayout.EndHorizontal();
+        GUILayout.FlexibleSpace();
         GUILayout.EndArea();
     }
 
