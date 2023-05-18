@@ -16,7 +16,7 @@ public class StylizedSurfaceEditor : BaseShaderGUI {
     private MaterialProperty QueueOffsetProp { get; set; }
 
     private static readonly Dictionary<string, bool> FoldoutStates =
-        new Dictionary<string, bool> {{"Rendering options", false}};
+        new Dictionary<string, bool> { { "Rendering options", false } };
 
     private static readonly Color HashColor = new Color(0.85023f, 0.85034f, 0.85045f, 0.85056f);
     private static readonly int ColorPropertyName = Shader.PropertyToID("_BaseColor");
@@ -103,6 +103,8 @@ public class StylizedSurfaceEditor : BaseShaderGUI {
                             !_target.IsKeywordEnabled("DR_ENABLE_LIGHTMAP_DIR");
             skipProperty |= displayName.Contains("[DR_OUTLINE_ON]") &&
                             !_target.IsKeywordEnabled("DR_OUTLINE_ON");
+            skipProperty |= displayName.Contains("[_EMISSION]") &&
+                            !_target.IsKeywordEnabled("_EMISSION");
 
             if (_target.IsKeywordEnabled("DR_ENABLE_LIGHTMAP_DIR") &&
                 displayName.Contains("Override light direction")) {
@@ -174,12 +176,19 @@ public class StylizedSurfaceEditor : BaseShaderGUI {
             }
 
             if (!skipProperty && property.name.Contains("_EmissionMap")) {
+                EditorGUILayout.Space(10);
                 bool emission = materialEditor.EmissionEnabledProperty();
+                EditorGUILayout.Space(-15);
+                EditorGUI.indentLevel += 1;
                 if (emission) {
                     _target.EnableKeyword("_EMISSION");
                 } else {
                     _target.DisableKeyword("_EMISSION");
                 }
+            }
+
+            if (!skipProperty && property.name.Contains("_EmissionColor")) {
+                EditorGUI.indentLevel += 1;
             }
 
             bool hideInInspector = (property.flags & MaterialProperty.PropFlags.HideInInspector) != 0;
@@ -189,6 +198,7 @@ public class StylizedSurfaceEditor : BaseShaderGUI {
 
             if (!skipProperty && property.name.Contains("_EmissionColor")) {
                 EditorGUILayout.Space(15);
+                EditorGUI.indentLevel -= 1;
                 DrawTileOffset(materialEditor, FindProperty("_BaseMap"));
             }
 
@@ -215,14 +225,14 @@ public class StylizedSurfaceEditor : BaseShaderGUI {
             _target.DisableKeyword("_RECEIVE_SHADOWS_OFF");
         }
 
-        // Toggle the outline pass.
-        _target.SetShaderPassEnabled("SRPDefaultUnlit", _target.IsKeywordEnabled("DR_OUTLINE_ON"));
+        // Toggle the outline pass. Disabling by name `Outline` doesn't work.
+        _target.SetShaderPassEnabled("SRPDEFAULTUNLIT", _target.IsKeywordEnabled("DR_OUTLINE_ON"));
 
         /*
         if (HasProperty("_MainTex")) {
             TransferToBaseMap();
         }
-        //*/
+        */
     }
 
     // Adapted from BaseShaderGUI.cs.
@@ -242,54 +252,54 @@ public class StylizedSurfaceEditor : BaseShaderGUI {
             EditorGUI.BeginChangeCheck();
             var surfaceProp = FindProperty("_Surface");
             EditorGUI.showMixedValue = surfaceProp.hasMixedValue;
-            var surfaceType = (SurfaceType) surfaceProp.floatValue;
+            var surfaceType = (SurfaceType)surfaceProp.floatValue;
             EditorGUILayout.Separator();
-            surfaceType = (SurfaceType) EditorGUILayout.EnumPopup("Surface Type", surfaceType);
+            surfaceType = (SurfaceType)EditorGUILayout.EnumPopup("Surface Type", surfaceType);
             if (EditorGUI.EndChangeCheck()) {
                 materialEditor.RegisterPropertyChangeUndo("Surface Type");
-                surfaceProp.floatValue = (float) surfaceType;
+                surfaceProp.floatValue = (float)surfaceType;
             }
 
             if (surfaceType == SurfaceType.Opaque) {
                 if (alphaClip) {
-                    material.renderQueue = (int) UnityEngine.Rendering.RenderQueue.AlphaTest;
+                    material.renderQueue = (int)UnityEngine.Rendering.RenderQueue.AlphaTest;
                     material.SetOverrideTag("RenderType", "TransparentCutout");
                 } else {
-                    material.renderQueue = (int) UnityEngine.Rendering.RenderQueue.Geometry;
+                    material.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Geometry;
                     material.SetOverrideTag("RenderType", "Opaque");
                 }
 
                 material.renderQueue +=
-                    material.HasProperty("_QueueOffset") ? (int) material.GetFloat("_QueueOffset") : 0;
-                material.SetInt("_SrcBlend", (int) UnityEngine.Rendering.BlendMode.One);
-                material.SetInt("_DstBlend", (int) UnityEngine.Rendering.BlendMode.Zero);
+                    material.HasProperty("_QueueOffset") ? (int)material.GetFloat("_QueueOffset") : 0;
+                material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
                 material.SetInt("_ZWrite", 1);
                 material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
                 material.SetShaderPassEnabled("ShadowCaster", true);
             } else // Transparent
             {
-                BlendMode blendMode = (BlendMode) material.GetFloat("_Blend");
+                BlendMode blendMode = (BlendMode)material.GetFloat("_Blend");
 
                 // Specific Transparent Mode Settings
                 switch (blendMode) {
                     case BlendMode.Alpha:
-                        material.SetInt("_SrcBlend", (int) UnityEngine.Rendering.BlendMode.SrcAlpha);
-                        material.SetInt("_DstBlend", (int) UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                        material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                        material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
                         material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
                         break;
                     case BlendMode.Premultiply:
-                        material.SetInt("_SrcBlend", (int) UnityEngine.Rendering.BlendMode.One);
-                        material.SetInt("_DstBlend", (int) UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                        material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                        material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
                         material.EnableKeyword("_ALPHAPREMULTIPLY_ON");
                         break;
                     case BlendMode.Additive:
-                        material.SetInt("_SrcBlend", (int) UnityEngine.Rendering.BlendMode.SrcAlpha);
-                        material.SetInt("_DstBlend", (int) UnityEngine.Rendering.BlendMode.One);
+                        material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                        material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.One);
                         material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
                         break;
                     case BlendMode.Multiply:
-                        material.SetInt("_SrcBlend", (int) UnityEngine.Rendering.BlendMode.DstColor);
-                        material.SetInt("_DstBlend", (int) UnityEngine.Rendering.BlendMode.Zero);
+                        material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.DstColor);
+                        material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
                         material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
                         material.EnableKeyword("_ALPHAMODULATE_ON");
                         break;
@@ -298,9 +308,9 @@ public class StylizedSurfaceEditor : BaseShaderGUI {
                 // General Transparent Material Settings
                 material.SetOverrideTag("RenderType", "Transparent");
                 material.SetInt("_ZWrite", 0);
-                material.renderQueue = (int) UnityEngine.Rendering.RenderQueue.Transparent;
+                material.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
                 material.renderQueue +=
-                    material.HasProperty("_QueueOffset") ? (int) material.GetFloat("_QueueOffset") : 0;
+                    material.HasProperty("_QueueOffset") ? (int)material.GetFloat("_QueueOffset") : 0;
                 material.SetShaderPassEnabled("ShadowCaster", false);
             }
 
@@ -309,11 +319,11 @@ public class StylizedSurfaceEditor : BaseShaderGUI {
                 EditorGUI.BeginChangeCheck();
                 var blendModeProp = FindProperty("_Blend");
                 EditorGUI.showMixedValue = blendModeProp.hasMixedValue;
-                var blendMode = (BlendMode) blendModeProp.floatValue;
-                blendMode = (BlendMode) EditorGUILayout.EnumPopup("Blend Mode", blendMode);
+                var blendMode = (BlendMode)blendModeProp.floatValue;
+                blendMode = (BlendMode)EditorGUILayout.EnumPopup("Blend Mode", blendMode);
                 if (EditorGUI.EndChangeCheck()) {
                     materialEditor.RegisterPropertyChangeUndo("Blend Mode");
-                    blendModeProp.floatValue = (float) blendMode;
+                    blendModeProp.floatValue = (float)blendMode;
                 }
             }
         }
@@ -324,12 +334,12 @@ public class StylizedSurfaceEditor : BaseShaderGUI {
             EditorGUI.BeginChangeCheck();
             var cullingProp = FindProperty("_Cull");
             EditorGUI.showMixedValue = cullingProp.hasMixedValue;
-            var culling = (RenderFace) cullingProp.floatValue;
-            culling = (RenderFace) EditorGUILayout.EnumPopup("Render Faces", culling);
+            var culling = (RenderFace)cullingProp.floatValue;
+            culling = (RenderFace)EditorGUILayout.EnumPopup("Render Faces", culling);
             if (EditorGUI.EndChangeCheck()) {
                 materialEditor.RegisterPropertyChangeUndo("Render Faces");
-                cullingProp.floatValue = (float) culling;
-                material.doubleSidedGI = (RenderFace) cullingProp.floatValue != RenderFace.Front;
+                cullingProp.floatValue = (float)culling;
+                material.doubleSidedGI = (RenderFace)cullingProp.floatValue != RenderFace.Front;
             }
         }
 
@@ -410,7 +420,7 @@ public class StylizedSurfaceEditor : BaseShaderGUI {
         Debug.Log(string.Format("Texture saved as: {0}", fullPath));
 
         string pathRelativeToAssets = ConvertFullPathToAssetPath(fullPath);
-        TextureImporter importer = (TextureImporter) TextureImporter.GetAtPath(pathRelativeToAssets);
+        TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath(pathRelativeToAssets);
         if (importer != null) {
             importer.filterMode = filterMode;
             importer.textureType = TextureImporterType.SingleChannel;

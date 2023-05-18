@@ -2,10 +2,6 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-// TODO: Remove for URP 13.
-// https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@13.1/manual/upgrade-guide-2022-1.html
-#pragma warning disable CS0618
-
 namespace FlatKit {
 public class FlatKitFog : ScriptableRendererFeature {
     [Tooltip("To create new settings use 'Create > FlatKit > Fog Settings'.")]
@@ -15,8 +11,6 @@ public class FlatKitFog : ScriptableRendererFeature {
     private Material _effectMaterial;
 
     private BlitTexturePass _blitTexturePass;
-
-    private RenderTargetHandle _fogTexture;
 
     private Texture2D _lutDepth;
     private Texture2D _lutHeight;
@@ -37,55 +31,53 @@ public class FlatKitFog : ScriptableRendererFeature {
     private static readonly int DistanceHeightBlend = Shader.PropertyToID("_DistanceHeightBlend");
 
     public override void Create() {
+#if UNITY_EDITOR
+        if (_effectMaterial == null) {
+            AlwaysIncludedShaders.Add(BlitTexturePass.CopyEffectShaderName);
+            AlwaysIncludedShaders.Add(FogShaderName);
+        }
+#endif
+
         if (settings == null) {
-            Debug.LogWarning("[FlatKit] Missing Fog Settings");
             return;
         }
 
-        _blitTexturePass = new BlitTexturePass() {
-            renderPassEvent = settings.renderEvent
-        };
+        if (!CreateMaterials()) {
+            return;
+        }
 
-        _fogTexture.Init("_EffectTexture");
+        SetMaterialProperties();
+
+        _blitTexturePass = new BlitTexturePass(_effectMaterial, useDepth: true, useNormals: false, useColor: false);
+    }
+
+    protected override void Dispose(bool disposing) {
+        _blitTexturePass.Dispose();
     }
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData) {
 #if UNITY_EDITOR
-        if (renderingData.cameraData.isPreviewCamera) {
-            return;
-        }
+        if (renderingData.cameraData.isPreviewCamera) return;
+        if (!settings.applyInSceneView && renderingData.cameraData.cameraType == CameraType.SceneView) return;
 #endif
 
-        if (settings == null) {
-            Debug.LogWarning("[FlatKit] Missing Fog Settings");
-            return;
-        }
-
-        if (!CreateMaterials()) return;
         SetMaterialProperties();
 
-        _blitTexturePass.Setup(_effectMaterial, useDepth: true, useNormals: false, useColor: false);
+        _blitTexturePass.Setup(renderingData);
+        _blitTexturePass.renderPassEvent = settings.renderEvent;
+
         renderer.EnqueuePass(_blitTexturePass);
     }
-
-#if UNITY_2020_3_OR_NEWER
-    protected override void Dispose(bool disposing) {
-        CoreUtils.Destroy(_effectMaterial);
-    }
-#endif
 
     private bool CreateMaterials() {
         if (_effectMaterial == null) {
             var effectShader = Shader.Find(FogShaderName);
             var blitShader = Shader.Find(BlitTexturePass.CopyEffectShaderName);
-            // Prevents Unity error on first import.
             if (effectShader == null || blitShader == null) return false;
             _effectMaterial = CoreUtils.CreateEngineMaterial(effectShader);
         }
 
-        Debug.Assert(_effectMaterial != null, $"[Flat Kit] Missing Material {FogShaderName}");
-
-        return true;
+        return _effectMaterial != null;
     }
 
     private void SetMaterialProperties() {
@@ -108,7 +100,6 @@ public class FlatKitFog : ScriptableRendererFeature {
         _effectMaterial.SetFloat(UseHeightFog, settings.useHeight ? 1f : 0f);
         _effectMaterial.SetFloat(UseHeightFogOnSky, settings.useHeightFogOnSky ? 1f : 0f);
         _effectMaterial.SetFloat(HeightFogIntensity, settings.heightFogIntensity);
-
         _effectMaterial.SetFloat(DistanceHeightBlend, settings.distanceHeightBlend);
     }
 

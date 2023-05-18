@@ -78,8 +78,10 @@ public class CRTAperture_RLPRO : ScriptableRendererFeature
                 return;
             }
 
+
             var stack = VolumeManager.instance.stack;
             retroEffect = stack.GetComponent<CRTAperture>();
+            if (!renderingData.cameraData.postProcessEnabled && retroEffect.GlobalPostProcessingSettings.value) return;
             if (retroEffect == null) { return; }
             if (!retroEffect.IsActive()) { return; }
 

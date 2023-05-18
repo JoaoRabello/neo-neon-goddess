@@ -1,13 +1,17 @@
 Shader "Hidden/Shader/UltimateVignetteEffect_RLPRO"
 {
+        Properties
+    {
+        _MainTex("Texture", 2D) = "white" {}
+    }
+
     HLSLINCLUDE
 
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Filtering.hlsl"
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-#include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
-        SAMPLER(_InputTexture);
+        SAMPLER(_MainTex);
     
     half4 _Params;
 	half3 _InnerColor;
@@ -16,12 +20,34 @@ Shader "Hidden/Shader/UltimateVignetteEffect_RLPRO"
 #pragma shader_feature VIGNETTE_SQUARE
 #pragma shader_feature VIGNETTE_ROUNDEDCORNERS
 	half2 _Params1;
+		        struct Attributes
+        {
+            float4 positionOS       : POSITION;
+            float2 uv               : TEXCOORD0;
+        };
 
+        struct Varyings
+        {
+            float2 uv        : TEXCOORD0;
+            float4 positionCS : SV_POSITION;
+            UNITY_VERTEX_OUTPUT_STEREO
+        };
+        Varyings Vert(Attributes input)
+        {
+            Varyings output = (Varyings)0;
+            UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+            VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+            output.positionCS = vertexInput.positionCS;
+            output.uv = input.uv;
+
+            return output;
+        }
 
 		float4 Frag(Varyings i) : SV_Target
 	{
 		UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
-	half4 color = tex2D(_InputTexture, i.uv);
+	half4 color = tex2D(_MainTex, i.uv);
 
 #if VIGNETTE_CIRCLE
 	half d = distance(i.uv, _Center.xy);
@@ -46,7 +72,7 @@ Shader "Hidden/Shader/UltimateVignetteEffect_RLPRO"
     {
         Pass
         {
-            Name "#NAME#"
+            Name "#UltimateVignetteEffect_RLPRO#"
 
 		Cull Off ZWrite Off ZTest Always
 

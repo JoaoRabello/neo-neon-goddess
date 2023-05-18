@@ -77,10 +77,11 @@ public class Glitch2 : ScriptableRendererFeature
 				Debug.LogError("Material not created.");
 				return;
 			}
-
-			var stack = VolumeManager.instance.stack;
+            var stack = VolumeManager.instance.stack;
 			Glitch2 = stack.GetComponent<LimitlessGlitch2>();
-			if (Glitch2 == null) { return; }
+            if (!renderingData.cameraData.postProcessEnabled && Glitch2.GlobalPostProcessingSettings.value) return;
+
+            if (Glitch2 == null) { return; }
 			if (!Glitch2.IsActive()) { return; }
 
 			var cmd = CommandBufferPool.Get(k_RenderTag);

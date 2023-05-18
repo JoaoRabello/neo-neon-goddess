@@ -64,7 +64,7 @@ public class Noise_RLPRO : ScriptableRendererFeature
 				return;
 			}
 			RetroEffectMaterial = CoreUtils.CreateEngineMaterial(shader);
-			texTape = RTHandles.Alloc(Vector2.one, TextureXR.slices, colorFormat: UnityEngine.Experimental.Rendering.GraphicsFormat.B10G11R11_UFloatPack32, dimension: TextureDimension.Tex2DArray, enableRandomWrite: true, useDynamicScale: true, name: "texLast");
+			//texTape = RTHandles.Alloc(Vector2.one, TextureXR.slices, colorFormat: UnityEngine.Experimental.Rendering.GraphicsFormat.B10G11R11_UFloatPack32, dimension: TextureDimension.Tex2DArray, enableRandomWrite: true, useDynamicScale: true, name: "texLast");
 		}
 #if UNITY_2019 || UNITY_2020
 
@@ -89,10 +89,11 @@ public class Noise_RLPRO : ScriptableRendererFeature
 				Debug.LogError("Material not created.");
 				return;
 			}
-
-			var stack = VolumeManager.instance.stack;
+            var stack = VolumeManager.instance.stack;
 			retroEffect = stack.GetComponent<Noise>();
-			if (retroEffect == null) { return; }
+            if (!renderingData.cameraData.postProcessEnabled && retroEffect.GlobalPostProcessingSettings.value) return;
+
+            if (retroEffect == null) { return; }
 			if (!retroEffect.IsActive()) { return; }
 
 			var cmd = CommandBufferPool.Get(k_RenderTag);
@@ -115,6 +116,7 @@ public class Noise_RLPRO : ScriptableRendererFeature
 			if (retroEffect.unscaledTime.value) { _time = Time.unscaledTime; }
 			else _time = Time.time;
 
+			cmd.GetTemporaryRT(destination, Screen.width, Screen.height, 0, FilterMode.Point, RenderTextureFormat.Default);
 			float screenLinesNum_ = retroEffect.stretchResolution.value;
 			if (screenLinesNum_ <= 0) screenLinesNum_ = Screen.height;
 
@@ -138,7 +140,6 @@ public class Noise_RLPRO : ScriptableRendererFeature
 
 			cmd.SetGlobalTexture(MainTexId, source);
 
-			cmd.GetTemporaryRT(destination, Screen.width, Screen.height, 0, FilterMode.Point, RenderTextureFormat.Default);
 			cmd.Blit(source, destination);
 
 

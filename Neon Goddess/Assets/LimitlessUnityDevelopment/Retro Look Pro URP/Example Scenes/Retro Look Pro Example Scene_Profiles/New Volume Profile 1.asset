@@ -28,6 +28,9 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 1
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-8346937513495881932
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -46,12 +49,15 @@ MonoBehaviour:
     m_Value: 1
   height:
     m_OverrideState: 1
-    m_Value: -58
+    m_Value: 288
   mask:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
   maskChannel:
-    m_OverrideState: 1
+    m_OverrideState: 0
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-8122409620870952689
 MonoBehaviour:
@@ -93,6 +99,9 @@ MonoBehaviour:
   noiseTexture:
     m_OverrideState: 1
     m_Value: {fileID: 2800000, guid: d94011d49b672f348bf39275fd487de9, type: 3}
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-7258036360606718714
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -139,6 +148,9 @@ MonoBehaviour:
   distortRandomly:
     m_OverrideState: 1
     m_Value: 1
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-7245209352020046167
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -151,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7942413263386430284c3a24e8e45f75, type: 3}
   m_Name: Jitter
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -197,6 +209,9 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 1
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-4944931035510012979
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -209,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ece09b57fde18445b241e21a99082d4, type: 3}
   m_Name: VHSEffect
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -257,7 +272,7 @@ MonoBehaviour:
     m_Value: 0
   stripes:
     m_OverrideState: 1
-    m_Value: 0.129
+    m_Value: 0.12
   unscaledTime:
     m_OverrideState: 1
     m_Value: 0
@@ -266,6 +281,9 @@ MonoBehaviour:
     m_Value: {fileID: 0}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-4310192173435905895
 MonoBehaviour:
@@ -279,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4fb513f6d87104b8b8aa6b656d2468, type: 3}
   m_Name: PictureCorrection
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enable:
     m_OverrideState: 1
     m_Value: 0
@@ -309,6 +327,9 @@ MonoBehaviour:
     m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-3906366412187456288
 MonoBehaviour:
@@ -344,6 +365,9 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 1
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-1649353445089164355
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -365,19 +389,22 @@ MonoBehaviour:
     m_Value: 1
   maskDark:
     m_OverrideState: 1
-    m_Value: 0.72
+    m_Value: 1.027
   maskLight:
     m_OverrideState: 1
-    m_Value: 0.64
+    m_Value: 0.218
   hardScan:
     m_OverrideState: 1
-    m_Value: -5.3
+    m_Value: -4.4
   resScale:
     m_OverrideState: 1
-    m_Value: 3.3
+    m_Value: 2.76
+  ScaleWithActualScreenSize:
+    m_OverrideState: 1
+    m_Value: 1
   hardPix:
     m_OverrideState: 1
-    m_Value: -2.83
+    m_Value: -1.39
   warpMode:
     m_OverrideState: 1
     m_Value: 0
@@ -392,6 +419,9 @@ MonoBehaviour:
     m_Value: {fileID: 0}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-1406773136392810168
 MonoBehaviour:
@@ -411,21 +441,24 @@ MonoBehaviour:
     m_Value: 1
   speed:
     m_OverrideState: 1
-    m_Value: 32
+    m_Value: 37.1
   blockSize:
     m_OverrideState: 1
-    m_Value: 44
+    m_Value: 57
   maxOffsetX:
     m_OverrideState: 1
-    m_Value: 11.9
+    m_Value: 2.3
   maxOffsetY:
     m_OverrideState: 1
-    m_Value: 12.9
+    m_Value: 1.4
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-1007862879917444312
 MonoBehaviour:
@@ -464,6 +497,9 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 1
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-17143029250858107
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -491,12 +527,15 @@ MonoBehaviour:
     m_Value: {x: 0.03125, y: 0.04166}
   scale:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.49
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -511,18 +550,18 @@ MonoBehaviour:
   m_Name: New Volume Profile 1
   m_EditorClassIdentifier: 
   components:
-  - {fileID: 4949720285476238140}
   - {fileID: -4944931035510012979}
-  - {fileID: 8476727509912993216}
   - {fileID: 2315967538597031372}
   - {fileID: 9212737046429829297}
-  - {fileID: -1406773136392810168}
   - {fileID: 5263028739986578720}
-  - {fileID: -1649353445089164355}
-  - {fileID: 178804166821336771}
+  - {fileID: -1406773136392810168}
+  - {fileID: 4949720285476238140}
+  - {fileID: 8476727509912993216}
   - {fileID: 2313465621512967389}
-  - {fileID: -7245209352020046167}
+  - {fileID: -1649353445089164355}
   - {fileID: 8757556775212965326}
+  - {fileID: 178804166821336771}
+  - {fileID: -7245209352020046167}
   - {fileID: -8613490620094450299}
   - {fileID: 5600276873323762101}
   - {fileID: -17143029250858107}
@@ -558,6 +597,9 @@ MonoBehaviour:
   fade:
     m_OverrideState: 1
     m_Value: 1
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &2313465621512967389
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -576,13 +618,13 @@ MonoBehaviour:
     m_Value: 1
   GlowHalation:
     m_OverrideState: 1
-    m_Value: 4.27
+    m_Value: 1.67
   GlowDifusion:
     m_OverrideState: 1
     m_Value: 0.83
   MaskColors:
     m_OverrideState: 1
-    m_Value: 0.57
+    m_Value: 1.11
   MaskStrength:
     m_OverrideState: 1
     m_Value: 0.318
@@ -591,14 +633,17 @@ MonoBehaviour:
     m_Value: 1.55
   GammaOutput:
     m_OverrideState: 1
-    m_Value: 0.84
+    m_Value: 0.75
   Brightness:
     m_OverrideState: 1
-    m_Value: 0.85
+    m_Value: 0.52
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
   maskChannel:
+    m_OverrideState: 0
+    m_Value: 0
+  GlobalPostProcessingSettings:
     m_OverrideState: 0
     m_Value: 0
 --- !u!114 &2315967538597031372
@@ -613,7 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7669d352906143fa9d142177f6d4c3c, type: 3}
   m_Name: LimitlessGlitch1
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -652,6 +697,9 @@ MonoBehaviour:
     m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &3680819008836032075
 MonoBehaviour:
@@ -693,6 +741,9 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 1
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &4949720285476238140
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -723,6 +774,9 @@ MonoBehaviour:
     m_Value: {fileID: 0}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
   bleedModeIndex: 0
 --- !u!114 &5263028739986578720
@@ -777,6 +831,9 @@ MonoBehaviour:
   maskChannel:
     m_OverrideState: 1
     m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &5600276873323762101
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -801,7 +858,7 @@ MonoBehaviour:
     m_Value: 480
   Granularity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   GranularityAmount:
     m_OverrideState: 1
     m_Value: 0.5
@@ -825,16 +882,16 @@ MonoBehaviour:
     m_Value: 0.5
   LineNoise:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   LineNoiseAmount:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 6.83
   LineNoiseSpeed:
     m_OverrideState: 1
     m_Value: 1
   SignalNoise:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   SignalNoisePower:
     m_OverrideState: 1
     m_Value: 0.9
@@ -849,6 +906,9 @@ MonoBehaviour:
     m_Value: 0
   unscaledTime:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &8476727509912993216
 MonoBehaviour:
@@ -871,33 +931,36 @@ MonoBehaviour:
     m_Value: {r: 0, g: 0, b: 0, a: 0}
   scanLines:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 90.41
   speed:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 2.9
   fade:
     m_OverrideState: 1
-    m_Value: 0.214
+    m_Value: 0.326
   horizontal:
     m_OverrideState: 1
     m_Value: 1
   distortion:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.436
   distortion1:
     m_OverrideState: 1
-    m_Value: -0.43
+    m_Value: 1.3
   distortion2:
     m_OverrideState: 1
-    m_Value: 0.42
+    m_Value: -11.7
   scale:
     m_OverrideState: 1
-    m_Value: 2.49
+    m_Value: 1.29
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &8757556775212965326
 MonoBehaviour:
@@ -917,17 +980,20 @@ MonoBehaviour:
     m_Value: 1
   blur:
     m_OverrideState: 1
-    m_Value: 0.83
+    m_Value: 0.47
   brigtness:
     m_OverrideState: 1
     m_Value: 3
   lineSpeed:
     m_OverrideState: 1
-    m_Value: 0.01
+    m_Value: 0.69
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
   maskChannel:
+    m_OverrideState: 0
+    m_Value: 0
+  GlobalPostProcessingSettings:
     m_OverrideState: 0
     m_Value: 0
 --- !u!114 &9212737046429829297
@@ -963,4 +1029,7 @@ MonoBehaviour:
     m_Value: {fileID: 2800000, guid: 7ba8bdec7bcb23946b4eaa9890e4c686, type: 3}
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0

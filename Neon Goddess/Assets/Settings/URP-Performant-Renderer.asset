@@ -15,6 +15,20 @@ MonoBehaviour:
   m_Active: 1
   settings: {fileID: 11400000, guid: f68defe9b6889484787a8d20c715e802, type: 2}
   _effectMaterial: {fileID: 0}
+--- !u!114 &-7423637854101592768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7844df956262394994083ddeb428870, type: 3}
+  m_Name: UltimateVignette_RLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
 --- !u!114 &-7154570829696103161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +239,7 @@ MonoBehaviour:
     debugReplacementPS: {fileID: 4800000, guid: cf852408f2e174538bcd9b7fda1c5ae7,
       type: 3}
   m_RendererFeatures:
+  - {fileID: 2481246944564850202}
   - {fileID: -9159862715203932624}
   - {fileID: -7154570829696103161}
   - {fileID: 3156791644958687730}
@@ -244,6 +259,7 @@ MonoBehaviour:
   - {fileID: -5324856728156916494}
   - {fileID: 8662189723581645773}
   - {fileID: -318130359998981074}
+  - {fileID: 1871177625318806685}
   - {fileID: 3709578614018106986}
   - {fileID: -2497381276193506958}
   - {fileID: 2598766513223886030}
@@ -255,7 +271,8 @@ MonoBehaviour:
   - {fileID: 8692408944863284895}
   - {fileID: 2834778984037537695}
   - {fileID: 8340051241375216973}
-  m_RendererFeatureMap: 30aeec3c64a1e180078d97a7bcdbb59cf201af93462dcf2b0eaccd561944f6d5dcc57c8d4250c21d7591fae867b9a42ec9672e7fc5b702a4b2499c805f36e15e4539f2cb06303779eb7b5ff97ef350e85a8464b50e29c8315a6ac90cf7936ed1d2ee44b5cab4df197058d16f422dce1459df98ea47f340d9905b15f60a545103f2b45b9e044f1ab6cd831fcba84736782e5cfe831fc695fb6a66ef6218127b337239c603f68457ddcee4e3fa5fac10245533668e21b25eca2ca2951a84b7d5f61b4f5462edcc4376e14b5d93f953be6d4f3578073c3d22f99f0e0189e1a3a1789fd74c78772857274db5b9a26ad0bd73
+  - {fileID: -7423637854101592768}
+  m_RendererFeatureMap: 1aaecf2af3286f2230aeec3c64a1e180078d97a7bcdbb59cf201af93462dcf2b0eaccd561944f6d5dcc57c8d4250c21d7591fae867b9a42ec9672e7fc5b702a4b2499c805f36e15e4539f2cb06303779eb7b5ff97ef350e85a8464b50e29c8315a6ac90cf7936ed1d2ee44b5cab4df197058d16f422dce1459df98ea47f340d9905b15f60a545103f2b45b9e044f1ab6cd831fcba84736782e5cfe831fc695fb9d54c9e422c2f7196a66ef6218127b337239c603f68457ddcee4e3fa5fac10245533668e21b25eca2ca2951a84b7d5f61b4f5462edcc4376e14b5d93f953be6d4f3578073c3d22f99f0e0189e1a3a1789fd74c78772857274db5b9a26ad0bd7340a5212db4f0f998
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -337,6 +354,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   Event: 550
+--- !u!114 &1871177625318806685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62c9c65cf3354c93be831c8bc075510, type: 3}
+  m_Name: ScreenSpaceAmbientOcclusion
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  m_Shader: {fileID: 4800000, guid: 0849e84e3d62649e8882e9d6f056a017, type: 3}
+  m_Settings:
+    Downsample: 1
+    AfterOpaque: 0
+    Source: 1
+    NormalSamples: 1
+    Intensity: 1
+    DirectLightingStrength: 0.5
+    Radius: 1.1
+    SampleCount: 4
 --- !u!114 &2144364619353605596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +391,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   Event: 550
+--- !u!114 &2481246944564850202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cca7768aaaea4b0081f14e7f9d4b5ad, type: 3}
+  m_Name: FlatKitOutline
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings: {fileID: 11400000, guid: ff3dfd77429d64938a26bd54c27dacd8, type: 2}
+  _effectMaterial: {fileID: 0}
 --- !u!114 &2598766513223886030
 MonoBehaviour:
   m_ObjectHideFlags: 0

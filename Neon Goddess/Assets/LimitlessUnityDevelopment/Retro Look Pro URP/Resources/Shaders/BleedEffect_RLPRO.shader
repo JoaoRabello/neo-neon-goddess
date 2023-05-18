@@ -13,7 +13,6 @@ Shader "Hidden/Shader/Bleed_RLPRO_HDRP"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Filtering.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-        #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
 
 
 	#pragma shader_feature VHS_DEBUG_BLEEDING_ON
@@ -21,7 +20,29 @@ Shader "Hidden/Shader/Bleed_RLPRO_HDRP"
 	#define get_t2d(offset, one_x) tex2D(_InputTexture, p + (offset)*(one_x)).rgb;
 	#define fixCoord (p - float2( 0.5 * ONE_X, 0.0))
 
+        struct Attributes
+        {
+            float4 positionOS       : POSITION;
+            float2 uv               : TEXCOORD0;
+        };
 
+        struct Varyings
+        {
+            float2 uv        : TEXCOORD0;
+            float4 vertex : SV_POSITION;
+            UNITY_VERTEX_OUTPUT_STEREO
+        };
+        Varyings Vert(Attributes input)
+        {
+            Varyings output = (Varyings)0;
+            UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+            VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+            output.vertex = vertexInput.positionCS;
+            output.uv = input.uv;
+
+            return output;
+        }
 	TEXTURE2D(_MainTex);
 	SAMPLER(sampler_MainTex);
 	TEXTURE2D(_Mask);

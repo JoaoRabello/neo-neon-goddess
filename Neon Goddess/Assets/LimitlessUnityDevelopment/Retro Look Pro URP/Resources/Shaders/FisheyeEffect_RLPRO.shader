@@ -1,14 +1,18 @@
 Shader "Hidden/Shader/FisheyeEffect_RLPRO"
 {
+		        Properties
+    {
+        _MainTex("Texture", 2D) = "white" {}
+    }
+
 	HLSLINCLUDE
 
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
         #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Filtering.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-        #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
 
-	SAMPLER(_InputTexture);
+	SAMPLER(_MainTex);
 
 	#pragma shader_feature VHS_FISHEYE_ON
 	#pragma shader_feature VHS_FISHEYE_HYPERSPACE
@@ -25,7 +29,29 @@ Shader "Hidden/Shader/FisheyeEffect_RLPRO"
 	float ONE_Y = 0.0;
 	float _Intensity;
 	half fade;
+		        struct Attributes
+        {
+            float4 positionOS       : POSITION;
+            float2 uv               : TEXCOORD0;
+        };
 
+        struct Varyings
+        {
+            float2 uv        : TEXCOORD0;
+            float4 positionCS : SV_POSITION;
+            UNITY_VERTEX_OUTPUT_STEREO
+        };
+        Varyings Vert(Attributes input)
+        {
+            Varyings output = (Varyings)0;
+            UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
+
+            VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+            output.positionCS = vertexInput.positionCS;
+            output.uv = input.uv;
+
+            return output;
+        }
 	float2 fishEye(float2 uv, float size, float bend)
 	{
 		#if !VHS_FISHEYE_HYPERSPACE
@@ -63,7 +89,7 @@ Shader "Hidden/Shader/FisheyeEffect_RLPRO"
 		ONE_X = 1.0 / _ScreenParams.x;
 		ONE_Y = 1.0 / _ScreenParams.y;
 		p = fishEye(p, fisheyeSize, fisheyeBend);
-		float3 col = tex2D(_InputTexture, p).rgb;
+		float3 col = tex2D(_MainTex, p).rgb;
 		half far;
 		half2 hco = half2(ONE_X * cutoffX, ONE_Y * cutoffY);
 		half2 sco = half2(ONE_X * cutoffFadeX, ONE_Y * cutoffFadeY);

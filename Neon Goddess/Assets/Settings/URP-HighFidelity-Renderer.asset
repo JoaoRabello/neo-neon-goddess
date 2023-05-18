@@ -224,11 +224,11 @@ MonoBehaviour:
   m_Settings:
     Downsample: 0
     AfterOpaque: 0
-    Source: 0
-    NormalSamples: 1
-    Intensity: 0.5
-    DirectLightingStrength: 0.25
-    Radius: 0.25
+    Source: 1
+    NormalSamples: 0
+    Intensity: 1
+    DirectLightingStrength: 0.5
+    Radius: 1.1
     SampleCount: 12
 --- !u!114 &-1264695401074170017
 MonoBehaviour:
@@ -275,6 +275,7 @@ MonoBehaviour:
       type: 3}
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
+  - {fileID: 883742767563520761}
   - {fileID: -5458153930265324766}
   - {fileID: -2953426492846203087}
   - {fileID: 3062720878877519445}
@@ -305,7 +306,8 @@ MonoBehaviour:
   - {fileID: 4113205292629524015}
   - {fileID: 6676370777455930098}
   - {fileID: 4207277758229900291}
-  m_RendererFeatureMap: adc0de57c6d2eee522132241ebbd40b4319facaf405203d755aeaa8f69f8802ad43d1bc36d8f293b50067b6afd42b60618bbb7c9e57ca5b1cbe0675b9122442550e4685412c2c2051caaabcadc0737ab5a852f14395dd65655160262eeb83b083a8aa1601d548dde5caba8de2d0ae2165f67e7bd3be672ee0550a6c0ac0c1db98ab940d0a2500cbdc04ff4a1ca31289903e4afdd96ea2ad89ee12823ed6db897fba28374b5cc8eff23c8a75ba7baa107c214b58864263291d2837dee1e76592fbe1b8660b1043706f16b2b0913934a363976c0e1e04623d9fb76a17b3b9a09db2f7e70c36b0a1539f22a0f63d93ba75c03ecb17ad440633a
+  - {fileID: 4600209771561589237}
+  m_RendererFeatureMap: adc0de57c6d2eee5f9ba71655daf430c22132241ebbd40b4319facaf405203d755aeaa8f69f8802ad43d1bc36d8f293b50067b6afd42b60618bbb7c9e57ca5b1cbe0675b9122442550e4685412c2c2051caaabcadc0737ab5a852f14395dd65655160262eeb83b083a8aa1601d548dde5caba8de2d0ae2165f67e7bd3be672ee0550a6c0ac0c1db98ab940d0a2500cbdc04ff4a1ca31289903e4afdd96ea2ad89ee12823ed6db897fba28374b5cc8eff23c8a75ba7baa107c214b58864263291d2837dee1e76592fbe1b8660b1043706f16b2b0913934a363976c0e1e04623d9fb76a17b3b9a09db2f7e70c36b0a1539f22a0f63d93ba75c03ecb17ad440633af599350e6a3ad73f
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -415,6 +417,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   Event: 550
+--- !u!114 &883742767563520761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cca7768aaaea4b0081f14e7f9d4b5ad, type: 3}
+  m_Name: FlatKitOutline
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings: {fileID: 11400000, guid: ff3dfd77429d64938a26bd54c27dacd8, type: 2}
+  _effectMaterial: {fileID: 0}
 --- !u!114 &1648891605696424796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,7 +442,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d52d4e1ac19514b08b776eb5dbdeaeae, type: 3}
-  m_Name: LowRes_RLPRO
+  m_Name: LowResRLPRO
   m_EditorClassIdentifier: 
   m_Active: 1
   Event: 550
@@ -533,6 +550,20 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9caddd0a630dc4340a7a825f696ed5f9, type: 3}
   m_Name: VHSEffect_RLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &4600209771561589237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7844df956262394994083ddeb428870, type: 3}
+  m_Name: UltimateVignette_RLPRO
   m_EditorClassIdentifier: 
   m_Active: 1
   Event: 550
