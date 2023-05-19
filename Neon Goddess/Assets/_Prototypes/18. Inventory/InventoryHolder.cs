@@ -8,14 +8,6 @@ public class InventoryHolder : MonoBehaviour
     [SerializeField] private Inventory _inventory;
     [SerializeField] private Item _testItem;
 
-    private void Start()
-    {
-        TryAddItem(_testItem);
-        TryAddItem(_testItem);
-        TryAddItem(_testItem);
-        TryAddItem(_testItem);
-    }
-
     public bool TryAddItem(Item item, int amount = 1)
     {
         if (!_inventory.TryAddItem(item, amount))

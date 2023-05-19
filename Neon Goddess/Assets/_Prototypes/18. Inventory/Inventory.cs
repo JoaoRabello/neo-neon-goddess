@@ -10,7 +10,7 @@ public class Inventory : ScriptableObject
 
     public bool TryAddItem(Item item, int amount = 1)
     {
-        if (_itemDictionary.Count >= Capacity) return false;
+        if (_itemDictionary.Count >= Capacity && !_itemDictionary.ContainsKey(item)) return false;
         
         if (!_itemDictionary.ContainsKey(item))
         {
