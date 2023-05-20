@@ -25,6 +25,7 @@ public class InventoryRenderer : MonoBehaviour
     private KeyValuePair<Item, int> _selectedItemToTransfer;
     
     public Action<KeyValuePair<Item, int>> TransferButtonClicked;
+    public Action<HealItem> HealItemUsed;
     
     public void RenderInventory(List<KeyValuePair<Item, int>> items, List<KeyValuePair<Item, int>> ammo = default)
     {
@@ -69,6 +70,8 @@ public class InventoryRenderer : MonoBehaviour
         _itemDescriptionLabel.SetText(item.Description);
         
         _useItemButton.gameObject.SetActive(item.IsUsable);
+        _useItemButton.onClick.RemoveAllListeners();
+        _useItemButton.onClick.AddListener(() => OnUseButtonClicked(item));
     }
     
     private void OnItemButtonClicked(KeyValuePair<Item, int> item)
@@ -81,6 +84,16 @@ public class InventoryRenderer : MonoBehaviour
         _transferItemContent.SetActive(true);
     }
 
+    private void OnUseButtonClicked(Item item)
+    {
+        switch (item)
+        {
+            case HealItem healItem:
+                HealItemUsed?.Invoke(healItem);
+                break;
+        }
+    }
+    
     public void CloseTransferView()
     {
         _selectedItemToTransfer = default;
