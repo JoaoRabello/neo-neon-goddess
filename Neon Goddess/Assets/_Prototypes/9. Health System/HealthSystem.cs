@@ -30,9 +30,6 @@ public class HealthSystem : MonoBehaviour
     {
         SetupHealths();
         _inventoryRenderer.HealItemUsed += HealByItem;
-        
-        //TODO: Remove this
-        TakePhysicalDamage(5);
     }
 
     private void HealByItem(HealItem item)
