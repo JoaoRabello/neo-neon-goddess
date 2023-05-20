@@ -10,12 +10,13 @@ public class InventoryRenderer : MonoBehaviour
     [SerializeField] private List<InventoryRenderObject> _renderObjects = new List<InventoryRenderObject>();
 
     [Header("Item Description")] 
+    [SerializeField] private bool _hasDescription;
     [SerializeField] private TMP_Text _itemNameLabel;
     [SerializeField] private TMP_Text _itemDescriptionLabel;
     
     public void RenderInventory(List<KeyValuePair<Item, int>> items)
     {
-        _content.SetActive(true);
+        if(_content) _content.SetActive(true);
         ResetRenderObjects();
 
         RenderItems(items);
@@ -26,7 +27,7 @@ public class InventoryRenderer : MonoBehaviour
         ResetRenderObjects();
         ResetDescription();
 
-        _content.SetActive(false);
+        if(_content) _content.SetActive(false);
     }
 
     private void RenderItems(List<KeyValuePair<Item, int>> items)
@@ -40,6 +41,8 @@ public class InventoryRenderer : MonoBehaviour
     
     private void RenderDescription(Item item)
     {
+        if(!_hasDescription) return;
+        
         _itemNameLabel.SetText(item.Name);
         _itemDescriptionLabel.SetText(item.Description);
     }
@@ -60,6 +63,8 @@ public class InventoryRenderer : MonoBehaviour
 
     private void ResetDescription()
     {
+        if(!_hasDescription) return;
+        
         _itemNameLabel.SetText("");
         _itemDescriptionLabel.SetText("");
     }

@@ -2,20 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class InventoryHolder : MonoBehaviour
 {
-    [SerializeField] private Inventory _inventory;
-    [SerializeField] private InventoryRenderer _renderer;
+    [SerializeField] protected Inventory _inventory;
+    [SerializeField] protected InventoryRenderer _myRenderer;
 
-    public void OpenInventory()
+    public virtual void OpenInventory()
     {
-        _renderer.RenderInventory(_inventory.GetItemsAsList());
+        _myRenderer.RenderInventory(_inventory.GetItemsAsList());
     }
 
     public void CloseInventory()
     {
-        _renderer.HideInventory();
+        _myRenderer.HideInventory();
     }
 
     public bool TryAddItem(Item item, int amount = 1)
