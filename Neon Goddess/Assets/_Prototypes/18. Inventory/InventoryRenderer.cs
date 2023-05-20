@@ -14,6 +14,13 @@ public class InventoryRenderer : MonoBehaviour
     [SerializeField] private TMP_Text _itemNameLabel;
     [SerializeField] private TMP_Text _itemDescriptionLabel;
     
+    [Header("Item Transfer")] 
+    [SerializeField] private bool _hasTransfer;
+    [SerializeField] private GameObject _transferItemContent;
+    private KeyValuePair<Item, int> _selectedItemToTransfer;
+    
+    public Action<KeyValuePair<Item, int>> TransferButtonClicked;
+    
     public void RenderInventory(List<KeyValuePair<Item, int>> items)
     {
         if(_content) _content.SetActive(true);
@@ -28,13 +35,14 @@ public class InventoryRenderer : MonoBehaviour
         ResetDescription();
 
         if(_content) _content.SetActive(false);
+        if(_hasDescription) _transferItemContent.SetActive(false);
     }
 
     private void RenderItems(List<KeyValuePair<Item, int>> items)
     {
         for (int i = 0; i < items.Count; i++)
         {
-            _renderObjects[i].Setup(items[i].Key, items[i].Value);
+            _renderObjects[i].Setup(items[i]);
             _renderObjects[i].ButtonClicked += OnItemButtonClicked;
         }
     }
@@ -47,9 +55,19 @@ public class InventoryRenderer : MonoBehaviour
         _itemDescriptionLabel.SetText(item.Description);
     }
     
-    private void OnItemButtonClicked(Item item)
+    private void OnItemButtonClicked(KeyValuePair<Item, int> item)
     {
-        RenderDescription(item);
+        RenderDescription(item.Key);
+        
+        if (!_hasTransfer) return;
+        
+        _selectedItemToTransfer = item;
+        _transferItemContent.SetActive(true);
+    }
+
+    public void OnTransferItemButtonClicked()
+    {
+        TransferButtonClicked?.Invoke(_selectedItemToTransfer);
     }
 
     private void ResetRenderObjects()

@@ -10,30 +10,30 @@ public class InventoryRenderObject : MonoBehaviour
     [SerializeField] private TMP_Text _amountLabel;
     [SerializeField] private Image _iconImage;
     
-    private Item _item;
+    private KeyValuePair<Item, int> _item;
 
-    public Action<Item> ButtonClicked;
+    public Action<KeyValuePair<Item, int>> ButtonClicked;
     
     public void ResetInfo()
     {
-        _item = null;
+        _item = default;
         
         _amountLabel.gameObject.SetActive(false);
         _iconImage.gameObject.SetActive(false);
     }
     
-    public void Setup(Item item, int amount)
+    public void Setup(KeyValuePair<Item, int> item)
     {
         _item = item;
         
-        if (amount > 1)
+        if (item.Value > 1)
         {
             _amountLabel.gameObject.SetActive(true);
-            _amountLabel.SetText($"x{amount}");
+            _amountLabel.SetText($"x{item.Value}");
         }
         
         _iconImage.gameObject.SetActive(true);
-        _iconImage.sprite = item.Icon;
+        _iconImage.sprite = item.Key.Icon;
     }
 
     public void ClickButton()
