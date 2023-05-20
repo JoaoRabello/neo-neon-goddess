@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryRenderer : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class InventoryRenderer : MonoBehaviour
     [SerializeField] private bool _hasDescription;
     [SerializeField] private TMP_Text _itemNameLabel;
     [SerializeField] private TMP_Text _itemDescriptionLabel;
+    [SerializeField] private Button _useItemButton;
     
     [Header("Item Transfer")] 
     [SerializeField] private bool _hasTransfer;
@@ -65,6 +67,8 @@ public class InventoryRenderer : MonoBehaviour
         
         _itemNameLabel.SetText(item.Name);
         _itemDescriptionLabel.SetText(item.Description);
+        
+        _useItemButton.gameObject.SetActive(item.IsUsable);
     }
     
     private void OnItemButtonClicked(KeyValuePair<Item, int> item)

@@ -8,4 +8,7 @@ public class Item : ScriptableObject
     public string Name;
     public string Description;
     public Sprite Icon;
+
+    [Tooltip("Check if this item can be used within the inventory")]
+    public bool IsUsable;
 }
