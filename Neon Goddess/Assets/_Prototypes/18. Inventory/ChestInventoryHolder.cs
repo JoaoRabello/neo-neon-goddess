@@ -26,6 +26,8 @@ public class ChestInventoryHolder : InventoryHolder
         _inventory.TryRemoveItem(item.Key, item.Value);
         _playerInventory.TryAddItem(item.Key, item.Value);
         
+        _myRenderer.CloseTransferView();
+        
         UpdateInventoriesRenderers();
     }
 
@@ -33,6 +35,8 @@ public class ChestInventoryHolder : InventoryHolder
     {
         _playerInventory.TryRemoveItem(item.Key, item.Value);
         _inventory.TryAddItem(item.Key, item.Value);
+        
+        _playerInventoryRenderer.CloseTransferView();
 
         UpdateInventoriesRenderers();
     }

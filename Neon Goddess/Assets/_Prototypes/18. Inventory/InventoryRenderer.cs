@@ -65,6 +65,12 @@ public class InventoryRenderer : MonoBehaviour
         _transferItemContent.SetActive(true);
     }
 
+    public void CloseTransferView()
+    {
+        _selectedItemToTransfer = default;
+        _transferItemContent.SetActive(false);
+    }
+
     public void OnTransferItemButtonClicked()
     {
         TransferButtonClicked?.Invoke(_selectedItemToTransfer);
