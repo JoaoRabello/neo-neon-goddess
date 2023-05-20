@@ -25,12 +25,14 @@ public class InventoryRenderer : MonoBehaviour
     private KeyValuePair<Item, int> _selectedItemToTransfer;
     
     public Action<KeyValuePair<Item, int>> TransferButtonClicked;
+    public Action<Item> ItemConsumed;
     public Action<HealItem> HealItemUsed;
     
     public void RenderInventory(List<KeyValuePair<Item, int>> items, List<KeyValuePair<Item, int>> ammo = default)
     {
         if(_content) _content.SetActive(true);
         ResetRenderObjects();
+        ResetDescription();
 
         RenderItems(items);
         if(ammo != default) RenderAmmo(ammo);
@@ -70,6 +72,9 @@ public class InventoryRenderer : MonoBehaviour
         _itemDescriptionLabel.SetText(item.Description);
         
         _useItemButton.gameObject.SetActive(item.IsUsable);
+
+        if (!item.IsUsable) return;
+        
         _useItemButton.onClick.RemoveAllListeners();
         _useItemButton.onClick.AddListener(() => OnUseButtonClicked(item));
     }
@@ -90,6 +95,10 @@ public class InventoryRenderer : MonoBehaviour
         {
             case HealItem healItem:
                 HealItemUsed?.Invoke(healItem);
+                if (item.IsConsumable)
+                {
+                    ItemConsumed?.Invoke(item);
+                }
                 break;
         }
     }
@@ -125,5 +134,10 @@ public class InventoryRenderer : MonoBehaviour
         
         _itemNameLabel.SetText("");
         _itemDescriptionLabel.SetText("");
+
+        if (!_useItemButton) return;
+        
+        _useItemButton.onClick.RemoveAllListeners();
+        _useItemButton.gameObject.SetActive(false);
     }
 }

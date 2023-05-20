@@ -11,4 +11,6 @@ public class Item : ScriptableObject
 
     [Tooltip("Check if this item can be used within the inventory")]
     public bool IsUsable;
+    [Tooltip("Check if this item can be consumed within the inventory")]
+    public bool IsConsumable;
 }
