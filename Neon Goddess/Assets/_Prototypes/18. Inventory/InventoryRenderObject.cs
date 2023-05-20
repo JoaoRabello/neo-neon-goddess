@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,6 +12,8 @@ public class InventoryRenderObject : MonoBehaviour
     
     private Item _item;
 
+    public Action<Item> ButtonClicked;
+    
     public void ResetInfo()
     {
         _item = null;
@@ -31,5 +34,10 @@ public class InventoryRenderObject : MonoBehaviour
         
         _iconImage.gameObject.SetActive(true);
         _iconImage.sprite = item.Icon;
+    }
+
+    public void ClickButton()
+    {
+        ButtonClicked?.Invoke(_item);
     }
 }
