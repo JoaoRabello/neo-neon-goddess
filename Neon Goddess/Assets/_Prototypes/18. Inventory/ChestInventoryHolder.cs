@@ -23,6 +23,7 @@ public class ChestInventoryHolder : InventoryHolder
 
     private void OnChestToPlayerTransferButtonClicked(KeyValuePair<Item, int> item)
     {
+        _inventory.TryRemoveItem(item.Key, item.Value);
         _playerInventory.TryAddItem(item.Key, item.Value);
         
         UpdateInventoriesRenderers();
@@ -30,6 +31,7 @@ public class ChestInventoryHolder : InventoryHolder
 
     private void OnPlayerToChestTransferButtonClicked(KeyValuePair<Item, int> item)
     {
+        _playerInventory.TryRemoveItem(item.Key, item.Value);
         _inventory.TryAddItem(item.Key, item.Value);
 
         UpdateInventoriesRenderers();

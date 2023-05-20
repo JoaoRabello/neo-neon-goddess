@@ -23,6 +23,20 @@ public class Inventory : ScriptableObject
 
         return true;
     }
+    
+    public bool TryRemoveItem(Item item, int amount = 1)
+    {
+        if (!_itemDictionary.ContainsKey(item)) return false;
+
+        _itemDictionary[item] -= amount;
+        
+        if (_itemDictionary[item] <= 0)
+        {
+            _itemDictionary.Remove(item);
+        }
+
+        return true;
+    }
 
     public List<KeyValuePair<Item, int>> GetItemsAsList()
     {
