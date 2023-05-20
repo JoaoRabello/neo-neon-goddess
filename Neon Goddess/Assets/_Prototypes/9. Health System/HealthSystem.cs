@@ -9,6 +9,7 @@ public class HealthSystem : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Slider _physicalHealthBar;
     [SerializeField] private Slider _mentalHealthBar;
+    [SerializeField] private InventoryRenderer _inventoryRenderer;
     
     [Header("Data")]
     [SerializeField] private int _physicalMaxHealth;
@@ -28,6 +29,29 @@ public class HealthSystem : MonoBehaviour
     private void Start()
     {
         SetupHealths();
+        _inventoryRenderer.HealItemUsed += HealByItem;
+    }
+
+    private void HealByItem(HealItem item)
+    {
+        switch (item.Type)
+        {
+            case HealItem.HealType.Physical:
+                HealPhysical(item.Amount);
+                break;
+            case HealItem.HealType.Mental:
+                HealMental(item.Amount);
+                break;
+            case HealItem.HealType.Both:
+                HealPhysical(item.Amount);
+                HealMental(item.Amount);
+                break;
+        }
+    }
+
+    private void OnDisable()
+    {
+        _inventoryRenderer.HealItemUsed -= HealByItem;
     }
 
     private void SetupHealths()
