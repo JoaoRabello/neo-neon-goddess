@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Inventory", menuName = "ScriptableObjects/Inventory/Inventory")]
@@ -20,5 +22,10 @@ public class Inventory : ScriptableObject
         _itemDictionary[item] += amount;
 
         return true;
+    }
+
+    public List<KeyValuePair<Item, int>> GetItemsAsList()
+    {
+        return _itemDictionary.ToList();
     }
 }
