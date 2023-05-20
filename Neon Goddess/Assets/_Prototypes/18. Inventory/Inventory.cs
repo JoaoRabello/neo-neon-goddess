@@ -38,8 +38,13 @@ public class Inventory : ScriptableObject
         return true;
     }
 
-    public List<KeyValuePair<Item, int>> GetItemsAsList()
+    public List<KeyValuePair<Item, int>> GetItemsWithoutAmmoAsList()
     {
-        return _itemDictionary.ToList();
+        return _itemDictionary.Where(pair => pair.Key.GetType() != typeof(AmmoItem)).ToList();
+    }
+    
+    public List<KeyValuePair<Item, int>> GetAmmoAsList()
+    {
+        return _itemDictionary.Where(pair => pair.Key.GetType() == typeof(AmmoItem)).ToList();
     }
 }

@@ -11,7 +11,7 @@ public class InventoryHolder : MonoBehaviour
 
     public virtual void OpenInventory()
     {
-        _myRenderer.RenderInventory(_inventory.GetItemsAsList());
+        _myRenderer.RenderInventory(_inventory.GetItemsWithoutAmmoAsList(), _inventory.GetAmmoAsList());
     }
 
     public void CloseInventory()
@@ -21,13 +21,6 @@ public class InventoryHolder : MonoBehaviour
 
     public bool TryAddItem(Item item, int amount = 1)
     {
-        if (!_inventory.TryAddItem(item, amount))
-        {
-            Debug.Log("Couldn't Add Item");
-            return false;
-        }
-
-        Debug.Log($"Added x{amount} {item.Name}");
-        return true;
+        return _inventory.TryAddItem(item, amount);
     }
 }

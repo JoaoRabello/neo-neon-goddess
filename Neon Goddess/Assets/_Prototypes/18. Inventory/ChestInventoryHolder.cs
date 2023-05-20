@@ -43,14 +43,14 @@ public class ChestInventoryHolder : InventoryHolder
 
     private void UpdateInventoriesRenderers()
     {
-        _playerInventoryRenderer.RenderInventory(_playerInventory.GetItemsAsList());
-        _myRenderer.RenderInventory(_inventory.GetItemsAsList());
+        _playerInventoryRenderer.RenderInventory(_playerInventory.GetItemsWithoutAmmoAsList());
+        _myRenderer.RenderInventory(_inventory.GetItemsWithoutAmmoAsList());
     }
 
     public override void OpenInventory()
     {
         base.OpenInventory();
         
-        _playerInventoryRenderer.RenderInventory(_playerInventory.GetItemsAsList());
+        _playerInventoryRenderer.RenderInventory(_playerInventory.GetItemsWithoutAmmoAsList());
     }
 }
