@@ -1,0 +1,58 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class Teleporter : MonoBehaviour
+{
+    [SerializeField] private Transform _destinationTransform;
+    [SerializeField] private bool _automaticTeleport;
+    
+    private InputActions _inputActions;
+
+    private bool _isNextToPortal;
+    private Transform _playerTransform;
+
+    private void Awake()
+    {
+        _inputActions = new InputActions();
+    }
+
+    private void OnEnable()
+    {
+        _inputActions.Prototype.Interact.performed += OnInteractPerformed;
+        
+        _inputActions.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _inputActions.Prototype.Interact.performed -= OnInteractPerformed;
+        
+        _inputActions.Disable();
+    }
+    
+    private void OnInteractPerformed(InputAction.CallbackContext context)
+    {
+        Teleport();
+    }
+
+    private void Teleport()
+    {
+        if (!_isNextToPortal) return;
+        
+        _playerTransform.transform.position = _destinationTransform.position;
+    }
+
+    public void SetIsNextToPortal(bool value)
+    {
+        _isNextToPortal = value;
+    }
+
+    public void SetPlayerTransform(Collider other)
+    {
+        _playerTransform = other.transform.parent.transform;
+
+        if (_automaticTeleport && _isNextToPortal) Teleport();
+    }
+}
