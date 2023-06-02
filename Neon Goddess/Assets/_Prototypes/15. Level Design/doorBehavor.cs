@@ -8,7 +8,9 @@ public class doorBehavor : MonoBehaviour
 {
     public GameObject door;
     //public GameObject triggerObject;
-    public float doorMoveDistance ;
+    public float doorMoveDistancex ;
+    public float doorMoveDistancey;
+    public float doorMoveDistancez;
     public bool isPlayerInsideTrigger = false;
     private InputActions _inputActions;
     private Vector3 initialPosition;
@@ -58,7 +60,7 @@ public class doorBehavor : MonoBehaviour
 
      void MoveDoor()
      {
-         Vector3 targetPosition = initialPosition + new Vector3(doorMoveDistance, 0f, 0f);
+         Vector3 targetPosition = initialPosition + new Vector3(doorMoveDistancex, doorMoveDistancey, doorMoveDistancez);
          door.transform.position = targetPosition;
      }
 
