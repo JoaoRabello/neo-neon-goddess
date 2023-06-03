@@ -5,7 +5,8 @@ namespace Player
 {
     /// <summary>
     /// Observer that watches the player states.
-    /// Used to control whether player is free to action or not
+    /// Used to control whether player is free to action or not<br></br>
+    /// Subscribe to the events (Actions) to receive PlayerState updates
     /// <example>
     /// > Player starts a Dialogue.<br></br>
     /// > Observer changes the state to OnDialogue.<br></br>
@@ -25,22 +26,55 @@ namespace Player
         /// </summary>
         public enum PlayerState
         {
+            /// <summary>
+            /// When Player is free to act
+            /// </summary>
             Free,
+            /// <summary>
+            /// When Player is on an animation
+            /// </summary>
             OnAnimation,
+            /// <summary>
+            /// When Player is on a cutscene
+            /// </summary>
             OnCutscene,
+            /// <summary>
+            /// When Player is on dialogue
+            /// </summary>
             OnDialogue
         }
 
         private PlayerState _currentState;
+        /// <summary>
+        /// Current Player state
+        /// </summary>
         public PlayerState CurrentState => _currentState;
 
+        /// <summary>
+        /// Event called when dialogues start
+        /// </summary>
         private Action DialogueStart;
+        /// <summary>
+        /// Event called when dialogues end
+        /// </summary>
         private Action DialogueEnd;
 
+        /// <summary>
+        /// Event called when cutscenes start
+        /// </summary>
         private Action CutsceneStart;
+        /// <summary>
+        /// Event called when cutscenes end
+        /// </summary>
         private Action CutsceneEnd;
 
+        /// <summary>
+        /// Event called when animations start
+        /// </summary>
         private Action AnimationStart;
+        /// <summary>
+        /// Event called when animations end
+        /// </summary>
         private Action AnimationEnd;
 
         private bool _isDuringState;
@@ -55,6 +89,10 @@ namespace Player
             
         }
         
+        /// <summary>
+        /// Starts a State, setting the current state to the new state and sets to during state flag
+        /// </summary>
+        /// <param name="state">State to start</param>
         private void StateStart(PlayerState state)
         {
             _isDuringState = true;
@@ -62,6 +100,9 @@ namespace Player
             _currentState = state;
         }
 
+        /// <summary>
+        /// Reset the during state flag and sets the state to Free
+        /// </summary>
         private void StateEnd()
         {
             _isDuringState = false;
