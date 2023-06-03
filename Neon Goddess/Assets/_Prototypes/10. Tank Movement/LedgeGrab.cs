@@ -9,6 +9,9 @@ using UnityEngine.InputSystem;
 
 namespace PlayerMovements
 {
+    /// <summary>
+    /// Component that controls ledge grab and climbing
+    /// </summary>
     public class LedgeGrab : MonoBehaviour
     {
         [SerializeField] private float _grabRange;
@@ -45,8 +48,12 @@ namespace PlayerMovements
                 _ledgeLayerMask);
 
             if (!hasLedgeInFront) return;
-            if (!hit.collider.TryGetComponent<Collider>(out var component)) return;
+            if (!hit.collider.TryGetComponent<Collider>(out var collider)) return;
 
+            var lookAtWallDirection = (collider.bounds.center - _parent.transform.position).normalized;
+            lookAtWallDirection.y = 0;
+            _parent.transform.forward = lookAtWallDirection;
+            
             PlayLedgeAnimation();
         }
 
