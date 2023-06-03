@@ -14,11 +14,22 @@ namespace PlayerMovements
     /// </summary>
     public class LedgeGrab : MonoBehaviour
     {
-        [SerializeField] private float _grabRange;
-        [SerializeField] private float _downRange;
-        [SerializeField] private LayerMask _ledgeLayerMask;
+        [Header("Components")]
+        [Tooltip("Our custom animator")]
         [SerializeField] private CharacterAnimator _animator;
+        [Tooltip("Astrid root game object")]
         [SerializeField] private GameObject _parent;
+        
+        [Header("Raycasts data")]
+        [Tooltip("Range to check if ledge wall is close enough")]
+        [SerializeField] private LayerMask _ledgeLayerMask;
+        [Tooltip("Range to check if ledge wall is close enough")]
+        [SerializeField] private float _grabRange;
+        [Tooltip("Range to check ground when totally climbed to set player to the ground")]
+        [SerializeField] private float _downRange;
+        
+        [Header("Collision")]
+        [Tooltip("All non trigger colliders to turn off when climbing")]
         [SerializeField] private List<Collider> _colliders = new List<Collider>();
 
         private bool _isClimbing;
@@ -40,6 +51,9 @@ namespace PlayerMovements
             PlayerInputReader.Instance.InteractPerformed -= LedgePerformed;
         }
 
+        /// <summary>
+        /// Checks for walls, look at it and then calls the ledge grab animation
+        /// </summary>
         private void LedgePerformed()
         {
             if (_isClimbing) return;
@@ -57,6 +71,9 @@ namespace PlayerMovements
             PlayLedgeAnimation();
         }
 
+        /// <summary>
+        /// Starts the Ledge animation and setup the callback for when the animation ends
+        /// </summary>
         private void PlayLedgeAnimation()
         {
             _isClimbing = true;
@@ -71,6 +88,9 @@ namespace PlayerMovements
             _animator.PlayAndOnAnimationEndCallback("Climbing", LedgeAnimationEnded);
         }
 
+        /// <summary>
+        /// Ends the ledge climb when the animation has ended
+        /// </summary>
         private void LedgeAnimationEnded()
         {
             _isClimbing = false;
