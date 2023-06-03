@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,12 +13,36 @@ namespace Animations
         [Tooltip("Animator controller that controls the current character animations")]
         [SerializeField] private Animator _animatorController;
 
+        public Vector3 DeltaPosition => _animatorController.deltaPosition;
+        
         /// <summary>
         /// Directly plays an animation when called
         /// </summary>
-        public void PlayAnimation()
+        /// <param name="animationName">Name of the desired animation</param>
+        public void PlayAnimation(string animationName)
         {
+            _animatorController.Play(animationName);
+        }
+
+        public void PlayAndOnAnimationEndCallback(string animationName, Action callback)
+        {
+            PlayAnimation(animationName);
+            StartCoroutine(WaitForAnimationToEnd(animationName, callback));
+        }
+
+        private IEnumerator WaitForAnimationToEnd(string animationName, Action callback)
+        {
+            while (!_animatorController.GetCurrentAnimatorStateInfo(0).IsName(animationName))
+            {
+                yield return null;
+            }
+
+            while ((_animatorController.GetCurrentAnimatorStateInfo(0).normalizedTime) % 1 < 0.99f)
+            {
+                yield return null;
+            }
             
+            callback?.Invoke();
         }
 
         /// <summary>

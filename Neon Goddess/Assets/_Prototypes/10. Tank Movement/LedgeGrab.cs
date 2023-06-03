@@ -1,87 +1,86 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Animations;
+using Inputs;
+using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class LedgeGrab : MonoBehaviour
+namespace PlayerMovements
 {
-    [SerializeField] private float _grabRange;
-    [SerializeField] private float _downRange;
-    [SerializeField] private LayerMask _ledgeLayerMask;
-    [SerializeField] private Animator _playerAnimator;
-    [SerializeField] private GameObject _parent;
-    [SerializeField] private List<Collider> _colliders = new List<Collider>();
-    
-    private InputActions _inputActions;
-    private bool _isClimbing;
-
-    private void Awake()
+    public class LedgeGrab : MonoBehaviour
     {
-        _inputActions = new InputActions();
-    }
+        [SerializeField] private float _grabRange;
+        [SerializeField] private float _downRange;
+        [SerializeField] private LayerMask _ledgeLayerMask;
+        [SerializeField] private CharacterAnimator _animator;
+        [SerializeField] private GameObject _parent;
+        [SerializeField] private List<Collider> _colliders = new List<Collider>();
 
-    private void OnEnable()
-    {
-        _inputActions.Prototype.Ledge.performed += LedgePerformed;
-        
-        _inputActions.Enable();
-    }
+        private bool _isClimbing;
 
-    private void OnDisable()
-    {
-        _inputActions.Prototype.Ledge.performed -= LedgePerformed;
-        
-        _inputActions.Disable();
-    }
-
-    private void OnAnimatorMove()
-    {
-        if (!_isClimbing) return;
-        
-        _parent.transform.position += _playerAnimator.deltaPosition;
-    }
-
-    private void LedgePerformed(InputAction.CallbackContext obj)
-    {
-        var hasLedgeInFront = Physics.Raycast(transform.position, transform.forward, out var hit, _grabRange, _ledgeLayerMask);
-
-        if (!hasLedgeInFront) return;
-        if (!hit.collider.TryGetComponent<Collider>(out var component)) return;
-
-        StartCoroutine(PlayAndWaitForAnim(_playerAnimator, "Climbing"));
-    }
-    
-    public IEnumerator PlayAndWaitForAnim(Animator targetAnim, string stateName)
-    {
-        _isClimbing = true;
-        targetAnim.Play(stateName);
-        
-        foreach (var collider in _colliders)
+        private void OnAnimatorMove()
         {
-            collider.enabled = false;
+            if (!_isClimbing) return;
+
+            _parent.transform.position += _animator.DeltaPosition;
         }
 
-        while (!targetAnim.GetCurrentAnimatorStateInfo(0).IsName(stateName))
+        private void OnEnable()
         {
-            yield return null;
+            PlayerInputReader.Instance.InteractPerformed += LedgePerformed;
         }
 
-        while ((targetAnim.GetCurrentAnimatorStateInfo(0).normalizedTime) % 1 < 0.99f)
+        private void OnDisable()
         {
-            yield return null;
+            PlayerInputReader.Instance.InteractPerformed -= LedgePerformed;
         }
 
-        _isClimbing = false;
-        foreach (var collider in _colliders)
+        private void LedgePerformed()
         {
-            collider.enabled = true;
+            if (_isClimbing) return;
+            
+            var hasLedgeInFront = Physics.Raycast(transform.position, transform.forward, out var hit, _grabRange,
+                _ledgeLayerMask);
+
+            if (!hasLedgeInFront) return;
+            if (!hit.collider.TryGetComponent<Collider>(out var component)) return;
+
+            PlayLedgeAnimation();
         }
-        
-        var hasLedgeUnder = Physics.Raycast(transform.position, Vector3.down, out var hit, _downRange, _ledgeLayerMask);
 
-        if (!hasLedgeUnder) yield break;
+        private void PlayLedgeAnimation()
+        {
+            _isClimbing = true;
 
-        transform.position -= transform.position - hit.point;
+            PlayerStateObserver.Instance.OnAnimationStart();
+
+            foreach (var collider in _colliders)
+            {
+                collider.enabled = false;
+            }
+
+            _animator.PlayAndOnAnimationEndCallback("Climbing", LedgeAnimationEnded);
+        }
+
+        private void LedgeAnimationEnded()
+        {
+            _isClimbing = false;
+            
+            PlayerStateObserver.Instance.OnAnimationEnd();
+            
+            foreach (var collider in _colliders)
+            {
+                collider.enabled = true;
+            }
+
+            var hasLedgeUnder =
+                Physics.Raycast(transform.position, Vector3.down, out var hit, _downRange, _ledgeLayerMask);
+
+            if (!hasLedgeUnder) return;
+
+            transform.position -= transform.position - hit.point;
+        }
     }
 }

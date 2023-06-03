@@ -17,6 +17,8 @@ namespace Player
     /// </summary>
     public class PlayerStateObserver : MonoBehaviour
     {
+        public static PlayerStateObserver Instance;
+        
         /// <summary>
         /// Player States enumerator.
         /// <value> <c>• Free</c>: represents when player can action freely.<br></br></value>
@@ -81,6 +83,18 @@ namespace Player
         
         //TODO: See if it's possible to build a state queue for situations like "Start cutscene and then start" + "a dialogue when ending cutscene" 
 
+        private void Awake()
+        {
+            if (Instance is null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(this);
+            }
+        }
+
         /// <summary>
         /// Configure every event to their respective observed objects
         /// </summary>
@@ -110,32 +124,32 @@ namespace Player
             _currentState = PlayerState.Free;
         }
 
-        private void OnDialogueStart()
+        public void OnDialogueStart()
         {
             StateStart(PlayerState.OnDialogue);
         }
 
-        private void OnDialogueEnd()
+        public void OnDialogueEnd()
         {
             StateEnd();
         }
 
-        private void OnCustsceneStart()
+        public void OnCustsceneStart()
         {
             StateStart(PlayerState.OnCutscene);
         }
 
-        private void OnCustsceneEnd()
+        public void OnCustsceneEnd()
         {
             StateEnd();
         }
 
-        private void OnAnimationStart()
+        public void OnAnimationStart()
         {
             StateStart(PlayerState.OnAnimation);
         }
 
-        private void OnAnimationEnd()
+        public void OnAnimationEnd()
         {
             StateEnd();
         }

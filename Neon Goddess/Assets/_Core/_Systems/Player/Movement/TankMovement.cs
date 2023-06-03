@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Animations;
 using Inputs;
+using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -96,6 +97,7 @@ namespace PlayerMovements
 
         private void Update()
         {
+            if (PlayerStateObserver.Instance.CurrentState != PlayerStateObserver.PlayerState.Free) return;
             MovementProcess();
         }
 
