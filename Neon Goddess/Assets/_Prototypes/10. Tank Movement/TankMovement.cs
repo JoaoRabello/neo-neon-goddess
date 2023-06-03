@@ -8,6 +8,14 @@ using UnityEngine.InputSystem;
 
 namespace PlayerMovements
 {
+    /// <summary>
+    /// Component that translates the inputs to tank movements and call animations
+    /// <value> <c>• _movementSpeed</c>: represents the frontal and back movement speeds<br></br></value>
+    /// <value> <c>• _rotationSpeed</c>: represents the rotational movement speed<br></br></value>
+    /// <value> <c>• _wannaMove</c>: represents when a move input performed<br></br></value>
+    /// <value> <c>• _canMove</c>: represents when move can be performed<br></br></value>
+    /// <value> <c>• _movementDirection</c>: represents the movement input<br></br></value>
+    /// </summary>
     public class TankMovement : MonoBehaviour
     {
         [Header("Components")]
@@ -37,6 +45,10 @@ namespace PlayerMovements
             PlayerInputReader.Instance.MovementCanceled -= MovementCanceled;
         }
 
+        /// <summary>
+        /// Sets the movement input value and that the player wanna move
+        /// </summary>
+        /// <param name="movement">Input received as Vector2</param>
         private void MovementPerformed(Vector2 movement)
         {
             _movementDirection = movement;
@@ -45,6 +57,9 @@ namespace PlayerMovements
             _wannaMove = true;
         }
 
+        /// <summary>
+        /// Resets the movement input value, sets that the player don't wanna move and stops the player
+        /// </summary>
         private void MovementCanceled()
         {
             _movementDirection = Vector3.zero;
@@ -53,18 +68,27 @@ namespace PlayerMovements
             Stop();
         }
 
+        /// <summary>
+        /// Resets the rigidbody velocities to zero and cancel the moving animation
+        /// </summary>
         private void Stop()
         {
             _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y, 0);
             _animator.SetParameterValue("isMoving", false);
         }
 
+        /// <summary>
+        /// Blocks the player movement with _canMove and then stops the player
+        /// </summary>
         public void BlockMovement()
         {
             _canMove = false;
             Stop();
         }
 
+        /// <summary>
+        /// Free the player movement with _canMove
+        /// </summary>
         public void UnlockMovement()
         {
             _canMove = true;
@@ -75,9 +99,14 @@ namespace PlayerMovements
             MovementProcess();
         }
 
+        /// <summary>
+        /// Try to turn with animation.
+        /// Then, if wanna move, rotates the body and, at the end,
+        /// if can move, moves
+        /// </summary>
         private void MovementProcess()
         {
-            TryTurn();
+            TryAnimTurn();
 
             if (!_wannaMove) return;
 
@@ -89,6 +118,10 @@ namespace PlayerMovements
             Move(myTransform);
         }
 
+        /// <summary>
+        /// Moves a rigidbody setting its velocity with the _movementDirection and set animations
+        /// </summary>
+        /// <param name="myTransform">Player Transform for position tracking</param>
         private void Move(Transform myTransform)
         {
             _animator.SetParameterValue("isMovingBackwards", _movementDirection.y < 0);
@@ -99,12 +132,19 @@ namespace PlayerMovements
             _rigidbody.velocity = myTransform.forward * (_movementDirection.y * _movementSpeed);
         }
 
+        /// <summary>
+        /// Rotates the transform around Y axis using the _movementDirection input
+        /// </summary>
+        /// <param name="myTransform">Player Transform for rotation purposes</param>
         private void RotateBody(Transform myTransform)
         {
             myTransform.Rotate(new Vector3(0, _movementDirection.x * _rotationSpeed, 0));
         }
 
-        private void TryTurn()
+        /// <summary>
+        /// If only input horizontal, play rotation animations
+        /// </summary>
+        private void TryAnimTurn()
         {
             if (Mathf.Abs(_movementDirection.y) <= 0.1f)
             {
