@@ -12,7 +12,20 @@ namespace Inputs
         public static PlayerInputReader Instance;
         
         private InputActions _inputActions;
-        
+
+        private void Awake()
+        {
+            if (Instance is null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(this);
+            }
+            _inputActions = new InputActions();
+        }
+
         private void OnEnable()
         {
             _inputActions.Prototype.Interact.performed += OnInteractPerformed;

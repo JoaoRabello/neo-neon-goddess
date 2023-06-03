@@ -2,96 +2,115 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Animations;
+using Inputs;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TankMovement : MonoBehaviour
+namespace PlayerMovements
 {
-    [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private CharacterAnimator _animator;
-    [SerializeField] private float _movementSpeed;
-    [SerializeField] private float _rotationSpeed;
-    
-    private InputActions _inputActions;
-
-    private bool _wannaMove;
-    private bool _canMove = true;
-    private Vector3 _movementDirection;
-
-    private void Awake()
+    public class TankMovement : MonoBehaviour
     {
-        _inputActions = new InputActions();
-    }
-
-    private void OnEnable()
-    {
-        _inputActions.Prototype.Movement.performed += MovementPerformed;
-        _inputActions.Prototype.Movement.canceled += MovementCanceled;
+        [Header("Components")]
+        [SerializeField] private Rigidbody _rigidbody;
+        [Tooltip("Our custom CharacterAnimator")]
+        [SerializeField] private CharacterAnimator _animator;
         
-        _inputActions.Enable();
-    }
+        [Header("Movement Data")]
+        [Tooltip("Speed for frontal and back movement")]
+        [SerializeField] private float _movementSpeed;
+        [Tooltip("Speed for rotational movement")]
+        [SerializeField] private float _rotationSpeed;
 
-    private void OnDisable()
-    {
-        _inputActions.Prototype.Movement.performed -= MovementPerformed;
-        _inputActions.Prototype.Movement.canceled -= MovementCanceled;
-        
-        _inputActions.Disable();
-    }
+        private bool _wannaMove;
+        private bool _canMove = true;
+        private Vector3 _movementDirection;
 
-    private void MovementPerformed(InputAction.CallbackContext context)
-    {
-        _movementDirection = context.ReadValue<Vector2>();
-        _movementDirection.Normalize();
-
-        _wannaMove = true;
-    }
-    
-    private void MovementCanceled(InputAction.CallbackContext context)
-    {
-        _movementDirection = Vector3.zero;
-        
-        _wannaMove = false;
-        Stop();
-    }
-
-    private void Stop()
-    {
-        _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y, 0);
-        _animator.SetParameterValue("isMoving", false);
-    }
-
-    public void BlockMovement()
-    {
-        _canMove = false;
-        Stop();
-    }
-
-    public void UnlockMovement()
-    {
-        _canMove = true;
-    }
-
-    private void Update()
-    {
-        if (Mathf.Abs(_movementDirection.y) <= 0.1f)
+        private void OnEnable()
         {
-            _animator.SetParameterValue("isTurning", Mathf.Abs(_movementDirection.x) > 0.1f);
+            PlayerInputReader.Instance.MovementPerformed += MovementPerformed;
+            PlayerInputReader.Instance.MovementCanceled += MovementCanceled;
         }
-        
-        if (!_wannaMove) return;
 
-        var myTransform = transform;
-        
-        myTransform.Rotate(new Vector3(0, _movementDirection.x * _rotationSpeed, 0));
-        
-        if (!_canMove) return;
+        private void OnDisable()
+        {
+            PlayerInputReader.Instance.MovementPerformed -= MovementPerformed;
+            PlayerInputReader.Instance.MovementCanceled -= MovementCanceled;
+        }
 
-        _animator.SetParameterValue("isMovingBackwards", _movementDirection.y < 0);
+        private void MovementPerformed(Vector2 movement)
+        {
+            _movementDirection = movement;
+            _movementDirection.Normalize();
 
-        if (Mathf.Abs(_movementDirection.y) > 0.1f)
-            _animator.SetParameterValue("isMoving", true);
-        
-        _rigidbody.velocity = myTransform.forward * (_movementDirection.y * _movementSpeed);
+            _wannaMove = true;
+        }
+
+        private void MovementCanceled()
+        {
+            _movementDirection = Vector3.zero;
+
+            _wannaMove = false;
+            Stop();
+        }
+
+        private void Stop()
+        {
+            _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y, 0);
+            _animator.SetParameterValue("isMoving", false);
+        }
+
+        public void BlockMovement()
+        {
+            _canMove = false;
+            Stop();
+        }
+
+        public void UnlockMovement()
+        {
+            _canMove = true;
+        }
+
+        private void Update()
+        {
+            MovementProcess();
+        }
+
+        private void MovementProcess()
+        {
+            TryTurn();
+
+            if (!_wannaMove) return;
+
+            var myTransform = transform;
+            RotateBody(myTransform);
+
+            if (!_canMove) return;
+
+            Move(myTransform);
+        }
+
+        private void Move(Transform myTransform)
+        {
+            _animator.SetParameterValue("isMovingBackwards", _movementDirection.y < 0);
+
+            if (Mathf.Abs(_movementDirection.y) > 0.1f)
+                _animator.SetParameterValue("isMoving", true);
+
+            _rigidbody.velocity = myTransform.forward * (_movementDirection.y * _movementSpeed);
+        }
+
+        private void RotateBody(Transform myTransform)
+        {
+            myTransform.Rotate(new Vector3(0, _movementDirection.x * _rotationSpeed, 0));
+        }
+
+        private void TryTurn()
+        {
+            if (Mathf.Abs(_movementDirection.y) <= 0.1f)
+            {
+                _animator.SetParameterValue("isTurning", Mathf.Abs(_movementDirection.x) > 0.1f);
+            }
+        }
     }
+
 }
