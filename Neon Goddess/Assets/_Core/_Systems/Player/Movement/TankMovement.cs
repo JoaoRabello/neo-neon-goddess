@@ -38,12 +38,18 @@ namespace PlayerMovements
         {
             PlayerInputReader.Instance.MovementPerformed += MovementPerformed;
             PlayerInputReader.Instance.MovementCanceled += MovementCanceled;
+            
+            PlayerStateObserver.Instance.AimStart += BlockMovement;
+            PlayerStateObserver.Instance.AimEnd += UnlockMovement;
         }
 
         private void OnDisable()
         {
             PlayerInputReader.Instance.MovementPerformed -= MovementPerformed;
             PlayerInputReader.Instance.MovementCanceled -= MovementCanceled;
+            
+            PlayerStateObserver.Instance.AimStart -= BlockMovement;
+            PlayerStateObserver.Instance.AimEnd -= UnlockMovement;
         }
 
         /// <summary>
@@ -97,7 +103,6 @@ namespace PlayerMovements
 
         private void Update()
         {
-            if (PlayerStateObserver.Instance.CurrentState != PlayerStateObserver.PlayerState.Free) return;
             MovementProcess();
         }
 
@@ -108,13 +113,15 @@ namespace PlayerMovements
         /// </summary>
         private void MovementProcess()
         {
+            if (PlayerStateObserver.Instance.CurrentState is not (PlayerStateObserver.PlayerState.Free or PlayerStateObserver.PlayerState.Aiming)) return;
+
             TryAnimTurn();
 
             if (!_wannaMove) return;
 
             var myTransform = transform;
             RotateBody(myTransform);
-
+            
             if (!_canMove) return;
 
             Move(myTransform);

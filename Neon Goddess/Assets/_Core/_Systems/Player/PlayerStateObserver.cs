@@ -22,6 +22,7 @@ namespace Player
         /// <summary>
         /// Player States enumerator.
         /// <value> <c>• Free</c>: represents when player can action freely.<br></br></value>
+        /// <value> <c>• Aiming</c>: represents when player is aiming a weapon.<br></br></value>
         /// <value> <c>• OnAnimation</c>: represents when player is on an animation (like ledge grab or surprise attacks).<br></br></value>
         /// <value> <c>• OnCutscene</c>: represents when player is being controlled by a cutscene.<br></br></value>
         /// <value> <c>• OnDialogue</c>: represents when player is on dialogues or barks due to interactions.<br></br></value>
@@ -32,6 +33,10 @@ namespace Player
             /// When Player is free to act
             /// </summary>
             Free,
+            /// <summary>
+            /// When Player is aiming
+            /// </summary>
+            Aiming,
             /// <summary>
             /// When Player is on an animation
             /// </summary>
@@ -55,29 +60,38 @@ namespace Player
         /// <summary>
         /// Event called when dialogues start
         /// </summary>
-        private Action DialogueStart;
+        public Action DialogueStart;
         /// <summary>
         /// Event called when dialogues end
         /// </summary>
-        private Action DialogueEnd;
+        public Action DialogueEnd;
+        
+        /// <summary>
+        /// Event called when aim start
+        /// </summary>
+        public Action AimStart;
+        /// <summary>
+        /// Event called when aim end
+        /// </summary>
+        public Action AimEnd;
 
         /// <summary>
         /// Event called when cutscenes start
         /// </summary>
-        private Action CutsceneStart;
+        public Action CutsceneStart;
         /// <summary>
         /// Event called when cutscenes end
         /// </summary>
-        private Action CutsceneEnd;
+        public Action CutsceneEnd;
 
         /// <summary>
         /// Event called when animations start
         /// </summary>
-        private Action AnimationStart;
+        public Action AnimationStart;
         /// <summary>
         /// Event called when animations end
         /// </summary>
-        private Action AnimationEnd;
+        public Action AnimationEnd;
 
         private bool _isDuringState;
         
@@ -132,6 +146,18 @@ namespace Player
         public void OnDialogueEnd()
         {
             StateEnd();
+        }
+        
+        public void OnAimStart()
+        {
+            StateStart(PlayerState.Aiming);
+            AimStart?.Invoke();
+        }
+
+        public void OnAimEnd()
+        {
+            StateEnd();
+            AimEnd?.Invoke();
         }
 
         public void OnCustsceneStart()

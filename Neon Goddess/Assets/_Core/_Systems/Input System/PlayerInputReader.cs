@@ -38,6 +38,7 @@ namespace Inputs
             _inputActions.Prototype.Movement.canceled += OnMovementCanceled;
             _inputActions.Prototype.Crouch.performed += OnCrouchPerformed;
             _inputActions.Prototype.Aim.performed += OnAimPerformed;
+            _inputActions.Prototype.Aim.canceled += OnAimCanceled;
             _inputActions.Prototype.Shoot.performed += OnShootPerformed;
         
             _inputActions.Enable();
@@ -50,6 +51,7 @@ namespace Inputs
             _inputActions.Prototype.Movement.canceled -= OnMovementCanceled;
             _inputActions.Prototype.Crouch.performed -= OnCrouchPerformed;
             _inputActions.Prototype.Aim.performed -= OnAimPerformed;
+            _inputActions.Prototype.Aim.canceled -= OnAimCanceled;
             _inputActions.Prototype.Shoot.performed -= OnShootPerformed;
             
             _inputActions.Disable();
@@ -75,6 +77,10 @@ namespace Inputs
         /// Called when Aim Input is performed
         /// </summary>
         public Action AimPerformed;
+        /// <summary>
+        /// Called when Aim Input is canceled
+        /// </summary>
+        public Action AimCanceled;
         /// <summary>
         /// Called when Shoot Input is performed
         /// </summary>
@@ -103,6 +109,11 @@ namespace Inputs
         private void OnAimPerformed(InputAction.CallbackContext context)
         {
             AimPerformed?.Invoke();
+        }
+        
+        private void OnAimCanceled(InputAction.CallbackContext context)
+        {
+            AimCanceled?.Invoke();
         }
         
         private void OnShootPerformed(InputAction.CallbackContext context)
