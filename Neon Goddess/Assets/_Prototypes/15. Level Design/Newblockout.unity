@@ -17778,9 +17778,10 @@ MonoBehaviour:
   doorOffSety: 0
   doorOffSetx: 0
   doorOffSetz: -2
-  doorStatus: 0
+  doorStatus: 1
   isOnRange: 0
-  doorTrigger: {fileID: 0}
+  doorTrigger: {fileID: 1637866858}
+  doorShader: {fileID: 2100000, guid: a2420bd21e382044b84af50e355615ee, type: 2}
 --- !u!65 &434919569
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25024,7 +25025,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9365e39d3858e7c47b77cf639d4bc6d1, type: 2}
+  - {fileID: 2100000, guid: a2420bd21e382044b84af50e355615ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -46601,6 +46602,12 @@ Transform:
   m_Father: {fileID: 290406383}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1637866858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8835887945965654983, guid: df4320f53f2509c42befcc430479b464,
+    type: 3}
+  m_PrefabInstance: {fileID: 2083301465}
+  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &1639489903
 LightingSettings:
   m_ObjectHideFlags: 0
