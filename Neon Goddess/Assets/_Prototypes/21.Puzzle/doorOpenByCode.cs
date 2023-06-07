@@ -16,6 +16,7 @@ public class doorOpenByCode : MonoBehaviour
     public int doorOffSetz;
     public bool doorStatus = false;
     public bool isOnRange = false;
+    public GameObject doorTrigger;
 
     // Start is called before the first frame update
     private InputActions _inputActions;
@@ -58,7 +59,7 @@ public class doorOpenByCode : MonoBehaviour
             referenceDoor.transform.position = new Vector3(referenceDoor.transform.position.x + doorOffSetx, referenceDoor.transform.position.y + doorOffSety, referenceDoor.transform.position.z + doorOffSetz);
             uiFieldCode.gameObject.SetActive(false);
             doorStatus = true;
-
+            //doorTrigger.gameObject.SetActive(true);
 
         }
 

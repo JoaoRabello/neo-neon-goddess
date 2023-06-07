@@ -14,7 +14,10 @@ public class doorBehavor : MonoBehaviour
     public bool isPlayerInsideTrigger = false;
     private InputActions _inputActions;
     private Vector3 initialPosition;
-
+    private Vector3 targetPosition;
+    public bool doorIsMoving = false;
+    public float speed = 10.0f;
+    private bool doorIsOpen = false;
     void Start()
     {
         initialPosition = door.transform.position;
@@ -48,28 +51,47 @@ public class doorBehavor : MonoBehaviour
 
     private void OnInteractPerformed(InputAction.CallbackContext context)
     {
-        if (isPlayerInsideTrigger == true)
+        Debug.Log("doorIsMoving: " + doorIsMoving);
+        Debug.Log("isPlayerInsideTrigger: " + isPlayerInsideTrigger);
+        Debug.Log("OnInteractPerformed called");
+        if (isPlayerInsideTrigger == true && !doorIsMoving)
         {
             MoveDoor();
         }
     }
     void Update()
     {
-        
-    }
 
+        if (doorIsMoving)
+        {
+            door.transform.position = Vector3.Lerp(door.transform.position, targetPosition, speed * Time.deltaTime);
+            if (Vector3.Distance(door.transform.position, targetPosition) < 0.01f)
+            {
+                doorIsMoving = false;
+            }
+        }
+    }
      void MoveDoor()
      {
-         Vector3 targetPosition = initialPosition + new Vector3(doorMoveDistancex, doorMoveDistancey, doorMoveDistancez);
-         door.transform.position = targetPosition;
-     }
+        Debug.Log("MoveDoor called");
+        if (doorIsOpen)
+        {
+            targetPosition = initialPosition;
+        }
+       else
+        {
+            targetPosition = initialPosition + new Vector3(doorMoveDistancex, doorMoveDistancey, doorMoveDistancez);
+        }
+        doorIsOpen = !doorIsOpen;
+        doorIsMoving = true;
+    }
 
   
 
-    void ResetDoor()
+   /* void ResetDoor()
     {
         door.transform.position = initialPosition;
-    }
+    }*/
 
     void OnTriggerEnter(Collider other)
     {
@@ -81,10 +103,14 @@ public class doorBehavor : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && doorIsOpen == true)
         {
             isPlayerInsideTrigger = false;
-            ResetDoor();
+            //ResetDoor();
+            MoveDoor();
+
         }
+        
+
     }
 }
