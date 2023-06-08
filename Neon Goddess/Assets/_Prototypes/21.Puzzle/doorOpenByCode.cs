@@ -17,13 +17,26 @@ public class doorOpenByCode : MonoBehaviour
     public bool doorStatus = false;
     public bool isOnRange = false;
     public GameObject doorTrigger;
-
+    public Material doorShader;
+    public float doorEmissionIntensity;
+    public Light doorLight;
+    public Light doorLight2
+        ;
     // Start is called before the first frame update
     private InputActions _inputActions;
 
+    private void Start()
+    {
+        doorShader.SetColor("_Color", new Color(1.0f, 0.0f, 0.0f, 0.0f));
+        doorShader.SetColor("_EmissionColor", new Color(4342.935f, 0.0f, 0.0f, 1.0f));
+        doorLight.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+        doorLight2.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+    }
     private void Awake()
     {
         _inputActions = new InputActions();
+        
+
     }
 
     private void OnEnable()
@@ -56,11 +69,14 @@ public class doorOpenByCode : MonoBehaviour
                 
         else if (triedPassword == password && doorStatus == false)
         {
-            referenceDoor.transform.position = new Vector3(referenceDoor.transform.position.x + doorOffSetx, referenceDoor.transform.position.y + doorOffSety, referenceDoor.transform.position.z + doorOffSetz);
+            //referenceDoor.transform.position = new Vector3(referenceDoor.transform.position.x + doorOffSetx, referenceDoor.transform.position.y + doorOffSety, referenceDoor.transform.position.z + doorOffSetz);
             uiFieldCode.gameObject.SetActive(false);
             doorStatus = true;
-            //doorTrigger.gameObject.SetActive(true);
-
+            doorTrigger.gameObject.SetActive(true);
+            doorShader.SetColor("_Color", new Color(0.0f, 1.0f , 0.0f, 0.0f));
+            doorShader.SetColor("_EmissionColor", new Color(0.0f, 4342.935f, 0.0f, 1.0f));
+            doorLight.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+            doorLight2.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
         }
 
         // codigo no fieldcode -> triedPassword
@@ -82,10 +98,7 @@ public class doorOpenByCode : MonoBehaviour
            
         }
     }
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
    
