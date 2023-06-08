@@ -22,9 +22,14 @@ public class doorOpenByCode : MonoBehaviour
     // Start is called before the first frame update
     private InputActions _inputActions;
 
+    private void Start()
+    {
+              doorShader.SetColor("_Color", new Color(1.0f, 0.0f, 0.0f, 0.0f));
+    }
     private void Awake()
     {
         _inputActions = new InputActions();
+        
 
     }
 
@@ -62,7 +67,7 @@ public class doorOpenByCode : MonoBehaviour
             uiFieldCode.gameObject.SetActive(false);
             doorStatus = true;
             doorTrigger.gameObject.SetActive(true);
-           doorShader.SetColor("_Color", new Color(0.0f, 0.0f, 1.0f, 0.0f));
+            doorShader.SetColor("_Color", new Color(0.0f, 0.0f, 1.0f, 0.0f));
 
 
         }
