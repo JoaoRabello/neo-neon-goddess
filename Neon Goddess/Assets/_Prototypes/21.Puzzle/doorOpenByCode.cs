@@ -20,17 +20,15 @@ public class doorOpenByCode : MonoBehaviour
     public Material doorShader;
     public float doorEmissionIntensity;
     public Light doorLight;
-    public Light doorLight2
-        ;
+    public Light doorLight2;
+    public Material doorStatusMaterial;
+    
     // Start is called before the first frame update
     private InputActions _inputActions;
 
     private void Start()
     {
-        doorShader.SetColor("_Color", new Color(1.0f, 0.0f, 0.0f, 0.0f));
-        doorShader.SetColor("_EmissionColor", new Color(4342.935f, 0.0f, 0.0f, 1.0f));
-        doorLight.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
-        doorLight2.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+      
     }
     private void Awake()
     {
@@ -73,10 +71,7 @@ public class doorOpenByCode : MonoBehaviour
             uiFieldCode.gameObject.SetActive(false);
             doorStatus = true;
             doorTrigger.gameObject.SetActive(true);
-            doorShader.SetColor("_Color", new Color(0.0f, 1.0f , 0.0f, 0.0f));
-            doorShader.SetColor("_EmissionColor", new Color(0.0f, 4342.935f, 0.0f, 1.0f));
-            doorLight.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
-            doorLight2.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+            
         }
 
         // codigo no fieldcode -> triedPassword
@@ -98,8 +93,35 @@ public class doorOpenByCode : MonoBehaviour
            
         }
     }
-    
 
-    // Update is called once per frame
-   
+    void DoorUnlocked()
+    {
+        doorShader.SetColor("_Color", new Color(0.0f, 1.0f, 0.0f, 0.0f));
+        doorShader.SetColor("_EmissionColor", new Color(0.0f, 4342.935f, 0.0f, 1.0f));
+        doorLight.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+        doorLight2.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+        doorStatusMaterial.SetInt("_Status", 1);
+    }
+
+    void DoorLocked()
+    {
+        doorShader.SetColor("_Color", new Color(1.0f, 0.0f, 0.0f, 0.0f));
+        doorShader.SetColor("_EmissionColor", new Color(4342.935f, 0.0f, 0.0f, 1.0f));
+        doorLight.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+        doorLight2.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+        doorStatusMaterial.SetInt("_Status", 0);
+    }
+    private void Update()
+    {
+        switch (doorStatus)
+        {
+            case true:
+                DoorUnlocked();
+                break;
+            case false:
+                DoorLocked();
+                break;
+        }
+    }
+
 }
