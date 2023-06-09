@@ -43,4 +43,17 @@ public class InventoryHolder : MonoBehaviour
         _inventory.TryRemoveItem(item);
         _myRenderer.RenderInventory(_inventory.GetItemsWithoutAmmoAsList(), _inventory.GetAmmoAsList());
     }
+
+    private void ConsumeItemOnBackground(Item item)
+    {
+        _inventory.TryRemoveItem(item);
+    }
+
+    public bool TryConsumeItem(Item item)
+    {
+        if (!_inventory.HasItem(item)) return false;
+        
+        ConsumeItemOnBackground(item);
+        return true;
+    }
 }
