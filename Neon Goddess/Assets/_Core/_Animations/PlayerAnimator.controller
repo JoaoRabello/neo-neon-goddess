@@ -132,7 +132,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7d86e7cdaf9053447820fa9d61b4d2db, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9e12fff01cd9b5d4889ffa66ae67a507, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -428,7 +428,7 @@ BlendTree:
   m_Name: Aim
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 2392af680d972a14cbfca584e4dcedc7, type: 2}
+    m_Motion: {fileID: 7400000, guid: beb191cf532496b48b0067042fc9e84b, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -436,7 +436,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 2392af680d972a14cbfca584e4dcedc7, type: 2}
+    m_Motion: {fileID: 7400000, guid: beb191cf532496b48b0067042fc9e84b, type: 2}
     m_Threshold: 0.5
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -444,7 +444,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 2392af680d972a14cbfca584e4dcedc7, type: 2}
+    m_Motion: {fileID: 7400000, guid: beb191cf532496b48b0067042fc9e84b, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -466,7 +466,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Aim
-  m_Speed: 1.1
+  m_Speed: 1.2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8963603441973365928}
@@ -535,7 +535,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7d86e7cdaf9053447820fa9d61b4d2db, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9e12fff01cd9b5d4889ffa66ae67a507, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -636,8 +636,8 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.1
-  m_TransitionOffset: 0.01
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
   m_ExitTime: 0
   m_HasExitTime: 0
   m_HasFixedDuration: 0
