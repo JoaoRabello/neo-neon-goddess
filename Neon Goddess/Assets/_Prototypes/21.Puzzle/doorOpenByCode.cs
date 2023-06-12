@@ -11,18 +11,15 @@ public class doorOpenByCode : MonoBehaviour
     public string password;
     private string triedPassword;
     public GameObject referenceDoor;
-    public int doorOffSety;
-    public int doorOffSetx;
-    public int doorOffSetz;
     public bool doorStatus = false;
     public bool isOnRange = false;
     public GameObject doorTrigger;
-    public Material doorShader;
+    public Renderer doorShaderRenderer;
     public float doorEmissionIntensity;
     public Light doorLight;
     public Light doorLight2;
-    public Material doorStatusMaterial;
-    
+    public Renderer doorStatusRenderer;
+
     // Start is called before the first frame update
     private InputActions _inputActions;
 
@@ -67,10 +64,10 @@ public class doorOpenByCode : MonoBehaviour
                 
         else if (triedPassword == password && doorStatus == false)
         {
-            //referenceDoor.transform.position = new Vector3(referenceDoor.transform.position.x + doorOffSetx, referenceDoor.transform.position.y + doorOffSety, referenceDoor.transform.position.z + doorOffSetz);
+            
             uiFieldCode.gameObject.SetActive(false);
             doorStatus = true;
-            doorTrigger.gameObject.SetActive(true);
+            //doorTrigger.gameObject.SetActive(true);
             
         }
 
@@ -96,20 +93,21 @@ public class doorOpenByCode : MonoBehaviour
 
     void DoorUnlocked()
     {
-        doorShader.SetColor("_Color", new Color(0.0f, 1.0f, 0.0f, 0.0f));
-        doorShader.SetColor("_EmissionColor", new Color(0.0f, 4342.935f, 0.0f, 1.0f));
+        doorShaderRenderer.materials[1].SetColor("_Color", new Color(0.0f, 1.0f, 0.0f, 0.0f));
+        doorShaderRenderer.materials[1].SetColor("_EmissionColor", new Color(0.0f, 4342.935f, 0.0f, 1.0f));
         doorLight.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
         doorLight2.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
-        doorStatusMaterial.SetInt("_Status", 1);
+        doorStatusRenderer.materials[2].SetInt("_Status", 1);
+        doorTrigger.gameObject.SetActive(true);
     }
 
     void DoorLocked()
     {
-        doorShader.SetColor("_Color", new Color(1.0f, 0.0f, 0.0f, 0.0f));
-        doorShader.SetColor("_EmissionColor", new Color(4342.935f, 0.0f, 0.0f, 1.0f));
+        doorShaderRenderer.materials[1].SetColor("_Color", new Color(1.0f, 0.0f, 0.0f, 0.0f));
+        doorShaderRenderer.materials[1].SetColor("_EmissionColor", new Color(4342.935f, 0.0f, 0.0f, 1.0f));
         doorLight.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
         doorLight2.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
-        doorStatusMaterial.SetInt("_Status", 0);
+        doorStatusRenderer.materials[2].SetInt("_Status", 0);
     }
     private void Update()
     {
