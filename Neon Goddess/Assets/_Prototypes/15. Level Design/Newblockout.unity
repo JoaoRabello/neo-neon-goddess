@@ -3268,19 +3268,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 764706114}
---- !u!23 &343668788 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 8307328984760333127, guid: 394fa7196a57bfd4c9f879518eda8b70,
-    type: 3}
-  m_PrefabInstance: {fileID: 3002395743972389747}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &359663351
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-5258
+  m_Name: pb_Mesh-5260
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17955,17 +17949,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32edd68bbc0fa544b41216e24d0aaed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorShaderScript: {fileID: 0}
   uiFieldCode: {fileID: 1708452821}
   password: 123456
   referenceDoor: {fileID: 1035800681}
-  doorStatus: 0
   isOnRange: 0
-  doorTrigger: {fileID: 8835887946299931550}
-  doorShaderRenderer: {fileID: 343668788}
-  doorEmissionIntensity: 0
-  doorLight: {fileID: 1027298773}
-  doorLight2: {fileID: 1188049043}
-  doorStatusRenderer: {fileID: 343668788}
 --- !u!65 &434919569
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19888,6 +19876,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &624982504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3002395744450863898, guid: 584565c85b6ed44489b8d9d3b431bcb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115068084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &636071036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25544,6 +25538,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ffd3a28403e7bd4ba6bd7b249e40787, type: 3}
+--- !u!1 &828044043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5995916458583034093, guid: 584565c85b6ed44489b8d9d3b431bcb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115068084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &828425900
 Mesh:
   m_ObjectHideFlags: 0
@@ -39063,12 +39063,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1587732299}
---- !u!108 &1027298773 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 3002395744459368102, guid: 394fa7196a57bfd4c9f879518eda8b70,
-    type: 3}
-  m_PrefabInstance: {fileID: 3002395743972389747}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1035800681 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3002395744450863898, guid: 394fa7196a57bfd4c9f879518eda8b70,
@@ -40836,12 +40830,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 197317278}
---- !u!108 &1188049043 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 3002395745074430944, guid: 394fa7196a57bfd4c9f879518eda8b70,
-    type: 3}
-  m_PrefabInstance: {fileID: 3002395743972389747}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1201212036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45198,7 +45186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1441706153}
   m_Layer: 0
-  m_Name: Introroom v/VI - Door (alterar)
+  m_Name: Introroom v/VI - DoorPuzzleKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46516,6 +46504,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8835887945965654980, guid: df4320f53f2509c42befcc430479b464,
     type: 3}
   m_PrefabInstance: {fileID: 1569545026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1573152918 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8307328984760333127, guid: 584565c85b6ed44489b8d9d3b431bcb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115068084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &1576412248 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 3002395745074430944, guid: 584565c85b6ed44489b8d9d3b431bcb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115068084}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1587732298
 GameObject:
@@ -50705,6 +50705,12 @@ Transform:
   m_Father: {fileID: 1055578691}
   m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 13.51, y: 180, z: 0}
+--- !u!108 &1693206212 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 3002395744459368102, guid: 584565c85b6ed44489b8d9d3b431bcb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115068084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1699132062
 Mesh:
   m_ObjectHideFlags: 0
@@ -63282,7 +63288,7 @@ PrefabInstance:
     - target: {fileID: 3002395744230751224, guid: 584565c85b6ed44489b8d9d3b431bcb4,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 2652
+      value: 2667
       objectReference: {fileID: 0}
     - target: {fileID: 3002395744230751227, guid: 584565c85b6ed44489b8d9d3b431bcb4,
         type: 3}
@@ -63372,6 +63378,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2115068084}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2115068086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624982504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ce02f4fc4e1ab44834c842283f730a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorStatus: 0
+  doorTrigger: {fileID: 828044043}
+  doorShaderRenderer: {fileID: 1573152918}
+  doorEmissionIntensity: 0
+  doorLight: {fileID: 1693206212}
+  doorLight2: {fileID: 1576412248}
 --- !u!1 &2128091621
 GameObject:
   m_ObjectHideFlags: 0
@@ -63570,7 +63594,7 @@ PrefabInstance:
     - target: {fileID: 3002395744230751224, guid: 394fa7196a57bfd4c9f879518eda8b70,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 2670
+      value: 2709
       objectReference: {fileID: 0}
     - target: {fileID: 3002395744230751227, guid: 394fa7196a57bfd4c9f879518eda8b70,
         type: 3}
@@ -63763,9 +63787,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df4320f53f2509c42befcc430479b464, type: 3}
---- !u!1 &8835887946299931550 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5995916458583034093, guid: 394fa7196a57bfd4c9f879518eda8b70,
-    type: 3}
-  m_PrefabInstance: {fileID: 3002395743972389747}
-  m_PrefabAsset: {fileID: 0}

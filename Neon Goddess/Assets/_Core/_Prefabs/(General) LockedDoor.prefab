@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3002395744230751227}
   - component: {fileID: 3002395744230751220}
   m_Layer: 0
-  m_Name: 'Introroom v/IX - Door '
+  m_Name: DoorVisuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -356,6 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3002395744450863897}
+  - component: {fileID: 5192355653947125368}
   m_Layer: 0
   m_Name: (General) LockedDoor
   m_TagString: Untagged
@@ -380,6 +381,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5192355653947125368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002395744450863898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ce02f4fc4e1ab44834c842283f730a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorStatus: 0
+  doorTrigger: {fileID: 5995916458583034093}
+  doorShaderRenderer: {fileID: 8307328984760333127}
+  doorEmissionIntensity: 0
+  doorLight: {fileID: 3002395744459368102}
+  doorLight2: {fileID: 3002395745074430944}
 --- !u!1 &3002395744459368097
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +738,7 @@ GameObject:
   - component: {fileID: 5995916458583034095}
   - component: {fileID: 5995916458583034080}
   m_Layer: 0
-  m_Name: 'Introroom v/IX - Door Area Trigger '
+  m_Name: ' Door Trigger '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -861,13 +880,19 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 278071fd9c4b6ee4e9fce806241e5891,
         type: 3}
       propertyPath: m_Name
-      value: (lowpoly) - door final
+      value: DoorModel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 278071fd9c4b6ee4e9fce806241e5891, type: 3}
 --- !u!4 &7134444453572233256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 278071fd9c4b6ee4e9fce806241e5891,
+    type: 3}
+  m_PrefabInstance: {fileID: 7244068670644727747}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8307328984760333127 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 278071fd9c4b6ee4e9fce806241e5891,
     type: 3}
   m_PrefabInstance: {fileID: 7244068670644727747}
   m_PrefabAsset: {fileID: 0}
