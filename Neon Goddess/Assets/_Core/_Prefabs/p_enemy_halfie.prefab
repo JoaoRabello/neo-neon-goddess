@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4355408503293433359}
   - component: {fileID: 4355408503293433358}
+  - component: {fileID: 5010250401217853481}
   m_Layer: 8
   m_Name: p_enemy_halfie
   m_TagString: Untagged
@@ -45,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fd3025d18b9034891c3ea56ef92610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 5010250401217853481}
   _playerLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -52,6 +54,19 @@ MonoBehaviour:
   _forgetRange: 10
   _range: 6
   _speed: 2
+--- !u!114 &5010250401217853481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4355408503293433344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c0180de7283da641a3ebee89a02a563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animatorController: {fileID: 2621863355608906741}
 --- !u!1001 &3868912201821773564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121,6 +136,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea515cc88a51d52429ffd8daad0babf7, type: 3}
+--- !u!95 &2621863355608906741 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1284539585949099273, guid: ea515cc88a51d52429ffd8daad0babf7,
+    type: 3}
+  m_PrefabInstance: {fileID: 3868912201821773564}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8251322394809164175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5130643575806214003, guid: ea515cc88a51d52429ffd8daad0babf7,

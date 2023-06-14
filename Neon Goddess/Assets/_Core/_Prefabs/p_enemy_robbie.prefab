@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6193188897873025494}
   - component: {fileID: 6193188897873025493}
+  - component: {fileID: 4366320124278906384}
   m_Layer: 8
   m_Name: p_enemy_robbie
   m_TagString: Untagged
@@ -55,6 +56,19 @@ MonoBehaviour:
   _speed: 2
   _waypoint1: {fileID: 0}
   _waypoint2: {fileID: 0}
+--- !u!114 &4366320124278906384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193188897873025495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c0180de7283da641a3ebee89a02a563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animatorController: {fileID: 0}
 --- !u!1001 &5992040799177901389
 PrefabInstance:
   m_ObjectHideFlags: 0
