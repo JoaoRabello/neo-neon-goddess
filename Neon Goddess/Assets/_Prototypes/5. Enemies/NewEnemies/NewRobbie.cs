@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Animations;
 using UnityEngine;
 
 public class NewRobbie : MonoBehaviour
 {
+    [SerializeField] private CharacterAnimator _animator;
     [SerializeField] private LayerMask _playerLayerMask;
     [SerializeField] private float _attackRange;
     [SerializeField] private float _specialAttackRange;
@@ -50,7 +52,7 @@ public class NewRobbie : MonoBehaviour
 
         if (_foundPlayer)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _player.position, _currentSpeed * Time.deltaTime);
+            Move();
             transform.position = new Vector3(transform.position.x, 1f, transform.position.z);
             
             RotateTowards(_player.position);
@@ -66,6 +68,12 @@ public class NewRobbie : MonoBehaviour
             _foundPlayer = true;
             _player = playerColliders[0].gameObject.transform.parent.transform;
         }
+    }
+
+    private void Move()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, _player.position, _currentSpeed * Time.deltaTime);
+        _animator.SetParameterValue("isMoving", true);
     }
 
     private void WaypointMovement()
@@ -128,10 +136,13 @@ public class NewRobbie : MonoBehaviour
 
         if (basicAttack)
         {
+            _animator.SetParameterValue("isAttacking", true);
+
             playerHealth.TakePhysicalDamage(2);
         }
         else
         {
+            _animator.SetParameterValue("isSpecialAttacking", true);
             if (playerHealth.CurrentPhysicalHealth > 1)
             {
                 playerHealth.TakeDirectSetPhysicalDamage(1);
@@ -143,6 +154,9 @@ public class NewRobbie : MonoBehaviour
         }
 
         yield return new WaitForSeconds(3);
+        
+        _animator.SetParameterValue("isAttacking", false);
+        _animator.SetParameterValue("isSpecialAttacking", false);
         
         _attackCooldown = false;
         _startedAttackCooldown = false;

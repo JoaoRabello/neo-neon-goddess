@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c280017d4fc0834e973462df1dc9435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 4366320124278906384}
   _playerLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -68,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0180de7283da641a3ebee89a02a563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animatorController: {fileID: 0}
+  _animatorController: {fileID: 2318391532280971236}
 --- !u!1001 &5992040799177901389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138,6 +139,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8f576e12c7b1da4f8f9c4255715999a, type: 3}
+--- !u!95 &2318391532280971236 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8287913645502167721, guid: d8f576e12c7b1da4f8f9c4255715999a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5992040799177901389}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8560419319960085918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2730511062309347539, guid: d8f576e12c7b1da4f8f9c4255715999a,
