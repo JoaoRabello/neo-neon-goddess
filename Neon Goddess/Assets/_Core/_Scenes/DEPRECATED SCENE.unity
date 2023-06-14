@@ -419,7 +419,7 @@ PrefabInstance:
     - target: {fileID: 4355408503293433359, guid: 9b00c61363b7bfe4ca42b454cc6296ac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.14
+      value: -5.1099997
       objectReference: {fileID: 0}
     - target: {fileID: 4355408503293433359, guid: 9b00c61363b7bfe4ca42b454cc6296ac,
         type: 3}
@@ -429,7 +429,7 @@ PrefabInstance:
     - target: {fileID: 4355408503293433359, guid: 9b00c61363b7bfe4ca42b454cc6296ac,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.75
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4355408503293433359, guid: 9b00c61363b7bfe4ca42b454cc6296ac,
         type: 3}
@@ -1596,6 +1596,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029968010}
   m_CullTransparentMesh: 1
+--- !u!1 &1283419756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1283419757}
+  m_Layer: 0
+  m_Name: Robbie Waypoint 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1283419757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283419756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.59, y: -3.8489614, z: -3.815308}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1383812453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3928,6 +3959,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6193188897873025493, guid: a67e8795ba52642469a934ff858765f3,
+        type: 3}
+      propertyPath: _waypoint1
+      value: 
+      objectReference: {fileID: 1624298768}
+    - target: {fileID: 6193188897873025493, guid: a67e8795ba52642469a934ff858765f3,
+        type: 3}
+      propertyPath: _waypoint2
+      value: 
+      objectReference: {fileID: 1283419757}
     - target: {fileID: 6193188897873025494, guid: a67e8795ba52642469a934ff858765f3,
         type: 3}
       propertyPath: m_RootOrder
@@ -3936,7 +3977,7 @@ PrefabInstance:
     - target: {fileID: 6193188897873025494, guid: a67e8795ba52642469a934ff858765f3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.71
+      value: 6.79
       objectReference: {fileID: 0}
     - target: {fileID: 6193188897873025494, guid: a67e8795ba52642469a934ff858765f3,
         type: 3}
@@ -3990,6 +4031,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a67e8795ba52642469a934ff858765f3, type: 3}
+--- !u!1 &1624298767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1624298768}
+  m_Layer: 0
+  m_Name: Robbie Waypoint 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1624298768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624298767}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.044605494, y: -3.8489614, z: -3.815308}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1645381622
 GameObject:
   m_ObjectHideFlags: 0
