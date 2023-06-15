@@ -73,7 +73,7 @@ public class NewRobbie : MonoBehaviour
     private void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, _player.position, _currentSpeed * Time.deltaTime);
-        _animator.SetParameterValue("isMoving", true);
+        _animator.SetParameterValue("isWalking", true);
     }
 
     private void WaypointMovement()
