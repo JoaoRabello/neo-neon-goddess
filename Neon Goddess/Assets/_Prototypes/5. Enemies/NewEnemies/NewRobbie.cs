@@ -52,8 +52,7 @@ public class NewRobbie : MonoBehaviour
 
         if (_foundPlayer)
         {
-            Move();
-            transform.position = new Vector3(transform.position.x, 1f, transform.position.z);
+            Move(_player.position);
             
             RotateTowards(_player.position);
 
@@ -70,9 +69,11 @@ public class NewRobbie : MonoBehaviour
         }
     }
 
-    private void Move()
+    private void Move(Vector3 desiredPosition)
     {
-        transform.position = Vector3.MoveTowards(transform.position, _player.position, _currentSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, desiredPosition, _currentSpeed * Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+
         _animator.SetParameterValue("isWalking", true);
     }
 
@@ -95,8 +96,7 @@ public class NewRobbie : MonoBehaviour
 
         Vector3 targetPosition = _waypointIndex == 1 ? _waypoint1.position : _waypoint2.position;
             
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, _currentSpeed * Time.deltaTime);
-        transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+        Move(targetPosition);
             
         RotateTowards(targetPosition);
     }
@@ -120,7 +120,10 @@ public class NewRobbie : MonoBehaviour
 
     private void RotateTowards(Vector3 targetPos)
     {
-        transform.forward = (targetPos - transform.position).normalized;
+        var rotation = (targetPos - transform.position).normalized;
+        
+        transform.forward = rotation;
+        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
     }
 
     private IEnumerator AttackCooldown(bool basicAttack)
