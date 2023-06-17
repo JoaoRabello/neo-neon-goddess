@@ -29,14 +29,8 @@ public class CameraManager : MonoBehaviour
         
         foreach (var foundCamera in cameras)
         {
-            if (!isFirstCamera)
-            {
+            if(!foundCamera.CompareTag("MainCamera"))
                 foundCamera.gameObject.SetActive(false);
-            }
-            else
-            {
-                isFirstCamera = false;
-            }
             
             _cameras.Add(foundCamera);
             var cameraButton = Instantiate(_cameraButtonPrefab, _cameraButtonsParent.transform);

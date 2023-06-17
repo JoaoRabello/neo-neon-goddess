@@ -98,6 +98,7 @@ public class NewHalfie : MonoBehaviour
         _animator.SetParameterValue("isAttacking", true);
 
         PlayerStateObserver.Instance.OnAnimationStart();
+        CutsceneManager.Instance.PlayCutscene();
 
         var playerHealth = _player.GetComponent<HealthSystem>();
         if (playerHealth.CurrentPhysicalHealth > 1)
@@ -112,6 +113,7 @@ public class NewHalfie : MonoBehaviour
         yield return new WaitForSeconds(2);
         
         PlayerStateObserver.Instance.OnAnimationEnd();
+        CutsceneManager.Instance.StopCutscene();
         _animator.SetParameterValue("isAttacking", false);
         _animator.SetParameterValue("isWalking", false);
         
