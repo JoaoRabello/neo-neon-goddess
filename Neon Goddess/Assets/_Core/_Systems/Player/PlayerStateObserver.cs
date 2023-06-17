@@ -141,11 +141,13 @@ namespace Player
         public void OnDialogueStart()
         {
             StateStart(PlayerState.OnDialogue);
+            DialogueStart?.Invoke();
         }
 
         public void OnDialogueEnd()
         {
             StateEnd();
+            DialogueEnd?.Invoke();
         }
         
         public void OnAimStart()
@@ -163,21 +165,25 @@ namespace Player
         public void OnCustsceneStart()
         {
             StateStart(PlayerState.OnCutscene);
+            CutsceneStart?.Invoke();
         }
 
         public void OnCustsceneEnd()
         {
             StateEnd();
+            CutsceneEnd?.Invoke();
         }
 
         public void OnAnimationStart()
         {
             StateStart(PlayerState.OnAnimation);
+            AnimationStart?.Invoke();
         }
 
         public void OnAnimationEnd()
         {
             StateEnd();
+            AnimationEnd?.Invoke();
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Animations;
+using Player;
 using UnityEngine;
 
 public class NewHalfie : MonoBehaviour
@@ -96,6 +97,8 @@ public class NewHalfie : MonoBehaviour
         
         _animator.SetParameterValue("isAttacking", true);
 
+        PlayerStateObserver.Instance.OnAnimationStart();
+
         var playerHealth = _player.GetComponent<HealthSystem>();
         if (playerHealth.CurrentPhysicalHealth > 1)
         {
@@ -106,9 +109,14 @@ public class NewHalfie : MonoBehaviour
             playerHealth.TakePhysicalDamage(2);
         }
         
+        yield return new WaitForSeconds(2);
+        
+        PlayerStateObserver.Instance.OnAnimationEnd();
+        _animator.SetParameterValue("isAttacking", false);
+        _animator.SetParameterValue("isWalking", false);
+        
         yield return new WaitForSeconds(3);
         
-        _animator.SetParameterValue("isAttacking", false);
         _attackCooldown = false;
         _startedAttackCooldown = false;
     }
