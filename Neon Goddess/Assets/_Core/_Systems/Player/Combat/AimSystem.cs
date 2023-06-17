@@ -1,3 +1,4 @@
+using System.Collections;
 using Animations;
 using Inputs;
 using Player;
@@ -42,10 +43,17 @@ namespace Combat
 
         private void AimPerformed()
         {
-            _isAiming = true;
+            StartCoroutine(StartAiming());
             PlayerStateObserver.Instance.OnAimStart();
 
             _animator.SetParameterValue("isAiming", true);
+        }
+
+        private IEnumerator StartAiming()
+        {
+            yield return new WaitForSeconds(0.5f);
+            
+            _isAiming = true;
         }
 
         private void AimCanceled()
