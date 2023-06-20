@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5397667363282426107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 749d6b6a-001e-4a7d-89e9-9b6681ba1903
+  m_EditorClassIdentifier: 
+  _text: Doesn't look like any of the cults' drones...
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 275ccc3d-a7fa-4ee7-8ffe-d43ee21dc271
+  _rect:
+    serializedVersion: 2
+    x: 300
+    y: 150
+    width: 200
+    height: 200
+--- !u!114 &-2621950555652836911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 275ccc3d-a7fa-4ee7-8ffe-d43ee21dc271
+  m_EditorClassIdentifier: 
+  _text: '*brrrrrp*'
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: bb4ecdbbe65109d4daaec0a4fe5bf87a, type: 2}
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 550
+    y: 150
+    width: 200
+    height: 200
+--- !u!114 &-337484824788022041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 19fbde54-5409-4678-bbbb-6a376cae3b87
+  m_EditorClassIdentifier: 
+  _text: What is it, now?
+  _isRootNode: 1
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 749d6b6a-001e-4a7d-89e9-9b6681ba1903
+  _rect:
+    serializedVersion: 2
+    x: 50
+    y: 150
+    width: 200
+    height: 200
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7eca54113c3da44b17989f2565d1a3, type: 3}
+  m_Name: EN_Astrid_meets_CAT
+  m_EditorClassIdentifier: 
+  _nodes:
+  - {fileID: -337484824788022041}
+  - {fileID: -5397667363282426107}
+  - {fileID: -2621950555652836911}
