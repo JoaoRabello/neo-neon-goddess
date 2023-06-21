@@ -41,6 +41,9 @@ namespace PlayerMovements
             
             PlayerStateObserver.Instance.AimStart += BlockMovement;
             PlayerStateObserver.Instance.AimEnd += UnlockMovement;
+            
+            PlayerStateObserver.Instance.AnimationStart += BlockMovement;
+            PlayerStateObserver.Instance.AnimationEnd += UnlockMovement;
         }
 
         private void OnDisable()
@@ -50,6 +53,9 @@ namespace PlayerMovements
             
             PlayerStateObserver.Instance.AimStart -= BlockMovement;
             PlayerStateObserver.Instance.AimEnd -= UnlockMovement;
+            
+            PlayerStateObserver.Instance.AnimationStart -= BlockMovement;
+            PlayerStateObserver.Instance.AnimationEnd -= UnlockMovement;
         }
 
         /// <summary>

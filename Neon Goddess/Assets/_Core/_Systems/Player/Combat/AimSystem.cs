@@ -1,3 +1,4 @@
+using System.Collections;
 using Animations;
 using Inputs;
 using Player;
@@ -13,9 +14,13 @@ namespace Combat
             Front,
             Down
         }
+        
+        [SerializeField] private bool _weaponEquipped;
+        [SerializeField] private GameObject _weaponGameObject;
+        [SerializeField] private GameObject _meleeWeaponGameObject;
 
-        [Tooltip("Our custom animator")] [SerializeField]
-        private CharacterAnimator _animator;
+        [Tooltip("Our custom animator")] 
+        [SerializeField] private CharacterAnimator _animator;
 
         private AimDirection _currentAimingDirection;
         private Vector3 _currentAimingDirectionVector3;
@@ -42,18 +47,40 @@ namespace Combat
 
         private void AimPerformed()
         {
-            _isAiming = true;
+            StopAllCoroutines();
+            StartCoroutine(StartAiming());
             PlayerStateObserver.Instance.OnAimStart();
 
             _animator.SetParameterValue("isAiming", true);
+
+            _weaponGameObject.SetActive(_weaponEquipped);
+            _meleeWeaponGameObject.SetActive(!_weaponEquipped);
+        }
+
+        private IEnumerator StartAiming()
+        {
+            yield return new WaitForSeconds(0.5f);
+            
+            _isAiming = true;
         }
 
         private void AimCanceled()
         {
             _isAiming = false;
+            
+            StopAllCoroutines();
+            StartCoroutine(StopAiming());
             PlayerStateObserver.Instance.OnAimEnd();
 
             _animator.SetParameterValue("isAiming", false);
+        }
+        
+        private IEnumerator StopAiming()
+        {
+            yield return new WaitForSeconds(0.5f);
+            
+            _weaponGameObject.SetActive(false);
+            _meleeWeaponGameObject.SetActive(false);
         }
 
         private void MovePerformed(Vector2 movementInput)

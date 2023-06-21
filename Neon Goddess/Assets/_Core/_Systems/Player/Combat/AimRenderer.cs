@@ -20,14 +20,6 @@ namespace Combat
             }
             
             _aimRenderer.enabled = true;
-
-            var direction = _aimSystem.CurrentAimingDirection.ToVector3(_aimBase.forward);
-            var rendererPositions = new[]
-            {
-                _aimBase.position,
-                _aimBase.position + direction
-            };
-            _aimRenderer.SetPositions(rendererPositions);
         }
     }
 }

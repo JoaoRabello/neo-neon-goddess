@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Animations;
+using Player;
 using UnityEngine;
 
 public class NewHalfie : MonoBehaviour
 {
+    [SerializeField] private CharacterAnimator _animator;
     [SerializeField] private LayerMask _playerLayerMask;
     [SerializeField] private float _attackRange;
     [SerializeField] private float _forgetRange;
@@ -33,8 +36,7 @@ public class NewHalfie : MonoBehaviour
         if (distanceToPlayer >= _forgetRange)
         {
             _foundPlayer = false;
-            transform.position = Vector3.MoveTowards(transform.position, _basePosition, _currentSpeed * Time.deltaTime);
-            
+            Move(_basePosition);
             RotateTowards(_basePosition);
             return;
         }
@@ -46,7 +48,7 @@ public class NewHalfie : MonoBehaviour
 
         if (_foundPlayer)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _player.position, _currentSpeed * Time.deltaTime);
+            Move(_player.position);
             transform.position = new Vector3(transform.position.x, 0.2f, transform.position.z);
             
             RotateTowards(_player.position);
@@ -60,6 +62,12 @@ public class NewHalfie : MonoBehaviour
             _foundPlayer = true;
             _player = playerColliders[0].gameObject.transform.parent.transform;
         }
+    }
+
+    private void Move(Vector3 destiny)
+    {
+        transform.position = Vector3.MoveTowards(transform.position, destiny, _currentSpeed * Time.deltaTime);
+        _animator.SetParameterValue("isMoving", true);
     }
 
     private void Attack()
@@ -86,6 +94,11 @@ public class NewHalfie : MonoBehaviour
 
         _attackCooldown = true;
         _currentSpeed = _speed;
+        
+        _animator.SetParameterValue("isAttacking", true);
+
+        PlayerStateObserver.Instance.OnAnimationStart();
+        CutsceneManager.Instance.PlayCutscene();
 
         var playerHealth = _player.GetComponent<HealthSystem>();
         if (playerHealth.CurrentPhysicalHealth > 1)
@@ -96,7 +109,14 @@ public class NewHalfie : MonoBehaviour
         {
             playerHealth.TakePhysicalDamage(2);
         }
-
+        
+        yield return new WaitForSeconds(2);
+        
+        PlayerStateObserver.Instance.OnAnimationEnd();
+        CutsceneManager.Instance.StopCutscene();
+        _animator.SetParameterValue("isAttacking", false);
+        _animator.SetParameterValue("isWalking", false);
+        
         yield return new WaitForSeconds(3);
         
         _attackCooldown = false;
