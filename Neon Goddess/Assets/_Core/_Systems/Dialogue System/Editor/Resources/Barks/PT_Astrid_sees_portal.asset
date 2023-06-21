@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6837848371190494965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: a17957e6-a7c9-4213-9788-a7dfbc056b2a
+  m_EditorClassIdentifier: 
+  _text: Dar meia volta
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 56a41aaf-b06f-42b2-9680-4dc3836d22ec
+  _rect:
+    serializedVersion: 2
+    x: 279
+    y: 20
+    width: 200
+    height: 200
+--- !u!114 &-3302695002920915471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 62f60944-62b1-4b2f-8347-be7e90d9af9a
+  m_EditorClassIdentifier: 
+  _text: "Mas o que \xE9 isso...?"
+  _isRootNode: 1
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - a17957e6-a7c9-4213-9788-a7dfbc056b2a
+  - 5b89e38e-76ba-40df-a471-663c045dbf96
+  _rect:
+    serializedVersion: 2
+    x: 38
+    y: 151
+    width: 200
+    height: 200
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7eca54113c3da44b17989f2565d1a3, type: 3}
+  m_Name: PT_Astrid_sees_portal
+  m_EditorClassIdentifier: 
+  _nodes:
+  - {fileID: -3302695002920915471}
+  - {fileID: -6837848371190494965}
+  - {fileID: 3590170588430194595}
+  - {fileID: 2190069353021211235}
+  - {fileID: 8126256529039409793}
+--- !u!114 &2190069353021211235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 56a41aaf-b06f-42b2-9680-4dc3836d22ec
+  m_EditorClassIdentifier: 
+  _text: "Mas n\xE3o entro a\xED de jeito nenhum!"
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 529
+    y: 20
+    width: 200
+    height: 200
+--- !u!114 &3590170588430194595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 5b89e38e-76ba-40df-a471-663c045dbf96
+  m_EditorClassIdentifier: 
+  _text: Entrar no portal
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - e8ec956b-ecca-406d-a810-bb51b33288c0
+  _rect:
+    serializedVersion: 2
+    x: 280
+    y: 256
+    width: 200
+    height: 200
+--- !u!114 &8126256529039409793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: e8ec956b-ecca-406d-a810-bb51b33288c0
+  m_EditorClassIdentifier: 
+  _text: "Bem... N\xE3o d\xE1 pra piorar, n\xE9?"
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 530
+    y: 256
+    width: 200
+    height: 200

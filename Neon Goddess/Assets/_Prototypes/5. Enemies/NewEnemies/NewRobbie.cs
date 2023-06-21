@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Animations;
 using UnityEngine;
 
 public class NewRobbie : MonoBehaviour
 {
+    [SerializeField] private CharacterAnimator _animator;
     [SerializeField] private LayerMask _playerLayerMask;
     [SerializeField] private float _attackRange;
     [SerializeField] private float _specialAttackRange;
@@ -50,8 +52,7 @@ public class NewRobbie : MonoBehaviour
 
         if (_foundPlayer)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _player.position, _currentSpeed * Time.deltaTime);
-            transform.position = new Vector3(transform.position.x, 1f, transform.position.z);
+            Move(_player.position);
             
             RotateTowards(_player.position);
 
@@ -66,6 +67,14 @@ public class NewRobbie : MonoBehaviour
             _foundPlayer = true;
             _player = playerColliders[0].gameObject.transform.parent.transform;
         }
+    }
+
+    private void Move(Vector3 desiredPosition)
+    {
+        transform.position = Vector3.MoveTowards(transform.position, desiredPosition, _currentSpeed * Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+
+        _animator.SetParameterValue("isWalking", true);
     }
 
     private void WaypointMovement()
@@ -87,8 +96,7 @@ public class NewRobbie : MonoBehaviour
 
         Vector3 targetPosition = _waypointIndex == 1 ? _waypoint1.position : _waypoint2.position;
             
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, _currentSpeed * Time.deltaTime);
-        transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+        Move(targetPosition);
             
         RotateTowards(targetPosition);
     }
@@ -112,7 +120,10 @@ public class NewRobbie : MonoBehaviour
 
     private void RotateTowards(Vector3 targetPos)
     {
-        transform.forward = (targetPos - transform.position).normalized;
+        var rotation = (targetPos - transform.position).normalized;
+        
+        transform.forward = rotation;
+        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
     }
 
     private IEnumerator AttackCooldown(bool basicAttack)
@@ -128,10 +139,13 @@ public class NewRobbie : MonoBehaviour
 
         if (basicAttack)
         {
+            _animator.SetParameterValue("isAttacking", true);
+
             playerHealth.TakePhysicalDamage(2);
         }
         else
         {
+            _animator.SetParameterValue("isSpecialAttacking", true);
             if (playerHealth.CurrentPhysicalHealth > 1)
             {
                 playerHealth.TakeDirectSetPhysicalDamage(1);
@@ -143,6 +157,9 @@ public class NewRobbie : MonoBehaviour
         }
 
         yield return new WaitForSeconds(3);
+        
+        _animator.SetParameterValue("isAttacking", false);
+        _animator.SetParameterValue("isSpecialAttacking", false);
         
         _attackCooldown = false;
         _startedAttackCooldown = false;

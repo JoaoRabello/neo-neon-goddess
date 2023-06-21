@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6412072609117288153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: e5c9d9f9-338b-425f-8a1c-1380beaf997d
+  m_EditorClassIdentifier: 
+  _text: Where am I? Where is my gun?
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 550
+    y: 150
+    width: 200
+    height: 200
+--- !u!114 &-2751583830488551947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 94709c89-c5de-435b-b14f-876f6ea7f40e
+  m_EditorClassIdentifier: 
+  _text: What... What is this? Blood? MY blood?
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - e5c9d9f9-338b-425f-8a1c-1380beaf997d
+  _rect:
+    serializedVersion: 2
+    x: 300
+    y: 150
+    width: 200
+    height: 200
+--- !u!114 &-2487343881950040896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 5e7c1007-a216-4311-a4ac-024a3866b3a1
+  m_EditorClassIdentifier: 
+  _text: Ugh... My head...
+  _isRootNode: 1
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 94709c89-c5de-435b-b14f-876f6ea7f40e
+  _rect:
+    serializedVersion: 2
+    x: 33
+    y: 151
+    width: 200
+    height: 200
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7eca54113c3da44b17989f2565d1a3, type: 3}
+  m_Name: EN_Astrid_wakes_up 1
+  m_EditorClassIdentifier: 
+  _nodes:
+  - {fileID: -2487343881950040896}
+  - {fileID: -2751583830488551947}
+  - {fileID: -6412072609117288153}
