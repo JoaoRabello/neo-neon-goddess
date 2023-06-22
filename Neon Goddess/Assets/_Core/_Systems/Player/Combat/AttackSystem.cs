@@ -41,12 +41,19 @@ namespace Combat
             if (!_aimSystem.IsAiming) return;
             
             Shoot();
-            _animator.SetParameterValue("isAiming", true);
+            
+            if(_weaponEquipped)
+                _animator.SetParameterValue("isAiming", true);
         }
 
         private void Shoot()
         {
             if(_isOnAnimation) return;
+            
+            PlayerStateObserver.Instance.OnAimEnd();
+            PlayerStateObserver.Instance.OnAnimationStart();
+            
+            _isOnAnimation = true;
             
             if (_weaponEquipped)
             {
@@ -55,7 +62,6 @@ namespace Combat
             }
             else
             {
-                _isOnAnimation = true;
                 _animator.PlayAndOnAnimationEndCallback("Stab", AnimationEnded);
             }
             
@@ -72,6 +78,10 @@ namespace Combat
         private void AnimationEnded()
         {
             _isOnAnimation = false;
+            PlayerStateObserver.Instance.OnAnimationEnd();
+            
+            if(_aimSystem.IsAiming)
+                PlayerStateObserver.Instance.OnAimStart();
         }
     }
 }
