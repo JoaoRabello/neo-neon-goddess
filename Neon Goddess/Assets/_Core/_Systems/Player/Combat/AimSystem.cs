@@ -25,8 +25,9 @@ namespace Combat
         private AimDirection _currentAimingDirection;
         private Vector3 _currentAimingDirectionVector3;
         private bool _isAiming;
-
+        public LightningStickerVFXManeger lightningVFX;
         public bool IsAiming => _isAiming;
+        public bool weaponEquipped => _weaponEquipped;
         public AimDirection CurrentAimingDirection => _currentAimingDirection;
 
         private void OnEnable()
@@ -51,10 +52,16 @@ namespace Combat
             StartCoroutine(StartAiming());
             PlayerStateObserver.Instance.OnAimStart();
 
-            _animator.SetParameterValue("isAiming", true);
-
-            _weaponGameObject.SetActive(_weaponEquipped);
-            _meleeWeaponGameObject.SetActive(!_weaponEquipped);
+            if (_weaponEquipped)
+            {
+                _animator.SetParameterValue("isAiming", true);
+                _weaponGameObject.SetActive(true);
+            }
+            else
+            {
+                _animator.SetParameterValue("isAimingMelee", true);
+                _meleeWeaponGameObject.SetActive(true);
+            }
         }
 
         private IEnumerator StartAiming()
@@ -62,6 +69,7 @@ namespace Combat
             yield return new WaitForSeconds(0.5f);
             
             _isAiming = true;
+            lightningVFX.EffectActivator();
         }
 
         private void AimCanceled()
@@ -72,7 +80,16 @@ namespace Combat
             StartCoroutine(StopAiming());
             PlayerStateObserver.Instance.OnAimEnd();
 
-            _animator.SetParameterValue("isAiming", false);
+            if (_weaponEquipped)
+            {
+                _animator.SetParameterValue("isAiming", false);
+            }
+            else
+            {
+                _animator.SetParameterValue("isAimingMelee", false);
+            }
+            
+            lightningVFX.EffectActivator();
         }
         
         private IEnumerator StopAiming()

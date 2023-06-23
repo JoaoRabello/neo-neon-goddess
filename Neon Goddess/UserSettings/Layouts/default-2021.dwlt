@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1904
     height: 981
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 17
+  controlID: 52
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 24
+  controlID: 61
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -174,7 +174,7 @@ MonoBehaviour:
   - {fileID: 14}
   - {fileID: 13}
   m_Selected: 0
-  m_LastSelected: 3
+  m_LastSelected: 1
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 18
+  controlID: 53
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1539,7 +1539,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 8
     y: 81
-    width: 1131
+    width: 1159
     height: 521
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1578,7 +1578,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -1587,23 +1587,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1131
+      width: 1159
       height: 500
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 565.5, y: 250}
+    m_Translation: {x: 579.5, y: 250}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -565.5
+      x: -579.5
       y: -250
-      width: 1131
+      width: 1159
       height: 500
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1131, y: 521}
+  m_LastWindowPixelSize: {x: 1159, y: 521}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 00000000000000000000
@@ -1719,7 +1719,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       floating: 0
       collapsed: 0
-      displayed: 0
+      displayed: 1
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -1846,9 +1846,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.3799706, y: 0.9840136, z: 4.425616}
+    m_Target: {x: -1.1932899, y: 0.7784314, z: 1.1057622}
     speed: 2
-    m_Value: {x: 2.3799706, y: 0.9840136, z: 4.425616}
+    m_Value: {x: -1.1932899, y: 0.7784314, z: 1.1057622}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1895,13 +1895,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.0016150834, y: 0.95861375, z: 0.007972243, w: -0.28524318}
+    m_Target: {x: -0.021524921, y: 0.9145881, z: -0.047216143, w: -0.40150633}
     speed: 2
-    m_Value: {x: 0.0016506367, y: 0.95714337, z: 0.007963422, w: -0.2895005}
+    m_Value: {x: -0.021520924, y: 0.9144183, z: -0.047207374, w: -0.40143177}
   m_Size:
-    m_Target: 1.0438771
+    m_Target: 10.647164
     speed: 2
-    m_Value: 0.99892545
+    m_Value: 10.647164
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1956,7 +1956,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_SearchFilter:
-    m_NameFilter: 
+    m_NameFilter: p game
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -1966,24 +1966,24 @@ MonoBehaviour:
     m_SceneHandles: 
     m_ShowAllHits: 0
     m_SkipHidden: 0
-    m_SearchArea: 2
+    m_SearchArea: 1
     m_Folders:
-    - Assets/_Core/_Systems/Minor Scripts
+    - Assets/_Core/_Systems/Minor Scripts/ParticuleScripts
     m_Globs: []
-    m_OriginalText: 
+    m_OriginalText: p game
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/_Core/_Systems/Minor Scripts
+  - Assets/_Core/_Systems/Minor Scripts/ParticuleScripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: G:\Gato godao\neo-neon-goddess\Neon Goddess
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 40}
-    m_SelectedIDs: 22c50000
-    m_LastClickedID: 50466
-    m_ExpandedIDs: 00000000129d0000149d0000169d0000189d00001a9d00001e9d0000209d0000229d0000249d0000269d000080a3000092a3000068a600006aa600006ca6000000ca9a3b
+    m_SelectedIDs: f6a90000
+    m_LastClickedID: 43510
+    m_ExpandedIDs: 0000000020a3000022a3000024a3000026a3000028a300002aa300002ca300002ea3000030a3000032a3000034a3000036a3000038a300003aa3000094a900009aa90000eaa9000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2011,7 +2011,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000109d0000129d0000149d0000169d0000189d00001a9d00001c9d00001e9d0000209d0000229d0000249d0000269d0000
+    m_ExpandedIDs: 0000000020a3000022a3000024a3000026a3000028a300002aa300002ca300002ea3000030a3000032a3000034a3000036a3000038a300003aa30000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2038,7 +2038,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000fa7b00008aa60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -2099,9 +2099,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 2cc50000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 74d4ffff04ecffff02f9ffff20faffff
+      m_SelectedIDs: 46820000
+      m_LastClickedID: 33350
+      m_ExpandedIDs: 268cffffdcd5ffff18e5ffff20e5ffff26f4ffff68f5ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

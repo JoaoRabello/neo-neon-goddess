@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -93,7 +94,11 @@ namespace Inputs
         
         private void OnMovementPerformed(InputAction.CallbackContext context)
         {
-            MovementPerformed?.Invoke(context.ReadValue<Vector2>());
+            if (PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Free
+                || PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Aiming)
+            {
+                MovementPerformed?.Invoke(context.ReadValue<Vector2>());
+            }
         }
         
         private void OnMovementCanceled(InputAction.CallbackContext context)
@@ -108,12 +113,18 @@ namespace Inputs
         
         private void OnAimPerformed(InputAction.CallbackContext context)
         {
+            if (PlayerStateObserver.Instance.CurrentState != PlayerStateObserver.PlayerState.Free) return;
+            
             AimPerformed?.Invoke();
         }
         
         private void OnAimCanceled(InputAction.CallbackContext context)
         {
-            AimCanceled?.Invoke();
+            if (PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Free
+                || PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Aiming)
+            {
+                AimCanceled?.Invoke();
+            }
         }
         
         private void OnShootPerformed(InputAction.CallbackContext context)
