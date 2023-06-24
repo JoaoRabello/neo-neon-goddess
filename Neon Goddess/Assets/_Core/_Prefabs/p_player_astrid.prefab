@@ -1060,6 +1060,7 @@ GameObject:
   - component: {fileID: 7758867608645911423}
   - component: {fileID: 5289680002988290467}
   - component: {fileID: 8398902877504340519}
+  - component: {fileID: 6874193728444769123}
   - component: {fileID: 1367436239120529389}
   - component: {fileID: 4177875828851857247}
   - component: {fileID: 305961546911803520}
@@ -1152,8 +1153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponEquipped: 0
   _weaponGameObject: {fileID: 6331153668028487100}
-  _meleeWeaponGameObject: {fileID: 0}
+  _meleeWeaponGameObject: {fileID: 5291778055288574144}
   _animator: {fileID: 7758867608645911423}
+  lightningVFX: {fileID: 6874193728444769123}
 --- !u!114 &8398902877504340519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1169,6 +1171,20 @@ MonoBehaviour:
   _aimSystem: {fileID: 5289680002988290467}
   _aimRenderer: {fileID: 2892432006313437000}
   _aimBase: {fileID: 4501916402718172192}
+--- !u!114 &6874193728444769123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4211844877681094624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6e5f17f60d15d4c8a05b43d37b84f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimSystem: {fileID: 5289680002988290467}
+  lightningStickerVFX: {fileID: 6452798768879280507}
 --- !u!114 &1367436239120529389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2894,6 +2910,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cfc35774b63c2943a7e8083d940d102, type: 3}
+--- !u!198 &6452798768879280507 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2142189578935644357, guid: 7cfc35774b63c2943a7e8083d940d102,
+    type: 3}
+  m_PrefabInstance: {fileID: 4915226375731810750}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8411023370524271704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3499175319434933734, guid: 7cfc35774b63c2943a7e8083d940d102,

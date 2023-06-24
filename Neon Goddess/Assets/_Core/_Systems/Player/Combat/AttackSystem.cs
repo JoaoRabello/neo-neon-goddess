@@ -57,8 +57,7 @@ namespace Combat
             
             if (_weaponEquipped)
             {
-                _animator.SetParameterValue("isShooting", true);
-                _animator.SetParameterValue("isShooting", false);
+                _animator.PlayAndOnAnimationEndCallback("Shot", AnimationEnded);
             }
             else
             {

@@ -121,7 +121,8 @@ namespace Inputs
         private void OnAimCanceled(InputAction.CallbackContext context)
         {
             if (PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Free
-                || PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Aiming)
+                || PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Aiming
+                || PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.OnAnimation)
             {
                 AimCanceled?.Invoke();
             }
