@@ -220,7 +220,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.45
+    m_Value: 0.51
   smoothness:
     m_OverrideState: 1
     m_Value: 0.2
@@ -242,7 +242,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.11
+    m_Value: 0.3
 --- !u!114 &-6242886161647567167
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -258,10 +258,10 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.3
+    m_Value: 0.33
   contrast:
     m_OverrideState: 1
-    m_Value: 25
+    m_Value: 17
   colorFilter:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -269,7 +269,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 10
   saturation:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: -15
 --- !u!114 &-2498313683906913111
 MonoBehaviour:
@@ -516,13 +516,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.87124, y: 0.84503937, z: 1, w: 0}
+    m_Value: {x: 0.74869215, y: 0.6650888, z: 1, w: 0}
   midtones:
     m_OverrideState: 1
     m_Value: {x: 1, y: 0.96592474, z: 0.8308778, w: 0}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.8532982, z: 0.94963396, w: 0}
+    m_Value: {x: 1, y: 0.966486, z: 0.5728173, w: 0}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
@@ -553,7 +553,7 @@ MonoBehaviour:
     m_Value: 0.3
   intensity:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 2.37
   scatter:
     m_OverrideState: 1
     m_Value: 0.7
@@ -676,19 +676,19 @@ MonoBehaviour:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.009036144
+          time: 0
           value: 0
-          inSlope: 0.28559145
-          outSlope: 0.28559145
+          inSlope: 0.5182371
+          outSlope: 0.5182371
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.57530123
+          time: 0.67281103
           value: 1
-          inSlope: 1
-          outSlope: 1
+          inSlope: -0
+          outSlope: -0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
