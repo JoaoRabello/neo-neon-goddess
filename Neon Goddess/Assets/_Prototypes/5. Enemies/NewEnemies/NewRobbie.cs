@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Animations;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class NewRobbie : MonoBehaviour
 {
     [SerializeField] private CharacterAnimator _animator;
+    [SerializeField] private NavMeshAgent _navMeshAgent;
     [SerializeField] private LayerMask _playerLayerMask;
     [SerializeField] private float _attackRange;
     [SerializeField] private float _specialAttackRange;
@@ -71,8 +73,10 @@ public class NewRobbie : MonoBehaviour
 
     private void Move(Vector3 desiredPosition)
     {
-        transform.position = Vector3.MoveTowards(transform.position, desiredPosition, _currentSpeed * Time.deltaTime);
-        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+        // transform.position = Vector3.MoveTowards(transform.position, desiredPosition, _currentSpeed * Time.deltaTime);
+        // transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+
+        _navMeshAgent.SetDestination(desiredPosition);
 
         _animator.SetParameterValue("isWalking", true);
     }
@@ -81,14 +85,18 @@ public class NewRobbie : MonoBehaviour
     {
         if (_waypointIndex == 1)
         {
-            if (Vector3.Distance(transform.position, _waypoint1.position) <= 0.01f)
+            var xDistance = Mathf.Abs(transform.position.x - _waypoint1.position.x);
+            var zDistance = Mathf.Abs(transform.position.z - _waypoint1.position.z);
+            if (xDistance <= 0.01f && zDistance <= 0.01f)
             {
                 _waypointIndex = 2;
             }
         }
         else
         {
-            if (Vector3.Distance(transform.position, _waypoint2.position) <= 0.01f)
+            var xDistance = Mathf.Abs(transform.position.x - _waypoint2.position.x);
+            var zDistance = Mathf.Abs(transform.position.z - _waypoint2.position.z);
+            if (xDistance <= 0.01f && zDistance <= 0.01f)
             {
                 _waypointIndex = 1;
             }
@@ -120,10 +128,11 @@ public class NewRobbie : MonoBehaviour
 
     private void RotateTowards(Vector3 targetPos)
     {
-        var rotation = (targetPos - transform.position).normalized;
-        
-        transform.forward = rotation;
-        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+        _navMeshAgent.updateRotation = true;
+        // var rotation = (targetPos - transform.position).normalized;
+        //
+        // transform.forward = rotation;
+        // transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
     }
 
     private IEnumerator AttackCooldown(bool basicAttack)

@@ -774,7 +774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: {fileID: 11400000, guid: 11c5d0b3d5f19e74fb9cd3ce732ad75f, type: 2}
-  doorShaderScript: {fileID: 0}
+  doorShaderScript: {fileID: 982597319298758592}
   referenceDoor: {fileID: 3002395744450863898}
   isOnRange: 0
 --- !u!54 &2510390927568837786
@@ -842,7 +842,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5995916457440645098}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1041,6 +1041,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 206c7ad199279e64a9ba2259af62b88f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9f9ac92508c5db84cb0a9b807483c8a4, type: 2}
     - target: {fileID: 919132149155446097, guid: 206c7ad199279e64a9ba2259af62b88f,
         type: 3}
       propertyPath: m_Name
