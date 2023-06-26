@@ -47,8 +47,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 0}
-  doorMoveDistance: -5
+  doorMoveDistancex: 0
+  doorMoveDistancey: 0
+  doorMoveDistancez: 0
   isPlayerInsideTrigger: 0
+  doorIsMoving: 0
+  speed: 10
 --- !u!54 &8835887945965654986
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -114,7 +118,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8835887947100837056}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
