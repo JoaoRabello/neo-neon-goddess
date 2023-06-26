@@ -24,16 +24,20 @@ namespace Combat
         [SerializeField] private float _shotHitBoxSize;
         [SerializeField] private float _maxRange;
 
+        public bool WeaponEquipped => _weaponEquipped;
+        
         private bool _isOnAnimation;
         
         private void OnEnable()
         {
             PlayerInputReader.Instance.ShootPerformed += ShootPerformed;
+            PlayerInputReader.Instance.ChangeWeaponPerformed += ChangeWeapon;
         }
 
         private void OnDisable()
         {
             PlayerInputReader.Instance.ShootPerformed -= ShootPerformed;
+            PlayerInputReader.Instance.ChangeWeaponPerformed -= ChangeWeapon;
         }
 
         private void ShootPerformed()
@@ -44,6 +48,11 @@ namespace Combat
             
             if(_weaponEquipped)
                 _animator.SetParameterValue("isAiming", true);
+        }
+        
+        private void ChangeWeapon()
+        {
+            _weaponEquipped = !_weaponEquipped;
         }
 
         private void Shoot()

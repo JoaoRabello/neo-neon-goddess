@@ -41,6 +41,7 @@ namespace Inputs
             _inputActions.Prototype.Aim.performed += OnAimPerformed;
             _inputActions.Prototype.Aim.canceled += OnAimCanceled;
             _inputActions.Prototype.Shoot.performed += OnShootPerformed;
+            _inputActions.Prototype.ChangeWeapon.performed += OnChangeWeaponPerformed;
         
             _inputActions.Enable();
         }
@@ -54,6 +55,7 @@ namespace Inputs
             _inputActions.Prototype.Aim.performed -= OnAimPerformed;
             _inputActions.Prototype.Aim.canceled -= OnAimCanceled;
             _inputActions.Prototype.Shoot.performed -= OnShootPerformed;
+            _inputActions.Prototype.ChangeWeapon.performed -= OnChangeWeaponPerformed;
             
             _inputActions.Disable();
         }
@@ -86,6 +88,10 @@ namespace Inputs
         /// Called when Shoot Input is performed
         /// </summary>
         public Action ShootPerformed;
+        /// <summary>
+        /// Called when ChangeWeapon Input is performed
+        /// </summary>
+        public Action ChangeWeaponPerformed;
         
         private void OnInteractPerformed(InputAction.CallbackContext context)
         {
@@ -131,6 +137,11 @@ namespace Inputs
         private void OnShootPerformed(InputAction.CallbackContext context)
         {
             ShootPerformed?.Invoke();
+        }
+        
+        private void OnChangeWeaponPerformed(InputAction.CallbackContext context)
+        {
+            ChangeWeaponPerformed?.Invoke();
         }
     }
 }

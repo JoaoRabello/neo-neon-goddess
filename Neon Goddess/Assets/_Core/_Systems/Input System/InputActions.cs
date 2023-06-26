@@ -98,6 +98,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""c3dce5cb-be12-48f7-b1b0-91c11cb27a59"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -298,6 +307,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0da47e4-aea5-46f1-a164-4fa1b18464c2"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -345,6 +365,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""1197c24a-1753-426f-9f92-182cdbe7a0cf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""98521835-55ec-4690-8f46-4e6d6e572b2c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -659,6 +688,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e1b09453-d001-4b66-8e7e-2c334aee4ad6"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -675,6 +715,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Prototype_Melee = m_Prototype.FindAction("Melee", throwIfNotFound: true);
         m_Prototype_Ledge = m_Prototype.FindAction("Ledge", throwIfNotFound: true);
         m_Prototype_Interact = m_Prototype.FindAction("Interact", throwIfNotFound: true);
+        m_Prototype_ChangeWeapon = m_Prototype.FindAction("ChangeWeapon", throwIfNotFound: true);
         // Astrid
         m_Astrid = asset.FindActionMap("Astrid", throwIfNotFound: true);
         m_Astrid_Interaction = m_Astrid.FindAction("Interaction", throwIfNotFound: true);
@@ -682,6 +723,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Astrid_Crouch = m_Astrid.FindAction("Crouch", throwIfNotFound: true);
         m_Astrid_Aim = m_Astrid.FindAction("Aim", throwIfNotFound: true);
         m_Astrid_Shoot = m_Astrid.FindAction("Shoot", throwIfNotFound: true);
+        m_Astrid_ChangeWeapon = m_Astrid.FindAction("ChangeWeapon", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -749,6 +791,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Prototype_Melee;
     private readonly InputAction m_Prototype_Ledge;
     private readonly InputAction m_Prototype_Interact;
+    private readonly InputAction m_Prototype_ChangeWeapon;
     public struct PrototypeActions
     {
         private @InputActions m_Wrapper;
@@ -761,6 +804,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Melee => m_Wrapper.m_Prototype_Melee;
         public InputAction @Ledge => m_Wrapper.m_Prototype_Ledge;
         public InputAction @Interact => m_Wrapper.m_Prototype_Interact;
+        public InputAction @ChangeWeapon => m_Wrapper.m_Prototype_ChangeWeapon;
         public InputActionMap Get() { return m_Wrapper.m_Prototype; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -794,6 +838,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnInteract;
+                @ChangeWeapon.started -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnChangeWeapon;
+                @ChangeWeapon.performed -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnChangeWeapon;
+                @ChangeWeapon.canceled -= m_Wrapper.m_PrototypeActionsCallbackInterface.OnChangeWeapon;
             }
             m_Wrapper.m_PrototypeActionsCallbackInterface = instance;
             if (instance != null)
@@ -822,6 +869,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @ChangeWeapon.started += instance.OnChangeWeapon;
+                @ChangeWeapon.performed += instance.OnChangeWeapon;
+                @ChangeWeapon.canceled += instance.OnChangeWeapon;
             }
         }
     }
@@ -835,6 +885,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Astrid_Crouch;
     private readonly InputAction m_Astrid_Aim;
     private readonly InputAction m_Astrid_Shoot;
+    private readonly InputAction m_Astrid_ChangeWeapon;
     public struct AstridActions
     {
         private @InputActions m_Wrapper;
@@ -844,6 +895,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Crouch => m_Wrapper.m_Astrid_Crouch;
         public InputAction @Aim => m_Wrapper.m_Astrid_Aim;
         public InputAction @Shoot => m_Wrapper.m_Astrid_Shoot;
+        public InputAction @ChangeWeapon => m_Wrapper.m_Astrid_ChangeWeapon;
         public InputActionMap Get() { return m_Wrapper.m_Astrid; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -868,6 +920,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_AstridActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_AstridActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_AstridActionsCallbackInterface.OnShoot;
+                @ChangeWeapon.started -= m_Wrapper.m_AstridActionsCallbackInterface.OnChangeWeapon;
+                @ChangeWeapon.performed -= m_Wrapper.m_AstridActionsCallbackInterface.OnChangeWeapon;
+                @ChangeWeapon.canceled -= m_Wrapper.m_AstridActionsCallbackInterface.OnChangeWeapon;
             }
             m_Wrapper.m_AstridActionsCallbackInterface = instance;
             if (instance != null)
@@ -887,6 +942,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @ChangeWeapon.started += instance.OnChangeWeapon;
+                @ChangeWeapon.performed += instance.OnChangeWeapon;
+                @ChangeWeapon.canceled += instance.OnChangeWeapon;
             }
         }
     }
@@ -901,6 +959,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnMelee(InputAction.CallbackContext context);
         void OnLedge(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnChangeWeapon(InputAction.CallbackContext context);
     }
     public interface IAstridActions
     {
@@ -909,5 +968,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnChangeWeapon(InputAction.CallbackContext context);
     }
 }

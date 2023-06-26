@@ -15,7 +15,7 @@ namespace Combat
             Down
         }
         
-        [SerializeField] private bool _weaponEquipped;
+        [SerializeField] private AttackSystem _attackSystem;
         [SerializeField] private GameObject _weaponGameObject;
         [SerializeField] private GameObject _meleeWeaponGameObject;
 
@@ -27,7 +27,7 @@ namespace Combat
         private bool _isAiming;
         public LightningStickerVFXManeger lightningVFX;
         public bool IsAiming => _isAiming;
-        public bool weaponEquipped => _weaponEquipped;
+        public bool weaponEquipped => _attackSystem.WeaponEquipped;
         public AimDirection CurrentAimingDirection => _currentAimingDirection;
 
         private void OnEnable()
@@ -52,7 +52,7 @@ namespace Combat
             StartCoroutine(StartAiming());
             PlayerStateObserver.Instance.OnAimStart();
 
-            if (_weaponEquipped)
+            if (_attackSystem.WeaponEquipped)
             {
                 _animator.SetParameterValue("isAiming", true);
                 _weaponGameObject.SetActive(true);
@@ -80,7 +80,7 @@ namespace Combat
             StartCoroutine(StopAiming());
             PlayerStateObserver.Instance.OnAimEnd();
 
-            if (_weaponEquipped)
+            if (_attackSystem.WeaponEquipped)
             {
                 _animator.SetParameterValue("isAiming", false);
             }
