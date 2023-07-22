@@ -27,6 +27,7 @@ namespace PlayerMovements
         [Header("Movement Data")]
         [Tooltip("Speed for frontal and back movement")]
         [SerializeField] private float _movementSpeed;
+        [SerializeField] private float _backMovementSpeed;
         [Tooltip("Speed for rotational movement")]
         [SerializeField] private float _rotationSpeed;
 
@@ -139,12 +140,13 @@ namespace PlayerMovements
         /// <param name="myTransform">Player Transform for position tracking</param>
         private void Move(Transform myTransform)
         {
-            _animator.SetParameterValue("isMovingBackwards", _movementDirection.y < 0);
+            var isMovingBackwards = _movementDirection.y < 0;
+            _animator.SetParameterValue("isMovingBackwards", isMovingBackwards);
 
             if (Mathf.Abs(_movementDirection.y) > 0.1f)
                 _animator.SetParameterValue("isMoving", true);
 
-            _rigidbody.velocity = myTransform.forward * (_movementDirection.y * _movementSpeed);
+            _rigidbody.velocity = myTransform.forward * (_movementDirection.y * (isMovingBackwards ? _backMovementSpeed : _movementSpeed));
         }
 
         /// <summary>
