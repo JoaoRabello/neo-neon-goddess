@@ -22,7 +22,8 @@ namespace Combat
         [Header("Hit Scan properties")]
         [SerializeField] private LayerMask _hittableLayerMask;
         [SerializeField] private float _shotHitBoxRadiusSize;
-        [SerializeField] private float _maxRange;
+        [SerializeField] private float _maxShootingRange;
+        [SerializeField] private float _maxMeleeRange;
 
         public bool WeaponEquipped => _weaponEquipped;
         
@@ -63,18 +64,13 @@ namespace Combat
             PlayerStateObserver.Instance.OnAnimationStart();
             
             _isOnAnimation = true;
-            
-            if (_weaponEquipped)
-            {
-                _animator.PlayAndOnAnimationEndCallback("Shot", AnimationEnded);
-            }
-            else
-            {
-                _animator.PlayAndOnAnimationEndCallback("Stab", AnimationEnded);
-            }
-            
+
+            _animator.PlayAndOnAnimationEndCallback(_weaponEquipped ? "Shot" : "Stab", AnimationEnded);
+
             RaycastHit[] enemies = new RaycastHit[10];
-            var hitCount = Physics.SphereCastNonAlloc(_shotsOrigin.position, _shotHitBoxRadiusSize, _aimSystem.CurrentAimingDirection.ToVector3(transform.forward), enemies, _maxRange, _hittableLayerMask);
+            var hitCount = Physics.SphereCastNonAlloc(_shotsOrigin.position, _shotHitBoxRadiusSize, 
+                _aimSystem.CurrentAimingDirection.ToVector3(transform.forward), enemies, 
+                _weaponEquipped ? _maxShootingRange : _maxMeleeRange, _hittableLayerMask);
 
             if (hitCount <= 0) return;
             
