@@ -39,6 +39,7 @@ namespace PlayerMovements
         {
             PlayerInputReader.Instance.MovementPerformed += MovementPerformed;
             PlayerInputReader.Instance.MovementCanceled += MovementCanceled;
+            PlayerInputReader.Instance.TurnPerformed += TurnPerformed;
             
             PlayerStateObserver.Instance.AimStart += BlockMovement;
             PlayerStateObserver.Instance.AimEnd += UnlockMovement;
@@ -69,6 +70,16 @@ namespace PlayerMovements
             _movementDirection.Normalize();
 
             _wannaMove = true;
+        }
+        
+        /// <summary>
+        /// Turns the player on 180 degrees if it's not moving
+        /// </summary>
+        private void TurnPerformed()
+        {
+            if (_movementDirection.magnitude > 0.1f) return;
+
+            TurnBody180(transform);
         }
 
         /// <summary>
@@ -156,6 +167,14 @@ namespace PlayerMovements
         private void RotateBody(Transform myTransform)
         {
             myTransform.Rotate(new Vector3(0, _movementDirection.x * _rotationSpeed, 0));
+        }
+        
+        /// <summary>
+        /// Rotates the player on 180 degrees
+        /// </summary>
+        private void TurnBody180(Transform myTransform)
+        {
+            myTransform.Rotate(new Vector3(0, 180, 0));
         }
 
         /// <summary>
