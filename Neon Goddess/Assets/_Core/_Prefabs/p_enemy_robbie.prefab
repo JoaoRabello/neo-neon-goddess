@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6193188897873025493}
   - component: {fileID: 4366320124278906384}
   - component: {fileID: 4193656145065447505}
+  - component: {fileID: 263291562822815791}
   m_Layer: 8
   m_Name: p_enemy_robbie
   m_TagString: Untagged
@@ -94,6 +95,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &263291562822815791
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193188897873025495}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.25
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &5992040799177901389
 PrefabInstance:
   m_ObjectHideFlags: 0
