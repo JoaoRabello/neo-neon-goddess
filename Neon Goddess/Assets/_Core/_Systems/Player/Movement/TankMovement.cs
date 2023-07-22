@@ -30,8 +30,10 @@ namespace PlayerMovements
         [SerializeField] private float _backMovementSpeed;
         [Tooltip("Speed for rotational movement")]
         [SerializeField] private float _rotationSpeed;
+        [SerializeField] private float _walkingRotationSpeed;
 
         private bool _wannaMove;
+        private bool _isWalking;
         private bool _canMove = true;
         private Vector3 _movementDirection;
 
@@ -98,6 +100,8 @@ namespace PlayerMovements
         /// </summary>
         private void Stop()
         {
+            _isWalking = false;
+                
             _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y, 0);
             _animator.SetParameterValue("isMoving", false);
         }
@@ -155,7 +159,10 @@ namespace PlayerMovements
             _animator.SetParameterValue("isMovingBackwards", isMovingBackwards);
 
             if (Mathf.Abs(_movementDirection.y) > 0.1f)
+            {
                 _animator.SetParameterValue("isMoving", true);
+                _isWalking = true;
+            }
 
             _rigidbody.velocity = myTransform.forward * (_movementDirection.y * (isMovingBackwards ? _backMovementSpeed : _movementSpeed));
         }
@@ -166,7 +173,7 @@ namespace PlayerMovements
         /// <param name="myTransform">Player Transform for rotation purposes</param>
         private void RotateBody(Transform myTransform)
         {
-            myTransform.Rotate(new Vector3(0, _movementDirection.x * _rotationSpeed, 0));
+            myTransform.Rotate(new Vector3(0, _movementDirection.x * (_isWalking ? _walkingRotationSpeed : _rotationSpeed), 0));
         }
         
         /// <summary>
