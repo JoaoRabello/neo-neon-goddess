@@ -98,6 +98,9 @@ public class NewRobbie : MonoBehaviour
     {
         _navMeshAgent.SetDestination(transform.position);
         _animator.SetParameterValue("isWalking", false);
+        _animator.SetParameterValue("isAttacking", false);
+        _animator.SetParameterValue("isSpecialAttacking", false);
+        _animator.PlayAnimation("Idle", 0);
     }
 
     private void WaypointMovement()
