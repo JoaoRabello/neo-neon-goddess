@@ -24,6 +24,10 @@ namespace Combat
         [SerializeField] private float _shotHitBoxRadiusSize;
         [SerializeField] private float _maxShootingRange;
         [SerializeField] private float _maxMeleeRange;
+        
+        [Header("Prototype")]
+        [SerializeField] private GameObject _fakeMuzzleEffect;
+        [SerializeField] private float _muzzleEffectTime;
 
         public bool WeaponEquipped => _weaponEquipped;
         
@@ -62,6 +66,8 @@ namespace Combat
             
             PlayerStateObserver.Instance.OnAimEnd();
             PlayerStateObserver.Instance.OnAnimationStart();
+
+            StartCoroutine(PlayMuzzleEffect());
             
             _isOnAnimation = true;
 
@@ -76,6 +82,13 @@ namespace Combat
             
             var enemy = enemies[0].collider;
             enemy.GetComponent<IHackable>().TakeHackShot(_weapon.Damage);
+        }
+
+        private IEnumerator PlayMuzzleEffect()
+        {
+            _fakeMuzzleEffect.SetActive(true);
+            yield return new WaitForSeconds(_muzzleEffectTime);
+            _fakeMuzzleEffect.SetActive(false);
         }
 
         private void AnimationEnded()
