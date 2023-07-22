@@ -34,28 +34,30 @@ namespace Inputs
 
         private void OnEnable()
         {
-            _inputActions.Prototype.Interact.performed += OnInteractPerformed;
-            _inputActions.Prototype.Movement.performed += OnMovementPerformed;
-            _inputActions.Prototype.Movement.canceled += OnMovementCanceled;
-            _inputActions.Prototype.Crouch.performed += OnCrouchPerformed;
-            _inputActions.Prototype.Aim.performed += OnAimPerformed;
-            _inputActions.Prototype.Aim.canceled += OnAimCanceled;
-            _inputActions.Prototype.Shoot.performed += OnShootPerformed;
-            _inputActions.Prototype.ChangeWeapon.performed += OnChangeWeaponPerformed;
+            _inputActions.Astrid.Interaction.performed += OnInteractPerformed;
+            _inputActions.Astrid.Movement.performed += OnMovementPerformed;
+            _inputActions.Astrid.Movement.canceled += OnMovementCanceled;
+            _inputActions.Astrid.Crouch.performed += OnCrouchPerformed;
+            _inputActions.Astrid.Aim.performed += OnAimPerformed;
+            _inputActions.Astrid.Aim.canceled += OnAimCanceled;
+            _inputActions.Astrid.Shoot.performed += OnShootPerformed;
+            _inputActions.Astrid.ChangeWeapon.performed += OnChangeWeaponPerformed;
+            _inputActions.Astrid.Turn.performed += OnTurnPerformed;
         
             _inputActions.Enable();
         }
 
         private void OnDisable()
         {
-            _inputActions.Prototype.Interact.performed -= OnInteractPerformed;
-            _inputActions.Prototype.Movement.performed -= OnMovementPerformed;
-            _inputActions.Prototype.Movement.canceled -= OnMovementCanceled;
-            _inputActions.Prototype.Crouch.performed -= OnCrouchPerformed;
-            _inputActions.Prototype.Aim.performed -= OnAimPerformed;
-            _inputActions.Prototype.Aim.canceled -= OnAimCanceled;
-            _inputActions.Prototype.Shoot.performed -= OnShootPerformed;
-            _inputActions.Prototype.ChangeWeapon.performed -= OnChangeWeaponPerformed;
+            _inputActions.Astrid.Interaction.performed -= OnInteractPerformed;
+            _inputActions.Astrid.Movement.performed -= OnMovementPerformed;
+            _inputActions.Astrid.Movement.canceled -= OnMovementCanceled;
+            _inputActions.Astrid.Crouch.performed -= OnCrouchPerformed;
+            _inputActions.Astrid.Aim.performed -= OnAimPerformed;
+            _inputActions.Astrid.Aim.canceled -= OnAimCanceled;
+            _inputActions.Astrid.Shoot.performed -= OnShootPerformed;
+            _inputActions.Astrid.ChangeWeapon.performed -= OnChangeWeaponPerformed;
+            _inputActions.Astrid.Turn.performed -= OnTurnPerformed;
             
             _inputActions.Disable();
         }
@@ -92,6 +94,10 @@ namespace Inputs
         /// Called when ChangeWeapon Input is performed
         /// </summary>
         public Action ChangeWeaponPerformed;
+        /// <summary>
+        /// Called when Turn Input is performed
+        /// </summary>
+        public Action TurnPerformed;
         
         private void OnInteractPerformed(InputAction.CallbackContext context)
         {
@@ -142,6 +148,11 @@ namespace Inputs
         private void OnChangeWeaponPerformed(InputAction.CallbackContext context)
         {
             ChangeWeaponPerformed?.Invoke();
+        }
+        
+        private void OnTurnPerformed(InputAction.CallbackContext context)
+        {
+            TurnPerformed?.Invoke();
         }
     }
 }
