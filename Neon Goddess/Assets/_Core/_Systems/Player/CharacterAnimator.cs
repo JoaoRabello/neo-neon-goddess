@@ -19,14 +19,15 @@ namespace Animations
         /// Directly plays an animation when called
         /// </summary>
         /// <param name="animationName">Name of the desired animation</param>
-        public void PlayAnimation(string animationName)
+        /// <param name="time">Start time</param>
+        public void PlayAnimation(string animationName, int time)
         {
-            _animatorController.Play(animationName);
+            _animatorController.Play(animationName, time);
         }
 
         public void PlayAndOnAnimationEndCallback(string animationName, Action callback)
         {
-            PlayAnimation(animationName);
+            PlayAnimation(animationName, 0);
             StartCoroutine(WaitForAnimationToEnd(animationName, callback));
         }
 

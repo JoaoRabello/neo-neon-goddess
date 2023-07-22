@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6193188897873025494}
   - component: {fileID: 6193188897873025493}
+  - component: {fileID: 7542691180402999528}
   - component: {fileID: 4366320124278906384}
   - component: {fileID: 4193656145065447505}
   - component: {fileID: 263291562822815791}
@@ -58,8 +59,23 @@ MonoBehaviour:
   _forgetRange: 10
   _range: 6
   _speed: 2
+  _healthSystem: {fileID: 7542691180402999528}
   _waypoint1: {fileID: 0}
   _waypoint2: {fileID: 0}
+--- !u!114 &7542691180402999528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193188897873025495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 381dda215b4a87c43a183cac571bc211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _systemResistance: 10
+  _systemArmor: 0
 --- !u!114 &4366320124278906384
 MonoBehaviour:
   m_ObjectHideFlags: 0

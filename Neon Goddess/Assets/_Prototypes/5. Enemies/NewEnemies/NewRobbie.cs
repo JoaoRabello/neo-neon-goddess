@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Animations;
@@ -14,6 +15,9 @@ public class NewRobbie : MonoBehaviour
     [SerializeField] private float _forgetRange;
     [SerializeField] private float _range;
     [SerializeField] private float _speed;
+    
+    [Header("Health System")]
+    [SerializeField] private RobotHealthSystem _healthSystem;
     
     [Header("Waypoints")]
     [SerializeField] private Transform _waypoint1;
@@ -34,10 +38,19 @@ public class NewRobbie : MonoBehaviour
     {
         _currentSpeed = _speed;
         _basePosition = transform.position;
+
+        _healthSystem.OnHackedSuccessfully += OnHacked;
+    }
+
+    private void OnDisable()
+    {
+        _healthSystem.OnHackedSuccessfully -= OnHacked;
     }
 
     void Update()
     {
+        if(_healthSystem.IsHacked) return;
+        
         var distanceToPlayer = _player ? Vector3.Distance(transform.position, _player.position) : 0;
         
         if (distanceToPlayer >= _forgetRange)
@@ -79,6 +92,15 @@ public class NewRobbie : MonoBehaviour
         _navMeshAgent.SetDestination(desiredPosition);
 
         _animator.SetParameterValue("isWalking", true);
+    }
+
+    private void Stop()
+    {
+        _navMeshAgent.SetDestination(transform.position);
+        _animator.SetParameterValue("isWalking", false);
+        _animator.SetParameterValue("isAttacking", false);
+        _animator.SetParameterValue("isSpecialAttacking", false);
+        _animator.PlayAnimation("Idle", 0);
     }
 
     private void WaypointMovement()
@@ -172,6 +194,11 @@ public class NewRobbie : MonoBehaviour
         
         _attackCooldown = false;
         _startedAttackCooldown = false;
+    }
+
+    private void OnHacked()
+    {
+        Stop();
     }
 
     private void OnDrawGizmos()
