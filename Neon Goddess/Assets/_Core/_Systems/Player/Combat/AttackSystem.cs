@@ -21,7 +21,7 @@ namespace Combat
         
         [Header("Hit Scan properties")]
         [SerializeField] private LayerMask _hittableLayerMask;
-        [SerializeField] private float _shotHitBoxSize;
+        [SerializeField] private float _shotHitBoxRadiusSize;
         [SerializeField] private float _maxRange;
 
         public bool WeaponEquipped => _weaponEquipped;
@@ -74,13 +74,12 @@ namespace Combat
             }
             
             RaycastHit[] enemies = new RaycastHit[10];
-            var hitCount = Physics.SphereCastNonAlloc(_shotsOrigin.position, _shotHitBoxSize, _aimSystem.CurrentAimingDirection.ToVector3(transform.forward), enemies, _maxRange, _hittableLayerMask);
+            var hitCount = Physics.SphereCastNonAlloc(_shotsOrigin.position, _shotHitBoxRadiusSize, _aimSystem.CurrentAimingDirection.ToVector3(transform.forward), enemies, _maxRange, _hittableLayerMask);
 
             if (hitCount <= 0) return;
             
             var enemy = enemies[0].collider;
-            enemy.GetComponent<DummyHackable>().TakeHackShot(_weapon.Damage);
-            Debug.Log($"Hit: {enemy.name} with {_weapon.Damage} damage");
+            enemy.GetComponent<IHackable>().TakeHackShot(_weapon.Damage);
         }
 
         private void AnimationEnded()
