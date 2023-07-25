@@ -267,8 +267,8 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0, g: 0.52702713, b: 1, a: 1}
+  m_Intensity: 0.75
   m_Range: 6
   m_SpotAngle: 50
   m_InnerSpotAngle: 35
@@ -336,8 +336,8 @@ MonoBehaviour:
   color: {r: 1, g: 1, b: 1, a: 1}
   colorGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 0.05882353}
-    key1: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 0, g: 0.52702713, b: 1, a: 0.05882353}
+    key1: {r: 0, g: 0.52702713, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -365,9 +365,9 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   intensityFromLight: 1
   intensityModeAdvanced: 0
-  intensityInside: 1
-  intensityOutside: 1
-  intensityMultiplier: 1
+  intensityInside: 0.525
+  intensityOutside: 0.525
+  intensityMultiplier: 0.7
   hdrpExposureWeight: 0
   blendingMode: 1
   spotAngleFromLight: 1
