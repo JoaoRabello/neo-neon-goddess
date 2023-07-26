@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Animations;
+using Combat;
 using Inputs;
 using Player;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace PlayerMovements
     {
         [Header("Components")]
         [SerializeField] private Rigidbody _rigidbody;
+        [SerializeField] private AimSystem _aimSystem;
         [Tooltip("Our custom CharacterAnimator")]
         [SerializeField] private CharacterAnimator _animator;
         
@@ -135,8 +137,11 @@ namespace PlayerMovements
         /// </summary>
         private void MovementProcess()
         {
-            if (PlayerStateObserver.Instance.CurrentState is not (PlayerStateObserver.PlayerState.Free or PlayerStateObserver.PlayerState.Aiming)) return;
+            if (PlayerStateObserver.Instance.CurrentState is not 
+                (PlayerStateObserver.PlayerState.Free or PlayerStateObserver.PlayerState.Aiming)) return;
 
+            if(_aimSystem.HasTarget && PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Aiming) return;
+            
             TryAnimTurn();
 
             if (!_wannaMove) return;

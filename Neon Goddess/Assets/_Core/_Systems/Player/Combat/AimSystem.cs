@@ -19,6 +19,12 @@ namespace Combat
         [SerializeField] private GameObject _weaponGameObject;
         [SerializeField] private GameObject _meleeWeaponGameObject;
 
+        [Header("Automatic Aim")]
+        [SerializeField] private bool _useAutoAim;
+        [SerializeField] private LayerMask _hittableLayerMask;
+        [SerializeField] private float _aimRange;
+        [SerializeField] private Transform _automaticAimCurrentTarget;
+
         [Tooltip("Our custom animator")] 
         [SerializeField] private CharacterAnimator _animator;
 
@@ -27,6 +33,8 @@ namespace Combat
         private bool _isAiming;
         public LightningStickerVFXManeger lightningVFX;
         public bool IsAiming => _isAiming;
+        public bool IsUsingAutoAim => _useAutoAim;
+        public bool HasTarget => _automaticAimCurrentTarget != null;
         public bool weaponEquipped => _attackSystem.WeaponEquipped;
         public AimDirection CurrentAimingDirection => _currentAimingDirection;
 
@@ -133,6 +141,36 @@ namespace Combat
                     _animator.SetParameterValue("aimDirection", 1f);
                     break;
             }
+            
+            if(!_useAutoAim) return;
+            
+            var results = new Collider[10];
+            var enemyCount = Physics.OverlapSphereNonAlloc(transform.position, _aimRange, results, _hittableLayerMask);
+
+            if (enemyCount <= 0)
+            {
+                _automaticAimCurrentTarget = null;
+                return;
+            }
+
+            var distance = 99999f;
+            var enemyIndex = 0;
+
+            for (int i = 0; i < enemyCount; i++)
+            {
+                var distanceToCurrentEnemy = Vector3.Distance(transform.position, results[i].transform.position);
+                if (distanceToCurrentEnemy >= distance) continue;
+
+                distance = distanceToCurrentEnemy;
+                enemyIndex = i;
+            }
+            
+            _automaticAimCurrentTarget = results[enemyIndex].transform;
+            
+            Debug.Log($"[AimSystem] Update | Found {enemyCount} enemies. Current target is {_automaticAimCurrentTarget.name}");
+            
+            var thisTransform = transform;
+            thisTransform.forward = (_automaticAimCurrentTarget.position - thisTransform.position).normalized;
         }
 
         //TODO: Remove debug gizmos

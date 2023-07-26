@@ -1287,6 +1287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 4211844877681094629}
+  _aimSystem: {fileID: 5289680002988290467}
   _animator: {fileID: 7758867608645911423}
   _movementSpeed: 4
   _backMovementSpeed: 2
@@ -1341,6 +1342,12 @@ MonoBehaviour:
   _attackSystem: {fileID: 1367436239120529389}
   _weaponGameObject: {fileID: 6331153668028487100}
   _meleeWeaponGameObject: {fileID: 5291778055288574144}
+  _useAutoAim: 1
+  _hittableLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  _aimRange: 2
+  _automaticAimCurrentTarget: {fileID: 0}
   _animator: {fileID: 7758867608645911423}
   lightningVFX: {fileID: 6874193728444769123}
 --- !u!114 &8398902877504340519
