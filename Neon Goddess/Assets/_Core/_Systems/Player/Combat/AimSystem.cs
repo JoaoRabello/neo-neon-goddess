@@ -221,7 +221,8 @@ namespace Combat
             TryGetTargets(out _targets, out _currentTargetCount);
             
             var thisTransform = transform;
-            thisTransform.forward = (_automaticAimCurrentTarget.position - thisTransform.position).normalized;
+            var newForward = (_automaticAimCurrentTarget.position - thisTransform.position).normalized;
+            thisTransform.forward = new Vector3(newForward.x, thisTransform.forward.y, newForward.z);
         }
 
         //TODO: Remove debug gizmos
