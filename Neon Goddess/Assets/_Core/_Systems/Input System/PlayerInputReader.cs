@@ -35,6 +35,7 @@ namespace Inputs
         private void OnEnable()
         {
             _inputActions.Astrid.Interaction.performed += OnInteractPerformed;
+            _inputActions.Astrid.Movement.started += OnMovementStarted;
             _inputActions.Astrid.Movement.performed += OnMovementPerformed;
             _inputActions.Astrid.Movement.canceled += OnMovementCanceled;
             _inputActions.Astrid.Crouch.performed += OnCrouchPerformed;
@@ -50,6 +51,7 @@ namespace Inputs
         private void OnDisable()
         {
             _inputActions.Astrid.Interaction.performed -= OnInteractPerformed;
+            _inputActions.Astrid.Movement.started -= OnMovementStarted;
             _inputActions.Astrid.Movement.performed -= OnMovementPerformed;
             _inputActions.Astrid.Movement.canceled -= OnMovementCanceled;
             _inputActions.Astrid.Crouch.performed -= OnCrouchPerformed;
@@ -66,6 +68,10 @@ namespace Inputs
         /// Called when Interaction Input is performed
         /// </summary>
         public Action InteractPerformed;
+        /// <summary>
+        /// Called when Movement Input is started and passes the Vector2 input
+        /// </summary>
+        public Action<Vector2> MovementStarted;
         /// <summary>
         /// Called when Movement Input is performed and passes the Vector2 input
         /// </summary>
@@ -102,6 +108,15 @@ namespace Inputs
         private void OnInteractPerformed(InputAction.CallbackContext context)
         {
             InteractPerformed?.Invoke();
+        }
+        
+        private void OnMovementStarted(InputAction.CallbackContext context)
+        {
+            if (PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Free
+                || PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Aiming)
+            {
+                MovementStarted?.Invoke(context.ReadValue<Vector2>());
+            }
         }
         
         private void OnMovementPerformed(InputAction.CallbackContext context)

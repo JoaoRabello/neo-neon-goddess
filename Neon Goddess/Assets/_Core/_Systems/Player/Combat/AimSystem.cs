@@ -28,10 +28,15 @@ namespace Combat
         [Tooltip("Our custom animator")] 
         [SerializeField] private CharacterAnimator _animator;
 
+        public LightningStickerVFXManeger lightningVFX;
         private AimDirection _currentAimingDirection;
         private Vector3 _currentAimingDirectionVector3;
+        
         private bool _isAiming;
-        public LightningStickerVFXManeger lightningVFX;
+
+        private Collider[] _targets;
+        private int _currentTargetCount;
+        
         public bool IsAiming => _isAiming;
         public bool IsUsingAutoAim => _useAutoAim;
         public bool HasTarget => _automaticAimCurrentTarget != null;
@@ -41,7 +46,9 @@ namespace Combat
         private void OnEnable()
         {
             PlayerInputReader.Instance.AimPerformed += AimPerformed;
+            PlayerInputReader.Instance.AimPerformed += AimPerformed;
             PlayerInputReader.Instance.AimCanceled += AimCanceled;
+            PlayerInputReader.Instance.MovementStarted += MoveStarted;
             PlayerInputReader.Instance.MovementPerformed += MovePerformed;
             PlayerInputReader.Instance.MovementCanceled += MoveCanceled;
         }
@@ -50,6 +57,7 @@ namespace Combat
         {
             PlayerInputReader.Instance.AimPerformed -= AimPerformed;
             PlayerInputReader.Instance.AimCanceled -= AimCanceled;
+            PlayerInputReader.Instance.MovementStarted -= MoveStarted;
             PlayerInputReader.Instance.MovementPerformed -= MovePerformed;
             PlayerInputReader.Instance.MovementCanceled -= MoveCanceled;
         }
@@ -70,6 +78,45 @@ namespace Combat
                 _animator.SetParameterValue("isAimingMelee", true);
                 _meleeWeaponGameObject.SetActive(true);
             }
+
+            _targets = new Collider[10];
+
+            if (!TryGetTargets(out _targets, out _currentTargetCount)) return;
+            
+            var enemyIndex = GetClosestTargetIndexInColliderArray(_currentTargetCount, _targets);
+
+            _automaticAimCurrentTarget = _targets[enemyIndex].transform;
+        }
+
+        private int GetClosestTargetIndexInColliderArray(int enemyCount, Collider[] results)
+        {
+            var distance = 99999f;
+            var enemyIndex = 0;
+
+            for (int i = 0; i < enemyCount; i++)
+            {
+                var distanceToCurrentEnemy = Vector3.Distance(transform.position, results[i].transform.position);
+                if (distanceToCurrentEnemy >= distance) continue;
+
+                distance = distanceToCurrentEnemy;
+                enemyIndex = i;
+            }
+
+            return enemyIndex;
+        }
+
+        private bool TryGetTargets(out Collider[] results, out int enemyCount)
+        {
+            results = new Collider[10];
+            enemyCount = Physics.OverlapSphereNonAlloc(transform.position, _aimRange, results, _hittableLayerMask);
+
+            if (enemyCount <= 0)
+            {
+                _automaticAimCurrentTarget = null;
+                return false;
+            }
+
+            return true;
         }
 
         private IEnumerator StartAiming()
@@ -108,6 +155,13 @@ namespace Combat
             _meleeWeaponGameObject.SetActive(false);
         }
 
+        private void MoveStarted(Vector2 movementInput)
+        {
+            if (Mathf.Abs(movementInput.x) < 0.1f) return;
+            
+            SwitchTarget(movementInput.x);
+        }
+        
         private void MovePerformed(Vector2 movementInput)
         {
             _currentAimingDirection = movementInput.y switch
@@ -121,6 +175,26 @@ namespace Combat
         private void MoveCanceled()
         {
             _currentAimingDirection = AimDirection.Front;
+        }
+
+        private void SwitchTarget(float xInput)
+        {
+            if(_currentTargetCount <= 0) return;
+            if(_automaticAimCurrentTarget == null) return;
+
+            var currentTargetIndex = 0;
+            
+            for (int i = 0; i < _currentTargetCount; i++)
+            {
+                if(_targets[i].transform != _automaticAimCurrentTarget) continue;
+
+                currentTargetIndex = i;
+                break;
+            }
+            
+            var factor = xInput > 0.1f ? +1 : -1;
+            var newIndex = Mathf.Clamp(currentTargetIndex + factor, 0, _currentTargetCount - 1);
+            _automaticAimCurrentTarget = _targets[newIndex].transform;
         }
 
         private void Update()
@@ -143,31 +217,8 @@ namespace Combat
             }
             
             if(!_useAutoAim) return;
-            
-            var results = new Collider[10];
-            var enemyCount = Physics.OverlapSphereNonAlloc(transform.position, _aimRange, results, _hittableLayerMask);
 
-            if (enemyCount <= 0)
-            {
-                _automaticAimCurrentTarget = null;
-                return;
-            }
-
-            var distance = 99999f;
-            var enemyIndex = 0;
-
-            for (int i = 0; i < enemyCount; i++)
-            {
-                var distanceToCurrentEnemy = Vector3.Distance(transform.position, results[i].transform.position);
-                if (distanceToCurrentEnemy >= distance) continue;
-
-                distance = distanceToCurrentEnemy;
-                enemyIndex = i;
-            }
-            
-            _automaticAimCurrentTarget = results[enemyIndex].transform;
-            
-            Debug.Log($"[AimSystem] Update | Found {enemyCount} enemies. Current target is {_automaticAimCurrentTarget.name}");
+            TryGetTargets(out _targets, out _currentTargetCount);
             
             var thisTransform = transform;
             thisTransform.forward = (_automaticAimCurrentTarget.position - thisTransform.position).normalized;
