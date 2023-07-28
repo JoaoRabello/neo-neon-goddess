@@ -110,6 +110,10 @@ public class doorBehavor : MonoBehaviour
             MoveDoor();
 
         }
+        else if (other.CompareTag("Player"))
+        {
+            isPlayerInsideTrigger = false;
+        }
         
 
     }
