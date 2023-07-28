@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Animations;
 using Inputs;
 using Player;
@@ -34,6 +36,12 @@ namespace Combat
         
         private bool _isAiming;
 
+        private struct TargetAngle
+        {
+            public Transform Target;
+            public float Angle;
+        }
+        
         private Collider[] _targets;
         private int _currentTargetCount;
         
@@ -42,7 +50,7 @@ namespace Combat
         public bool HasTarget => _automaticAimCurrentTarget != null;
         public bool weaponEquipped => _attackSystem.WeaponEquipped;
         public AimDirection CurrentAimingDirection => _currentAimingDirection;
-
+        
         private void OnEnable()
         {
             PlayerInputReader.Instance.AimPerformed += AimPerformed;
@@ -107,10 +115,9 @@ namespace Combat
 
         private Transform GetNextTargetWithLessAngleDistance(Collider[] results, float xInput)
         {
-            var smallestAngle = 99999f;
-
-            var closestTargets = new Transform[2];
-
+            var negativeAngleList = new List<TargetAngle>();
+            var positiveAngleList = new List<TargetAngle>();
+            
             for (var index = 0; index < _currentTargetCount; index++)
             {
                 var targetTransform = results[index].transform;
@@ -119,87 +126,34 @@ namespace Combat
                 
                 var currentTargetDirection = (_automaticAimCurrentTarget.position - transform.position).normalized;
                 var targetDirection = (targetTransform.position - transform.position).normalized;
-                var angleToTarget = Mathf.Acos(Vector3.Dot(currentTargetDirection, targetDirection)) * (180 / Mathf.PI);
+                var signedAngle = Vector3.SignedAngle(currentTargetDirection, targetDirection, transform.up);
 
-                if (angleToTarget >= smallestAngle) continue;
-
-                smallestAngle = angleToTarget;
-
-                closestTargets[1] = closestTargets[0];
-                closestTargets[0] = targetTransform;
-            }
-
-            if (closestTargets[1] == null)
-            {
-                if (closestTargets[0] == null)
+                var targetAngle = new TargetAngle
                 {
-                    return _automaticAimCurrentTarget;
-                }
+                    Target = targetTransform,
+                    Angle = signedAngle
+                };
                 
-                if (closestTargets[0].position.x > _automaticAimCurrentTarget.position.x)
+                switch (signedAngle)
                 {
-                    if (xInput > 0.1f)
-                    {
-                        Debug.Log($"[AimSystem] GetNextTarget... | Closest Target 0 is to the right and wanna right. Return closest");
-                        return closestTargets[0];
-                    }
-                    if (xInput < 0.1f)
-                    {
-                        Debug.Log($"[AimSystem] GetNextTarget... | Closest Target 0 is to the right and wanna left. Return current");
-                        return _automaticAimCurrentTarget;
-                    }
-                    
-                    Debug.Log($"[AimSystem] GetNextTarget... | Closest Target 0 is to the right and Input is 0. Return current");
-                    return  _automaticAimCurrentTarget;
-                }
-                if (closestTargets[0].position.x < _automaticAimCurrentTarget.position.x)
-                {
-                    if (xInput > 0.1f)
-                    {
-                        Debug.Log($"[AimSystem] GetNextTarget... | Closest Target 0 is to the left and wanna right. Return current");
-                        return _automaticAimCurrentTarget;
-                    }
-                    if (xInput < 0.1f)
-                    {
-                        Debug.Log($"[AimSystem] GetNextTarget... | Closest Target 0 is to the left and wanna left. Return closest");
-                        return closestTargets[0];
-                    }
-                    
-                    return  _automaticAimCurrentTarget;
+                    case > 0.01f:
+                        positiveAngleList.Add(targetAngle);
+                        break;
+                    case < -0.01f:
+                        negativeAngleList.Add(targetAngle);
+                        break;
                 }
             }
             
-            if (xInput > 0.1f)
+            positiveAngleList = positiveAngleList.OrderBy(targetAngle => targetAngle.Angle).ToList();
+            negativeAngleList = negativeAngleList.OrderByDescending(targetAngle => targetAngle.Angle).ToList();
+
+            return xInput switch
             {
-                if (closestTargets[0].position.x > _automaticAimCurrentTarget.position.x)
-                {
-                    Debug.Log($"[AimSystem] GetNextTarget... | Return closestTarget 0 with x > currentTarget x");
-                    return closestTargets[0];
-                }
-                
-                if (closestTargets[1].position.x > _automaticAimCurrentTarget.position.x)
-                {
-                    Debug.Log($"[AimSystem] GetNextTarget... | Return closestTarget 1 with x > currentTarget x");
-                    return closestTargets[1];
-                }
-            }
-            
-            if (xInput < -0.1f)
-            {
-                if (closestTargets[0].position.x < _automaticAimCurrentTarget.position.x)
-                {
-                    Debug.Log($"[AimSystem] GetNextTarget... | Return closestTarget 0 with x < currentTarget x");
-                    return closestTargets[0];
-                }
-                if (closestTargets[1].position.x < _automaticAimCurrentTarget.position.x)
-                {
-                    Debug.Log($"[AimSystem] GetNextTarget... | Return closestTarget 1 with x < currentTarget x");
-                    return closestTargets[1];
-                }
-            }
-            
-            Debug.Log($"[AimSystem] GetNextTarget... | Return closestTarget 0");
-            return closestTargets[0];
+                > 0.1f => positiveAngleList[0].Target,
+                < -0.1f => negativeAngleList[0].Target,
+                _ => _automaticAimCurrentTarget
+            };
         }
 
         private bool TryGetTargets(out Collider[] results, out int enemyCount)
@@ -278,20 +232,6 @@ namespace Combat
         {
             if(_currentTargetCount <= 0) return;
             if(_automaticAimCurrentTarget == null) return;
-            //
-            // var currentTargetIndex = 0;
-            //
-            // for (int i = 0; i < _currentTargetCount; i++)
-            // {
-            //     if(_targets[i].transform != _automaticAimCurrentTarget) continue;
-            //
-            //     currentTargetIndex = i;
-            //     break;
-            // }
-            //
-            // var factor = xInput > 0.1f ? +1 : -1;
-            // var newIndex = Mathf.Clamp(currentTargetIndex + factor, 0, _currentTargetCount - 1);
-            // _automaticAimCurrentTarget = _targets[newIndex].transform;
             
             _automaticAimCurrentTarget = GetNextTargetWithLessAngleDistance(_targets, xInput);
         }
@@ -324,15 +264,6 @@ namespace Combat
             var thisTransform = transform;
             var newForward = (_automaticAimCurrentTarget.position - thisTransform.position).normalized;
             thisTransform.forward = new Vector3(newForward.x, thisTransform.forward.y, newForward.z);
-        }
-
-        //TODO: Remove debug gizmos
-        private void OnDrawGizmos()
-        {
-            if (!_isAiming) return;
-
-            Gizmos.color = Color.red;
-            Gizmos.DrawRay(transform.position + Vector3.up * 0.5f, _currentAimingDirectionVector3 * 3);
         }
     }
     
