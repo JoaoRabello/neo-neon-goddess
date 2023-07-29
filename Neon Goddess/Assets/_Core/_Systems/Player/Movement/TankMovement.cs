@@ -28,8 +28,8 @@ namespace PlayerMovements
         
         [Header("Movement Data")]
         [Tooltip("Speed for frontal and back movement")]
-        [SerializeField] private float _movementSpeed;
-        [SerializeField] private float _backMovementSpeed;
+        [SerializeField] public float _basemovementSpeed;
+        [SerializeField] public float _basebackMovementSpeed;
         [Tooltip("Speed for rotational movement")]
         [SerializeField] private float _rotationSpeed;
         [SerializeField] private float _walkingRotationSpeed;
@@ -39,6 +39,8 @@ namespace PlayerMovements
         private bool _canMove = true;
         private Vector3 _movementDirection;
 
+        public float _movementSpeed;
+        public float _backMovementSpeed;
         private void OnEnable()
         {
             PlayerInputReader.Instance.MovementPerformed += MovementPerformed;
@@ -50,6 +52,10 @@ namespace PlayerMovements
             
             PlayerStateObserver.Instance.AnimationStart += BlockMovement;
             PlayerStateObserver.Instance.AnimationEnd += UnlockMovement;
+
+            _movementSpeed = _basemovementSpeed;
+            _backMovementSpeed = _basebackMovementSpeed;
+
         }
 
         private void OnDisable()
