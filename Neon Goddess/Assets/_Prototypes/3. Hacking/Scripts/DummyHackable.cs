@@ -33,7 +33,17 @@ public class DummyHackable : MonoBehaviour, IHackable
             
         _hackingLight.color = _hackingColors[0];
     }
-    
+
+    public void SetAsPossibleTarget(bool value)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SetAsCurrentTarget(bool value)
+    {
+        throw new NotImplementedException();
+    }
+
     public void TakeHackShot(int damageAmount)
     {
         if (_isHacked) return;

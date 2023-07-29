@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,8 @@ namespace Combat
         public LightningStickerVFXManeger lightningVFX;
         private AimDirection _currentAimingDirection;
         private Vector3 _currentAimingDirectionVector3;
+
+        private List<IHackable> _foundTargetHackables;
         
         private bool _isAiming;
 
@@ -50,7 +53,12 @@ namespace Combat
         public bool HasTarget => _automaticAimCurrentTarget != null;
         public bool weaponEquipped => _attackSystem.WeaponEquipped;
         public AimDirection CurrentAimingDirection => _currentAimingDirection;
-        
+
+        private void Start()
+        {
+            _foundTargetHackables = new List<IHackable>();
+        }
+
         private void OnEnable()
         {
             PlayerInputReader.Instance.AimPerformed += AimPerformed;
@@ -91,9 +99,21 @@ namespace Combat
 
             if (!TryGetTargets(out _targets, out _currentTargetCount)) return;
             
+            //TODO: Talvez remover esse getcomponent por falta de necessidade de usar o ihackable
+            for (int i = 0; i < _currentTargetCount; i++)
+            {
+                var hackable = _targets[i].GetComponent<IHackable>();
+                AimCrossHairManager.Instance.RenderCrossHair(_targets[i].transform, true, false);
+                
+                if(_foundTargetHackables.Contains(hackable)) continue;
+                
+                _foundTargetHackables.Add(hackable);
+            }
+            
             var enemyIndex = GetClosestTargetIndexInColliderArray(_currentTargetCount, _targets);
 
             _automaticAimCurrentTarget = _targets[enemyIndex].transform;
+            AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTarget, true, true);
         }
 
         private int GetClosestTargetIndexInColliderArray(int enemyCount, Collider[] results)
@@ -196,6 +216,16 @@ namespace Combat
             }
             
             lightningVFX.EffectActivator();
+
+            var foundHackablesCopy =  _foundTargetHackables.ToList();
+            
+            AimCrossHairManager.Instance.CancelAim();
+            foreach (var hackable in foundHackablesCopy)
+            {
+                _foundTargetHackables.Remove(hackable);
+            }
+
+            _automaticAimCurrentTarget = null;
         }
         
         private IEnumerator StopAiming()
@@ -233,7 +263,9 @@ namespace Combat
             if(_currentTargetCount <= 0) return;
             if(_automaticAimCurrentTarget == null) return;
             
+            AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTarget, false, true);
             _automaticAimCurrentTarget = GetNextTargetWithLessAngleDistance(_targets, xInput);
+            AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTarget, true, true);
         }
 
         private void Update()
@@ -258,7 +290,7 @@ namespace Combat
             if(!_useAutoAim) return;
 
             TryGetTargets(out _targets, out _currentTargetCount);
-            
+
             if(_automaticAimCurrentTarget == null) return;
 
             var thisTransform = transform;
