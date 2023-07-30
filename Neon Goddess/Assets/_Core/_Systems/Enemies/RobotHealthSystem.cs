@@ -7,7 +7,10 @@ public class RobotHealthSystem : MonoBehaviour, IHackable
 {
     [SerializeField] private int _systemResistance;
     [SerializeField] private int _systemArmor;
-
+    
+    [Header("VFX")]
+    [SerializeField] private ParticleSystem _hackedVFX;
+    
     public Action OnHackedSuccessfully;
     
     private int _currentSystemResistance;
@@ -21,6 +24,14 @@ public class RobotHealthSystem : MonoBehaviour, IHackable
     private void Start()
     {
         _currentSystemResistance = _systemResistance;
+    }
+
+    public void SetAsPossibleTarget(bool value)
+    {
+    }
+
+    public void SetAsCurrentTarget(bool value)
+    {
     }
 
     public void TakeHackShot(int damageAmount)
@@ -51,7 +62,8 @@ public class RobotHealthSystem : MonoBehaviour, IHackable
         
         OnHackedSuccessfully?.Invoke();
         
-        Debug.Log($"[RobotHealthSystem] TakeHackShot | Hacked successfully");
+        _hackedVFX.gameObject.SetActive(true);
+        _hackedVFX.Play();
     }
 
     public void StartHack(float timeToHack)

@@ -1289,10 +1289,12 @@ MonoBehaviour:
   _rigidbody: {fileID: 4211844877681094629}
   _aimSystem: {fileID: 5289680002988290467}
   _animator: {fileID: 7758867608645911423}
+  _basemovementSpeed: 4
+  _basebackMovementSpeed: 2
+  _rotationSpeed: 1.5
+  _walkingRotationSpeed: 2.4
   _movementSpeed: 4
   _backMovementSpeed: 2
-  _rotationSpeed: 1.5
-  _walkingRotationSpeed: 2
 --- !u!114 &7821003767246988821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1346,8 +1348,7 @@ MonoBehaviour:
   _hittableLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  _aimRange: 2
-  _automaticAimCurrentTarget: {fileID: 0}
+  _aimRange: 4
   _animator: {fileID: 7758867608645911423}
   lightningVFX: {fileID: 6874193728444769123}
 --- !u!114 &8398902877504340519
