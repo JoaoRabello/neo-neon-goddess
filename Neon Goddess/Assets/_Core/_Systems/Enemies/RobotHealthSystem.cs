@@ -8,10 +8,6 @@ public class RobotHealthSystem : MonoBehaviour, IHackable
     [SerializeField] private int _systemResistance;
     [SerializeField] private int _systemArmor;
     
-    [Header("UI")]
-    [SerializeField] private GameObject _possibleTargetIcon;
-    [SerializeField] private GameObject _currentTargetIcon;
-    
     [Header("VFX")]
     [SerializeField] private ParticleSystem _hackedVFX;
     
@@ -32,13 +28,10 @@ public class RobotHealthSystem : MonoBehaviour, IHackable
 
     public void SetAsPossibleTarget(bool value)
     {
-        _possibleTargetIcon.SetActive(value);
     }
 
     public void SetAsCurrentTarget(bool value)
     {
-        _possibleTargetIcon.SetActive(!value);
-        _currentTargetIcon.SetActive(value);
     }
 
     public void TakeHackShot(int damageAmount)
