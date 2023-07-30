@@ -17,7 +17,13 @@ namespace PlayerMovements
         [SerializeField] private List<GameObject> _crouchCoverColliders = new List<GameObject>();
 
         private bool _isCrouching;
-        
+        private TankMovement _Movement;
+
+        public void Start()
+        {
+            _Movement = GetComponent<TankMovement>();
+        }
+
         private void OnEnable()
         {
             PlayerInputReader.Instance.CrouchPerformed += CrouchPerformed;
@@ -47,7 +53,8 @@ namespace PlayerMovements
         private void StartCrouch()
         {
             _isCrouching = true;
-            
+            _Movement._movementSpeed = _Movement._basemovementSpeed / 2;
+            _Movement._backMovementSpeed = _Movement._basebackMovementSpeed / 2 ;
             _animator.SetParameterValue("isCrouching", true);
             
             SwitchStandColliders(false);
@@ -57,7 +64,8 @@ namespace PlayerMovements
         private void StandUp()
         {
             _isCrouching = false;
-            
+            _Movement._movementSpeed = _Movement._basemovementSpeed;
+            _Movement._backMovementSpeed = _Movement._basebackMovementSpeed;
             _animator.SetParameterValue("isCrouching", false);
             
             SwitchCrouchColliders(false);
