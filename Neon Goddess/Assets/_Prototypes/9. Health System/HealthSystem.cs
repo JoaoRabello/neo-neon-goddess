@@ -1,11 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
+    [Tooltip("Our custom CharacterAnimator")]
+    [SerializeField] private CharacterAnimator _animator;
+    
     [Header("UI")]
     [SerializeField] private Slider _physicalHealthBar;
     [SerializeField] private Slider _mentalHealthBar;
@@ -66,6 +70,8 @@ public class HealthSystem : MonoBehaviour
     public void TakePhysicalDamage(int amount)
     {
         _currentPhysicalHealth -= amount;
+        
+        _animator.PlayAnimation("Damage", 0);
 
         UpdatePhysicalBar();
     }
@@ -73,6 +79,8 @@ public class HealthSystem : MonoBehaviour
     public void TakePhysicalDamage(float percentage)
     {
         _currentPhysicalHealth -= Mathf.FloorToInt(_physicalMaxHealth * percentage);
+        
+        _animator.PlayAnimation("Damage", 0);
 
         UpdatePhysicalBar();
     }
