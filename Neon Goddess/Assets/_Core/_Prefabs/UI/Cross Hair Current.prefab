@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5409457887368904799}
   - component: {fileID: 7103621893914890041}
   - component: {fileID: 5409457887368904798}
-  - component: {fileID: 5409457887368904797}
+  - component: {fileID: 200956204008301405}
   m_Layer: 5
   m_Name: Cross Hair Current
   m_TagString: Untagged
@@ -91,19 +91,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!111 &5409457887368904797
-Animation:
+--- !u!95 &200956204008301405
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5409457887368904771}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 8923f586b92cb684fb34dac1433b6337, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 8923f586b92cb684fb34dac1433b6337, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 0d620258441d28a40a47778909fccd4a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
