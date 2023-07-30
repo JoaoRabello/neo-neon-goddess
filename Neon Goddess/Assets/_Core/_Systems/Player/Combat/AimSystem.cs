@@ -26,16 +26,19 @@ namespace Combat
         [SerializeField] private bool _useAutoAim;
         [SerializeField] private LayerMask _hittableLayerMask;
         [SerializeField] private float _aimRange;
-        [SerializeField] private Transform _automaticAimCurrentTarget;
+        
+        private List<IHackable> _foundTargetHackables;
+        private Transform _automaticAimCurrentTarget;
+        private Transform _automaticAimFirstTarget;
 
         [Tooltip("Our custom animator")] 
         [SerializeField] private CharacterAnimator _animator;
 
         public LightningStickerVFXManeger lightningVFX;
+        
         private AimDirection _currentAimingDirection;
         private Vector3 _currentAimingDirectionVector3;
 
-        private List<IHackable> _foundTargetHackables;
         
         private bool _isAiming;
 
@@ -95,24 +98,36 @@ namespace Combat
                 _meleeWeaponGameObject.SetActive(true);
             }
 
+            UpdateTargets();
+            _automaticAimFirstTarget = _automaticAimCurrentTarget;
+        }
+
+        private void UpdateTargets()
+        {
             _targets = new Collider[10];
 
             if (!TryGetTargets(out _targets, out _currentTargetCount)) return;
-            
+
             //TODO: Talvez remover esse getcomponent por falta de necessidade de usar o ihackable
             for (int i = 0; i < _currentTargetCount; i++)
             {
                 var hackable = _targets[i].GetComponent<IHackable>();
+
+                if (_foundTargetHackables.Contains(hackable)) continue;
+
                 AimCrossHairManager.Instance.RenderCrossHair(_targets[i].transform, true, false);
-                
-                if(_foundTargetHackables.Contains(hackable)) continue;
-                
                 _foundTargetHackables.Add(hackable);
             }
-            
+
             var enemyIndex = GetClosestTargetIndexInColliderArray(_currentTargetCount, _targets);
 
+            if (_automaticAimCurrentTarget == _targets[enemyIndex].transform) return;
+            if (_automaticAimFirstTarget == _targets[enemyIndex].transform) return;
+            
+            Debug.Log($"[Update Targets] Set current from {(_automaticAimCurrentTarget == null ? null : _automaticAimCurrentTarget.name)} to {_targets[enemyIndex].name}");
             _automaticAimCurrentTarget = _targets[enemyIndex].transform;
+            _automaticAimFirstTarget = _targets[enemyIndex].transform;
+                
             AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTarget, true, true);
         }
 
@@ -184,6 +199,7 @@ namespace Combat
             if (enemyCount <= 0)
             {
                 _automaticAimCurrentTarget = null;
+                _automaticAimFirstTarget = null;
                 return false;
             }
 
@@ -226,6 +242,7 @@ namespace Combat
             }
 
             _automaticAimCurrentTarget = null;
+            _automaticAimFirstTarget = null;
         }
         
         private IEnumerator StopAiming()
@@ -264,6 +281,7 @@ namespace Combat
             if(_automaticAimCurrentTarget == null) return;
             
             AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTarget, false, true);
+            Debug.Log($"[Switch Target] Change from {_automaticAimCurrentTarget.name} to {GetNextTargetWithLessAngleDistance(_targets, xInput).name}");
             _automaticAimCurrentTarget = GetNextTargetWithLessAngleDistance(_targets, xInput);
             AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTarget, true, true);
         }
@@ -289,7 +307,7 @@ namespace Combat
             
             if(!_useAutoAim) return;
 
-            TryGetTargets(out _targets, out _currentTargetCount);
+            UpdateTargets();
 
             if(_automaticAimCurrentTarget == null) return;
 
