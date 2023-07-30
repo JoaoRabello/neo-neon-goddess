@@ -124,7 +124,6 @@ namespace Combat
             if (_automaticAimCurrentTarget == _targets[enemyIndex].transform) return;
             if (_automaticAimFirstTarget == _targets[enemyIndex].transform) return;
             
-            Debug.Log($"[Update Targets] Set current from {(_automaticAimCurrentTarget == null ? null : _automaticAimCurrentTarget.name)} to {_targets[enemyIndex].name}");
             _automaticAimCurrentTarget = _targets[enemyIndex].transform;
             _automaticAimFirstTarget = _targets[enemyIndex].transform;
                 
@@ -275,7 +274,6 @@ namespace Combat
             if(_automaticAimCurrentTarget == null) return;
             
             AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTarget, false, true);
-            Debug.Log($"[Switch Target] Change from {_automaticAimCurrentTarget.name} to {GetNextTargetWithLessAngleDistance(_targets, xInput).name}");
             _automaticAimCurrentTarget = GetNextTargetWithLessAngleDistance(_targets, xInput);
             AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTarget, true, true);
         }
