@@ -222,15 +222,9 @@ namespace Combat
             StartCoroutine(StopAiming());
             PlayerStateObserver.Instance.OnAimEnd();
 
-            if (_attackSystem.WeaponEquipped)
-            {
-                _animator.SetParameterValue("isAiming", false);
-            }
-            else
-            {
-                _animator.SetParameterValue("isAimingMelee", false);
-            }
-            
+            _animator.SetParameterValue("isAiming", false);
+            _animator.SetParameterValue("isAimingMelee", false);
+        
             lightningVFX.EffectActivator();
 
             var foundHackablesCopy =  _foundTargetHackables.ToList();
@@ -247,7 +241,7 @@ namespace Combat
         
         private IEnumerator StopAiming()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0);
             
             _weaponGameObject.SetActive(false);
             _meleeWeaponGameObject.SetActive(false);

@@ -57,6 +57,8 @@ namespace Combat
         
         private void ChangeWeapon()
         {
+            if(_aimSystem.IsAiming) return;
+            
             _weaponEquipped = !_weaponEquipped;
         }
 
