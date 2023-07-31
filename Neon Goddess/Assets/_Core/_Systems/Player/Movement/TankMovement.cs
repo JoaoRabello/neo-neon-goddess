@@ -25,7 +25,8 @@ namespace PlayerMovements
         [SerializeField] private AimSystem _aimSystem;
         [Tooltip("Our custom CharacterAnimator")]
         [SerializeField] private CharacterAnimator _animator;
-        
+        [Header("Colliders")]
+        [SerializeField] private Collider[] _bodyColliders;
         [Header("Movement Data")]
         [Tooltip("Speed for frontal and back movement")]
         [SerializeField] public float _basemovementSpeed;
@@ -41,6 +42,7 @@ namespace PlayerMovements
 
         public float _movementSpeed;
         public float _backMovementSpeed;
+        
         private void OnEnable()
         {
             PlayerInputReader.Instance.MovementPerformed += MovementPerformed;
@@ -49,13 +51,21 @@ namespace PlayerMovements
             
             PlayerStateObserver.Instance.AimStart += BlockMovement;
             PlayerStateObserver.Instance.AimEnd += UnlockMovement;
+            PlayerStateObserver.Instance.PlayerDied += TurnOffColliders;
             
             PlayerStateObserver.Instance.AnimationStart += BlockMovement;
             PlayerStateObserver.Instance.AnimationEnd += UnlockMovement;
 
             _movementSpeed = _basemovementSpeed;
             _backMovementSpeed = _basebackMovementSpeed;
+        }
 
+        private void TurnOffColliders()
+        {
+            foreach (var bodyCollider in _bodyColliders)
+            {
+                bodyCollider.gameObject.SetActive(false);
+            }
         }
 
         private void OnDisable()
@@ -65,6 +75,7 @@ namespace PlayerMovements
             
             PlayerStateObserver.Instance.AimStart -= BlockMovement;
             PlayerStateObserver.Instance.AimEnd -= UnlockMovement;
+            PlayerStateObserver.Instance.PlayerDied -= TurnOffColliders;
             
             PlayerStateObserver.Instance.AnimationStart -= BlockMovement;
             PlayerStateObserver.Instance.AnimationEnd -= UnlockMovement;
@@ -87,6 +98,8 @@ namespace PlayerMovements
         /// </summary>
         private void TurnPerformed()
         {
+            if(PlayerStateObserver.Instance.CurrentState != PlayerStateObserver.PlayerState.Free 
+               && PlayerStateObserver.Instance.CurrentState != PlayerStateObserver.PlayerState.Aiming) return;
             if (_movementDirection.magnitude > 0.1f) return;
 
             TurnBody180(transform);

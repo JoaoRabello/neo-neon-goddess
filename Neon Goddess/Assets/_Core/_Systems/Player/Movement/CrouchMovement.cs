@@ -40,6 +40,8 @@ namespace PlayerMovements
 
         private void CrouchPerformed()
         {
+            if(PlayerStateObserver.Instance.CurrentState != PlayerStateObserver.PlayerState.Free) return;
+            
             if (!_isCrouching)
             {
                 StartCrouch();

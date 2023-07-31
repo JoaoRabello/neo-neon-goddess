@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Animations;
+using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -70,17 +71,30 @@ public class HealthSystem : MonoBehaviour
     public void TakePhysicalDamage(int amount)
     {
         _currentPhysicalHealth -= amount;
-        
-        _animator.PlayAnimation("Damage", 0);
+
+        CheckDeath();
 
         UpdatePhysicalBar();
     }
-    
+
+    private void CheckDeath()
+    {
+        if (_currentPhysicalHealth > 0)
+        {
+            _animator.PlayAnimation("Damage", 0);
+        }
+        else
+        {
+            PlayerStateObserver.Instance.OnPlayerDeath();
+            _animator.PlayAnimation("Death", 0);
+        }
+    }
+
     public void TakePhysicalDamage(float percentage)
     {
         _currentPhysicalHealth -= Mathf.FloorToInt(_physicalMaxHealth * percentage);
-        
-        _animator.PlayAnimation("Damage", 0);
+
+        CheckDeath();
 
         UpdatePhysicalBar();
     }
@@ -88,6 +102,8 @@ public class HealthSystem : MonoBehaviour
     public void TakeDirectSetPhysicalDamage(int desiredHealthAmount)
     {
         _currentPhysicalHealth = desiredHealthAmount;
+
+        CheckDeath();
 
         UpdatePhysicalBar();
     }

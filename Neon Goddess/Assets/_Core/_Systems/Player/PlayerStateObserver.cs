@@ -48,7 +48,11 @@ namespace Player
             /// <summary>
             /// When Player is on dialogue
             /// </summary>
-            OnDialogue
+            OnDialogue,
+            /// <summary>
+            /// When Player is dead
+            /// </summary>
+            Dead
         }
 
         private PlayerState _currentState;
@@ -92,6 +96,11 @@ namespace Player
         /// Event called when animations end
         /// </summary>
         public Action AnimationEnd;
+        
+        /// <summary>
+        /// Event called when player dies
+        /// </summary>
+        public Action PlayerDied;
 
         private bool _isDuringState;
         
@@ -184,6 +193,12 @@ namespace Player
         {
             StateEnd();
             AnimationEnd?.Invoke();
+        }
+
+        public void OnPlayerDeath()
+        {
+            StateStart(PlayerState.Dead);
+            PlayerDied?.Invoke();
         }
     }
 }

@@ -83,6 +83,8 @@ namespace Combat
 
         private void AimPerformed()
         {
+            if(PlayerStateObserver.Instance.CurrentState != PlayerStateObserver.PlayerState.Free) return;
+            
             StopAllCoroutines();
             StartCoroutine(StartAiming());
             PlayerStateObserver.Instance.OnAimStart();
