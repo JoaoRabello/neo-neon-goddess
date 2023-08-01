@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Animations;
+using Player;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -62,6 +63,11 @@ public class NewRobbie : MonoBehaviour
         
         if (_attackCooldown) return;
         
+        if (PlayerStateObserver.Instance.CurrentState is PlayerStateObserver.PlayerState.Dead)
+        {
+            _foundPlayer = false;
+        }
+
         Collider[] playerColliders = new Collider[3];
         var size = Physics.OverlapSphereNonAlloc(transform.position, _range, playerColliders, _playerLayerMask);
 
