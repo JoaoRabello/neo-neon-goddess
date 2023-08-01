@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Inputs;
+using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,41 +9,29 @@ public class NPCChatInteraction : MonoBehaviour
 {
     [SerializeField] private Dialogue _dialogue;
     
-    private InputActions _inputActions;
-
     private bool _isNextToNPC;
-
-    private void Awake()
-    {
-        _inputActions = new InputActions();
-        ChatDialogueReader.Instance.DialogueEnded += OnDialogueEnded;
-    }
 
     private void OnEnable()
     {
-        _inputActions.Prototype.Interact.performed += OnInteractPerformed;
-        
-        _inputActions.Enable();
+        PlayerInputReader.Instance.InteractPerformed += OnInteractPerformed;
     }
 
     private void OnDisable()
     {
-        _inputActions.Prototype.Interact.performed -= OnInteractPerformed;
-        
-        _inputActions.Disable();
+        PlayerInputReader.Instance.InteractPerformed -= OnInteractPerformed;
     }
 
     private void OnDialogueEnded()
     {
-        _inputActions.Enable();
+        PlayerStateObserver.Instance.OnDialogueEnd();
     }
 
-    private void OnInteractPerformed(InputAction.CallbackContext context)
+    private void OnInteractPerformed()
     {
         if (!_isNextToNPC) return;
         
         ChatDialogueReader.Instance.PlayDialogue(_dialogue);
-        _inputActions.Disable();
+        // _inputActions.Disable();
     }
 
     public void SetIsNextToNPC(bool value)
