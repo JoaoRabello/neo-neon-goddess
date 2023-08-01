@@ -90,6 +90,21 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="movementEvent" ID="{C37B3692-ECD0-47EA-B79E-84E33E619373}" ShortID="646424592">
+							<ChildrenList>
+								<Event Name="stepEvent" ID="{76A83711-1FE6-4AA9-912B-1A50188397F3}">
+									<ChildrenList>
+										<Action Name="" ID="{3218ECC8-EC00-427E-94FB-C7C89128819E}" ShortID="67187797">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="ConcretSwitchSteper" ID="{1776731C-73CE-4104-B6A1-5C0C7768BE5B}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Dialogue Events" ID="{88F41BAE-00DD-42A6-A7F7-87B8CAEB7A19}" ShortID="597853482">

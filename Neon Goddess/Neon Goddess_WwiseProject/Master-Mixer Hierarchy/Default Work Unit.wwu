@@ -171,14 +171,14 @@
 								</Property>
 							</PropertyList>
 							<ChildrenList>
-								<Bus Name="accessibilityBus" ID="{CBBA8F98-055B-45CD-BB53-5141A1C4FDC0}">
+								<Bus Name="UIBus" ID="{CBBA8F98-055B-45CD-BB53-5141A1C4FDC0}">
 									<PropertyList>
 										<Property Name="BusVolume" Type="Real64">
 											<RTPCList>
 												<RTPC Name="" ID="{5B96FC2A-6E71-463E-AAF1-321E487B9E41}" ShortID="274932089">
 													<ReferenceList>
 														<Reference Name="ControlInput">
-															<ObjectRef Name="accessibilityBusController" ID="{6BAD7398-1E32-4C56-BDD2-FF8740B4B700}" WorkUnitID="{082AD3B4-D3D5-4498-8A9D-266B95A7CE94}"/>
+															<ObjectRef Name="uiBusController" ID="{6BAD7398-1E32-4C56-BDD2-FF8740B4B700}" WorkUnitID="{082AD3B4-D3D5-4498-8A9D-266B95A7CE94}"/>
 														</Reference>
 													</ReferenceList>
 													<Curve Name="" ID="{CB6970D0-DA69-45EA-95D0-756E2E4E63F3}">

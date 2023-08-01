@@ -250,7 +250,7 @@
 															</Point>
 															<Point>
 																<XPos>9.89691</XPos>
-																<YPos>-0</YPos>
+																<YPos>0</YPos>
 																<Flags>0</Flags>
 															</Point>
 															<Point>
@@ -314,7 +314,7 @@
 															</Point>
 															<Point>
 																<XPos>20</XPos>
-																<YPos>-0</YPos>
+																<YPos>0</YPos>
 																<Flags>0</Flags>
 															</Point>
 															<Point>
@@ -381,7 +381,7 @@
 															</Point>
 															<Point>
 																<XPos>40</XPos>
-																<YPos>-0</YPos>
+																<YPos>0</YPos>
 																<Flags>0</Flags>
 															</Point>
 															<Point>
@@ -802,6 +802,340 @@
 								</Sound>
 							</ChildrenList>
 						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="HackGun" ID="{12B80CCA-003A-4F58-9580-3E2C7FEDCCF1}" ShortID="521866454">
+					<ChildrenList>
+						<Sound Name="Hackgun Shoot" ID="{051EAF6F-20ED-4F7F-84CB-4DE9FCCC1B32}" ShortID="1008482425">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="masterBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Hackgun Shoot" ID="{8296A0CE-2FE3-4865-9A56-E566143E8C90}">
+									<Language>SFX</Language>
+									<AudioFile>HackGun\Hackgun Shoot.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="590338317"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Hackgun Shoot" ID="{8296A0CE-2FE3-4865-9A56-E566143E8C90}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Robbie" ID="{1C2FF1B3-D8FB-42C7-9FB5-D6DBE2979B29}" ShortID="1035231695">
+					<ChildrenList>
+						<Sound Name="Engage protocol" ID="{CA4A2CBD-A429-4597-BDD1-EBB344EA463F}" ShortID="827179485">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="masterBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Engage protocol" ID="{B794ECFE-EBC7-41AE-9B6E-FEC05780CAFF}">
+									<Language>SFX</Language>
+									<AudioFile>Robbie\Engage protocol.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="902880654"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Engage protocol" ID="{B794ECFE-EBC7-41AE-9B6E-FEC05780CAFF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="sentry mode" ID="{417D50A4-BD94-42BF-BCC2-C0D3E4E84914}" ShortID="240929510">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="masterBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sentry mode" ID="{0889B974-4321-458B-B303-DB4E747E1CB4}">
+									<Language>SFX</Language>
+									<AudioFile>Robbie\sentry mode.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="922606323"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="sentry mode" ID="{0889B974-4321-458B-B303-DB4E747E1CB4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Steps" ID="{73C0921B-A1FE-4318-8A0C-A382D095BB78}" ShortID="446234518">
+					<ChildrenList>
+						<SwitchContainer Name="ConcretSwitchSteper" ID="{1776731C-73CE-4104-B6A1-5C0C7768BE5B}" ShortID="666804650">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="masterBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="stepSoundGroup" ID="{82CD54BD-B38B-4784-A190-F4381B36CB06}" WorkUnitID="{B2E7411B-CD66-4164-A17F-CD0AAE3921C5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<RandomSequenceContainer Name="StepConcrete" ID="{8A8E5127-D670-4852-8F71-9FA64953CA03}" ShortID="259599556">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="masterBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Step Concrete NoVerb01" ID="{D2571973-AE66-455B-B048-7A84390A4D62}" ShortID="587893063">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Step Concrete NoVerb01" ID="{29D47195-990E-4DCC-B7D4-73AEF09EDD62}">
+													<Language>SFX</Language>
+													<AudioFile>Steps\Step Concrete NoVerb01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1061449108"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="Step Concrete NoVerb01" ID="{29D47195-990E-4DCC-B7D4-73AEF09EDD62}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Step Concrete NoVerb02" ID="{B198B5D4-9BA2-4B44-A904-100A5F1BCCFA}" ShortID="595359819">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Step Concrete NoVerb02" ID="{4B5E33DC-1AA7-49D0-A5FB-4BA0E65C22AC}">
+													<Language>SFX</Language>
+													<AudioFile>Steps\Step Concrete NoVerb02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="109603463"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="Step Concrete NoVerb02" ID="{4B5E33DC-1AA7-49D0-A5FB-4BA0E65C22AC}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Step Concrete NoVerb03" ID="{41AFA77A-BE2C-42B0-94C6-5F33BDEFDE74}" ShortID="695236952">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Step Concrete NoVerb03" ID="{395B0465-76DE-4D01-B055-3E38D872E317}">
+													<Language>SFX</Language>
+													<AudioFile>Steps\Step Concrete NoVerb03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="924084229"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="Step Concrete NoVerb03" ID="{395B0465-76DE-4D01-B055-3E38D872E317}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Step Concrete NoVerb04" ID="{4543509E-4AA2-4EB1-8C2C-589291A89E1C}" ShortID="421110237">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Step Concrete NoVerb04" ID="{966550FE-6CEA-4969-87F0-FF42BD82E176}">
+													<Language>SFX</Language>
+													<AudioFile>Steps\Step Concrete NoVerb04.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="956966789"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="Step Concrete NoVerb04" ID="{966550FE-6CEA-4969-87F0-FF42BD82E176}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<ObjectLists/>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="StepConcrete_Verb" ID="{54DE967F-29E9-483D-8914-8EBE454256D6}" ShortID="847575452">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+											<ObjectRef Name="Hall_Large" ID="{6D154498-FF6D-4823-96FC-56841B70E079}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="masterBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Step Concrete NoVerb01" ID="{0429C3E4-A208-41CC-A875-D65E51D43F43}" ShortID="1008885464">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Step Concrete NoVerb01" ID="{2F0843C3-49F6-4FF6-A6DA-72654F48E8D6}">
+													<Language>SFX</Language>
+													<AudioFile>Steps\Step Concrete NoVerb01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1061449108"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="Step Concrete NoVerb01" ID="{2F0843C3-49F6-4FF6-A6DA-72654F48E8D6}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Step Concrete NoVerb02" ID="{F85B11FE-54DA-40EE-888C-02F74BE30904}" ShortID="733300381">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Step Concrete NoVerb02" ID="{B3F5D24C-3121-45B9-8826-5CA519C03B48}">
+													<Language>SFX</Language>
+													<AudioFile>Steps\Step Concrete NoVerb02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="109603463"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="Step Concrete NoVerb02" ID="{B3F5D24C-3121-45B9-8826-5CA519C03B48}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Step Concrete NoVerb03" ID="{9CD3F3C4-6B0F-4BA5-94C6-1511EA8F8EB5}" ShortID="270699791">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Step Concrete NoVerb03" ID="{48D41C3A-3532-4BAB-A34F-EF59F96F0C86}">
+													<Language>SFX</Language>
+													<AudioFile>Steps\Step Concrete NoVerb03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="924084229"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="Step Concrete NoVerb03" ID="{48D41C3A-3532-4BAB-A34F-EF59F96F0C86}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Step Concrete NoVerb04" ID="{B8E0D6D8-A170-4458-A5F8-AF7059A04C05}" ShortID="274276105">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Step Concrete NoVerb04" ID="{1789011B-C63E-4D6F-A9C5-E9006C9A467E}">
+													<Language>SFX</Language>
+													<AudioFile>Steps\Step Concrete NoVerb04.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="956966789"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="Step Concrete NoVerb04" ID="{1789011B-C63E-4D6F-A9C5-E9006C9A467E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<ObjectLists/>
+								</RandomSequenceContainer>
+							</ChildrenList>
+							<ObjectLists/>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="StepConcrete" ID="{8A8E5127-D670-4852-8F71-9FA64953CA03}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="StepConcrete_Verb" ID="{54DE967F-29E9-483D-8914-8EBE454256D6}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="concreteVerb" ID="{1C10DD12-CD55-44B1-8AAA-7174CB4EC62A}"/>
+										<ItemList>
+											<ItemRef Name="StepConcrete_Verb" ID="{54DE967F-29E9-483D-8914-8EBE454256D6}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="concreteNoVerb" ID="{18796C35-7243-4671-8FAD-704E01D87563}"/>
+										<ItemList>
+											<ItemRef Name="StepConcrete" ID="{8A8E5127-D670-4852-8F71-9FA64953CA03}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
+							</GroupingInfo>
+						</SwitchContainer>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

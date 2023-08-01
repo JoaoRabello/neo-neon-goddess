@@ -53,6 +53,45 @@
 						</SwitchGroup>
 					</ChildrenList>
 				</Folder>
+				<SwitchGroup Name="stepSoundGroup" ID="{82CD54BD-B38B-4784-A190-F4381B36CB06}">
+					<PropertyList>
+						<Property Name="UseGameParameter" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Switch Name="concreteNoVerb" ID="{18796C35-7243-4671-8FAD-704E01D87563}"/>
+						<Switch Name="concreteVerb" ID="{1C10DD12-CD55-44B1-8AAA-7174CB4EC62A}"/>
+					</ChildrenList>
+					<SwitchOnRTPC>
+						<GameParameterRef Name="stepSoundSwitchController" ID="{F7652402-201A-4424-A3B2-678ECCF7146A}"/>
+						<Curve Name="" ID="{84DC668E-1466-42D3-956F-771A1FC1401B}">
+							<PropertyList>
+								<Property Name="Flags" Type="int32" Value="65537"/>
+							</PropertyList>
+							<PointList>
+								<Point>
+									<XPos>0</XPos>
+									<YPos>0</YPos>
+									<Flags>5</Flags>
+								</Point>
+								<Point>
+									<XPos>5</XPos>
+									<YPos>1</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>10</XPos>
+									<YPos>2</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>100</XPos>
+									<YPos>0</YPos>
+									<Flags>37</Flags>
+								</Point>
+							</PointList>
+						</Curve>
+					</SwitchOnRTPC>
+				</SwitchGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</Switches>
