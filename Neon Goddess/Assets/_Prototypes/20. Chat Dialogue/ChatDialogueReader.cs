@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Inputs;
+using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,39 +18,46 @@ public class ChatDialogueReader : MonoBehaviour
 
     public Action DialogueEnded;
     
-    private InputActions _inputActions;
     private Dialogue _currentDialogue;
     private DialogueNode _currentDialogueNode;
 
     private bool _onDialogue;
+    private bool _firstInteraction = true;
     private bool _choosing;
     private int _choiceIndex;
 
     private void Awake()
     {
-        Instance = this;
-        _inputActions = new InputActions();
+        if (Instance is null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     
     private void OnEnable()
     {
-        _inputActions.Prototype.Interact.performed += OnInteractPerformed;
-        _inputActions.Prototype.Movement.performed += ChangeIndex;
-        
-        _inputActions.Enable();
+        PlayerInputReader.Instance.InteractPerformed += OnInteractPerformed;
+        PlayerInputReader.Instance.MovementPerformed += ChangeIndex;
     }
 
     private void OnDisable()
     {
-        _inputActions.Prototype.Interact.performed -= OnInteractPerformed;
-        _inputActions.Prototype.Movement.performed -= ChangeIndex;
-        
-        _inputActions.Disable();
+        PlayerInputReader.Instance.InteractPerformed -= OnInteractPerformed;
+        PlayerInputReader.Instance.MovementPerformed -= ChangeIndex;
     }
 
-    private void OnInteractPerformed(InputAction.CallbackContext context)
+    private void OnInteractPerformed()
     {
         if (!_onDialogue) return;
+        if (_firstInteraction)
+        {
+            _firstInteraction = false;
+            return;
+        }
 
         if (_choosing)
         {
@@ -65,15 +74,15 @@ public class ChatDialogueReader : MonoBehaviour
         PlayNextNode();
     }
 
-    private void ChangeIndex(InputAction.CallbackContext context)
+    private void ChangeIndex(Vector2 input)
     {
         if (!_choosing) return;
         
-        if (context.ReadValue<Vector2>().y < 0)
+        if (input.y < 0)
         {
             _choiceIndex++;
         }
-        else if (context.ReadValue<Vector2>().y > 0)
+        else if (input.y > 0)
         {
             _choiceIndex--;
         }
@@ -86,9 +95,12 @@ public class ChatDialogueReader : MonoBehaviour
         if (_currentDialogueNode.Children.Count <= 0)
         {
             _onDialogue = false;
+            _firstInteraction = true;
             
             _dialogueVisualContent.SetActive(false);
             DialogueEnded?.Invoke();
+            
+            PlayerStateObserver.Instance.OnDialogueEnd();
             return;
         }
 
@@ -111,6 +123,8 @@ public class ChatDialogueReader : MonoBehaviour
         _onDialogue = true;
         _currentDialogue = dialogue;
         _currentDialogueNode = dialogue.GetRootNode();
+
+        PlayerStateObserver.Instance.OnDialogueStart();
         
         _dialogueVisualContent.SetActive(true);
         SetDialogueText();
