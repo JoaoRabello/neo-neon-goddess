@@ -34,7 +34,7 @@ namespace Inputs
 
         private void OnEnable()
         {
-            _inputActions.Astrid.Interaction.performed += OnInteractPerformed;
+            _inputActions.Astrid.Interaction.started += OnInteractPerformed;
             _inputActions.Astrid.Movement.started += OnMovementStarted;
             _inputActions.Astrid.Movement.performed += OnMovementPerformed;
             _inputActions.Astrid.Movement.canceled += OnMovementCanceled;
@@ -50,7 +50,7 @@ namespace Inputs
 
         private void OnDisable()
         {
-            _inputActions.Astrid.Interaction.performed -= OnInteractPerformed;
+            _inputActions.Astrid.Interaction.started -= OnInteractPerformed;
             _inputActions.Astrid.Movement.started -= OnMovementStarted;
             _inputActions.Astrid.Movement.performed -= OnMovementPerformed;
             _inputActions.Astrid.Movement.canceled -= OnMovementCanceled;

@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7156679597138058026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 3ca6aeba-8dcf-4e91-ba59-58a5ad31114c
+  m_EditorClassIdentifier: 
+  _text: 'Did she sent you to help me? '
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - b2968b35-0d5e-4fda-94ec-47f8ca62742a
+  _rect:
+    serializedVersion: 2
+    x: 800
+    y: 150
+    width: 200
+    height: 200
+--- !u!114 &-3915192141599503978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: ea9e0e30-f3b5-4f8f-8f5e-198f499cfc61
+  m_EditorClassIdentifier: 
+  _text: Hey, little guy...
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 3ca6aeba-8dcf-4e91-ba59-58a5ad31114c
+  _rect:
+    serializedVersion: 2
+    x: 550
+    y: 150
+    width: 200
+    height: 200
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7eca54113c3da44b17989f2565d1a3, type: 3}
+  m_Name: C4-T_DIALOGUE
+  m_EditorClassIdentifier: 
+  _nodes:
+  - {fileID: 5317877609234375850}
+  - {fileID: 5958507826326606319}
+  - {fileID: -3915192141599503978}
+  - {fileID: -7156679597138058026}
+  - {fileID: 8587976266528395497}
+--- !u!114 &5317877609234375850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: ccc8f990-2b0f-4e17-aafe-be7634723483
+  m_EditorClassIdentifier: 
+  _text: Huh?
+  _isRootNode: 1
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - f314ccc9-f98d-4db5-a39e-37a0cc3704e1
+  _rect:
+    serializedVersion: 2
+    x: 50
+    y: 150
+    width: 200
+    height: 200
+--- !u!114 &5958507826326606319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: f314ccc9-f98d-4db5-a39e-37a0cc3704e1
+  m_EditorClassIdentifier: 
+  _text: What the heck my girlfriend's droid is doing down here?
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - ea9e0e30-f3b5-4f8f-8f5e-198f499cfc61
+  _rect:
+    serializedVersion: 2
+    x: 300
+    y: 150
+    width: 200
+    height: 200
+--- !u!114 &8587976266528395497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: b2968b35-0d5e-4fda-94ec-47f8ca62742a
+  m_EditorClassIdentifier: 
+  _text: I hope she's ok...
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 1050
+    y: 150
+    width: 200
+    height: 200
