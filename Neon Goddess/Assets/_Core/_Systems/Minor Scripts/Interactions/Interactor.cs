@@ -33,8 +33,12 @@ public class Interactor : MonoBehaviour
 
         var interactableObjectCount =
             Physics.OverlapSphereNonAlloc(transform.position, _interactionRange, objectList, _interactableLayerMask);
-        
-        if(interactableObjectCount <= 0) return;
+
+        if (interactableObjectCount <= 0)
+        {
+            _currentInteractable = null;
+            return;
+        }
 
         _currentInteractable = objectList[0].GetComponent<IInteractable>();
     }
