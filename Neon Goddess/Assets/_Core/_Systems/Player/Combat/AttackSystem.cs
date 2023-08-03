@@ -15,6 +15,9 @@ namespace Combat
         [SerializeField] private CharacterAnimator _animator;
         [SerializeField] private Transform _shotsOrigin;
         
+        [Header("SFX")]
+        [SerializeField] private SFXPlayer _shootingSfxPlayer;
+        
         [Header("Weapon Data")]
         [SerializeField] private bool _weaponEquipped;
         [SerializeField] private MeleeWeapon _weapon;
@@ -70,6 +73,8 @@ namespace Combat
             PlayerStateObserver.Instance.OnAnimationStart();
 
             StartCoroutine(PlayMuzzleEffect());
+            
+            if(_weaponEquipped) _shootingSfxPlayer.PlaySFX();
             
             _isOnAnimation = true;
 

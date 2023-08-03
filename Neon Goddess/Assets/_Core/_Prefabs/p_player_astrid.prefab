@@ -1156,6 +1156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _event: stepEventTemp
+  _event1: {fileID: 0}
 --- !u!1 &3993724777619479389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1243,7 @@ GameObject:
   - component: {fileID: 305961546911803520}
   - component: {fileID: 8236315672092117438}
   - component: {fileID: 3536999868395661735}
+  - component: {fileID: 7581601950886052213}
   m_Layer: 0
   m_Name: p_player_astrid
   m_TagString: Untagged
@@ -1413,6 +1415,7 @@ MonoBehaviour:
   _aimSystem: {fileID: 5289680002988290467}
   _animator: {fileID: 7758867608645911423}
   _shotsOrigin: {fileID: 4501916402718172192}
+  _shootingSfxPlayer: {fileID: 7581601950886052213}
   _weaponEquipped: 0
   _weapon: {fileID: 11400000, guid: 4d3f57fc0fa97ac40a407f167c11182b, type: 2}
   _hittableLayerMask:
@@ -1488,6 +1491,20 @@ MonoBehaviour:
   _interactableLayerMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &7581601950886052213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4211844877681094624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd9ec59e04c7ad49a54e29ccb4ddbd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: hackGunShoot
+  _event1: {fileID: 0}
 --- !u!1 &4386421476213267972
 GameObject:
   m_ObjectHideFlags: 0
