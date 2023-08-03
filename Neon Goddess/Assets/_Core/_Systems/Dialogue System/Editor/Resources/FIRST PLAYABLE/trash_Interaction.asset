@@ -1,27 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2410730378334491028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
-  m_Name: 231a3f74-b83e-421e-96c0-ac0cceca9092
-  m_EditorClassIdentifier: 
-  _text: The only piece of technology people like me can afford these days.
-  _isRootNode: 0
-  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
-  _children: []
-  _rect:
-    serializedVersion: 2
-    x: 300
-    y: 150
-    width: 200
-    height: 200
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac7eca54113c3da44b17989f2565d1a3, type: 3}
-  m_Name: PC_interaction
+  m_Name: trash_Interaction
   m_EditorClassIdentifier: 
   _nodes:
-  - {fileID: 6239262078565704464}
-  - {fileID: -2410730378334491028}
---- !u!114 &6239262078565704464
+  - {fileID: 975763224262584403}
+  - {fileID: 604386613464094025}
+--- !u!114 &604386613464094025
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,13 +25,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
-  m_Name: 9a9b3d3b-c850-4702-acdf-62147f26976d
+  m_Name: 41058331-0ae8-4a6c-b376-07ca4529973f
   m_EditorClassIdentifier: 
-  _text: A bunch of old junk.
+  _text: Nothing useful.
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 300
+    y: 150
+    width: 200
+    height: 200
+--- !u!114 &975763224262584403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 8ff1840a-0b7d-4444-8f1e-ecbc3114784b
+  m_EditorClassIdentifier: 
+  _text: A pile of trash.
   _isRootNode: 1
   _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
   _children:
-  - 231a3f74-b83e-421e-96c0-ac0cceca9092
+  - 41058331-0ae8-4a6c-b376-07ca4529973f
   _rect:
     serializedVersion: 2
     x: 50

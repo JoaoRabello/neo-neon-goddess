@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac7eca54113c3da44b17989f2565d1a3, type: 3}
-  m_Name: Interaction_with_trash
+  m_Name: fuel_interaction
   m_EditorClassIdentifier: 
   _nodes:
-  - {fileID: 975763224262584403}
-  - {fileID: 604386613464094025}
---- !u!114 &604386613464094025
+  - {fileID: 1585223132520624902}
+--- !u!114 &1585223132520624902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,35 +24,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
-  m_Name: 41058331-0ae8-4a6c-b376-07ca4529973f
+  m_Name: 30c313dc-b09c-4884-a99e-5d597cf5ba62
   m_EditorClassIdentifier: 
-  _text: Nothing useful.
-  _isRootNode: 0
-  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
-  _children: []
-  _rect:
-    serializedVersion: 2
-    x: 300
-    y: 150
-    width: 200
-    height: 200
---- !u!114 &975763224262584403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
-  m_Name: 8ff1840a-0b7d-4444-8f1e-ecbc3114784b
-  m_EditorClassIdentifier: 
-  _text: A pile of trash.
+  _text: They used to store fuel in those...
   _isRootNode: 1
   _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
-  _children:
-  - 41058331-0ae8-4a6c-b376-07ca4529973f
+  _children: []
   _rect:
     serializedVersion: 2
     x: 50
