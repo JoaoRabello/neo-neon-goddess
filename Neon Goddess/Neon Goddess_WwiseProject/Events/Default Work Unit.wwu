@@ -41,6 +41,17 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="hackGunShoot" ID="{3E9E6756-FC32-4A27-9AD9-DE545B184793}">
+									<ChildrenList>
+										<Action Name="" ID="{0EB97FB1-9601-4227-BB96-133C74C6DF06}" ShortID="565054501">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Hackgun Shoot" ID="{051EAF6F-20ED-4F7F-84CB-4DE9FCCC1B32}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="SpecialEvents" ID="{5B6E1B23-CD32-4CB1-8D9D-B58636D982FA}" ShortID="123986476">
@@ -98,6 +109,17 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="ConcretSwitchSteper" ID="{1776731C-73CE-4104-B6A1-5C0C7768BE5B}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="stepEventTemp" ID="{2CF1A699-2267-4877-809D-24C96F35A034}">
+									<ChildrenList>
+										<Action Name="" ID="{774B7046-4EF0-423A-915A-0AB5042C4156}" ShortID="68585967">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="StepConcrete" ID="{8A8E5127-D670-4852-8F71-9FA64953CA03}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>

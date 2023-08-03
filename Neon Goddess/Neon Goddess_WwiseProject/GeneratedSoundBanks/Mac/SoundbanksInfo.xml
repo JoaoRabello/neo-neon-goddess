@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="617476707">
+		<SoundBank Id="534561221" Language="SFX" Hash="1964886668">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
@@ -182,18 +182,59 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3035224157" Name="stepEvent" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEvent" DurationType="OneShot" DurationMin="0.6" DurationMax="0.701896">
+					<IncludedMemoryFiles>
+						<File Id="109603463" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb02.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb02_05842A19.wem</Path>
+						</File>
+						<File Id="924084229" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb03.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb03_05842A19.wem</Path>
+						</File>
+						<File Id="956966789" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb04.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb04_05842A19.wem</Path>
+						</File>
+						<File Id="1061449108" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb01.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb01_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="36201819" Name="stepEventTemp" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEventTemp" DurationType="OneShot" DurationMin="0.6" DurationMax="0.701896">
+					<IncludedMemoryFiles>
+						<File Id="109603463" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb02.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb02_05842A19.wem</Path>
+						</File>
+						<File Id="924084229" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb03.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb03_05842A19.wem</Path>
+						</File>
+						<File Id="956966789" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb04.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb04_05842A19.wem</Path>
+						</File>
+						<File Id="1061449108" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb01.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb01_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="62014404" Name="sfxBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\sfxBusController"/>
 				<GameParameter Id="80573052" Name="musicBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\musicBusController"/>
 				<GameParameter Id="95401436" Name="lowVoicePitcherController" ObjectPath="\Game Parameters\Default Work Unit\pitchController\lowVoicePitcherController"/>
+				<GameParameter Id="224940047" Name="uiBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\uiBusController"/>
 				<GameParameter Id="682147685" Name="chorus01Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus01Control"/>
 				<GameParameter Id="936584782" Name="chorus04Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus04Control"/>
 				<GameParameter Id="1084512918" Name="hackSwitchController" ObjectPath="\Game Parameters\Default Work Unit\SwitchControllers\hackSwitchController"/>
+				<GameParameter Id="1116251856" Name="stepSoundSwitchController" ObjectPath="\Game Parameters\Default Work Unit\stepSoundSwitchController"/>
 				<GameParameter Id="1444919967" Name="masterBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\masterBusController"/>
 				<GameParameter Id="1574828856" Name="chorus02Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus02Control"/>
 				<GameParameter Id="1970181751" Name="dialogueBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\dialogueBusController"/>
-				<GameParameter Id="2133121051" Name="accessibilityBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\accessibilityBusController"/>
 				<GameParameter Id="2692592512" Name="heartbeatTempoController" ObjectPath="\Game Parameters\Default Work Unit\awarenessSoundController\heartbeatTempoController"/>
 				<GameParameter Id="3037820317" Name="infoBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\infoBusController"/>
 				<GameParameter Id="3517018448" Name="highVoicePitcher" ObjectPath="\Game Parameters\Default Work Unit\pitchController\highVoicePitcher"/>
@@ -202,6 +243,12 @@
 				<GameParameter Id="4148718858" Name="awarenessBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\awarenessBusController"/>
 			</GameParameters>
 			<SwitchGroups>
+				<SwitchGroup Id="821105189" Name="stepSoundGroup" ObjectPath="\Switches\Default Work Unit\stepSoundGroup" GUID="{82CD54BD-B38B-4784-A190-F4381B36CB06}">
+					<Switches>
+						<Switch Id="685059302" Name="concreteNoVerb" ObjectPath="\Switches\Default Work Unit\stepSoundGroup\concreteNoVerb" GUID="{18796C35-7243-4671-8FAD-704E01D87563}"/>
+						<Switch Id="1147545571" Name="concreteVerb" ObjectPath="\Switches\Default Work Unit\stepSoundGroup\concreteVerb" GUID="{1C10DD12-CD55-44B1-8AAA-7174CB4EC62A}"/>
+					</Switches>
+				</SwitchGroup>
 				<SwitchGroup Id="3932210399" Name="hackSwitchGroup" ObjectPath="\Switches\Default Work Unit\HackSwitchGroup\hackSwitchGroup" GUID="{602A6C73-EACF-42E6-A8F3-16870F86154E}">
 					<Switches>
 						<Switch Id="2375960624" Name="hack01Paralyse" ObjectPath="\Switches\Default Work Unit\HackSwitchGroup\hackSwitchGroup\hack01Paralyse" GUID="{BF608959-2541-4EC1-A11C-289E7FB10ECA}"/>
@@ -212,16 +259,16 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1218330643">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3740469274">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<GameParameters>
 				<GameParameter Id="62014404" Name="sfxBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\sfxBusController"/>
 				<GameParameter Id="80573052" Name="musicBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\musicBusController"/>
+				<GameParameter Id="224940047" Name="uiBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\uiBusController"/>
 				<GameParameter Id="1444919967" Name="masterBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\masterBusController"/>
 				<GameParameter Id="1970181751" Name="dialogueBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\dialogueBusController"/>
-				<GameParameter Id="2133121051" Name="accessibilityBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\accessibilityBusController"/>
 				<GameParameter Id="3037820317" Name="infoBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\infoBusController"/>
 				<GameParameter Id="3767945453" Name="ambienceBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\ambienceBusController"/>
 				<GameParameter Id="4148718858" Name="awarenessBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\awarenessBusController"/>
