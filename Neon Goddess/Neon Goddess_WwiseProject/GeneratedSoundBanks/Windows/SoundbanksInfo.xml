@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="1964886668">
+		<SoundBank Id="534561221" Language="SFX" Hash="3998785702">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
@@ -182,11 +182,27 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3035224157" Name="stepEvent" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEvent" DurationType="OneShot" DurationMin="0.6" DurationMax="0.701896">
+				<Event Id="3035224157" Name="stepEvent" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEvent" DurationType="OneShot" DurationMin="0.019544" DurationMax="0.701896">
 					<IncludedMemoryFiles>
+						<File Id="79465095" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb04.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb04_668150CC.wem</Path>
+						</File>
 						<File Id="109603463" Language="SFX">
 							<ShortName>Steps\Step Concrete NoVerb02.wav</ShortName>
 							<Path>SFX\Steps\Step Concrete NoVerb02_05842A19.wem</Path>
+						</File>
+						<File Id="315903680" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb03.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb03_E7AC4D84.wem</Path>
+						</File>
+						<File Id="551442925" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb02.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb02_F231EBEA.wem</Path>
+						</File>
+						<File Id="822608226" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb01.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb01_676DC06D.wem</Path>
 						</File>
 						<File Id="924084229" Language="SFX">
 							<ShortName>Steps\Step Concrete NoVerb03.wav</ShortName>
@@ -202,23 +218,23 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="36201819" Name="stepEventTemp" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEventTemp" DurationType="OneShot" DurationMin="0.6" DurationMax="0.701896">
+				<Event Id="36201819" Name="stepEventTemp" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEventTemp" DurationType="OneShot" DurationMin="0.019544" DurationMax="0.041337">
 					<IncludedMemoryFiles>
-						<File Id="109603463" Language="SFX">
-							<ShortName>Steps\Step Concrete NoVerb02.wav</ShortName>
-							<Path>SFX\Steps\Step Concrete NoVerb02_05842A19.wem</Path>
-						</File>
-						<File Id="924084229" Language="SFX">
-							<ShortName>Steps\Step Concrete NoVerb03.wav</ShortName>
-							<Path>SFX\Steps\Step Concrete NoVerb03_05842A19.wem</Path>
-						</File>
-						<File Id="956966789" Language="SFX">
+						<File Id="79465095" Language="SFX">
 							<ShortName>Steps\Step Concrete NoVerb04.wav</ShortName>
-							<Path>SFX\Steps\Step Concrete NoVerb04_05842A19.wem</Path>
+							<Path>SFX\Steps\Step Concrete NoVerb04_668150CC.wem</Path>
 						</File>
-						<File Id="1061449108" Language="SFX">
+						<File Id="315903680" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb03.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb03_E7AC4D84.wem</Path>
+						</File>
+						<File Id="551442925" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb02.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb02_F231EBEA.wem</Path>
+						</File>
+						<File Id="822608226" Language="SFX">
 							<ShortName>Steps\Step Concrete NoVerb01.wav</ShortName>
-							<Path>SFX\Steps\Step Concrete NoVerb01_05842A19.wem</Path>
+							<Path>SFX\Steps\Step Concrete NoVerb01_676DC06D.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
