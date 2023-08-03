@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: a6ead49771989b41ac95046be69a4143
     GuidInternal: 
-    m_lastTime: -8585436880948621725
+    m_lastTime: -8585203524685432264
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: aca27ecb43a417478e1289c52057adf9
     GuidInternal: 
-    m_lastTime: -8585107527379618030
+    m_lastTime: -8585105748653947608
     List:
     - name: ambienceBus
       guid: 481b870385f7b04d9067436d52066127
@@ -191,7 +191,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 291bed8b33d94b4dac16d5e30d3beea2
     GuidInternal: 
-    m_lastTime: -8585107527379678041
+    m_lastTime: -8585105047727545300
     List:
     - name: mainSoundBank
       guid: d7bbfefaf3d3aa46ae8514386f26a35f
@@ -219,7 +219,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 8707201672ff4b4696a8d320381f6a5a
     GuidInternal: 
-    m_lastTime: -8585107527379598021
+    m_lastTime: -8585105047728043692
     List:
     - name: Accessibility Events
       guid: 672189576faa69459dce1c48c73cc6d1
@@ -579,6 +579,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: hackGunShoot
+      guid: 56679e3e32fc274a9ad9de545b184793
+      id: 4099961397
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: hackEvent
+        ObjectType: 4
+        guid: 233882d0cdd26e43b35c10c0c9629e85
+      - ElementName: hackGunShoot
+        ObjectType: 3
+        guid: 56679e3e32fc274a9ad9de545b184793
+      Path: Events\Default Work Unit\SFX Events\hackEvent\hackGunShoot
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: hackSelectionEvent
       guid: 98b58e169116614bb40c643b923ccad5
       id: 3399565108
@@ -806,8 +829,31 @@ MonoBehaviour:
         guid: 1137a876e61fa94a912b1a50188397f3
       Path: Events\Default Work Unit\SFX Events\movementEvent\stepEvent
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.701896
+      minDuration: 0.6
+    - name: stepEventTemp
+      guid: 99a6f12c67227748809d24c96f35a034
+      id: 36201819
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: movementEvent
+        ObjectType: 4
+        guid: 92367bc3d0ecea47b79e84e33e619373
+      - ElementName: stepEventTemp
+        ObjectType: 3
+        guid: 99a6f12c67227748809d24c96f35a034
+      Path: Events\Default Work Unit\SFX Events\movementEvent\stepEventTemp
+      maxAttenuation: 0
+      maxDuration: 0.701896
+      minDuration: 0.6
     - name: voiceEvent
       guid: d1646cd832d60c408ae82fec092d3be4
       id: 4228832235
@@ -840,7 +886,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: b4d32a08d5d398448a9d266b95a7ce94
     GuidInternal: 
-    m_lastTime: -8585107527379648033
+    m_lastTime: -8585105748653992101
     List:
     - name: ambienceBusController
       guid: 71d28ffc305ffc45ba7b5b4b79060f2a
@@ -1210,7 +1256,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: a13717c7254d9b4fb705e721ec38d50d
     GuidInternal: 
-    m_lastTime: -8585436880948631722
+    m_lastTime: -8585203524685442245
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -1224,7 +1270,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 1b41e7b266cd6441a17fcd0aae3921c5
     GuidInternal: 
-    m_lastTime: -8585107527379558015
+    m_lastTime: -8585105748651792452
     List:
     - name: hackSwitchGroup
       guid: 736c2a60cfeae642a8f316870f86154e
@@ -1403,11 +1449,11 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: de2d5a3a4d468f43b43e80a1e4c5b898
     GuidInternal: 
-    m_lastTime: -8585436880948626724
+    m_lastTime: -8585203524685442245
     List: []
-  ExpandedFileSystemItemIds: 
+  ExpandedFileSystemItemIds: 3000000031000000
   ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
-  currentDataSource: 0
+  currentDataSource: 1
   CurrentPluginConfig: 
