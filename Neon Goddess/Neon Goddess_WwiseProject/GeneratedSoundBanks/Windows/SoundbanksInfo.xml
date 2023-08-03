@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="3998785702">
+		<SoundBank Id="534561221" Language="SFX" Hash="2501452468">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
@@ -116,6 +116,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="4099961397" Name="hackGunShoot" ObjectPath="\Events\Default Work Unit\SFX Events\hackEvent\hackGunShoot" DurationType="OneShot" DurationMin="0.295669" DurationMax="0.295669">
+					<IncludedMemoryFiles>
+						<File Id="590338317" Language="SFX">
+							<ShortName>HackGun\Hackgun Shoot.wav</ShortName>
+							<Path>SFX\HackGun\Hackgun Shoot_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3399565108" Name="hackSelectionEvent" ObjectPath="\Events\Default Work Unit\SFX Events\hackEvent\hackSelectionEvent" DurationType="OneShot" DurationMin="0.066158" DurationMax="0.113208">
 					<IncludedMemoryFiles>
 						<File Id="29677609" Language="SFX">
@@ -171,6 +179,14 @@
 						<File Id="1055927533" Language="SFX">
 							<ShortName>hack_status\hack_confirm.wav</ShortName>
 							<Path>SFX\hack_status\hack_confirm_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1464182441" Name="quantumScreaming" ObjectPath="\Events\Default Work Unit\Music Events\quantumScreaming" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="133366327" Language="SFX">
+							<ShortName>Quantum Screaming.wav</ShortName>
+							<Path>SFX\Quantum Screaming_6AF693E7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -275,7 +291,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1286246192">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2320955172">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

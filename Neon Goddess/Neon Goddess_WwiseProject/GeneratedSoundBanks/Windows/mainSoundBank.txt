@@ -4,6 +4,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	607750724	eventVoiceKazimir			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceKazimir	
 	865037345	eventVoiceYohannaAssistent			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohannaAssistent	
 	1437365791	eventVoiceYohanna			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohanna	
+	1464182441	quantumScreaming			\Default Work Unit\Music Events\quantumScreaming	
 	1494610132	hackStatusConfirmEvent			\Default Work Unit\SFX Events\hackEvent\hackStatusConfirmEvent	
 	1510770975	radioVoices			\Default Work Unit\SFX Events\SpecialEvents\radioVoices	
 	1592018284	eventVoiceMilord			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceMilord	
@@ -15,6 +16,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3373072804	eventVoiceRaziel			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceRaziel	
 	3399565108	hackSelectionEvent			\Default Work Unit\SFX Events\hackEvent\hackSelectionEvent	
 	3492179582	eventVoiceTalwa			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceTalwa	
+	4099961397	hackGunShoot			\Default Work Unit\SFX Events\hackEvent\hackGunShoot	
 	4214009878	eventVoiceAstrid			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceAstrid	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
@@ -59,6 +61,7 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	3803850708	sfxBus			\Default Work Unit\masterBus\sfxBus	
 
 Effect plug-ins	ID	Name	Type				Notes
+	701863527	Inside_My_Head	Wwise RoomVerb			
 	1042001490	heartbeatTempoChanger	Wwise Time Stretch			
 	1176734637	milordVoiceShifter	Wwise Pitch Shifter			
 	2824085564	lowVoicePitcher	Wwise Pitch Shifter			
@@ -69,6 +72,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	79465095	Step Concrete NoVerb04	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Steps\Step Concrete NoVerb04_668150CC.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete\Step Concrete NoVerb04		1195
 	109603463	Step Concrete NoVerb02	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Steps\Step Concrete NoVerb02_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete_Verb\Step Concrete NoVerb02		7664
 	116112332	voiceTalwa	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Talwa_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceTalwa		1461
+	133366327	Quantum Screaming	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Quantum Screaming_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\Quantum Screaming		3812243
 	152880994	Chorus 04	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Chorus\Chorus 04_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Chorus\Chorus 04		85408
 	168953332	hackStatusCancel	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\hack_status\hack_cancel_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\hack_status\hackStatusCancel		3661
 	240535298	voiceYavik	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Yavik_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYavik		1363
@@ -78,6 +82,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	368848235	voiceGuara	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Kazimir T_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceGuara		1753
 	551442925	Step Concrete NoVerb02	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Steps\Step Concrete NoVerb02_F231EBEA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete\Step Concrete NoVerb02		1994
 	569761510	awarenessHeartbeat	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Heart Beat\Heart Beatwav_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Informative Sounds\Awareness\awarenessHeartbeat		7721
+	590338317	Hackgun Shoot	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\HackGun\Hackgun Shoot_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\HackGun\Hackgun Shoot		5656
 	635549386	Chorus 01	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Chorus\Chorus 01_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Chorus\Chorus 01		88597
 	655585714	voiceRaziel	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Raziel_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceRaziel		2361
 	690471894	hackOverride	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Hack Selection\Control - Copia_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\Hack Selection\hackSelectionSwitch\hackOverride		2422

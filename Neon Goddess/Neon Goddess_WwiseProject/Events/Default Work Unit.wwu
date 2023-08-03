@@ -3,7 +3,21 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{16200787-FF72-464B-96A8-D320381F6A5A}" PersistMode="Standalone">
 			<ChildrenList>
-				<Folder Name="Music Events" ID="{7F59440A-2B98-4DDF-BB99-E84433F28895}" ShortID="312614020"/>
+				<Folder Name="Music Events" ID="{7F59440A-2B98-4DDF-BB99-E84433F28895}" ShortID="312614020">
+					<ChildrenList>
+						<Event Name="quantumScreaming" ID="{CC7CC719-D366-49BA-BF15-99EC0671BF9C}">
+							<ChildrenList>
+								<Action Name="" ID="{C4006DA7-3C42-41C2-8AC0-0F1BF633A81C}" ShortID="979701661">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Quantum Screaming" ID="{69AF8371-0EF9-43BA-9977-3560CED032F6}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 				<Folder Name="SFX Events" ID="{E020E75C-8EF9-4D64-B162-3EF8260AAB3C}" ShortID="427469375">
 					<ChildrenList>
 						<Folder Name="hackEvent" ID="{D0823823-D2CD-436E-B35C-10C0C9629E85}" ShortID="363773472">
