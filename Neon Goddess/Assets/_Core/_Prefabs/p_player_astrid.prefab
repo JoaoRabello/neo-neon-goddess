@@ -1077,6 +1077,7 @@ GameObject:
   - component: {fileID: 4465815891884119439}
   - component: {fileID: 7717462426071977973}
   - component: {fileID: 334997313}
+  - component: {fileID: 2509848417532170645}
   m_Layer: 0
   m_Name: Astrid-New-Export
   m_TagString: Untagged
@@ -1142,6 +1143,19 @@ MonoBehaviour:
   _downRange: 4
   _colliders:
   - {fileID: 1566537157}
+--- !u!114 &2509848417532170645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941233824242618165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd9ec59e04c7ad49a54e29ccb4ddbd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: stepEventTemp
 --- !u!1 &3993724777619479389
 GameObject:
   m_ObjectHideFlags: 0
