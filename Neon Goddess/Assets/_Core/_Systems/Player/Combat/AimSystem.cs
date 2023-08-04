@@ -26,7 +26,10 @@ namespace Combat
         [SerializeField] private bool _useAutoAim;
         [SerializeField] private LayerMask _hittableLayerMask;
         [SerializeField] private float _aimRange;
-        
+
+        [Header("State Observer")]
+        [SerializeField] private PlayerStateObserver _playerStateObserver;
+
         private List<IHackable> _foundTargetHackables;
         private Transform _automaticAimCurrentTarget;
         private Transform _automaticAimFirstTarget;
@@ -281,7 +284,11 @@ namespace Combat
         }
 
         private void Update()
-        {
+        {   
+            if (_playerStateObserver._currentState == PlayerStateObserver.PlayerState.Dead)
+            {
+                AimCanceled();
+            }
             if (!_isAiming) return;
 
             _currentAimingDirectionVector3 = _currentAimingDirection.ToVector3(transform.forward);

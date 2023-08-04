@@ -19,7 +19,7 @@ namespace Combat
         [SerializeField] private SFXPlayer _shootingSfxPlayer;
         
         [Header("Weapon Data")]
-        [SerializeField] private bool _weaponEquipped;
+        [SerializeField] public bool _weaponEquipped;
         [SerializeField] private MeleeWeapon _weapon;
         
         [Header("Hit Scan properties")]
@@ -31,6 +31,9 @@ namespace Combat
         [Header("Prototype")]
         [SerializeField] private GameObject _fakeMuzzleEffect;
         [SerializeField] private float _muzzleEffectTime;
+
+        [Header("State Observer")]
+        [SerializeField] private PlayerStateObserver _playerStateObserver;
 
         public bool WeaponEquipped => _weaponEquipped;
         
@@ -51,7 +54,8 @@ namespace Combat
         private void ShootPerformed()
         {
             if (!_aimSystem.IsAiming) return;
-            
+            if(_playerStateObserver._currentState == PlayerStateObserver.PlayerState.Dead) return;
+            Debug.Log("ShootPerformed");
             Shoot();
             
             if(_weaponEquipped)

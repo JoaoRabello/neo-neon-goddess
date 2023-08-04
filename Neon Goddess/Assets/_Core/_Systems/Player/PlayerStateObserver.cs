@@ -55,7 +55,7 @@ namespace Player
             Dead
         }
 
-        private PlayerState _currentState;
+        public PlayerState _currentState;
         /// <summary>
         /// Current Player state
         /// </summary>
@@ -142,6 +142,7 @@ namespace Player
         /// </summary>
         private void StateEnd()
         {
+            if (_currentState == PlayerState.Dead) { return; }
             _isDuringState = false;
             
             _currentState = PlayerState.Free;
@@ -149,6 +150,7 @@ namespace Player
 
         public void OnDialogueStart()
         {
+            if (_currentState == PlayerState.Dead) { return; }
             StateStart(PlayerState.OnDialogue);
             DialogueStart?.Invoke();
         }
@@ -161,6 +163,7 @@ namespace Player
         
         public void OnAimStart()
         {
+            if (_currentState == PlayerState.Dead) { return; }
             StateStart(PlayerState.Aiming);
             AimStart?.Invoke();
         }
@@ -173,6 +176,7 @@ namespace Player
 
         public void OnCustsceneStart()
         {
+            if (_currentState == PlayerState.Dead) { return; }
             StateStart(PlayerState.OnCutscene);
             CutsceneStart?.Invoke();
         }
@@ -185,6 +189,7 @@ namespace Player
 
         public void OnAnimationStart()
         {
+            if (_currentState == PlayerState.Dead) { return; }
             StateStart(PlayerState.OnAnimation);
             AnimationStart?.Invoke();
         }
@@ -197,6 +202,7 @@ namespace Player
 
         public void OnPlayerDeath()
         {
+            if (_currentState == PlayerState.Aiming) { OnAimEnd(); }
             StateStart(PlayerState.Dead);
             PlayerDied?.Invoke();
         }
