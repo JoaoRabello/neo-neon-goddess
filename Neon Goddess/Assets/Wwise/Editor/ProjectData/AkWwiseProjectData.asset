@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: a6ead49771989b41ac95046be69a4143
     GuidInternal: 
-    m_lastTime: -8585436880948621725
+    m_lastTime: -8585203524685432264
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,28 +38,8 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: aca27ecb43a417478e1289c52057adf9
     GuidInternal: 
-    m_lastTime: -8585200978993926689
+    m_lastTime: -8585105748653947608
     List:
-    - name: accessibilityBus
-      guid: 988fbacb5b05cd45bb535141a1c4fdc0
-      id: 639560775
-      PathAndIcons:
-      - ElementName: Master-Mixer Hierarchy
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: aca27ecb43a417478e1289c52057adf9
-      - ElementName: masterBus
-        ObjectType: 2
-        guid: d8a41415a61d2a41a17e75ca0c2149f3
-      - ElementName: infoBus
-        ObjectType: 2
-        guid: 86ef9c55853c7347a064970c6652a613
-      - ElementName: accessibilityBus
-        ObjectType: 2
-        guid: 988fbacb5b05cd45bb535141a1c4fdc0
-      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\infoBus\accessibilityBus
     - name: ambienceBus
       guid: 481b870385f7b04d9067436d52066127
       id: 612772313
@@ -179,6 +159,26 @@ MonoBehaviour:
         ObjectType: 2
         guid: ffee025270875c4ba1f3560f70b37124
       Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\sfxBus
+    - name: UIBus
+      guid: 988fbacb5b05cd45bb535141a1c4fdc0
+      id: 1372881427
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: aca27ecb43a417478e1289c52057adf9
+      - ElementName: masterBus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: infoBus
+        ObjectType: 2
+        guid: 86ef9c55853c7347a064970c6652a613
+      - ElementName: UIBus
+        ObjectType: 2
+        guid: 988fbacb5b05cd45bb535141a1c4fdc0
+      Path: Master-Mixer Hierarchy\Default Work Unit\masterBus\infoBus\UIBus
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     PathAndIcons:
@@ -191,7 +191,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 291bed8b33d94b4dac16d5e30d3beea2
     GuidInternal: 
-    m_lastTime: -8585179301805869595
+    m_lastTime: -8585105047727545300
     List:
     - name: mainSoundBank
       guid: d7bbfefaf3d3aa46ae8514386f26a35f
@@ -219,7 +219,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 8707201672ff4b4696a8d320381f6a5a
     GuidInternal: 
-    m_lastTime: -8585179301807910044
+    m_lastTime: -8585105047728043692
     List:
     - name: Accessibility Events
       guid: 672189576faa69459dce1c48c73cc6d1
@@ -579,6 +579,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: hackGunShoot
+      guid: 56679e3e32fc274a9ad9de545b184793
+      id: 4099961397
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: hackEvent
+        ObjectType: 4
+        guid: 233882d0cdd26e43b35c10c0c9629e85
+      - ElementName: hackGunShoot
+        ObjectType: 3
+        guid: 56679e3e32fc274a9ad9de545b184793
+      Path: Events\Default Work Unit\SFX Events\hackEvent\hackGunShoot
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: hackSelectionEvent
       guid: 98b58e169116614bb40c643b923ccad5
       id: 3399565108
@@ -665,6 +688,26 @@ MonoBehaviour:
         ObjectType: 4
         guid: 74c2bc3b30698f42b63fcd7c4f184148
       Path: Events\Default Work Unit\Awareness Events\Health Events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: movementEvent
+      guid: 92367bc3d0ecea47b79e84e33e619373
+      id: 1904338550
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: movementEvent
+        ObjectType: 4
+        guid: 92367bc3d0ecea47b79e84e33e619373
+      Path: Events\Default Work Unit\SFX Events\movementEvent
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -765,6 +808,52 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: stepEvent
+      guid: 1137a876e61fa94a912b1a50188397f3
+      id: 3035224157
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: movementEvent
+        ObjectType: 4
+        guid: 92367bc3d0ecea47b79e84e33e619373
+      - ElementName: stepEvent
+        ObjectType: 3
+        guid: 1137a876e61fa94a912b1a50188397f3
+      Path: Events\Default Work Unit\SFX Events\movementEvent\stepEvent
+      maxAttenuation: 0
+      maxDuration: 0.701896
+      minDuration: 0.019544
+    - name: stepEventTemp
+      guid: 99a6f12c67227748809d24c96f35a034
+      id: 36201819
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: movementEvent
+        ObjectType: 4
+        guid: 92367bc3d0ecea47b79e84e33e619373
+      - ElementName: stepEventTemp
+        ObjectType: 3
+        guid: 99a6f12c67227748809d24c96f35a034
+      Path: Events\Default Work Unit\SFX Events\movementEvent\stepEventTemp
+      maxAttenuation: 0
+      maxDuration: 0.041337
+      minDuration: 0.019544
     - name: voiceEvent
       guid: d1646cd832d60c408ae82fec092d3be4
       id: 4228832235
@@ -797,25 +886,8 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: b4d32a08d5d398448a9d266b95a7ce94
     GuidInternal: 
-    m_lastTime: -8585179301807900042
+    m_lastTime: -8585105748653992101
     List:
-    - name: accessibilityBusController
-      guid: 9873ad6b321e564cbdd2ff8740b4b700
-      id: 2133121051
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: b4d32a08d5d398448a9d266b95a7ce94
-      - ElementName: bus Controllers
-        ObjectType: 4
-        guid: 4aeee1764347f94584fc5e0401b6c134
-      - ElementName: accessibilityBusController
-        ObjectType: 13
-        guid: 9873ad6b321e564cbdd2ff8740b4b700
-      Path: Game Parameters\Default Work Unit\bus Controllers\accessibilityBusController
     - name: ambienceBusController
       guid: 71d28ffc305ffc45ba7b5b4b79060f2a
       id: 3767945453
@@ -1113,6 +1185,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: 7792743b62dbfa41a2718cc9c98768f5
       Path: Game Parameters\Default Work Unit\bus Controllers\sfxBusController
+    - name: stepSoundSwitchController
+      guid: 022465f71a202444a3b2678eccf7146a
+      id: 1116251856
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: stepSoundSwitchController
+        ObjectType: 13
+        guid: 022465f71a202444a3b2678eccf7146a
+      Path: Game Parameters\Default Work Unit\stepSoundSwitchController
     - name: SwitchControllers
       guid: ccc398925e0dc34a9cecbcbd68cea273
       id: 29158768
@@ -1127,6 +1213,23 @@ MonoBehaviour:
         ObjectType: 4
         guid: ccc398925e0dc34a9cecbcbd68cea273
       Path: Game Parameters\Default Work Unit\SwitchControllers
+    - name: uiBusController
+      guid: 9873ad6b321e564cbdd2ff8740b4b700
+      id: 224940047
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: bus Controllers
+        ObjectType: 4
+        guid: 4aeee1764347f94584fc5e0401b6c134
+      - ElementName: uiBusController
+        ObjectType: 13
+        guid: 9873ad6b321e564cbdd2ff8740b4b700
+      Path: Game Parameters\Default Work Unit\bus Controllers\uiBusController
     - name: voiceController
       guid: 198c85e701b5064a99bc9181dd372b44
       id: 3300053589
@@ -1153,7 +1256,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: a13717c7254d9b4fb705e721ec38d50d
     GuidInternal: 
-    m_lastTime: -8585436880948631722
+    m_lastTime: -8585203524685442245
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -1167,7 +1270,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 1b41e7b266cd6441a17fcd0aae3921c5
     GuidInternal: 
-    m_lastTime: -8585200978993646641
+    m_lastTime: -8585105748651792452
     List:
     - name: hackSwitchGroup
       guid: 736c2a60cfeae642a8f316870f86154e
@@ -1284,6 +1387,56 @@ MonoBehaviour:
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []
+    - name: stepSoundGroup
+      guid: bd54cd828bb38447a190f4381b36cb06
+      id: 821105189
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 1b41e7b266cd6441a17fcd0aae3921c5
+      - ElementName: stepSoundGroup
+        ObjectType: 11
+        guid: bd54cd828bb38447a190f4381b36cb06
+      Path: Switches\Default Work Unit\stepSoundGroup
+      values:
+      - name: concreteNoVerb
+        guid: 356c7918437271468fad704e01d87563
+        id: 685059302
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 1b41e7b266cd6441a17fcd0aae3921c5
+        - ElementName: stepSoundGroup
+          ObjectType: 11
+          guid: bd54cd828bb38447a190f4381b36cb06
+        - ElementName: concreteNoVerb
+          ObjectType: 10
+          guid: 356c7918437271468fad704e01d87563
+      - name: concreteVerb
+        guid: 12dd101c55cdb1448aaa7174cb4ec62a
+        id: 1147545571
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 1b41e7b266cd6441a17fcd0aae3921c5
+        - ElementName: stepSoundGroup
+          ObjectType: 11
+          guid: bd54cd828bb38447a190f4381b36cb06
+        - ElementName: concreteVerb
+          ObjectType: 10
+          guid: 12dd101c55cdb1448aaa7174cb4ec62a
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     PathAndIcons:
@@ -1296,11 +1449,11 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: de2d5a3a4d468f43b43e80a1e4c5b898
     GuidInternal: 
-    m_lastTime: -8585436880948626724
+    m_lastTime: -8585203524685442245
     List: []
-  ExpandedFileSystemItemIds: 
+  ExpandedFileSystemItemIds: 3000000031000000
   ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
-  currentDataSource: 0
+  currentDataSource: 1
   CurrentPluginConfig: 

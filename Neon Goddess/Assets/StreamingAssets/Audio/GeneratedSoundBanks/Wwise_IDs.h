@@ -24,10 +24,14 @@ namespace AK
         static const AkUniqueID EVENTVOICEYAVIK = 1676920321U;
         static const AkUniqueID EVENTVOICEYOHANNA = 1437365791U;
         static const AkUniqueID EVENTVOICEYOHANNAASSISTENT = 865037345U;
+        static const AkUniqueID HACKGUNSHOOT = 4099961397U;
         static const AkUniqueID HACKSELECTIONEVENT = 3399565108U;
         static const AkUniqueID HACKSTATUSCANCELEVENT = 2498197966U;
         static const AkUniqueID HACKSTATUSCONFIRMEVENT = 1494610132U;
+        static const AkUniqueID QUANTUMSCREAMING = 1464182441U;
         static const AkUniqueID RADIOVOICES = 1510770975U;
+        static const AkUniqueID STEPEVENT = 3035224157U;
+        static const AkUniqueID STEPEVENTTEMP = 36201819U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -45,11 +49,21 @@ namespace AK
             } // namespace SWITCH
         } // namespace HACKSWITCHGROUP
 
+        namespace STEPSOUNDGROUP
+        {
+            static const AkUniqueID GROUP = 821105189U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID CONCRETENOVERB = 685059302U;
+                static const AkUniqueID CONCRETEVERB = 1147545571U;
+            } // namespace SWITCH
+        } // namespace STEPSOUNDGROUP
+
     } // namespace SWITCHES
 
     namespace GAME_PARAMETERS
     {
-        static const AkUniqueID ACCESSIBILITYBUSCONTROLLER = 2133121051U;
         static const AkUniqueID AMBIENCEBUSCONTROLLER = 3767945453U;
         static const AkUniqueID AWARENESSBUSCONTROLLER = 4148718858U;
         static const AkUniqueID CHORUS01CONTROL = 682147685U;
@@ -65,6 +79,8 @@ namespace AK
         static const AkUniqueID MASTERBUSCONTROLLER = 1444919967U;
         static const AkUniqueID MUSICBUSCONTROLLER = 80573052U;
         static const AkUniqueID SFXBUSCONTROLLER = 62014404U;
+        static const AkUniqueID STEPSOUNDSWITCHCONTROLLER = 1116251856U;
+        static const AkUniqueID UIBUSCONTROLLER = 224940047U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
@@ -75,7 +91,6 @@ namespace AK
 
     namespace BUSSES
     {
-        static const AkUniqueID ACCESSIBILITYBUS = 639560775U;
         static const AkUniqueID AMBIENCEBUS = 612772313U;
         static const AkUniqueID AWARENESSBUS = 3086158442U;
         static const AkUniqueID DIALOGUEBUS = 309504875U;
@@ -83,6 +98,7 @@ namespace AK
         static const AkUniqueID MASTERBUS = 835198467U;
         static const AkUniqueID MUSICBUS = 2886307548U;
         static const AkUniqueID SFXBUS = 3803850708U;
+        static const AkUniqueID UIBUS = 1372881427U;
     } // namespace BUSSES
 
     namespace AUDIO_DEVICES
