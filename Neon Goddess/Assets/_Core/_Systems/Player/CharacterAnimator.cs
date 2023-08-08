@@ -28,17 +28,54 @@ namespace Animations
         public void PlayAndOnAnimationEndCallback(string animationName, Action callback)
         {
             PlayAnimation(animationName, 0);
-            StartCoroutine(WaitForAnimationToEnd(animationName, callback));
+            StartCoroutine(WaitForAnimationToEndByName(animationName, callback));
+        }
+        
+        public void PlayAndOnAnimationChangeCallback(string animationName, Action callback)
+        {
+            PlayAnimation(animationName, 0);
+            StartCoroutine(WaitForAnimationByNameToChange(animationName, callback));
         }
 
-        private IEnumerator WaitForAnimationToEnd(string animationName, Action callback)
+        public void OnCurrentAnimationEndCallback(Action callback)
+        {
+            StartCoroutine(WaitForCurrentAnimationToEnd(callback));
+        }
+
+        private IEnumerator WaitForAnimationToEndByName(string animationName, Action callback)
         {
             while (!_animatorController.GetCurrentAnimatorStateInfo(0).IsName(animationName))
             {
                 yield return null;
             }
 
-            while ((_animatorController.GetCurrentAnimatorStateInfo(0).normalizedTime) % 1 < 0.99f)
+            while (_animatorController.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 < 0.99f)
+            {
+                yield return null;
+            }
+            
+            callback?.Invoke();
+        }
+        
+        private IEnumerator WaitForAnimationByNameToChange(string animationName, Action callback)
+        {
+            while (!_animatorController.GetCurrentAnimatorStateInfo(0).IsName(animationName))
+            {
+                yield return null;
+            }
+            
+            while (_animatorController.GetCurrentAnimatorStateInfo(0).IsName(animationName))
+            {
+                yield return null;
+            }
+
+            callback?.Invoke();
+        }
+        
+        private IEnumerator WaitForCurrentAnimationToEnd(Action callback)
+        {
+            var test = _animatorController.GetCurrentAnimatorStateInfo(0);
+            while (_animatorController.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 < 0.99f)
             {
                 yield return null;
             }

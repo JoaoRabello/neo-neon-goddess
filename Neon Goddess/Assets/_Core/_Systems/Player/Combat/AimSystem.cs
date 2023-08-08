@@ -40,8 +40,8 @@ namespace Combat
         private AimDirection _currentAimingDirection;
         private Vector3 _currentAimingDirectionVector3;
 
-        
         private bool _isAiming;
+        private bool _canHideWeapon;
 
         private struct TargetAngle
         {
@@ -97,6 +97,8 @@ namespace Combat
             {
                 _animator.SetParameterValue("isAiming", true);
                 _weaponGameObject.SetActive(true);
+
+                _canHideWeapon = false;
             }
             else
             {
@@ -118,26 +120,30 @@ namespace Combat
 
             if (!TryGetTargets(out _targets, out _currentTargetCount)) return;
 
+            var enemyIndex = GetClosestTargetIndexInColliderArray(_currentTargetCount, _targets);
+
+            if (_automaticAimCurrentTarget != _targets[enemyIndex].transform 
+                && _automaticAimFirstTarget != _targets[enemyIndex].transform)
+            {
+                _automaticAimCurrentTarget = _targets[enemyIndex].transform;
+                _automaticAimCurrentTargetHackable = _automaticAimCurrentTarget.GetComponent<IHackable>();
+                _automaticAimFirstTarget = _automaticAimCurrentTarget;
+                
+                AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTargetHackable, true, true);
+            }
+            
             for (int i = 0; i < _currentTargetCount; i++)
             {
                 var hackable = _targets[i].GetComponent<IHackable>();
 
                 if (_foundTargetHackables.Contains(hackable)) continue;
 
-                AimCrossHairManager.Instance.RenderCrossHair(hackable, true, false);
                 _foundTargetHackables.Add(hackable);
-            }
-
-            var enemyIndex = GetClosestTargetIndexInColliderArray(_currentTargetCount, _targets);
-
-            if (_automaticAimCurrentTarget == _targets[enemyIndex].transform) return;
-            if (_automaticAimFirstTarget == _targets[enemyIndex].transform) return;
-            
-            _automaticAimCurrentTarget = _targets[enemyIndex].transform;
-            _automaticAimCurrentTargetHackable = _automaticAimCurrentTarget.GetComponent<IHackable>();
-            _automaticAimFirstTarget = _automaticAimCurrentTarget;
                 
-            AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTargetHackable, true, true);
+                if(_automaticAimCurrentTargetHackable == hackable) continue;
+                
+                AimCrossHairManager.Instance.RenderCrossHair(hackable, true, false);
+            }
         }
 
         private int GetClosestTargetIndexInColliderArray(int enemyCount, Collider[] results)
@@ -194,8 +200,8 @@ namespace Combat
 
             return xInput switch
             {
-                > 0.1f => positiveAngleList[0].Target,
-                < -0.1f => negativeAngleList[0].Target,
+                > 0.1f => positiveAngleList.Count < 1 ? _automaticAimCurrentTarget : positiveAngleList[0].Target,
+                < -0.1f => negativeAngleList.Count < 1 ? _automaticAimCurrentTarget : negativeAngleList[0].Target,
                 _ => _automaticAimCurrentTarget
             };
         }
@@ -221,6 +227,8 @@ namespace Combat
             
             _isAiming = true;
             lightningVFX.EffectActivator();
+
+            _canHideWeapon = true;
         }
 
         private void AimCanceled()
@@ -228,11 +236,19 @@ namespace Combat
             _isAiming = false;
             
             StopAllCoroutines();
-            StartCoroutine(StopAiming());
+
             PlayerStateObserver.Instance.OnAimEnd();
 
-            _animator.SetParameterValue("isAiming", false);
-            _animator.SetParameterValue("isAimingMelee", false);
+            if (_attackSystem.WeaponEquipped)
+            {
+                _animator.PlayAndOnAnimationChangeCallback("Holster", HideWeapon);
+                _animator.SetParameterValue("isAiming", false);
+            }
+            else
+            {
+                _meleeWeaponGameObject.SetActive(false);
+                _animator.SetParameterValue("isAimingMelee", false);
+            }
         
             lightningVFX.EffectActivator();
 
@@ -248,12 +264,13 @@ namespace Combat
             _automaticAimFirstTarget = null;
         }
         
-        private IEnumerator StopAiming()
+        private void HideWeapon()
         {
-            yield return new WaitForSeconds(0);
-            
+            if(!_canHideWeapon) return;
             _weaponGameObject.SetActive(false);
-            _meleeWeaponGameObject.SetActive(false);
+
+            Debug.Log("Turn Off Weapon");
+            _canHideWeapon = true;
         }
 
         private void MoveStarted(Vector2 movementInput)
