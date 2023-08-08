@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Combat;
 using UnityEngine;
 
 public class AimCrossHairManager : MonoBehaviour
@@ -41,21 +42,21 @@ public class AimCrossHairManager : MonoBehaviour
         _currentCrossHairElement.Hide();
     }
 
-    public void RenderCrossHair(Transform targetTransform, bool on, bool isCurrentTarget)
+    public void RenderCrossHair(IHackable hackable, bool on, bool isCurrentTarget)
     {
         if (on)
         {
             if (!isCurrentTarget)
             {
                 var crossHairElement = Instantiate(_availableCrossHairElement, _crossHairsParent);
-                crossHairElement.Setup(targetTransform, _canvas);
+                crossHairElement.Setup(hackable, _canvas);
                 
                 _availableCrossHairElements.Add(crossHairElement);
             }
             else
             {
                 _currentCrossHairElement.gameObject.SetActive(true);
-                _currentCrossHairElement.Setup(targetTransform, _canvas);
+                _currentCrossHairElement.Setup(hackable, _canvas);
             }
         }
         else
@@ -64,7 +65,7 @@ public class AimCrossHairManager : MonoBehaviour
             {
                 foreach (var element in _availableCrossHairElements)
                 {
-                    if(!element.HasSameTransform(targetTransform)) continue;
+                    if(!element.HasSameHackable(hackable)) continue;
 
                     _availableCrossHairElements.Remove(element);
                     
@@ -76,5 +77,19 @@ public class AimCrossHairManager : MonoBehaviour
                 _currentCrossHairElement.Hide();
             }
         }
+    }
+
+    public void SetDirection(IHackable hackable, AimSystem.AimDirection aimDirection)
+    {
+        foreach (var element in _availableCrossHairElements)
+        {
+            if(!element.HasSameHackable(hackable)) continue;
+
+            element.SetAimDirection(aimDirection);
+                    
+            break;
+        }
+        
+        _currentCrossHairElement.SetAimDirection(aimDirection);
     }
 }

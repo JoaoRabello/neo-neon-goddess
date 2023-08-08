@@ -1156,7 +1156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _event: stepEventTemp
-  _event1: {fileID: 0}
 --- !u!1 &3993724777619479389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,6 +1425,7 @@ MonoBehaviour:
   _maxMeleeRange: 3
   _fakeMuzzleEffect: {fileID: 2672444852066388087}
   _muzzleEffectTime: 0.1
+  _playerStateObserver: {fileID: 0}
 --- !u!114 &4177875828851857247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1504,7 +1504,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _event: hackGunShoot
-  _event1: {fileID: 0}
 --- !u!1 &4386421476213267972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,8 +1812,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0.15183258, a: 0.15686275}
-      key1: {r: 1, g: 0, b: 0.15183258, a: 1}
+      key0: {r: 0.9098039, g: 0.07058824, b: 0.5294118, a: 0.15686275}
+      key1: {r: 0.9098039, g: 0.07058824, b: 0.5294118, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0.1764706}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

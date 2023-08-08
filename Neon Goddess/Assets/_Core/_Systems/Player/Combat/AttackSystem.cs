@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Animations;
@@ -54,7 +55,7 @@ namespace Combat
         private void ShootPerformed()
         {
             if (!_aimSystem.IsAiming) return;
-            if(_playerStateObserver._currentState == PlayerStateObserver.PlayerState.Dead) return;
+            if(PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Dead) return;
             Debug.Log("ShootPerformed");
             Shoot();
             
@@ -85,10 +86,26 @@ namespace Combat
             _animator.PlayAndOnAnimationEndCallback(_weaponEquipped ? "Shot" : "Stab", AnimationEnded);
 
             RaycastHit[] enemies = new RaycastHit[10];
-            var hitCount = Physics.SphereCastNonAlloc(_shotsOrigin.position, _shotHitBoxRadiusSize, 
-                _aimSystem.CurrentAimingDirection.ToVector3(transform.forward), enemies, 
-                _weaponEquipped ? _maxShootingRange : _maxMeleeRange, _hittableLayerMask);
+            // var hitCount = Physics.SphereCastNonAlloc(_shotsOrigin.position, _shotHitBoxRadiusSize, 
+            //     _aimSystem.CurrentAimingDirection.ToVector3(transform.forward), enemies, 
+            //     _weaponEquipped ? _maxShootingRange : _maxMeleeRange, _hittableLayerMask);
+            var aimDirection = transform.forward;
+            switch (_aimSystem.CurrentAimingDirection)
+            {
+                case AimSystem.AimDirection.Up:
+                    aimDirection = (_aimSystem.CurrentHackableTarget.GetHeadPosition() - transform.position).normalized;
+                    break;
+                case AimSystem.AimDirection.Front:
+                    aimDirection = (_aimSystem.CurrentHackableTarget.GetTorsoPosition() - transform.position).normalized;
+                    break;
+                case AimSystem.AimDirection.Down:
+                    aimDirection = (_aimSystem.CurrentHackableTarget.GetLegsPosition() - transform.position).normalized;
+                    break;
+            }
 
+            var hitCount = Physics.SphereCastNonAlloc(_shotsOrigin.position, _shotHitBoxRadiusSize, 
+                aimDirection, enemies, _weaponEquipped ? _maxShootingRange : _maxMeleeRange, _hittableLayerMask);
+            
             if (hitCount <= 0) return;
             
             var enemy = enemies[0].collider;
