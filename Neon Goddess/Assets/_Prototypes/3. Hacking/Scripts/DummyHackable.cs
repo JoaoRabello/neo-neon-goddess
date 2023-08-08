@@ -105,6 +105,11 @@ public class DummyHackable : MonoBehaviour, IHackable
         throw new NotImplementedException();
     }
 
+    public void SetAimDirection()
+    {
+        throw new NotImplementedException();
+    }
+
     private void Update()
     {
         if (_isHacked) return;

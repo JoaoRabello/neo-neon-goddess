@@ -29,6 +29,7 @@ namespace Combat
         
         private List<IHackable> _foundTargetHackables;
         private Transform _automaticAimCurrentTarget;
+        private IHackable _automaticAimCurrentTargetHackable;
         private Transform _automaticAimFirstTarget;
 
         [Tooltip("Our custom animator")] 
@@ -56,6 +57,7 @@ namespace Combat
         public bool HasTarget => _automaticAimCurrentTarget != null;
         public bool weaponEquipped => _attackSystem.WeaponEquipped;
         public AimDirection CurrentAimingDirection => _currentAimingDirection;
+        public IHackable CurrentHackableTarget => _automaticAimCurrentTargetHackable;
 
         private void Start()
         {
@@ -84,6 +86,8 @@ namespace Combat
         private void AimPerformed()
         {
             if(PlayerStateObserver.Instance.CurrentState != PlayerStateObserver.PlayerState.Free) return;
+
+            _currentAimingDirection = AimDirection.Front;
             
             StopAllCoroutines();
             StartCoroutine(StartAiming());
@@ -102,6 +106,10 @@ namespace Combat
 
             UpdateTargets();
             _automaticAimFirstTarget = _automaticAimCurrentTarget;
+            
+            if(_automaticAimCurrentTargetHackable == null) return;
+            
+            AimCrossHairManager.Instance.SetDirection(_automaticAimCurrentTargetHackable, _currentAimingDirection);
         }
 
         private void UpdateTargets()
@@ -110,7 +118,6 @@ namespace Combat
 
             if (!TryGetTargets(out _targets, out _currentTargetCount)) return;
 
-            //TODO: Talvez remover esse getcomponent por falta de necessidade de usar o ihackable
             for (int i = 0; i < _currentTargetCount; i++)
             {
                 var hackable = _targets[i].GetComponent<IHackable>();
@@ -127,9 +134,10 @@ namespace Combat
             if (_automaticAimFirstTarget == _targets[enemyIndex].transform) return;
             
             _automaticAimCurrentTarget = _targets[enemyIndex].transform;
-            _automaticAimFirstTarget = _targets[enemyIndex].transform;
+            _automaticAimCurrentTargetHackable = _automaticAimCurrentTarget.GetComponent<IHackable>();
+            _automaticAimFirstTarget = _automaticAimCurrentTarget;
                 
-            AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTarget.GetComponent<IHackable>(), true, true);
+            AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTargetHackable, true, true);
         }
 
         private int GetClosestTargetIndexInColliderArray(int enemyCount, Collider[] results)
@@ -250,6 +258,7 @@ namespace Combat
 
         private void MoveStarted(Vector2 movementInput)
         {
+            if(!_isAiming) return;
             if (Mathf.Abs(movementInput.x) < 0.1f) return;
             
             SwitchTarget(movementInput.x);
@@ -257,17 +266,27 @@ namespace Combat
         
         private void MovePerformed(Vector2 movementInput)
         {
+            if(!_isAiming) return;
+            
             _currentAimingDirection = movementInput.y switch
             {
                 >= 0.1f => AimDirection.Up,
                 <= -0.1f => AimDirection.Down,
                 _ => AimDirection.Front
             };
+            
+            if(_automaticAimCurrentTarget == null) return;
+            AimCrossHairManager.Instance.SetDirection(_automaticAimCurrentTargetHackable, _currentAimingDirection);
         }
 
         private void MoveCanceled()
         {
+            if(!_isAiming) return;
+            
             _currentAimingDirection = AimDirection.Front;
+            
+            if(_automaticAimCurrentTargetHackable == null) return;
+            AimCrossHairManager.Instance.SetDirection(_automaticAimCurrentTargetHackable, _currentAimingDirection);
         }
 
         private void SwitchTarget(float xInput)
@@ -275,11 +294,9 @@ namespace Combat
             if(_currentTargetCount <= 0) return;
             if(_automaticAimCurrentTarget == null) return;
 
-            var automaticAimCurrentTargetHackable = _automaticAimCurrentTarget.GetComponent<IHackable>();
-            
-            AimCrossHairManager.Instance.RenderCrossHair(automaticAimCurrentTargetHackable, false, true);
+            AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTargetHackable, false, true);
             _automaticAimCurrentTarget = GetNextTargetWithLessAngleDistance(_targets, xInput);
-            AimCrossHairManager.Instance.RenderCrossHair(automaticAimCurrentTargetHackable, true, true);
+            AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTargetHackable, true, true);
         }
 
         private void Update()

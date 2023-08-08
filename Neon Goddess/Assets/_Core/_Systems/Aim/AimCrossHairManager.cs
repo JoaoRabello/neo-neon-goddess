@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Combat;
 using UnityEngine;
 
 public class AimCrossHairManager : MonoBehaviour
@@ -76,5 +77,19 @@ public class AimCrossHairManager : MonoBehaviour
                 _currentCrossHairElement.Hide();
             }
         }
+    }
+
+    public void SetDirection(IHackable hackable, AimSystem.AimDirection aimDirection)
+    {
+        foreach (var element in _availableCrossHairElements)
+        {
+            if(!element.HasSameHackable(hackable)) continue;
+
+            element.SetAimDirection(aimDirection);
+                    
+            break;
+        }
+        
+        _currentCrossHairElement.SetAimDirection(aimDirection);
     }
 }
