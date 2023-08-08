@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="1924886579">
+		<SoundBank Id="534561221" Language="SFX" Hash="3409023045">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
@@ -281,6 +281,14 @@
 						<File Id="861051072" Language="SFX">
 							<ShortName>UI\Menu Sound\UiConfirmationMenuSound.wav</ShortName>
 							<Path>SFX\UI\Menu Sound\UiConfirmationMenuSound_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2191038231" Name="uiPickUp" ObjectPath="\Events\Default Work Unit\UIEvents\General Sounds\uiPickUp" DurationType="OneShot" DurationMin="0.536236" DurationMax="0.536236">
+					<IncludedMemoryFiles>
+						<File Id="680057030" Language="SFX">
+							<ShortName>Pick up  02.wav</ShortName>
+							<Path>SFX\Pick up  02_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

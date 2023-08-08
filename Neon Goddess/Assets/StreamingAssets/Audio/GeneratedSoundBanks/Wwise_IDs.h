@@ -40,6 +40,7 @@ namespace AK
         static const AkUniqueID STEPEVENTTEMP = 36201819U;
         static const AkUniqueID UICANCEL = 1933252553U;
         static const AkUniqueID UICONFIRMATION = 1308437452U;
+        static const AkUniqueID UIPICKUP = 2191038231U;
         static const AkUniqueID UISELECTION = 2454203527U;
     } // namespace EVENTS
 
