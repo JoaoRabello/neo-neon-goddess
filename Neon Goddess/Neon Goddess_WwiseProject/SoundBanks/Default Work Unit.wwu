@@ -5,16 +5,22 @@
 			<ChildrenList>
 				<SoundBank Name="mainSoundBank" ID="{FAFEBBD7-D3F3-46AA-AE85-14386F26A35F}">
 					<ObjectInclusionList>
+						<ObjectRef Name="doorSlideClose" ID="{0AB77B62-04F9-4041-8406-44D5712ED6D8}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="masterBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="radioVoices" ID="{091EC448-EBFB-4220-93FE-5754711FD502}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="eStrickHit" ID="{0215D8EB-00CF-4243-A7F2-91D90A2B41B1}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="eventVoiceYavik" ID="{4E32E26F-4BDC-42EA-8B93-A2823EB9F21F}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="dialogueBus" ID="{4D4F0220-8D9A-4367-A8D5-1734BB807DEE}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UIBus" ID="{CBBA8F98-055B-45CD-BB53-5141A1C4FDC0}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="presenceSound" ID="{22861F42-F0FC-45EC-BB90-C4BAAE89A8E2}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="uiSelection" ID="{FEB2E15C-81EB-461C-ABF6-313A571355E7}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="eventVoiceRaziel" ID="{94AFEE67-EE33-4674-9E48-A9ACF8747E61}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="uiCancel" ID="{8549680C-6D7A-4678-890D-1D77145AAD47}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="doorAccessDenied" ID="{A87D5BCD-F6D6-4736-9C94-BB1C47A23880}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="infoBus" ID="{559CEF86-3C85-4773-A064-970C6652A613}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="eventHealthHeartbeat" ID="{BEF5E571-F994-47A0-B9CF-62CCBE4B9145}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="eStrickSwing" ID="{011F36EF-D5D5-47DD-9D7E-6BCEDBB8919C}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="stepEventTemp" ID="{2CF1A699-2267-4877-809D-24C96F35A034}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="hackStatusConfirmEvent" ID="{11A48DE5-6199-48C0-99C0-92272F85287D}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="eventVoiceTalwa" ID="{173F7C70-686F-48C1-AE88-630A80A5C681}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="eventVoiceAstrid" ID="{DEFCB105-42B3-4943-B532-DBFC56C090FC}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="eventVoiceYohanna" ID="{2B785E00-B529-4968-93F1-2A6D8AB8B9B1}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
@@ -22,16 +28,19 @@
 						<ObjectRef Name="hackGunShoot" ID="{3E9E6756-FC32-4A27-9AD9-DE545B184793}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="chorusVoices" ID="{9ED81868-51FB-4A6E-98E7-338107D0E4A6}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="stepEvent" ID="{76A83711-1FE6-4AA9-912B-1A50188397F3}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="eStrickGuard" ID="{152AE0B0-1EC8-4ABC-8A9F-E06E59847847}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="ghostInTheMetro" ID="{4EDCC1C6-F8BC-4B19-BE81-65B7AFCF67CB}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="eventVoiceGuara" ID="{9B73A0AA-81A9-4B3B-89D0-55D0D4C44DC7}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="hackSelectionEvent" ID="{168EB598-1691-4B61-B40C-643B923CCAD5}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="eventVoiceKazimir" ID="{728D2950-48F6-4BDC-8E31-191B7AC1D916}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="musicBus" ID="{716C82E4-0C47-4C1E-A723-F7CCB4E6B8F0}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="eventVoiceMilord" ID="{08549AB4-67BE-4CA2-BF56-6789800F8B2A}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="awarenessBus" ID="{61EC130C-DB62-4CA8-A7FE-FDFBE8603C1F}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="doorSlideOpen" ID="{87C501B8-5A1D-4CE7-8F4A-B5F4A7599B4B}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="eventVoiceYohannaAssistent" ID="{CDDCA637-0092-4D0A-B770-D322BB14A4C5}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="ambienceBus" ID="{03871B48-F785-4DB0-9067-436D52066127}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="hackStatusCancelEvent" ID="{3106C211-D34A-4F28-9ACC-420785E720D5}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="doorAccessGranted" ID="{CBB625B2-AECE-4E2B-AACE-86C41F49ADA9}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="uiConfirmation" ID="{B5896388-4A93-4FE1-AF5B-B8DF5D2FF0D2}" WorkUnitID="{16200787-FF72-464B-96A8-D320381F6A5A}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

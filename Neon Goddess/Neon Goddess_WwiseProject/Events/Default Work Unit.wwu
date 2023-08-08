@@ -22,45 +22,23 @@
 					<ChildrenList>
 						<Folder Name="hackEvent" ID="{D0823823-D2CD-436E-B35C-10C0C9629E85}" ShortID="363773472">
 							<ChildrenList>
-								<Event Name="hackSelectionEvent" ID="{168EB598-1691-4B61-B40C-643B923CCAD5}">
-									<ChildrenList>
-										<Action Name="" ID="{398C40D3-DAC2-44F8-9FCC-D0F14D5928DF}" ShortID="428481834">
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="hackSelectionSwitch" ID="{38D8E5B6-0BCC-4277-AB1F-703FBF7B9C03}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
-									</ChildrenList>
-								</Event>
-								<Event Name="hackStatusConfirmEvent" ID="{11A48DE5-6199-48C0-99C0-92272F85287D}">
-									<ChildrenList>
-										<Action Name="" ID="{E886941C-22C1-4297-AACF-F5682F648B49}" ShortID="409232416">
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="hackStatusConfirm" ID="{8CDF283B-8C9F-4853-852A-8BD4794C4F72}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
-									</ChildrenList>
-								</Event>
-								<Event Name="hackStatusCancelEvent" ID="{3106C211-D34A-4F28-9ACC-420785E720D5}">
-									<ChildrenList>
-										<Action Name="" ID="{EB3D4B23-B8AB-4980-BC3D-6779DF964370}" ShortID="996879018">
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="hackStatusCancel" ID="{49496938-6B6D-4304-AEB0-56D05CA17B30}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
-									</ChildrenList>
-								</Event>
 								<Event Name="hackGunShoot" ID="{3E9E6756-FC32-4A27-9AD9-DE545B184793}">
 									<ChildrenList>
 										<Action Name="" ID="{0EB97FB1-9601-4227-BB96-133C74C6DF06}" ShortID="565054501">
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Hackgun Shoot" ID="{051EAF6F-20ED-4F7F-84CB-4DE9FCCC1B32}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="hackGunHit" ID="{7611BF89-75E0-490E-99D4-7103DA1B9D80}">
+									<ChildrenList>
+										<Action Name="" ID="{C7EF5C64-E3DD-4ECC-B0A8-1F85C2E31F3C}" ShortID="717955088">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="GunHit" ID="{E78A84B7-10B6-4976-B457-C80E6ECAFBC3}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -113,6 +91,17 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="ghostInTheMetro" ID="{4EDCC1C6-F8BC-4B19-BE81-65B7AFCF67CB}">
+									<ChildrenList>
+										<Action Name="" ID="{49C53EC7-CBA4-466E-9D40-5E2502022847}" ShortID="377522455">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Ghost in the metro" ID="{DDF2834C-C5DD-4EBC-84C8-163B863D93F2}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="movementEvent" ID="{C37B3692-ECD0-47EA-B79E-84E33E619373}" ShortID="646424592">
@@ -134,6 +123,102 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="StepConcrete" ID="{8A8E5127-D670-4852-8F71-9FA64953CA03}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="stepEventRobbie" ID="{2FEB0C8A-B9F6-43FC-A83D-421FA4383932}">
+									<ChildrenList>
+										<Action Name="" ID="{7D8F633D-902B-49A2-A183-030216AD86BF}" ShortID="1020857505">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="RobbieStep" ID="{9424E3EA-B5F4-4ADA-B08F-B9A92F41950F}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="doorEvents" ID="{F1234250-2623-40B8-AF1B-1823A7BA43D0}" ShortID="702299340">
+							<ChildrenList>
+								<Event Name="doorAccessDenied" ID="{A87D5BCD-F6D6-4736-9C94-BB1C47A23880}">
+									<ChildrenList>
+										<Action Name="" ID="{84609258-853E-4584-9EFC-F5A6B787DDF1}" ShortID="146963240">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="doorStatusDenial" ID="{49496938-6B6D-4304-AEB0-56D05CA17B30}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="doorAccessGranted" ID="{CBB625B2-AECE-4E2B-AACE-86C41F49ADA9}">
+									<ChildrenList>
+										<Action Name="" ID="{2B3EDBEF-0972-48A5-B516-DBC34E204344}" ShortID="50216006">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="doorStatusFree" ID="{8CDF283B-8C9F-4853-852A-8BD4794C4F72}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="doorSlideOpen" ID="{87C501B8-5A1D-4CE7-8F4A-B5F4A7599B4B}">
+									<ChildrenList>
+										<Action Name="" ID="{3F12A103-D359-4CB7-966C-05DAADCF2491}" ShortID="617367511">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DoorCommonOpen" ID="{B7994CB2-6A3D-4571-9178-8D13B48BCB07}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="doorSlideClose" ID="{0AB77B62-04F9-4041-8406-44D5712ED6D8}">
+									<ChildrenList>
+										<Action Name="" ID="{19B0E98A-C259-4B5D-AC24-9C7492F65875}" ShortID="296104594">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="DoorCommonClose" ID="{B33B8A83-0022-40D6-80FB-092423FEE99F}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="eletricStickEvents" ID="{8AD916FB-1ED6-42F7-918C-22475D663468}" ShortID="943111559">
+							<ChildrenList>
+								<Event Name="eStrickGuard" ID="{152AE0B0-1EC8-4ABC-8A9F-E06E59847847}">
+									<ChildrenList>
+										<Action Name="" ID="{87AE8222-5BFF-4952-A8F8-83F2DBDACBBC}" ShortID="246084143">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="EletrickStickGuard" ID="{A82394E2-BAF6-4A1D-8B87-C813F3EFC06F}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="eStrickSwing" ID="{011F36EF-D5D5-47DD-9D7E-6BCEDBB8919C}">
+									<ChildrenList>
+										<Action Name="" ID="{96C08FB8-5B0F-4DDD-8535-B20B0EBB087D}" ShortID="969451865">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="EletrickStickSwing" ID="{B0615A58-CC49-4192-A825-94232642F9EF}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="eStrickHit" ID="{0215D8EB-00CF-4243-A7F2-91D90A2B41B1}">
+									<ChildrenList>
+										<Action Name="" ID="{7B0E5BB0-5653-49E0-876C-6A28D92F431D}" ShortID="364290201">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="EletrickStickHit" ID="{773A02DD-7BA2-4B1E-AE63-C87A719E906B}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -268,11 +353,62 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="Enemy Awareness Sound" ID="{25CFDB6E-AD9B-4D85-AD81-C1EFE134B621}" ShortID="119671059">
+							<ChildrenList>
+								<Event Name="presenceSound" ID="{22861F42-F0FC-45EC-BB90-C4BAAE89A8E2}">
+									<ChildrenList>
+										<Action Name="" ID="{898C5B03-98C8-498E-9AA6-94C4B0FF67CA}" ShortID="270463371">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Voices in the Radio Full" ID="{4B27AA3E-D8E6-459C-8E5F-AB962B1DD36C}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Accessibility Events" ID="{57892167-AA6F-4569-9DCE-1C48C73CC6D1}" ShortID="851733841">
+				<Folder Name="UIEvents" ID="{57892167-AA6F-4569-9DCE-1C48C73CC6D1}" ShortID="851733841">
 					<ChildrenList>
-						<Folder Name="Radar Events" ID="{5673EB5C-1495-41C3-A7D4-2F6FFA04A10E}" ShortID="452300112"/>
+						<Folder Name="General Sounds" ID="{5673EB5C-1495-41C3-A7D4-2F6FFA04A10E}" ShortID="452300112">
+							<ChildrenList>
+								<Event Name="uiCancel" ID="{8549680C-6D7A-4678-890D-1D77145AAD47}">
+									<ChildrenList>
+										<Action Name="" ID="{69666C63-CF21-4587-829C-6B17FFCEEE4B}" ShortID="304439732">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UiCancelMenuSound" ID="{D138FEE1-19F8-4593-8093-D47467C59ADB}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="uiConfirmation" ID="{B5896388-4A93-4FE1-AF5B-B8DF5D2FF0D2}">
+									<ChildrenList>
+										<Action Name="" ID="{C96B3664-1538-46E1-86C7-0375C0793A5A}" ShortID="363244031">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UiConfirmationMenuSound" ID="{754BCD54-A3E3-4BAB-8F5C-1889073F8F32}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="uiSelection" ID="{FEB2E15C-81EB-461C-ABF6-313A571355E7}">
+									<ChildrenList>
+										<Action Name="" ID="{9F32295F-EE85-40BE-AC27-CACF129411A7}" ShortID="260677600">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UiSelectionMenuSound" ID="{2C91D695-814D-4E15-A9F6-9208951C1FFC}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Cutscene Events" ID="{1C338A07-5A2E-4575-AAB8-385E22EB789A}" ShortID="195331147"/>

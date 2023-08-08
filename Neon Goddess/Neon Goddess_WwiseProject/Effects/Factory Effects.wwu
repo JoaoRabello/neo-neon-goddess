@@ -1345,7 +1345,34 @@
 										<Property Name="HFDamping" Type="Real32" Value="5.7"/>
 										<Property Name="PreDelay" Type="Real32" Value="180"/>
 										<Property Name="Quality" Type="int32" Value="14"/>
-										<Property Name="ReverbLevel" Type="Real32" Value="-23"/>
+										<Property Name="ReverbLevel" Type="Real32" Value="-23">
+											<RTPCList>
+												<RTPC Name="" ID="{297293A9-1208-4A9A-BDDC-115D9A0635C9}" ShortID="717060839">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="stepRobbieReverb" ID="{7E3BE819-C4CB-4FE6-83CF-43CAEC799435}" WorkUnitID="{082AD3B4-D3D5-4498-8A9D-266B95A7CE94}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{6C5AF31B-1A61-483A-99AB-984CF7E403C9}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-8.3823</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>96.3</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
+										</Property>
 										<Property Name="RoomSize" Type="Real32" Value="100"/>
 										<Property Name="StereoWidth" Type="Real32" Value="172"/>
 									</PropertyList>

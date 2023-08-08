@@ -1,35 +1,39 @@
 Event	ID	Name			Wwise Object Path	Notes
 	36201819	stepEventTemp			\Default Work Unit\SFX Events\movementEvent\stepEventTemp	
 	220902363	eventVoiceGuara			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceGuara	
+	362183768	eStrickSwing			\Default Work Unit\SFX Events\eletricStickEvents\eStrickSwing	
+	539542031	ghostInTheMetro			\Default Work Unit\SFX Events\SpecialEvents\ghostInTheMetro	
 	607750724	eventVoiceKazimir			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceKazimir	
 	865037345	eventVoiceYohannaAssistent			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohannaAssistent	
+	1155812980	doorSlideClose			\Default Work Unit\SFX Events\doorEvents\doorSlideClose	
+	1281988221	eStrickGuard			\Default Work Unit\SFX Events\eletricStickEvents\eStrickGuard	
+	1308437452	uiConfirmation			\Default Work Unit\UIEvents\General Sounds\uiConfirmation	
+	1325999122	doorAccessDenied			\Default Work Unit\SFX Events\doorEvents\doorAccessDenied	
 	1437365791	eventVoiceYohanna			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohanna	
 	1464182441	quantumScreaming			\Default Work Unit\Music Events\quantumScreaming	
-	1494610132	hackStatusConfirmEvent			\Default Work Unit\SFX Events\hackEvent\hackStatusConfirmEvent	
 	1510770975	radioVoices			\Default Work Unit\SFX Events\SpecialEvents\radioVoices	
 	1592018284	eventVoiceMilord			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceMilord	
 	1676920321	eventVoiceYavik			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYavik	
+	1933252553	uiCancel			\Default Work Unit\UIEvents\General Sounds\uiCancel	
 	2162101802	chorusVoices			\Default Work Unit\SFX Events\SpecialEvents\chorusVoices	
-	2498197966	hackStatusCancelEvent			\Default Work Unit\SFX Events\hackEvent\hackStatusCancelEvent	
+	2454203527	uiSelection			\Default Work Unit\UIEvents\General Sounds\uiSelection	
 	2519090655	eventHealthHeartbeat			\Default Work Unit\Awareness Events\Health Events\eventHealthHeartbeat	
 	3035224157	stepEvent			\Default Work Unit\SFX Events\movementEvent\stepEvent	
 	3373072804	eventVoiceRaziel			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceRaziel	
-	3399565108	hackSelectionEvent			\Default Work Unit\SFX Events\hackEvent\hackSelectionEvent	
+	3388975760	doorSlideOpen			\Default Work Unit\SFX Events\doorEvents\doorSlideOpen	
 	3492179582	eventVoiceTalwa			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceTalwa	
+	3749656831	presenceSound			\Default Work Unit\Awareness Events\Enemy Awareness Sound\presenceSound	
+	3888197404	doorAccessGranted			\Default Work Unit\SFX Events\doorEvents\doorAccessGranted	
+	3941029093	eStrickHit			\Default Work Unit\SFX Events\eletricStickEvents\eStrickHit	
 	4099961397	hackGunShoot			\Default Work Unit\SFX Events\hackEvent\hackGunShoot	
 	4214009878	eventVoiceAstrid			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceAstrid	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	821105189	stepSoundGroup			\Default Work Unit\stepSoundGroup	
-	3932210399	hackSwitchGroup			\Default Work Unit\HackSwitchGroup\hackSwitchGroup	
 
 Switch	ID	Name	Switch Group			Notes
 	685059302	concreteNoVerb	stepSoundGroup			
 	1147545571	concreteVerb	stepSoundGroup			
-	57838327	hack04Convert	hackSwitchGroup			
-	635696332	hack02Override	hackSwitchGroup			
-	1070390048	hack03Control	hackSwitchGroup			
-	2375960624	hack01Paralyse	hackSwitchGroup			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	62014404	sfxBusController			\Default Work Unit\bus Controllers\sfxBusController	
@@ -38,10 +42,10 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	224940047	uiBusController			\Default Work Unit\bus Controllers\uiBusController	
 	682147685	chorus01Control			\Default Work Unit\voiceController\chorus01Control	
 	936584782	chorus04Control			\Default Work Unit\voiceController\chorus04Control	
-	1084512918	hackSwitchController			\Default Work Unit\SwitchControllers\hackSwitchController	
-	1116251856	stepSoundSwitchController			\Default Work Unit\stepSoundSwitchController	
+	1116251856	stepSoundSwitchController			\Default Work Unit\stepSoundController\stepSoundSwitchController	
 	1444919967	masterBusController			\Default Work Unit\bus Controllers\masterBusController	
 	1574828856	chorus02Control			\Default Work Unit\voiceController\chorus02Control	
+	1959894969	eStrickOnHitSoundController			\Default Work Unit\hackgunAndEStickSoundControllers\eStrickOnHitSoundController	
 	1970181751	dialogueBusController			\Default Work Unit\bus Controllers\dialogueBusController	
 	2692592512	heartbeatTempoController			\Default Work Unit\awarenessSoundController\heartbeatTempoController	
 	3037820317	infoBusController			\Default Work Unit\bus Controllers\infoBusController	
@@ -61,42 +65,50 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	3803850708	sfxBus			\Default Work Unit\masterBus\sfxBus	
 
 Effect plug-ins	ID	Name	Type				Notes
+	320794015	stickGuardShifter	Wwise Pitch Shifter			
 	701863527	Inside_My_Head	Wwise RoomVerb			
+	930476298	UiSelectionGain	Wwise Gain			
+	937072496	Wwise Gain (Custom)	Wwise Gain			
 	1042001490	heartbeatTempoChanger	Wwise Time Stretch			
 	1176734637	milordVoiceShifter	Wwise Pitch Shifter			
 	2824085564	lowVoicePitcher	Wwise Pitch Shifter			
 	3517018448	highVoicePitcher	Wwise Pitch Shifter			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	29677609	hackConvert	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Hack Selection\Convert_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\Hack Selection\hackSelectionSwitch\hackConvert		1853
-	79465095	Step Concrete NoVerb04	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Steps\Step Concrete NoVerb04_668150CC.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete\Step Concrete NoVerb04		1195
+	21246942	EletrickStickSwing	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\EletrickStick\EletrickStickSwing_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\EletrickStick\EletrickStickSwing		4553
+	77682042	EletrickStickHit	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\EletrickStick\EletrickStickHit_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\EletrickStick\EletrickStickHit		9102
+	79465095	Step Concrete NoVerb04	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Steps\Step Concrete NoVerb04_3A36A138.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete\Step Concrete NoVerb04		1195
 	109603463	Step Concrete NoVerb02	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Steps\Step Concrete NoVerb02_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete_Verb\Step Concrete NoVerb02		7664
 	116112332	voiceTalwa	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Character Scribble\Talwa_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceTalwa		1461
 	133366327	Quantum Screaming	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Quantum Screaming_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\Quantum Screaming		3812243
 	152880994	Chorus 04	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Chorus\Chorus 04_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Chorus\Chorus 04		85408
-	168953332	hackStatusCancel	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\hack_status\hack_cancel_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\hack_status\hackStatusCancel		3661
+	168953332	doorStatusDenial	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\hack_status\hack_cancel_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\door_status\doorStatusDenial		3661
+	229079946	EletrickStickGuard	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\EletrickStick\EletrickStickGuard_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\EletrickStick\EletrickStickGuard		229714
 	240535298	voiceYavik	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Character Scribble\Yavik_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYavik		1363
-	268964971	hackControl	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Hack Selection\Control_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\Hack Selection\hackSelectionSwitch\hackControl		2422
-	309065574	hackParalyse	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Hack Selection\Paralyse_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\Hack Selection\hackSelectionSwitch\hackParalyse		1826
-	315903680	Step Concrete NoVerb03	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Steps\Step Concrete NoVerb03_E7AC4D84.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete\Step Concrete NoVerb03		1302
+	315903680	Step Concrete NoVerb03	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Steps\Step Concrete NoVerb03_229EB036.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete\Step Concrete NoVerb03		1302
+	368048726	UiCancelMenuSound	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\UI\Menu Sound\UiCancelMenuSound_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\General\UiCancelMenuSound		2639
 	368848235	voiceGuara	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Character Scribble\Kazimir T_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceGuara		1753
-	551442925	Step Concrete NoVerb02	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Steps\Step Concrete NoVerb02_F231EBEA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete\Step Concrete NoVerb02		1994
+	406834914	DoorCommonOpen	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\DoorCommonOpen_F3538EF9.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\door_status\DoorCommonOpen		12503
+	505767842	UiSelectionMenuSound	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\UI\Menu Sound\UiSelectionMenuSound_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\General\UiSelectionMenuSound		1362
+	551442925	Step Concrete NoVerb02	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Steps\Step Concrete NoVerb02_84911D7A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete\Step Concrete NoVerb02		1994
 	569761510	awarenessHeartbeat	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Heart Beat\Heart Beatwav_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Informative Sounds\Awareness\awarenessHeartbeat		7721
 	590338317	Hackgun Shoot	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\HackGun\Hackgun Shoot_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\HackGun\Hackgun Shoot		5656
 	635549386	Chorus 01	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Chorus\Chorus 01_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Chorus\Chorus 01		88597
 	655585714	voiceRaziel	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Character Scribble\Raziel_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceRaziel		2361
-	690471894	hackOverride	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Hack Selection\Control - Copia_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\Hack Selection\hackSelectionSwitch\hackOverride		2422
 	739233669	Chorus 02	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Chorus\Chorus 02_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Chorus\Chorus 02		89700
+	788180970	Ghost in the metro	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Ghost in the metro_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Special\Ghost in the metro		194873
 	817371568	voiceMilord	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Character Scribble\Milord_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceMilord		1911
-	822608226	Step Concrete NoVerb01	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Steps\Step Concrete NoVerb01_676DC06D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete\Step Concrete NoVerb01		1065
+	822608226	Step Concrete NoVerb01	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Steps\Step Concrete NoVerb01_5CEC651D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete\Step Concrete NoVerb01		1065
 	832848529	voiceYohannaAssistent	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Character Scribble\Gado_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYohannaAssistent		1014
 	846139341	VoiceAstrid	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Character Scribble\Astrid2_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\VoiceAstrid		1463
-	872065834	Voices in the Radio Full	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Voices in the Radio Full_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\RadioEvent\Voices in the Radio Full		613392
+	861051072	UiConfirmationMenuSound	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\UI\Menu Sound\UiConfirmationMenuSound_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\General\UiConfirmationMenuSound		2765
+	872065834	Voices in the Radio Full	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Voices in the Radio Full_1583B490.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\RadioEvent\Voices in the Radio Full		609820
 	924084229	Step Concrete NoVerb03	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Steps\Step Concrete NoVerb03_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete_Verb\Step Concrete NoVerb03		8351
+	946008597	DoorCommonClose	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\DoorCommonClose_57EFE620.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\door_status\DoorCommonClose		11011
 	947437832	voiceYohanna	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Character Scribble\Yohanna_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYohanna		1386
 	956966789	Step Concrete NoVerb04	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Steps\Step Concrete NoVerb04_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete_Verb\Step Concrete NoVerb04		8791
 	972112759	VoiceKazimir	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Character Scribble\Casimir_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\VoiceKazimir		1288
 	1009022336	Chorus 03	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Chorus\Chorus 03_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Chorus\Chorus 03		87424
-	1055927533	hackStatusConfirm	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\hack_status\hack_confirm_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Hack\hack_status\hackStatusConfirm		5187
+	1055927533	doorStatusFree	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\hack_status\hack_confirm_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\door_status\doorStatusFree		5187
 	1061449108	Step Concrete NoVerb01	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Mac\SFX\Steps\Step Concrete NoVerb01_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete_Verb\Step Concrete NoVerb01		8169
 

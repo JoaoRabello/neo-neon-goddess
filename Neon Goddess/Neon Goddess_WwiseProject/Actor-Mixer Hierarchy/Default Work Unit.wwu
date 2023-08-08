@@ -168,56 +168,6 @@
 										</SwitchContainer>
 									</ChildrenList>
 								</Folder>
-								<Folder Name="hack_status" ID="{9BA4438F-1455-416B-BDD7-EF4A924D3A1B}" ShortID="104868371">
-									<ChildrenList>
-										<Sound Name="hackStatusCancel" ID="{49496938-6B6D-4304-AEB0-56D05CA17B30}" ShortID="741032799">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="hack_cancel" ID="{FC7895B6-3A10-47AB-8BC1-DF7BF762AEEE}">
-													<Language>SFX</Language>
-													<AudioFile>hack_status\hack_cancel.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="168953332"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="hack_cancel" ID="{FC7895B6-3A10-47AB-8BC1-DF7BF762AEEE}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="hackStatusConfirm" ID="{8CDF283B-8C9F-4853-852A-8BD4794C4F72}" ShortID="545326432">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="hack_confirm" ID="{DB8641E0-AF3F-4EAA-85DD-DA3AB7D7C2CE}">
-													<Language>SFX</Language>
-													<AudioFile>hack_status\hack_confirm.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="1055927533"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="hack_confirm" ID="{DB8641E0-AF3F-4EAA-85DD-DA3AB7D7C2CE}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</Folder>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Chorus" ID="{A0D5C54F-26FE-45FB-9D22-A062A8E30E06}" ShortID="176098926">
@@ -495,18 +445,28 @@
 							<ChildrenList>
 								<Sound Name="Voices in the Radio Full" ID="{4B27AA3E-D8E6-459C-8E5F-AB962B1DD36C}" ShortID="542819313">
 									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="RobbieAtt" ID="{AC93DA10-1AAB-45AD-9CC0-DC0C63656FA1}" WorkUnitID="{9DB6E70D-CC96-45CF-B6E3-13375C6F6CF9}"/>
+										</Reference>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="masterBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+											<ObjectRef Name="awarenessBus" ID="{61EC130C-DB62-4CA8-A7FE-FDFBE8603C1F}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Voices in the Radio Full" ID="{6B5C3981-B531-48BB-ABE5-8179B852123D}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.459879945429741"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.210778308321963"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="27.5927967257844"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Voices in the Radio Full.wav</AudioFile>
 											<MediaIDList>
@@ -517,6 +477,322 @@
 									<ObjectLists/>
 									<ActiveSourceList>
 										<ActiveSource Name="Voices in the Radio Full" ID="{6B5C3981-B531-48BB-ABE5-8179B852123D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="door_status" ID="{9BA4438F-1455-416B-BDD7-EF4A924D3A1B}" ShortID="104868371">
+							<ChildrenList>
+								<Sound Name="doorStatusDenial" ID="{49496938-6B6D-4304-AEB0-56D05CA17B30}" ShortID="741032799">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="hack_cancel" ID="{FC7895B6-3A10-47AB-8BC1-DF7BF762AEEE}">
+											<Language>SFX</Language>
+											<AudioFile>hack_status\hack_cancel.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="168953332"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="hack_cancel" ID="{FC7895B6-3A10-47AB-8BC1-DF7BF762AEEE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="doorStatusFree" ID="{8CDF283B-8C9F-4853-852A-8BD4794C4F72}" ShortID="545326432">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="hack_confirm" ID="{DB8641E0-AF3F-4EAA-85DD-DA3AB7D7C2CE}">
+											<Language>SFX</Language>
+											<AudioFile>hack_status\hack_confirm.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1055927533"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="hack_confirm" ID="{DB8641E0-AF3F-4EAA-85DD-DA3AB7D7C2CE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DoorCommonClose" ID="{B33B8A83-0022-40D6-80FB-092423FEE99F}" ShortID="281331146">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DoorCommonClose" ID="{2BB6B043-F474-4BB1-816C-543352874A82}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.194921754206457"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.069000014211"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>DoorCommonClose.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="946008597"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="DoorCommonClose" ID="{2BB6B043-F474-4BB1-816C-543352874A82}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="DoorCommonOpen" ID="{B7994CB2-6A3D-4571-9178-8D13B48BCB07}" ShortID="999456358">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="DoorCommonOpen" ID="{2D13D71D-4927-4510-AEA1-98599F2D021C}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.699795276261937"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.65052724249659"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>DoorCommonOpen.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="406834914"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="DoorCommonOpen" ID="{2D13D71D-4927-4510-AEA1-98599F2D021C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="EletrickStick" ID="{152D24AC-29D3-48BA-B479-A3D2CED43CD1}" ShortID="666687079">
+							<ChildrenList>
+								<Sound Name="EletrickStickGuard" ID="{A82394E2-BAF6-4A1D-8B87-C813F3EFC06F}" ShortID="837420698">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+											<ObjectRef Name="stickGuardShifter" ID="{69B278FE-192F-4664-9143-DD4975729560}" WorkUnitID="{5E3B483B-8325-48F3-8761-4F6496DC43FE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EletrickStickGuard" ID="{5EF7D79C-511C-46D1-A9D2-F3A4F1A92BBB}">
+											<Language>SFX</Language>
+											<AudioFile>EletrickStick\EletrickStickGuard.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="229079946"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="EletrickStickGuard" ID="{5EF7D79C-511C-46D1-A9D2-F3A4F1A92BBB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EletrickStickHit" ID="{773A02DD-7BA2-4B1E-AE63-C87A719E906B}" ShortID="1016379034">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EletrickStickHit" ID="{BDD875DE-6589-4573-98F0-46755AB36F3D}">
+											<Language>SFX</Language>
+											<AudioFile>EletrickStick\EletrickStickHit.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="77682042"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="EletrickStickHit" ID="{BDD875DE-6589-4573-98F0-46755AB36F3D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EletrickStickSwing" ID="{B0615A58-CC49-4192-A825-94232642F9EF}" ShortID="959953851">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EletrickStickSwing" ID="{86560FD6-6592-446D-98DE-18D68B869577}">
+											<Language>SFX</Language>
+											<AudioFile>EletrickStick\EletrickStickSwing.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="21246942"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="EletrickStickSwing" ID="{86560FD6-6592-446D-98DE-18D68B869577}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="HackGun" ID="{BFC9E1C2-A718-43F9-9942-F8AD62A800D0}" ShortID="879270750">
+							<ChildrenList>
+								<Sound Name="GunHit" ID="{759B9042-DE5B-49BE-ABCC-A6849A7F4413}" ShortID="146099965">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="masterBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="GunHit" ID="{001EC2C6-DCD9-430D-BF0D-3342A6C4D947}">
+											<Language>SFX</Language>
+											<AudioFile>HackGun\GunHit.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="457377959"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="GunHit" ID="{001EC2C6-DCD9-430D-BF0D-3342A6C4D947}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="UI" ID="{291871B7-9D3B-4DF5-A590-369B55775548}" ShortID="857412887">
+							<ChildrenList>
+								<Folder Name="General" ID="{ECE7603C-43F2-43EA-9B54-07FDAAA1FC4A}" ShortID="790014590">
+									<ChildrenList>
+										<Sound Name="UiCancelMenuSound" ID="{D138FEE1-19F8-4593-8093-D47467C59ADB}" ShortID="296826663">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="UIBus" ID="{CBBA8F98-055B-45CD-BB53-5141A1C4FDC0}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="UiCancelMenuSound" ID="{DDA3076F-5FCF-4330-A9A3-89298D2F603F}">
+													<Language>SFX</Language>
+													<AudioFile>UI\Menu Sound\UiCancelMenuSound.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="368048726"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="UiCancelMenuSound" ID="{DDA3076F-5FCF-4330-A9A3-89298D2F603F}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="UiConfirmationMenuSound" ID="{754BCD54-A3E3-4BAB-8F5C-1889073F8F32}" ShortID="149846911">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="UIBus" ID="{CBBA8F98-055B-45CD-BB53-5141A1C4FDC0}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="UiConfirmationMenuSound" ID="{1A9DC8E8-94A8-472D-9736-6B6896F5DE1C}">
+													<Language>SFX</Language>
+													<AudioFile>UI\Menu Sound\UiConfirmationMenuSound.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="861051072"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="UiConfirmationMenuSound" ID="{1A9DC8E8-94A8-472D-9736-6B6896F5DE1C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="UiSelectionMenuSound" ID="{2C91D695-814D-4E15-A9F6-9208951C1FFC}" ShortID="357543771">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+												</Reference>
+												<Reference Name="Effect0" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3">
+													<ObjectRef Name="UiSelectionGain" ID="{81FD222F-931C-464D-9605-A37FDDF08EF7}" WorkUnitID="{5E3B483B-8325-48F3-8761-4F6496DC43FE}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="UIBus" ID="{CBBA8F98-055B-45CD-BB53-5141A1C4FDC0}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="UiSelectionMenuSound" ID="{123DE4AE-1E86-4C02-90A5-79D4B021C5B5}">
+													<Language>SFX</Language>
+													<AudioFile>UI\Menu Sound\UiSelectionMenuSound.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="505767842"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists/>
+											<ActiveSourceList>
+												<ActiveSource Name="UiSelectionMenuSound" ID="{123DE4AE-1E86-4C02-90A5-79D4B021C5B5}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</Folder>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Special" ID="{C0773E13-29C4-4522-8AEB-9F4778E0DE35}" ShortID="251090274">
+							<ChildrenList>
+								<Sound Name="Ghost in the metro" ID="{DDF2834C-C5DD-4EBC-84C8-163B863D93F2}" ShortID="554405845">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Ghost in the metro" ID="{C079F19E-F3D6-412D-AE59-AEFAB1FCD26E}">
+											<Language>SFX</Language>
+											<AudioFile>Ghost in the metro.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="788180970"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Ghost in the metro" ID="{C079F19E-F3D6-412D-AE59-AEFAB1FCD26E}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -814,6 +1090,15 @@
 								<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
 									<ObjectRef Name="Inside_My_Head" ID="{94B53301-9AA1-468F-8419-92AEDAAE39DF}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 								</Reference>
+								<Reference Name="Effect1">
+									<Custom>
+										<Effect Name="Wwise Gain (Custom)" ID="{26B37027-4FD7-4EAE-9DE4-286BB7041C22}" ShortID="937072496" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3">
+											<PropertyList>
+												<Property Name="FullBandGain" Type="Real32" Value="8.5"/>
+											</PropertyList>
+										</Effect>
+									</Custom>
+								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="masterBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
 								</Reference>
@@ -830,6 +1115,46 @@
 							<ObjectLists/>
 							<ActiveSourceList>
 								<ActiveSource Name="Hackgun Shoot" ID="{8296A0CE-2FE3-4865-9A56-E566143E8C90}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="GunHit" ID="{E78A84B7-10B6-4976-B457-C80E6ECAFBC3}" ShortID="299913174">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+									<ObjectRef Name="Holy" ID="{CC7B8638-C670-4AD5-B3FB-331EA81037F6}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="Effect1">
+									<Custom>
+										<Effect Name="Wwise Gain (Custom)" ID="{1582CEA0-BB3D-47C9-9B16-7566592DBB11}" ShortID="219996464" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3">
+											<PropertyList>
+												<Property Name="FullBandGain" Type="Real32" Value="14"/>
+											</PropertyList>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GunHit" ID="{2671C276-F156-44E9-B88F-D50F4F5E2D70}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.0297719742740207"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>GunHit.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="646585737"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="GunHit" ID="{2671C276-F156-44E9-B88F-D50F4F5E2D70}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -865,7 +1190,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="masterBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+									<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -882,12 +1207,124 @@
 								<ActiveSource Name="sentry mode" ID="{0889B974-4321-458B-B303-DB4E747E1CB4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="RobbieStep" ID="{9424E3EA-B5F4-4ADA-B08F-B9A92F41950F}" ShortID="675326946">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="RobbieAtt" ID="{AC93DA10-1AAB-45AD-9CC0-DC0C63656FA1}" WorkUnitID="{9DB6E70D-CC96-45CF-B6E3-13375C6F6CF9}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+									<ObjectRef Name="Holy" ID="{CC7B8638-C670-4AD5-B3FB-331EA81037F6}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="awarenessBus" ID="{61EC130C-DB62-4CA8-A7FE-FDFBE8603C1F}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="RobbieStep" ID="{433B6A12-16B7-4FC1-8D33-94C2971E53EA}">
+									<Language>SFX</Language>
+									<AudioFile>RobbieStep.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="374130843"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="RobbieStep" ID="{433B6A12-16B7-4FC1-8D33-94C2971E53EA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="RobbieGrab" ID="{1A6EC671-57F3-4C20-844D-21B28F60D980}" ShortID="731855189">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="RobbieGrab" ID="{DA933091-4117-49CC-B618-A025B9E63338}">
+									<Language>SFX</Language>
+									<AudioFile>RobbieGrab.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="971140568"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="RobbieGrab" ID="{DA933091-4117-49CC-B618-A025B9E63338}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="RobbieStab" ID="{88615BC3-B49F-46CC-A06E-377772FCF33B}" ShortID="898169975">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="RobbieStab" ID="{81114D93-F998-450A-BD69-9ECB5C2D4243}">
+									<Language>SFX</Language>
+									<AudioFile>RobbieStab.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="210247289"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="RobbieStab" ID="{81114D93-F998-450A-BD69-9ECB5C2D4243}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="RobbieStabHit" ID="{F62E1210-E579-4F2D-9969-BD9FBF4E8533}" ShortID="618642080">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="RobbieStabHit" ID="{EB4EA8CE-D6B1-4375-99EA-4A9C89694943}">
+									<Language>SFX</Language>
+									<AudioFile>RobbieStabHit.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="95647973"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="RobbieStabHit" ID="{EB4EA8CE-D6B1-4375-99EA-4A9C89694943}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Steps" ID="{73C0921B-A1FE-4318-8A0C-A382D095BB78}" ShortID="446234518">
 					<ChildrenList>
 						<SwitchContainer Name="ConcretSwitchSteper" ID="{1776731C-73CE-4104-B6A1-5C0C7768BE5B}" ShortID="666804650">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="Camera" ID="{92F17BFA-73BD-4802-9E9B-6A928C19E224}" WorkUnitID="{9DB6E70D-CC96-45CF-B6E3-13375C6F6CF9}"/>
+								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
 								</Reference>
@@ -900,7 +1337,14 @@
 							</ReferenceList>
 							<ChildrenList>
 								<RandomSequenceContainer Name="StepConcrete" ID="{8A8E5127-D670-4852-8F71-9FA64953CA03}" ShortID="259599556">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Camera" ID="{92F17BFA-73BD-4802-9E9B-6A928C19E224}" WorkUnitID="{9DB6E70D-CC96-45CF-B6E3-13375C6F6CF9}"/>
+										</Reference>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
 										</Reference>

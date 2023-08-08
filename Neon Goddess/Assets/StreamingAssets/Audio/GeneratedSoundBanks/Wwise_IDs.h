@@ -14,6 +14,13 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID CHORUSVOICES = 2162101802U;
+        static const AkUniqueID DOORACCESSDENIED = 1325999122U;
+        static const AkUniqueID DOORACCESSGRANTED = 3888197404U;
+        static const AkUniqueID DOORSLIDECLOSE = 1155812980U;
+        static const AkUniqueID DOORSLIDEOPEN = 3388975760U;
+        static const AkUniqueID ESTRICKGUARD = 1281988221U;
+        static const AkUniqueID ESTRICKHIT = 3941029093U;
+        static const AkUniqueID ESTRICKSWING = 362183768U;
         static const AkUniqueID EVENTHEALTHHEARTBEAT = 2519090655U;
         static const AkUniqueID EVENTVOICEASTRID = 4214009878U;
         static const AkUniqueID EVENTVOICEGUARA = 220902363U;
@@ -24,14 +31,16 @@ namespace AK
         static const AkUniqueID EVENTVOICEYAVIK = 1676920321U;
         static const AkUniqueID EVENTVOICEYOHANNA = 1437365791U;
         static const AkUniqueID EVENTVOICEYOHANNAASSISTENT = 865037345U;
+        static const AkUniqueID GHOSTINTHEMETRO = 539542031U;
         static const AkUniqueID HACKGUNSHOOT = 4099961397U;
-        static const AkUniqueID HACKSELECTIONEVENT = 3399565108U;
-        static const AkUniqueID HACKSTATUSCANCELEVENT = 2498197966U;
-        static const AkUniqueID HACKSTATUSCONFIRMEVENT = 1494610132U;
+        static const AkUniqueID PRESENCESOUND = 3749656831U;
         static const AkUniqueID QUANTUMSCREAMING = 1464182441U;
         static const AkUniqueID RADIOVOICES = 1510770975U;
         static const AkUniqueID STEPEVENT = 3035224157U;
         static const AkUniqueID STEPEVENTTEMP = 36201819U;
+        static const AkUniqueID UICANCEL = 1933252553U;
+        static const AkUniqueID UICONFIRMATION = 1308437452U;
+        static const AkUniqueID UISELECTION = 2454203527U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -71,6 +80,7 @@ namespace AK
         static const AkUniqueID CHORUS03CONTROL = 3628988595U;
         static const AkUniqueID CHORUS04CONTROL = 936584782U;
         static const AkUniqueID DIALOGUEBUSCONTROLLER = 1970181751U;
+        static const AkUniqueID ESTRICKONHITSOUNDCONTROLLER = 1959894969U;
         static const AkUniqueID HACKSWITCHCONTROLLER = 1084512918U;
         static const AkUniqueID HEARTBEATTEMPOCONTROLLER = 2692592512U;
         static const AkUniqueID HIGHVOICEPITCHER = 3517018448U;
@@ -79,6 +89,7 @@ namespace AK
         static const AkUniqueID MASTERBUSCONTROLLER = 1444919967U;
         static const AkUniqueID MUSICBUSCONTROLLER = 80573052U;
         static const AkUniqueID SFXBUSCONTROLLER = 62014404U;
+        static const AkUniqueID STEPROBBIEREVERB = 187408528U;
         static const AkUniqueID STEPSOUNDSWITCHCONTROLLER = 1116251856U;
         static const AkUniqueID UIBUSCONTROLLER = 224940047U;
     } // namespace GAME_PARAMETERS

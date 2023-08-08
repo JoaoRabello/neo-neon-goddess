@@ -56,6 +56,7 @@ public class doorBehavor : MonoBehaviour
         Debug.Log("OnInteractPerformed called");
         if (isPlayerInsideTrigger == true && !doorIsMoving)
         {
+            AkSoundEngine.PostEvent("doorSlideOpen", gameObject);
             MoveDoor();
         }
     }
@@ -107,6 +108,7 @@ public class doorBehavor : MonoBehaviour
         {
             isPlayerInsideTrigger = false;
             //ResetDoor();
+            AkSoundEngine.PostEvent("doorSlideClose", gameObject);
             MoveDoor();
 
         }

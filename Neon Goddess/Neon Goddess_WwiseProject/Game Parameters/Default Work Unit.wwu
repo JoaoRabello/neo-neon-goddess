@@ -76,7 +76,17 @@
 						<GameParameter Name="chorus04Control" ID="{97C00B5B-F176-49AF-81E3-382BECBDA957}"/>
 					</ChildrenList>
 				</Folder>
-				<GameParameter Name="stepSoundSwitchController" ID="{F7652402-201A-4424-A3B2-678ECCF7146A}"/>
+				<Folder Name="hackgunAndEStickSoundControllers" ID="{E2394189-430C-42CD-B11D-8F852ED19971}" ShortID="454895785">
+					<ChildrenList>
+						<GameParameter Name="eStrickOnHitSoundController" ID="{8F543B09-86C8-49F8-9E18-6399CD9E6C12}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="stepSoundController" ID="{6AB5F294-D034-404D-AF32-E02FCE903A91}" ShortID="790997356">
+					<ChildrenList>
+						<GameParameter Name="stepSoundSwitchController" ID="{F7652402-201A-4424-A3B2-678ECCF7146A}"/>
+						<GameParameter Name="stepRobbieReverb" ID="{7E3BE819-C4CB-4FE6-83CF-43CAEC799435}"/>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

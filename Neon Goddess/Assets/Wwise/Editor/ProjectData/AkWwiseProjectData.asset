@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: aca27ecb43a417478e1289c52057adf9
     GuidInternal: 
-    m_lastTime: -8585105748653947608
+    m_lastTime: -8585105027040083861
     List:
     - name: ambienceBus
       guid: 481b870385f7b04d9067436d52066127
@@ -191,7 +191,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 291bed8b33d94b4dac16d5e30d3beea2
     GuidInternal: 
-    m_lastTime: -8585105047727545300
+    m_lastTime: -8585100768448889453
     List:
     - name: mainSoundBank
       guid: d7bbfefaf3d3aa46ae8514386f26a35f
@@ -219,25 +219,8 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 8707201672ff4b4696a8d320381f6a5a
     GuidInternal: 
-    m_lastTime: -8585105047728043692
+    m_lastTime: -8585100768448979474
     List:
-    - name: Accessibility Events
-      guid: 672189576faa69459dce1c48c73cc6d1
-      id: 3208354146
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 8707201672ff4b4696a8d320381f6a5a
-      - ElementName: Accessibility Events
-        ObjectType: 4
-        guid: 672189576faa69459dce1c48c73cc6d1
-      Path: Events\Default Work Unit\Accessibility Events
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
     - name: Ambience Events
       guid: 5a7949201260d84d93ffe419fbb29ccb
       id: 2255759592
@@ -329,6 +312,227 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: doorAccessDenied
+      guid: cd5b7da8d6f636479c94bb1c47a23880
+      id: 1325999122
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: doorEvents
+        ObjectType: 4
+        guid: 504223f12326b840af1b1823a7ba43d0
+      - ElementName: doorAccessDenied
+        ObjectType: 3
+        guid: cd5b7da8d6f636479c94bb1c47a23880
+      Path: Events\Default Work Unit\SFX Events\doorEvents\doorAccessDenied
+      maxAttenuation: 0
+      maxDuration: 0.2105
+      minDuration: 0.2105
+    - name: doorAccessGranted
+      guid: b225b6cbceae2b4eaace86c41f49ada9
+      id: 3888197404
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: doorEvents
+        ObjectType: 4
+        guid: 504223f12326b840af1b1823a7ba43d0
+      - ElementName: doorAccessGranted
+        ObjectType: 3
+        guid: b225b6cbceae2b4eaace86c41f49ada9
+      Path: Events\Default Work Unit\SFX Events\doorEvents\doorAccessGranted
+      maxAttenuation: 0
+      maxDuration: 0.326479
+      minDuration: 0.326479
+    - name: doorEvents
+      guid: 504223f12326b840af1b1823a7ba43d0
+      id: 1971144774
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: doorEvents
+        ObjectType: 4
+        guid: 504223f12326b840af1b1823a7ba43d0
+      Path: Events\Default Work Unit\SFX Events\doorEvents
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: doorSlideClose
+      guid: 627bb70af9044140840644d5712ed6d8
+      id: 1155812980
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: doorEvents
+        ObjectType: 4
+        guid: 504223f12326b840af1b1823a7ba43d0
+      - ElementName: doorSlideClose
+        ObjectType: 3
+        guid: 627bb70af9044140840644d5712ed6d8
+      Path: Events\Default Work Unit\SFX Events\doorEvents\doorSlideClose
+      maxAttenuation: 0
+      maxDuration: 1.125021
+      minDuration: 1.125021
+    - name: doorSlideOpen
+      guid: b801c5871d5ae74c8f4ab5f4a7599b4b
+      id: 3388975760
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: doorEvents
+        ObjectType: 4
+        guid: 504223f12326b840af1b1823a7ba43d0
+      - ElementName: doorSlideOpen
+        ObjectType: 3
+        guid: b801c5871d5ae74c8f4ab5f4a7599b4b
+      Path: Events\Default Work Unit\SFX Events\doorEvents\doorSlideOpen
+      maxAttenuation: 0
+      maxDuration: 1.727104
+      minDuration: 1.727104
+    - name: eletricStickEvents
+      guid: fb16d98ad61ef742918c22475d663468
+      id: 2543563396
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: eletricStickEvents
+        ObjectType: 4
+        guid: fb16d98ad61ef742918c22475d663468
+      Path: Events\Default Work Unit\SFX Events\eletricStickEvents
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Enemy Awareness Sound
+      guid: 6edbcf259bad854dad81c1efe134b621
+      id: 4017834013
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Awareness Events
+        ObjectType: 4
+        guid: df2600cb2b0ac8459ad0ff694557281b
+      - ElementName: Enemy Awareness Sound
+        ObjectType: 4
+        guid: 6edbcf259bad854dad81c1efe134b621
+      Path: Events\Default Work Unit\Awareness Events\Enemy Awareness Sound
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: eStrickGuard
+      guid: b0e02a15c81ebc4a8a9fe06e59847847
+      id: 1281988221
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: eletricStickEvents
+        ObjectType: 4
+        guid: fb16d98ad61ef742918c22475d663468
+      - ElementName: eStrickGuard
+        ObjectType: 3
+        guid: b0e02a15c81ebc4a8a9fe06e59847847
+      Path: Events\Default Work Unit\SFX Events\eletricStickEvents\eStrickGuard
+      maxAttenuation: 0
+      maxDuration: 5.884785
+      minDuration: 5.884785
+    - name: eStrickHit
+      guid: ebd81502cf004342a7f291d90a2b41b1
+      id: 3941029093
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: eletricStickEvents
+        ObjectType: 4
+        guid: fb16d98ad61ef742918c22475d663468
+      - ElementName: eStrickHit
+        ObjectType: 3
+        guid: ebd81502cf004342a7f291d90a2b41b1
+      Path: Events\Default Work Unit\SFX Events\eletricStickEvents\eStrickHit
+      maxAttenuation: 0
+      maxDuration: 0.372381
+      minDuration: 0.372381
+    - name: eStrickSwing
+      guid: ef361f01d5d5dd479d7e6bcedbb8919c
+      id: 362183768
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: eletricStickEvents
+        ObjectType: 4
+        guid: fb16d98ad61ef742918c22475d663468
+      - ElementName: eStrickSwing
+        ObjectType: 3
+        guid: ef361f01d5d5dd479d7e6bcedbb8919c
+      Path: Events\Default Work Unit\SFX Events\eletricStickEvents\eStrickSwing
+      maxAttenuation: 0
+      maxDuration: 0.193061
+      minDuration: 0.193061
     - name: eventHealthHeartbeat
       guid: 71e5f5be94f9a047b9cf62ccbe4b9145
       id: 2519090655
@@ -559,6 +763,49 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.048521
       minDuration: 0.048521
+    - name: General Sounds
+      guid: 5ceb73569514c341a7d42f6ffa04a10e
+      id: 3186442565
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: UIEvents
+        ObjectType: 4
+        guid: 672189576faa69459dce1c48c73cc6d1
+      - ElementName: General Sounds
+        ObjectType: 4
+        guid: 5ceb73569514c341a7d42f6ffa04a10e
+      Path: Events\Default Work Unit\UIEvents\General Sounds
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: ghostInTheMetro
+      guid: c6c1dc4ebcf8194bbe8165b7afcf67cb
+      id: 539542031
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: SpecialEvents
+        ObjectType: 4
+        guid: 231b6e5b32cdb14c8d9db58636d982fa
+      - ElementName: ghostInTheMetro
+        ObjectType: 3
+        guid: c6c1dc4ebcf8194bbe8165b7afcf67cb
+      Path: Events\Default Work Unit\SFX Events\SpecialEvents\ghostInTheMetro
+      maxAttenuation: 0
+      maxDuration: 14.483396
+      minDuration: 14.483396
     - name: hackEvent
       guid: 233882d0cdd26e43b35c10c0c9629e85
       id: 536214842
@@ -576,6 +823,29 @@ MonoBehaviour:
         ObjectType: 4
         guid: 233882d0cdd26e43b35c10c0c9629e85
       Path: Events\Default Work Unit\SFX Events\hackEvent
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: hackGunHit
+      guid: 89bf1176e0750e4999d47103da1b9d80
+      id: 1852458775
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: hackEvent
+        ObjectType: 4
+        guid: 233882d0cdd26e43b35c10c0c9629e85
+      - ElementName: hackGunHit
+        ObjectType: 3
+        guid: 89bf1176e0750e4999d47103da1b9d80
+      Path: Events\Default Work Unit\SFX Events\hackEvent\hackGunHit
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -600,77 +870,8 @@ MonoBehaviour:
         guid: 56679e3e32fc274a9ad9de545b184793
       Path: Events\Default Work Unit\SFX Events\hackEvent\hackGunShoot
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: hackSelectionEvent
-      guid: 98b58e169116614bb40c643b923ccad5
-      id: 3399565108
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 8707201672ff4b4696a8d320381f6a5a
-      - ElementName: SFX Events
-        ObjectType: 4
-        guid: 5ce720e0f98e644db1623ef8260aab3c
-      - ElementName: hackEvent
-        ObjectType: 4
-        guid: 233882d0cdd26e43b35c10c0c9629e85
-      - ElementName: hackSelectionEvent
-        ObjectType: 3
-        guid: 98b58e169116614bb40c643b923ccad5
-      Path: Events\Default Work Unit\SFX Events\hackEvent\hackSelectionEvent
-      maxAttenuation: 0
-      maxDuration: 0.113208
-      minDuration: 0.066158
-    - name: hackStatusCancelEvent
-      guid: 11c206314ad3284f9acc420785e720d5
-      id: 2498197966
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 8707201672ff4b4696a8d320381f6a5a
-      - ElementName: SFX Events
-        ObjectType: 4
-        guid: 5ce720e0f98e644db1623ef8260aab3c
-      - ElementName: hackEvent
-        ObjectType: 4
-        guid: 233882d0cdd26e43b35c10c0c9629e85
-      - ElementName: hackStatusCancelEvent
-        ObjectType: 3
-        guid: 11c206314ad3284f9acc420785e720d5
-      Path: Events\Default Work Unit\SFX Events\hackEvent\hackStatusCancelEvent
-      maxAttenuation: 0
-      maxDuration: 0.2105
-      minDuration: 0.2105
-    - name: hackStatusConfirmEvent
-      guid: e58da4119961c04899c092272f85287d
-      id: 1494610132
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 8707201672ff4b4696a8d320381f6a5a
-      - ElementName: SFX Events
-        ObjectType: 4
-        guid: 5ce720e0f98e644db1623ef8260aab3c
-      - ElementName: hackEvent
-        ObjectType: 4
-        guid: 233882d0cdd26e43b35c10c0c9629e85
-      - ElementName: hackStatusConfirmEvent
-        ObjectType: 3
-        guid: e58da4119961c04899c092272f85287d
-      Path: Events\Default Work Unit\SFX Events\hackEvent\hackStatusConfirmEvent
-      maxAttenuation: 0
-      maxDuration: 0.326479
-      minDuration: 0.326479
+      maxDuration: 0.295669
+      minDuration: 0.295669
     - name: Health Events
       guid: 74c2bc3b30698f42b63fcd7c4f184148
       id: 2085523002
@@ -728,9 +929,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Radar Events
-      guid: 5ceb73569514c341a7d42f6ffa04a10e
-      id: 2146435154
+    - name: presenceSound
+      guid: 421f8622fcf0ec45bb90c4baae89a8e2
+      id: 3749656831
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -738,13 +939,36 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 8707201672ff4b4696a8d320381f6a5a
-      - ElementName: Accessibility Events
+      - ElementName: Awareness Events
         ObjectType: 4
-        guid: 672189576faa69459dce1c48c73cc6d1
-      - ElementName: Radar Events
+        guid: df2600cb2b0ac8459ad0ff694557281b
+      - ElementName: Enemy Awareness Sound
         ObjectType: 4
-        guid: 5ceb73569514c341a7d42f6ffa04a10e
-      Path: Events\Default Work Unit\Accessibility Events\Radar Events
+        guid: 6edbcf259bad854dad81c1efe134b621
+      - ElementName: presenceSound
+        ObjectType: 3
+        guid: 421f8622fcf0ec45bb90c4baae89a8e2
+      Path: Events\Default Work Unit\Awareness Events\Enemy Awareness Sound\presenceSound
+      maxAttenuation: 100
+      maxDuration: -1
+      minDuration: -1
+    - name: quantumScreaming
+      guid: 19c77ccc66d3ba49bf1599ec0671bf9c
+      id: 1464182441
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Music Events
+        ObjectType: 4
+        guid: 0a44597f982bdf4dbb99e84433f28895
+      - ElementName: quantumScreaming
+        ObjectType: 3
+        guid: 19c77ccc66d3ba49bf1599ec0671bf9c
+      Path: Events\Default Work Unit\Music Events\quantumScreaming
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -768,7 +992,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: 48c41e09fbeb204293fe5754711fd502
       Path: Events\Default Work Unit\SFX Events\SpecialEvents\radioVoices
-      maxAttenuation: 0
+      maxAttenuation: 100
       maxDuration: -1
       minDuration: -1
     - name: SFX Events
@@ -831,6 +1055,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.701896
       minDuration: 0.019544
+    - name: stepEventRobbie
+      guid: 8a0ceb2ff6b9fc43a83d421fa4383932
+      id: 1563548634
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: movementEvent
+        ObjectType: 4
+        guid: 92367bc3d0ecea47b79e84e33e619373
+      - ElementName: stepEventRobbie
+        ObjectType: 3
+        guid: 8a0ceb2ff6b9fc43a83d421fa4383932
+      Path: Events\Default Work Unit\SFX Events\movementEvent\stepEventRobbie
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: stepEventTemp
       guid: 99a6f12c67227748809d24c96f35a034
       id: 36201819
@@ -854,6 +1101,92 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.041337
       minDuration: 0.019544
+    - name: uiCancel
+      guid: 0c6849857a6d7846890d1d77145aad47
+      id: 1933252553
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: UIEvents
+        ObjectType: 4
+        guid: 672189576faa69459dce1c48c73cc6d1
+      - ElementName: General Sounds
+        ObjectType: 4
+        guid: 5ceb73569514c341a7d42f6ffa04a10e
+      - ElementName: uiCancel
+        ObjectType: 3
+        guid: 0c6849857a6d7846890d1d77145aad47
+      Path: Events\Default Work Unit\UIEvents\General Sounds\uiCancel
+      maxAttenuation: 0
+      maxDuration: 0.110385
+      minDuration: 0.110385
+    - name: uiConfirmation
+      guid: 886389b5934ae14faf5bb8df5d2ff0d2
+      id: 1308437452
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: UIEvents
+        ObjectType: 4
+        guid: 672189576faa69459dce1c48c73cc6d1
+      - ElementName: General Sounds
+        ObjectType: 4
+        guid: 5ceb73569514c341a7d42f6ffa04a10e
+      - ElementName: uiConfirmation
+        ObjectType: 3
+        guid: 886389b5934ae14faf5bb8df5d2ff0d2
+      Path: Events\Default Work Unit\UIEvents\General Sounds\uiConfirmation
+      maxAttenuation: 0
+      maxDuration: 0.101062
+      minDuration: 0.101062
+    - name: UIEvents
+      guid: 672189576faa69459dce1c48c73cc6d1
+      id: 749158460
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: UIEvents
+        ObjectType: 4
+        guid: 672189576faa69459dce1c48c73cc6d1
+      Path: Events\Default Work Unit\UIEvents
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: uiSelection
+      guid: 5ce1b2feeb811c46abf6313a571355e7
+      id: 2454203527
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: UIEvents
+        ObjectType: 4
+        guid: 672189576faa69459dce1c48c73cc6d1
+      - ElementName: General Sounds
+        ObjectType: 4
+        guid: 5ceb73569514c341a7d42f6ffa04a10e
+      - ElementName: uiSelection
+        ObjectType: 3
+        guid: 5ce1b2feeb811c46abf6313a571355e7
+      Path: Events\Default Work Unit\UIEvents\General Sounds\uiSelection
+      maxAttenuation: 0
+      maxDuration: 0.053646
+      minDuration: 0.053646
     - name: voiceEvent
       guid: d1646cd832d60c408ae82fec092d3be4
       id: 4228832235
@@ -886,7 +1219,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: b4d32a08d5d398448a9d266b95a7ce94
     GuidInternal: 
-    m_lastTime: -8585105748653992101
+    m_lastTime: -8585100768448839443
     List:
     - name: ambienceBusController
       guid: 71d28ffc305ffc45ba7b5b4b79060f2a
@@ -1035,6 +1368,37 @@ MonoBehaviour:
         ObjectType: 13
         guid: df7d36d8cae7284abcfa0356272d6faf
       Path: Game Parameters\Default Work Unit\bus Controllers\dialogueBusController
+    - name: eStrickOnHitSoundController
+      guid: 093b548fc886f8499e186399cd9e6c12
+      id: 1959894969
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: hackgunAndEStickSoundControllers
+        ObjectType: 4
+        guid: 894139e20c43cd42b11d8f852ed19971
+      - ElementName: eStrickOnHitSoundController
+        ObjectType: 13
+        guid: 093b548fc886f8499e186399cd9e6c12
+      Path: Game Parameters\Default Work Unit\hackgunAndEStickSoundControllers\eStrickOnHitSoundController
+    - name: hackgunAndEStickSoundControllers
+      guid: 894139e20c43cd42b11d8f852ed19971
+      id: 2999239012
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: hackgunAndEStickSoundControllers
+        ObjectType: 4
+        guid: 894139e20c43cd42b11d8f852ed19971
+      Path: Game Parameters\Default Work Unit\hackgunAndEStickSoundControllers
     - name: hackSwitchController
       guid: 37f0c295331a95409ec60171530b6101
       id: 1084512918
@@ -1185,6 +1549,37 @@ MonoBehaviour:
         ObjectType: 13
         guid: 7792743b62dbfa41a2718cc9c98768f5
       Path: Game Parameters\Default Work Unit\bus Controllers\sfxBusController
+    - name: stepRobbieReverb
+      guid: 19e83b7ecbc4e64f83cf43caec799435
+      id: 187408528
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: stepSoundController
+        ObjectType: 4
+        guid: 94f2b56a34d04d40af32e02fce903a91
+      - ElementName: stepRobbieReverb
+        ObjectType: 13
+        guid: 19e83b7ecbc4e64f83cf43caec799435
+      Path: Game Parameters\Default Work Unit\stepSoundController\stepRobbieReverb
+    - name: stepSoundController
+      guid: 94f2b56a34d04d40af32e02fce903a91
+      id: 2575656372
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: stepSoundController
+        ObjectType: 4
+        guid: 94f2b56a34d04d40af32e02fce903a91
+      Path: Game Parameters\Default Work Unit\stepSoundController
     - name: stepSoundSwitchController
       guid: 022465f71a202444a3b2678eccf7146a
       id: 1116251856
@@ -1195,10 +1590,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: stepSoundController
+        ObjectType: 4
+        guid: 94f2b56a34d04d40af32e02fce903a91
       - ElementName: stepSoundSwitchController
         ObjectType: 13
         guid: 022465f71a202444a3b2678eccf7146a
-      Path: Game Parameters\Default Work Unit\stepSoundSwitchController
+      Path: Game Parameters\Default Work Unit\stepSoundController\stepSoundSwitchController
     - name: SwitchControllers
       guid: ccc398925e0dc34a9cecbcbd68cea273
       id: 29158768
@@ -1270,7 +1668,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 1b41e7b266cd6441a17fcd0aae3921c5
     GuidInternal: 
-    m_lastTime: -8585105748651792452
+    m_lastTime: -8585100768448919457
     List:
     - name: hackSwitchGroup
       guid: 736c2a60cfeae642a8f316870f86154e

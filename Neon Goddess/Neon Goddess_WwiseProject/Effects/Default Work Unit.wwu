@@ -136,6 +136,87 @@
 						</Property>
 					</PropertyList>
 				</Effect>
+				<Effect Name="RobbieVerb" ID="{68CDABFD-C9BB-4A5E-BBA3-026093CE8D51}" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+					<PropertyList>
+						<Property Name="ERFrontBackDelay" Type="Real32" Value="100"/>
+						<Property Name="ERLevel" Type="Real32">
+							<RTPCList>
+								<RTPC Name="" ID="{282A4B14-A2A5-4293-A8AD-FE2F3EB0CE27}" ShortID="485894818">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="stepRobbieReverb" ID="{7E3BE819-C4CB-4FE6-83CF-43CAEC799435}" WorkUnitID="{082AD3B4-D3D5-4498-8A9D-266B95A7CE94}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{196F2EE5-7E8C-43CB-ABF7-8C069E89B173}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="3"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>0</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>100</XPos>
+												<YPos>96.3000030517578</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+				</Effect>
+				<Effect Name="UiSelectionGain" ID="{81FD222F-931C-464D-9605-A37FDDF08EF7}" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3">
+					<PropertyList>
+						<Property Name="FullBandGain" Type="Real32" Value="9.5"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="DistGunHit" ID="{CAB16249-9A07-44F9-9418-7527B2856310}" PluginName="Wwise Guitar Distortion" CompanyID="0" PluginID="126" PluginType="3">
+					<PropertyList>
+						<Property Name="DistortionDrive" Type="Real32" Value="100"/>
+						<Property Name="DistortionType" Type="int32" Value="2"/>
+						<Property Name="PostEQBand1Enable" Type="bool" Value="True"/>
+						<Property Name="PostEQBand1Gain" Type="Real32" Value="12.5"/>
+						<Property Name="PostEQBand2Enable" Type="bool" Value="True"/>
+						<Property Name="PostEQBand2FilterType" Type="int32" Value="4"/>
+						<Property Name="PostEQBand2Frequency" Type="Real32" Value="8536"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="stickGuardShifter" ID="{69B278FE-192F-4664-9143-DD4975729560}" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+					<PropertyList>
+						<Property Name="Pitch" Type="Real32">
+							<RTPCList>
+								<RTPC Name="" ID="{5F9D38C9-9C1B-420B-BBDC-89977C302EB5}" ShortID="934963962">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="eStrickOnHitSoundController" ID="{8F543B09-86C8-49F8-9E18-6399CD9E6C12}" WorkUnitID="{082AD3B4-D3D5-4498-8A9D-266B95A7CE94}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{789B9A78-F63A-4106-9983-9C36077D7FE1}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="1"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>0</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>100</XPos>
+												<YPos>514.28572</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+				</Effect>
 			</ChildrenList>
 		</WorkUnit>
 	</Effects>
