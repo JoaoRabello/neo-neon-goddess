@@ -129,6 +129,7 @@ namespace Combat
                 _automaticAimCurrentTargetHackable = _automaticAimCurrentTarget.GetComponent<IHackable>();
                 _automaticAimFirstTarget = _automaticAimCurrentTarget;
                 
+                //TODO: Arrumar problema em que o current cross hair fica só no primeiro target
                 AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTargetHackable, true, true);
             }
             
@@ -269,7 +270,6 @@ namespace Combat
             if(!_canHideWeapon) return;
             _weaponGameObject.SetActive(false);
 
-            Debug.Log("Turn Off Weapon");
             _canHideWeapon = true;
         }
 
