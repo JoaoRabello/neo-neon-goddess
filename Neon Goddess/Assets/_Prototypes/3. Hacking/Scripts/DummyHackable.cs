@@ -90,6 +90,21 @@ public class DummyHackable : MonoBehaviour, IHackable
         _isHacking = false;
     }
 
+    public Vector3 GetHeadPosition()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Vector3 GetTorsoPosition()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Vector3 GetLegsPosition()
+    {
+        throw new NotImplementedException();
+    }
+
     private void Update()
     {
         if (_isHacked) return;

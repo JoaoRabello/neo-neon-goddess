@@ -7,15 +7,15 @@ public class AimCrossHairElement : MonoBehaviour
     [SerializeField] private RectTransform _rectTransform;
 
     private Canvas _canvas;
-    private Transform _followTransform;
+    private IHackable _followHackable;
     private Camera _mainCamera;
 
-    public bool HasSameTransform(Transform transform) => transform == _followTransform;
+    public bool HasSameHackable(IHackable hackable) => hackable == _followHackable;
     
-    public void Setup(Transform transformToFollow, Canvas canvas)
+    public void Setup(IHackable hackableToFollow, Canvas canvas)
     {
-        _followTransform = transformToFollow;
-        var position = new Vector3(_followTransform.position.x, _followTransform.position.y + 1, _followTransform.position.z);
+        _followHackable = hackableToFollow;
+        var position = hackableToFollow.GetTorsoPosition();
 
         _mainCamera = Camera.main;
         _canvas = canvas;
@@ -27,21 +27,21 @@ public class AimCrossHairElement : MonoBehaviour
 
     public void Cancel()
     {
-        _followTransform = null;
+        _followHackable = null;
         Destroy(gameObject);
     }
 
     public void Hide()
     {
-        _followTransform = null;
+        _followHackable = null;
         gameObject.SetActive(false);
     }
     
     void Update()
     {
-        if(!_followTransform) return;
+        if(_followHackable == null) return;
         
-        var position = new Vector3(_followTransform.position.x, _followTransform.position.y, _followTransform.position.z);
+        var position = _followHackable.GetTorsoPosition();
         _rectTransform.position = _mainCamera.WorldToScreenPoint(position);
     }
 }

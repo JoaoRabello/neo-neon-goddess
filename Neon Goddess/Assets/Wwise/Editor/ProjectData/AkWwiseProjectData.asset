@@ -191,7 +191,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 291bed8b33d94b4dac16d5e30d3beea2
     GuidInternal: 
-    m_lastTime: -8585105047727545300
+    m_lastTime: -8585105025872016137
     List:
     - name: mainSoundBank
       guid: d7bbfefaf3d3aa46ae8514386f26a35f
@@ -219,7 +219,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 8707201672ff4b4696a8d320381f6a5a
     GuidInternal: 
-    m_lastTime: -8585105047728043692
+    m_lastTime: -8585105025881505232
     List:
     - name: Accessibility Events
       guid: 672189576faa69459dce1c48c73cc6d1
@@ -600,8 +600,8 @@ MonoBehaviour:
         guid: 56679e3e32fc274a9ad9de545b184793
       Path: Events\Default Work Unit\SFX Events\hackEvent\hackGunShoot
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.295669
+      minDuration: 0.295669
     - name: hackSelectionEvent
       guid: 98b58e169116614bb40c643b923ccad5
       id: 3399565108
@@ -725,6 +725,26 @@ MonoBehaviour:
         ObjectType: 4
         guid: 0a44597f982bdf4dbb99e84433f28895
       Path: Events\Default Work Unit\Music Events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: quantumScreaming
+      guid: 19c77ccc66d3ba49bf1599ec0671bf9c
+      id: 1464182441
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Music Events
+        ObjectType: 4
+        guid: 0a44597f982bdf4dbb99e84433f28895
+      - ElementName: quantumScreaming
+        ObjectType: 3
+        guid: 19c77ccc66d3ba49bf1599ec0671bf9c
+      Path: Events\Default Work Unit\Music Events\quantumScreaming
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1451,7 +1471,7 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8585203524685442245
     List: []
-  ExpandedFileSystemItemIds: 3000000031000000
+  ExpandedFileSystemItemIds: 0200000003000000070000000b000000180000003000000031000000
   ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
   autoPopulateEnabled: 1

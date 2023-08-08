@@ -26,10 +26,7 @@ namespace Combat
         [SerializeField] private bool _useAutoAim;
         [SerializeField] private LayerMask _hittableLayerMask;
         [SerializeField] private float _aimRange;
-
-        [Header("State Observer")]
-        [SerializeField] private PlayerStateObserver _playerStateObserver;
-
+        
         private List<IHackable> _foundTargetHackables;
         private Transform _automaticAimCurrentTarget;
         private Transform _automaticAimFirstTarget;
@@ -120,7 +117,7 @@ namespace Combat
 
                 if (_foundTargetHackables.Contains(hackable)) continue;
 
-                AimCrossHairManager.Instance.RenderCrossHair(_targets[i].transform, true, false);
+                AimCrossHairManager.Instance.RenderCrossHair(hackable, true, false);
                 _foundTargetHackables.Add(hackable);
             }
 
@@ -132,7 +129,7 @@ namespace Combat
             _automaticAimCurrentTarget = _targets[enemyIndex].transform;
             _automaticAimFirstTarget = _targets[enemyIndex].transform;
                 
-            AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTarget, true, true);
+            AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTarget.GetComponent<IHackable>(), true, true);
         }
 
         private int GetClosestTargetIndexInColliderArray(int enemyCount, Collider[] results)
@@ -277,15 +274,17 @@ namespace Combat
         {
             if(_currentTargetCount <= 0) return;
             if(_automaticAimCurrentTarget == null) return;
+
+            var automaticAimCurrentTargetHackable = _automaticAimCurrentTarget.GetComponent<IHackable>();
             
-            AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTarget, false, true);
+            AimCrossHairManager.Instance.RenderCrossHair(automaticAimCurrentTargetHackable, false, true);
             _automaticAimCurrentTarget = GetNextTargetWithLessAngleDistance(_targets, xInput);
-            AimCrossHairManager.Instance.RenderCrossHair(_automaticAimCurrentTarget, true, true);
+            AimCrossHairManager.Instance.RenderCrossHair(automaticAimCurrentTargetHackable, true, true);
         }
 
         private void Update()
-        {   
-            if (_playerStateObserver._currentState == PlayerStateObserver.PlayerState.Dead)
+        {
+            if (PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Dead)
             {
                 AimCanceled();
             }

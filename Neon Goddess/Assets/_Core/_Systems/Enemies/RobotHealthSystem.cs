@@ -8,6 +8,11 @@ public class RobotHealthSystem : MonoBehaviour, IHackable
     [SerializeField] private int _systemResistance;
     [SerializeField] private int _systemArmor;
     
+    [Header("Body Transforms")]
+    [SerializeField] private Transform _headTransform;
+    [SerializeField] private Transform _torsoTransform;
+    [SerializeField] private Transform _legsTransform;
+    
     [Header("VFX")]
     [SerializeField] private ParticleSystem _hackedVFX;
     
@@ -74,5 +79,20 @@ public class RobotHealthSystem : MonoBehaviour, IHackable
     public void CancelHack()
     {
         _isBeingHacked = false;
+    }
+
+    public Vector3 GetHeadPosition()
+    {
+        return _headTransform.position;
+    }
+
+    public Vector3 GetTorsoPosition()
+    {
+        return _torsoTransform.position;
+    }
+
+    public Vector3 GetLegsPosition()
+    {
+        return _legsTransform.position;
     }
 }

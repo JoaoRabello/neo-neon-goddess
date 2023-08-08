@@ -10,4 +10,8 @@ public interface IHackable
     void Hack();
     void StartHack(float timeToHack);
     void CancelHack();
+
+    Vector3 GetHeadPosition();
+    Vector3 GetTorsoPosition();
+    Vector3 GetLegsPosition();
 }
