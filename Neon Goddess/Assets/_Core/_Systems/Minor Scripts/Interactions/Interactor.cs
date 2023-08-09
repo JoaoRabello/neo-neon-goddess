@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Inputs;
 using Player;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class Interactor : MonoBehaviour
     [SerializeField] private LayerMask _interactableLayerMask;
 
     private IInteractable _currentInteractable;
+
+    private List<IInteractable> _knownInteractables = new List<IInteractable>();
 
     private void OnEnable()
     {
@@ -29,18 +32,40 @@ public class Interactor : MonoBehaviour
 
     private void CheckForInteractable()
     {
-        var objectList = new Collider[5];
+        var interactableColliders = new Collider[5];
 
         var interactableObjectCount =
-            Physics.OverlapSphereNonAlloc(transform.position, _interactionRange, objectList, _interactableLayerMask);
+            Physics.OverlapSphereNonAlloc(transform.position, _interactionRange, interactableColliders, _interactableLayerMask);
 
         if (interactableObjectCount <= 0)
         {
             _currentInteractable = null;
+
+            //TODO: Remover known interactables quando há mais de um também, não só quando todos estão longe
+            foreach (var knownInteractable in _knownInteractables.ToList())
+            {
+                InteractableHUDManager.Instance.RemoveObject(knownInteractable);
+                _knownInteractables.Remove(knownInteractable);
+            }
             return;
         }
 
-        _currentInteractable = objectList[0].GetComponent<IInteractable>();
+        for (var index = 0; index < interactableObjectCount; index++)
+        {
+            var interactableCollider = interactableColliders[index];
+            var interactable = interactableCollider.GetComponent<IInteractable>();
+            
+            if (index == 0)
+            {
+                _currentInteractable = interactableColliders[0].GetComponent<IInteractable>();
+            }
+            
+            InteractableHUDManager.Instance.AddObject(interactable, interactableCollider.transform);
+            
+            if(_knownInteractables.Contains(interactable)) continue;
+            
+            _knownInteractables.Add(interactable);
+        }
     }
 
     private void TryInteract()
