@@ -6,10 +6,30 @@ public class SFXPlayer : MonoBehaviour
 {
     //TODO: Mudar para evento selecionavel em inspector
     [SerializeField] private string _event;
+    [SerializeField] private AK.Wwise.Event _akEvent;
         
     public void PlaySFX()
     {
-        AkSoundEngine.PostEvent(_event, gameObject);
+        if (_event == "")
+        {
+            _akEvent.Post(gameObject);
+        }
+        else
+        {
+            AkSoundEngine.PostEvent(_event, gameObject);
+        }
+    }
+
+    public void AnimationEventPlaySFX()
+    {
+        if (_event == "")
+        {
+            _akEvent.Post(gameObject);
+        }
+        else
+        {
+            AkSoundEngine.PostEvent(_event, gameObject);
+        }
     }
     
     public void PlaySFX(AK.Wwise.Event sfxEvent)
