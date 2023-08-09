@@ -42,6 +42,7 @@ namespace Combat
 
         private bool _isAiming;
         private bool _canHideWeapon;
+        private bool _isDrawingWeapon;
 
         private struct TargetAngle
         {
@@ -224,7 +225,9 @@ namespace Combat
 
         private IEnumerator StartAiming()
         {
+            _isDrawingWeapon = true;
             yield return new WaitForSeconds(0.5f);
+            _isDrawingWeapon = false;
             
             _isAiming = true;
             lightningVFX.EffectActivator();
@@ -238,6 +241,12 @@ namespace Combat
             
             StopAllCoroutines();
 
+            if (_isDrawingWeapon)
+            {
+                HideWeaponForced();
+                _isDrawingWeapon = false;
+            }
+
             PlayerStateObserver.Instance.OnAimEnd();
 
             if (_attackSystem.WeaponEquipped)
@@ -247,8 +256,16 @@ namespace Combat
             }
             else
             {
-                _meleeWeaponGameObject.SetActive(false);
-                _animator.SetParameterValue("isAimingMelee", false);
+                if (!_attackSystem.IsOnAttackAnimation)
+                {
+                    //TODO: Faz essa porra direito, não bota pra desligar a melee aqui se estiver atacando. Se estiver, tem que terminar a anim antes, animal
+                    _meleeWeaponGameObject.SetActive(false);
+                    _animator.SetParameterValue("isAimingMelee", false);
+                }
+                else
+                {
+                    _animator.OnCurrentAnimationEndCallback(HideMeleeWeapon);
+                }
             }
         
             lightningVFX.EffectActivator();
@@ -264,13 +281,26 @@ namespace Combat
             _automaticAimCurrentTarget = null;
             _automaticAimFirstTarget = null;
         }
-        
+
         private void HideWeapon()
         {
             if(!_canHideWeapon) return;
             _weaponGameObject.SetActive(false);
 
             _canHideWeapon = true;
+        }
+
+        private void HideWeaponForced()
+        {
+            _weaponGameObject.SetActive(false);
+
+            _canHideWeapon = true;
+        }
+
+        public void HideMeleeWeapon()
+        {
+            _meleeWeaponGameObject.SetActive(false);
+            _animator.SetParameterValue("isAimingMelee", false);
         }
 
         private void MoveStarted(Vector2 movementInput)

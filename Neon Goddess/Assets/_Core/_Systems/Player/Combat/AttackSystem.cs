@@ -33,12 +33,10 @@ namespace Combat
         [SerializeField] private GameObject _fakeMuzzleEffect;
         [SerializeField] private float _muzzleEffectTime;
 
-        [Header("State Observer")]
-        [SerializeField] private PlayerStateObserver _playerStateObserver;
-
         public bool WeaponEquipped => _weaponEquipped;
         
         private bool _isOnAnimation;
+        public bool IsOnAttackAnimation => _isOnAnimation;
         
         private void OnEnable()
         {
@@ -65,6 +63,7 @@ namespace Combat
         
         private void ChangeWeapon()
         {
+            if(PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Aiming) return;
             if(_aimSystem.IsAiming) return;
             
             _weaponEquipped = !_weaponEquipped;
@@ -74,37 +73,45 @@ namespace Combat
         {
             if(_isOnAnimation) return;
             
+            _isOnAnimation = true;
+            
             PlayerStateObserver.Instance.OnAimEnd();
             PlayerStateObserver.Instance.OnAnimationStart();
 
             StartCoroutine(PlayMuzzleEffect());
             
             if(_weaponEquipped) _shootingSfxPlayer.PlaySFX();
-            
-            _isOnAnimation = true;
 
             _animator.PlayAndOnAnimationEndCallback(_weaponEquipped ? "Shot" : "Stab", AnimationEnded);
 
             RaycastHit[] enemies = new RaycastHit[10];
-            // var hitCount = Physics.SphereCastNonAlloc(_shotsOrigin.position, _shotHitBoxRadiusSize, 
-            //     _aimSystem.CurrentAimingDirection.ToVector3(transform.forward), enemies, 
-            //     _weaponEquipped ? _maxShootingRange : _maxMeleeRange, _hittableLayerMask);
-            var aimDirection = transform.forward;
-            switch (_aimSystem.CurrentAimingDirection)
+            int hitCount;
+            
+            if (_aimSystem.CurrentHackableTarget is null)
             {
-                case AimSystem.AimDirection.Up:
-                    aimDirection = (_aimSystem.CurrentHackableTarget.GetHeadPosition() - transform.position).normalized;
-                    break;
-                case AimSystem.AimDirection.Front:
-                    aimDirection = (_aimSystem.CurrentHackableTarget.GetTorsoPosition() - transform.position).normalized;
-                    break;
-                case AimSystem.AimDirection.Down:
-                    aimDirection = (_aimSystem.CurrentHackableTarget.GetLegsPosition() - transform.position).normalized;
-                    break;
+                hitCount = Physics.SphereCastNonAlloc(_shotsOrigin.position, _shotHitBoxRadiusSize, 
+                    _aimSystem.CurrentAimingDirection.ToVector3(transform.forward), enemies, 
+                    _weaponEquipped ? _maxShootingRange : _maxMeleeRange, _hittableLayerMask);
             }
+            else
+            {
+                var aimDirection = transform.forward;
+                switch (_aimSystem.CurrentAimingDirection)
+                {
+                    case AimSystem.AimDirection.Up:
+                        aimDirection = (_aimSystem.CurrentHackableTarget.GetHeadPosition() - transform.position).normalized;
+                        break;
+                    case AimSystem.AimDirection.Front:
+                        aimDirection = (_aimSystem.CurrentHackableTarget.GetTorsoPosition() - transform.position).normalized;
+                        break;
+                    case AimSystem.AimDirection.Down:
+                        aimDirection = (_aimSystem.CurrentHackableTarget.GetLegsPosition() - transform.position).normalized;
+                        break;
+                }
 
-            var hitCount = Physics.SphereCastNonAlloc(_shotsOrigin.position, _shotHitBoxRadiusSize, 
-                aimDirection, enemies, _weaponEquipped ? _maxShootingRange : _maxMeleeRange, _hittableLayerMask);
+                hitCount = Physics.SphereCastNonAlloc(_shotsOrigin.position, _shotHitBoxRadiusSize, 
+                    aimDirection, enemies, _weaponEquipped ? _maxShootingRange : _maxMeleeRange, _hittableLayerMask);
+            }
             
             if (hitCount <= 0) return;
             
@@ -123,7 +130,7 @@ namespace Combat
         {
             _isOnAnimation = false;
             PlayerStateObserver.Instance.OnAnimationEnd();
-            
+
             if(_aimSystem.IsAiming)
                 PlayerStateObserver.Instance.OnAimStart();
         }
