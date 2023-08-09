@@ -820,6 +820,33 @@
 								</Sound>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="Astrid SFX" ID="{0C78AF0E-2D23-40BF-9FF9-B08D6F0E2804}" ShortID="27607789">
+							<ChildrenList>
+								<Sound Name="painGrunt" ID="{02EA4990-06D3-4792-AF7C-7F13E609AF21}" ShortID="944511211">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="painGrunt" ID="{E666BB2D-B1DF-4963-806D-3FD1123C24F9}">
+											<Language>SFX</Language>
+											<AudioFile>painGrunt.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1037918519"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="painGrunt" ID="{E666BB2D-B1DF-4963-806D-3FD1123C24F9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Ambience" ID="{77A522D3-D7C5-40EF-9FCC-47D2941BEB52}" ShortID="457092011"/>

@@ -226,6 +226,43 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="enemyEvents" ID="{1447187D-73B3-42FB-9278-DA8DB2FAAB83}" ShortID="452273974">
+							<ChildrenList>
+								<Event Name="robbieStab" ID="{9DFF6C9D-E7F2-4566-88E5-A44B7A94B83E}">
+									<ChildrenList>
+										<Action Name="" ID="{C553C025-EB01-4F52-AAFE-D0B730B1499D}" ShortID="620110848">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="RobbieStab" ID="{88615BC3-B49F-46CC-A06E-377772FCF33B}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="robbieGrab" ID="{2F75A538-98BB-4B94-8AE7-B23830E5959C}">
+									<ChildrenList>
+										<Action Name="" ID="{117EFE68-EB46-4572-9AD2-941642BE3123}" ShortID="911251342">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="RobbieGrab" ID="{1A6EC671-57F3-4C20-844D-21B28F60D980}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="robbieStabHit" ID="{F99F15A7-018D-4A3F-9388-FEBF64C1B512}">
+									<ChildrenList>
+										<Action Name="" ID="{FFBA0D93-4D59-469B-8D37-C9998647C244}" ShortID="644958122">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="RobbieStabHit" ID="{F62E1210-E579-4F2D-9969-BD9FBF4E8533}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Dialogue Events" ID="{88F41BAE-00DD-42A6-A7F7-87B8CAEB7A19}" ShortID="597853482">
@@ -346,6 +383,17 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="awarenessHeartbeat" ID="{6C8C1A1A-84EA-46B3-8DD6-443DD1B64061}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="painGrunt" ID="{8FB1440D-CD5D-49A8-9FD6-FAE68072F201}">
+									<ChildrenList>
+										<Action Name="" ID="{08C1CC06-21B1-420D-B19D-410D9D078837}" ShortID="598231902">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="painGrunt" ID="{02EA4990-06D3-4792-AF7C-7F13E609AF21}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
