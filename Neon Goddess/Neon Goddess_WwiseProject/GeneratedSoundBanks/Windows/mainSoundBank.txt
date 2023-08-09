@@ -13,6 +13,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1437365791	eventVoiceYohanna			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohanna	
 	1464182441	quantumScreaming			\Default Work Unit\Music Events\quantumScreaming	
 	1510770975	radioVoices			\Default Work Unit\SFX Events\SpecialEvents\radioVoices	
+	1563548634	stepEventRobbie			\Default Work Unit\SFX Events\movementEvent\stepEventRobbie	
 	1592018284	eventVoiceMilord			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceMilord	
 	1676920321	eventVoiceYavik			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYavik	
 	1933252553	uiCancel			\Default Work Unit\UIEvents\General Sounds\uiCancel	
@@ -44,6 +45,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	62014404	sfxBusController			\Default Work Unit\bus Controllers\sfxBusController	
 	80573052	musicBusController			\Default Work Unit\bus Controllers\musicBusController	
 	95401436	lowVoicePitcherController			\Default Work Unit\pitchController\lowVoicePitcherController	
+	187408528	stepRobbieReverb			\Default Work Unit\stepSoundController\stepRobbieReverb	
 	224940047	uiBusController			\Default Work Unit\bus Controllers\uiBusController	
 	682147685	chorus01Control			\Default Work Unit\voiceController\chorus01Control	
 	936584782	chorus04Control			\Default Work Unit\voiceController\chorus04Control	
@@ -77,6 +79,7 @@ Effect plug-ins	ID	Name	Type				Notes
 	1042001490	heartbeatTempoChanger	Wwise Time Stretch			
 	1176734637	milordVoiceShifter	Wwise Pitch Shifter			
 	2824085564	lowVoicePitcher	Wwise Pitch Shifter			
+	3164629247	Holy	Wwise RoomVerb			
 	3517018448	highVoicePitcher	Wwise Pitch Shifter			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
@@ -95,6 +98,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	315903680	Step Concrete NoVerb03	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Steps\Step Concrete NoVerb03_229EB036.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete\Step Concrete NoVerb03		1302
 	368048726	UiCancelMenuSound	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\UI\Menu Sound\UiCancelMenuSound_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\General\UiCancelMenuSound		2639
 	368848235	voiceGuara	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Kazimir T_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceGuara		1753
+	374130843	RobbieStep	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\RobbieStep_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robbie\RobbieStep		1705
 	406834914	DoorCommonOpen	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\DoorCommonOpen_BE7B8D56.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\door_status\DoorCommonOpen		12503
 	505767842	UiSelectionMenuSound	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\UI\Menu Sound\UiSelectionMenuSound_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\General\UiSelectionMenuSound		1362
 	551442925	Step Concrete NoVerb02	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Steps\Step Concrete NoVerb02_84911D7A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete\Step Concrete NoVerb02		1994

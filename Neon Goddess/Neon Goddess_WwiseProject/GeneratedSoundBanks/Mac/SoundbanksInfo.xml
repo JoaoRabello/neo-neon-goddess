@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="2745550966">
+		<SoundBank Id="534561221" Language="SFX" Hash="61209211">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
@@ -280,6 +280,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1563548634" Name="stepEventRobbie" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEventRobbie" MaxAttenuation="100." DurationType="OneShot" DurationMin="0.046979" DurationMax="0.046979">
+					<IncludedMemoryFiles>
+						<File Id="374130843" Language="SFX">
+							<ShortName>RobbieStep.wav</ShortName>
+							<Path>SFX\RobbieStep_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="36201819" Name="stepEventTemp" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEventTemp" MaxAttenuation="100." DurationType="OneShot" DurationMin="0.019544" DurationMax="0.041337">
 					<IncludedMemoryFiles>
 						<File Id="79465095" Language="SFX">
@@ -337,6 +345,7 @@
 				<GameParameter Id="62014404" Name="sfxBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\sfxBusController"/>
 				<GameParameter Id="80573052" Name="musicBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\musicBusController"/>
 				<GameParameter Id="95401436" Name="lowVoicePitcherController" ObjectPath="\Game Parameters\Default Work Unit\pitchController\lowVoicePitcherController"/>
+				<GameParameter Id="187408528" Name="stepRobbieReverb" ObjectPath="\Game Parameters\Default Work Unit\stepSoundController\stepRobbieReverb"/>
 				<GameParameter Id="224940047" Name="uiBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\uiBusController"/>
 				<GameParameter Id="682147685" Name="chorus01Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus01Control"/>
 				<GameParameter Id="936584782" Name="chorus04Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus04Control"/>

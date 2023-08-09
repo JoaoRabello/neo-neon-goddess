@@ -41,6 +41,7 @@ namespace AK
         static const AkUniqueID ROBBIESTAB = 11002050U;
         static const AkUniqueID ROBBIESTABHIT = 3318281901U;
         static const AkUniqueID STEPEVENT = 3035224157U;
+        static const AkUniqueID STEPEVENTROBBIE = 1563548634U;
         static const AkUniqueID STEPEVENTTEMP = 36201819U;
         static const AkUniqueID UICANCEL = 1933252553U;
         static const AkUniqueID UICONFIRMATION = 1308437452U;
