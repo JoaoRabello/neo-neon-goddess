@@ -11,6 +11,9 @@ public class HealthSystem : MonoBehaviour
     [Tooltip("Our custom CharacterAnimator")]
     [SerializeField] private CharacterAnimator _animator;
     
+    [Tooltip("Components")]
+    [SerializeField] private Rigidbody _rigidbody;
+    
     [Header("UI")]
     [SerializeField] private Slider _physicalHealthBar;
     [SerializeField] private Slider _mentalHealthBar;
@@ -85,6 +88,8 @@ public class HealthSystem : MonoBehaviour
         }
         else
         {
+            _rigidbody.useGravity = false;
+            
             PlayerStateObserver.Instance.OnPlayerDeath();
             _animator.PlayAnimation("Death", 0);
         }

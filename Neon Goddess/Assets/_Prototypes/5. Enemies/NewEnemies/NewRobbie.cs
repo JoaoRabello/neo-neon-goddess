@@ -74,7 +74,15 @@ public class NewRobbie : MonoBehaviour
 
         if (_foundPlayer)
         {
-            Move(_player.position);
+            //TODO: Melhorar checagem de distância
+            if (Vector3.Distance(_player.position, transform.position) > 1.5f)
+            {
+                Move(_player.position);
+            }
+            else
+            {
+                _navMeshAgent.SetDestination(transform.position);
+            }
             
             RotateTowards(_player.position);
 
@@ -166,11 +174,11 @@ public class NewRobbie : MonoBehaviour
     private IEnumerator AttackCooldown(bool basicAttack)
     {
         _startedAttackCooldown = true;
-        _canMove = false;
+        // _canMove = false;
 
         yield return new WaitForSeconds(0.1f);
         
-        _navMeshAgent.SetDestination(transform.position);
+        // _navMeshAgent.SetDestination(transform.position);
 
         _attackCooldown = true;
         _currentSpeed = _speed;
@@ -204,7 +212,7 @@ public class NewRobbie : MonoBehaviour
         _attackCooldown = false;
         _startedAttackCooldown = false;
         
-        _canMove = true;
+        // _canMove = true;
     }
 
     private void OnHacked()
