@@ -11,4 +11,14 @@ public class SFXPlayer : MonoBehaviour
     {
         AkSoundEngine.PostEvent(_event, gameObject);
     }
+    
+    public void PlaySFX(AK.Wwise.Event sfxEvent)
+    {
+        sfxEvent.Post(gameObject);
+    }
+
+    public void StopSFX(AK.Wwise.Event sfxEvent)
+    {
+        sfxEvent.Stop(gameObject);
+    }
 }

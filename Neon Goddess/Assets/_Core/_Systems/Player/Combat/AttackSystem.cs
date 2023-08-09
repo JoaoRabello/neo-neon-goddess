@@ -18,6 +18,10 @@ namespace Combat
         
         [Header("SFX")]
         [SerializeField] private SFXPlayer _shootingSfxPlayer;
+        [SerializeField] private AK.Wwise.Event _stickSwing;
+        [SerializeField] private AK.Wwise.Event _gunHit;
+        [SerializeField] private AK.Wwise.Event _stickHit;
+        [SerializeField] private AK.Wwise.RTPC _stickHitRTPC;
         
         [Header("Weapon Data")]
         [SerializeField] public bool _weaponEquipped;
@@ -79,8 +83,15 @@ namespace Combat
             PlayerStateObserver.Instance.OnAnimationStart();
 
             StartCoroutine(PlayMuzzleEffect());
-            
-            if(_weaponEquipped) _shootingSfxPlayer.PlaySFX();
+
+            if (_weaponEquipped)
+            {
+                _shootingSfxPlayer.PlaySFX();
+            }
+            else
+            {
+                _shootingSfxPlayer.PlaySFX(_stickSwing);
+            }
 
             _animator.PlayAndOnAnimationEndCallback(_weaponEquipped ? "Shot" : "Stab", AnimationEnded);
 
@@ -116,6 +127,15 @@ namespace Combat
             if (hitCount <= 0) return;
             
             var enemy = enemies[0].collider;
+
+            if (_weaponEquipped)
+            {
+                _shootingSfxPlayer.PlaySFX(_gunHit);
+            }
+            else
+            {
+                _shootingSfxPlayer.PlaySFX(_stickHit);
+            }
             enemy.GetComponent<IHackable>().TakeHackShot(_weapon.Damage);
         }
 

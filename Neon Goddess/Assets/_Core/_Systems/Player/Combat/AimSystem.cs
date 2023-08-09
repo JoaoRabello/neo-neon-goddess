@@ -27,6 +27,10 @@ namespace Combat
         [SerializeField] private LayerMask _hittableLayerMask;
         [SerializeField] private float _aimRange;
         
+        [Header("SFX")]
+        [SerializeField] private SFXPlayer _sfxPlayer;
+        [SerializeField] private AK.Wwise.Event _stickGuard;
+        
         private List<IHackable> _foundTargetHackables;
         private Transform _automaticAimCurrentTarget;
         private IHackable _automaticAimCurrentTargetHackable;
@@ -103,6 +107,7 @@ namespace Combat
             }
             else
             {
+                _sfxPlayer.PlaySFX(_stickGuard);
                 _animator.SetParameterValue("isAimingMelee", true);
                 _meleeWeaponGameObject.SetActive(true);
             }
@@ -261,6 +266,8 @@ namespace Combat
                     //TODO: Faz essa porra direito, não bota pra desligar a melee aqui se estiver atacando. Se estiver, tem que terminar a anim antes, animal
                     _meleeWeaponGameObject.SetActive(false);
                     _animator.SetParameterValue("isAimingMelee", false);
+                    
+                    _sfxPlayer.StopSFX(_stickGuard);
                 }
                 else
                 {
@@ -301,6 +308,8 @@ namespace Combat
         {
             _meleeWeaponGameObject.SetActive(false);
             _animator.SetParameterValue("isAimingMelee", false);
+            
+            _sfxPlayer.StopSFX(_stickGuard);
         }
 
         private void MoveStarted(Vector2 movementInput)

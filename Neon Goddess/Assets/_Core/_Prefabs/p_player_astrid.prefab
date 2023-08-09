@@ -1368,6 +1368,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _aimRange: 4
+  _sfxPlayer: {fileID: 7581601950886052213}
+  _stickGuard:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e65dfcc2a0f69ce46a0a19fdb812bbe1,
+      type: 2}
   _animator: {fileID: 7758867608645911423}
   lightningVFX: {fileID: 6874193728444769123}
 --- !u!114 &8398902877504340519
@@ -1415,6 +1421,26 @@ MonoBehaviour:
   _animator: {fileID: 7758867608645911423}
   _shotsOrigin: {fileID: 4501916402718172192}
   _shootingSfxPlayer: {fileID: 7581601950886052213}
+  _stickSwing:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: ae2f41c875a3f6647ba3c3ba728857e0,
+      type: 2}
+  _gunHit:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5f771496f7f26d2488ac01db7cb60cf6,
+      type: 2}
+  _stickHit:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: eb5cf114709a3e64dbf56477b7e4a691,
+      type: 2}
+  _stickHitRTPC:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4c27134f7fd875645ba80e6c02470bae,
+      type: 2}
   _weaponEquipped: 0
   _weapon: {fileID: 11400000, guid: 4d3f57fc0fa97ac40a407f167c11182b, type: 2}
   _hittableLayerMask:
@@ -1425,7 +1451,6 @@ MonoBehaviour:
   _maxMeleeRange: 3
   _fakeMuzzleEffect: {fileID: 2672444852066388087}
   _muzzleEffectTime: 0.1
-  _playerStateObserver: {fileID: 0}
 --- !u!114 &4177875828851857247
 MonoBehaviour:
   m_ObjectHideFlags: 0
