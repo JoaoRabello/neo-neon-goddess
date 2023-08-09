@@ -29,6 +29,11 @@ public class AimCrossHairManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+    private void OnDestroy()
+    {
+        Instance = null;
+    }
 
     public void CancelAim()
     {

@@ -19,6 +19,11 @@ public class PlayerInventoryObserver : MonoBehaviour
             Destroy(this);
         }
     }
+    
+    private void OnDestroy()
+    {
+        Instance = null;
+    }
 
     public bool TryConsumeItem(Item item)
     {

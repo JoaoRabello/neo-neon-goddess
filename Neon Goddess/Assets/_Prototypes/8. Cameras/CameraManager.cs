@@ -39,6 +39,11 @@ public class CameraManager : MonoBehaviour
             // _cameraButtons.Add(cameraButton);
         }
     }
+    
+    private void OnDestroy()
+    {
+        Instance = null;
+    }
 
     private void Start()
     {

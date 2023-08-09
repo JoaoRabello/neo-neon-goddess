@@ -32,6 +32,11 @@ namespace Inputs
             _inputActions = new InputActions();
         }
 
+        private void OnDestroy()
+        {
+            Instance = null;
+        }
+
         private void OnEnable()
         {
             _inputActions.Astrid.Escape.performed += OnEscapePerformed;

@@ -117,6 +117,11 @@ namespace Player
                 Destroy(this);
             }
         }
+        
+        private void OnDestroy()
+        {
+            Instance = null;
+        }
 
         /// <summary>
         /// Configure every event to their respective observed objects

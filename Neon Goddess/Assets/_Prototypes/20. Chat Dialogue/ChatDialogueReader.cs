@@ -38,6 +38,11 @@ public class ChatDialogueReader : MonoBehaviour
         }
     }
     
+    private void OnDestroy()
+    {
+        Instance = null;
+    }
+    
     private void OnEnable()
     {
         PlayerInputReader.Instance.InteractPerformed += OnInteractPerformed;

@@ -26,6 +26,11 @@ public class CutsceneManager : MonoBehaviour
         }
     }
     
+    private void OnDestroy()
+    {
+        Instance = null;
+    }
+    
     public void PlayCutscene()
     {
         _cameraManager.SelectCamera(_testCamera);
