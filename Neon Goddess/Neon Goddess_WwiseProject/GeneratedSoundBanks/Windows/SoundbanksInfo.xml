@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="61209211">
+		<SoundBank Id="534561221" Language="SFX" Hash="4062497062">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
@@ -196,7 +196,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3749656831" Name="presenceSound" ObjectPath="\Events\Default Work Unit\Awareness Events\Enemy Awareness Sound\presenceSound" MaxAttenuation="100." DurationType="Infinite">
+				<Event Id="3749656831" Name="presenceSound" ObjectPath="\Events\Default Work Unit\Awareness Events\Enemy Awareness Sound\presenceSound" MaxAttenuation="15." DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="872065834" Language="SFX">
 							<ShortName>Voices in the Radio Full.wav</ShortName>
@@ -212,7 +212,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1510770975" Name="radioVoices" ObjectPath="\Events\Default Work Unit\SFX Events\SpecialEvents\radioVoices" MaxAttenuation="100." DurationType="Infinite">
+				<Event Id="1510770975" Name="radioVoices" ObjectPath="\Events\Default Work Unit\SFX Events\SpecialEvents\radioVoices" MaxAttenuation="15." DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="872065834" Language="SFX">
 							<ShortName>Voices in the Radio Full.wav</ShortName>
@@ -280,7 +280,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1563548634" Name="stepEventRobbie" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEventRobbie" MaxAttenuation="100." DurationType="OneShot" DurationMin="0.046979" DurationMax="0.046979">
+				<Event Id="1563548634" Name="stepEventRobbie" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEventRobbie" MaxAttenuation="15." DurationType="OneShot" DurationMin="0.046979" DurationMax="0.046979">
 					<IncludedMemoryFiles>
 						<File Id="374130843" Language="SFX">
 							<ShortName>RobbieStep.wav</ShortName>
