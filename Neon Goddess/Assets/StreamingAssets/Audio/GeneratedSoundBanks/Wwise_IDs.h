@@ -33,9 +33,13 @@ namespace AK
         static const AkUniqueID EVENTVOICEYOHANNAASSISTENT = 865037345U;
         static const AkUniqueID GHOSTINTHEMETRO = 539542031U;
         static const AkUniqueID HACKGUNSHOOT = 4099961397U;
+        static const AkUniqueID PAINGRUNT = 3441559445U;
         static const AkUniqueID PRESENCESOUND = 3749656831U;
         static const AkUniqueID QUANTUMSCREAMING = 1464182441U;
         static const AkUniqueID RADIOVOICES = 1510770975U;
+        static const AkUniqueID ROBBIEGRAB = 2723644948U;
+        static const AkUniqueID ROBBIESTAB = 11002050U;
+        static const AkUniqueID ROBBIESTABHIT = 3318281901U;
         static const AkUniqueID STEPEVENT = 3035224157U;
         static const AkUniqueID STEPEVENTTEMP = 36201819U;
         static const AkUniqueID UICANCEL = 1933252553U;

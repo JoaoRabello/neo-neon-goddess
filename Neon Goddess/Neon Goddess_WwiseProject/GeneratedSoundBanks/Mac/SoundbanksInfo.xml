@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="3409023045">
+		<SoundBank Id="534561221" Language="SFX" Hash="2745550966">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
@@ -188,6 +188,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3441559445" Name="painGrunt" ObjectPath="\Events\Default Work Unit\Awareness Events\Health Events\painGrunt" DurationType="OneShot" DurationMin="0.156213" DurationMax="0.156213">
+					<IncludedMemoryFiles>
+						<File Id="1037918519" Language="SFX">
+							<ShortName>painGrunt.wav</ShortName>
+							<Path>SFX\painGrunt_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3749656831" Name="presenceSound" ObjectPath="\Events\Default Work Unit\Awareness Events\Enemy Awareness Sound\presenceSound" MaxAttenuation="100." DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="872065834" Language="SFX">
@@ -209,6 +217,30 @@
 						<File Id="872065834" Language="SFX">
 							<ShortName>Voices in the Radio Full.wav</ShortName>
 							<Path>SFX\Voices in the Radio Full_1583B490.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2723644948" Name="robbieGrab" ObjectPath="\Events\Default Work Unit\SFX Events\enemyEvents\robbieGrab" DurationType="OneShot" DurationMin="1.722494" DurationMax="1.722494">
+					<IncludedMemoryFiles>
+						<File Id="971140568" Language="SFX">
+							<ShortName>RobbieGrab.wav</ShortName>
+							<Path>SFX\RobbieGrab_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="11002050" Name="robbieStab" ObjectPath="\Events\Default Work Unit\SFX Events\enemyEvents\robbieStab" DurationType="OneShot" DurationMin="0.270771" DurationMax="0.270771">
+					<IncludedMemoryFiles>
+						<File Id="210247289" Language="SFX">
+							<ShortName>RobbieStab.wav</ShortName>
+							<Path>SFX\RobbieStab_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3318281901" Name="robbieStabHit" ObjectPath="\Events\Default Work Unit\SFX Events\enemyEvents\robbieStabHit" DurationType="OneShot" DurationMin="0.675458" DurationMax="0.675458">
+					<IncludedMemoryFiles>
+						<File Id="95647973" Language="SFX">
+							<ShortName>RobbieStabHit.wav</ShortName>
+							<Path>SFX\RobbieStabHit_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
