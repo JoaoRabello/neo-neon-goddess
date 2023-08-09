@@ -81,7 +81,7 @@ public class HealthSystem : MonoBehaviour
     {
         if (_currentPhysicalHealth > 0)
         {
-            _animator.PlayAnimation("Damage", 0);
+            //_animator.PlayAnimation("Damage", 0);
         }
         else
         {

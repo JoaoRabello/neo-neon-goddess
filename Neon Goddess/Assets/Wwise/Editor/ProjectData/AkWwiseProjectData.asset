@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: a6ead49771989b41ac95046be69a4143
     GuidInternal: 
-    m_lastTime: -8585203524685432264
+    m_lastTime: -8585118016434367986
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: aca27ecb43a417478e1289c52057adf9
     GuidInternal: 
-    m_lastTime: -8585105027040083861
+    m_lastTime: -8585104451468885838
     List:
     - name: ambienceBus
       guid: 481b870385f7b04d9067436d52066127
@@ -191,7 +191,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 291bed8b33d94b4dac16d5e30d3beea2
     GuidInternal: 
-    m_lastTime: -8585100768448889453
+    m_lastTime: -8585100686577130447
     List:
     - name: mainSoundBank
       guid: d7bbfefaf3d3aa46ae8514386f26a35f
@@ -219,7 +219,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 8707201672ff4b4696a8d320381f6a5a
     GuidInternal: 
-    m_lastTime: -8585100768448979474
+    m_lastTime: -8585100686579411045
     List:
     - name: Ambience Events
       guid: 5a7949201260d84d93ffe419fbb29ccb
@@ -399,8 +399,8 @@ MonoBehaviour:
         guid: 627bb70af9044140840644d5712ed6d8
       Path: Events\Default Work Unit\SFX Events\doorEvents\doorSlideClose
       maxAttenuation: 0
-      maxDuration: 1.125021
-      minDuration: 1.125021
+      maxDuration: 0.874078
+      minDuration: 0.874078
     - name: doorSlideOpen
       guid: b801c5871d5ae74c8f4ab5f4a7599b4b
       id: 3388975760
@@ -422,8 +422,8 @@ MonoBehaviour:
         guid: b801c5871d5ae74c8f4ab5f4a7599b4b
       Path: Events\Default Work Unit\SFX Events\doorEvents\doorSlideOpen
       maxAttenuation: 0
-      maxDuration: 1.727104
-      minDuration: 1.727104
+      maxDuration: 0.950732
+      minDuration: 0.950732
     - name: eletricStickEvents
       guid: fb16d98ad61ef742918c22475d663468
       id: 2543563396
@@ -1052,7 +1052,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: 1137a876e61fa94a912b1a50188397f3
       Path: Events\Default Work Unit\SFX Events\movementEvent\stepEvent
-      maxAttenuation: 0
+      maxAttenuation: 100
       maxDuration: 0.701896
       minDuration: 0.019544
     - name: stepEventRobbie
@@ -1098,7 +1098,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: 99a6f12c67227748809d24c96f35a034
       Path: Events\Default Work Unit\SFX Events\movementEvent\stepEventTemp
-      maxAttenuation: 0
+      maxAttenuation: 100
       maxDuration: 0.041337
       minDuration: 0.019544
     - name: uiCancel
@@ -1164,6 +1164,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: uiPickUp
+      guid: f22175138bbd2c40b2334f199b961566
+      id: 2191038231
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: UIEvents
+        ObjectType: 4
+        guid: 672189576faa69459dce1c48c73cc6d1
+      - ElementName: General Sounds
+        ObjectType: 4
+        guid: 5ceb73569514c341a7d42f6ffa04a10e
+      - ElementName: uiPickUp
+        ObjectType: 3
+        guid: f22175138bbd2c40b2334f199b961566
+      Path: Events\Default Work Unit\UIEvents\General Sounds\uiPickUp
+      maxAttenuation: 0
+      maxDuration: 0.536236
+      minDuration: 0.536236
     - name: uiSelection
       guid: 5ce1b2feeb811c46abf6313a571355e7
       id: 2454203527
@@ -1219,7 +1242,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: b4d32a08d5d398448a9d266b95a7ce94
     GuidInternal: 
-    m_lastTime: -8585100768448839443
+    m_lastTime: -8585100715999901252
     List:
     - name: ambienceBusController
       guid: 71d28ffc305ffc45ba7b5b4b79060f2a
@@ -1654,7 +1677,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: a13717c7254d9b4fb705e721ec38d50d
     GuidInternal: 
-    m_lastTime: -8585203524685442245
+    m_lastTime: -8585118016434377984
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -1847,7 +1870,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: de2d5a3a4d468f43b43e80a1e4c5b898
     GuidInternal: 
-    m_lastTime: -8585203524685442245
+    m_lastTime: -8585118016434367986
     List: []
   ExpandedFileSystemItemIds: 3000000031000000
   ExpandedWaapiItemIds: 
