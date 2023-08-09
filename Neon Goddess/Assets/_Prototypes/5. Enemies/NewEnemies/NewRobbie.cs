@@ -29,6 +29,7 @@ public class NewRobbie : MonoBehaviour
     private float _currentSpeed;
     
     private bool _foundPlayer;
+    private bool _canMove = true;
     private Transform _player;
     private Vector3 _basePosition;
 
@@ -92,9 +93,8 @@ public class NewRobbie : MonoBehaviour
 
     private void Move(Vector3 desiredPosition)
     {
-        // transform.position = Vector3.MoveTowards(transform.position, desiredPosition, _currentSpeed * Time.deltaTime);
-        // transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-
+        if(!_canMove) return;
+        
         _navMeshAgent.SetDestination(desiredPosition);
 
         _animator.SetParameterValue("isWalking", true);
@@ -166,8 +166,11 @@ public class NewRobbie : MonoBehaviour
     private IEnumerator AttackCooldown(bool basicAttack)
     {
         _startedAttackCooldown = true;
+        _canMove = false;
 
         yield return new WaitForSeconds(0.1f);
+        
+        _navMeshAgent.SetDestination(transform.position);
 
         _attackCooldown = true;
         _currentSpeed = _speed;
@@ -200,6 +203,8 @@ public class NewRobbie : MonoBehaviour
         
         _attackCooldown = false;
         _startedAttackCooldown = false;
+        
+        _canMove = true;
     }
 
     private void OnHacked()
