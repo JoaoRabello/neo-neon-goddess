@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DeathScreen : MonoBehaviour
 {
     [SerializeField] private PlayerStateObserver _observer;
-    [SerializeField] private GameObject _button;
+    [SerializeField] private GameObject endScreen;
     private Image _image;
     private bool started;
 
@@ -30,11 +30,12 @@ public class DeathScreen : MonoBehaviour
     IEnumerator FadeImg()
     {
         yield return new WaitForSeconds(5);
-        for (float i = 0; i <= 1.2f; i += Time.deltaTime)
+        for (float i = 0; i <= 1.2f; i += 3*Time.deltaTime)
         {
             _image.color = new Color(0, 0, 0, i);
             yield return null;
         }
-        _button.SetActive(true);
+        endScreen.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
