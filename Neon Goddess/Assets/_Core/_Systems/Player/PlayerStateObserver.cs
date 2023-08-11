@@ -208,6 +208,9 @@ namespace Player
         public void OnPlayerDeath()
         {
             if (_currentState == PlayerState.Aiming) { OnAimEnd(); }
+            
+            AkSoundEngine.StopAll();
+
             StateStart(PlayerState.Dead);
             PlayerDied?.Invoke();
         }
