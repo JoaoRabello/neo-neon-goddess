@@ -86,7 +86,7 @@ public class NewRobbie : MonoBehaviour
             
             RotateTowards(_player.position);
 
-            Attack();
+            StartAttackRoutine();
         }
         else
         {
@@ -145,7 +145,7 @@ public class NewRobbie : MonoBehaviour
         RotateTowards(targetPosition);
     }
 
-    private void Attack()
+    private void StartAttackRoutine()
     {
         if (_startedAttackCooldown) return;
 
@@ -180,29 +180,10 @@ public class NewRobbie : MonoBehaviour
         
         // _navMeshAgent.SetDestination(transform.position);
 
+        _animator.SetParameterValue("isAttacking", true);
+        
         _attackCooldown = true;
         _currentSpeed = _speed;
-
-        var playerHealth = _player.GetComponent<HealthSystem>();
-
-        if (basicAttack)
-        {
-            _animator.SetParameterValue("isAttacking", true);
-
-            playerHealth.TakePhysicalDamage(2);
-        }
-        else
-        {
-            _animator.SetParameterValue("isSpecialAttacking", true);
-            if (playerHealth.CurrentPhysicalHealth > 1)
-            {
-                playerHealth.TakeDirectSetPhysicalDamage(1);
-            }
-            else
-            {
-                playerHealth.TakePhysicalDamage(2);
-            }
-        }
 
         yield return new WaitForSeconds(3);
         
@@ -213,6 +194,41 @@ public class NewRobbie : MonoBehaviour
         _startedAttackCooldown = false;
         
         // _canMove = true;
+    }
+
+    public void TryAttack()
+    {
+        var front = (_player.position - transform.position).normalized;
+        var dot = Vector3.Dot(front, transform.forward);
+        var distance = Vector3.Distance(transform.position, _player.position);
+        
+        if(distance >= 1.5f) return;
+        if(dot < 0.8f) return;
+        
+        DamagePlayer();
+    }
+
+    private void DamagePlayer()
+    {
+        var playerHealth = _player.GetComponent<HealthSystem>();
+
+        // if (basicAttack)
+        // {
+            playerHealth.TakePhysicalDamage(2);
+        // }
+        //TODO: Colocar esse codigo de volta quando usarmos o ataque especial
+        // else
+        // {
+        //     _animator.SetParameterValue("isSpecialAttacking", true);
+        //     if (playerHealth.CurrentPhysicalHealth > 1)
+        //     {
+        //         playerHealth.TakeDirectSetPhysicalDamage(1);
+        //     }
+        //     else
+        //     {
+        //         playerHealth.TakePhysicalDamage(2);
+        //     }
+        // }
     }
 
     private void OnHacked()

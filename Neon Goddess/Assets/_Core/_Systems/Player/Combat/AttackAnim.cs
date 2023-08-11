@@ -6,14 +6,13 @@ using UnityEngine;
 
 public class AttackAnim : MonoBehaviour
 {
-    [SerializeField] private CharacterAnimator _animator;
-    [SerializeField] private PlayerStateObserver _observer;
-    // Start is called before the first frame update
+    [SerializeField] private NewRobbie _robbie;
+    
     void AttackAnimate()
     {
-        if (_observer.CurrentState != PlayerStateObserver.PlayerState.Dead)
+        if (PlayerStateObserver.Instance.CurrentState != PlayerStateObserver.PlayerState.Dead)
         {
-            _animator.PlayAnimation("Damage", 0);
+            _robbie.TryAttack();
         }
     }
 }
