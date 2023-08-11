@@ -8,6 +8,7 @@ public class PickableItem : MonoBehaviour
 {
     [SerializeField] private Item _item;
     [SerializeField] private int _amount;
+    [SerializeField] private GameObject dialogue;
     private InventoryHolder _playerInventoryHolder;
     private InputActions _inputActions;
 
@@ -37,6 +38,7 @@ public class PickableItem : MonoBehaviour
         if (!_playerInventoryHolder.TryAddItem(_item, _amount)) return;
         
         Destroy(gameObject);
+        dialogue.SetActive(false);
     }
     
     private void OnTriggerEnter(Collider other)
