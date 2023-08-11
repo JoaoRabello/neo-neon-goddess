@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: a6ead49771989b41ac95046be69a4143
     GuidInternal: 
-    m_lastTime: -8585203524685432264
+    m_lastTime: -8585118016434367986
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: aca27ecb43a417478e1289c52057adf9
     GuidInternal: 
-    m_lastTime: -8585105748653947608
+    m_lastTime: -8585104451468885838
     List:
     - name: ambienceBus
       guid: 481b870385f7b04d9067436d52066127
@@ -191,7 +191,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 291bed8b33d94b4dac16d5e30d3beea2
     GuidInternal: 
-    m_lastTime: -8585100523136219308
+    m_lastTime: -8585098321600377402
     List:
     - name: mainSoundBank
       guid: d7bbfefaf3d3aa46ae8514386f26a35f
@@ -219,7 +219,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 8707201672ff4b4696a8d320381f6a5a
     GuidInternal: 
-    m_lastTime: -8585100523136307489
+    m_lastTime: -8585100128556648526
     List:
     - name: Ambience Events
       guid: 5a7949201260d84d93ffe419fbb29ccb
@@ -992,7 +992,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: 421f8622fcf0ec45bb90c4baae89a8e2
       Path: Events\Default Work Unit\Awareness Events\Enemy Awareness Sound\presenceSound
-      maxAttenuation: 100
+      maxAttenuation: 15
       maxDuration: -1
       minDuration: -1
     - name: quantumScreaming
@@ -1035,7 +1035,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: 48c41e09fbeb204293fe5754711fd502
       Path: Events\Default Work Unit\SFX Events\SpecialEvents\radioVoices
-      maxAttenuation: 100
+      maxAttenuation: 15
       maxDuration: -1
       minDuration: -1
     - name: robbieGrab
@@ -1187,9 +1187,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: 8a0ceb2ff6b9fc43a83d421fa4383932
       Path: Events\Default Work Unit\SFX Events\movementEvent\stepEventRobbie
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxAttenuation: 15
+      maxDuration: 0.046979
+      minDuration: 0.046979
     - name: stepEventTemp
       guid: 99a6f12c67227748809d24c96f35a034
       id: 36201819
@@ -1789,7 +1789,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: a13717c7254d9b4fb705e721ec38d50d
     GuidInternal: 
-    m_lastTime: -8585203524685442245
+    m_lastTime: -8585118016434377984
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -1803,7 +1803,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 1b41e7b266cd6441a17fcd0aae3921c5
     GuidInternal: 
-    m_lastTime: -8585105748651792452
+    m_lastTime: -8585104451462268053
     List:
     - name: hackSwitchGroup
       guid: 736c2a60cfeae642a8f316870f86154e
@@ -1982,7 +1982,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: de2d5a3a4d468f43b43e80a1e4c5b898
     GuidInternal: 
-    m_lastTime: -8585203524685442245
+    m_lastTime: -8585118016434367986
     List: []
   ExpandedFileSystemItemIds: 0100000002000000030000000400000005000000070000000a000000100000001200000016000000170000001800000022000000230000002400000025000000280000002900000038000000390000003a0000003b0000004000000043000000450000004600000048000000490000004a0000004c00000052000000550000005600000061000000
   ExpandedWaapiItemIds: 
