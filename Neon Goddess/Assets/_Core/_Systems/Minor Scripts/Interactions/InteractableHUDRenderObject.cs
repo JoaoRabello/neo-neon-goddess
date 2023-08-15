@@ -35,10 +35,17 @@ public class InteractableHUDRenderObject : MonoBehaviour
         {
             case IInteractable.InteractableType.Common:
             case IInteractable.InteractableType.Dialogue:
-                _image.sprite = _newInteractionIcon;
+                _image.sprite = interactable.HasInteractedOnce() ? _oldInteractionIcon : _newInteractionIcon;
                 break;
             case IInteractable.InteractableType.Door:
-                _image.sprite = _openDoorIcon;
+                if (interactable.IsLocked())
+                {
+                    _image.sprite = _closedDoorIcon;
+                }
+                else
+                {
+                    _image.sprite = _openDoorIcon;
+                }
                 break;
             case IInteractable.InteractableType.ShutDoor:
                 _image.sprite = _shutDoorIcon;

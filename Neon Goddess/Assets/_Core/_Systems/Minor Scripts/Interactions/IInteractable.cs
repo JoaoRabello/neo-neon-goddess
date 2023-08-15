@@ -14,4 +14,6 @@ public interface IInteractable
 
     public void Interact();
     public InteractableType GetType();
+    public bool HasInteractedOnce();
+    public bool IsLocked();
 }

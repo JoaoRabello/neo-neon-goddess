@@ -127,6 +127,7 @@ public class ChatDialogueReader : MonoBehaviour
     {
         _onDialogue = true;
         _currentDialogue = dialogue;
+        dialogue.ResetNodeLookup();
         _currentDialogueNode = dialogue.GetRootNode();
 
         PlayerStateObserver.Instance.OnDialogueStart();
