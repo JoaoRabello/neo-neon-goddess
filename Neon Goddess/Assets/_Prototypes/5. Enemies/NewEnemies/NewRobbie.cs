@@ -17,6 +17,9 @@ public class NewRobbie : MonoBehaviour
     [SerializeField] private float _range;
     [SerializeField] private float _speed;
     
+    [Header("Key Drop Item")]
+    [SerializeField] private GameObject _keyDropItem;
+    
     [Header("Health System")]
     [SerializeField] private RobotHealthSystem _healthSystem;
     
@@ -234,6 +237,9 @@ public class NewRobbie : MonoBehaviour
     private void OnHacked()
     {
         Stop();
+
+        _keyDropItem.transform.position = transform.position + transform.forward;
+        _keyDropItem.SetActive(true);
     }
 
     private void OnDrawGizmos()
