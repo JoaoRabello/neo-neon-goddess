@@ -51,6 +51,16 @@ public class DialogueInteractableObject : MonoBehaviour, IInteractable
         return _interactableType;
     }
 
+    public bool HasInteractedOnce()
+    {
+        return _interactionCount > 0;
+    }
+
+    public bool IsLocked()
+    {
+        return false;
+    }
+
     private Dialogue GetRandomDialogue()
     {
         return _dialogues[Random.Range(0, _dialogues.Length)];

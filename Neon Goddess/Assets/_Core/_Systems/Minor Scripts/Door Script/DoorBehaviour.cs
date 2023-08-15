@@ -42,6 +42,16 @@ public class DoorBehaviour : MonoBehaviour, IInteractable
         return _interactableType;
     }
 
+    public bool HasInteractedOnce()
+    {
+        return false;
+    }
+
+    public bool IsLocked()
+    {
+        return false;
+    }
+
     void Update()
     {
         if (doorIsMoving)

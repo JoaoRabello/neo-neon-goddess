@@ -4,51 +4,42 @@ using System.Collections.Generic;
 using Inputs;
 using UnityEngine;
 
-public class DoorLock : MonoBehaviour
+public class DoorLock : MonoBehaviour, IInteractable
 {
     [SerializeField] private KeyItem _key;
     public DoorShaderScript doorShaderScript;
     public GameObject referenceDoor;
-    public bool isOnRange = false;
-   
     
     private void Awake()
     {
         doorShaderScript = referenceDoor.GetComponent<DoorShaderScript>();
-        doorShaderScript.doorStatus = false; }
-    private void OnEnable()
-    {
-        PlayerInputReader.Instance.InteractPerformed += TryOpen;
-    }
-    
-    private void OnDisable()
-    {
-        PlayerInputReader.Instance.InteractPerformed -= TryOpen;
+        doorShaderScript.doorStatus = false; 
     }
 
     private void TryOpen()
     {
-        if (!isOnRange) return;
         if (!PlayerInventoryObserver.Instance.TryConsumeItem(_key)) return;
         doorShaderScript.doorStatus = true;
-                        
+        gameObject.SetActive(false);
     }
-    void OnTriggerEnter(Collider other)
+
+    public void Interact()
     {
-        if (other.CompareTag("Player"))
-        {
-            isOnRange = true;
-        }
+        TryOpen();
     }
 
-    void OnTriggerExit(Collider other)
+    public IInteractable.InteractableType GetType()
     {
-        if (other.CompareTag("Player"))
-        {
-            isOnRange = false;
-
-        }
+        return IInteractable.InteractableType.Door;
     }
 
- 
+    public bool HasInteractedOnce()
+    {
+        return false;
+    }
+
+    public bool IsLocked()
+    {
+        return !doorShaderScript.doorStatus;
+    }
 }

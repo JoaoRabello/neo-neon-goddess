@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7218782097266904431}
   - component: {fileID: 3682155418220668662}
   - component: {fileID: 1750349852835380217}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2791385280772095734}
   m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -738,7 +738,7 @@ GameObject:
   - component: {fileID: 522512159663821015}
   - component: {fileID: 8930663563737268188}
   - component: {fileID: 2510390927568837786}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: KeyInterectionTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -752,9 +752,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4761837702092117178}
-  m_LocalRotation: {x: -0, y: 1, z: -0.0000000051712594, w: 0}
-  m_LocalPosition: {x: -20.415, y: 0.4799, z: 4.057}
-  m_LocalScale: {x: 0.6100002, y: 1, z: 3.230001}
+  m_LocalRotation: {x: 0, y: 0.9971852, z: -0, w: -0.074978724}
+  m_LocalPosition: {x: -20.807, y: 1.57, z: 4.12}
+  m_LocalScale: {x: 0.6100002, y: 1, z: 1.2731372}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 933557901725993663}
@@ -776,7 +776,6 @@ MonoBehaviour:
   _key: {fileID: 11400000, guid: 11c5d0b3d5f19e74fb9cd3ce732ad75f, type: 2}
   doorShaderScript: {fileID: 982597319298758592}
   referenceDoor: {fileID: 3002395744450863898}
-  isOnRange: 0
 --- !u!54 &2510390927568837786
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -805,7 +804,7 @@ GameObject:
   - component: {fileID: 5995916457440645102}
   - component: {fileID: 5995916457440645101}
   - component: {fileID: 5995916457440645100}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,7 +819,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5995916457440645098}
   m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -901,7 +900,7 @@ GameObject:
   - component: {fileID: 5995916458583034094}
   - component: {fileID: 5995916458583034095}
   - component: {fileID: 5995916458583034080}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ' Door Trigger '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,15 +914,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5995916458583034093}
-  m_LocalRotation: {x: -0, y: 1, z: -0.0000000051712594, w: 0}
-  m_LocalPosition: {x: -20.245, y: 0.4799, z: 4.126}
-  m_LocalScale: {x: 0.6100002, y: 1, z: 3.230001}
+  m_LocalRotation: {x: 0, y: 0.9971852, z: -0, w: -0.074978724}
+  m_LocalPosition: {x: -20.807, y: 1.57, z: 4.12}
+  m_LocalScale: {x: 0.72498524, y: 1, z: 1.2731372}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5995916457440645103}
   m_Father: {fileID: 3002395744450863897}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 188.6, z: 0}
 --- !u!114 &5995916458583034095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,6 +935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 898996aeebb49db438fb91aa0e31f3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactableType: 0
   door: {fileID: 3002395744230751222}
   doorMoveDistancex: 0
   doorMoveDistancey: 0

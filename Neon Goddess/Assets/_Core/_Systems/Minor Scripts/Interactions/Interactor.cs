@@ -53,11 +53,16 @@ public class Interactor : MonoBehaviour
         for (var index = 0; index < interactableObjectCount; index++)
         {
             var interactableCollider = interactableColliders[index];
-            var interactable = interactableCollider.GetComponent<IInteractable>();
+            IInteractable interactable;
+            
+            if (!interactableCollider.TryGetComponent(out interactable))
+            {
+                if(!interactableCollider.transform.parent.TryGetComponent(out interactable)) continue;
+            }
             
             if (index == 0)
             {
-                _currentInteractable = interactableColliders[0].GetComponent<IInteractable>();
+                _currentInteractable = interactable;
             }
             
             InteractableHUDManager.Instance.AddObject(interactable, interactableCollider.transform);
