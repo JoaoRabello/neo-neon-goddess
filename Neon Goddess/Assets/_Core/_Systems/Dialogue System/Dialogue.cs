@@ -20,6 +20,16 @@ public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
         }
     }
 
+    public void ResetNodeLookup()
+    {
+        _nodeLookup = new Dictionary<string, DialogueNode>();
+
+        foreach (var node in GetAllNodes())
+        {
+            _nodeLookup[node.name] = node;
+        }
+    }
+
     public IEnumerable<DialogueNode> GetAllNodes()
     {
         return _nodes;
