@@ -8,6 +8,9 @@ using Random = UnityEngine.Random;
 
 public class DialogueInteractableObject : MonoBehaviour, IInteractable
 {
+    [Header("Interaction")]
+    [SerializeField] private IInteractable.InteractableType _interactableType;
+    
     [Header("Dialogue Pool")]
     [SerializeField] private Dialogue[] _dialogues;
     
@@ -41,6 +44,11 @@ public class DialogueInteractableObject : MonoBehaviour, IInteractable
         }
 
         _interactionCount++;
+    }
+
+    public IInteractable.InteractableType GetType()
+    {
+        return _interactableType;
     }
 
     private Dialogue GetRandomDialogue()

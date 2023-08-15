@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class doorBehavor : MonoBehaviour
+public class DoorBehaviour : MonoBehaviour, IInteractable
 {
+    [SerializeField] private IInteractable.InteractableType _interactableType;
+    
     public GameObject door;
-    //public GameObject triggerObject;
     public float doorMoveDistancex ;
     public float doorMoveDistancey;
     public float doorMoveDistancez;
@@ -18,51 +19,31 @@ public class doorBehavor : MonoBehaviour
     public bool doorIsMoving = false;
     public float speed = 10.0f;
     private bool doorIsOpen = false;
+
     void Start()
     {
         initialPosition = door.transform.position;
     }
 
-    
-
-    private void Awake()
-    {
-        _inputActions = new InputActions();
-    }
-
-    private void OnEnable()
-    {
-        _inputActions.Prototype.Interact.performed += OnInteractPerformed;
-
-        _inputActions.Enable();
-    }
-
-    private void OnDisable()
-    {
-        _inputActions.Prototype.Interact.performed -= OnInteractPerformed;
-
-        _inputActions.Disable();
-    }
-
-    private void OnDialogueEnded()
-    {
-        _inputActions.Enable();
-    }
-
-    private void OnInteractPerformed(InputAction.CallbackContext context)
+    public void Interact()
     {
         Debug.Log("doorIsMoving: " + doorIsMoving);
         Debug.Log("isPlayerInsideTrigger: " + isPlayerInsideTrigger);
         Debug.Log("OnInteractPerformed called");
-        if (isPlayerInsideTrigger == true && !doorIsMoving)
+        if (isPlayerInsideTrigger && !doorIsMoving)
         {
             AkSoundEngine.PostEvent("doorSlideOpen", gameObject);
             MoveDoor();
         }
     }
+
+    public IInteractable.InteractableType GetType()
+    {
+        return _interactableType;
+    }
+
     void Update()
     {
-
         if (doorIsMoving)
         {
             door.transform.position = Vector3.Lerp(door.transform.position, targetPosition, speed * Time.deltaTime);
@@ -72,27 +53,21 @@ public class doorBehavor : MonoBehaviour
             }
         }
     }
-     void MoveDoor()
-     {
+    
+    void MoveDoor()
+    {
         Debug.Log("MoveDoor called");
         if (doorIsOpen)
         {
             targetPosition = initialPosition;
         }
-       else
+        else
         {
             targetPosition = initialPosition + new Vector3(doorMoveDistancex, doorMoveDistancey, doorMoveDistancez);
         }
         doorIsOpen = !doorIsOpen;
         doorIsMoving = true;
     }
-
-  
-
-   /* void ResetDoor()
-    {
-        door.transform.position = initialPosition;
-    }*/
 
     void OnTriggerEnter(Collider other)
     {
@@ -110,13 +85,10 @@ public class doorBehavor : MonoBehaviour
             //ResetDoor();
             AkSoundEngine.PostEvent("doorSlideClose", gameObject);
             MoveDoor();
-
         }
         else if (other.CompareTag("Player"))
         {
             isPlayerInsideTrigger = false;
         }
-        
-
     }
 }
