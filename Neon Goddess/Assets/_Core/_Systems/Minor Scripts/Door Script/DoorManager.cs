@@ -34,7 +34,6 @@ public class DoorManager : MonoBehaviour, IInteractable
     private bool _locked => LockedDoor;
     private bool _open = false;
     private int _interactionCount;
-    private bool isPlayerInsideTrigger;
     private Vector3 initialPosition;
     private Vector3 targetPosition;
 
@@ -80,7 +79,7 @@ public class DoorManager : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (isPlayerInsideTrigger && !doorMoving)
+        if (!doorMoving)
         {
             AkSoundEngine.PostEvent("doorSlideOpen", gameObject);
             Open();
@@ -106,13 +105,13 @@ public class DoorManager : MonoBehaviour, IInteractable
             LockedDoor = false;
             return true;
         }
-        return false; 
+        return false;
     }
     public void Lock()
     {
 
     }
-    
+
     public void Open()
     {
         if (!isLockable)
@@ -138,14 +137,13 @@ public class DoorManager : MonoBehaviour, IInteractable
 
     public void Close()
     {
-        if(_open) 
+        if (_open)
         {
-            MoveDoor();   
+            MoveDoor();
         }
     }
     void MoveDoor()
     {
-        Debug.Log("MoveDoor()");
         if (_open)
         {
             targetPosition = initialPosition;
@@ -156,28 +154,6 @@ public class DoorManager : MonoBehaviour, IInteractable
         }
         _open = !_open;
         doorMoving = true;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerInsideTrigger = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player") && _open == true)
-        {
-            isPlayerInsideTrigger = false;
-            AkSoundEngine.PostEvent("doorSlideClose", gameObject);
-            MoveDoor();
-        }
-        else if (other.CompareTag("Player"))
-        {
-            isPlayerInsideTrigger = false;
-        }
     }
 
     public void shaderUnlocked()
@@ -196,5 +172,14 @@ public class DoorManager : MonoBehaviour, IInteractable
         doorLight.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
         doorLight2.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
         doorShaderRenderer.materials[2].SetInt("_Status", 0);
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player") && _open == true)
+        {
+            AkSoundEngine.PostEvent("doorSlideClose", gameObject);
+            MoveDoor();
+        }
     }
 }
