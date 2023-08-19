@@ -16,6 +16,7 @@ public class DeathScreen : MonoBehaviour
     private void Start()
     {
         _image = GetComponent<Image>();
+        _image.enabled = false;
     }
 
     void Update()
@@ -29,6 +30,7 @@ public class DeathScreen : MonoBehaviour
 
     IEnumerator FadeImg()
     {
+        _image.enabled = true;
         yield return new WaitForSeconds(5);
         for (float i = 0; i <= 1.2f; i += 3*Time.deltaTime)
         {

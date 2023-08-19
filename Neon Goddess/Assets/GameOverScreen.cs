@@ -15,7 +15,6 @@ public class GameOverScreen : MonoBehaviour
     }
     public void PlayAgain()
     {
-        SceneManager.UnloadSceneAsync("Newblockout"); // Unloading current scene
         SceneManager.LoadScene("Newblockout", LoadSceneMode.Single);
     }
 }
