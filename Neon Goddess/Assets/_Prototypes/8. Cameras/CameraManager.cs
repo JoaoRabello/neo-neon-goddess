@@ -10,6 +10,7 @@ public class CameraManager : MonoBehaviour
     // [SerializeField] private CameraButtonObject _cameraButtonPrefab;
     [SerializeField] private List<CameraButtonObject> _cameraButtons;
     [SerializeField] private List<Camera> _cameras;
+    [SerializeField] private Camera _firstCamera;
 
     private void Awake()
     {
@@ -21,23 +22,6 @@ public class CameraManager : MonoBehaviour
         {
             Destroy(this);
         }
-
-        var cameras = FindObjectsOfType<Camera>();
-        _cameras = new List<Camera>();
-        // _cameraButtons = new List<CameraButtonObject>();
-
-        bool isFirstCamera = true;
-        
-        foreach (var foundCamera in cameras)
-        {
-            if(!foundCamera.CompareTag("MainCamera"))
-                foundCamera.gameObject.SetActive(false);
-            
-            _cameras.Add(foundCamera);
-            
-            // var cameraButton = Instantiate(_cameraButtonPrefab, _cameraButtonsParent.transform);
-            // _cameraButtons.Add(cameraButton);
-        }
     }
     
     private void OnDestroy()
@@ -47,12 +31,20 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
-        // for (var index = 0; index < _cameras.Count; index++)
-        // {
-        //     var currentCamera = _cameraButtons[index];
-        //     currentCamera.SetIndex(index);
-        //     currentCamera.OnButtonClicked += SelectCamera;
-        // }
+        var cameras = FindObjectsOfType<Camera>();
+        _cameras = new List<Camera>();
+
+        bool isFirstCamera = true;
+        
+        foreach (var foundCamera in cameras)
+        {
+            foundCamera.gameObject.SetActive(false);
+            
+            _cameras.Add(foundCamera);
+        }
+        
+        _cameras.Add(_firstCamera);
+        _firstCamera.gameObject.SetActive(true);
     }
 
     private void SelectCamera(int index)

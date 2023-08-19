@@ -15,6 +15,8 @@ public class PauseManager : MonoBehaviour
         PlayerInputReader.Instance.EscapePerformed += PausePerformed;
 
         _renderer.OnResumePressed += ResumeFromButton;
+
+        Resume();
     }
 
     private void OnDisable()
