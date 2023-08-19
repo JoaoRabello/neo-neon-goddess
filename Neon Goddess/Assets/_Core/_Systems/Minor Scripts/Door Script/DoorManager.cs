@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -43,6 +44,9 @@ public class DoorManager : MonoBehaviour, IInteractable
     public float doorMoveDistancez;
     public float speed = 10.0f;
 
+    public Action<IInteractable> OnInteractUpdateIcon { get; set; }
+    public Action<IInteractable> OnStateChangeUpdateIcon { get; set; }
+    
     void Start()
     {
         initialPosition = doorObject.transform.position;
@@ -92,7 +96,7 @@ public class DoorManager : MonoBehaviour, IInteractable
         return _locked;
     }
 
-    IInteractable.InteractableType IInteractable.GetType()
+    public IInteractable.InteractableType GetInteractableType()
     {
         return _interactableType;
     }
@@ -103,10 +107,13 @@ public class DoorManager : MonoBehaviour, IInteractable
         {
             if (!PlayerInventoryObserver.Instance.TryConsumeItem(_keyItem)) return false;
             LockedDoor = false;
+            
+            OnStateChangeUpdateIcon?.Invoke(this);
             return true;
         }
         return false;
     }
+    
     public void Lock()
     {
 

@@ -37,7 +37,7 @@ public class InteractableHUDRenderObject : MonoBehaviour
         _mainCamera = Camera.main;
         _canvas = canvas;
 
-        switch (interactable.GetType())
+        switch (interactable.GetInteractableType())
         {
             case IInteractable.InteractableType.Common:
             case IInteractable.InteractableType.Dialogue:
@@ -67,6 +67,18 @@ public class InteractableHUDRenderObject : MonoBehaviour
         _rectTransform.position = _mainCamera.WorldToScreenPoint(_interactableTransform.position);
     }
 
+    public void ChangeCommonIcon()
+    {
+        _image.sprite = _oldInteractionIcon;
+        _animator.Play(_oldInteractionAnimName);
+    }
+    
+    public void ChangeDoorIcon()
+    {
+        _image.sprite = _openDoorIcon;
+        _animator.Play(_openDoorAnimName);
+    }
+    
     private void Update()
     {
         _rectTransform.position = _mainCamera.WorldToScreenPoint(_interactableTransform.position);

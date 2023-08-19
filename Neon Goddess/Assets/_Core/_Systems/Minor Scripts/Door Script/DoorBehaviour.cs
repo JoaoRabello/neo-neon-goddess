@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class DoorBehaviour : MonoBehaviour, IInteractable
+public class DoorBehaviour : MonoBehaviour
 {
     [SerializeField] private IInteractable.InteractableType _interactableType;
     
@@ -27,9 +27,6 @@ public class DoorBehaviour : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Debug.Log("doorIsMoving: " + doorIsMoving);
-        Debug.Log("isPlayerInsideTrigger: " + isPlayerInsideTrigger);
-        Debug.Log("OnInteractPerformed called");
         if (isPlayerInsideTrigger && !doorIsMoving)
         {
             AkSoundEngine.PostEvent("doorSlideOpen", gameObject);

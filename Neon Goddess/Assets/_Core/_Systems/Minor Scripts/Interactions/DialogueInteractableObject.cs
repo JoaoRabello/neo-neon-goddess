@@ -25,7 +25,10 @@ public class DialogueInteractableObject : MonoBehaviour, IInteractable
     [SerializeField] private bool _mainThenRandom;
 
     private int _interactionCount;
-    
+
+    public Action<IInteractable> OnInteractUpdateIcon { get; set; }
+    public Action<IInteractable> OnStateChangeUpdateIcon { get; set; }
+
     public void Interact()
     {
         if(_oneTimeInteraction && _interactionCount >= 1) return;
@@ -44,9 +47,10 @@ public class DialogueInteractableObject : MonoBehaviour, IInteractable
         }
 
         _interactionCount++;
+        OnInteractUpdateIcon?.Invoke(this);
     }
 
-    public IInteractable.InteractableType GetType()
+    public IInteractable.InteractableType GetInteractableType()
     {
         return _interactableType;
     }

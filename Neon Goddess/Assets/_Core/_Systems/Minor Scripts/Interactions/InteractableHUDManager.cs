@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +36,22 @@ public class InteractableHUDManager : MonoBehaviour
         
     }
 
+    private void UpdateVisual(IInteractable interactable)
+    {
+        switch (interactable.GetInteractableType())
+        {
+            case IInteractable.InteractableType.Common:
+            case IInteractable.InteractableType.Dialogue:
+                if(!interactable.HasInteractedOnce()) return;
+                _renderObjectsByInteractable[interactable].ChangeCommonIcon();
+                break;
+            case IInteractable.InteractableType.Door:
+                if(interactable.IsLocked()) return;
+                _renderObjectsByInteractable[interactable].ChangeDoorIcon();
+                break;
+        }
+    }
+
     public void AddObject(IInteractable interactable, Transform interactableTransform)
     {
         if(_renderObjectsByInteractable.ContainsKey(interactable)) return;
@@ -42,6 +59,9 @@ public class InteractableHUDManager : MonoBehaviour
         _renderObjectPool[_currentActiveRenderObjectCount].gameObject.SetActive(true);
         _renderObjectPool[_currentActiveRenderObjectCount].Setup(interactable, interactableTransform, _canvas, _parent);
         _renderObjectsByInteractable[interactable] = _renderObjectPool[_currentActiveRenderObjectCount];
+
+        interactable.OnInteractUpdateIcon += UpdateVisual;
+        interactable.OnStateChangeUpdateIcon += UpdateVisual;
         
         _currentActiveRenderObjectCount++;
     }
@@ -53,6 +73,9 @@ public class InteractableHUDManager : MonoBehaviour
         _renderObjectsByInteractable[interactable].gameObject.SetActive(false);
         _renderObjectsByInteractable.Remove(interactable);
         _renderObjectPool.Sort(ByActive);
+        
+        interactable.OnInteractUpdateIcon -= UpdateVisual;
+        interactable.OnStateChangeUpdateIcon -= UpdateVisual;
         
         _currentActiveRenderObjectCount--;
     }

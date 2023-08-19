@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Inputs;
 using UnityEngine;
 
-public class DoorLock : MonoBehaviour, IInteractable
+public class DoorLock : MonoBehaviour
 {
     [SerializeField] private KeyItem _key;
     public DoorShaderScript doorShaderScript;
