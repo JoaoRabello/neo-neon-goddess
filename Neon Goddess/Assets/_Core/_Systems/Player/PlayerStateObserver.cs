@@ -149,7 +149,6 @@ namespace Player
         {
             if (_currentState == PlayerState.Dead) { return; }
             _isDuringState = false;
-            
             _currentState = PlayerState.Free;
         }
 
@@ -161,7 +160,8 @@ namespace Player
         }
 
         public void OnDialogueEnd()
-        {
+        {   
+            if (_currentState != PlayerState.OnDialogue) { return; }
             StateEnd();
             DialogueEnd?.Invoke();
         }
@@ -174,7 +174,8 @@ namespace Player
         }
 
         public void OnAimEnd()
-        {
+        {   
+            if(_currentState != PlayerState.Aiming) { return; }
             StateEnd();
             AimEnd?.Invoke();
         }
@@ -188,6 +189,7 @@ namespace Player
 
         public void OnCustsceneEnd()
         {
+            if (_currentState != PlayerState.OnCutscene) { return; }
             StateEnd();
             CutsceneEnd?.Invoke();
         }
@@ -201,6 +203,7 @@ namespace Player
 
         public void OnAnimationEnd()
         {
+            if (_currentState != PlayerState.OnAnimation) { return; }
             StateEnd();
             AnimationEnd?.Invoke();
         }
