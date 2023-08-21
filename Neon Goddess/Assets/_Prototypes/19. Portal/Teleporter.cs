@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class Teleporter : MonoBehaviour
 {
@@ -40,8 +42,8 @@ public class Teleporter : MonoBehaviour
     private void Teleport()
     {
         if (!_isNextToPortal) return;
-        
-        _playerTransform.transform.position = _destinationTransform.position;
+        Church();
+        //_playerTransform.transform.position = _destinationTransform.position;
     }
 
     public void SetIsNextToPortal(bool value)
@@ -54,5 +56,10 @@ public class Teleporter : MonoBehaviour
         _playerTransform = other.transform.parent.transform;
 
         if (_automaticTeleport && _isNextToPortal) Teleport();
+    }
+
+    public void Church()
+    {
+        SceneManager.LoadScene("church_int", LoadSceneMode.Single);
     }
 }
