@@ -33,7 +33,7 @@ public class DoorManager : MonoBehaviour, IInteractable
     public Light doorLight2;
 
     private bool _locked => LockedDoor;
-    private bool _open = false;
+    private bool isOpen = false;
     private int _interactionCount;
     private Vector3 initialPosition;
     private Vector3 targetPosition;
@@ -85,7 +85,6 @@ public class DoorManager : MonoBehaviour, IInteractable
     {
         if (!doorMoving)
         {
-            AkSoundEngine.PostEvent("doorSlideOpen", gameObject);
             Open();
         }
         _interactionCount++;
@@ -144,22 +143,23 @@ public class DoorManager : MonoBehaviour, IInteractable
 
     public void Close()
     {
-        if (_open)
+        if (isOpen)
         {
             MoveDoor();
         }
     }
     void MoveDoor()
     {
-        if (_open)
+        if (isOpen)
         {
             targetPosition = initialPosition;
         }
         else
         {
+            AkSoundEngine.PostEvent("doorSlideOpen", gameObject);
             targetPosition = initialPosition + new Vector3(doorMoveDistancex, doorMoveDistancey, doorMoveDistancez);
         }
-        _open = !_open;
+        isOpen = !isOpen;
         doorMoving = true;
     }
 
@@ -183,7 +183,7 @@ public class DoorManager : MonoBehaviour, IInteractable
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && _open == true)
+        if (other.CompareTag("Player") && isOpen == true)
         {
             AkSoundEngine.PostEvent("doorSlideClose", gameObject);
             MoveDoor();
