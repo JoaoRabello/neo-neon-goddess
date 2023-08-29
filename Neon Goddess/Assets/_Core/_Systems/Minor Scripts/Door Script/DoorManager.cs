@@ -44,12 +44,18 @@ public class DoorManager : MonoBehaviour, IInteractable
     public float doorMoveDistancez;
     public float speed = 10.0f;
 
+    [Header("SFX")] 
+    [SerializeField] private AK.Wwise.Event _lockedDoorSoundEvent;
+    [SerializeField] private AK.Wwise.Event _unlockDoorSoundEvent;
+
     public Action<IInteractable> OnInteractUpdateIcon { get; set; }
     public Action<IInteractable> OnStateChangeUpdateIcon { get; set; }
     
     void Start()
     {
         initialPosition = doorObject.transform.position;
+
+        if (isLockable && _locked) UpdateShaderToLocked();
     }
 
     void Update()
@@ -67,10 +73,10 @@ public class DoorManager : MonoBehaviour, IInteractable
             switch (_locked)
             {
                 case true:
-                    shaderLocked();
+                    UpdateShaderToLocked();
                     break;
                 case false:
-                    shaderUnlocked();
+                    UpdateShaderToUnlocked();
                     break;
             }
         }
@@ -106,8 +112,11 @@ public class DoorManager : MonoBehaviour, IInteractable
         {
             if (!PlayerInventoryObserver.Instance.TryConsumeItem(_keyItem)) return false;
             LockedDoor = false;
+
+            UpdateShaderToUnlocked();
             
             OnStateChangeUpdateIcon?.Invoke(this);
+            _unlockDoorSoundEvent.Post(gameObject);
             return true;
         }
         return false;
@@ -115,7 +124,7 @@ public class DoorManager : MonoBehaviour, IInteractable
     
     public void Lock()
     {
-
+        UpdateShaderToLocked();
     }
 
     public void Open()
@@ -131,13 +140,15 @@ public class DoorManager : MonoBehaviour, IInteractable
                 if (Unlock())
                 {
                     MoveDoor();
+                    return;
                 }
+
+                _lockedDoorSoundEvent.Post(gameObject);
             }
             else
             {
                 MoveDoor();
             }
-
         }
     }
 
@@ -163,29 +174,35 @@ public class DoorManager : MonoBehaviour, IInteractable
         doorMoving = true;
     }
 
-    public void shaderUnlocked()
+    public void UpdateShaderToUnlocked()
     {
-        if (doorShaderRenderer is not null)
+        if (doorShaderRenderer != null)
         {
-            doorShaderRenderer.materials[1].SetColor("_Color", new Color(0.0f, 1.0f, 0.0f, 0.0f));
-            doorShaderRenderer.materials[1].SetColor("_EmissionColor", new Color(0.0f, 4342.935f, 0.0f, 1.0f));
-            doorShaderRenderer.materials[2].SetInt("_Status", 1);
+            if (doorShaderRenderer.materials.Length > 0)
+            {
+                doorShaderRenderer.materials[1].SetColor("_Color", new Color(0.0f, 1.0f, 0.0f, 0.0f));
+                doorShaderRenderer.materials[1].SetColor("_EmissionColor", new Color(0.0f, 4342.935f, 0.0f, 1.0f));
+                doorShaderRenderer.materials[2].SetInt("_Status", 1);
+            }
         }
-        if(doorLight is not null) doorLight.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
-        if(doorLight2 is not null) doorLight2.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+        if(doorLight != null) doorLight.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+        if(doorLight2 != null) doorLight2.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
     }
 
-    public void shaderLocked()
+    public void UpdateShaderToLocked()
     {
-        if (doorShaderRenderer is not null)
+        if (doorShaderRenderer != null)
         {
-            doorShaderRenderer.materials[1].SetColor("_Color", new Color(1.0f, 0.0f, 0.0f, 0.0f));
-            doorShaderRenderer.materials[1].SetColor("_EmissionColor", new Color(4342.935f, 0.0f, 0.0f, 1.0f));
-            doorShaderRenderer.materials[2].SetInt("_Status", 0);
+            if (doorShaderRenderer.materials.Length > 0)
+            {
+                doorShaderRenderer.materials[1].SetColor("_Color", new Color(1.0f, 0.0f, 0.0f, 0.0f));
+                doorShaderRenderer.materials[1].SetColor("_EmissionColor", new Color(4342.935f, 0.0f, 0.0f, 1.0f));
+                doorShaderRenderer.materials[2].SetInt("_Status", 0);
+            }
         }
         
-        if(doorLight is not null) doorLight.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
-        if(doorLight2 is not null) doorLight2.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+        if(doorLight != null) doorLight.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+        if(doorLight2 != null) doorLight2.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
     }
 
     void OnTriggerExit(Collider other)
