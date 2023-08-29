@@ -144,7 +144,7 @@ namespace PlayerMovements
             _canMove = true;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             MovementProcess();
         }
