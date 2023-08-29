@@ -23,6 +23,10 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private int _physicalMaxHealth;
     [SerializeField] private int _mentalMaxHealth;
     
+    [Header("SFX")]
+    [SerializeField] private AK.Wwise.Event _painGrunt;
+    [SerializeField] private AK.Wwise.Event _heartBeat;
+    
     public enum HealthType
     {
         Physical,
@@ -84,6 +88,7 @@ public class HealthSystem : MonoBehaviour
     {
         if (_currentPhysicalHealth > 0)
         {
+            _painGrunt.Post(gameObject);
             _animator.PlayAnimation("Damage", 0);
         }
         else
