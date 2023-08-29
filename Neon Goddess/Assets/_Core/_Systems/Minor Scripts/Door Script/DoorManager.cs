@@ -165,20 +165,27 @@ public class DoorManager : MonoBehaviour, IInteractable
 
     public void shaderUnlocked()
     {
-        doorShaderRenderer.materials[1].SetColor("_Color", new Color(0.0f, 1.0f, 0.0f, 0.0f));
-        doorShaderRenderer.materials[1].SetColor("_EmissionColor", new Color(0.0f, 4342.935f, 0.0f, 1.0f));
-        doorLight.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
-        doorLight2.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
-        doorShaderRenderer.materials[2].SetInt("_Status", 1);
+        if (doorShaderRenderer is not null)
+        {
+            doorShaderRenderer.materials[1].SetColor("_Color", new Color(0.0f, 1.0f, 0.0f, 0.0f));
+            doorShaderRenderer.materials[1].SetColor("_EmissionColor", new Color(0.0f, 4342.935f, 0.0f, 1.0f));
+            doorShaderRenderer.materials[2].SetInt("_Status", 1);
+        }
+        if(doorLight is not null) doorLight.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+        if(doorLight2 is not null) doorLight2.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
     }
 
     public void shaderLocked()
     {
-        doorShaderRenderer.materials[1].SetColor("_Color", new Color(1.0f, 0.0f, 0.0f, 0.0f));
-        doorShaderRenderer.materials[1].SetColor("_EmissionColor", new Color(4342.935f, 0.0f, 0.0f, 1.0f));
-        doorLight.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
-        doorLight2.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
-        doorShaderRenderer.materials[2].SetInt("_Status", 0);
+        if (doorShaderRenderer is not null)
+        {
+            doorShaderRenderer.materials[1].SetColor("_Color", new Color(1.0f, 0.0f, 0.0f, 0.0f));
+            doorShaderRenderer.materials[1].SetColor("_EmissionColor", new Color(4342.935f, 0.0f, 0.0f, 1.0f));
+            doorShaderRenderer.materials[2].SetInt("_Status", 0);
+        }
+        
+        if(doorLight is not null) doorLight.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+        if(doorLight2 is not null) doorLight2.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
     }
 
     void OnTriggerExit(Collider other)
