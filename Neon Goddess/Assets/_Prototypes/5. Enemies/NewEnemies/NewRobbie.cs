@@ -26,6 +26,10 @@ public class NewRobbie : MonoBehaviour
     [Header("Waypoints")]
     [SerializeField] private Transform _waypoint1;
     [SerializeField] private Transform _waypoint2;
+    
+    [Header("SFX")]
+    [SerializeField] private AK.Wwise.Event _stabSoundEvent;
+    [SerializeField] private AK.Wwise.Event _stabHitSoundEvent;
 
     private int _waypointIndex = 1;
 
@@ -204,10 +208,13 @@ public class NewRobbie : MonoBehaviour
         var front = (_player.position - transform.position).normalized;
         var dot = Vector3.Dot(front, transform.forward);
         var distance = Vector3.Distance(transform.position, _player.position);
-        
-        if(distance >= 1.5f) return;
-        if(dot < 0.8f) return;
-        
+
+        if (distance >= 1.5f || dot < 0.8f)
+        {
+            _stabSoundEvent.Post(gameObject);
+            return;
+        }
+
         DamagePlayer();
     }
 
@@ -215,6 +222,7 @@ public class NewRobbie : MonoBehaviour
     {
         var playerHealth = _player.GetComponent<HealthSystem>();
 
+        _stabHitSoundEvent.Post(gameObject);
         // if (basicAttack)
         // {
             playerHealth.TakePhysicalDamage(2);
