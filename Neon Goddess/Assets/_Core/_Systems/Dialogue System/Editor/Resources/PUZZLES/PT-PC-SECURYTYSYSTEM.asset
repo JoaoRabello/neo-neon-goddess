@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7344004526508860510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: d237de2c-12cc-40b3-aed1-d143293aed74
+  m_EditorClassIdentifier: 
+  _text: "Droga, essa merda \xE9 t\xE3o velha que n\xE3o d\xE1 nem pra hackear."
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 955f0212-2b89-49d4-9889-af216cefab63
+  _rect:
+    serializedVersion: 2
+    x: 293
+    y: 150
+    width: 200
+    height: 200
+--- !u!114 &-3546841609197891085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 2f61a5c4-b292-4140-92b4-8fa79686f4cc
+  m_EditorClassIdentifier: 
+  _text: "\"Acesso negado. Favor inserir cart\xE3o de acesso ao sistema de seguran\xE7a.\""
+  _isRootNode: 1
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - d237de2c-12cc-40b3-aed1-d143293aed74
+  _rect:
+    serializedVersion: 2
+    x: 50
+    y: 150
+    width: 200
+    height: 200
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7eca54113c3da44b17989f2565d1a3, type: 3}
+  m_Name: PT-PC-SECURYTYSYSTEM
+  m_EditorClassIdentifier: 
+  _nodes:
+  - {fileID: -3546841609197891085}
+  - {fileID: -7344004526508860510}
+  - {fileID: 7674671743203788558}
+--- !u!114 &7674671743203788558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 955f0212-2b89-49d4-9889-af216cefab63
+  m_EditorClassIdentifier: 
+  _text: "O cart\xE3o deve t\xE1 por aqui em algum lugar..."
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 543
+    y: 150
+    width: 200
+    height: 200
