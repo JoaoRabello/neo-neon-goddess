@@ -396,6 +396,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Any"",
+                    ""type"": ""Button"",
+                    ""id"": ""c8efa1f8-793f-4dc3-8829-c7d51cf5e2ae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -761,6 +770,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c3093ccd-5ffc-46dd-ae82-2e55d94b1e6d"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Any"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f47107e4-f109-43d6-8da1-40cce74e5889"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Any"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -788,6 +819,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Astrid_ChangeWeapon = m_Astrid.FindAction("ChangeWeapon", throwIfNotFound: true);
         m_Astrid_Turn = m_Astrid.FindAction("Turn", throwIfNotFound: true);
         m_Astrid_Escape = m_Astrid.FindAction("Escape", throwIfNotFound: true);
+        m_Astrid_Any = m_Astrid.FindAction("Any", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -952,6 +984,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Astrid_ChangeWeapon;
     private readonly InputAction m_Astrid_Turn;
     private readonly InputAction m_Astrid_Escape;
+    private readonly InputAction m_Astrid_Any;
     public struct AstridActions
     {
         private @InputActions m_Wrapper;
@@ -964,6 +997,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @ChangeWeapon => m_Wrapper.m_Astrid_ChangeWeapon;
         public InputAction @Turn => m_Wrapper.m_Astrid_Turn;
         public InputAction @Escape => m_Wrapper.m_Astrid_Escape;
+        public InputAction @Any => m_Wrapper.m_Astrid_Any;
         public InputActionMap Get() { return m_Wrapper.m_Astrid; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -997,6 +1031,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Escape.started -= m_Wrapper.m_AstridActionsCallbackInterface.OnEscape;
                 @Escape.performed -= m_Wrapper.m_AstridActionsCallbackInterface.OnEscape;
                 @Escape.canceled -= m_Wrapper.m_AstridActionsCallbackInterface.OnEscape;
+                @Any.started -= m_Wrapper.m_AstridActionsCallbackInterface.OnAny;
+                @Any.performed -= m_Wrapper.m_AstridActionsCallbackInterface.OnAny;
+                @Any.canceled -= m_Wrapper.m_AstridActionsCallbackInterface.OnAny;
             }
             m_Wrapper.m_AstridActionsCallbackInterface = instance;
             if (instance != null)
@@ -1025,6 +1062,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Escape.started += instance.OnEscape;
                 @Escape.performed += instance.OnEscape;
                 @Escape.canceled += instance.OnEscape;
+                @Any.started += instance.OnAny;
+                @Any.performed += instance.OnAny;
+                @Any.canceled += instance.OnAny;
             }
         }
     }
@@ -1051,5 +1091,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnChangeWeapon(InputAction.CallbackContext context);
         void OnTurn(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
+        void OnAny(InputAction.CallbackContext context);
     }
 }

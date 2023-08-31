@@ -50,7 +50,7 @@ namespace Inputs
             _inputActions.Astrid.Shoot.performed += OnShootPerformed;
             _inputActions.Astrid.ChangeWeapon.performed += OnChangeWeaponPerformed;
             _inputActions.Astrid.Turn.performed += OnTurnPerformed;
-        
+            _inputActions.Astrid.Any.performed += OnAnyPerformed;
             _inputActions.Enable();
         }
 
@@ -67,7 +67,7 @@ namespace Inputs
             _inputActions.Astrid.Shoot.performed -= OnShootPerformed;
             _inputActions.Astrid.ChangeWeapon.performed -= OnChangeWeaponPerformed;
             _inputActions.Astrid.Turn.performed -= OnTurnPerformed;
-            
+            _inputActions.Astrid.Any.performed -= OnAnyPerformed;
             _inputActions.Disable();
         }
 
@@ -115,6 +115,8 @@ namespace Inputs
         /// Called when Turn Input is performed
         /// </summary>
         public Action TurnPerformed;
+
+        public Action AnyPerformed;
 
         public void DisableInputs()
         {
@@ -194,6 +196,11 @@ namespace Inputs
         private void OnTurnPerformed(InputAction.CallbackContext context)
         {
             TurnPerformed?.Invoke();
+        }
+
+        private void OnAnyPerformed(InputAction.CallbackContext context)
+        {
+            AnyPerformed?.Invoke();
         }
     }
 }
