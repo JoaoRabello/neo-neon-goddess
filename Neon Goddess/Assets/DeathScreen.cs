@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class DeathScreen : MonoBehaviour
 {
-    [SerializeField] private PlayerStateObserver _observer;
     [SerializeField] private GameObject endScreen;
     private Image _image;
     private bool started;
@@ -21,7 +20,7 @@ public class DeathScreen : MonoBehaviour
 
     void Update()
     {
-        if (_observer.CurrentState == PlayerStateObserver.PlayerState.Dead && !started)
+        if (PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Dead && !started)
         {
             StartCoroutine(FadeImg());
             started = true;
