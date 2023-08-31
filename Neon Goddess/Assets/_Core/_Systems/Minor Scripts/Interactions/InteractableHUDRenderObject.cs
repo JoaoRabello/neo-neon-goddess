@@ -81,6 +81,8 @@ public class InteractableHUDRenderObject : MonoBehaviour
     
     private void Update()
     {
+        if(_rectTransform == null || _interactableTransform == null) return;
+        
         _rectTransform.position = _mainCamera.WorldToScreenPoint(_interactableTransform.position);
     }
 }

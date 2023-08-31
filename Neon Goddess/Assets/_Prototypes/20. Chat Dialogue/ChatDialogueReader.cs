@@ -125,6 +125,12 @@ public class ChatDialogueReader : MonoBehaviour
 
     public void PlayDialogue(Dialogue dialogue)
     {
+        if (dialogue == null)
+        {
+            Debug.Log($"[ChatDialogueReader] PlayDialogue | Não há dialogo para tocar. Você tem certeza de que colocou o arquivo do diálogo no lugar certo?");
+            return;
+        }
+        
         _onDialogue = true;
         _currentDialogue = dialogue;
         dialogue.ResetNodeLookup();

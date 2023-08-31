@@ -19,6 +19,10 @@ public class DoorManager : MonoBehaviour, IInteractable
     [Header("Interaction")]
     [SerializeField] private IInteractable.InteractableType _interactableType;
 
+    [Header("Door Dialogues")]
+    [SerializeField] private Dialogue _withoutKeyDialogue;
+    [SerializeField] private Dialogue _withKeyDialogue;
+    
     [Header("Door Information")]
     [SerializeField] bool isLockable;
     [SerializeField] GameObject doorObject;
@@ -112,6 +116,8 @@ public class DoorManager : MonoBehaviour, IInteractable
         {
             if (!PlayerInventoryObserver.Instance.TryConsumeItem(_keyItem)) return false;
             LockedDoor = false;
+            
+            ChatDialogueReader.Instance.PlayDialogue(_withKeyDialogue);
 
             UpdateShaderToUnlocked();
             
@@ -143,6 +149,7 @@ public class DoorManager : MonoBehaviour, IInteractable
                     return;
                 }
 
+                ChatDialogueReader.Instance.PlayDialogue(_withoutKeyDialogue);
                 _lockedDoorSoundEvent.Post(gameObject);
             }
             else
