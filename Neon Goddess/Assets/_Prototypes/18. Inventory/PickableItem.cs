@@ -10,6 +10,7 @@ public class PickableItem : MonoBehaviour, IInteractable
     [SerializeField] private int _amount;
     [SerializeField] private GameObject dialogue;
     [SerializeField] private Dialogue _dialogue;
+    [SerializeField] private Item3DViewer inspection;
     private InventoryHolder _playerInventoryHolder;
     
     private void OnTriggerEnter(Collider other)
@@ -37,7 +38,7 @@ public class PickableItem : MonoBehaviour, IInteractable
         if (!_playerInventoryHolder.TryAddItem(_item, _amount)) return;
         
         ChatDialogueReader.Instance.PlayDialogue(_dialogue);
-        
+        InspectItem();
         Destroy(gameObject);
     }
 
@@ -54,5 +55,11 @@ public class PickableItem : MonoBehaviour, IInteractable
     public bool IsLocked()
     {
         return false;
+    }
+
+    public void InspectItem()
+    {
+        inspection.item = _item;
+        inspection.StartInspect();
     }
 }
