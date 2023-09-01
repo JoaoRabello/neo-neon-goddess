@@ -6,29 +6,29 @@ using UnityEngine.AI;
 
 public class BaseBehaviour : MonoBehaviour
 {
-    [SerializeField] private CharacterAnimator _animator;
-    [SerializeField] private NavMeshAgent _navMeshAgent;
-    [SerializeField] private LayerMask _playerLayerMask;
-    [SerializeField] private float _attackRange;
-    [SerializeField] private float _specialAttackRange;
-    [SerializeField] private float _forgetRange;
-    [SerializeField] private float _range;
-    [SerializeField] private float _speed;
+    [SerializeField] protected CharacterAnimator _animator;
+    [SerializeField] protected NavMeshAgent _navMeshAgent;
+    [SerializeField] protected LayerMask _playerLayerMask;
+    [SerializeField] protected float _attackRange;
+    [SerializeField] protected float _specialAttackRange;
+    [SerializeField] protected float _forgetRange;
+    [SerializeField] protected float _range;
+    [SerializeField] protected float _speed;
 
     [Header("EnemyBehaviour")]
-    [SerializeField] private HuntBehaviour _huntBehaviour;
-    [SerializeField] private IdleBehaviour _idleBehaviour;
+    [SerializeField] protected HuntBehaviour _huntBehaviour;
+    [SerializeField] protected IdleBehaviour _idleBehaviour;
 
     [Header("Health System")]
-    [SerializeField] private RobotHealthSystem _healthSystem;
+    [SerializeField] protected RobotHealthSystem _healthSystem;
 
     [Header("Waypoints")]
-    [SerializeField] private Transform _waypoint1;
-    [SerializeField] private Transform _waypoint2;
+    [SerializeField] protected Transform _waypoint1;
+    [SerializeField] protected Transform _waypoint2;
 
     [Header("SFX")]
-    [SerializeField] private AK.Wwise.Event _stabSoundEvent;
-    [SerializeField] private AK.Wwise.Event _stabHitSoundEvent;
+    [SerializeField] protected AK.Wwise.Event _stabSoundEvent;
+    [SerializeField] protected AK.Wwise.Event _stabHitSoundEvent;
 
     [Header("EnemyType")]
     [SerializeField] public EnemyType enemyType;
@@ -38,7 +38,25 @@ public class BaseBehaviour : MonoBehaviour
         Robbie,
         Eldritch
     }
-    private EnemyType _enemyType => enemyType;
+    protected EnemyType _enemyType => enemyType;
+
+    protected int _waypointIndex = 1;
+
+    protected float _currentSpeed;
+
+    protected bool _foundPlayer;
+    protected bool _canMove = true;
+    protected Transform _player;
+    protected Vector3 _basePosition;
+
+    protected bool _attackCooldown;
+    protected bool _startedAttackCooldown;
+    protected bool _hunting;
+    protected bool _chasing;
+
+    protected int size;
+    protected Collider[] playerColliders = new Collider[3];
+
     private void Start()
     {
         _currentSpeed = _speed;
@@ -58,11 +76,14 @@ public class BaseBehaviour : MonoBehaviour
 
     public void StartHunt()
     {
-        _huntBehaviour.StartHunt();
+        _hunting = true;
+        _chasing = true;
     }
     private void OnHacked()
     {
         Stop();
+        _hunting = false;
+        _chasing = false;
         //_keyDropItem.transform.position = transform.position + transform.forward;
         //_keyDropItem.SetActive(true);
     }
