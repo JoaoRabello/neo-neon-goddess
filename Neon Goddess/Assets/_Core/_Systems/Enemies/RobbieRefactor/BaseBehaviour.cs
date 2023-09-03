@@ -51,8 +51,13 @@ public class BaseBehaviour : MonoBehaviour
 
     protected bool _attackCooldown;
     protected bool _startedAttackCooldown;
+
     protected bool _hunting;
     protected bool _chasing;
+    protected bool _haunting;
+    protected bool _idle;
+    protected bool _patrol;
+    protected bool _lamentation;
 
     protected int size;
     protected Collider[] playerColliders = new Collider[3];
@@ -63,27 +68,30 @@ public class BaseBehaviour : MonoBehaviour
         _basePosition = transform.position;
 
         _healthSystem.OnHackedSuccessfully += OnHacked;
+
+        Idle();
     }
 
     private void OnDisable()
     {
         _healthSystem.OnHackedSuccessfully -= OnHacked;
     }
-    public void StartIdle()
+    public void Idle()
     {
+        _huntBehaviour.EndHunt();
         _idleBehaviour.StartIdle();
     }
 
-    public void StartHunt()
+    public void Hunt()
     {
-        _hunting = true;
-        _chasing = true;
+        _idleBehaviour.EndIdle();
+        _huntBehaviour.StartHunt();
     }
     private void OnHacked()
     {
         Stop();
-        _hunting = false;
-        _chasing = false;
+        _huntBehaviour.EndHunt();
+        _idleBehaviour.EndIdle();
         //_keyDropItem.transform.position = transform.position + transform.forward;
         //_keyDropItem.SetActive(true);
     }
@@ -94,6 +102,20 @@ public class BaseBehaviour : MonoBehaviour
         _animator.SetParameterValue("isAttacking", false);
         _animator.SetParameterValue("isSpecialAttacking", false);
         _animator.PlayAnimation("Idle", 0);
+    }
+
+    protected void RotateTowards(Vector3 targetPos)
+    {
+        _navMeshAgent.updateRotation = true;
+    }
+
+    protected void Move(Vector3 desiredPosition)
+    {
+        if (!_canMove) return;
+
+        _navMeshAgent.SetDestination(desiredPosition);
+
+        _animator.SetParameterValue("isWalking", true);
     }
 
 }

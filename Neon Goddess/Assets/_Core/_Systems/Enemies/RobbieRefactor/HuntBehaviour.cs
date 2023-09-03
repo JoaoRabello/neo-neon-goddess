@@ -9,11 +9,7 @@ using FIMSpace.Basics;
 using System;
 
 public class HuntBehaviour : BaseBehaviour
-{   
-    [Header("EnemyBehaviour")]
-    [SerializeField] private HauntBehaviour _hauntBehaviour;
-    [SerializeField] private ChaseBehaviour _chaseBehaviour;
-
+{       
     private void Update()
     {
         if (_hunting)
@@ -45,7 +41,7 @@ public class HuntBehaviour : BaseBehaviour
                 }
                 else if (_enemyType == EnemyType.Robbie)
                 {
-                    StartIdle();
+                    Idle();
                 }
 
                 if (size <= 0) return;
@@ -56,14 +52,49 @@ public class HuntBehaviour : BaseBehaviour
         }
     }
 
+    public void StartHunt()
+    {
+        _hunting = true;
+        if (_enemyType == EnemyType.Robbie)
+        {
+            StartChase();
+        }
+        else if (_enemyType == EnemyType.Eldritch)
+        {
+            StartHaunt();
+        }
+    }
+
+    public void EndHunt()
+    {
+        _hunting = true;
+        if (_chasing)
+        {
+            EndChase();
+        }
+        if (_haunting)
+        {
+            EndHaunt();
+        }
+    }
+
     private void StartHaunt()
     {
-        _hauntBehaviour.StartHaunt();
+        _haunting = true;
     }
 
     private void StartChase()
     {
-        _chaseBehaviour.StartChase();
+        _chasing = true;
+    }
+    private void EndHaunt()
+    {
+        _haunting = false;
+    }
+
+    private void EndChase()
+    {
+        _chasing = false;
     }
 
     void CheckViewingPlayer()

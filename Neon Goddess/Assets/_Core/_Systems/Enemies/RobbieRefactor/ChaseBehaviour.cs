@@ -24,17 +24,4 @@ public class ChaseBehaviour : HuntBehaviour
         }
     }
 
-    private void RotateTowards(Vector3 targetPos)
-    {
-        _navMeshAgent.updateRotation = true;
-    }
-
-    private void Move(Vector3 desiredPosition)
-    {
-        if (!_canMove) return;
-
-        _navMeshAgent.SetDestination(desiredPosition);
-
-        _animator.SetParameterValue("isWalking", true);
-    }
 }
