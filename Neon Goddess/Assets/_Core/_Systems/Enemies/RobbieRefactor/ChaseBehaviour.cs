@@ -9,18 +9,18 @@ public class ChaseBehaviour : HuntBehaviour
 
     public void Update()
     {
-        if (_chasing)
+        if (behaviour._chasing)
         {
-            if (Vector3.Distance(_player.position, transform.position) > 1.5f)
+            if (Vector3.Distance(behaviour._player.position, transform.position) > 1.5f)
             {
-                Move(_player.position);
+                behaviour.Move(behaviour._player.position);
             }
             else
             {
-                _navMeshAgent.SetDestination(transform.position);
+                behaviour._navMeshAgent.SetDestination(transform.position);
             }
 
-            RotateTowards(_player.position);
+            behaviour.RotateTowards(behaviour._player.position);
         }
     }
 

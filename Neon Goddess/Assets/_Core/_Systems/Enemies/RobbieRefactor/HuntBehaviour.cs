@@ -7,24 +7,26 @@ using Animations;
 using static BaseBehaviour;
 using FIMSpace.Basics;
 using System;
+using UnityEngine.EventSystems;
 
-public class HuntBehaviour : BaseBehaviour
-{       
+public class HuntBehaviour : MonoBehaviour
+{
+    [SerializeField] protected BaseBehaviour behaviour;
     private void Update()
     {
-        if (_hunting)
+        if (behaviour._hunting)
         {
             CheckViewingPlayer();
-            if (_foundPlayer)
+            if (behaviour._foundPlayer)
             {
-                var distanceToPlayer = Vector3.Distance(transform.position, _player.position);
+                var distanceToPlayer = Vector3.Distance(transform.position, behaviour._player.position);
 
-                if (distanceToPlayer <= _specialAttackRange)
+                if (distanceToPlayer <= behaviour._specialAttackRange)
                 {
-                    _currentSpeed = 20;
+                    behaviour._currentSpeed = 20;
                     SpecialAttack();
                 }
-                else if (distanceToPlayer <= _attackRange)
+                else if (distanceToPlayer <= behaviour._attackRange)
                 {
                     Attack();
                 }
@@ -35,31 +37,31 @@ public class HuntBehaviour : BaseBehaviour
             }
             else
             {
-                if (_enemyType == EnemyType.Eldritch)
+                if (behaviour._enemyType == EnemyType.Eldritch)
                 {
                     StartHaunt();
                 }
-                else if (_enemyType == EnemyType.Robbie)
+                else if (behaviour._enemyType == EnemyType.Robbie)
                 {
-                    Idle();
+                    behaviour.Idle();
                 }
 
-                if (size <= 0) return;
+                if (behaviour.size <= 0) return;
 
-                _foundPlayer = true;
-                _player = playerColliders[0].gameObject.transform.parent.transform;
+                behaviour._foundPlayer = true;
+                behaviour._player = behaviour.playerColliders[0].gameObject.transform.parent.transform;
             }
         }
     }
 
     public void StartHunt()
     {
-        _hunting = true;
-        if (_enemyType == EnemyType.Robbie)
+        behaviour._hunting = true;
+        if (behaviour._enemyType == EnemyType.Robbie)
         {
             StartChase();
         }
-        else if (_enemyType == EnemyType.Eldritch)
+        else if (behaviour._enemyType == EnemyType.Eldritch)
         {
             StartHaunt();
         }
@@ -67,12 +69,12 @@ public class HuntBehaviour : BaseBehaviour
 
     public void EndHunt()
     {
-        _hunting = true;
-        if (_chasing)
+        behaviour._hunting = false;
+        if (behaviour._chasing)
         {
             EndChase();
         }
-        if (_haunting)
+        if (behaviour._haunting)
         {
             EndHaunt();
         }
@@ -80,60 +82,62 @@ public class HuntBehaviour : BaseBehaviour
 
     private void StartHaunt()
     {
-        _haunting = true;
+        behaviour._haunting = true;
     }
 
     private void StartChase()
     {
-        _chasing = true;
+        behaviour._chasing = true;
     }
     private void EndHaunt()
     {
-        _haunting = false;
+        behaviour._haunting = false;
     }
 
     private void EndChase()
     {
-        _chasing = false;
+        behaviour._chasing = false;
     }
 
     void CheckViewingPlayer()
     {
-        if (_healthSystem.IsHacked) return;
-        var distanceToPlayer = _player ? Vector3.Distance(transform.position, _player.position) : 0;
+        if (behaviour._healthSystem.IsHacked) return;
+        var distanceToPlayer = behaviour._player ? Vector3.Distance(transform.position, behaviour._player.position) : 0;
 
-        if (distanceToPlayer >= _forgetRange)
+        if (distanceToPlayer >= behaviour._forgetRange)
         {
-            _foundPlayer = false;
+            behaviour._foundPlayer = false;
         }
 
         if (PlayerStateObserver.Instance.CurrentState is PlayerStateObserver.PlayerState.Dead)
         {
-            _foundPlayer = false;
+            behaviour._foundPlayer = false;
         }
 
         Collider[] playerColliders = new Collider[3];
-        size = Physics.OverlapSphereNonAlloc(transform.position, _range, playerColliders, _playerLayerMask);
+        behaviour.size = Physics.OverlapSphereNonAlloc(transform.position, behaviour._range, playerColliders, behaviour._playerLayerMask);
     }
 
     private void DamagePlayer()
     {
-        var playerHealth = _player.GetComponent<HealthSystem>();
+        var playerHealth = behaviour._player.GetComponent<HealthSystem>();
 
-        _stabHitSoundEvent.Post(gameObject);
+        behaviour._stabHitSoundEvent.Post(gameObject);
         playerHealth.TakePhysicalDamage(2);
     }
 
-    void Attack()
+    public void Attack()
     {
+        if (behaviour._startedAttackCooldown)
+        { return; }
         StartCoroutine(AttackCooldown(true));
-        var front = (_player.position - transform.position).normalized;
+        var front = (behaviour._player.position - transform.position).normalized;
         var dot = Vector3.Dot(front, transform.forward);
-        var distance = Vector3.Distance(transform.position, _player.position);
+        var distance = Vector3.Distance(transform.position, behaviour._player.position);
 
         if (distance >= 1.5f || dot < 0.8f)
         {
-            _stabSoundEvent.Post(gameObject);
+            behaviour._stabSoundEvent.Post(gameObject);
             return;
         }
 
@@ -142,14 +146,16 @@ public class HuntBehaviour : BaseBehaviour
 
     void SpecialAttack()
     {
+        if (behaviour._startedAttackCooldown)
+        { return; }
         StartCoroutine(AttackCooldown(false));
-        var front = (_player.position - transform.position).normalized;
+        var front = (behaviour._player.position - transform.position).normalized;
         var dot = Vector3.Dot(front, transform.forward);
-        var distance = Vector3.Distance(transform.position, _player.position);
+        var distance = Vector3.Distance(transform.position, behaviour._player.position);
 
         if (distance >= 1.5f || dot < 0.8f)
         {
-            _stabSoundEvent.Post(gameObject);
+            behaviour._stabSoundEvent.Post(gameObject);
             return;
         }
 
@@ -158,21 +164,21 @@ public class HuntBehaviour : BaseBehaviour
 
     private IEnumerator AttackCooldown(bool basicAttack)
     {
-        _startedAttackCooldown = true;
+        behaviour._startedAttackCooldown = true;
 
         yield return new WaitForSeconds(0.1f);
 
-        _animator.SetParameterValue("isAttacking", true);
+        behaviour._animator.SetParameterValue("isAttacking", true);
 
-        _attackCooldown = true;
-        _currentSpeed = _speed;
+        behaviour._attackCooldown = true;
+        behaviour._currentSpeed = behaviour._speed;
 
         yield return new WaitForSeconds(3);
 
-        _animator.SetParameterValue("isAttacking", false);
-        _animator.SetParameterValue("isSpecialAttacking", false);
+        behaviour._animator.SetParameterValue("isAttacking", false);
+        behaviour._animator.SetParameterValue("isSpecialAttacking", false);
 
-        _attackCooldown = false;
-        _startedAttackCooldown = false;
+        behaviour._attackCooldown = false;
+        behaviour._startedAttackCooldown = false;
     }
 }

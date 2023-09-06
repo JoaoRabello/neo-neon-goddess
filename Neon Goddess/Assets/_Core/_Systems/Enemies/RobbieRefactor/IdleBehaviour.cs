@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleBehaviour : BaseBehaviour
+public class IdleBehaviour : MonoBehaviour 
 {
+    [SerializeField] protected BaseBehaviour behaviour;
     public void StartIdle()
     {
-        _idle = true;
-        if (_enemyType == EnemyType.Robbie)
+        behaviour._idle = true;
+        if (behaviour._enemyType == BaseBehaviour.EnemyType.Robbie)
         {
             StartPatrol();
         }
-        else if (_enemyType == EnemyType.Eldritch)
+        else if (behaviour._enemyType == BaseBehaviour.EnemyType.Eldritch)
         {
             StartLamentation();
         }
@@ -19,34 +20,34 @@ public class IdleBehaviour : BaseBehaviour
 
     public void EndIdle()
     {
-        _idle = false;
-        if (_patrol)
+        behaviour._idle = false;
+        if (behaviour._patrol)
         {
             EndPatrol();
         }
-        else if (_lamentation)
+        else if (behaviour._lamentation)
         {
             EndLamentation();
         }
     }
     public void StartPatrol()
     {
-        _patrol = true;
+        behaviour._patrol = true;
     }
 
     public void EndPatrol()
     {
-        _patrol = false;
+        behaviour._patrol = false;
     }
 
     public void StartLamentation()
     {
-        _lamentation = true;
+        behaviour._lamentation = true;
     }
 
     public void EndLamentation()
-    { 
-        _lamentation = false; 
+    {
+        behaviour._lamentation = false; 
     }
 
 }

@@ -6,29 +6,29 @@ using UnityEngine.AI;
 
 public class BaseBehaviour : MonoBehaviour
 {
-    [SerializeField] protected CharacterAnimator _animator;
-    [SerializeField] protected NavMeshAgent _navMeshAgent;
-    [SerializeField] protected LayerMask _playerLayerMask;
-    [SerializeField] protected float _attackRange;
-    [SerializeField] protected float _specialAttackRange;
-    [SerializeField] protected float _forgetRange;
-    [SerializeField] protected float _range;
-    [SerializeField] protected float _speed;
+    [SerializeField] public CharacterAnimator _animator;
+    [SerializeField] public NavMeshAgent _navMeshAgent;
+    [SerializeField] public LayerMask _playerLayerMask;
+    [SerializeField] public float _attackRange;
+    [SerializeField] public float _specialAttackRange;
+    [SerializeField] public float _forgetRange;
+    [SerializeField] public float _range;
+    [SerializeField] public float _speed;
 
     [Header("EnemyBehaviour")]
-    [SerializeField] protected HuntBehaviour _huntBehaviour;
-    [SerializeField] protected IdleBehaviour _idleBehaviour;
+    [SerializeField] public HuntBehaviour _huntBehaviour;
+    [SerializeField] public IdleBehaviour _idleBehaviour;
 
     [Header("Health System")]
-    [SerializeField] protected RobotHealthSystem _healthSystem;
+    [SerializeField] public RobotHealthSystem _healthSystem;
 
     [Header("Waypoints")]
-    [SerializeField] protected Transform _waypoint1;
-    [SerializeField] protected Transform _waypoint2;
+    [SerializeField] public Transform _waypoint1;
+    [SerializeField] public Transform _waypoint2;
 
     [Header("SFX")]
-    [SerializeField] protected AK.Wwise.Event _stabSoundEvent;
-    [SerializeField] protected AK.Wwise.Event _stabHitSoundEvent;
+    [SerializeField] public AK.Wwise.Event _stabSoundEvent;
+    [SerializeField] public AK.Wwise.Event _stabHitSoundEvent;
 
     [Header("EnemyType")]
     [SerializeField] public EnemyType enemyType;
@@ -38,29 +38,29 @@ public class BaseBehaviour : MonoBehaviour
         Robbie,
         Eldritch
     }
-    protected EnemyType _enemyType => enemyType;
+    public EnemyType _enemyType => enemyType;
 
-    protected int _waypointIndex = 1;
+    public int _waypointIndex = 1;
 
-    protected float _currentSpeed;
+    public float _currentSpeed;
 
-    protected bool _foundPlayer;
-    protected bool _canMove = true;
-    protected Transform _player;
-    protected Vector3 _basePosition;
+    public bool _foundPlayer;
+    public bool _canMove = true;
+    public Transform _player;
+    public Vector3 _basePosition;
 
-    protected bool _attackCooldown;
-    protected bool _startedAttackCooldown;
+    public bool _attackCooldown;
+    public bool _startedAttackCooldown;
 
-    protected bool _hunting;
-    protected bool _chasing;
-    protected bool _haunting;
-    protected bool _idle;
-    protected bool _patrol;
-    protected bool _lamentation;
+    public bool _hunting;
+    public bool _chasing;
+    public bool _haunting;
+    public bool _idle;
+    public bool _patrol;
+    public bool _lamentation;
 
-    protected int size;
-    protected Collider[] playerColliders = new Collider[3];
+    public int size;
+    public Collider[] playerColliders = new Collider[3];
 
     private void Start()
     {
@@ -104,12 +104,12 @@ public class BaseBehaviour : MonoBehaviour
         _animator.PlayAnimation("Idle", 0);
     }
 
-    protected void RotateTowards(Vector3 targetPos)
+    public void RotateTowards(Vector3 targetPos)
     {
         _navMeshAgent.updateRotation = true;
     }
 
-    protected void Move(Vector3 desiredPosition)
+    public void Move(Vector3 desiredPosition)
     {
         if (!_canMove) return;
 
