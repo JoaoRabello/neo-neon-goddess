@@ -5,11 +5,10 @@ using UnityEngine;
     
 public class WalkPatrolBehaviour : IdleBehaviour
 {
-    void Update()
+    void FixedUpdate()
     {
         if (behaviour._patrol && behaviour._idle)
         {
-            Debug.Log("Patrol And Idle");
             if (behaviour._healthSystem.IsHacked) return;
             var distanceToPlayer = behaviour._player ? Vector3.Distance(transform.position, behaviour._player.position) : 0;
 
@@ -47,7 +46,6 @@ public class WalkPatrolBehaviour : IdleBehaviour
 
     private void WaypointMovement()
     {
-        Debug.Log("WaypointMovement");
         if (behaviour._waypointIndex == 1)
         {
             var xDistance = Mathf.Abs(transform.position.x - behaviour._waypoint1.position.x);
@@ -69,23 +67,9 @@ public class WalkPatrolBehaviour : IdleBehaviour
 
         Vector3 targetPosition = behaviour._waypointIndex == 1 ? behaviour._waypoint1.position : behaviour._waypoint2.position;
 
-        Move(targetPosition);
+        behaviour.Move(targetPosition);
 
-        RotateTowards(targetPosition);
-    }
-
-    private void RotateTowards(Vector3 targetPos)
-    {
-        behaviour._navMeshAgent.updateRotation = true;
-    }
-
-    private void Move(Vector3 desiredPosition)
-    {
-        if (!behaviour._canMove) return;
-
-        behaviour._navMeshAgent.SetDestination(desiredPosition);
-
-        behaviour._animator.SetParameterValue("isWalking", true);
+        behaviour.RotateTowards(targetPosition);
     }
 
 }

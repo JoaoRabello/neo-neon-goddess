@@ -11,7 +11,7 @@ namespace Animations
     public class CharacterAnimator : MonoBehaviour
     {
         [Tooltip("Animator controller that controls the current character animations")]
-        [SerializeField] private Animator _animatorController;
+        [SerializeField] public Animator _animatorController;
 
         public Vector3 DeltaPosition => _animatorController.deltaPosition;
         

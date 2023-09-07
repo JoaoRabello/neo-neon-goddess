@@ -14,7 +14,7 @@ public class BaseBehaviour : MonoBehaviour
     [SerializeField] public float _forgetRange;
     [SerializeField] public float _range;
     [SerializeField] public float _speed;
-
+    [SerializeField] public float _rotationSpeed;
     [Header("EnemyBehaviour")]
     [SerializeField] public HuntBehaviour _huntBehaviour;
     [SerializeField] public IdleBehaviour _idleBehaviour;
@@ -40,6 +40,18 @@ public class BaseBehaviour : MonoBehaviour
     }
     public EnemyType _enemyType => enemyType;
 
+    public enum ParalysisResistance
+    {
+        ParalysisResistanceCommon,  
+        ParalysisResistanceI,
+        ParalysisResistanceII
+    }
+
+    public ParalysisResistance _paralysisResistance;
+    public float _resistanceTime;
+    public int _resistanceChances;
+    public bool _paralysed;
+    public bool _forcedResistance;
     public int _waypointIndex = 1;
 
     public float _currentSpeed;
@@ -64,6 +76,27 @@ public class BaseBehaviour : MonoBehaviour
 
     private void Start()
     {
+        var i = Random.Range(0, 100);
+        Debug.Log(i);
+        if (i < 25 || _forcedResistance)
+        {
+            _paralysisResistance = (ParalysisResistance)1;
+            _resistanceChances = 1;
+            var time = Random.Range(1f, 11f);
+            _resistanceTime = time;
+            var j = Random.Range(0, 100);
+            if (j == 0)
+            {
+                _paralysisResistance = (ParalysisResistance)2;
+                _resistanceChances = 2;
+            }
+        }
+        else
+        {
+            _paralysisResistance = (ParalysisResistance)0;
+            _resistanceChances = 0;
+        }
+
         _currentSpeed = _speed;
         _basePosition = transform.position;
 
@@ -97,16 +130,16 @@ public class BaseBehaviour : MonoBehaviour
     }
     private void Stop()
     {
+        _paralysed = true;
         _navMeshAgent.SetDestination(transform.position);
-        _animator.SetParameterValue("isWalking", false);
-        _animator.SetParameterValue("isAttacking", false);
-        _animator.SetParameterValue("isSpecialAttacking", false);
-        _animator.PlayAnimation("Idle", 0);
+        _animator._animatorController.speed = 0f;
+        StartCoroutine(TryResist());
     }
 
     public void RotateTowards(Vector3 targetPos)
     {
         _navMeshAgent.updateRotation = true;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_player.transform.position - transform.position), _rotationSpeed * Time.fixedDeltaTime);
     }
 
     public void Move(Vector3 desiredPosition)
@@ -118,4 +151,29 @@ public class BaseBehaviour : MonoBehaviour
         _animator.SetParameterValue("isWalking", true);
     }
 
+    public IEnumerator TryResist()
+    {
+        if (_paralysisResistance != ParalysisResistance.ParalysisResistanceCommon) 
+        {
+            if (_resistanceChances != 0 && _paralysed == true)
+            {
+                yield return new WaitForSeconds(_resistanceTime);
+                var shot = Random.Range(0, 2);
+                if (shot == 1)
+                {
+                    Deparalyse();
+                }
+                _resistanceChances -= 1;
+                Debug.Log(_resistanceChances);
+            }
+        }
+
+    }
+
+    public void Deparalyse()
+    {
+        _paralysed = false;
+        _animator._animatorController.speed = 1f;
+        Idle();
+    }
 }

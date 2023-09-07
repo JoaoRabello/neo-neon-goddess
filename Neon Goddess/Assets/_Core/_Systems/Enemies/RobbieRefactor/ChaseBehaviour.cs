@@ -7,7 +7,7 @@ using Animations;
 public class ChaseBehaviour : HuntBehaviour
 {
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (behaviour._chasing)
         {
