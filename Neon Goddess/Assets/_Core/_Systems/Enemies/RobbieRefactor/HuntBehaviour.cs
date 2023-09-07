@@ -131,17 +131,6 @@ public class HuntBehaviour : MonoBehaviour
         if (behaviour._startedAttackCooldown)
         { return; }
         StartCoroutine(AttackCooldown(true));
-        var front = (behaviour._player.position - transform.position).normalized;
-        var dot = Vector3.Dot(front, transform.forward);
-        var distance = Vector3.Distance(transform.position, behaviour._player.position);
-
-        if (distance >= 1.5f || dot < 0.8f)
-        {
-            behaviour._stabSoundEvent.Post(gameObject);
-            return;
-        }
-
-        DamagePlayer();
     }
 
     void SpecialAttack()
@@ -149,6 +138,10 @@ public class HuntBehaviour : MonoBehaviour
         if (behaviour._startedAttackCooldown)
         { return; }
         StartCoroutine(AttackCooldown(false));
+    }
+
+    public void TryAttack()
+    {
         var front = (behaviour._player.position - transform.position).normalized;
         var dot = Vector3.Dot(front, transform.forward);
         var distance = Vector3.Distance(transform.position, behaviour._player.position);

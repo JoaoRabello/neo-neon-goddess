@@ -12,7 +12,7 @@ public class AttackAnim : MonoBehaviour
     {
         if (PlayerStateObserver.Instance.CurrentState != PlayerStateObserver.PlayerState.Dead)
         {
-            _robbie.Attack();
+            _robbie.TryAttack();
         }
     }
 }
