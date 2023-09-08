@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class AudioVolumeManager : MonoBehaviour
 {
+    [SerializeField] private Slider _masterBusSlider;
     [SerializeField] private Slider _ambienceBusSlider;
     [SerializeField] private Slider _dialoguesBusSlider;
     [SerializeField] private Slider _uiBusSlider;
@@ -12,20 +13,22 @@ public class AudioVolumeManager : MonoBehaviour
     [SerializeField] private Slider _musicBusSlider;
     [SerializeField] private Slider _sfxBusSlider;
     
-    [SerializeField] private AK.Wwise.RTPC _ambienceBusRTPC;
-    [SerializeField] private AK.Wwise.RTPC _dialoguesBusRTPC;
-    [SerializeField] private AK.Wwise.RTPC _uiBusRTPC;
-    [SerializeField] private AK.Wwise.RTPC _notificationsBusRTPC;
-    [SerializeField] private AK.Wwise.RTPC _musicBusRTPC;
-    [SerializeField] private AK.Wwise.RTPC _sfxBusRTPC;
+    [SerializeField] private string _masterBusRTPC;
+    [SerializeField] private string _ambienceBusRTPC;
+    [SerializeField] private string _dialoguesBusRTPC;
+    [SerializeField] private string _uiBusRTPC;
+    [SerializeField] private string _notificationsBusRTPC;
+    [SerializeField] private string _musicBusRTPC;
+    [SerializeField] private string _sfxBusRTPC;
 
     public void SetAllRTPCs()
     {
-        _ambienceBusRTPC.SetGlobalValue(_ambienceBusSlider.value);
-        _dialoguesBusRTPC.SetGlobalValue(_dialoguesBusSlider.value);
-        _uiBusRTPC.SetGlobalValue(_uiBusSlider.value);
-        _notificationsBusRTPC.SetGlobalValue(_notificationsBusSlider.value);
-        _musicBusRTPC.SetGlobalValue(_musicBusSlider.value);
-        _sfxBusRTPC.SetGlobalValue(_sfxBusSlider.value);
+        AkSoundEngine.SetRTPCValue(_masterBusRTPC, _masterBusSlider.value);
+        AkSoundEngine.SetRTPCValue(_ambienceBusRTPC, _ambienceBusSlider.value);
+        AkSoundEngine.SetRTPCValue(_dialoguesBusRTPC, _dialoguesBusSlider.value);
+        AkSoundEngine.SetRTPCValue(_uiBusRTPC, _uiBusSlider.value);
+        AkSoundEngine.SetRTPCValue(_notificationsBusRTPC, _notificationsBusSlider.value);
+        AkSoundEngine.SetRTPCValue(_musicBusRTPC, _musicBusSlider.value);
+        AkSoundEngine.SetRTPCValue(_sfxBusRTPC, _sfxBusSlider.value);
     }
 }
