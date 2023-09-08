@@ -7,6 +7,7 @@ using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ChatDialogueReader : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class ChatDialogueReader : MonoBehaviour
     
     [SerializeField] private GameObject _dialogueVisualContent;
     [SerializeField] private TMP_Text _dialogueLabel;
+    [SerializeField] private List<Button> _optionButtons = new List<Button>();
     [SerializeField] private List<TMP_Text> _dialogueOptionLabels = new List<TMP_Text>();
 
     public Action DialogueEnded;
@@ -68,7 +70,7 @@ public class ChatDialogueReader : MonoBehaviour
         {
             _choosing = false;
             
-            ResetDialogueOptions();
+            ClearOptions();
 
             if(_currentDialogueNode.Children.Count > 0) _currentDialogueNode = _currentDialogue.GetAllChildren(_currentDialogueNode).ToArray()[_choiceIndex];
             PlayNextNode();
@@ -150,21 +152,33 @@ public class ChatDialogueReader : MonoBehaviour
         {
             if (i >= nodes.Length)
             {
-                _dialogueOptionLabels[i].gameObject.SetActive(false);
                 continue;
             }
             
-            _dialogueOptionLabels[i].gameObject.SetActive(true);
             _dialogueOptionLabels[i].SetText(nodes[i].Text);
+            var optionNode = nodes[i];
+            _optionButtons[i].gameObject.SetActive(true);
+            _optionButtons[i].onClick.AddListener(() => SelectOption(optionNode));
+        }
+    }
+    
+    private void ClearOptions()
+    {
+        foreach (var button in _optionButtons)
+        {
+            button.onClick.RemoveAllListeners();
+            button.gameObject.SetActive(false);
         }
     }
 
-    private void ResetDialogueOptions()
+    private void SelectOption(DialogueNode node)
     {
-        foreach (var label in _dialogueOptionLabels)
-        {
-            label.gameObject.SetActive(false);
-        }
+        ClearOptions();
+
+        _choosing = false;
+        _currentDialogueNode = node;
+        
+        PlayNextNode();
     }
 
     private void SetDialogueText()
