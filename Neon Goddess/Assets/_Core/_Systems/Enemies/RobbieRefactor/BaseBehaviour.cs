@@ -133,6 +133,7 @@ public class BaseBehaviour : MonoBehaviour
         _paralysed = true;
         _navMeshAgent.SetDestination(transform.position);
         _animator._animatorController.speed = 0f;
+        StopAllCoroutines();
         StartCoroutine(TryResist());
     }
 
@@ -153,25 +154,25 @@ public class BaseBehaviour : MonoBehaviour
 
     public IEnumerator TryResist()
     {
-        if (_paralysisResistance != ParalysisResistance.ParalysisResistanceCommon) 
-        {
-            if (_resistanceChances != 0 && _paralysed == true)
-            {
-                yield return new WaitForSeconds(_resistanceTime);
-                var shot = Random.Range(0, 2);
-                if (shot == 1)
-                {
-                    Deparalyse();
-                }
-                _resistanceChances -= 1;
-                Debug.Log(_resistanceChances);
-            }
-        }
+        if (_paralysisResistance == ParalysisResistance.ParalysisResistanceCommon) yield break;
 
+        while (_resistanceChances > 0 && _paralysed)
+        {
+            yield return new WaitForSeconds(_resistanceTime);
+            var shot = Random.Range(0, 2);
+            if (shot == 1)
+            {
+                Deparalyse();
+            }
+            _resistanceChances -= 1;
+            Debug.Log(_resistanceChances);
+        }
     }
 
     public void Deparalyse()
     {
+        _healthSystem.ClearHack();
+        
         _paralysed = false;
         _animator._animatorController.speed = 1f;
         Idle();

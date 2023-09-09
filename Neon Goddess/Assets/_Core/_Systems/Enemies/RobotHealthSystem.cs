@@ -75,6 +75,16 @@ public class RobotHealthSystem : MonoBehaviour, IHackable
     {
         _isBeingHacked = true;
     }
+    
+    public void ClearHack()
+    {
+        _isBeingHacked = false;
+        _isHacked = false;
+        
+        _hackedVFX.Stop();
+        
+        _currentSystemResistance = _systemResistance;
+    }
 
     public void CancelHack()
     {
