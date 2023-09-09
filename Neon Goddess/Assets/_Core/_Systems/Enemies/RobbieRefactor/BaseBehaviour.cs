@@ -139,6 +139,8 @@ public class BaseBehaviour : MonoBehaviour
 
     public void RotateTowards(Vector3 targetPos)
     {
+        if (_player == null) return;
+
         _navMeshAgent.updateRotation = true;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_player.transform.position - transform.position), _rotationSpeed * Time.fixedDeltaTime);
     }
