@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseViewRenderer : MonoBehaviour
 {
     [SerializeField] private GameObject _content;
-
+    [SerializeField] private GameObject _soundContent;
     public Action OnResumePressed;
 
     public void Resume()
@@ -32,5 +32,17 @@ public class PauseViewRenderer : MonoBehaviour
     public void HidePauseContent()
     {
         _content.SetActive(false);
+    }
+
+    public void showSoundContent()
+    {
+        _content.SetActive(false);
+        _soundContent.SetActive(true);
+    }
+
+    public void hideSoundContent()
+    {
+        _content.SetActive(true);
+        _soundContent.SetActive(false);
     }
 }
