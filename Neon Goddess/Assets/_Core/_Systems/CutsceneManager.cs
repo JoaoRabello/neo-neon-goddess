@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 public class CutsceneManager : MonoBehaviour
@@ -29,6 +30,30 @@ public class CutsceneManager : MonoBehaviour
     private void OnDestroy()
     {
         Instance = null;
+    }
+
+    public void PlayItemCutscene(Camera itemCutsceneCamera)
+    {
+        PlayerStateObserver.Instance.OnCustsceneStart();
+        
+        _cameraManager.SelectCamera(itemCutsceneCamera);
+        _screenBarsContent.SetActive(true);
+
+        StartCoroutine(ItemCutscene());
+    }
+    
+    private IEnumerator ItemCutscene()
+    {
+        yield return new WaitForSeconds(2);
+        StopItemCutscene();
+    }
+    
+    public void StopItemCutscene()
+    {
+        PlayerStateObserver.Instance.OnCustsceneEnd();
+        
+        _cameraManager.SelectCamera(_cameraManager.CurrentCamera);
+        _screenBarsContent.SetActive(false);
     }
     
     public void PlayCutscene()

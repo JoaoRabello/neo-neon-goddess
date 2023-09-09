@@ -1,6 +1,7 @@
 using Animations;
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,6 +16,7 @@ public class BaseBehaviour : MonoBehaviour
     [SerializeField] public float _range;
     [SerializeField] public float _speed;
     [SerializeField] public float _rotationSpeed;
+    
     [Header("EnemyBehaviour")]
     [SerializeField] public HuntBehaviour _huntBehaviour;
     [SerializeField] public IdleBehaviour _idleBehaviour;
@@ -32,6 +34,8 @@ public class BaseBehaviour : MonoBehaviour
 
     [Header("EnemyType")]
     [SerializeField] public EnemyType enemyType;
+    [SerializeField] public PickableItem _keyDropItemObject;
+
     public enum EnemyType
     {
         Halfie,
@@ -125,9 +129,15 @@ public class BaseBehaviour : MonoBehaviour
         Stop();
         _huntBehaviour.EndHunt();
         _idleBehaviour.EndIdle();
-        //_keyDropItem.transform.position = transform.position + transform.forward;
-        //_keyDropItem.SetActive(true);
+
+        _keyDropItemObject.gameObject.SetActive(true);
+
+        if (_keyDropItemObject.HasCutscene && !_keyDropItemObject.HasPlayedCutscene)
+        {
+            CutsceneManager.Instance.PlayItemCutscene(_keyDropItemObject.CutsceneCamera);
+        }
     }
+    
     private void Stop()
     {
         _paralysed = true;
@@ -161,6 +171,9 @@ public class BaseBehaviour : MonoBehaviour
         while (_resistanceChances > 0 && _paralysed)
         {
             yield return new WaitForSeconds(_resistanceTime);
+            
+            if(PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.OnCutscene) continue;
+            
             var shot = Random.Range(0, 2);
             if (shot == 1)
             {

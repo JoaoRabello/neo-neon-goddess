@@ -6,12 +6,13 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     public static CameraManager Instance;
-    // [SerializeField] private GameObject _cameraButtonsParent;
-    // [SerializeField] private CameraButtonObject _cameraButtonPrefab;
     [SerializeField] private List<CameraButtonObject> _cameraButtons;
     [SerializeField] private List<Camera> _cameras;
     [SerializeField] private Camera _firstCamera;
 
+    private Camera _currentCamera;
+    public Camera CurrentCamera => _currentCamera;
+    
     private void Awake()
     {
         if (Instance is null)
@@ -61,5 +62,7 @@ public class CameraManager : MonoBehaviour
         {
             searchCamera.gameObject.SetActive(searchCamera.Equals(cameraToSelect));
         }
+        
+        _currentCamera = cameraToSelect;
     }
 }

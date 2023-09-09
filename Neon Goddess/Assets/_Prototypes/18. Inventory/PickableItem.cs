@@ -8,11 +8,20 @@ public class PickableItem : MonoBehaviour, IInteractable
 {
     [SerializeField] private Item _item;
     [SerializeField] private int _amount;
-    [SerializeField] private GameObject dialogue;
     [SerializeField] private Dialogue _dialogue;
     [SerializeField] private Item3DViewer inspection;
-    private InventoryHolder _playerInventoryHolder;
     
+    [Header("Cutscene")]
+    [SerializeField] private bool _hasCutscene;
+    [SerializeField] private Camera _cutsceneCamera;
+    private bool _hasPlayedCutscene;
+    
+    private InventoryHolder _playerInventoryHolder;
+
+    public Camera CutsceneCamera => _cutsceneCamera;
+    public bool HasCutscene => _hasCutscene;
+    public bool HasPlayedCutscene { get; set; }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
