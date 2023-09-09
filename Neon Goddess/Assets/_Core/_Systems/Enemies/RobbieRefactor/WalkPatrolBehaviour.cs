@@ -68,7 +68,6 @@ public class WalkPatrolBehaviour : IdleBehaviour
         Vector3 targetPosition = behaviour._waypointIndex == 1 ? behaviour._waypoint1.position : behaviour._waypoint2.position;
 
         behaviour.Move(targetPosition);
-
         behaviour.RotateTowards(targetPosition);
     }
 
