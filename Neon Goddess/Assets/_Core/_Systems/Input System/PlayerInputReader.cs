@@ -39,7 +39,8 @@ namespace Inputs
 
         private void OnEnable()
         {
-            _inputActions.Astrid.Escape.performed += OnEscapePerformed;
+            _inputActions.UI.Escape.performed += OnEscapePerformed;
+            
             _inputActions.Astrid.Interaction.started += OnInteractPerformed;
             _inputActions.Astrid.Movement.started += OnMovementStarted;
             _inputActions.Astrid.Movement.performed += OnMovementPerformed;
@@ -56,7 +57,8 @@ namespace Inputs
 
         private void OnDisable()
         {
-            _inputActions.Astrid.Escape.performed -= OnEscapePerformed;
+            _inputActions.UI.Escape.performed -= OnEscapePerformed;
+            
             _inputActions.Astrid.Interaction.started -= OnInteractPerformed;
             _inputActions.Astrid.Movement.started -= OnMovementStarted;
             _inputActions.Astrid.Movement.performed -= OnMovementPerformed;
@@ -122,10 +124,20 @@ namespace Inputs
         {
             _inputActions.Disable();
         }
+        
+        public void DisableAstridInputs()
+        {
+            _inputActions.Astrid.Disable();
+        }
 
         public void EnableInputs()
         {
             _inputActions.Enable();
+        }
+        
+        public void EnableAstridInputs()
+        {
+            _inputActions.Astrid.Enable();
         }
         
         private void OnEscapePerformed(InputAction.CallbackContext context)

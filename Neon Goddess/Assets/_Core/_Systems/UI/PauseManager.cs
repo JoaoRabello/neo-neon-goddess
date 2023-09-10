@@ -40,7 +40,7 @@ public class PauseManager : MonoBehaviour
 
     private void Pause()
     {
-        PlayerInputReader.Instance.DisableInputs();
+        PlayerInputReader.Instance.DisableAstridInputs();
 
         Time.timeScale = 0;
         _isPaused = true;
@@ -58,6 +58,6 @@ public class PauseManager : MonoBehaviour
         _isPaused = false;
         _renderer.HidePauseContent();
         
-        PlayerInputReader.Instance.EnableInputs();
+        PlayerInputReader.Instance.EnableAstridInputs();
     }
 }
