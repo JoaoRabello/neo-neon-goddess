@@ -49,9 +49,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _item: {fileID: 11400000, guid: 87e6ea5680e005e4195d015b9469b887, type: 2}
   _amount: 1
-  dialogue: {fileID: 0}
   _dialogue: {fileID: 11400000, guid: a7cb0018b2ce83542a0e41bab5707cd0, type: 2}
+  _hasInspection: 1
   inspection: {fileID: 0}
+  _hasCutscene: 0
+  _holdToPlayCutsceneSeconds: 0
+  _cutsceneCamera: {fileID: 0}
 --- !u!54 &6828919455970700832
 Rigidbody:
   m_ObjectHideFlags: 0

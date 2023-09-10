@@ -10,12 +10,16 @@ public class PickableItem : MonoBehaviour, IInteractable
     [SerializeField] private Item _item;
     [SerializeField] private int _amount;
     [SerializeField] private Dialogue _dialogue;
+
+    [Header("Inspection")] 
+    [SerializeField] private bool _hasInspection;
     [SerializeField] private Item3DViewer inspection;
     
     [Header("Cutscene")]
     [SerializeField] private bool _hasCutscene;
     [SerializeField] float _holdToPlayCutsceneSeconds;
     [SerializeField] private Camera _cutsceneCamera;
+    
     private bool _hasPlayedCutscene;
     
     private InventoryHolder _playerInventoryHolder;
@@ -72,9 +76,10 @@ public class PickableItem : MonoBehaviour, IInteractable
         if (!_playerInventoryHolder.TryAddItem(_item, _amount)) return;
         
         ChatDialogueReader.Instance.PlayDialogue(_dialogue);
-        //TODO: Fazer o Inspect Item acontecer só depois do dialogo
-        InspectItem();
-        Destroy(gameObject);
+        
+        if(!_hasInspection) return;
+        
+        ChatDialogueReader.Instance.DialogueEnded += InspectItem;
     }
 
     public IInteractable.InteractableType GetInteractableType()
@@ -96,5 +101,8 @@ public class PickableItem : MonoBehaviour, IInteractable
     {
         inspection.item = _item;
         inspection.StartInspect();
+        
+        ChatDialogueReader.Instance.DialogueEnded -= InspectItem;
+        Destroy(gameObject);
     }
 }
