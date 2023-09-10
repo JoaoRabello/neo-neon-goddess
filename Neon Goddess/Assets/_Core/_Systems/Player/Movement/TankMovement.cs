@@ -55,6 +55,9 @@ namespace PlayerMovements
             
             PlayerStateObserver.Instance.AnimationStart += BlockMovement;
             PlayerStateObserver.Instance.AnimationEnd += UnlockMovement;
+            
+            PlayerStateObserver.Instance.CutsceneStart += BlockMovement;
+            PlayerStateObserver.Instance.CutsceneEnd += UnlockMovement;
 
             _movementSpeed = _basemovementSpeed;
             _backMovementSpeed = _basebackMovementSpeed;
@@ -79,6 +82,9 @@ namespace PlayerMovements
             
             PlayerStateObserver.Instance.AnimationStart -= BlockMovement;
             PlayerStateObserver.Instance.AnimationEnd -= UnlockMovement;
+            
+            PlayerStateObserver.Instance.CutsceneStart -= BlockMovement;
+            PlayerStateObserver.Instance.CutsceneEnd -= UnlockMovement;
         }
 
         /// <summary>

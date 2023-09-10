@@ -34,6 +34,7 @@ public class BaseBehaviour : MonoBehaviour
 
     [Header("EnemyType")]
     [SerializeField] public EnemyType enemyType;
+    [SerializeField] public bool _dropsItem;
     [SerializeField] public PickableItem _keyDropItemObject;
 
     public enum EnemyType
@@ -81,7 +82,6 @@ public class BaseBehaviour : MonoBehaviour
     private void Start()
     {
         var i = Random.Range(0, 100);
-        Debug.Log(i);
         if (i < 25 || _forcedResistance)
         {
             _paralysisResistance = (ParalysisResistance)1;
@@ -113,6 +113,7 @@ public class BaseBehaviour : MonoBehaviour
     {
         _healthSystem.OnHackedSuccessfully -= OnHacked;
     }
+    
     public void Idle()
     {
         _huntBehaviour.EndHunt();
@@ -130,12 +131,10 @@ public class BaseBehaviour : MonoBehaviour
         _huntBehaviour.EndHunt();
         _idleBehaviour.EndIdle();
 
+        if(!_dropsItem) return;
+        if(_keyDropItemObject == null) return;
+        
         _keyDropItemObject.gameObject.SetActive(true);
-
-        if (_keyDropItemObject.HasCutscene && !_keyDropItemObject.HasPlayedCutscene)
-        {
-            CutsceneManager.Instance.PlayItemCutscene(_keyDropItemObject.CutsceneCamera);
-        }
     }
     
     private void Stop()

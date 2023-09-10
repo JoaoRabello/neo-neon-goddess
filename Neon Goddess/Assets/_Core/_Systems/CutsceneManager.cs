@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Player;
@@ -14,7 +15,7 @@ public class CutsceneManager : MonoBehaviour
     
     [Header("UI")]
     [SerializeField] private GameObject _screenBarsContent;
-    
+
     private void Awake()
     {
         if (Instance is null)
@@ -32,11 +33,11 @@ public class CutsceneManager : MonoBehaviour
         Instance = null;
     }
 
-    public void PlayItemCutscene(Camera itemCutsceneCamera)
+    public void PlayItemCutscene()
     {
         PlayerStateObserver.Instance.OnCustsceneStart();
         
-        _cameraManager.SelectCamera(itemCutsceneCamera);
+        _cameraManager.TurnOffRoomCamera();
         _screenBarsContent.SetActive(true);
 
         StartCoroutine(ItemCutscene());
@@ -52,7 +53,7 @@ public class CutsceneManager : MonoBehaviour
     {
         PlayerStateObserver.Instance.OnCustsceneEnd();
         
-        _cameraManager.SelectCamera(_cameraManager.CurrentCamera);
+        _cameraManager.TurnOnLastRoomCamera();
         _screenBarsContent.SetActive(false);
     }
     

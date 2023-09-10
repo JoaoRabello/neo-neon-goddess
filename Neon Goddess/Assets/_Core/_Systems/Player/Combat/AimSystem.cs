@@ -77,6 +77,8 @@ namespace Combat
             PlayerInputReader.Instance.MovementStarted += MoveStarted;
             PlayerInputReader.Instance.MovementPerformed += MovePerformed;
             PlayerInputReader.Instance.MovementCanceled += MoveCanceled;
+            
+            PlayerStateObserver.Instance.CutsceneStart += AimCanceled;
         }
 
         private void OnDisable()
@@ -86,6 +88,8 @@ namespace Combat
             PlayerInputReader.Instance.MovementStarted -= MoveStarted;
             PlayerInputReader.Instance.MovementPerformed -= MovePerformed;
             PlayerInputReader.Instance.MovementCanceled -= MoveCanceled;
+            
+            PlayerStateObserver.Instance.CutsceneStart -= AimCanceled;
         }
 
         private void AimPerformed()

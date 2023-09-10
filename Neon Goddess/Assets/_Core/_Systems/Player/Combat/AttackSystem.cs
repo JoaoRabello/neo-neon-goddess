@@ -130,6 +130,7 @@ namespace Combat
 
             if (_weaponEquipped)
             {
+                //TODO: Checar com a Zarina o motivo desse evento não estar sendo encontrado
                 _shootingSfxPlayer.PlaySFX(_gunHit);
             }
             else

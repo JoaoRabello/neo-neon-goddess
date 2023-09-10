@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,11 +14,14 @@ public class PickableItem : MonoBehaviour, IInteractable
     
     [Header("Cutscene")]
     [SerializeField] private bool _hasCutscene;
+    [SerializeField] float _holdToPlayCutsceneSeconds;
     [SerializeField] private Camera _cutsceneCamera;
     private bool _hasPlayedCutscene;
     
     private InventoryHolder _playerInventoryHolder;
 
+    public Action<IInteractable> OnInteractUpdateIcon { get; set; }
+    public Action<IInteractable> OnStateChangeUpdateIcon { get; set; }
     public Camera CutsceneCamera => _cutsceneCamera;
     public bool HasCutscene => _hasCutscene;
     public bool HasPlayedCutscene { get; set; }
@@ -38,8 +42,29 @@ public class PickableItem : MonoBehaviour, IInteractable
         }
     }
 
-    public Action<IInteractable> OnInteractUpdateIcon { get; set; }
-    public Action<IInteractable> OnStateChangeUpdateIcon { get; set; }
+    private void OnEnable()
+    {
+        if(!_hasCutscene) return;
+        StartCoroutine(HoldCutscene());
+    }
+
+    private IEnumerator HoldCutscene()
+    {
+        yield return new WaitForSeconds(_holdToPlayCutsceneSeconds);
+        
+        _cutsceneCamera.gameObject.SetActive(true);
+        
+        PlayerStateObserver.Instance.CutsceneEnd += TurnOffCutsceneCamera;
+        CutsceneManager.Instance.PlayItemCutscene();
+    }
+
+    private void TurnOffCutsceneCamera()
+    {
+        _cutsceneCamera.gameObject.SetActive(false);
+        
+        PlayerStateObserver.Instance.CutsceneEnd -= TurnOffCutsceneCamera;
+    }
+    
     public void Interact()
     {
         if (_playerInventoryHolder is null) return;
@@ -47,6 +72,7 @@ public class PickableItem : MonoBehaviour, IInteractable
         if (!_playerInventoryHolder.TryAddItem(_item, _amount)) return;
         
         ChatDialogueReader.Instance.PlayDialogue(_dialogue);
+        //TODO: Fazer o Inspect Item acontecer só depois do dialogo
         InspectItem();
         Destroy(gameObject);
     }

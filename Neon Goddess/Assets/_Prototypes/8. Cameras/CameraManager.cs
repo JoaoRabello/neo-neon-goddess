@@ -10,8 +10,8 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private List<Camera> _cameras;
     [SerializeField] private Camera _firstCamera;
 
-    private Camera _currentCamera;
-    public Camera CurrentCamera => _currentCamera;
+    private Camera _lastActiveRoomCamera;
+    public Camera LastActiveRoomCamera => _lastActiveRoomCamera;
     
     private void Awake()
     {
@@ -63,6 +63,16 @@ public class CameraManager : MonoBehaviour
             searchCamera.gameObject.SetActive(searchCamera.Equals(cameraToSelect));
         }
         
-        _currentCamera = cameraToSelect;
+        _lastActiveRoomCamera = cameraToSelect;
+    }
+    
+    public void TurnOffRoomCamera()
+    {
+        _lastActiveRoomCamera.gameObject.SetActive(false);
+    }
+
+    public void TurnOnLastRoomCamera()
+    {
+        _lastActiveRoomCamera.gameObject.SetActive(true);
     }
 }
