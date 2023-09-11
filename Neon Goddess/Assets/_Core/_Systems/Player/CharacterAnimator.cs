@@ -51,9 +51,12 @@ namespace Animations
 
             while (_animatorController.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 < 0.99f)
             {
+                if (!_animatorController.GetCurrentAnimatorStateInfo(0).IsName(animationName))
+                {
+                    break;
+                }
                 yield return null;
             }
-            
             callback?.Invoke();
         }
         
