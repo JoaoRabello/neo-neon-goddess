@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="4062497062">
+		<SoundBank Id="534561221" Language="SFX" Hash="1069088216">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
@@ -177,6 +177,14 @@
 						<File Id="788180970" Language="SFX">
 							<ShortName>Ghost in the metro.wav</ShortName>
 							<Path>SFX\Ghost in the metro_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1852458775" Name="hackGunHit" ObjectPath="\Events\Default Work Unit\SFX Events\hackEvent\hackGunHit" DurationType="OneShot" DurationMin="0.029772" DurationMax="0.029772">
+					<IncludedMemoryFiles>
+						<File Id="646585737" Language="SFX">
+							<ShortName>GunHit.wav</ShortName>
+							<Path>SFX\GunHit_21D16F58.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
