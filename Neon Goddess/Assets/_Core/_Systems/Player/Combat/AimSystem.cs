@@ -244,6 +244,52 @@ namespace Combat
             _canHideWeapon = true;
         }
 
+        private void CancelAimOnDeath()
+        {
+            _isAiming = false;
+            
+            StopAllCoroutines();
+
+            if (_isDrawingWeapon)
+            {
+                HideWeaponForced();
+                _isDrawingWeapon = false;
+            }
+
+            if (_attackSystem.WeaponEquipped)
+            {
+                _animator.SetParameterValue("isAiming", false);
+            }
+            else
+            {
+                if (!_attackSystem.IsOnAttackAnimation)
+                {
+                    //TODO: Faz essa porra direito, não bota pra desligar a melee aqui se estiver atacando. Se estiver, tem que terminar a anim antes, animal
+                    _meleeWeaponGameObject.SetActive(false);
+                    _animator.SetParameterValue("isAimingMelee", false);
+                    
+                    _sfxPlayer.StopSFX(_stickGuard);
+                }
+                else
+                {
+                    _animator.OnCurrentAnimationEndCallback(HideMeleeWeapon);
+                }
+            }
+        
+            lightningVFX.EffectActivator();
+
+            var foundHackablesCopy =  _foundTargetHackables.ToList();
+            
+            AimCrossHairManager.Instance.CancelAim();
+            foreach (var hackable in foundHackablesCopy)
+            {
+                _foundTargetHackables.Remove(hackable);
+            }
+
+            _automaticAimCurrentTarget = null;
+            _automaticAimFirstTarget = null;
+        }
+        
         private void AimCanceled()
         {
             _isAiming = false;
@@ -361,9 +407,9 @@ namespace Combat
 
         private void Update()
         {
-            if (PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Dead)
+            if (PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Dead && _isAiming)
             {
-                AimCanceled();
+                CancelAimOnDeath();
             }
             if (!_isAiming) return;
 
