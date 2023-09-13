@@ -172,14 +172,10 @@ public class BaseBehaviour : MonoBehaviour
             yield return new WaitForSeconds(_resistanceTime);
             
             if(PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.OnCutscene) continue;
-            
-            var shot = Random.Range(0, 2);
-            if (shot == 1)
-            {
-                Deparalyse();
-            }
+
+            Deparalyse();
+
             _resistanceChances -= 1;
-            Debug.Log(_resistanceChances);
         }
     }
 

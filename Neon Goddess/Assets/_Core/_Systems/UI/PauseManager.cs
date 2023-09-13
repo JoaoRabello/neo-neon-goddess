@@ -28,13 +28,21 @@ public class PauseManager : MonoBehaviour
 
     private void PausePerformed()
     {
-        if (!_isPaused)
+        if (!_isPaused && !_renderer._isSoundActive)
         {
             Pause();
         }
         else
         {
-            Resume();
+            if (!_renderer._isSoundActive)
+            {
+                Resume();
+            }
+            else if(_renderer._isSoundActive)
+            {
+                _renderer.hideSoundContent();
+                _renderer.RenderPauseContent();
+            }
         }
     }
 
