@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5825662095480373256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 5c25b6f8-9254-4371-8d55-d80cb3fb5666
+  m_EditorClassIdentifier: 
+  _text: Do nothing
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 3dd4158c-1eb5-4ec7-b458-343101286b3c
+  _rect:
+    serializedVersion: 2
+    x: 423
+    y: 325
+    width: 200
+    height: 200
+--- !u!114 &-1332344057885578476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: fd6878ce-480f-4918-9d8a-3b495cd1c495
+  m_EditorClassIdentifier: 
+  _text: What the heck is that thing?
+  _isRootNode: 1
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 7b1969fb-16b1-4928-b744-804180939d27
+  _rect:
+    serializedVersion: 2
+    x: -41
+    y: 147
+    width: 200
+    height: 200
+--- !u!114 &-208955939260400369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: bdf0dc03-5775-4f2f-932f-cb04c9278288
+  m_EditorClassIdentifier: 
+  _text: Touch the portal
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - ccc2baf2-b070-40e3-8aa5-a5e4a3115d15
+  _rect:
+    serializedVersion: 2
+    x: 423
+    y: -1
+    width: 200
+    height: 200
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7eca54113c3da44b17989f2565d1a3, type: 3}
+  m_Name: portal1_interaction
+  m_EditorClassIdentifier: 
+  _nodes:
+  - {fileID: -1332344057885578476}
+  - {fileID: -208955939260400369}
+  - {fileID: -5825662095480373256}
+  - {fileID: 7685845303668352347}
+  - {fileID: 1615509588009728893}
+  - {fileID: 7342805268931322323}
+  - {fileID: 7532419832532157724}
+--- !u!114 &1615509588009728893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: ccc2baf2-b070-40e3-8aa5-a5e4a3115d15
+  m_EditorClassIdentifier: 
+  _text: Ugh. No time to figure it out now.
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 53ff4cf5-f1cd-48d5-b3e0-640054423c31
+  _rect:
+    serializedVersion: 2
+    x: 690
+    y: 0
+    width: 200
+    height: 200
+--- !u!114 &7342805268931322323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 7b1969fb-16b1-4928-b744-804180939d27
+  m_EditorClassIdentifier: 
+  _text: It gives me a strange feeling... Like it's calling me.
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - bdf0dc03-5775-4f2f-932f-cb04c9278288
+  - 5c25b6f8-9254-4371-8d55-d80cb3fb5666
+  _rect:
+    serializedVersion: 2
+    x: 196
+    y: 148
+    width: 200
+    height: 200
+--- !u!114 &7532419832532157724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 53ff4cf5-f1cd-48d5-b3e0-640054423c31
+  m_EditorClassIdentifier: 
+  _text: What's the worst that could happen?
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 950
+    y: 1
+    width: 200
+    height: 200
+--- !u!114 &7685845303668352347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 3dd4158c-1eb5-4ec7-b458-343101286b3c
+  m_EditorClassIdentifier: 
+  _text: Nope, there's no way I'm getting in there!
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 690
+    y: 326
+    width: 200
+    height: 200
