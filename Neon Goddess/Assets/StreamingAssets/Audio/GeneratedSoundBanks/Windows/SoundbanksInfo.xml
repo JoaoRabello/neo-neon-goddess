@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="534561221" Language="SFX" Hash="2596741636">
+			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
+			<ShortName>mainSoundBank</ShortName>
+			<Path>mainSoundBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2162101802" Name="chorusVoices" ObjectPath="\Events\Default Work Unit\SFX Events\SpecialEvents\chorusVoices" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="152880994" Language="SFX">
+							<ShortName>Chorus\Chorus 04.wav</ShortName>
+							<Path>SFX\Chorus\Chorus 04_6AF693E7.wem</Path>
+						</File>
+						<File Id="635549386" Language="SFX">
+							<ShortName>Chorus\Chorus 01.wav</ShortName>
+							<Path>SFX\Chorus\Chorus 01_6AF693E7.wem</Path>
+						</File>
+						<File Id="739233669" Language="SFX">
+							<ShortName>Chorus\Chorus 02.wav</ShortName>
+							<Path>SFX\Chorus\Chorus 02_6AF693E7.wem</Path>
+						</File>
+						<File Id="1009022336" Language="SFX">
+							<ShortName>Chorus\Chorus 03.wav</ShortName>
+							<Path>SFX\Chorus\Chorus 03_6AF693E7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1325999122" Name="doorAccessDenied" ObjectPath="\Events\Default Work Unit\SFX Events\doorEvents\doorAccessDenied" DurationType="OneShot" DurationMin="0.2105" DurationMax="0.2105">
+					<IncludedMemoryFiles>
+						<File Id="168953332" Language="SFX">
+							<ShortName>hack_status\hack_cancel.wav</ShortName>
+							<Path>SFX\hack_status\hack_cancel_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3888197404" Name="doorAccessGranted" ObjectPath="\Events\Default Work Unit\SFX Events\doorEvents\doorAccessGranted" DurationType="OneShot" DurationMin="0.326479" DurationMax="0.326479">
+					<IncludedMemoryFiles>
+						<File Id="1055927533" Language="SFX">
+							<ShortName>hack_status\hack_confirm.wav</ShortName>
+							<Path>SFX\hack_status\hack_confirm_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1155812980" Name="doorSlideClose" ObjectPath="\Events\Default Work Unit\SFX Events\doorEvents\doorSlideClose" DurationType="OneShot" DurationMin="0.874078" DurationMax="0.874078">
+					<IncludedMemoryFiles>
+						<File Id="946008597" Language="SFX">
+							<ShortName>DoorCommonClose.wav</ShortName>
+							<Path>SFX\DoorCommonClose_9D8766B6.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3388975760" Name="doorSlideOpen" ObjectPath="\Events\Default Work Unit\SFX Events\doorEvents\doorSlideOpen" DurationType="OneShot" DurationMin="0.950732" DurationMax="0.950732">
+					<IncludedMemoryFiles>
+						<File Id="406834914" Language="SFX">
+							<ShortName>DoorCommonOpen.wav</ShortName>
+							<Path>SFX\DoorCommonOpen_BE7B8D56.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1281988221" Name="eStrickGuard" ObjectPath="\Events\Default Work Unit\SFX Events\eletricStickEvents\eStrickGuard" DurationType="OneShot" DurationMin="5.884785" DurationMax="5.884785">
+					<IncludedMemoryFiles>
+						<File Id="229079946" Language="SFX">
+							<ShortName>EletrickStick\EletrickStickGuard.wav</ShortName>
+							<Path>SFX\EletrickStick\EletrickStickGuard_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3941029093" Name="eStrickHit" ObjectPath="\Events\Default Work Unit\SFX Events\eletricStickEvents\eStrickHit" DurationType="OneShot" DurationMin="0.372381" DurationMax="0.372381">
+					<IncludedMemoryFiles>
+						<File Id="77682042" Language="SFX">
+							<ShortName>EletrickStick\EletrickStickHit.wav</ShortName>
+							<Path>SFX\EletrickStick\EletrickStickHit_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="362183768" Name="eStrickSwing" ObjectPath="\Events\Default Work Unit\SFX Events\eletricStickEvents\eStrickSwing" DurationType="OneShot" DurationMin="0.193061" DurationMax="0.193061">
+					<IncludedMemoryFiles>
+						<File Id="21246942" Language="SFX">
+							<ShortName>EletrickStick\EletrickStickSwing.wav</ShortName>
+							<Path>SFX\EletrickStick\EletrickStickSwing_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2519090655" Name="eventHealthHeartbeat" ObjectPath="\Events\Default Work Unit\Awareness Events\Health Events\eventHealthHeartbeat" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="569761510" Language="SFX">
+							<ShortName>Heart Beat\Heart Beatwav.wav</ShortName>
+							<Path>SFX\Heart Beat\Heart Beatwav_6AF693E7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4214009878" Name="eventVoiceAstrid" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceAstrid" DurationType="OneShot" DurationMin="0.048521" DurationMax="0.048521">
+					<IncludedMemoryFiles>
+						<File Id="846139341" Language="SFX">
+							<ShortName>Character Scribble\Astrid2.wav</ShortName>
+							<Path>SFX\Character Scribble\Astrid2_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="220902363" Name="eventVoiceGuara" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceGuara" DurationType="OneShot" DurationMin="0.048521" DurationMax="0.048521">
+					<IncludedMemoryFiles>
+						<File Id="368848235" Language="SFX">
+							<ShortName>Character Scribble\Kazimir T.wav</ShortName>
+							<Path>SFX\Character Scribble\Kazimir T_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="607750724" Name="eventVoiceKazimir" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceKazimir" DurationType="OneShot" DurationMin="0.056917" DurationMax="0.056917">
+					<IncludedMemoryFiles>
+						<File Id="972112759" Language="SFX">
+							<ShortName>Character Scribble\Casimir.wav</ShortName>
+							<Path>SFX\Character Scribble\Casimir_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1592018284" Name="eventVoiceMilord" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceMilord" DurationType="OneShot" DurationMin="0.048521" DurationMax="0.048521">
+					<IncludedMemoryFiles>
+						<File Id="817371568" Language="SFX">
+							<ShortName>Character Scribble\Milord.wav</ShortName>
+							<Path>SFX\Character Scribble\Milord_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3373072804" Name="eventVoiceRaziel" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceRaziel" DurationType="OneShot" DurationMin="0.048521" DurationMax="0.048521">
+					<IncludedMemoryFiles>
+						<File Id="655585714" Language="SFX">
+							<ShortName>Character Scribble\Raziel.wav</ShortName>
+							<Path>SFX\Character Scribble\Raziel_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3492179582" Name="eventVoiceTalwa" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceTalwa" DurationType="OneShot" DurationMin="0.056917" DurationMax="0.056917">
+					<IncludedMemoryFiles>
+						<File Id="116112332" Language="SFX">
+							<ShortName>Character Scribble\Talwa.wav</ShortName>
+							<Path>SFX\Character Scribble\Talwa_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1676920321" Name="eventVoiceYavik" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYavik" DurationType="OneShot" DurationMin="0.048521" DurationMax="0.048521">
+					<IncludedMemoryFiles>
+						<File Id="240535298" Language="SFX">
+							<ShortName>Character Scribble\Yavik.wav</ShortName>
+							<Path>SFX\Character Scribble\Yavik_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1437365791" Name="eventVoiceYohanna" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohanna" DurationType="OneShot" DurationMin="0.048521" DurationMax="0.048521">
+					<IncludedMemoryFiles>
+						<File Id="947437832" Language="SFX">
+							<ShortName>Character Scribble\Yohanna.wav</ShortName>
+							<Path>SFX\Character Scribble\Yohanna_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="865037345" Name="eventVoiceYohannaAssistent" ObjectPath="\Events\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohannaAssistent" DurationType="OneShot" DurationMin="0.048521" DurationMax="0.048521">
+					<IncludedMemoryFiles>
+						<File Id="832848529" Language="SFX">
+							<ShortName>Character Scribble\Gado.wav</ShortName>
+							<Path>SFX\Character Scribble\Gado_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="539542031" Name="ghostInTheMetro" ObjectPath="\Events\Default Work Unit\SFX Events\SpecialEvents\ghostInTheMetro" DurationType="OneShot" DurationMin="14.483396" DurationMax="14.483396">
+					<IncludedMemoryFiles>
+						<File Id="788180970" Language="SFX">
+							<ShortName>Ghost in the metro.wav</ShortName>
+							<Path>SFX\Ghost in the metro_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1852458775" Name="hackGunHit" ObjectPath="\Events\Default Work Unit\SFX Events\hackEvent\hackGunHit" DurationType="OneShot" DurationMin="0.028428" DurationMax="0.028428">
+					<IncludedMemoryFiles>
+						<File Id="646585737" Language="SFX">
+							<ShortName>GunHit.wav</ShortName>
+							<Path>SFX\GunHit_21D16F58.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4099961397" Name="hackGunShoot" ObjectPath="\Events\Default Work Unit\SFX Events\hackEvent\hackGunShoot" DurationType="OneShot" DurationMin="0.295669" DurationMax="0.295669">
+					<IncludedMemoryFiles>
+						<File Id="590338317" Language="SFX">
+							<ShortName>HackGun\Hackgun Shoot.wav</ShortName>
+							<Path>SFX\HackGun\Hackgun Shoot_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3441559445" Name="painGrunt" ObjectPath="\Events\Default Work Unit\Awareness Events\Health Events\painGrunt" DurationType="OneShot" DurationMin="0.156213" DurationMax="0.156213">
+					<IncludedMemoryFiles>
+						<File Id="1037918519" Language="SFX">
+							<ShortName>painGrunt.wav</ShortName>
+							<Path>SFX\painGrunt_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3749656831" Name="presenceSound" ObjectPath="\Events\Default Work Unit\Awareness Events\Enemy Awareness Sound\presenceSound" MaxAttenuation="15." DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="872065834" Language="SFX">
+							<ShortName>Voices in the Radio Full.wav</ShortName>
+							<Path>SFX\Voices in the Radio Full_1583B490.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1464182441" Name="quantumScreaming" ObjectPath="\Events\Default Work Unit\Music Events\quantumScreaming" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="133366327" Language="SFX">
+							<ShortName>Quantum Screaming.wav</ShortName>
+							<Path>SFX\Quantum Screaming_6AF693E7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1510770975" Name="radioVoices" ObjectPath="\Events\Default Work Unit\SFX Events\SpecialEvents\radioVoices" MaxAttenuation="15." DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="872065834" Language="SFX">
+							<ShortName>Voices in the Radio Full.wav</ShortName>
+							<Path>SFX\Voices in the Radio Full_1583B490.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2723644948" Name="robbieGrab" ObjectPath="\Events\Default Work Unit\SFX Events\enemyEvents\robbieGrab" DurationType="OneShot" DurationMin="1.722494" DurationMax="1.722494">
+					<IncludedMemoryFiles>
+						<File Id="971140568" Language="SFX">
+							<ShortName>RobbieGrab.wav</ShortName>
+							<Path>SFX\RobbieGrab_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="11002050" Name="robbieStab" ObjectPath="\Events\Default Work Unit\SFX Events\enemyEvents\robbieStab" DurationType="OneShot" DurationMin="0.270771" DurationMax="0.270771">
+					<IncludedMemoryFiles>
+						<File Id="210247289" Language="SFX">
+							<ShortName>RobbieStab.wav</ShortName>
+							<Path>SFX\RobbieStab_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3318281901" Name="robbieStabHit" ObjectPath="\Events\Default Work Unit\SFX Events\enemyEvents\robbieStabHit" DurationType="OneShot" DurationMin="0.675458" DurationMax="0.675458">
+					<IncludedMemoryFiles>
+						<File Id="95647973" Language="SFX">
+							<ShortName>RobbieStabHit.wav</ShortName>
+							<Path>SFX\RobbieStabHit_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3035224157" Name="stepEvent" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEvent" MaxAttenuation="100." DurationType="OneShot" DurationMin="0.019544" DurationMax="0.701896">
+					<IncludedMemoryFiles>
+						<File Id="79465095" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb04.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb04_3A36A138.wem</Path>
+						</File>
+						<File Id="109603463" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb02.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb02_05842A19.wem</Path>
+						</File>
+						<File Id="315903680" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb03.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb03_229EB036.wem</Path>
+						</File>
+						<File Id="551442925" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb02.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb02_84911D7A.wem</Path>
+						</File>
+						<File Id="822608226" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb01.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb01_5CEC651D.wem</Path>
+						</File>
+						<File Id="924084229" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb03.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb03_05842A19.wem</Path>
+						</File>
+						<File Id="956966789" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb04.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb04_05842A19.wem</Path>
+						</File>
+						<File Id="1061449108" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb01.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb01_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1563548634" Name="stepEventRobbie" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEventRobbie" MaxAttenuation="15." DurationType="OneShot" DurationMin="0.046979" DurationMax="0.046979">
+					<IncludedMemoryFiles>
+						<File Id="374130843" Language="SFX">
+							<ShortName>RobbieStep.wav</ShortName>
+							<Path>SFX\RobbieStep_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="36201819" Name="stepEventTemp" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEventTemp" MaxAttenuation="100." DurationType="OneShot" DurationMin="0.019544" DurationMax="0.041337">
+					<IncludedMemoryFiles>
+						<File Id="79465095" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb04.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb04_3A36A138.wem</Path>
+						</File>
+						<File Id="315903680" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb03.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb03_229EB036.wem</Path>
+						</File>
+						<File Id="551442925" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb02.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb02_84911D7A.wem</Path>
+						</File>
+						<File Id="822608226" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb01.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb01_5CEC651D.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1933252553" Name="uiCancel" ObjectPath="\Events\Default Work Unit\UIEvents\General Sounds\uiCancel" DurationType="OneShot" DurationMin="0.110385" DurationMax="0.110385">
+					<IncludedMemoryFiles>
+						<File Id="368048726" Language="SFX">
+							<ShortName>UI\Menu Sound\UiCancelMenuSound.wav</ShortName>
+							<Path>SFX\UI\Menu Sound\UiCancelMenuSound_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1308437452" Name="uiConfirmation" ObjectPath="\Events\Default Work Unit\UIEvents\General Sounds\uiConfirmation" DurationType="OneShot" DurationMin="0.101062" DurationMax="0.101062">
+					<IncludedMemoryFiles>
+						<File Id="861051072" Language="SFX">
+							<ShortName>UI\Menu Sound\UiConfirmationMenuSound.wav</ShortName>
+							<Path>SFX\UI\Menu Sound\UiConfirmationMenuSound_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2191038231" Name="uiPickUp" ObjectPath="\Events\Default Work Unit\UIEvents\General Sounds\uiPickUp" DurationType="OneShot" DurationMin="0.536236" DurationMax="0.536236">
+					<IncludedMemoryFiles>
+						<File Id="680057030" Language="SFX">
+							<ShortName>Pick up  02.wav</ShortName>
+							<Path>SFX\Pick up  02_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2454203527" Name="uiSelection" ObjectPath="\Events\Default Work Unit\UIEvents\General Sounds\uiSelection" DurationType="OneShot" DurationMin="0.053646" DurationMax="0.053646">
+					<IncludedMemoryFiles>
+						<File Id="505767842" Language="SFX">
+							<ShortName>UI\Menu Sound\UiSelectionMenuSound.wav</ShortName>
+							<Path>SFX\UI\Menu Sound\UiSelectionMenuSound_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+			<GameParameters>
+				<GameParameter Id="62014404" Name="sfxBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\sfxBusController"/>
+				<GameParameter Id="80573052" Name="musicBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\musicBusController"/>
+				<GameParameter Id="95401436" Name="lowVoicePitcherController" ObjectPath="\Game Parameters\Default Work Unit\pitchController\lowVoicePitcherController"/>
+				<GameParameter Id="187408528" Name="stepRobbieReverb" ObjectPath="\Game Parameters\Default Work Unit\stepSoundController\stepRobbieReverb"/>
+				<GameParameter Id="224940047" Name="uiBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\uiBusController"/>
+				<GameParameter Id="682147685" Name="chorus01Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus01Control"/>
+				<GameParameter Id="936584782" Name="chorus04Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus04Control"/>
+				<GameParameter Id="1116251856" Name="stepSoundSwitchController" ObjectPath="\Game Parameters\Default Work Unit\stepSoundController\stepSoundSwitchController"/>
+				<GameParameter Id="1444919967" Name="masterBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\masterBusController"/>
+				<GameParameter Id="1574828856" Name="chorus02Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus02Control"/>
+				<GameParameter Id="1959894969" Name="eStrickOnHitSoundController" ObjectPath="\Game Parameters\Default Work Unit\hackgunAndEStickSoundControllers\eStrickOnHitSoundController"/>
+				<GameParameter Id="1970181751" Name="dialogueBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\dialogueBusController"/>
+				<GameParameter Id="2692592512" Name="heartbeatTempoController" ObjectPath="\Game Parameters\Default Work Unit\awarenessSoundController\heartbeatTempoController"/>
+				<GameParameter Id="3037820317" Name="infoBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\infoBusController"/>
+				<GameParameter Id="3517018448" Name="highVoicePitcher" ObjectPath="\Game Parameters\Default Work Unit\pitchController\highVoicePitcher"/>
+				<GameParameter Id="3628988595" Name="chorus03Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus03Control"/>
+				<GameParameter Id="3767945453" Name="ambienceBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\ambienceBusController"/>
+				<GameParameter Id="4148718858" Name="awarenessBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\awarenessBusController"/>
+			</GameParameters>
+			<SwitchGroups>
+				<SwitchGroup Id="821105189" Name="stepSoundGroup" ObjectPath="\Switches\Default Work Unit\stepSoundGroup" GUID="{82CD54BD-B38B-4784-A190-F4381B36CB06}">
+					<Switches>
+						<Switch Id="685059302" Name="concreteNoVerb" ObjectPath="\Switches\Default Work Unit\stepSoundGroup\concreteNoVerb" GUID="{18796C35-7243-4671-8FAD-704E01D87563}"/>
+						<Switch Id="1147545571" Name="concreteVerb" ObjectPath="\Switches\Default Work Unit\stepSoundGroup\concreteVerb" GUID="{1C10DD12-CD55-44B1-8AAA-7174CB4EC62A}"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+		<SoundBank Id="1355168291" Language="SFX" Hash="4054929092">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<GameParameters>
+				<GameParameter Id="62014404" Name="sfxBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\sfxBusController"/>
+				<GameParameter Id="80573052" Name="musicBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\musicBusController"/>
+				<GameParameter Id="224940047" Name="uiBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\uiBusController"/>
+				<GameParameter Id="1444919967" Name="masterBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\masterBusController"/>
+				<GameParameter Id="1970181751" Name="dialogueBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\dialogueBusController"/>
+				<GameParameter Id="3037820317" Name="infoBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\infoBusController"/>
+				<GameParameter Id="3767945453" Name="ambienceBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\ambienceBusController"/>
+				<GameParameter Id="4148718858" Name="awarenessBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\awarenessBusController"/>
+			</GameParameters>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

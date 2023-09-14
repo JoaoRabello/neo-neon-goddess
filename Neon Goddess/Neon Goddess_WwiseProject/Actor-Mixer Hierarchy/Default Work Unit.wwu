@@ -1672,13 +1672,18 @@
 						<Sound Name="Quantum Screaming" ID="{69AF8371-0EF9-43BA-9977-3560CED032F6}" ShortID="771847480">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="masterBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+									<ObjectRef Name="musicBus" ID="{716C82E4-0C47-4C1E-A723-F7CCB4E6B8F0}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
