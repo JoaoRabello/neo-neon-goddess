@@ -114,8 +114,8 @@ public class HuntBehaviour : MonoBehaviour
             behaviour._foundPlayer = false;
         }
 
-        Collider[] playerColliders = new Collider[3];
-        behaviour.size = Physics.OverlapSphereNonAlloc(transform.position, behaviour._range, playerColliders, behaviour._playerLayerMask);
+        behaviour.playerColliders = new Collider[3];
+        behaviour.size = Physics.OverlapSphereNonAlloc(transform.position, behaviour._range, behaviour.playerColliders, behaviour._playerLayerMask);
     }
 
     private void DamagePlayer()

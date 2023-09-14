@@ -16,6 +16,10 @@ public class IdleBehaviour : MonoBehaviour
         {
             StartLamentation();
         }
+        else if(behaviour._enemyType == BaseBehaviour.EnemyType.Halfie)
+        {
+            behaviour.Hunt();
+        }
     }
 
     public void EndIdle()
