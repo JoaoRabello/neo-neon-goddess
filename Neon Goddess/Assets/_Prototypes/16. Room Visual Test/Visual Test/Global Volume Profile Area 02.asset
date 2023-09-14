@@ -127,6 +127,49 @@ MonoBehaviour:
   saturation:
     m_OverrideState: 0
     m_Value: -15
+--- !u!114 &-6762524583500438188
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473c559cd34f83d40960401327e523c7, type: 3}
+  m_Name: UltimateVignette
+  m_EditorClassIdentifier: 
+  active: 1
+  enable:
+    m_OverrideState: 1
+    m_Value: 1
+  vignetteShape:
+    m_OverrideState: 0
+    m_Value: 0
+  center:
+    m_OverrideState: 0
+    m_Value: {x: 0.5, y: 0.5}
+  vignetteAmount:
+    m_OverrideState: 1
+    m_Value: 35
+  vignetteFineTune:
+    m_OverrideState: 0
+    m_Value: -10
+  edgeSoftness:
+    m_OverrideState: 0
+    m_Value: 1.5
+  edgeBlend:
+    m_OverrideState: 1
+    m_Value: 7.5
+  innerColorAlpha:
+    m_OverrideState: 1
+    m_Value: 45
+  innerColor:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 0, b: 0, a: 1}
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-5283087783509341331
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -476,6 +519,7 @@ MonoBehaviour:
   - {fileID: 8348559597720700418}
   - {fileID: 5596057272634263964}
   - {fileID: 5163216302127404621}
+  - {fileID: -6762524583500438188}
 --- !u!114 &1915761963085887303
 MonoBehaviour:
   m_ObjectHideFlags: 3
