@@ -1,5 +1,75 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8806796939977565377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 3647578c-9ba5-4ae6-8d13-89c28da5b107
+  m_EditorClassIdentifier: 
+  _text: No
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 36714b88-7be4-452c-bc73-cb84505d2e48
+  _rect:
+    serializedVersion: 2
+    x: 795
+    y: 245
+    width: 200
+    height: 200
+--- !u!114 &-7073988625899708696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 63e600ce-a3fa-4600-95f9-a856b31b32c1
+  m_EditorClassIdentifier: 
+  _text: Ugh. It's not like I love to jump in bizarre shiny portals that leads to
+    unknown places, but...
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 5e347817-aab8-47e0-ae31-b5d349fecf03
+  _rect:
+    serializedVersion: 2
+    x: 1044
+    y: 24
+    width: 200
+    height: 200
+--- !u!114 &-6208494797253681233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 196d71b8-67af-4120-b288-8b1d8b1ec953
+  m_EditorClassIdentifier: 
+  _text: Wait, what the heck is this thing?
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - ea5212f1-f6d9-4cd8-804e-724c53d7068d
+  _rect:
+    serializedVersion: 2
+    x: 301
+    y: 149
+    width: 200
+    height: 200
 --- !u!114 &-640936285504236232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,13 +82,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
   m_Name: 5a61abbd-000e-4c39-b3a6-597fe91dbd19
   m_EditorClassIdentifier: 
-  _text: I used the Security Keycard to unlock the door.
+  _text: The kaycard worked!
   _isRootNode: 1
   _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
-  _children: []
+  _children:
+  - 196d71b8-67af-4120-b288-8b1d8b1ec953
   _rect:
     serializedVersion: 2
-    x: 50
+    x: 40
     y: 149
     width: 200
     height: 200
@@ -36,3 +107,149 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nodes:
   - {fileID: -640936285504236232}
+  - {fileID: -6208494797253681233}
+  - {fileID: 4093242993635362014}
+  - {fileID: 4348953680457685732}
+  - {fileID: -8806796939977565377}
+  - {fileID: 1660141147890824489}
+  - {fileID: -7073988625899708696}
+  - {fileID: 6884072723162030133}
+  - {fileID: 2521004943633671025}
+  - {fileID: 3575392071589858195}
+--- !u!114 &1660141147890824489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 36714b88-7be4-452c-bc73-cb84505d2e48
+  m_EditorClassIdentifier: 
+  _text: There's no way I'm going in there, nope.
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 39b1c170-b250-4114-bd89-02ba8d9ab93a
+  _rect:
+    serializedVersion: 2
+    x: 1045
+    y: 245
+    width: 200
+    height: 200
+--- !u!114 &2521004943633671025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: efd4db79-08e7-4222-86db-8d5ea8a661cd
+  m_EditorClassIdentifier: 
+  _text: What's the worst that could happen?
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 1544
+    y: 24
+    width: 200
+    height: 200
+--- !u!114 &3575392071589858195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 39b1c170-b250-4114-bd89-02ba8d9ab93a
+  m_EditorClassIdentifier: 
+  _text: Please tell me I don't need to jump through the scary-looking portal...
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 1295
+    y: 245
+    width: 200
+    height: 200
+--- !u!114 &4093242993635362014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: ea5212f1-f6d9-4cd8-804e-724c53d7068d
+  m_EditorClassIdentifier: 
+  _text: Go through the Portal?
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 08b81434-900b-4d15-9694-656acc7d71b5
+  - 3647578c-9ba5-4ae6-8d13-89c28da5b107
+  _rect:
+    serializedVersion: 2
+    x: 551
+    y: 149
+    width: 200
+    height: 200
+--- !u!114 &4348953680457685732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 08b81434-900b-4d15-9694-656acc7d71b5
+  m_EditorClassIdentifier: 
+  _text: Yes
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 63e600ce-a3fa-4600-95f9-a856b31b32c1
+  _rect:
+    serializedVersion: 2
+    x: 794
+    y: 24
+    width: 200
+    height: 200
+--- !u!114 &6884072723162030133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 5e347817-aab8-47e0-ae31-b5d349fecf03
+  m_EditorClassIdentifier: 
+  _text: There's no onther way out.
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - efd4db79-08e7-4222-86db-8d5ea8a661cd
+  _rect:
+    serializedVersion: 2
+    x: 1294
+    y: 24
+    width: 200
+    height: 200
