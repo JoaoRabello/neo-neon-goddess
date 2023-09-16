@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Animations;
+using MoreMountains.Feedbacks;
 using Player;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,9 @@ public class HealthSystem : MonoBehaviour
     [Header("SFX")]
     [SerializeField] private AK.Wwise.Event _painGrunt;
     [SerializeField] private AK.Wwise.Event _heartBeat;
+    
+    [Header("VFX")]
+    [SerializeField] private MMF_Player _damageFeedback;
     
     public enum HealthType
     {
@@ -77,6 +81,7 @@ public class HealthSystem : MonoBehaviour
     
     public void TakePhysicalDamage(int amount)
     {
+        _damageFeedback.PlayFeedbacks();
         _currentPhysicalHealth -= amount;
 
         CheckDeath();
