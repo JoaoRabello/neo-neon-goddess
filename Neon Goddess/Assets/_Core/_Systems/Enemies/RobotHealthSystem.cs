@@ -16,6 +16,7 @@ public class RobotHealthSystem : MonoBehaviour, IHackable
     [Header("VFX")]
     [SerializeField] private ParticleSystem _hackedVFX;
     
+    public Action OnTakenShot;
     public Action OnHackedSuccessfully;
     
     private int _currentSystemResistance;
@@ -41,9 +42,9 @@ public class RobotHealthSystem : MonoBehaviour, IHackable
 
     public void TakeHackShot(int damageAmount)
     {
-        Debug.Log($"[RobotHealthSystem] TakeHackShot | Hit: {gameObject.name} with {damageAmount} damage");
-
         if (_isHacked) return;
+        
+        OnTakenShot?.Invoke();
         
         var damageTaken = damageAmount - _systemArmor;
 

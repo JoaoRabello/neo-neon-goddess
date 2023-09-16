@@ -14,7 +14,11 @@ public class BaseBehaviour : MonoBehaviour
     [SerializeField] public float _specialAttackRange;
     [SerializeField] public float _forgetRange;
     [SerializeField] public float _range;
+    
+    [Header("Speeds")]
     [SerializeField] public float _speed;
+    [SerializeField] public float _slowDownTime;
+    [SerializeField] public float _takenShotSlowSpeed;
     [SerializeField] public float _rotationSpeed;
     
     [Header("EnemyBehaviour")]
@@ -81,6 +85,8 @@ public class BaseBehaviour : MonoBehaviour
 
     private void Start()
     {
+        _navMeshAgent.speed = _speed;
+        
         var i = Random.Range(0, 100);
         if (i < 25 || _forcedResistance)
         {
@@ -104,6 +110,7 @@ public class BaseBehaviour : MonoBehaviour
         _currentSpeed = _speed;
         _basePosition = transform.position;
 
+        _healthSystem.OnTakenShot += Slowdown;
         _healthSystem.OnHackedSuccessfully += OnHacked;
 
         Idle();
@@ -111,6 +118,7 @@ public class BaseBehaviour : MonoBehaviour
 
     private void OnDisable()
     {
+        _healthSystem.OnTakenShot -= Slowdown;
         _healthSystem.OnHackedSuccessfully -= OnHacked;
     }
     
@@ -125,6 +133,7 @@ public class BaseBehaviour : MonoBehaviour
         _idleBehaviour.EndIdle();
         _huntBehaviour.StartHunt();
     }
+    
     private void OnHacked()
     {
         Stop();
@@ -135,6 +144,23 @@ public class BaseBehaviour : MonoBehaviour
         if(_keyDropItemObject == null) return;
         
         _keyDropItemObject.gameObject.SetActive(true);
+    }
+
+    public void Slowdown()
+    {
+        StopAllCoroutines();
+        StartCoroutine(SlowdownCount());
+    }
+
+    private IEnumerator SlowdownCount()
+    {
+        _navMeshAgent.speed = _takenShotSlowSpeed;
+        _animator._animatorController.speed = 0.25f;
+
+        yield return new WaitForSeconds(_slowDownTime);
+        
+        _navMeshAgent.speed = _currentSpeed;
+        _animator._animatorController.speed = 1;
     }
     
     private void Stop()

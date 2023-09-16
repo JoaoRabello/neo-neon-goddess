@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381dda215b4a87c43a183cac571bc211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _systemResistance: 20
+  _systemResistance: 40
   _systemArmor: 0
   _headTransform: {fileID: 5441964096977823928}
   _torsoTransform: {fileID: 2277441897839586593}
@@ -1110,7 +1110,9 @@ MonoBehaviour:
   _specialAttackRange: 1
   _forgetRange: 8
   _range: 4
-  _speed: 1
+  _speed: 0.5
+  _slowDownTime: 0.5
+  _takenShotSlowSpeed: 0.15
   _rotationSpeed: 0.75
   _huntBehaviour: {fileID: 1180488975841068705}
   _idleBehaviour: {fileID: 1180488975841068710}
