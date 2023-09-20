@@ -56,6 +56,25 @@ public class CutsceneDialogueReader : MonoBehaviour
         PlayerInputReader.Instance.MovementPerformed -= ChangeIndex;
     }
 
+    public void PassCurrentDialogue()
+    {
+        if (!_onDialogue) return;
+
+        if (_choosing)
+        {
+            _choosing = false;
+            
+            ClearOptions();
+
+            if(_currentDialogueNode.Children.Count > 0) _currentDialogueNode = _currentDialogue.GetAllChildren(_currentDialogueNode).ToArray()[_choiceIndex];
+            PlayNextNode();
+            
+            return;
+        }
+        
+        PlayNextNode();
+    }
+
     private void OnInteractPerformed()
     {
         if (!_onDialogue) return;
