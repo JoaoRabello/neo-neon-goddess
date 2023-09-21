@@ -1702,6 +1702,33 @@
 						</Sound>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Main Menu" ID="{A66EC625-36F5-4664-AEE2-0FC93142B347}" ShortID="505763697">
+					<ChildrenList>
+						<Sound Name="Main Menu Entering Game" ID="{39D878DA-99ED-48D3-8FF6-0B0296C7043F}" ShortID="897393256">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Main Menu Entering Game" ID="{29A1D2E5-989D-432D-85DE-36E0D4F5308A}">
+									<Language>SFX</Language>
+									<AudioFile>Main Menu\Main Menu Entering Game.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="215098720"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Main Menu Entering Game" ID="{29A1D2E5-989D-432D-85DE-36E0D4F5308A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

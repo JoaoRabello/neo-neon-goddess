@@ -263,6 +263,21 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="mainMenuEvent" ID="{585E2757-0F8A-4914-908D-39AFE520EECE}" ShortID="484139012">
+							<ChildrenList>
+								<Event Name="mainMenuToGame" ID="{825BFB2A-438C-4C40-A55B-C1FC7439ACAF}">
+									<ChildrenList>
+										<Action Name="" ID="{2DD929A9-A36C-46AF-B2B5-B9DB3D85D357}" ShortID="411750007">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Main Menu Entering Game" ID="{39D878DA-99ED-48D3-8FF6-0B0296C7043F}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Dialogue Events" ID="{88F41BAE-00DD-42A6-A7F7-87B8CAEB7A19}" ShortID="597853482">
