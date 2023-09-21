@@ -796,6 +796,13 @@
 						<Folder Name="Special" ID="{C0773E13-29C4-4522-8AEB-9F4778E0DE35}" ShortID="251090274">
 							<ChildrenList>
 								<Sound Name="Ghost in the metro" ID="{DDF2834C-C5DD-4EBC-84C8-163B863D93F2}" ShortID="554405845">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
@@ -1674,7 +1681,7 @@
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-5</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1705,6 +1712,13 @@
 				<Folder Name="Main Menu" ID="{A66EC625-36F5-4664-AEE2-0FC93142B347}" ShortID="505763697">
 					<ChildrenList>
 						<Sound Name="Main Menu Entering Game" ID="{39D878DA-99ED-48D3-8FF6-0B0296C7043F}" ShortID="897393256">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
