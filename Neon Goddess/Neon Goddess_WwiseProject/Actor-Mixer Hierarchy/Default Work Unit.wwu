@@ -1729,6 +1729,11 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Main Menu Entering Game" ID="{29A1D2E5-989D-432D-85DE-36E0D4F5308A}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0836035860456051"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.283323263821217"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Main Menu\Main Menu Entering Game.wav</AudioFile>
 									<MediaIDList>
