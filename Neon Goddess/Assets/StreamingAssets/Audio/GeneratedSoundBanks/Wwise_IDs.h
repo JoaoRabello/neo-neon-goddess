@@ -34,6 +34,7 @@ namespace AK
         static const AkUniqueID GHOSTINTHEMETRO = 539542031U;
         static const AkUniqueID HACKGUNHIT = 1852458775U;
         static const AkUniqueID HACKGUNSHOOT = 4099961397U;
+        static const AkUniqueID MAINMENUTOGAME = 2269515990U;
         static const AkUniqueID PAINGRUNT = 3441559445U;
         static const AkUniqueID PRESENCESOUND = 3749656831U;
         static const AkUniqueID QUANTUMSCREAMING = 1464182441U;
