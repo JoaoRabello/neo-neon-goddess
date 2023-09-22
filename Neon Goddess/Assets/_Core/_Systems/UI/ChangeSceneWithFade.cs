@@ -8,6 +8,11 @@ public class ChangeSceneWithFade : MonoBehaviour
 {
     [SerializeField] private Image _fadeImage;
     [SerializeField] private float _fadeTime;
+
+    public void ChangeSceneWithoutFade(int buildIndex)
+    {
+        SceneManager.LoadScene(buildIndex);
+    }
     
     public void FadeInToScene(int buildIndex)
     {

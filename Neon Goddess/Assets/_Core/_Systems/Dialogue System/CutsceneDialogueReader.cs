@@ -16,6 +16,9 @@ public class CutsceneDialogueReader : MonoBehaviour
     [SerializeField] private TMP_Text _dialogueLabel;
     [SerializeField] private List<Button> _optionButtons = new List<Button>();
     [SerializeField] private List<TMP_Text> _dialogueOptionLabels = new List<TMP_Text>();
+    
+    [Header("Properties")]
+    [SerializeField] private float _typeWritingCharacterAppearTime;
 
     public Action DialogueEnded;
     
@@ -201,6 +204,17 @@ public class CutsceneDialogueReader : MonoBehaviour
 
     private void SetDialogueText()
     {
-        _dialogueLabel.SetText(_currentDialogueNode.Text);
+        StopAllCoroutines();
+        StartCoroutine(PlayTypewrite(_currentDialogueNode.Text));
+    }
+
+    private IEnumerator PlayTypewrite(string text)
+    {
+        _dialogueLabel.SetText("");
+        foreach (var character in text)
+        {
+            _dialogueLabel.SetText((_dialogueLabel.text + character));
+            yield return new WaitForSeconds(_typeWritingCharacterAppearTime);
+        }
     }
 }

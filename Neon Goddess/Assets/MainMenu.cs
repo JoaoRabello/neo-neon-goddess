@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private int _openingSceneIndex;
+    
     public void Play()
     {
-        SceneManager.LoadScene("Newblockout", LoadSceneMode.Single);
+        SceneManager.LoadScene(_openingSceneIndex, LoadSceneMode.Single);
     }
 
-    // Update is called once per frame
     public void Exit()
     {
         Application.Quit();
