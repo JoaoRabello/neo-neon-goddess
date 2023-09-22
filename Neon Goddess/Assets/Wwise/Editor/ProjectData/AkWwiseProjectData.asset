@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: a6ead49771989b41ac95046be69a4143
     GuidInternal: 
-    m_lastTime: -8585436880948621725
+    m_lastTime: -8585203524685432264
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -191,7 +191,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 291bed8b33d94b4dac16d5e30d3beea2
     GuidInternal: 
-    m_lastTime: -8585062768506836934
+    m_lastTime: -8585062646443676371
     List:
     - name: mainSoundBank
       guid: d7bbfefaf3d3aa46ae8514386f26a35f
@@ -219,7 +219,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 8707201672ff4b4696a8d320381f6a5a
     GuidInternal: 
-    m_lastTime: -8585062768506876944
+    m_lastTime: -8585062646446280060
     List:
     - name: Ambience Events
       guid: 5a7949201260d84d93ffe419fbb29ccb
@@ -275,6 +275,29 @@ MonoBehaviour:
         ObjectType: 3
         guid: 6818d89efb516e4a98e7338107d0e4a6
       Path: Events\Default Work Unit\SFX Events\SpecialEvents\chorusVoices
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: chorusVoices2
+      guid: 7e0dfac52312a84b84343d4b307d07d4
+      id: 153308204
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: SpecialEvents
+        ObjectType: 4
+        guid: 231b6e5b32cdb14c8d9db58636d982fa
+      - ElementName: chorusVoices2
+        ObjectType: 3
+        guid: 7e0dfac52312a84b84343d4b307d07d4
+      Path: Events\Default Work Unit\SFX Events\SpecialEvents\chorusVoices2
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -953,8 +976,8 @@ MonoBehaviour:
         guid: 2afb5b828c43404ca55bc1fc7439acaf
       Path: Events\Default Work Unit\SFX Events\mainMenuEvent\mainMenuToGame
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2.269683
+      minDuration: 2.269683
     - name: movementEvent
       guid: 92367bc3d0ecea47b79e84e33e619373
       id: 1904338550
@@ -1397,7 +1420,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: b4d32a08d5d398448a9d266b95a7ce94
     GuidInternal: 
-    m_lastTime: -8585100768448839443
+    m_lastTime: -8585100613438022206
     List:
     - name: ambienceBusController
       guid: 71d28ffc305ffc45ba7b5b4b79060f2a
@@ -1832,7 +1855,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: a13717c7254d9b4fb705e721ec38d50d
     GuidInternal: 
-    m_lastTime: -8585436880948631722
+    m_lastTime: -8585203524685442245
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -2025,11 +2048,11 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: de2d5a3a4d468f43b43e80a1e4c5b898
     GuidInternal: 
-    m_lastTime: -8585436880948626724
+    m_lastTime: -8585203524685442245
     List: []
-  ExpandedFileSystemItemIds: 
+  ExpandedFileSystemItemIds: 0100000002000000030000000400000005000000060000000700000008000000090000000b0000000c0000001100000012000000130000001700000019000000230000002400000026000000290000002b0000002c000000
   ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
-  currentDataSource: 0
+  currentDataSource: 1
   CurrentPluginConfig: 
