@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID CHORUSVOICES = 2162101802U;
+        static const AkUniqueID CHORUSVOICES2 = 153308204U;
         static const AkUniqueID DOORACCESSDENIED = 1325999122U;
         static const AkUniqueID DOORACCESSGRANTED = 3888197404U;
         static const AkUniqueID DOORSLIDECLOSE = 1155812980U;
