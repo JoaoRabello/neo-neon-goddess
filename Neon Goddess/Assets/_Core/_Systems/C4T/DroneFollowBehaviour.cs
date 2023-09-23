@@ -16,6 +16,6 @@ public class DroneFollowBehaviour : MonoBehaviour
         if (Vector3.Distance(transform.position, _droneTarget.position) < _range) return;
         
         transform.position = Vector3.MoveTowards(transform.position, _droneTarget.position , _speed * Time.deltaTime);
-        _visual.transform.LookAt(_visual.transform.position + _astridTransform.forward);
+        _visual.transform.LookAt(transform.position + _astridTransform.forward);
     }
 }
