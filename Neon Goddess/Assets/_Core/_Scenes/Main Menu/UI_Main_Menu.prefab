@@ -733,7 +733,6 @@ GameObject:
   - component: {fileID: 8752004215225859956}
   - component: {fileID: 8752004215225859958}
   - component: {fileID: 8752004215225859957}
-  - component: {fileID: 7883428077905104120}
   m_Layer: 5
   m_Name: 'Button Start '
   m_TagString: Untagged
@@ -869,18 +868,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7883428077905104120}
-        m_TargetAssemblyTypeName: SFXPlayer, Assembly-CSharp
-        m_MethodName: PlaySFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &8752004215225859956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,24 +915,6 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
---- !u!114 &7883428077905104120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8752004215225859963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cd9ec59e04c7ad49a54e29ccb4ddbd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event: 
-  _akEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: b0be510475be4554985ac5630727bda8,
-      type: 2}
 --- !u!1 &8752004216005353858
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,6 +925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8752004216005353857}
   - component: {fileID: 8752004216005353856}
+  - component: {fileID: 1912273928950897216}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -997,6 +967,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ba1cf9e8402d144c99feb4c30092232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fadeEffect: {fileID: 0}
+  _startGameSFX: {fileID: 0}
+  _timeToWaitAfterFade: 2
+  _openingSceneIndex: 1
+--- !u!114 &1912273928950897216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8752004216005353858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd9ec59e04c7ad49a54e29ccb4ddbd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: 
+  _akEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b0be510475be4554985ac5630727bda8,
+      type: 2}
 --- !u!1 &8752004216338520945
 GameObject:
   m_ObjectHideFlags: 0

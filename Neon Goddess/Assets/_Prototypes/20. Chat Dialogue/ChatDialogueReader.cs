@@ -17,6 +17,9 @@ public class ChatDialogueReader : MonoBehaviour
     [SerializeField] private TMP_Text _dialogueLabel;
     [SerializeField] private List<Button> _optionButtons = new List<Button>();
     [SerializeField] private List<TMP_Text> _dialogueOptionLabels = new List<TMP_Text>();
+    
+    [Header("Properties")]
+    [SerializeField] private float _typeWritingCharacterAppearTime;
 
     public Action DialogueEnded;
     
@@ -26,6 +29,7 @@ public class ChatDialogueReader : MonoBehaviour
     private bool _onDialogue;
     private bool _firstInteraction = true;
     private bool _choosing;
+    private bool _isTypewriting;
     private int _choiceIndex;
 
     private void Awake()
@@ -60,9 +64,17 @@ public class ChatDialogueReader : MonoBehaviour
     private void OnInteractPerformed()
     {
         if (!_onDialogue) return;
+        
         if (_firstInteraction)
         {
             _firstInteraction = false;
+            return;
+        }
+
+        if (_isTypewriting)
+        {
+            SetDialogueTextWithoutTypewrite();
+            _isTypewriting = false;
             return;
         }
 
@@ -116,13 +128,13 @@ public class ChatDialogueReader : MonoBehaviour
         if (children.Length > 1)
         {
             ShowOptions(children);
+            SetDialogueTextWithoutTypewrite();
         }
         else
         {
             _currentDialogueNode = children[0];
+            SetDialogueText();
         }
-        
-        SetDialogueText();
     }
 
     public void PlayDialogue(Dialogue dialogue)
@@ -183,6 +195,26 @@ public class ChatDialogueReader : MonoBehaviour
 
     private void SetDialogueText()
     {
+        StopAllCoroutines();
+        StartCoroutine(PlayTypewrite(_currentDialogueNode.Text));
+    }
+    
+    private void SetDialogueTextWithoutTypewrite()
+    {
+        StopAllCoroutines();
         _dialogueLabel.SetText(_currentDialogueNode.Text);
+    }
+    
+    private IEnumerator PlayTypewrite(string text)
+    {
+        _isTypewriting = true;
+        _dialogueLabel.SetText("");
+        foreach (var character in text)
+        {
+            _dialogueLabel.SetText((_dialogueLabel.text + character));
+            yield return new WaitForSeconds(_typeWritingCharacterAppearTime);
+        }
+        
+        _isTypewriting = false;
     }
 }

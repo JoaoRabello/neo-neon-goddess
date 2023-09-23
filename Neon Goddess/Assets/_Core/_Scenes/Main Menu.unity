@@ -2228,6 +2228,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 832222951}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &875378473 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1912273928950897216, guid: 020413e8c5e20ce43acdb795b715bc09,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725315722}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd9ec59e04c7ad49a54e29ccb4ddbd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &952505509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4942,12 +4954,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8752004216005353856, guid: 020413e8c5e20ce43acdb795b715bc09,
         type: 3}
-      propertyPath: _gameSceneIndex
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: _fadeEffect
+      value: 
+      objectReference: {fileID: 142690555}
     - target: {fileID: 8752004216005353856, guid: 020413e8c5e20ce43acdb795b715bc09,
         type: 3}
-      propertyPath: _openingSceneIndex
+      propertyPath: _startGameSFX
+      value: 
+      objectReference: {fileID: 875378473}
+    - target: {fileID: 8752004216005353856, guid: 020413e8c5e20ce43acdb795b715bc09,
+        type: 3}
+      propertyPath: _gameSceneIndex
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8752004216005353857, guid: 020413e8c5e20ce43acdb795b715bc09,
