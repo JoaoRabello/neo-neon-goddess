@@ -26,7 +26,7 @@ public class HuntBehaviour : MonoBehaviour
                     behaviour._currentSpeed = 20;
                     SpecialAttack();
                 }
-                else if (distanceToPlayer <= behaviour._attackRange)
+                else if (distanceToPlayer <= behaviour._attackRange && behaviour.enemyType != EnemyType.Halfie)
                 {
                     Attack();
                 }
@@ -131,13 +131,21 @@ public class HuntBehaviour : MonoBehaviour
         if (behaviour._startedAttackCooldown)
         { return; }
         StartCoroutine(AttackCooldown(true));
+
     }
 
     void SpecialAttack()
     {
         if (behaviour._startedAttackCooldown)
         { return; }
-        StartCoroutine(AttackCooldown(false));
+        if (behaviour.enemyType == EnemyType.Robbie)
+        {
+            StartCoroutine(AttackCooldown(false));
+        }
+        else if (behaviour.enemyType == EnemyType.Halfie)
+        {
+            StartCoroutine(HalfieAttackCooldown());
+        }
     }
 
     public void TryAttack()
@@ -170,6 +178,43 @@ public class HuntBehaviour : MonoBehaviour
 
         behaviour._animator.SetParameterValue("isAttacking", false);
         behaviour._animator.SetParameterValue("isSpecialAttacking", false);
+
+        behaviour._attackCooldown = false;
+        behaviour._startedAttackCooldown = false;
+    }
+
+    private IEnumerator HalfieAttackCooldown()
+    {
+        behaviour._startedAttackCooldown = true;
+
+        yield return new WaitForSeconds(0.1f);
+
+        behaviour._attackCooldown = true;
+        behaviour._currentSpeed = behaviour._speed;
+
+        behaviour._animator.SetParameterValue("isAttacking", true);
+
+        PlayerStateObserver.Instance.OnAnimationStart();
+        CutsceneManager.Instance.PlayCutscene();
+
+        var playerHealth = behaviour._player.GetComponent<HealthSystem>();
+        if (playerHealth.CurrentPhysicalHealth > 1)
+        {
+            playerHealth.TakeDirectSetPhysicalDamage(1);
+        }
+        else
+        {
+            playerHealth.TakePhysicalDamage(2);
+        }
+
+        yield return new WaitForSeconds(2);
+
+        PlayerStateObserver.Instance.OnAnimationEnd();
+        CutsceneManager.Instance.StopCutscene();
+        behaviour._animator.SetParameterValue("isAttacking", false);
+        behaviour._animator.SetParameterValue("isWalking", false);
+
+        yield return new WaitForSeconds(12);
 
         behaviour._attackCooldown = false;
         behaviour._startedAttackCooldown = false;

@@ -59,13 +59,15 @@ public class CutsceneManager : MonoBehaviour
     
     public void PlayCutscene()
     {
-        _cameraManager.SelectCamera(_testCamera);
+        _testCamera.gameObject.SetActive(true);
+        _cameraManager.TurnOffRoomCamera();
         _screenBarsContent.SetActive(true);
     }
 
     public void StopCutscene()
     {
-        _cameraManager.SelectCamera(_mainCamera);
+        _testCamera.gameObject.SetActive(false);
         _screenBarsContent.SetActive(false);
+        _cameraManager.TurnOnLastRoomCamera();
     }
 }
