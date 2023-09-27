@@ -1,5 +1,27 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4184931019151747874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 221c4764-603a-46c1-a118-763188672ad0
+  m_EditorClassIdentifier: 
+  _text: It's Empty now.
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children: []
+  _rect:
+    serializedVersion: 2
+    x: 300
+    y: 150
+    width: 200
+    height: 200
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,6 +36,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nodes:
   - {fileID: 1585223132520624902}
+  - {fileID: -4184931019151747874}
 --- !u!114 &1585223132520624902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,10 +49,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
   m_Name: 30c313dc-b09c-4884-a99e-5d597cf5ba62
   m_EditorClassIdentifier: 
-  _text: They used to store fuel in those...
+  _text: "Those were used to store fuel\u2026"
   _isRootNode: 1
   _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
-  _children: []
+  _children:
+  - 221c4764-603a-46c1-a118-763188672ad0
   _rect:
     serializedVersion: 2
     x: 50
