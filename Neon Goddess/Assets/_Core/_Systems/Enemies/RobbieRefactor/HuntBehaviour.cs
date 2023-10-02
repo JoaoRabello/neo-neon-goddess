@@ -23,7 +23,6 @@ public class HuntBehaviour : MonoBehaviour
 
                 if (distanceToPlayer <= behaviour._specialAttackRange)
                 {
-                    behaviour._currentSpeed = 20;
                     SpecialAttack();
                 }
                 else if (distanceToPlayer <= behaviour._attackRange && behaviour.enemyType != EnemyType.Halfie)
@@ -136,8 +135,8 @@ public class HuntBehaviour : MonoBehaviour
 
     void SpecialAttack()
     {
-        if (behaviour._startedAttackCooldown)
-        { return; }
+        if (behaviour._startedAttackCooldown) return;
+        
         if (behaviour.enemyType == EnemyType.Robbie)
         {
             StartCoroutine(AttackCooldown(false));
@@ -173,6 +172,7 @@ public class HuntBehaviour : MonoBehaviour
 
         behaviour._attackCooldown = true;
         behaviour._currentSpeed = behaviour._speed;
+        behaviour._navMeshAgent.speed = behaviour._currentSpeed;
 
         yield return new WaitForSeconds(3);
 
@@ -190,7 +190,8 @@ public class HuntBehaviour : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         behaviour._attackCooldown = true;
-        behaviour._currentSpeed = behaviour._speed;
+        behaviour._currentSpeed = 20;
+        behaviour._navMeshAgent.speed = 20;
 
         behaviour._animator.SetParameterValue("isAttacking", true);
 
@@ -213,6 +214,9 @@ public class HuntBehaviour : MonoBehaviour
         CutsceneManager.Instance.StopCutscene();
         behaviour._animator.SetParameterValue("isAttacking", false);
         behaviour._animator.SetParameterValue("isWalking", false);
+        
+        behaviour._currentSpeed = behaviour._speed;
+        behaviour._navMeshAgent.speed = behaviour._speed;
 
         yield return new WaitForSeconds(12);
 

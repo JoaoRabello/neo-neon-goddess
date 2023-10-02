@@ -6,12 +6,13 @@ using Animations;
 
 public class ChaseBehaviour : HuntBehaviour
 {
-
+    [SerializeField] private float _maxDistanceToPlayer;
+    
     public void FixedUpdate()
     {
         if (behaviour._chasing)
         {
-            if (Vector3.Distance(behaviour._player.position, transform.position) > 1.5f)
+            if (Vector3.Distance(behaviour._player.position, transform.position) > _maxDistanceToPlayer)
             {
                 behaviour.Move(behaviour._player.position);
             }
