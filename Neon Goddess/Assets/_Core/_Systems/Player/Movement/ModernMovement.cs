@@ -185,10 +185,7 @@ namespace PlayerMovements
         /// <param name="myTransform">Player Transform for position tracking</param>
         private void Move(Transform myTransform)
         {
-            var isMovingBackwards = _movementDirection.y < 0;
-            _animator.SetParameterValue("isMovingBackwards", isMovingBackwards);
-
-            if (Mathf.Abs(_movementDirection.y) > 0.1f)
+            if (Mathf.Abs(_movementDirection.y) > 0.1f || Mathf.Abs(_movementDirection.x) > 0.1f)
             {
                 _animator.SetParameterValue("isMoving", true);
                 _isWalking = true;
@@ -204,7 +201,8 @@ namespace PlayerMovements
             var relativeForwardInput = camForward * _movementDirection.y;
             var relativeRightInput = camRight * _movementDirection.x;
             var relativeMoveDirection = relativeForwardInput + relativeRightInput;
-            
+
+            transform.forward = relativeMoveDirection.normalized;
             _rigidbody.velocity = new Vector3(relativeMoveDirection.x * _movementSpeed, _rigidbody.velocity.y, relativeMoveDirection.z * _movementSpeed);
         }
 
