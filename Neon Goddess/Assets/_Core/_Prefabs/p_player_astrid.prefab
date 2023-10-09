@@ -2012,6 +2012,7 @@ GameObject:
   - component: {fileID: 4211844877681094626}
   - component: {fileID: 4211844877681094629}
   - component: {fileID: 4211844877681094627}
+  - component: {fileID: 6379163129442538972}
   - component: {fileID: 7821003767246988821}
   - component: {fileID: 7758867608645911423}
   - component: {fileID: 5289680002988290467}
@@ -2078,9 +2079,33 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4211844877681094624}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fd29254ed7c20c4095b3cedeaeeef24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 4211844877681094629}
+  _aimSystem: {fileID: 5289680002988290467}
+  _animator: {fileID: 7758867608645911423}
+  _bodyColliders:
+  - {fileID: 1566537157}
+  - {fileID: 3902956647141539252}
+  _basemovementSpeed: 4
+  _basebackMovementSpeed: 2
+  _rotationSpeed: 4
+  _walkingRotationSpeed: 5.2
+  _movementSpeed: 4
+  _backMovementSpeed: 2
+--- !u!114 &6379163129442538972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4211844877681094624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4481db2ff9cef94a945bd0a585d8f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 4211844877681094629}
