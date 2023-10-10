@@ -12,10 +12,17 @@ using UnityEngine.EventSystems;
 public class HuntBehaviour : MonoBehaviour
 {
     [SerializeField] protected BaseBehaviour behaviour;
-    private void Update()
+    private void FixedUpdate()
     {
+        if (behaviour.stateObserver.CurrentState == PlayerStateObserver.PlayerState.OnDialogue || behaviour.stateObserver.CurrentState == PlayerStateObserver.PlayerState.OnCutscene)
+        {
+            behaviour._navMeshAgent.isStopped = true;
+            return;
+        }
         if (behaviour._hunting)
         {
+            behaviour._navMeshAgent.isStopped = false;
+
             CheckViewingPlayer();
             if (behaviour._foundPlayer)
             {

@@ -82,6 +82,7 @@ public class BaseBehaviour : MonoBehaviour
 
     public int size;
     public Collider[] playerColliders = new Collider[3];
+    [SerializeField] public PlayerStateObserver stateObserver;
 
     private void Start()
     {

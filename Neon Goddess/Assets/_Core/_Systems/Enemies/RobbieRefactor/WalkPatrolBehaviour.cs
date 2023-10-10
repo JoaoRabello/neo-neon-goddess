@@ -7,8 +7,14 @@ public class WalkPatrolBehaviour : IdleBehaviour
 {
     void FixedUpdate()
     {
+        if (behaviour.stateObserver.CurrentState == PlayerStateObserver.PlayerState.OnDialogue || behaviour.stateObserver.CurrentState == PlayerStateObserver.PlayerState.OnCutscene)
+        {
+            behaviour._navMeshAgent.isStopped = true;
+            return;
+        }
         if (behaviour._patrol && behaviour._idle)
         {
+            behaviour._navMeshAgent.isStopped = false;
             if (behaviour._healthSystem.IsHacked) return;
             var distanceToPlayer = behaviour._player ? Vector3.Distance(transform.position, behaviour._player.position) : 0;
 

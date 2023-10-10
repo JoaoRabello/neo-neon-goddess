@@ -211,7 +211,7 @@ namespace Player
         public void OnPlayerDeath()
         {
             if (_currentState == PlayerState.Aiming) { OnAimEnd(); }
-            
+            if (_currentState == PlayerState.OnDialogue) { OnDialogueEnd(); }
             AkSoundEngine.StopAll();
 
             StateStart(PlayerState.Dead);
