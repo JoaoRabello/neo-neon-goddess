@@ -12,6 +12,8 @@ public class CameraManager : MonoBehaviour
 
     private Camera _lastActiveRoomCamera;
     public Camera LastActiveRoomCamera => _lastActiveRoomCamera;
+
+    public Action<Camera> OnActiveRoomCameraChange;
     
     private void Awake()
     {
@@ -30,7 +32,7 @@ public class CameraManager : MonoBehaviour
         Instance = null;
     }
 
-    private void Start()
+    private void OnEnable()
     {
         var cameras = FindObjectsOfType<Camera>();
         _cameras = new List<Camera>();
@@ -46,6 +48,8 @@ public class CameraManager : MonoBehaviour
         
         _cameras.Add(_firstCamera);
         _firstCamera.gameObject.SetActive(true);
+
+        _lastActiveRoomCamera = _firstCamera;
     }
 
     private void SelectCamera(int index)
@@ -64,6 +68,7 @@ public class CameraManager : MonoBehaviour
         }
         
         _lastActiveRoomCamera = cameraToSelect;
+        OnActiveRoomCameraChange?.Invoke(_lastActiveRoomCamera);
     }
     
     public void TurnOffRoomCamera()
