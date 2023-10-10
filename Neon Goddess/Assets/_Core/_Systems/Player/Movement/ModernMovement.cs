@@ -39,9 +39,13 @@ namespace PlayerMovements
         private bool _isWalking;
         private bool _canMove = true;
         private Vector3 _movementDirection;
+        private Vector3 _lastMovementDirection;
 
         public float _movementSpeed;
         public float _backMovementSpeed;
+
+        private Transform _lastRelativeCameraTransform;
+        private Transform _relativeCameraTransform;
         
         private void OnEnable()
         {
@@ -59,8 +63,18 @@ namespace PlayerMovements
             PlayerStateObserver.Instance.CutsceneStart += BlockMovement;
             PlayerStateObserver.Instance.CutsceneEnd += UnlockMovement;
 
+            CameraManager.Instance.OnActiveRoomCameraChange += RelativeCameraChanged;
+
+            _relativeCameraTransform = CameraManager.Instance.LastActiveRoomCamera.transform;
+            _lastRelativeCameraTransform = _relativeCameraTransform;
+            
             _movementSpeed = _basemovementSpeed;
             _backMovementSpeed = _basebackMovementSpeed;
+        }
+
+        private void RelativeCameraChanged(Camera camera)
+        {
+            _relativeCameraTransform = camera.transform;
         }
 
         private void TurnOffColliders()
@@ -131,6 +145,8 @@ namespace PlayerMovements
                 
             _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y, 0);
             _animator.SetParameterValue("isMoving", false);
+
+            _lastRelativeCameraTransform = _relativeCameraTransform;
         }
 
         /// <summary>
@@ -191,9 +207,8 @@ namespace PlayerMovements
                 _isWalking = true;
             }
 
-            var cameraTransform = CameraManager.Instance.LastActiveRoomCamera.transform;
-            var camForward = cameraTransform.forward;
-            var camRight = cameraTransform.right;
+            var camForward = _lastRelativeCameraTransform.forward;
+            var camRight = _lastRelativeCameraTransform.right;
 
             camForward.y = 0;
             camRight.y = 0;
