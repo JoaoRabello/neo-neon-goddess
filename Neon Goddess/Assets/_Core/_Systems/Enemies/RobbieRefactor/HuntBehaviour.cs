@@ -30,7 +30,7 @@ public class HuntBehaviour : MonoBehaviour
 
                 if (distanceToPlayer <= behaviour._specialAttackRange)
                 {
-                    behaviour._currentSpeed = 20;
+                    //behaviour._currentSpeed = 20;
                     SpecialAttack();
                 }
                 else if (distanceToPlayer <= behaviour._attackRange)

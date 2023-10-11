@@ -7,8 +7,11 @@ public class PauseViewRenderer : MonoBehaviour
 {
     [SerializeField] private GameObject _content;
     [SerializeField] private GameObject _soundContent;
+    [SerializeField] private GameObject _controlsContent;
+
     public Action OnResumePressed;
     public bool _isSoundActive;
+    public bool _isControlsActive;
 
     public void Resume()
     {
@@ -48,4 +51,19 @@ public class PauseViewRenderer : MonoBehaviour
         _content.SetActive(true);
         _soundContent.SetActive(false);
     }
+
+    public void showControlsContent()
+    {
+        _isControlsActive = true;
+        _content.SetActive(false);
+        _controlsContent.SetActive(true);
+
+    }
+    public void hideControlsContent()
+    {
+        _isControlsActive= false;
+        _content.SetActive(true);
+        _controlsContent.SetActive(false);
+    }
+
 }
