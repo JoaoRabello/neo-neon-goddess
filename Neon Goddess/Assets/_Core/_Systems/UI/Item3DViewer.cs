@@ -6,25 +6,38 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class Item3DViewer : MonoBehaviour, IDragHandler
+public class Item3DViewer : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     [SerializeField] public Item item;
     [SerializeField] GameObject content;
     [SerializeField] GameObject camera;
     private Transform _prefab;
     private bool active = false;
-    // Start is called before the first frame update
-   
+    private bool isDragging = false;
+  
     void Start()
     {
         PlayerInputReader.Instance.AnyPerformed += Deactivate;
     }
 
+    void Update()
+    {
+        if (active && !isDragging)
+        {
+            _prefab.Rotate(0, 2.5f, 0);
+        }
+    }
     public void OnDrag(PointerEventData eventData)
     {
         _prefab.eulerAngles += new Vector3(-eventData.delta.y, -eventData.delta.x);
+        isDragging = true;
     }
-    // Update is called once per frame
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        isDragging = false;
+    }
+
     public void StartInspect()
     {
         StartCoroutine(Activate());
