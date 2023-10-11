@@ -1,7 +1,10 @@
+using Animations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class RobotHealthSystem : MonoBehaviour, IHackable
 {
@@ -15,7 +18,7 @@ public class RobotHealthSystem : MonoBehaviour, IHackable
     
     [Header("VFX")]
     [SerializeField] private ParticleSystem _hackedVFX;
-    
+    [SerializeField] private CharacterAnimator _animator;
     public Action OnTakenShot;
     public Action OnHackedSuccessfully;
     
@@ -43,7 +46,7 @@ public class RobotHealthSystem : MonoBehaviour, IHackable
     public void TakeHackShot(int damageAmount)
     {
         if (_isHacked) return;
-        
+        _animator.PlayAnimation("Got_Damage", 0);
         OnTakenShot?.Invoke();
         
         var damageTaken = damageAmount - _systemArmor;
