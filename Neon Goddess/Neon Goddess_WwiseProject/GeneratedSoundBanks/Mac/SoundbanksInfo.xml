@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="3413709294">
+		<SoundBank Id="534561221" Language="SFX" Hash="3471729914">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
@@ -309,11 +309,23 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1563548634" Name="stepEventRobbie" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEventRobbie" MaxAttenuation="15." DurationType="OneShot" DurationMin="0.046979" DurationMax="0.046979">
+				<Event Id="1563548634" Name="stepEventRobbie" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEventRobbie" MaxAttenuation="100." DurationType="OneShot" DurationMin="0.019544" DurationMax="0.041337">
 					<IncludedMemoryFiles>
-						<File Id="374130843" Language="SFX">
-							<ShortName>RobbieStep.wav</ShortName>
-							<Path>SFX\RobbieStep_05842A19.wem</Path>
+						<File Id="79465095" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb04.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb04_3A36A138.wem</Path>
+						</File>
+						<File Id="315903680" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb03.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb03_229EB036.wem</Path>
+						</File>
+						<File Id="551442925" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb02.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb02_84911D7A.wem</Path>
+						</File>
+						<File Id="822608226" Language="SFX">
+							<ShortName>Steps\Step Concrete NoVerb01.wav</ShortName>
+							<Path>SFX\Steps\Step Concrete NoVerb01_5CEC651D.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -361,11 +373,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2454203527" Name="uiSelection" ObjectPath="\Events\Default Work Unit\UIEvents\General Sounds\uiSelection" DurationType="OneShot" DurationMin="0.053646" DurationMax="0.053646">
+				<Event Id="2454203527" Name="uiSelection" ObjectPath="\Events\Default Work Unit\UIEvents\General Sounds\uiSelection" DurationType="OneShot" DurationMin="0.052511" DurationMax="0.052511">
 					<IncludedMemoryFiles>
 						<File Id="505767842" Language="SFX">
 							<ShortName>UI\Menu Sound\UiSelectionMenuSound.wav</ShortName>
-							<Path>SFX\UI\Menu Sound\UiSelectionMenuSound_05842A19.wem</Path>
+							<Path>SFX\UI\Menu Sound\UiSelectionMenuSound_76A7C53F.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -380,7 +392,6 @@
 				<GameParameter Id="62014404" Name="sfxBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\sfxBusController"/>
 				<GameParameter Id="80573052" Name="musicBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\musicBusController"/>
 				<GameParameter Id="95401436" Name="lowVoicePitcherController" ObjectPath="\Game Parameters\Default Work Unit\pitchController\lowVoicePitcherController"/>
-				<GameParameter Id="187408528" Name="stepRobbieReverb" ObjectPath="\Game Parameters\Default Work Unit\stepSoundController\stepRobbieReverb"/>
 				<GameParameter Id="224940047" Name="uiBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\uiBusController"/>
 				<GameParameter Id="682147685" Name="chorus01Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus01Control"/>
 				<GameParameter Id="936584782" Name="chorus04Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus04Control"/>

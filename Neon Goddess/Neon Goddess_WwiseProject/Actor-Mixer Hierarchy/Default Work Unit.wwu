@@ -864,6 +864,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="UiSelectionMenuSound" ID="{2C91D695-814D-4E15-A9F6-9208951C1FFC}" ShortID="357543771">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>10</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
@@ -871,12 +878,20 @@
 												<Reference Name="Effect0" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3">
 													<ObjectRef Name="UiSelectionGain" ID="{81FD222F-931C-464D-9605-A37FDDF08EF7}" WorkUnitID="{5E3B483B-8325-48F3-8761-4F6496DC43FE}"/>
 												</Reference>
+												<Reference Name="Effect1" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+													<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="UIBus" ID="{CBBA8F98-055B-45CD-BB53-5141A1C4FDC0}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="UiSelectionMenuSound" ID="{123DE4AE-1E86-4C02-90A5-79D4B021C5B5}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.0525114398590268"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>UI\Menu Sound\UiSelectionMenuSound.wav</AudioFile>
 													<MediaIDList>
@@ -1416,7 +1431,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
 								</Reference>
 								<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
-									<ObjectRef Name="Holy" ID="{CC7B8638-C670-4AD5-B3FB-331EA81037F6}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+									<ObjectRef Name="Robotic_Trash" ID="{18FEB1E8-36C5-4B2D-959A-8F3CE9ECBB0E}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="awarenessBus" ID="{61EC130C-DB62-4CA8-A7FE-FDFBE8603C1F}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
