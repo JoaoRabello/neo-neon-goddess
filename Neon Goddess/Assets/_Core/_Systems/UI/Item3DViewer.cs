@@ -48,8 +48,8 @@ public class Item3DViewer : MonoBehaviour, IDragHandler, IEndDragHandler
         content.SetActive(true);
         Time.timeScale = 0;
         _prefab = Instantiate(item.prefab, new Vector3(1000, 1000, 1000), Quaternion.identity);
-        yield return new WaitForSecondsRealtime(2);
-        active = true; 
+        yield return new WaitForSecondsRealtime(0.1f);
+        active = true;
 
     }
     public void Deactivate()
