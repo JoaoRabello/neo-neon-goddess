@@ -110,21 +110,41 @@ public class DoorManager : MonoBehaviour, IInteractable
         return _interactableType;
     }
 
+    private bool TryUnlockWithKey()
+    {
+        if (!PlayerInventoryObserver.Instance.TryConsumeItem(_keyItem)) return false;
+        
+        return Unlock();
+    }
+
     public bool Unlock()
     {
-        if (_lockType == lockType.Item)
+        switch (_lockType)
         {
-            if (!PlayerInventoryObserver.Instance.TryConsumeItem(_keyItem)) return false;
-            LockedDoor = false;
+            case lockType.Password:
+                break;
+            case lockType.Item:
+                LockedDoor = false;
             
-            ChatDialogueReader.Instance.PlayDialogue(_withKeyDialogue);
+                ChatDialogueReader.Instance.PlayDialogue(_withKeyDialogue);
 
-            UpdateShaderToUnlocked();
+                UpdateShaderToUnlocked();
             
-            OnStateChangeUpdateIcon?.Invoke(this);
-            _unlockDoorSoundEvent.Post(gameObject);
-            return true;
+                OnStateChangeUpdateIcon?.Invoke(this);
+                _unlockDoorSoundEvent.Post(gameObject);
+                return true;
+            case lockType.Event:
+                LockedDoor = false;
+                
+                UpdateShaderToUnlocked();
+            
+                OnStateChangeUpdateIcon?.Invoke(this);
+                _unlockDoorSoundEvent.Post(gameObject);
+                return true;
+            case lockType.Naotem:
+                break;
         }
+        
         return false;
     }
     
@@ -143,7 +163,7 @@ public class DoorManager : MonoBehaviour, IInteractable
         {
             if (_locked)
             {
-                if (Unlock())
+                if (TryUnlockWithKey())
                 {
                     MoveDoor();
                     return;

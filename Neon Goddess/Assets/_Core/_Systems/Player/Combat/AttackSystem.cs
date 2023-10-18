@@ -15,6 +15,7 @@ namespace Combat
         [SerializeField] private AimSystem _aimSystem;
         [SerializeField] private CharacterAnimator _animator;
         [SerializeField] private Transform _shotsOrigin;
+        [SerializeField] private InventoryHolder _inventoryHolder;
         
         [Header("SFX")]
         [SerializeField] private SFXPlayer _shootingSfxPlayer;
@@ -24,7 +25,9 @@ namespace Combat
         [SerializeField] private AK.Wwise.RTPC _stickHitRTPC;
         
         [Header("Weapon Data")]
+        [SerializeField] public bool _hasWeapon;
         [SerializeField] public bool _weaponEquipped;
+        [SerializeField] private Item _weaponItem;
         [SerializeField] private MeleeWeapon _weapon;
         
         [Header("Hit Scan properties")]
@@ -44,14 +47,25 @@ namespace Combat
         
         private void OnEnable()
         {
+            _inventoryHolder.OnItemAdded += EquipWeapon;
             PlayerInputReader.Instance.ShootPerformed += ShootPerformed;
             PlayerInputReader.Instance.ChangeWeaponPerformed += ChangeWeapon;
         }
 
         private void OnDisable()
         {
+            _inventoryHolder.OnItemAdded -= EquipWeapon;
             PlayerInputReader.Instance.ShootPerformed -= ShootPerformed;
             PlayerInputReader.Instance.ChangeWeaponPerformed -= ChangeWeapon;
+        }
+
+        private void EquipWeapon(Item item)
+        {
+            if (item == _weaponItem)
+            {
+                _hasWeapon = true;
+                ChangeWeapon();
+            }
         }
 
         private void ShootPerformed()
@@ -67,6 +81,7 @@ namespace Combat
         
         private void ChangeWeapon()
         {
+            if(!_hasWeapon) return;
             if(PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Aiming) return;
             if(_aimSystem.IsAiming) return;
             
@@ -130,7 +145,6 @@ namespace Combat
 
             if (_weaponEquipped)
             {
-                //TODO: Checar com a Zarina o motivo desse evento não estar sendo encontrado
                 _shootingSfxPlayer.PlaySFX(_gunHit);
             }
             else
