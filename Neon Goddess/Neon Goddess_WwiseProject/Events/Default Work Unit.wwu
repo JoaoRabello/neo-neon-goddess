@@ -310,6 +310,43 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="gameOverEvents" ID="{5D25EC6F-5DF8-43DE-A8A0-C6DDCBCFCFE6}" ShortID="605411096">
+							<ChildrenList>
+								<Event Name="gameOverScreamHealth" ID="{9027FAB8-EF85-4BC9-9293-D19C390C4B4E}">
+									<ChildrenList>
+										<Action Name="" ID="{9996450B-CF68-44C4-801C-053D528A8860}" ShortID="392073827">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="gameOverScreamHealth" ID="{9078D469-3607-4CF3-A788-8EF62EFDA218}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="gameOverSobbingSanity" ID="{540434E3-527A-4B59-B086-3790919726BB}">
+									<ChildrenList>
+										<Action Name="" ID="{AEF1BF00-AF96-4053-8432-0D9A39E2685C}" ShortID="432112550">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="gameOverSobbingSanity" ID="{1F65C1EE-017E-4DAE-A5EB-B0CE7F022152}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="gameOverImpactGeneric" ID="{BCB4ED70-3D3C-427B-8672-3FB4CF6831D4}">
+									<ChildrenList>
+										<Action Name="" ID="{ED34E5B1-5269-4C81-80E7-2E3E42011B1D}" ShortID="220195575">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="gameOverImpactGeneric" ID="{087914B7-999F-4669-A220-7EC52A27DAE2}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Dialogue Events" ID="{88F41BAE-00DD-42A6-A7F7-87B8CAEB7A19}" ShortID="597853482">

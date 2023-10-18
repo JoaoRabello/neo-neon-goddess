@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="1309770068">
+		<SoundBank Id="534561221" Language="SFX" Hash="3089952871">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
@@ -189,6 +189,30 @@
 						<File Id="832848529" Language="SFX">
 							<ShortName>Character Scribble\Gado.wav</ShortName>
 							<Path>SFX\Character Scribble\Gado_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="51803806" Name="gameOverImpactGeneric" ObjectPath="\Events\Default Work Unit\SFX Events\gameOverEvents\gameOverImpactGeneric" DurationType="OneShot" DurationMin="8.019932" DurationMax="8.019932">
+					<IncludedMemoryFiles>
+						<File Id="632185417" Language="SFX">
+							<ShortName>GameOver\gameOverImpactGeneric.wav</ShortName>
+							<Path>SFX\GameOver\gameOverImpactGeneric_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="59954432" Name="gameOverScreamHealth" ObjectPath="\Events\Default Work Unit\SFX Events\gameOverEvents\gameOverScreamHealth" DurationType="OneShot" DurationMin="1.6" DurationMax="1.6">
+					<IncludedMemoryFiles>
+						<File Id="236340907" Language="SFX">
+							<ShortName>GameOver\gameOverScreamHealth.wav</ShortName>
+							<Path>SFX\GameOver\gameOverScreamHealth_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="342455863" Name="gameOverSobbingSanity" ObjectPath="\Events\Default Work Unit\SFX Events\gameOverEvents\gameOverSobbingSanity" DurationType="OneShot" DurationMin="2.62551" DurationMax="2.62551">
+					<IncludedMemoryFiles>
+						<File Id="1010256616" Language="SFX">
+							<ShortName>GameOver\gameOverSobbingSanity.wav</ShortName>
+							<Path>SFX\GameOver\gameOverSobbingSanity_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
