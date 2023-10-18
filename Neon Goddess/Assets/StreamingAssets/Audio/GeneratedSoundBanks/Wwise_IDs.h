@@ -32,6 +32,9 @@ namespace AK
         static const AkUniqueID EVENTVOICEYAVIK = 1676920321U;
         static const AkUniqueID EVENTVOICEYOHANNA = 1437365791U;
         static const AkUniqueID EVENTVOICEYOHANNAASSISTENT = 865037345U;
+        static const AkUniqueID GAMEOVERIMPACTGENERIC = 51803806U;
+        static const AkUniqueID GAMEOVERSCREAMHEALTH = 59954432U;
+        static const AkUniqueID GAMEOVERSOBBINGSANITY = 342455863U;
         static const AkUniqueID GHOSTINTHEMETRO = 539542031U;
         static const AkUniqueID HACKGUNHIT = 1852458775U;
         static const AkUniqueID HACKGUNSHOOT = 4099961397U;
