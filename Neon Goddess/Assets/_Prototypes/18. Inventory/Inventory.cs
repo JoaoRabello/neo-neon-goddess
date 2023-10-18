@@ -12,7 +12,7 @@ public class Inventory : ScriptableObject
 
     public bool HasItem(Item item)
     {
-        return _itemDictionary.ContainsKey(item) && _itemDictionary[item] > 0;
+        return item != null && _itemDictionary.ContainsKey(item) && _itemDictionary[item] > 0;
     }
     
     public bool TryAddItem(Item item, int amount = 1)
