@@ -11,6 +11,8 @@ public class InventoryHolder : MonoBehaviour
     
     [SerializeField] protected bool _hasItemUsage;
 
+    public Action<Item> OnItemAdded;
+
     private void OnEnable()
     {
         if(!_hasItemUsage) return;
@@ -35,7 +37,12 @@ public class InventoryHolder : MonoBehaviour
 
     public bool TryAddItem(Item item, int amount = 1)
     {
-        return _inventory.TryAddItem(item, amount);
+        var couldAdd = _inventory.TryAddItem(item, amount);
+        if (couldAdd)
+        {
+            OnItemAdded?.Invoke(item);
+        }
+        return couldAdd;
     }
     
     private void ConsumeItem(Item item)
