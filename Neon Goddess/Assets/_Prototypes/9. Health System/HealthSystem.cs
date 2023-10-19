@@ -26,6 +26,9 @@ public class HealthSystem : MonoBehaviour
     
     [Header("SFX")]
     [SerializeField] private AK.Wwise.Event _painGrunt;
+    [SerializeField] private AK.Wwise.Event _deathByHealthSFX;
+    [SerializeField] private AK.Wwise.Event _deathBySanitySFX;
+    [SerializeField] private AK.Wwise.Event _deathCommonSFX;
     [SerializeField] private AK.Wwise.Event _heartBeat;
     
     [Header("VFX")]
@@ -84,12 +87,12 @@ public class HealthSystem : MonoBehaviour
         _damageFeedback.PlayFeedbacks();
         _currentPhysicalHealth -= amount;
 
-        CheckDeath();
+        CheckDeathByHealth();
 
         UpdatePhysicalBar();
     }
 
-    private void CheckDeath()
+    private void CheckDeathByHealth()
     {
         if (_currentPhysicalHealth > 0)
         {
@@ -99,17 +102,31 @@ public class HealthSystem : MonoBehaviour
         else
         {
             _rigidbody.useGravity = false;
-            
+
             PlayerStateObserver.Instance.OnPlayerDeath();
             _animator.PlayAnimation("Death", 0);
+            
+            _deathByHealthSFX.Post(gameObject);
         }
+    }
+    
+    private void CheckDeathBySanity()
+    {
+        if (_currentMentalHealth > 0) return;
+        
+        _rigidbody.useGravity = false;
+        
+        PlayerStateObserver.Instance.OnPlayerDeath();
+        _animator.PlayAnimation("Death", 0);
+        
+        _deathBySanitySFX.Post(gameObject);
     }
 
     public void TakePhysicalDamage(float percentage)
     {
         _currentPhysicalHealth -= Mathf.FloorToInt(_physicalMaxHealth * percentage);
 
-        CheckDeath();
+        CheckDeathByHealth();
 
         UpdatePhysicalBar();
     }
@@ -118,7 +135,7 @@ public class HealthSystem : MonoBehaviour
     {
         _currentPhysicalHealth = desiredHealthAmount;
 
-        CheckDeath();
+        CheckDeathByHealth();
 
         UpdatePhysicalBar();
     }
@@ -128,6 +145,8 @@ public class HealthSystem : MonoBehaviour
         _currentMentalHealth -= amount;
 
         UpdateMentalBar();
+
+        CheckDeathBySanity();
     }
 
     public void HealPhysical(int amount)
