@@ -1047,6 +1047,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="gameOverScreamHealth" ID="{53756CAE-E94B-470A-8B5D-64FC23DBED22}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.282828282828283"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.129292929292929"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>GameOver\gameOverScreamHealth.wav</AudioFile>
 											<MediaIDList>
