@@ -1,8 +1,4 @@
 using PlayerMovements;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class ControlsScreen : MonoBehaviour
