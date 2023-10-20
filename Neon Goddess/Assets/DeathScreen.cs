@@ -30,8 +30,8 @@ public class DeathScreen : MonoBehaviour
     IEnumerator FadeImg()
     {
         _image.enabled = true;
-        yield return new WaitForSeconds(5);
-        for (float i = 0; i <= 1.2f; i += 3*Time.deltaTime)
+        yield return new WaitForSeconds(1);
+        for (float i = 0; i <= 2f; i += 3*Time.deltaTime)
         {
             _image.color = new Color(0, 0, 0, i);
             yield return null;

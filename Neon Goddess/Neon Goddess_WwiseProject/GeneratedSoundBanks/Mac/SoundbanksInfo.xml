@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="3089952871">
+		<SoundBank Id="534561221" Language="SFX" Hash="1186298258">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
@@ -192,19 +192,19 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="51803806" Name="gameOverImpactGeneric" ObjectPath="\Events\Default Work Unit\SFX Events\gameOverEvents\gameOverImpactGeneric" DurationType="OneShot" DurationMin="8.019932" DurationMax="8.019932">
+				<Event Id="51803806" Name="gameOverImpactGeneric" ObjectPath="\Events\Default Work Unit\SFX Events\gameOverEvents\gameOverImpactGeneric" DurationType="OneShot" DurationMin="6.07273" DurationMax="6.07273">
 					<IncludedMemoryFiles>
 						<File Id="632185417" Language="SFX">
 							<ShortName>GameOver\gameOverImpactGeneric.wav</ShortName>
-							<Path>SFX\GameOver\gameOverImpactGeneric_05842A19.wem</Path>
+							<Path>SFX\GameOver\gameOverImpactGeneric_C3A6FAB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="59954432" Name="gameOverScreamHealth" ObjectPath="\Events\Default Work Unit\SFX Events\gameOverEvents\gameOverScreamHealth" DurationType="OneShot" DurationMin="1.6" DurationMax="1.6">
+				<Event Id="59954432" Name="gameOverScreamHealth" ObjectPath="\Events\Default Work Unit\SFX Events\gameOverEvents\gameOverScreamHealth" DurationType="OneShot" DurationMin="1.470707" DurationMax="1.470707">
 					<IncludedMemoryFiles>
 						<File Id="236340907" Language="SFX">
 							<ShortName>GameOver\gameOverScreamHealth.wav</ShortName>
-							<Path>SFX\GameOver\gameOverScreamHealth_05842A19.wem</Path>
+							<Path>SFX\GameOver\gameOverScreamHealth_3C570417.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -212,7 +212,7 @@
 					<IncludedMemoryFiles>
 						<File Id="1010256616" Language="SFX">
 							<ShortName>GameOver\gameOverSobbingSanity.wav</ShortName>
-							<Path>SFX\GameOver\gameOverSobbingSanity_05842A19.wem</Path>
+							<Path>SFX\GameOver\gameOverSobbingSanity_7EF8BF70.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -333,23 +333,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1563548634" Name="stepEventRobbie" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEventRobbie" MaxAttenuation="100." DurationType="OneShot" DurationMin="0.019544" DurationMax="0.041337">
+				<Event Id="1563548634" Name="stepEventRobbie" ObjectPath="\Events\Default Work Unit\SFX Events\movementEvent\stepEventRobbie" MaxAttenuation="15." DurationType="OneShot" DurationMin="0.046979" DurationMax="0.046979">
 					<IncludedMemoryFiles>
-						<File Id="79465095" Language="SFX">
-							<ShortName>Steps\Step Concrete NoVerb04.wav</ShortName>
-							<Path>SFX\Steps\Step Concrete NoVerb04_3A36A138.wem</Path>
-						</File>
-						<File Id="315903680" Language="SFX">
-							<ShortName>Steps\Step Concrete NoVerb03.wav</ShortName>
-							<Path>SFX\Steps\Step Concrete NoVerb03_229EB036.wem</Path>
-						</File>
-						<File Id="551442925" Language="SFX">
-							<ShortName>Steps\Step Concrete NoVerb02.wav</ShortName>
-							<Path>SFX\Steps\Step Concrete NoVerb02_84911D7A.wem</Path>
-						</File>
-						<File Id="822608226" Language="SFX">
-							<ShortName>Steps\Step Concrete NoVerb01.wav</ShortName>
-							<Path>SFX\Steps\Step Concrete NoVerb01_5CEC651D.wem</Path>
+						<File Id="374130843" Language="SFX">
+							<ShortName>RobbieStep.wav</ShortName>
+							<Path>SFX\RobbieStep_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
