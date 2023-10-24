@@ -17,7 +17,8 @@ namespace Combat
             Front,
             Down
         }
-        
+        [SerializeField] private GameObject _itemInspector;
+
         [SerializeField] private AttackSystem _attackSystem;
         [SerializeField] private GameObject _weaponGameObject;
         [SerializeField] private GameObject _meleeWeaponGameObject;
@@ -95,6 +96,7 @@ namespace Combat
         private void AimPerformed()
         {
             if(PlayerStateObserver.Instance.CurrentState != PlayerStateObserver.PlayerState.Free) return;
+            if (_itemInspector.activeSelf) return;
 
             _currentAimingDirection = AimDirection.Front;
             
@@ -292,6 +294,8 @@ namespace Combat
         
         private void AimCanceled()
         {
+            if (_itemInspector.activeSelf) return;
+
             _isAiming = false;
             
             StopAllCoroutines();
