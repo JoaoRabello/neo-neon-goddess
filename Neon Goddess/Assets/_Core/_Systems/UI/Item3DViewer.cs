@@ -24,7 +24,7 @@ public class Item3DViewer : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         if (active && !isDragging)
         {
-            _prefab.Rotate(0, 2.5f, 0);
+            _prefab.Rotate(0, item.rotationSpeed, 0);
         }
     }
     public void OnDrag(PointerEventData eventData)
