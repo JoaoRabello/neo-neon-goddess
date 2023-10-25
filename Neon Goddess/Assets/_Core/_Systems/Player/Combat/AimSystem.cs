@@ -325,6 +325,7 @@ namespace Combat
                 }
                 else
                 {
+                    _animator.SetParameterValue("isAimingMelee", false);
                     _animator.OnCurrentAnimationEndCallback(HideMeleeWeapon);
                 }
             }
