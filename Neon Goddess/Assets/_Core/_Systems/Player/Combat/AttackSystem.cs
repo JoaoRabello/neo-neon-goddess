@@ -146,12 +146,12 @@ namespace Combat
             if (_weaponEquipped)
             {
                 _shootingSfxPlayer.PlaySFX(_gunHit);
+                enemy.GetComponent<IHackable>().TakeHackShot(_weapon.Damage);
             }
             else
             {
                 _shootingSfxPlayer.PlaySFX(_stickHit);
             }
-            enemy.GetComponent<IHackable>().TakeHackShot(_weapon.Damage);
         }
 
         private IEnumerator PlayMuzzleEffect()
