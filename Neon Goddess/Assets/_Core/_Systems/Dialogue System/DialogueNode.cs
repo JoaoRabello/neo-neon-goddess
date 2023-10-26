@@ -8,7 +8,14 @@ using UnityEngine.Serialization;
 [Serializable]
 public class DialogueNode : ScriptableObject
 {
+    public enum NodeType
+    {
+        Common,
+        Document,
+        Camera
+    }
     [SerializeField] private string _text;
+    [SerializeField] private NodeType _nodeType;
     [SerializeField] private bool _isRootNode;
     [SerializeField] private DialogueCharacter _character;
     [SerializeField] private List<String> _children = new List<string>();
@@ -18,6 +25,7 @@ public class DialogueNode : ScriptableObject
     public Rect NodeRect => _rect;
     public DialogueCharacter Character => _character;
     public string Text => _text;
+    public NodeType Type => _nodeType;
     public List<String> Children => _children;
 
 #if UNITY_EDITOR
@@ -49,6 +57,16 @@ public class DialogueNode : ScriptableObject
         
         Undo.RecordObject(this, "Update Dialogue Text");
         _text = text;
+        
+        EditorUtility.SetDirty(this);
+    }
+    
+    public void SetType(NodeType type)
+    {
+        if(_nodeType == type) return;
+        
+        Undo.RecordObject(this, "Update Node Type");
+        _nodeType = type;
         
         EditorUtility.SetDirty(this);
     }

@@ -14,6 +14,9 @@ public class ChatDialogueReader : MonoBehaviour
     public static ChatDialogueReader Instance;
     
     [SerializeField] private GameObject _dialogueVisualContent;
+    [SerializeField] private GameObject _documentContent;
+    [SerializeField] private Image _documentImage;
+    [SerializeField] private TMP_Text _documentLabel;
     [SerializeField] private TMP_Text _dialogueLabel;
     [SerializeField] private List<Button> _optionButtons = new List<Button>();
     [SerializeField] private List<TMP_Text> _dialogueOptionLabels = new List<TMP_Text>();
@@ -31,6 +34,8 @@ public class ChatDialogueReader : MonoBehaviour
     private bool _choosing;
     private bool _isTypewriting;
     private int _choiceIndex;
+
+    private Camera _dialogueCamera;
 
     private void Awake()
     {
@@ -117,6 +122,7 @@ public class ChatDialogueReader : MonoBehaviour
             _firstInteraction = true;
             
             _dialogueVisualContent.SetActive(false);
+            _documentContent.SetActive(false);
             DialogueEnded?.Invoke();
             
             PlayerStateObserver.Instance.OnDialogueEnd();
@@ -133,17 +139,22 @@ public class ChatDialogueReader : MonoBehaviour
         else
         {
             _currentDialogueNode = children[0];
-            SetDialogueText();
+
+            RenderCurrentNode();
         }
     }
 
-    public void PlayDialogue(Dialogue dialogue)
+    public void PlayDialogue(Dialogue dialogue, Camera camera = null)
     {
         if (dialogue == null)
         {
             Debug.Log($"[ChatDialogueReader] PlayDialogue | Não há dialogo para tocar. Você tem certeza de que colocou o arquivo do diálogo no lugar certo?");
             return;
         }
+
+        ClearDocument();
+
+        _dialogueCamera = camera;
         
         _onDialogue = true;
         _currentDialogue = dialogue;
@@ -152,8 +163,31 @@ public class ChatDialogueReader : MonoBehaviour
 
         PlayerStateObserver.Instance.OnDialogueStart();
         
-        _dialogueVisualContent.SetActive(true);
-        SetDialogueText();
+        RenderCurrentNode();
+    }
+
+    private void RenderCurrentNode()
+    {
+        ClearDialogueScreen();
+        ClearDocument();
+        ClearCameraScreen();
+
+        switch (_currentDialogueNode.Type)
+        {
+            case DialogueNode.NodeType.Common:
+                _dialogueVisualContent.SetActive(true);
+                SetDialogueText();
+                break;
+            case DialogueNode.NodeType.Document:
+                SetDocumentScreen();
+                break;
+            case DialogueNode.NodeType.Camera:
+                if (_dialogueCamera == null) return;
+                
+                CameraManager.Instance.TurnOffRoomCamera();
+                _dialogueCamera.gameObject.SetActive(true);
+                break;
+        }
     }
 
     private void ShowOptions(DialogueNode[] nodes)
@@ -183,6 +217,24 @@ public class ChatDialogueReader : MonoBehaviour
         }
     }
 
+    private void ClearDialogueScreen()
+    {
+        _dialogueVisualContent.SetActive(false);
+    }
+
+    private void ClearDocument()
+    {
+        _documentContent.SetActive(false);
+    }
+    
+    private void ClearCameraScreen()
+    {
+        if (_dialogueCamera == null) return;
+        
+        _dialogueCamera.gameObject.SetActive(false);
+        CameraManager.Instance.TurnOnLastRoomCamera();
+    }
+
     private void SelectOption(DialogueNode node)
     {
         ClearOptions();
@@ -191,6 +243,18 @@ public class ChatDialogueReader : MonoBehaviour
         _currentDialogueNode = node;
         
         PlayNextNode();
+    }
+
+    private void SetDocumentScreen()
+    {
+        _documentContent.SetActive(true);
+        _documentLabel.SetText(_currentDialogueNode.Text);
+    }
+    
+    private void SetCameraScreen()
+    {
+        _documentContent.SetActive(true);
+        _documentLabel.SetText(_currentDialogueNode.Text);
     }
 
     private void SetDialogueText()

@@ -16,6 +16,7 @@ public class DialogueInteractableObject : MonoBehaviour, IInteractable
     
     [Header("Main Dialogue")]
     [SerializeField] private Dialogue _dialogue;
+    [SerializeField] private Camera _dialogueCamera;
 
     [Header("Interaction Count")]
     [SerializeField] private bool _oneTimeInteraction;
@@ -35,15 +36,15 @@ public class DialogueInteractableObject : MonoBehaviour, IInteractable
 
         if (_mainOnly)
         {
-            ChatDialogueReader.Instance.PlayDialogue(_dialogue);
+            ChatDialogueReader.Instance.PlayDialogue(_dialogue, _dialogueCamera);
         }
         else if (_mainThenRandom)
         {
-            ChatDialogueReader.Instance.PlayDialogue(_interactionCount >= 1 ? GetRandomDialogue() : _dialogue);
+            ChatDialogueReader.Instance.PlayDialogue(_interactionCount >= 1 ? GetRandomDialogue() : _dialogue, _dialogueCamera);
         }
         else if (_randomOnly)
         {
-            ChatDialogueReader.Instance.PlayDialogue(GetRandomDialogue());
+            ChatDialogueReader.Instance.PlayDialogue(GetRandomDialogue(), _dialogueCamera);
         }
 
         _interactionCount++;

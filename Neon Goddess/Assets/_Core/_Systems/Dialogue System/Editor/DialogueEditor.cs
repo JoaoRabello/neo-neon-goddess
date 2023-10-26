@@ -195,6 +195,7 @@ public class DialogueEditor : EditorWindow
         node.SetCharacter(characters[characterIndex]);
         
         node.SetText(EditorGUILayout.TextArea(node.Text));
+        node.SetType((DialogueNode.NodeType)EditorGUILayout.EnumPopup("Node Type: ", node.Type));
 
         GUILayout.BeginHorizontal();
         if(!node.IsRootNode)

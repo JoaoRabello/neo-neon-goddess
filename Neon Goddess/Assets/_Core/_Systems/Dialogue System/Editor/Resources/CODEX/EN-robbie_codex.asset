@@ -1,5 +1,29 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9002870369850558473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: b553f494-3f19-427d-8a33-d1e3b7791401
+  m_EditorClassIdentifier: 
+  _text: Subway Rail Camera
+  _nodeType: 0
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 51323e95-9f5b-479d-947d-dd9184d33343
+  _rect:
+    serializedVersion: 2
+    x: 566
+    y: 374
+    width: 200
+    height: 200
 --- !u!114 &-7739412378546660885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18,14 +42,15 @@ MonoBehaviour:
     heard back from management yet.\r\nThey don't distinguish between organic and
     regular waste anymore. It is strongly recommended that repairs be made immediately.\r\n\r\nBest
     regards,\r\nMatias\r"
+  _nodeType: 1
   _isRootNode: 0
   _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
   _children:
   - 24e2b578-9d40-4a7e-a0ed-8628b7dbf922
   _rect:
     serializedVersion: 2
-    x: 558
-    y: 9
+    x: 870
+    y: 11
     width: 200
     height: 200
 --- !u!114 &-7500157023874271183
@@ -41,14 +66,16 @@ MonoBehaviour:
   m_Name: 867d3fe3-6433-46bd-8c63-0bdc5b670b14
   m_EditorClassIdentifier: 
   _text: Read it
+  _nodeType: 0
   _isRootNode: 0
   _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
   _children:
-  - b8c31083-6c9f-4fea-9496-adf3d3adfa5a
+  - b553f494-3f19-427d-8a33-d1e3b7791401
+  - 698ac67c-e28c-4b5a-8644-486e1cc6f8ca
   _rect:
     serializedVersion: 2
     x: 310
-    y: 10
+    y: 9
     width: 200
     height: 200
 --- !u!114 &-7394064157530368635
@@ -67,13 +94,38 @@ MonoBehaviour:
     response to: [Entry: Malfunction of Trash Collector Androids]]]]]]\r\nAuthor:
     Bex\r\n\r\nMatias,\r\n\r\nAlright, I'll submit a form to management regarding
     the case. You're coming to work tomorrow, right?\r\n\r\nBex\r"
+  _nodeType: 1
   _isRootNode: 0
   _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
   _children: []
   _rect:
     serializedVersion: 2
-    x: 1824
-    y: 10
+    x: 2052
+    y: 14
+    width: 200
+    height: 200
+--- !u!114 &-5594561802772490545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 51323e95-9f5b-479d-947d-dd9184d33343
+  m_EditorClassIdentifier: 
+  _text: 
+  _nodeType: 2
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - 867d3fe3-6433-46bd-8c63-0bdc5b670b14
+  _rect:
+    serializedVersion: 2
+    x: 791
+    y: 272.00003
     width: 200
     height: 200
 --- !u!114 &-4919985515053220717
@@ -93,14 +145,15 @@ MonoBehaviour:
     management asked everyone to stay away. The android must have mistaken your foot
     for a corpse lying on the tracks. No responsibility is taken by the company for
     accidents caused by employees not following safety guidelines.\r\n\r\nBex.\r"
+  _nodeType: 1
   _isRootNode: 0
   _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
   _children:
   - db2b7414-b63b-4d19-99f8-639efa295e9d
   _rect:
     serializedVersion: 2
-    x: 1310
-    y: 10
+    x: 1569
+    y: 8.000004
     width: 200
     height: 200
 --- !u!114 &-3617459181626417369
@@ -116,14 +169,15 @@ MonoBehaviour:
   m_Name: 27f42a16-5057-4006-a8f3-8347b4d82ee0
   m_EditorClassIdentifier: 
   _text: Ignore it
+  _nodeType: 0
   _isRootNode: 0
   _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
   _children:
   - 123a562e-e020-49a6-a774-ea5c13214bde
   _rect:
     serializedVersion: 2
-    x: 309
-    y: 244
+    x: 312
+    y: 609
     width: 200
     height: 200
 --- !u!114 &-3418243173798878497
@@ -143,14 +197,15 @@ MonoBehaviour:
     distance from them while they test methods for removing the organic material
     that occasionally blocks the tracks (you know what I'm talking about...).\r\n\r\nBest
     regards,\r\nBex\r"
+  _nodeType: 1
   _isRootNode: 0
   _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
   _children:
   - 77e1f62d-2150-4223-b529-0e5341c2d53b
   _rect:
     serializedVersion: 2
-    x: 817
-    y: 11
+    x: 1092
+    y: 9
     width: 200
     height: 200
 --- !u!114 &-3261942366639196960
@@ -166,6 +221,7 @@ MonoBehaviour:
   m_Name: 7e590c43-5cc7-4a73-afde-fd56c986ab24
   m_EditorClassIdentifier: 
   _text: There's a list of old e-mails here.
+  _nodeType: 0
   _isRootNode: 1
   _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
   _children:
@@ -200,6 +256,33 @@ MonoBehaviour:
   - {fileID: -4919985515053220717}
   - {fileID: 6505549603948789207}
   - {fileID: -7394064157530368635}
+  - {fileID: -9002870369850558473}
+  - {fileID: 926372212034457599}
+  - {fileID: -5594561802772490545}
+--- !u!114 &926372212034457599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7e9185d80e28429e12f5bd286aeb9, type: 3}
+  m_Name: 698ac67c-e28c-4b5a-8644-486e1cc6f8ca
+  m_EditorClassIdentifier: 
+  _text: E-mail Archives
+  _nodeType: 0
+  _isRootNode: 0
+  _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
+  _children:
+  - b8c31083-6c9f-4fea-9496-adf3d3adfa5a
+  _rect:
+    serializedVersion: 2
+    x: 642
+    y: 12
+    width: 200
+    height: 200
 --- !u!114 &1071496372828206266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,14 +299,15 @@ MonoBehaviour:
     Androids]]]\r\nAuthor: Matias\r\n\r\nBex,\r\n\r\nYou don't understand. My foot
     was impaled yesterday by one of them with that spike. There will be someone killed
     by them!\r\n\r\nMatias\r"
+  _nodeType: 1
   _isRootNode: 0
   _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
   _children:
   - 826db1ed-7237-4ce1-b011-c54f5fbd6929
   _rect:
     serializedVersion: 2
-    x: 1054
-    y: 10
+    x: 1302
+    y: 4
     width: 200
     height: 200
 --- !u!114 &3026385116312043573
@@ -239,13 +323,14 @@ MonoBehaviour:
   m_Name: 123a562e-e020-49a6-a774-ea5c13214bde
   m_EditorClassIdentifier: 
   _text: Too long, didn't read.
+  _nodeType: 0
   _isRootNode: 0
   _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
   _children: []
   _rect:
     serializedVersion: 2
-    x: 559
-    y: 244
+    x: 551
+    y: 603
     width: 200
     height: 200
 --- !u!114 &6505549603948789207
@@ -263,13 +348,14 @@ MonoBehaviour:
   _text: "[In response to: [In response to: [In response to: [In response to: [Subject:
     Malfunctioning Trash Collector Androids]]]]]\r\nAuthor: Matias\r\n\r\n\r\nI WASN'T
     ON THE TRACKS. ONE OF THEM CAME TO ME AND PIERCED MY FOOT, BEX!\r"
+  _nodeType: 1
   _isRootNode: 0
   _character: {fileID: 11400000, guid: 0dd9e66ffdb77934a88b233537667e73, type: 2}
   _children:
   - 313a75b6-37c5-44f2-8e85-c6d79bb813d7
   _rect:
     serializedVersion: 2
-    x: 1560
-    y: 10
+    x: 1854
+    y: 15
     width: 200
     height: 200
