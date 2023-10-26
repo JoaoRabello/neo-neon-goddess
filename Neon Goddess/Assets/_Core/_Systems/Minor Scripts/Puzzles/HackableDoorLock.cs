@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HackableDoorLock : MonoBehaviour, IHackable
 {
     [SerializeField] private DoorManager _door;
     [SerializeField] private Transform _hackPosition;
+
+    [SerializeField] private UnityEvent _onHackEvent;
     
     private bool _isHacked;
     public bool IsHacked => _isHacked;
@@ -29,6 +32,8 @@ public class HackableDoorLock : MonoBehaviour, IHackable
     {
         _isHacked = true;
         _door.Unlock();
+        
+        _onHackEvent?.Invoke();
     }
 
     public void StartHack(float timeToHack)
