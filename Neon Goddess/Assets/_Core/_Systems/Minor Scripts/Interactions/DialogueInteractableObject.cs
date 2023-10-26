@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Player;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
@@ -10,13 +11,22 @@ public class DialogueInteractableObject : MonoBehaviour, IInteractable
 {
     [Header("Interaction")]
     [SerializeField] private IInteractable.InteractableType _interactableType;
-    
+
     [Header("Dialogue Pool")]
     [SerializeField] private Dialogue[] _dialogues;
     
     [Header("Main Dialogue")]
     [SerializeField] private Dialogue _dialogue;
     [SerializeField] private Camera _dialogueCamera;
+    
+    [Header("Interactions using items")]
+    [SerializeField] private bool _itemLockedInteraction;
+    [SerializeField] private Item _item;
+    [SerializeField] private Dialogue _withoutItemDialogue;
+    [SerializeField] private Dialogue _withItemDialogue;
+    [SerializeField] private UnityEvent _eventAfterUnlock;
+
+    private bool _hasPlayedEventAfterUnlock;
 
     [Header("Interaction Count")]
     [SerializeField] private bool _oneTimeInteraction;
@@ -34,17 +44,39 @@ public class DialogueInteractableObject : MonoBehaviour, IInteractable
     {
         if(_oneTimeInteraction && _interactionCount >= 1) return;
 
-        if (_mainOnly)
+        if (_itemLockedInteraction)
         {
-            ChatDialogueReader.Instance.PlayDialogue(_dialogue, _dialogueCamera);
+            if (!PlayerInventoryObserver.Instance.HasItem(_item))
+            {
+                if (_mainThenRandom)
+                {
+                    ChatDialogueReader.Instance.PlayDialogue(_interactionCount >= 1 ? GetRandomDialogue() : _withoutItemDialogue, _dialogueCamera);
+                }
+            }
+            else
+            {
+                if (_hasPlayedEventAfterUnlock) return;
+                
+                ChatDialogueReader.Instance.PlayDialogue(_withItemDialogue, _dialogueCamera);
+                _eventAfterUnlock?.Invoke();
+
+                _hasPlayedEventAfterUnlock = true;
+            }
         }
-        else if (_mainThenRandom)
+        else
         {
-            ChatDialogueReader.Instance.PlayDialogue(_interactionCount >= 1 ? GetRandomDialogue() : _dialogue, _dialogueCamera);
-        }
-        else if (_randomOnly)
-        {
-            ChatDialogueReader.Instance.PlayDialogue(GetRandomDialogue(), _dialogueCamera);
+            if (_mainOnly)
+            {
+                ChatDialogueReader.Instance.PlayDialogue(_dialogue, _dialogueCamera);
+            }
+            else if (_mainThenRandom)
+            {
+                ChatDialogueReader.Instance.PlayDialogue(_interactionCount >= 1 ? GetRandomDialogue() : _dialogue, _dialogueCamera);
+            }
+            else if (_randomOnly)
+            {
+                ChatDialogueReader.Instance.PlayDialogue(GetRandomDialogue(), _dialogueCamera);
+            }
         }
 
         _interactionCount++;

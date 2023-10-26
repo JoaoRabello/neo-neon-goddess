@@ -63,4 +63,9 @@ public class InventoryHolder : MonoBehaviour
         ConsumeItemOnBackground(item);
         return true;
     }
+
+    public bool HasItem(Item item)
+    {
+        return _inventory.HasItem(item);
+    }
 }
