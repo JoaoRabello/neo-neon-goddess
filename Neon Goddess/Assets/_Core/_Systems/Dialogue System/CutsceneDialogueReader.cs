@@ -37,6 +37,7 @@ public class CutsceneDialogueReader : MonoBehaviour
     
     private double _timeToSkip;
     private bool _isPaused;
+    private bool _canPassDialogue;
 
     private void Awake()
     {
@@ -82,18 +83,20 @@ public class CutsceneDialogueReader : MonoBehaviour
             
             return;
         }
-        
+
+        _canPassDialogue = true;
         PlayNextNode();
     }
 
     private void OnInteractPerformed()
     {
         if (!_onDialogue) return;
-        if (_firstInteraction)
-        {
-            _firstInteraction = false;
-            return;
-        }
+        if(!_canPassDialogue) return;
+        // if (_firstInteraction)
+        // {
+        //     _firstInteraction = false;
+        //     return;
+        // }
 
         if (_choosing)
         {
@@ -109,10 +112,14 @@ public class CutsceneDialogueReader : MonoBehaviour
 
         if(_isTypewriting)
         {
+            _isTypewriting = false;
+
+            var timeToSkip = _playableDirector.time + _dialogueLabel.text.Length * _typeWritingCharacterAppearTime;
+            _playableDirector.time = timeToSkip;
+            
             StopAllCoroutines();
             _dialogueLabel.SetText(_currentDialogueNode.Text);
-            _isTypewriting = false;
-            _playableDirector.time = _timeToSkip;
+
             _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(0);
             _isPaused = true;
         }
@@ -120,14 +127,16 @@ public class CutsceneDialogueReader : MonoBehaviour
         {
             if (_isPaused)
             {
+                ClearText();
                 _playableDirector.time = _playableDirector.time;
                 _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(1);
                 _isPaused = false;
+                _canPassDialogue = false;
             }
             else
             {
                 //TODO: Pular para o tempo previsto após a conclusão do diálogo. Usar um calculo de letras restantes * tempo de typewriting
-                _playableDirector.time = _timeToSkip;
+                // _playableDirector.time = _timeToSkip;
             }
         }
     }
@@ -185,6 +194,7 @@ public class CutsceneDialogueReader : MonoBehaviour
         }
         
         _onDialogue = true;
+        _canPassDialogue = true;
         _currentDialogue = dialogue;
         dialogue.ResetNodeLookup();
         _currentDialogueNode = dialogue.GetRootNode();
@@ -232,6 +242,11 @@ public class CutsceneDialogueReader : MonoBehaviour
         _currentDialogueNode = node;
         
         PlayNextNode();
+    }
+
+    private void ClearText()
+    {
+        _dialogueLabel.SetText("");
     }
 
     private void SetDialogueText()
