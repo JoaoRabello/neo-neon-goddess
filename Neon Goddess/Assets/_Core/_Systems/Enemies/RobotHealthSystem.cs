@@ -1,4 +1,5 @@
 using Animations;
+using MoreMountains.Feedbacks;
 using System;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class RobotHealthSystem : MonoBehaviour, IHackable
     [Header("VFX")]
     [SerializeField] private ParticleSystem _hackedVFX;
     [SerializeField] private CharacterAnimator _animator;
+    [SerializeField] private MMF_Player _player;
     public Action OnTakenShot;
     public Action OnHackedSuccessfully;
     
@@ -43,6 +45,7 @@ public class RobotHealthSystem : MonoBehaviour, IHackable
     {
         if (_isHacked) return;
         _animator.PlayAnimation("Got_Damage", 0);
+        _player.PlayFeedbacks();
         OnTakenShot?.Invoke();
         
         var damageTaken = damageAmount - _systemArmor;
