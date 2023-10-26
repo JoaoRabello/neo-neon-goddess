@@ -25,6 +25,7 @@ public class DoorManager : MonoBehaviour, IInteractable
     
     [Header("Door Information")]
     [SerializeField] bool isLockable;
+    [SerializeField] bool _locksAfterClosing;
     [SerializeField] GameObject doorObject;
 
     [Header("Lock Information")]
@@ -237,6 +238,10 @@ public class DoorManager : MonoBehaviour, IInteractable
         if (other.CompareTag("Player") && isOpen == true)
         {
             AkSoundEngine.PostEvent("doorSlideClose", gameObject);
+            
+            if(_locksAfterClosing)
+                Lock();
+            
             MoveDoor();
         }
     }
