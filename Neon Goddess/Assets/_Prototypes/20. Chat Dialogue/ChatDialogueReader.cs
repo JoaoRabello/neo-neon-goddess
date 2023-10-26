@@ -15,6 +15,7 @@ public class ChatDialogueReader : MonoBehaviour
     
     [SerializeField] private GameObject _dialogueVisualContent;
     [SerializeField] private GameObject _documentContent;
+    [SerializeField] private GameObject _screenBackground;
     [SerializeField] private Image _documentImage;
     [SerializeField] private TMP_Text _documentLabel;
     [SerializeField] private TMP_Text _dialogueLabel;
@@ -183,9 +184,7 @@ public class ChatDialogueReader : MonoBehaviour
                 break;
             case DialogueNode.NodeType.Camera:
                 if (_dialogueCamera == null) return;
-                
-                CameraManager.Instance.TurnOffRoomCamera();
-                _dialogueCamera.gameObject.SetActive(true);
+                SetCameraScreen();
                 break;
         }
     }
@@ -231,6 +230,9 @@ public class ChatDialogueReader : MonoBehaviour
     {
         if (_dialogueCamera == null) return;
         
+        _documentContent.SetActive(false);
+        
+        _screenBackground.SetActive(true);
         _dialogueCamera.gameObject.SetActive(false);
         CameraManager.Instance.TurnOnLastRoomCamera();
     }
@@ -248,13 +250,18 @@ public class ChatDialogueReader : MonoBehaviour
     private void SetDocumentScreen()
     {
         _documentContent.SetActive(true);
+        _documentLabel.gameObject.SetActive(true);
         _documentLabel.SetText(_currentDialogueNode.Text);
     }
     
     private void SetCameraScreen()
     {
         _documentContent.SetActive(true);
-        _documentLabel.SetText(_currentDialogueNode.Text);
+        
+        CameraManager.Instance.TurnOffRoomCamera();
+        _screenBackground.SetActive(false);
+        _documentLabel.gameObject.SetActive(false);
+        _dialogueCamera.gameObject.SetActive(true);
     }
 
     private void SetDialogueText()
