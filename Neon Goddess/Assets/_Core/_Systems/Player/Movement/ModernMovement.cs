@@ -7,6 +7,7 @@ using Inputs;
 using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace PlayerMovements
 {
@@ -32,6 +33,7 @@ namespace PlayerMovements
         [SerializeField] public float _basemovementSpeed;
         [SerializeField] public float _basebackMovementSpeed;
         [Tooltip("Speed for rotational movement")]
+        [SerializeField] private float _visualRotationLerpStep;
         [SerializeField] private float _rotationSpeed;
         [SerializeField] private float _walkingRotationSpeed;
 
@@ -217,7 +219,7 @@ namespace PlayerMovements
             var relativeRightInput = camRight * _movementDirection.x;
             var relativeMoveDirection = relativeForwardInput + relativeRightInput;
 
-            transform.forward = relativeMoveDirection.normalized;
+            transform.forward = Vector3.Lerp(transform.forward, relativeMoveDirection.normalized, _visualRotationLerpStep);
             _rigidbody.velocity = new Vector3(relativeMoveDirection.x * _movementSpeed, _rigidbody.velocity.y, relativeMoveDirection.z * _movementSpeed);
         }
 
