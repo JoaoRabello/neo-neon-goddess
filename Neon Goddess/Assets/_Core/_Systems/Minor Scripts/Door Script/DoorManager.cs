@@ -118,6 +118,16 @@ public class DoorManager : MonoBehaviour, IInteractable
         return Unlock();
     }
 
+    public void UnlockWithoutPermission()
+    {
+        LockedDoor = false;
+                
+        UpdateShaderToUnlocked();
+            
+        OnStateChangeUpdateIcon?.Invoke(this);
+        _unlockDoorSoundEvent.Post(gameObject);
+    }
+
     public bool Unlock()
     {
         switch (_lockType)

@@ -29,4 +29,9 @@ public class PlayerInventoryObserver : MonoBehaviour
     {
         return _playerInventoryHolder.TryConsumeItem(item);
     }
+
+    public bool HasItem(Item item)
+    {
+        return _playerInventoryHolder.HasItem(item);
+    }
 }
