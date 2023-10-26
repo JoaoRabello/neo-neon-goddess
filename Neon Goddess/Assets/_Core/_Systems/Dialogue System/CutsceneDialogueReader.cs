@@ -6,12 +6,16 @@ using Inputs;
 using Player;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 using UnityEngine.UI;
 
 public class CutsceneDialogueReader : MonoBehaviour
 {
     public static CutsceneDialogueReader Instance;
     
+    [SerializeField] private PlayableDirector _playableDirector;
+    [SerializeField] private TimelineAsset _test;
     [SerializeField] private GameObject _dialogueVisualContent;
     [SerializeField] private TMP_Text _dialogueLabel;
     [SerializeField] private List<Button> _optionButtons = new List<Button>();
@@ -29,6 +33,10 @@ public class CutsceneDialogueReader : MonoBehaviour
     private bool _firstInteraction = true;
     private bool _choosing;
     private int _choiceIndex;
+    private bool _isTypewriting;
+    
+    private double _timeToSkip;
+    private bool _isPaused;
 
     private void Awake()
     {
@@ -98,8 +106,30 @@ public class CutsceneDialogueReader : MonoBehaviour
             
             return;
         }
-        
-        PlayNextNode();
+
+        if(_isTypewriting)
+        {
+            StopAllCoroutines();
+            _dialogueLabel.SetText(_currentDialogueNode.Text);
+            _isTypewriting = false;
+            _playableDirector.time = _timeToSkip;
+            _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(0);
+            _isPaused = true;
+        }
+        else
+        {
+            if (_isPaused)
+            {
+                _playableDirector.time = _playableDirector.time;
+                _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(1);
+                _isPaused = false;
+            }
+            else
+            {
+                //TODO: Pular para o tempo previsto após a conclusão do diálogo. Usar um calculo de letras restantes * tempo de typewriting
+                _playableDirector.time = _timeToSkip;
+            }
+        }
     }
 
     private void ChangeIndex(Vector2 input)
@@ -163,6 +193,8 @@ public class CutsceneDialogueReader : MonoBehaviour
         
         _dialogueVisualContent.SetActive(true);
         SetDialogueText();
+        
+        SetTimeToSkip();
     }
 
     private void ShowOptions(DialogueNode[] nodes)
@@ -210,11 +242,42 @@ public class CutsceneDialogueReader : MonoBehaviour
 
     private IEnumerator PlayTypewrite(string text)
     {
+        _isTypewriting = true;
         _dialogueLabel.SetText("");
         foreach (var character in text)
         {
             _dialogueLabel.SetText((_dialogueLabel.text + character));
             yield return new WaitForSeconds(_typeWritingCharacterAppearTime);
+        }
+        _dialogueLabel.SetText(text);
+        _isTypewriting = false;
+        
+        _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(0);
+        _isPaused = true;
+        SetTimeToSkip();
+    }
+
+    public void SetTimeToSkip()
+    {
+        var allTracks = _test.GetOutputTracks();
+        foreach (var track in allTracks)
+        {
+            if(track.name != "Signal Track") continue;
+
+            double newTimeToSkip = 1000;
+            
+            var markers = track.GetMarkers();
+            
+            foreach (var marker in markers)
+            {
+                if (_timeToSkip < marker.time && marker.time <= newTimeToSkip)
+                {
+                    newTimeToSkip = marker.time;
+                }
+            }
+            
+            _timeToSkip = newTimeToSkip;
+            break;
         }
     }
 }
