@@ -1,3 +1,4 @@
+using Player;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,9 +6,9 @@ using UnityEngine.UI;
 public class InteractableHUDRenderObject : MonoBehaviour
 {
     [SerializeField] private RectTransform _rectTransform;
-    [SerializeField] private Image _image;
+    [SerializeField] public Image _image;
     [SerializeField] private Animator _animator;
-    
+
     [Header("Icons")]
     [SerializeField] private string _openDoorAnimName;
     [SerializeField] private Sprite _openDoorIcon;
@@ -82,7 +83,6 @@ public class InteractableHUDRenderObject : MonoBehaviour
     private void Update()
     {
         if(_rectTransform == null || _interactableTransform == null) return;
-        
         _rectTransform.position = _mainCamera.WorldToScreenPoint(_interactableTransform.position);
     }
 }
