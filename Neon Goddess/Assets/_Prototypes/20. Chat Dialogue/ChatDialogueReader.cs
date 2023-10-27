@@ -237,6 +237,7 @@ public class ChatDialogueReader : MonoBehaviour
         _dialogueCamera.gameObject.SetActive(false);
         CameraManager.Instance.TurnOnLastRoomCamera();
         _uiLife.SetActive(true);
+        PlayerStateObserver.Instance.OnCameraEnd();
     }
 
     private void SelectOption(DialogueNode node)
@@ -265,7 +266,7 @@ public class ChatDialogueReader : MonoBehaviour
         _documentLabel.gameObject.SetActive(false);
         _dialogueCamera.gameObject.SetActive(true);
         _uiLife.SetActive(false);
-
+        PlayerStateObserver.Instance.OnCameraStart();
     }
 
     private void SetDialogueText()
