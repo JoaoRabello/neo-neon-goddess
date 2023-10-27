@@ -16,6 +16,7 @@ public class ChatDialogueReader : MonoBehaviour
     [SerializeField] private GameObject _dialogueVisualContent;
     [SerializeField] private GameObject _documentContent;
     [SerializeField] private GameObject _screenBackground;
+    [SerializeField] private GameObject _uiLife;
     [SerializeField] private Image _documentImage;
     [SerializeField] private TMP_Text _documentLabel;
     [SerializeField] private TMP_Text _dialogueLabel;
@@ -235,6 +236,7 @@ public class ChatDialogueReader : MonoBehaviour
         _screenBackground.SetActive(true);
         _dialogueCamera.gameObject.SetActive(false);
         CameraManager.Instance.TurnOnLastRoomCamera();
+        _uiLife.SetActive(true);
     }
 
     private void SelectOption(DialogueNode node)
@@ -262,6 +264,8 @@ public class ChatDialogueReader : MonoBehaviour
         _screenBackground.SetActive(false);
         _documentLabel.gameObject.SetActive(false);
         _dialogueCamera.gameObject.SetActive(true);
+        _uiLife.SetActive(false);
+
     }
 
     private void SetDialogueText()
