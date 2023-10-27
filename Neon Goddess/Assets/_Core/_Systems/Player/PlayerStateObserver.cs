@@ -52,7 +52,9 @@ namespace Player
             /// <summary>
             /// When Player is dead
             /// </summary>
-            Dead
+            Dead,
+            
+            OnCamera
         }
 
         public PlayerState _currentState;
@@ -102,6 +104,8 @@ namespace Player
         /// </summary>
         public Action PlayerDied;
 
+        public Action CameraStart;
+        public Action CameraEnd;
         private bool _isDuringState;
         
         //TODO: See if it's possible to build a state queue for situations like "Start cutscene and then start" + "a dialogue when ending cutscene" 
@@ -165,7 +169,21 @@ namespace Player
             StateEnd();
             DialogueEnd?.Invoke();
         }
-        
+
+        public void OnCameraStart()
+        {
+            if (_currentState == PlayerState.Dead) { return; }
+            StateStart(PlayerState.OnCamera);
+            CameraStart?.Invoke();
+        }
+
+        public void OnCameraEnd()
+        {
+            if (_currentState != PlayerState.OnCamera) { return; }
+            StateEnd();
+            CameraEnd?.Invoke();
+        }
+
         public void OnAimStart()
         {
             if (_currentState == PlayerState.Dead) { return; }

@@ -34,6 +34,7 @@ public class HackableDoorLock : MonoBehaviour, IHackable
         _door.Unlock();
         
         _onHackEvent?.Invoke();
+        gameObject.layer = 0;
     }
 
     public void StartHack(float timeToHack)
