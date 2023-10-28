@@ -11,7 +11,7 @@ public class PickableItem : MonoBehaviour, IInteractable
     [SerializeField] private Item _item;
     [SerializeField] private int _amount;
     [SerializeField] private Dialogue _dialogue;
-
+    [SerializeField] private GameObject _uiLife;
     [Header("Inspection")] 
     [SerializeField] private bool _hasInspection;
     [SerializeField] private Item3DViewer inspection;
@@ -60,9 +60,15 @@ public class PickableItem : MonoBehaviour, IInteractable
         _cutsceneCamera.gameObject.SetActive(true);
         
         PlayerStateObserver.Instance.CutsceneEnd += TurnOffCutsceneCamera;
+        _uiLife.SetActive(false);
+        PlayerStateObserver.Instance.CutsceneEnd += ActivateUI;
         CutsceneManager.Instance.PlayItemCutscene();
     }
 
+    private void ActivateUI()
+    {
+        _uiLife.SetActive(true);
+    }
     private void TurnOffCutsceneCamera()
     {
         _cutsceneCamera.gameObject.SetActive(false);

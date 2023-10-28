@@ -23,7 +23,6 @@ public class ChatDialogueReader : MonoBehaviour
     [SerializeField] private List<Button> _optionButtons = new List<Button>();
     [SerializeField] private List<TMP_Text> _dialogueOptionLabels = new List<TMP_Text>();
     [SerializeField] private DoorManager _doorManager;
-    [SerializeField] private DoorManager _doorManager2;
     
     [Header("Properties")]
     [SerializeField] private float _typeWritingCharacterAppearTime;
@@ -262,7 +261,6 @@ public class ChatDialogueReader : MonoBehaviour
     {
         _documentContent.SetActive(true);
         _doorManager.Unlock();
-        _doorManager2.Unlock();
         CameraManager.Instance.TurnOffRoomCamera();
         _screenBackground.SetActive(false);
         _documentLabel.gameObject.SetActive(false);
