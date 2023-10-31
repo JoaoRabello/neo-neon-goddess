@@ -1,3 +1,4 @@
+using Player;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,10 +10,12 @@ public class InteractableHUDManager : MonoBehaviour
     [SerializeField] private List<InteractableHUDRenderObject> _renderObjectPool = new List<InteractableHUDRenderObject>();
     [SerializeField] private Canvas _canvas;
     [SerializeField] private RectTransform _parent;
+    [SerializeField] private PlayerStateObserver _playerStateObserver;
 
     private Dictionary<IInteractable, InteractableHUDRenderObject> _renderObjectsByInteractable = new Dictionary<IInteractable, InteractableHUDRenderObject>();
 
     private int _currentActiveRenderObjectCount;
+    private bool _interactionsOn;
     
     private void Awake()
     {
@@ -25,7 +28,27 @@ public class InteractableHUDManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
+    private void Update()
+    {
+        if (_interactionsOn && (_playerStateObserver._currentState == PlayerStateObserver.PlayerState.OnCamera || _playerStateObserver._currentState == PlayerStateObserver.PlayerState.OnCutscene))
+        {
+            foreach(var obj in _renderObjectPool)
+            {
+                obj._image.enabled = false;
+            }
+            _interactionsOn = false;
+        }
+        else if (!_interactionsOn && _playerStateObserver._currentState != PlayerStateObserver.PlayerState.OnCamera && _playerStateObserver._currentState != PlayerStateObserver.PlayerState.OnCutscene)
+        {
+            foreach (var obj in _renderObjectPool)
+            {
+                obj._image.enabled = true;
+            }
+            _interactionsOn = true;
+        }
+
+    }
     private void OnDestroy()
     {
         Instance = null;

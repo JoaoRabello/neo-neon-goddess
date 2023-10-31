@@ -16,11 +16,13 @@ public class ChatDialogueReader : MonoBehaviour
     [SerializeField] private GameObject _dialogueVisualContent;
     [SerializeField] private GameObject _documentContent;
     [SerializeField] private GameObject _screenBackground;
+    [SerializeField] private GameObject _uiLife;
     [SerializeField] private Image _documentImage;
     [SerializeField] private TMP_Text _documentLabel;
     [SerializeField] private TMP_Text _dialogueLabel;
     [SerializeField] private List<Button> _optionButtons = new List<Button>();
     [SerializeField] private List<TMP_Text> _dialogueOptionLabels = new List<TMP_Text>();
+    [SerializeField] private DoorManager _doorManager;
     
     [Header("Properties")]
     [SerializeField] private float _typeWritingCharacterAppearTime;
@@ -35,7 +37,6 @@ public class ChatDialogueReader : MonoBehaviour
     private bool _choosing;
     private bool _isTypewriting;
     private int _choiceIndex;
-
     private Camera _dialogueCamera;
 
     private void Awake()
@@ -235,6 +236,8 @@ public class ChatDialogueReader : MonoBehaviour
         _screenBackground.SetActive(true);
         _dialogueCamera.gameObject.SetActive(false);
         CameraManager.Instance.TurnOnLastRoomCamera();
+        _uiLife.SetActive(true);
+        PlayerStateObserver.Instance.OnCameraEnd();
     }
 
     private void SelectOption(DialogueNode node)
@@ -257,11 +260,13 @@ public class ChatDialogueReader : MonoBehaviour
     private void SetCameraScreen()
     {
         _documentContent.SetActive(true);
-        
+        _doorManager.Unlock();
         CameraManager.Instance.TurnOffRoomCamera();
         _screenBackground.SetActive(false);
         _documentLabel.gameObject.SetActive(false);
         _dialogueCamera.gameObject.SetActive(true);
+        _uiLife.SetActive(false);
+        PlayerStateObserver.Instance.OnCameraStart();
     }
 
     private void SetDialogueText()

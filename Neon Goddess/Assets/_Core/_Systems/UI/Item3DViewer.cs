@@ -11,6 +11,8 @@ public class Item3DViewer : MonoBehaviour, IDragHandler, IEndDragHandler
     [SerializeField] public Item item;
     [SerializeField] GameObject content;
     [SerializeField] GameObject camera;
+    [SerializeField] GameObject uiLife;
+
     private Transform _prefab;
     private bool active = false;
     private bool isDragging = false;
@@ -46,6 +48,7 @@ public class Item3DViewer : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         camera.SetActive(true);
         content.SetActive(true);
+        uiLife.SetActive(false);
         Time.timeScale = 0;
         _prefab = Instantiate(item.prefab, new Vector3(1000, 1000, 1000), Quaternion.identity);
         yield return new WaitForSecondsRealtime(0.1f);
@@ -61,6 +64,7 @@ public class Item3DViewer : MonoBehaviour, IDragHandler, IEndDragHandler
             Time.timeScale = 1;
             Destroy(_prefab.gameObject);
             active = false;
+            uiLife.SetActive(true);
         }
         
     }

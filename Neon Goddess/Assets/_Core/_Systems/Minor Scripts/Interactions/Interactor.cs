@@ -75,7 +75,7 @@ public class Interactor : MonoBehaviour
 
     private void TryInteract()
     {
-        if(PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.OnDialogue) return;
+        if(PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.OnDialogue || PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.OnCamera || PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.OnCutscene) return;
         
         _currentInteractable?.Interact();
     }

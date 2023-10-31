@@ -26,6 +26,7 @@ public class DoorManager : MonoBehaviour, IInteractable
     [Header("Door Information")]
     [SerializeField] bool isLockable;
     [SerializeField] bool _locksAfterClosing;
+    [SerializeField] private bool _locksAfeterClosingOnce;
     [SerializeField] GameObject doorObject;
 
     [Header("Lock Information")]
@@ -40,9 +41,10 @@ public class DoorManager : MonoBehaviour, IInteractable
     private bool _locked => LockedDoor;
     private bool isOpen = false;
     private int _interactionCount;
+    private bool _alreadyLocked;
     private Vector3 initialPosition;
     private Vector3 targetPosition;
-
+        
     public bool doorMoving = false;
     public float doorMoveDistancex;
     public float doorMoveDistancey;
@@ -162,6 +164,7 @@ public class DoorManager : MonoBehaviour, IInteractable
     public void Lock()
     {
         UpdateShaderToLocked();
+        LockedDoor = true;
     }
 
     public void Open()
@@ -251,6 +254,11 @@ public class DoorManager : MonoBehaviour, IInteractable
             
             if(_locksAfterClosing)
                 Lock();
+            if (_locksAfeterClosingOnce && !_alreadyLocked)
+            {
+                Lock();
+                _alreadyLocked = true;
+            }
             
             MoveDoor();
         }
