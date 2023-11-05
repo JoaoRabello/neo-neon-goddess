@@ -2,6 +2,7 @@ using Player;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InteractableHUDManager : MonoBehaviour
@@ -26,6 +27,33 @@ public class InteractableHUDManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnEnable()
+    {
+        CameraManager.Instance.OnAnyCameraChange += ClearAllInteractables;
+    }
+    
+    private void OnDisable()
+    {
+        CameraManager.Instance.OnAnyCameraChange -= ClearAllInteractables;
+    }
+
+    private void ClearAllInteractables()
+    {
+        var list = _renderObjectsByInteractable.ToList();
+        
+        foreach (var dictionaryValuePair in list)
+        {
+            _renderObjectsByInteractable[dictionaryValuePair.Key].gameObject.SetActive(false);
+            _renderObjectsByInteractable.Remove(dictionaryValuePair.Key);
+            _renderObjectPool.Sort(ByActive);
+        
+            dictionaryValuePair.Key.OnInteractUpdateIcon -= UpdateVisual;
+            dictionaryValuePair.Key.OnStateChangeUpdateIcon -= UpdateVisual;
+        
+            _currentActiveRenderObjectCount--;
         }
     }
 
