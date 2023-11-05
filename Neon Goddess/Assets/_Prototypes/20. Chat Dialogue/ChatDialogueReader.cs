@@ -6,7 +6,6 @@ using Inputs;
 using Player;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class ChatDialogueReader : MonoBehaviour
@@ -170,7 +169,7 @@ public class ChatDialogueReader : MonoBehaviour
 
     private void RenderCurrentNode()
     {
-        ClearDialogueScreen();
+        // ClearDialogueScreen();
         ClearDocument();
         ClearCameraScreen();
 
