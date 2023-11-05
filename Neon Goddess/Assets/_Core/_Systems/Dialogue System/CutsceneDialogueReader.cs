@@ -17,6 +17,7 @@ public class CutsceneDialogueReader : MonoBehaviour
     [SerializeField] private PlayableDirector _playableDirector;
     [SerializeField] private TimelineAsset _test;
     [SerializeField] private GameObject _dialogueVisualContent;
+    [SerializeField] private GameObject _passButtonIcon;
     [SerializeField] private TMP_Text _dialogueLabel;
     [SerializeField] private List<Button> _optionButtons = new List<Button>();
     [SerializeField] private List<TMP_Text> _dialogueOptionLabels = new List<TMP_Text>();
@@ -28,6 +29,10 @@ public class CutsceneDialogueReader : MonoBehaviour
     
     private Dialogue _currentDialogue;
     private DialogueNode _currentDialogueNode;
+
+    private TrackAsset _passDialogueTrack;
+    private TrackAsset _pauseCutsceneTrack;
+    private TrackAsset _startDialogueTrack;
 
     private bool _onDialogue;
     private bool _firstInteraction = true;
@@ -60,6 +65,8 @@ public class CutsceneDialogueReader : MonoBehaviour
     {
         PlayerInputReader.Instance.InteractPerformed += OnInteractPerformed;
         PlayerInputReader.Instance.MovementPerformed += ChangeIndex;
+
+        SetupSignalTracks();
     }
 
     private void OnDisable()
@@ -90,6 +97,10 @@ public class CutsceneDialogueReader : MonoBehaviour
 
     private void OnInteractPerformed()
     {
+        _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(1);
+        _passButtonIcon.SetActive(false);
+        return;
+        
         if (!_onDialogue) return;
         if(!_canPassDialogue) return;
         // if (_firstInteraction)
@@ -267,9 +278,34 @@ public class CutsceneDialogueReader : MonoBehaviour
         _dialogueLabel.SetText(text);
         _isTypewriting = false;
         
-        _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(0);
         _isPaused = true;
         SetTimeToSkip();
+    }
+
+    private void SetupSignalTracks()
+    {
+        var allTracks = _test.GetOutputTracks();
+        var trackList = new List<TrackAsset>();
+        foreach (var track in allTracks)
+        {
+            if(track.name != "Signal Track") continue;
+
+            trackList.Add(track);
+        }
+
+        _passDialogueTrack = trackList[0];
+        _passDialogueTrack.name = "Pause Signal Track";
+        _pauseCutsceneTrack = trackList[1];
+        _pauseCutsceneTrack.name = "Pass Signal Track";
+        _startDialogueTrack = trackList[2];
+        _startDialogueTrack.name = "Pause Signal Track";
+    }
+
+    public void PauseCutscene()
+    {
+        _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(0);
+        _passButtonIcon.SetActive(true);
+        // SetTimeToSkip();
     }
 
     public void SetTimeToSkip()
