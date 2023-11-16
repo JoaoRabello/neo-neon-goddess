@@ -16,6 +16,7 @@ public class CutsceneDialogueReader : MonoBehaviour
     
     [SerializeField] private PlayableDirector _playableDirector;
     [SerializeField] private TimelineAsset _test;
+    [SerializeField] private GlitchEffect _glitchEffect;
     [SerializeField] private GameObject _dialogueVisualContent;
     [SerializeField] private GameObject _passButtonIcon;
     [SerializeField] private TMP_Text _dialogueLabel;
@@ -59,6 +60,8 @@ public class CutsceneDialogueReader : MonoBehaviour
     private void OnDestroy()
     {
         Instance = null;
+        
+        if(_glitchEffect is not null) _glitchEffect.StopGlitch();
     }
     
     private void OnEnable()
@@ -73,6 +76,8 @@ public class CutsceneDialogueReader : MonoBehaviour
     {
         PlayerInputReader.Instance.InteractPerformed -= OnInteractPerformed;
         PlayerInputReader.Instance.MovementPerformed -= ChangeIndex;
+        
+        if(_glitchEffect is not null) _glitchEffect.StopGlitch();
     }
 
     public void PassCurrentDialogue()
@@ -97,8 +102,15 @@ public class CutsceneDialogueReader : MonoBehaviour
 
     private void OnInteractPerformed()
     {
+        if (!_isPaused) return;
+        
         _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(1);
         _passButtonIcon.SetActive(false);
+        
+        ClearText();
+        _isPaused = false;
+        
+        if(_glitchEffect is not null) _glitchEffect.StopGlitch();
         return;
         
         if (!_onDialogue) return;
@@ -278,7 +290,7 @@ public class CutsceneDialogueReader : MonoBehaviour
         _dialogueLabel.SetText(text);
         _isTypewriting = false;
         
-        _isPaused = true;
+        // _isPaused = true;
         SetTimeToSkip();
     }
 
@@ -303,8 +315,11 @@ public class CutsceneDialogueReader : MonoBehaviour
 
     public void PauseCutscene()
     {
+        _isPaused = true;
+        
         _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(0);
         _passButtonIcon.SetActive(true);
+        if(_glitchEffect is not null) _glitchEffect.PlayGlitch();
         // SetTimeToSkip();
     }
 
