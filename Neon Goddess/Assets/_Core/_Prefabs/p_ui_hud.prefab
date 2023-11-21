@@ -668,18 +668,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349753576734019457}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6851908734950234403}
-  m_Father: {fileID: 2647276692384045386}
-  m_RootOrder: 3
+  m_Father: {fileID: 7267922435609018367}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -125, y: 35}
+  m_AnchoredPosition: {x: 784.81775, y: -455.10266}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &9189206029991386372
@@ -3201,9 +3201,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8624908913069025893}
   m_Father: {fileID: 2647276692384045386}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3223,12 +3224,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Feedbacks: []
-  InitializationMode: 2
+  InitializationMode: 1
   AutoInitialization: 1
   SafeMode: 3
   Direction: 0
   AutoChangeDirectionOnEnd: 0
-  AutoPlayOnStart: 1
+  AutoPlayOnStart: 0
   AutoPlayOnEnable: 0
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
@@ -3319,7 +3320,7 @@ MonoBehaviour:
         Chance: 100
         DisplayColor: {r: 0, g: 0, b: 0, a: 1}
         Timing:
-          TimescaleMode: 0
+          TimescaleMode: 1
           ExcludeFromHoldingPauses: 0
           ContributeToTotalDuration: 1
           InitialDelay: 0
@@ -6234,7 +6235,9 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 2b1753915295a9f4aa735c54f8613cb5, type: 2}
   content: {fileID: 7948323584432129605}
   camera: {fileID: 0}
-  uiLife: {fileID: 0}
+  uiLife: {fileID: 102379150335545712}
+  _fadeInFeedbacks: {fileID: 3655376904754918655}
+  _warningFeedbacks: {fileID: 5154652542738569929}
 --- !u!1 &4954239572852951587
 GameObject:
   m_ObjectHideFlags: 0
@@ -7595,7 +7598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Feedbacks: []
-  InitializationMode: 2
+  InitializationMode: 1
   AutoInitialization: 1
   SafeMode: 3
   Direction: 0
@@ -10173,7 +10176,6 @@ RectTransform:
   - {fileID: 4200554898821522150}
   - {fileID: 3111854688401436321}
   - {fileID: 6595214991368002970}
-  - {fileID: 8624908913069025893}
   - {fileID: 7267922435609018367}
   m_Father: {fileID: 870710842410271623}
   m_RootOrder: 1

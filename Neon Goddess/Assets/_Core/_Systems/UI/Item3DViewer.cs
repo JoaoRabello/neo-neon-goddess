@@ -1,6 +1,7 @@
 using Inputs;
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Feedbacks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,10 +13,13 @@ public class Item3DViewer : MonoBehaviour, IDragHandler, IEndDragHandler
     [SerializeField] GameObject content;
     [SerializeField] GameObject camera;
     [SerializeField] GameObject uiLife;
+    [SerializeField] MMFeedbacks _fadeInFeedbacks;
+    [SerializeField] MMFeedbacks _warningFeedbacks;
 
     private Transform _prefab;
-    private bool active = false;
-    private bool isDragging = false;
+    private bool active;
+    private bool playedFadeIn;
+    private bool isDragging;
   
     void Start()
     {
@@ -44,20 +48,31 @@ public class Item3DViewer : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         StartCoroutine(Activate());
     }
+    
     public IEnumerator Activate()
     {
         camera.SetActive(true);
         content.SetActive(true);
         uiLife.SetActive(false);
         Time.timeScale = 0;
+        
         _prefab = Instantiate(item.prefab, new Vector3(1000, 1000, 1000), Quaternion.identity);
+        
+        _fadeInFeedbacks.PlayFeedbacks();
+        _warningFeedbacks.PlayFeedbacks();
+        
         yield return new WaitForSecondsRealtime(0.1f);
+        
         active = true;
+        
+        yield return new WaitForSecondsRealtime(_fadeInFeedbacks.TotalDuration);
 
+        playedFadeIn = true;
     }
+    
     public void Deactivate()
     {
-        if (active)
+        if (active && playedFadeIn)
         {
             camera.SetActive(false);
             content.SetActive(false);
@@ -66,6 +81,5 @@ public class Item3DViewer : MonoBehaviour, IDragHandler, IEndDragHandler
             active = false;
             uiLife.SetActive(true);
         }
-        
     }
 }
