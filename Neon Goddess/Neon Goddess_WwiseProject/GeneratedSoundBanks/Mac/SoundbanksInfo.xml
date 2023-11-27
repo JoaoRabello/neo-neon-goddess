@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="1186298258">
+		<SoundBank Id="534561221" Language="SFX" Hash="1784425096">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
@@ -237,6 +237,14 @@
 						<File Id="590338317" Language="SFX">
 							<ShortName>HackGun\Hackgun Shoot.wav</ShortName>
 							<Path>SFX\HackGun\Hackgun Shoot_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1293937696" Name="HackShock" ObjectPath="\Events\Default Work Unit\SFX Events\StatusEffect\NonAstrid\HackShock" MaxAttenuation="15." DurationType="OneShot" DurationMin="30.315783" DurationMax="30.315783">
+					<IncludedMemoryFiles>
+						<File Id="356371605" Language="SFX">
+							<ShortName>StatusEffectNonAstrid\HackShock.wav</ShortName>
+							<Path>SFX\StatusEffectNonAstrid\HackShock_05842A19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

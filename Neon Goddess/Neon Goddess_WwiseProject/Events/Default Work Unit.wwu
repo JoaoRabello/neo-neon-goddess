@@ -347,6 +347,26 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="StatusEffect" ID="{B328AAB3-7598-40B8-AE86-CC7E4248A1E2}" ShortID="465358387">
+							<ChildrenList>
+								<Folder Name="NonAstrid" ID="{2456B77D-1EE2-44E6-BD2A-1DFE86D9264D}" ShortID="203499988">
+									<ChildrenList>
+										<Event Name="HackShock" ID="{54F02E4C-465F-4B62-995E-9EE32D1C541F}">
+											<ChildrenList>
+												<Action Name="" ID="{6534E62D-27B6-4B5B-8845-B8A8AC7050D3}" ShortID="673269224">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="HackShock" ID="{788D05C2-AAEC-4ECF-8816-75E70B31B87A}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
+								<Folder Name="Astrid" ID="{37125318-4B59-4E9A-AF65-30B1FA532C62}" ShortID="1048801285"/>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Dialogue Events" ID="{88F41BAE-00DD-42A6-A7F7-87B8CAEB7A19}" ShortID="597853482">
