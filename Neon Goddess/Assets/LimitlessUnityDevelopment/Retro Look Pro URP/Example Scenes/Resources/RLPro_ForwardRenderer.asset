@@ -267,7 +267,8 @@ MonoBehaviour:
   - {fileID: 255376294241686046}
   - {fileID: 7333515609490328650}
   - {fileID: 8689732239288152039}
-  m_RendererFeatureMap: 0d8273015e5852e8fa45b59cd2c350f6811788c8b7d74a4a6473d07a8fbdcb0c23730569e7cf04951922ef6ecd02718596774cef66e6abb808eb1f10e2c1ffc2a8df2f5a6cd888a5e549ccde04344994edf9001cf3a2267fc5c55f7a5ff00b08f4510f144cbf8941208e2d0b3688828837d72d3b69ad1d28dde15b22117724b0336072d60f4f4dbd5bbed7e105659df3726e6615dc14e81c5895dd79b6ec7130f94bf803450fbeb7e7e7d3b43d74a5e64864743472dd254c5310397db4d441e01ed254f662478b034a0c749a97e1c565e7af07746e219878
+  - {fileID: 5199147587164852462}
+  m_RendererFeatureMap: 0d8273015e5852e8fa45b59cd2c350f6811788c8b7d74a4a6473d07a8fbdcb0c23730569e7cf04951922ef6ecd02718596774cef66e6abb808eb1f10e2c1ffc2a8df2f5a6cd888a5e549ccde04344994edf9001cf3a2267fc5c55f7a5ff00b08f4510f144cbf8941208e2d0b3688828837d72d3b69ad1d28dde15b22117724b0336072d60f4f4dbd5bbed7e105659df3726e6615dc14e81c5895dd79b6ec7130f94bf803450fbeb7e7e7d3b43d74a5e64864743472dd254c5310397db4d441e01ed254f662478b034a0c749a97e1c565e7af07746e219878ee50ca2b2f152748
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -433,6 +434,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   Event: 550
+--- !u!114 &5199147587164852462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1614fc811f8f184697d9bee70ab9fe5, type: 3}
+  m_Name: DecalRendererFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  m_Settings:
+    technique: 0
+    maxDrawDistance: 1000
+    dBufferSettings:
+      surfaceData: 2
+    screenSpaceSettings:
+      normalBlend: 0
+      useGBuffer: 1
+  m_CopyDepthPS: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
+  m_DBufferClear: {fileID: 4800000, guid: f056d8bd2a1c7e44e9729144b4c70395, type: 3}
 --- !u!114 &5353328291426604929
 MonoBehaviour:
   m_ObjectHideFlags: 0
