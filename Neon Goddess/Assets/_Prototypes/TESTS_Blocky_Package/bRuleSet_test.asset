@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec0d32b077247fb986183802fdc0dec, type: 3}
+  m_Name: bRuleSet_test
+  m_EditorClassIdentifier: 
+  layer: {fileID: 11400000, guid: f2e7f074122ca294caa785504b4c37d9, type: 2}
+  defaultBlock: {fileID: 7215849314745732736, guid: e3f2a0d5966c4524ea960c7546f2c556,
+    type: 3}
+  rules:
+  - grid: 020000000200000000000000020000000000000001000000000000000100000001000000
+    block: {fileID: 2567146792794237040, guid: a4d450efc2de0884b842fb75e322a354, type: 3}
+    transform: 1
+  - grid: 020000000200000002000000010000000000000001000000010000000100000001000000
+    block: {fileID: 7078926923957944733, guid: 797bc0459a47766479d77ab2541adaa3, type: 3}
+    transform: 1
+  thumbnail: {fileID: 0}
