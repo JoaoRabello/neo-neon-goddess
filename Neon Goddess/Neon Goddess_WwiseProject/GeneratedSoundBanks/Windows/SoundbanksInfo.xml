@@ -11,11 +11,19 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="919989214">
+		<SoundBank Id="534561221" Language="SFX" Hash="810409400">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
 			<IncludedEvents>
+				<Event Id="2350060149" Name="backgroundNoise" ObjectPath="\Events\Default Work Unit\Background Event\backgroundNoise" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="864348805" Language="SFX">
+							<ShortName>[Background noise] BackgroundNoise.wav</ShortName>
+							<Path>SFX\[Background noise] BackgroundNoise_6AF693E7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2162101802" Name="chorusVoices" ObjectPath="\Events\Default Work Unit\SFX Events\SpecialEvents\chorusVoices" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="152880994" Language="SFX">
@@ -88,11 +96,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1281988221" Name="eStrickGuard" ObjectPath="\Events\Default Work Unit\SFX Events\eletricStickEvents\eStrickGuard" DurationType="OneShot" DurationMin="5.884785" DurationMax="5.884785">
+				<Event Id="1281988221" Name="eStrickGuard" ObjectPath="\Events\Default Work Unit\SFX Events\eletricStickEvents\eStrickGuard" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="229079946" Language="SFX">
 							<ShortName>EletrickStick\EletrickStickGuard.wav</ShortName>
-							<Path>SFX\EletrickStick\EletrickStickGuard_05842A19.wem</Path>
+							<Path>SFX\EletrickStick\EletrickStickGuard_690510E7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -232,7 +240,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="4099961397" Name="hackGunShoot" ObjectPath="\Events\Default Work Unit\SFX Events\hackEvent\hackGunShoot" DurationType="OneShot" DurationMin="0.295669" DurationMax="0.295669">
+				<Event Id="4099961397" Name="hackGunShoot" ObjectPath="\Events\Default Work Unit\SFX Events\hackEvent\hackGunShoot" DurationType="OneShot" DurationMin="0.328065" DurationMax="0.328065">
 					<IncludedMemoryFiles>
 						<File Id="590338317" Language="SFX">
 							<ShortName>HackGun\Hackgun Shoot.wav</ShortName>
@@ -401,6 +409,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1182358444" Name="waterDroplet" ObjectPath="\Events\Default Work Unit\Background Event\waterDroplet" DurationType="OneShot" DurationMin="1.422458" DurationMax="1.422458">
+					<IncludedMemoryFiles>
+						<File Id="640519549" Language="SFX">
+							<ShortName>WaterDropLet.wav</ShortName>
+							<Path>SFX\WaterDropLet_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="215098720" Language="SFX">
@@ -429,6 +445,7 @@
 				<GameParameter Id="3517018448" Name="highVoicePitcher" ObjectPath="\Game Parameters\Default Work Unit\pitchController\highVoicePitcher"/>
 				<GameParameter Id="3628988595" Name="chorus03Control" ObjectPath="\Game Parameters\Default Work Unit\voiceController\chorus03Control"/>
 				<GameParameter Id="3767945453" Name="ambienceBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\ambienceBusController"/>
+				<GameParameter Id="3866065665" Name="waterdropPitchController" ObjectPath="\Game Parameters\Default Work Unit\backgroundSoundControllers\waterdropPitchController"/>
 				<GameParameter Id="4148718858" Name="awarenessBusController" ObjectPath="\Game Parameters\Default Work Unit\bus Controllers\awarenessBusController"/>
 			</GameParameters>
 			<SwitchGroups>
@@ -440,7 +457,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="4054929092">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2172738442">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

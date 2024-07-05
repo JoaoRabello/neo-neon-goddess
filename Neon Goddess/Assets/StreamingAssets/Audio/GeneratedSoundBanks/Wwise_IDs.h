@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID BACKGROUNDNOISE = 2350060149U;
         static const AkUniqueID CHORUSVOICES = 2162101802U;
         static const AkUniqueID CHORUSVOICES2 = 153308204U;
         static const AkUniqueID DOORACCESSDENIED = 1325999122U;
@@ -54,6 +55,7 @@ namespace AK
         static const AkUniqueID UICONFIRMATION = 1308437452U;
         static const AkUniqueID UIPICKUP = 2191038231U;
         static const AkUniqueID UISELECTION = 2454203527U;
+        static const AkUniqueID WATERDROPLET = 1182358444U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -105,6 +107,7 @@ namespace AK
         static const AkUniqueID STEPROBBIEREVERB = 187408528U;
         static const AkUniqueID STEPSOUNDSWITCHCONTROLLER = 1116251856U;
         static const AkUniqueID UIBUSCONTROLLER = 224940047U;
+        static const AkUniqueID WATERDROPPITCHCONTROLLER = 3866065665U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS

@@ -575,6 +575,32 @@
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Cutscene Events" ID="{1C338A07-5A2E-4575-AAB8-385E22EB789A}" ShortID="195331147"/>
+				<Folder Name="Background Event" ID="{B379F09C-7D71-4345-9012-87ABA8A588DE}" ShortID="968539324">
+					<ChildrenList>
+						<Event Name="backgroundNoise" ID="{593D354D-61C8-4A39-A405-84DD1862CD50}">
+							<ChildrenList>
+								<Action Name="" ID="{EE83C510-735C-414A-B1D3-BE7A7AFECED8}" ShortID="294465298">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="[Background noise] BackgroundNoise" ID="{317888B2-C697-4603-AE55-08D0D3631BA3}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="waterDroplet" ID="{005EB48D-1D57-4540-859D-AAF65ED94D60}">
+							<ChildrenList>
+								<Action Name="" ID="{2C3B9E28-06D6-4A03-A60E-4B2C7C4B772D}" ShortID="940375767">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="WaterDropLet" ID="{D35F7C78-B88D-478D-9451-06227CC0330A}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

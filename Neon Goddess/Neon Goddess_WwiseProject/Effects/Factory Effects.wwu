@@ -1238,9 +1238,10 @@
 							<ChildrenList>
 								<Effect Name="Room_Large" ID="{AD8EFAFC-7121-4D5F-BE4D-B13FBD6CEBAE}" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
 									<PropertyList>
-										<Property Name="DecayTime" Type="Real32" Value="1.8"/>
+										<Property Name="DecayTime" Type="Real32" Value="2.7"/>
 										<Property Name="Density" Type="Real32" Value="70"/>
 										<Property Name="Diffusion" Type="Real32" Value="46"/>
+										<Property Name="DryLevel" Type="Real32" Value="-15.3"/>
 										<Property Name="ERLevel" Type="Real32" Value="-23"/>
 										<Property Name="Filter1Freq" Type="Real32" Value="590"/>
 										<Property Name="Filter3Freq" Type="Real32" Value="8440"/>
@@ -1248,9 +1249,9 @@
 										<Property Name="HFDamping" Type="Real32" Value="2.7"/>
 										<Property Name="PreDelay" Type="Real32" Value="35"/>
 										<Property Name="Quality" Type="int32" Value="12"/>
-										<Property Name="ReverbLevel" Type="Real32" Value="-23"/>
-										<Property Name="RoomShape" Type="Real32" Value="55"/>
-										<Property Name="RoomSize" Type="Real32" Value="15"/>
+										<Property Name="ReverbLevel" Type="Real32" Value="-14"/>
+										<Property Name="RoomShape" Type="Real32" Value="15"/>
+										<Property Name="RoomSize" Type="Real32" Value="47"/>
 										<Property Name="StereoWidth" Type="Real32" Value="140"/>
 									</PropertyList>
 								</Effect>
@@ -1413,7 +1414,7 @@
 										<Property Name="PreDelay" Type="Real32" Value="18"/>
 										<Property Name="Quality" Type="int32" Value="12"/>
 										<Property Name="ReverbLevel" Type="Real32" Value="-23"/>
-										<Property Name="RoomSize" Type="Real32" Value="20"/>
+										<Property Name="RoomSize" Type="Real32" Value="43"/>
 									</PropertyList>
 								</Effect>
 							</ChildrenList>
@@ -1688,6 +1689,7 @@
 										<Property Name="DelayTime" Type="Real32" Value="2.5"/>
 										<Property Name="EnableLFO" Type="bool" Value="False"/>
 										<Property Name="FeedForwardLevel" Type="Real32" Value="-1"/>
+										<Property Name="WetDryMix" Type="Real32" Value="24"/>
 									</PropertyList>
 								</Effect>
 								<Effect Name="Many_Even_Harm_Peaks" ID="{5DDE88E2-CBAD-4CE9-93B0-7FC59F32CBEE}" PluginName="Wwise Flanger" CompanyID="0" PluginID="125" PluginType="3">

@@ -713,12 +713,34 @@
 						<Folder Name="EletrickStick" ID="{152D24AC-29D3-48BA-B479-A3D2CED43CD1}" ShortID="666687079">
 							<ChildrenList>
 								<Sound Name="EletrickStickGuard" ID="{A82394E2-BAF6-4A1D-8B87-C813F3EFC06F}" ShortID="837420698">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>14</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
 										</Reference>
-										<Reference Name="Effect0" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+										<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+											<ObjectRef Name="Room_Large" ID="{AD8EFAFC-7121-4D5F-BE4D-B13FBD6CEBAE}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+										<Reference Name="Effect1" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
 											<ObjectRef Name="stickGuardShifter" ID="{69B278FE-192F-4664-9143-DD4975729560}" WorkUnitID="{5E3B483B-8325-48F3-8761-4F6496DC43FE}"/>
+										</Reference>
+										<Reference Name="Effect2" PluginName="Wwise Flanger" CompanyID="0" PluginID="125" PluginType="3">
+											<ObjectRef Name="Many_Even_Harm_Notches" ID="{A7113535-F7D6-4B83-9DCB-01DD88295F76}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+										<Reference Name="Effect3" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3">
+											<ObjectRef Name="New_Wwise_Gain_01" ID="{44DE3A8D-FF1A-40C0-97D6-D0A8B07441E5}" WorkUnitID="{5E3B483B-8325-48F3-8761-4F6496DC43FE}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
@@ -726,6 +748,9 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="EletrickStickGuard" ID="{5EF7D79C-511C-46D1-A9D2-F3A4F1A92BBB}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>EletrickStick\EletrickStickGuard.wav</AudioFile>
 											<MediaIDList>
@@ -844,6 +869,12 @@
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+												</Reference>
+												<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+													<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+												</Reference>
+												<Reference Name="Effect1" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3">
+													<ObjectRef Name="New_Wwise_Gain" ID="{E3D772A7-8875-4605-B5C8-C972E5E851D7}" WorkUnitID="{5E3B483B-8325-48F3-8761-4F6496DC43FE}"/>
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="UIBus" ID="{CBBA8F98-055B-45CD-BB53-5141A1C4FDC0}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
@@ -1434,6 +1465,18 @@
 				<Folder Name="HackGun" ID="{12B80CCA-003A-4F58-9580-3E2C7FEDCCF1}" ShortID="521866454">
 					<ChildrenList>
 						<Sound Name="Hackgun Shoot" ID="{051EAF6F-20ED-4F7F-84CB-4DE9FCCC1B32}" ShortID="1008482425">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-180</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
@@ -1972,7 +2015,17 @@
 					<ChildrenList>
 						<Sound Name="Quantum Screaming" ID="{69AF8371-0EF9-43BA-9977-3560CED032F6}" ShortID="771847480">
 							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>25</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-6</Value>
@@ -2038,6 +2091,62 @@
 							<ObjectLists/>
 							<ActiveSourceList>
 								<ActiveSource Name="Main Menu Entering Game" ID="{29A1D2E5-989D-432D-85DE-36E0D4F5308A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Background Sound" ID="{36575129-DFDD-4F70-85B1-E6224AFB3E79}" ShortID="711207762">
+					<ChildrenList>
+						<Sound Name="[Background noise] BackgroundNoise" ID="{317888B2-C697-4603-AE55-08D0D3631BA3}" ShortID="258624724">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="[Background noise] BackgroundNoise" ID="{816430DB-155F-4379-8519-DF6B6787306B}">
+									<Language>SFX</Language>
+									<AudioFile>[Background noise] BackgroundNoise.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="864348805"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="[Background noise] BackgroundNoise" ID="{816430DB-155F-4379-8519-DF6B6787306B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="WaterDropLet" ID="{D35F7C78-B88D-478D-9451-06227CC0330A}" ShortID="771062445">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+									<ObjectRef Name="droplet_pitch" ID="{E68391F4-0C89-49A0-8C31-81E2E0F9EFD1}" WorkUnitID="{5E3B483B-8325-48F3-8761-4F6496DC43FE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="WaterDropLet" ID="{6B6E44C9-EB62-4B99-8EAC-29982D1FCB6C}">
+									<Language>SFX</Language>
+									<AudioFile>WaterDropLet.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="640519549"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="WaterDropLet" ID="{6B6E44C9-EB62-4B99-8EAC-29982D1FCB6C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

@@ -227,6 +227,48 @@
 						<Property Name="TimeStretch" Type="Real32" Value="130"/>
 					</PropertyList>
 				</Effect>
+				<Effect Name="New_Wwise_Gain" ID="{E3D772A7-8875-4605-B5C8-C972E5E851D7}" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3">
+					<PropertyList>
+						<Property Name="FullBandGain" Type="Real32" Value="17.5"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="New_Wwise_Gain_01" ID="{44DE3A8D-FF1A-40C0-97D6-D0A8B07441E5}" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3">
+					<PropertyList>
+						<Property Name="FullBandGain" Type="Real32" Value="8"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="droplet_pitch" ID="{E68391F4-0C89-49A0-8C31-81E2E0F9EFD1}" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+					<PropertyList>
+						<Property Name="Pitch" Type="Real32">
+							<RTPCList>
+								<RTPC Name="" ID="{0D4CA39D-3A16-4E3C-8F62-ABA6B49ADB0E}" ShortID="992071779">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="waterdropPitchController" ID="{08A9F9E0-5677-43B5-9663-DE7628B28816}" WorkUnitID="{082AD3B4-D3D5-4498-8A9D-266B95A7CE94}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{0B4CD670-93FC-4251-9DE3-57397511AE21}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="1"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>57.14285</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>100</XPos>
+												<YPos>457.14286</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+				</Effect>
 			</ChildrenList>
 		</WorkUnit>
 	</Effects>
