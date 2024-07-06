@@ -14,6 +14,12 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID BACKGROUNDNOISE = 2350060149U;
+        static const AkUniqueID C4TAFIRMATIVESOUND = 3198043257U;
+        static const AkUniqueID C4TAWARENESSSOUND = 4009258560U;
+        static const AkUniqueID C4TDOUBTSOUND = 1624879127U;
+        static const AkUniqueID C4THOVERINGSOUND = 1024159139U;
+        static const AkUniqueID C4TNEGATIVESOUND = 3271343854U;
+        static const AkUniqueID C4TWARNINGSOUND = 692707813U;
         static const AkUniqueID CHORUSVOICES = 2162101802U;
         static const AkUniqueID CHORUSVOICES2 = 153308204U;
         static const AkUniqueID DOORACCESSDENIED = 1325999122U;

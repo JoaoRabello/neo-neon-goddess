@@ -2151,6 +2151,167 @@
 						</Sound>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="c4tCutscene" ID="{629AD8F2-F7A0-46BD-BD07-D390BC70E017}" ShortID="106311510">
+					<ChildrenList>
+						<Sound Name="c4tAfirmativeSound" ID="{66CEE600-2386-4CB4-8636-1CC5A56017BD}" ShortID="506190390">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="dialogueBus" ID="{4D4F0220-8D9A-4367-A8D5-1734BB807DEE}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="C4t - Afirmative Sound" ID="{BC7CC53C-E3A6-4009-B7D0-E55FBAB1E81C}">
+									<Language>SFX</Language>
+									<AudioFile>C4t - Afirmative Sound.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="313593278"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="C4t - Afirmative Sound" ID="{BC7CC53C-E3A6-4009-B7D0-E55FBAB1E81C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="c4tAwarenessSound" ID="{72B5A2B6-9825-4067-8DA8-CEAE6FFD2215}" ShortID="311805594">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="dialogueBus" ID="{4D4F0220-8D9A-4367-A8D5-1734BB807DEE}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="C4t awareness Sound" ID="{548F12B9-014E-43AD-98FD-0A192EE3263A}">
+									<Language>SFX</Language>
+									<AudioFile>C4t awareness Sound.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="333835180"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="C4t awareness Sound" ID="{548F12B9-014E-43AD-98FD-0A192EE3263A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="c4tDoubtSound" ID="{4E2DD4B7-46D8-4803-8294-28DC3619A89C}" ShortID="41073700">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="dialogueBus" ID="{4D4F0220-8D9A-4367-A8D5-1734BB807DEE}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="C4t Doubt Sound" ID="{457EB953-A000-40C4-A96F-0005027CA026}">
+									<Language>SFX</Language>
+									<AudioFile>C4t Doubt Sound.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="73415708"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="C4t Doubt Sound" ID="{457EB953-A000-40C4-A96F-0005027CA026}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="c4tNegativeSound" ID="{7873356F-19D0-4753-9870-170AF6AFD256}" ShortID="296713274">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="dialogueBus" ID="{4D4F0220-8D9A-4367-A8D5-1734BB807DEE}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="C4t Negative sound" ID="{98C037BC-ACEB-44B5-8444-ECEB4AC699DC}">
+									<Language>SFX</Language>
+									<AudioFile>C4t Negative sound.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="52756913"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="C4t Negative sound" ID="{98C037BC-ACEB-44B5-8444-ECEB4AC699DC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="c4tWarningSound" ID="{BA4A609A-194B-403E-BA41-0A09F44F0D7A}" ShortID="128854674">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="dialogueBus" ID="{4D4F0220-8D9A-4367-A8D5-1734BB807DEE}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="C4t Warning Sound" ID="{61AD6555-7AE2-4E81-9193-38616BA22FD4}">
+									<Language>SFX</Language>
+									<AudioFile>C4t Warning Sound.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="992772555"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="C4t Warning Sound" ID="{61AD6555-7AE2-4E81-9193-38616BA22FD4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="c4tHoveringSound" ID="{47625294-5815-4FDB-A391-730BC6D455B9}" ShortID="1010478479">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>250</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="masterBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="C4t Hovering sound" ID="{5D7A4972-7DDF-4269-BFB9-1F1359F00162}">
+									<PropertyList>
+										<Property Name="FadeInShape" Type="int16" Value="0"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="1.07871720116618"/>
+										<Property Name="TrimEnd" Type="Real64" Value="8.5932944606414"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>C4t Hovering sound.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="944937593"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="C4t Hovering sound" ID="{5D7A4972-7DDF-4269-BFB9-1F1359F00162}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

@@ -574,7 +574,80 @@
 						</Folder>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Cutscene Events" ID="{1C338A07-5A2E-4575-AAB8-385E22EB789A}" ShortID="195331147"/>
+				<Folder Name="Cutscene Events" ID="{1C338A07-5A2E-4575-AAB8-385E22EB789A}" ShortID="195331147">
+					<ChildrenList>
+						<Folder Name="c4t sound event" ID="{07A58E5D-CBD6-475B-970E-E90768E94CC5}" ShortID="962352140">
+							<ChildrenList>
+								<Event Name="c4tAfirmativeSound" ID="{6A65B603-076E-4DDE-96E7-3EABAE746058}">
+									<ChildrenList>
+										<Action Name="" ID="{0D4FACAB-E1C3-4B8C-B99E-BB0CD604B46A}" ShortID="21897124">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="c4tAfirmativeSound" ID="{66CEE600-2386-4CB4-8636-1CC5A56017BD}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="c4tAwarenessSound" ID="{FEB41728-B687-47C2-B351-33370BF55A33}">
+									<ChildrenList>
+										<Action Name="" ID="{422E2BF9-A0DD-43C7-A211-26787D3809C0}" ShortID="75064369">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="c4tAwarenessSound" ID="{72B5A2B6-9825-4067-8DA8-CEAE6FFD2215}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="c4tDoubtSound" ID="{3CA3B17A-ACED-469F-B784-9FBE6FB628E8}">
+									<ChildrenList>
+										<Action Name="" ID="{E70783C9-4F54-4C72-B8D9-D489FB66C278}" ShortID="531424887">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="c4tDoubtSound" ID="{4E2DD4B7-46D8-4803-8294-28DC3619A89C}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="c4tNegativeSound" ID="{3C6B2A33-8D44-4436-AA03-AA47DE764761}">
+									<ChildrenList>
+										<Action Name="" ID="{587A8802-7BCF-4C7A-9B39-E45C256073A6}" ShortID="349838581">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="c4tNegativeSound" ID="{7873356F-19D0-4753-9870-170AF6AFD256}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="c4tWarningSound" ID="{07E9F167-5835-4BCF-9131-49CDE43CFAB7}">
+									<ChildrenList>
+										<Action Name="" ID="{CC32752C-56DC-4ADB-9C6D-95553BC976DA}" ShortID="268770362">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="c4tWarningSound" ID="{BA4A609A-194B-403E-BA41-0A09F44F0D7A}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="c4tHoveringSound" ID="{5D2D80E9-46CE-41D6-88CE-745F615E43E1}">
+									<ChildrenList>
+										<Action Name="" ID="{AB87D2B2-E2C5-4845-BA8C-B0D3193BF854}" ShortID="1035997487">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="c4tHoveringSound" ID="{47625294-5815-4FDB-A391-730BC6D455B9}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
 				<Folder Name="Background Event" ID="{B379F09C-7D71-4345-9012-87ABA8A588DE}" ShortID="968539324">
 					<ChildrenList>
 						<Event Name="backgroundNoise" ID="{593D354D-61C8-4A39-A405-84DD1862CD50}">
