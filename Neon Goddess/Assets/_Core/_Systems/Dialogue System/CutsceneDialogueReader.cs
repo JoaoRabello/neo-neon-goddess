@@ -293,6 +293,7 @@ public class CutsceneDialogueReader : MonoBehaviour
         _dialogueLabel.SetText(text);
         _isTypewriting = false;
         
+        PauseCutscene();
         // _isPaused = true;
         SetTimeToSkip();
     }
