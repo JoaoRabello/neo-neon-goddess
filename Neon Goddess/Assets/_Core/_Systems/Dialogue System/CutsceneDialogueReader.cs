@@ -21,6 +21,7 @@ public class CutsceneDialogueReader : MonoBehaviour
     [SerializeField] private GameObject _dialogueVisualContent;
     [SerializeField] private GameObject _passButtonIcon;
     [SerializeField] private TMP_Text _dialogueLabel;
+    [SerializeField] private bool _pausesOnTextEnd;
     [SerializeField] private List<Button> _optionButtons = new List<Button>();
     [SerializeField] private List<TMP_Text> _dialogueOptionLabels = new List<TMP_Text>();
     
@@ -70,7 +71,7 @@ public class CutsceneDialogueReader : MonoBehaviour
         PlayerInputReader.Instance.InteractPerformed += OnInteractPerformed;
         PlayerInputReader.Instance.MovementPerformed += ChangeIndex;
 
-        SetupSignalTracks();
+        // SetupSignalTracks();
     }
 
     private void OnDisable()
@@ -228,7 +229,7 @@ public class CutsceneDialogueReader : MonoBehaviour
         _dialogueVisualContent.SetActive(true);
         SetDialogueText();
         
-        SetTimeToSkip();
+        // SetTimeToSkip();
     }
 
     private void ShowOptions(DialogueNode[] nodes)
@@ -292,10 +293,12 @@ public class CutsceneDialogueReader : MonoBehaviour
         }
         _dialogueLabel.SetText(text);
         _isTypewriting = false;
-        
-        PauseCutscene();
-        // _isPaused = true;
-        SetTimeToSkip();
+
+        if (_pausesOnTextEnd)
+        {
+            PauseCutscene();
+        }
+        // SetTimeToSkip();
     }
 
     private void SetupSignalTracks()
