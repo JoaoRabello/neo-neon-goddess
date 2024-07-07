@@ -91,6 +91,7 @@ namespace PlayerMovements
         {
             PlayerInputReader.Instance.MovementPerformed -= MovementPerformed;
             PlayerInputReader.Instance.MovementCanceled -= MovementCanceled;
+            PlayerInputReader.Instance.TurnPerformed -= TurnPerformed;
             
             PlayerStateObserver.Instance.AimStart -= BlockMovement;
             PlayerStateObserver.Instance.AimEnd -= UnlockMovement;
