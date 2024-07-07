@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="534561221" Language="SFX" Hash="1950374273">
+		<SoundBank Id="534561221" Language="SFX" Hash="853534782">
 			<ObjectPath>\SoundBanks\Default Work Unit\mainSoundBank</ObjectPath>
 			<ShortName>mainSoundBank</ShortName>
 			<Path>mainSoundBank.bnk</Path>
@@ -52,7 +52,7 @@
 					<IncludedMemoryFiles>
 						<File Id="944937593" Language="SFX">
 							<ShortName>C4t Hovering sound.wav</ShortName>
-							<Path>SFX\C4t Hovering sound_7ABCB516.wem</Path>
+							<Path>SFX\C4t Hovering sound_AA9C9252.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -280,7 +280,15 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1852458775" Name="hackGunHit" ObjectPath="\Events\Default Work Unit\SFX Events\hackEvent\hackGunHit" DurationType="OneShot" DurationMin="0.028428" DurationMax="0.028428">
+				<Event Id="1320479830" Name="hackGunDraw" ObjectPath="\Events\Default Work Unit\SFX Events\hackgunEvents\hackGunDraw" DurationType="OneShot" DurationMin="0.464875" DurationMax="0.464875">
+					<IncludedMemoryFiles>
+						<File Id="939523553" Language="SFX">
+							<ShortName>Draw gun.wav</ShortName>
+							<Path>SFX\Draw gun_05842A19.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1852458775" Name="hackGunHit" ObjectPath="\Events\Default Work Unit\SFX Events\hackgunEvents\hackGunHit" DurationType="OneShot" DurationMin="0.028428" DurationMax="0.028428">
 					<IncludedMemoryFiles>
 						<File Id="646585737" Language="SFX">
 							<ShortName>GunHit.wav</ShortName>
@@ -288,7 +296,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="4099961397" Name="hackGunShoot" ObjectPath="\Events\Default Work Unit\SFX Events\hackEvent\hackGunShoot" DurationType="OneShot" DurationMin="0.328065" DurationMax="0.328065">
+				<Event Id="4099961397" Name="hackGunShoot" ObjectPath="\Events\Default Work Unit\SFX Events\hackgunEvents\hackGunShoot" DurationType="OneShot" DurationMin="0.328065" DurationMax="0.328065">
 					<IncludedMemoryFiles>
 						<File Id="590338317" Language="SFX">
 							<ShortName>HackGun\Hackgun Shoot.wav</ShortName>

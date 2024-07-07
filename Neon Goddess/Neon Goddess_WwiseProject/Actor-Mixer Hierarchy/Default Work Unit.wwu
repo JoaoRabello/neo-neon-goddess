@@ -1464,7 +1464,7 @@
 				</Folder>
 				<Folder Name="HackGun" ID="{12B80CCA-003A-4F58-9580-3E2C7FEDCCF1}" ShortID="521866454">
 					<ChildrenList>
-						<Sound Name="Hackgun Shoot" ID="{051EAF6F-20ED-4F7F-84CB-4DE9FCCC1B32}" ShortID="1008482425">
+						<Sound Name="hackgunShoot" ID="{051EAF6F-20ED-4F7F-84CB-4DE9FCCC1B32}" ShortID="1008482425">
 							<PropertyList>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
@@ -1511,7 +1511,7 @@
 								<ActiveSource Name="Hackgun Shoot" ID="{8296A0CE-2FE3-4865-9A56-E566143E8C90}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="GunHit" ID="{E78A84B7-10B6-4976-B457-C80E6ECAFBC3}" ShortID="299913174">
+						<Sound Name="hackgunHit" ID="{E78A84B7-10B6-4976-B457-C80E6ECAFBC3}" ShortID="299913174">
 							<PropertyList>
 								<Property Name="Highpass" Type="int16">
 									<ValueList>
@@ -1561,6 +1561,29 @@
 							<ObjectLists/>
 							<ActiveSourceList>
 								<ActiveSource Name="GunHit" ID="{2671C276-F156-44E9-B88F-D50F4F5E2D70}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="hackgunDraw" ID="{04F51678-1D31-4009-B2CF-7AA34C9F1A3D}" ShortID="1001270779">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="sfxBus" ID="{5202EEFF-8770-4B5C-A1F3-560F70B37124}" WorkUnitID="{CB7EA2AC-A443-4717-8E12-89C52057ADF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Draw gun" ID="{C89B9E68-CE9F-4B4D-AD33-92A139C9F57B}">
+									<Language>SFX</Language>
+									<AudioFile>Draw gun.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="939523553"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Draw gun" ID="{C89B9E68-CE9F-4B4D-AD33-92A139C9F57B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

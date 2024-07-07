@@ -43,6 +43,7 @@ namespace AK
         static const AkUniqueID GAMEOVERSCREAMHEALTH = 59954432U;
         static const AkUniqueID GAMEOVERSOBBINGSANITY = 342455863U;
         static const AkUniqueID GHOSTINTHEMETRO = 539542031U;
+        static const AkUniqueID HACKGUNDRAW = 1320479830U;
         static const AkUniqueID HACKGUNHIT = 1852458775U;
         static const AkUniqueID HACKGUNSHOOT = 4099961397U;
         static const AkUniqueID HACKSHOCK = 1293937696U;

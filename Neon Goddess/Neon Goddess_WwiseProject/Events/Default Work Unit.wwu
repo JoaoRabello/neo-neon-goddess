@@ -20,14 +20,14 @@
 				</Folder>
 				<Folder Name="SFX Events" ID="{E020E75C-8EF9-4D64-B162-3EF8260AAB3C}" ShortID="427469375">
 					<ChildrenList>
-						<Folder Name="hackEvent" ID="{D0823823-D2CD-436E-B35C-10C0C9629E85}" ShortID="363773472">
+						<Folder Name="hackgunEvents" ID="{D0823823-D2CD-436E-B35C-10C0C9629E85}" ShortID="363773472">
 							<ChildrenList>
 								<Event Name="hackGunShoot" ID="{3E9E6756-FC32-4A27-9AD9-DE545B184793}">
 									<ChildrenList>
 										<Action Name="" ID="{0EB97FB1-9601-4227-BB96-133C74C6DF06}" ShortID="565054501">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="Hackgun Shoot" ID="{051EAF6F-20ED-4F7F-84CB-4DE9FCCC1B32}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+													<ObjectRef Name="hackgunShoot" ID="{051EAF6F-20ED-4F7F-84CB-4DE9FCCC1B32}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -38,7 +38,18 @@
 										<Action Name="" ID="{C7EF5C64-E3DD-4ECC-B0A8-1F85C2E31F3C}" ShortID="717955088">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="GunHit" ID="{E78A84B7-10B6-4976-B457-C80E6ECAFBC3}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+													<ObjectRef Name="hackgunHit" ID="{E78A84B7-10B6-4976-B457-C80E6ECAFBC3}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="hackGunDraw" ID="{3E3D47F2-142F-4E27-B5F5-285FEEE7EFBC}">
+									<ChildrenList>
+										<Action Name="" ID="{9A57FD28-62AE-4C98-8857-3E681AF6596F}" ShortID="619217691">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="hackgunDraw" ID="{04F51678-1D31-4009-B2CF-7AA34C9F1A3D}" WorkUnitID="{F553093E-5235-47D3-AC4D-CA0C67D7B23C}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>

@@ -17,6 +17,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1281988221	eStrickGuard			\Default Work Unit\SFX Events\eletricStickEvents\eStrickGuard	
 	1293937696	HackShock			\Default Work Unit\SFX Events\StatusEffect\NonAstrid\HackShock	
 	1308437452	uiConfirmation			\Default Work Unit\UIEvents\General Sounds\uiConfirmation	
+	1320479830	hackGunDraw			\Default Work Unit\SFX Events\hackgunEvents\hackGunDraw	
 	1325999122	doorAccessDenied			\Default Work Unit\SFX Events\doorEvents\doorAccessDenied	
 	1437365791	eventVoiceYohanna			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYohanna	
 	1464182441	quantumScreaming			\Default Work Unit\Music Events\quantumScreaming	
@@ -25,7 +26,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1592018284	eventVoiceMilord			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceMilord	
 	1624879127	c4tDoubtSound			\Default Work Unit\Cutscene Events\c4t sound event\c4tDoubtSound	
 	1676920321	eventVoiceYavik			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceYavik	
-	1852458775	hackGunHit			\Default Work Unit\SFX Events\hackEvent\hackGunHit	
+	1852458775	hackGunHit			\Default Work Unit\SFX Events\hackgunEvents\hackGunHit	
 	1933252553	uiCancel			\Default Work Unit\UIEvents\General Sounds\uiCancel	
 	2162101802	chorusVoices			\Default Work Unit\SFX Events\SpecialEvents\chorusVoices	
 	2191038231	uiPickUp			\Default Work Unit\UIEvents\General Sounds\uiPickUp	
@@ -46,7 +47,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3888197404	doorAccessGranted			\Default Work Unit\SFX Events\doorEvents\doorAccessGranted	
 	3941029093	eStrickHit			\Default Work Unit\SFX Events\eletricStickEvents\eStrickHit	
 	4009258560	c4tAwarenessSound			\Default Work Unit\Cutscene Events\c4t sound event\c4tAwarenessSound	
-	4099961397	hackGunShoot			\Default Work Unit\SFX Events\hackEvent\hackGunShoot	
+	4099961397	hackGunShoot			\Default Work Unit\SFX Events\hackgunEvents\hackGunShoot	
 	4214009878	eventVoiceAstrid			\Default Work Unit\Dialogue Events\voiceEvent\eventVoiceAstrid	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
@@ -134,11 +135,11 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	505767842	UiSelectionMenuSound	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\UI\Menu Sound\UiSelectionMenuSound_D6AC385B.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\General\UiSelectionMenuSound		1361
 	551442925	Step Concrete NoVerb02	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Steps\Step Concrete NoVerb02_84911D7A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete\Step Concrete NoVerb02		1994
 	569761510	awarenessHeartbeat	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Heart Beat\Heart Beatwav_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Informative Sounds\Awareness\awarenessHeartbeat		7721
-	590338317	Hackgun Shoot	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\HackGun\Hackgun Shoot_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\HackGun\Hackgun Shoot		5656
+	590338317	hackgunShoot	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\HackGun\Hackgun Shoot_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\HackGun\hackgunShoot		5656
 	632185417	gameOverImpactGeneric	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\GameOver\gameOverImpactGeneric_C3A6FAB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\GameOver\gameOverImpactGeneric		113150
 	635549386	Chorus 01_01	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Chorus\Chorus 01_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Chorus\ChorusVoice2\Chorus 01_01		88597
 	640519549	WaterDropLet	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\WaterDropLet_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Background Sound\WaterDropLet		24001
-	646585737	GunHit	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\GunHit_21D16F58.wem		\Actor-Mixer Hierarchy\Default Work Unit\HackGun\GunHit		924
+	646585737	hackgunHit	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\GunHit_21D16F58.wem		\Actor-Mixer Hierarchy\Default Work Unit\HackGun\hackgunHit		924
 	655585714	voiceRaziel	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Raziel_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceRaziel		2361
 	680057030	uiPickUpGeneralSound	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Pick up  02_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\UI\General\uiPickUpGeneralSound		12192
 	739233669	Chorus 02_01	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Chorus\Chorus 02_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Chorus\ChorusVoice2\Chorus 02_01		89700
@@ -151,7 +152,8 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	864348805	[Background noise] BackgroundNoise	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\[Background noise] BackgroundNoise_6AF693E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Background Sound\[Background noise] BackgroundNoise		68750
 	872065834	Voices in the Radio Full	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Voices in the Radio Full_1583B490.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\RadioEvent\Voices in the Radio Full		609820
 	924084229	Step Concrete NoVerb03	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Steps\Step Concrete NoVerb03_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete_Verb\Step Concrete NoVerb03		8351
-	944937593	c4tHoveringSound	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\C4t Hovering sound_7ABCB516.wem		\Actor-Mixer Hierarchy\Default Work Unit\c4tCutscene\c4tHoveringSound		51747
+	939523553	hackgunDraw	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Draw gun_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\HackGun\hackgunDraw		10023
+	944937593	c4tHoveringSound	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\C4t Hovering sound_AA9C9252.wem		\Actor-Mixer Hierarchy\Default Work Unit\c4tCutscene\c4tHoveringSound		51747
 	946008597	DoorCommonClose	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\DoorCommonClose_9D8766B6.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\door_status\DoorCommonClose		11011
 	947437832	voiceYohanna	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Character Scribble\Yohanna_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dialog\Character's Voice\voiceYohanna		1386
 	956966789	Step Concrete NoVerb04	G:\Gato godao\neo-neon-goddess\Neon Goddess\Neon Goddess_WwiseProject\.cache\Windows\SFX\Steps\Step Concrete NoVerb04_05842A19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\ConcretSwitchSteper\StepConcrete_Verb\Step Concrete NoVerb04		8791
