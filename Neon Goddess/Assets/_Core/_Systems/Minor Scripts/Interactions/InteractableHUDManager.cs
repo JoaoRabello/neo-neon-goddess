@@ -40,7 +40,7 @@ public class InteractableHUDManager : MonoBehaviour
         CameraManager.Instance.OnAnyCameraChange -= ClearAllInteractables;
     }
 
-    private void ClearAllInteractables()
+    public void ClearAllInteractables()
     {
         var list = _renderObjectsByInteractable.ToList();
         
@@ -119,6 +119,7 @@ public class InteractableHUDManager : MonoBehaviour
 
     public void RemoveObject(IInteractable interactable)
     {
+        if(interactable == null) return;
         if(!_renderObjectsByInteractable.ContainsKey(interactable)) return;
 
         _renderObjectsByInteractable[interactable].gameObject.SetActive(false);

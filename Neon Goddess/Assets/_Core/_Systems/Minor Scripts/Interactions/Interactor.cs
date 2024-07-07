@@ -13,7 +13,7 @@ public class Interactor : MonoBehaviour
 
     private IInteractable _currentInteractable;
 
-    private List<IInteractable> _knownInteractables = new List<IInteractable>();
+    private List<(IInteractable, Collider)> _knownInteractables = new List<(IInteractable, Collider)>();
 
     private void OnEnable()
     {
@@ -41,10 +41,9 @@ public class Interactor : MonoBehaviour
         {
             _currentInteractable = null;
 
-            //TODO: Remover known interactables quando há mais de um também, não só quando todos estão longe
             foreach (var knownInteractable in _knownInteractables.ToList())
             {
-                InteractableHUDManager.Instance.RemoveObject(knownInteractable);
+                InteractableHUDManager.Instance.RemoveObject(knownInteractable.Item1);
                 _knownInteractables.Remove(knownInteractable);
             }
             return;
@@ -67,10 +66,34 @@ public class Interactor : MonoBehaviour
             
             InteractableHUDManager.Instance.AddObject(interactable, interactableCollider.transform);
             
-            if(_knownInteractables.Contains(interactable)) continue;
+            if(_knownInteractables.Contains((interactable, interactableCollider))) continue;
             
-            _knownInteractables.Add(interactable);
+            _knownInteractables.Add((interactable, interactableCollider));
         }
+        
+        var closestInteractableDistance = 9999f;
+        IInteractable closestInteractable = null;
+        
+        foreach (var knownInteractable in _knownInteractables)
+        {
+            var interactableCollider = knownInteractable.Item2;
+            var distance = Vector3.Distance(transform.position, interactableCollider.transform.position);
+            
+            if (distance >= closestInteractableDistance)
+            {
+                continue;
+            }
+            
+            closestInteractableDistance = distance;
+            closestInteractable = knownInteractable.Item1;
+        }
+
+        foreach (var knownInteractable in _knownInteractables.Where(knownInteractable => knownInteractable.Item1 != closestInteractable))
+        {
+            InteractableHUDManager.Instance.RemoveObject(knownInteractable.Item1);
+        }
+
+        _currentInteractable = closestInteractable;
     }
 
     private void TryInteract()
