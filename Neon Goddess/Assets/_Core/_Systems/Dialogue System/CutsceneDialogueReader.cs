@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class CutsceneDialogueReader : MonoBehaviour
 {
@@ -285,6 +286,8 @@ public class CutsceneDialogueReader : MonoBehaviour
         foreach (var character in text)
         {
             _dialogueLabel.SetText((_dialogueLabel.text + character));
+            AkSoundEngine.SetRTPCValue("highVoicePitcher", Random.Range(0, 101));
+            AkSoundEngine.PostEvent("eventVoiceAstrid", gameObject);
             yield return new WaitForSeconds(_typeWritingCharacterAppearTime);
         }
         _dialogueLabel.SetText(text);

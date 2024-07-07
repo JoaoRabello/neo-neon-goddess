@@ -191,7 +191,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 291bed8b33d94b4dac16d5e30d3beea2
     GuidInternal: 
-    m_lastTime: -8584826842417586681
+    m_lastTime: -8584812300824080778
     List:
     - name: mainSoundBank
       guid: d7bbfefaf3d3aa46ae8514386f26a35f
@@ -219,7 +219,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 8707201672ff4b4696a8d320381f6a5a
     GuidInternal: 
-    m_lastTime: -8584826842436725436
+    m_lastTime: -8584812300827204689
     List:
     - name: Ambience Events
       guid: 5a7949201260d84d93ffe419fbb29ccb
@@ -278,6 +278,201 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Background Event
+      guid: 9cf079b3717d4543901287aba8a588de
+      id: 3876837809
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Background Event
+        ObjectType: 4
+        guid: 9cf079b3717d4543901287aba8a588de
+      Path: Events\Default Work Unit\Background Event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: backgroundNoise
+      guid: 4d353d59c861394aa40584dd1862cd50
+      id: 2350060149
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Background Event
+        ObjectType: 4
+        guid: 9cf079b3717d4543901287aba8a588de
+      - ElementName: backgroundNoise
+        ObjectType: 3
+        guid: 4d353d59c861394aa40584dd1862cd50
+      Path: Events\Default Work Unit\Background Event\backgroundNoise
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: c4t sound event
+      guid: 5d8ea507d6cb5b47970ee90768e94cc5
+      id: 49127689
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Cutscene Events
+        ObjectType: 4
+        guid: 078a331c2e5a7545aab8385e22eb789a
+      - ElementName: c4t sound event
+        ObjectType: 4
+        guid: 5d8ea507d6cb5b47970ee90768e94cc5
+      Path: Events\Default Work Unit\Cutscene Events\c4t sound event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: c4tAfirmativeSound
+      guid: 03b6656a6e07de4d96e73eabae746058
+      id: 3198043257
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Cutscene Events
+        ObjectType: 4
+        guid: 078a331c2e5a7545aab8385e22eb789a
+      - ElementName: c4t sound event
+        ObjectType: 4
+        guid: 5d8ea507d6cb5b47970ee90768e94cc5
+      - ElementName: c4tAfirmativeSound
+        ObjectType: 3
+        guid: 03b6656a6e07de4d96e73eabae746058
+      Path: Events\Default Work Unit\Cutscene Events\c4t sound event\c4tAfirmativeSound
+      maxAttenuation: 0
+      maxDuration: 0.367583
+      minDuration: 0.367583
+    - name: c4tAwarenessSound
+      guid: 2817b4fe87b6c247b35133370bf55a33
+      id: 4009258560
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Cutscene Events
+        ObjectType: 4
+        guid: 078a331c2e5a7545aab8385e22eb789a
+      - ElementName: c4t sound event
+        ObjectType: 4
+        guid: 5d8ea507d6cb5b47970ee90768e94cc5
+      - ElementName: c4tAwarenessSound
+        ObjectType: 3
+        guid: 2817b4fe87b6c247b35133370bf55a33
+      Path: Events\Default Work Unit\Cutscene Events\c4t sound event\c4tAwarenessSound
+      maxAttenuation: 0
+      maxDuration: 0.426104
+      minDuration: 0.426104
+    - name: c4tDoubtSound
+      guid: 7ab1a33cedac9f46b7849fbe6fb628e8
+      id: 1624879127
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Cutscene Events
+        ObjectType: 4
+        guid: 078a331c2e5a7545aab8385e22eb789a
+      - ElementName: c4t sound event
+        ObjectType: 4
+        guid: 5d8ea507d6cb5b47970ee90768e94cc5
+      - ElementName: c4tDoubtSound
+        ObjectType: 3
+        guid: 7ab1a33cedac9f46b7849fbe6fb628e8
+      Path: Events\Default Work Unit\Cutscene Events\c4t sound event\c4tDoubtSound
+      maxAttenuation: 0
+      maxDuration: 0.337667
+      minDuration: 0.337667
+    - name: c4tHoveringSound
+      guid: e9802d5dce46d64188ce745f615e43e1
+      id: 1024159139
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Cutscene Events
+        ObjectType: 4
+        guid: 078a331c2e5a7545aab8385e22eb789a
+      - ElementName: c4t sound event
+        ObjectType: 4
+        guid: 5d8ea507d6cb5b47970ee90768e94cc5
+      - ElementName: c4tHoveringSound
+        ObjectType: 3
+        guid: e9802d5dce46d64188ce745f615e43e1
+      Path: Events\Default Work Unit\Cutscene Events\c4t sound event\c4tHoveringSound
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: c4tNegativeSound
+      guid: 332a6b3c448d3644aa03aa47de764761
+      id: 3271343854
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Cutscene Events
+        ObjectType: 4
+        guid: 078a331c2e5a7545aab8385e22eb789a
+      - ElementName: c4t sound event
+        ObjectType: 4
+        guid: 5d8ea507d6cb5b47970ee90768e94cc5
+      - ElementName: c4tNegativeSound
+        ObjectType: 3
+        guid: 332a6b3c448d3644aa03aa47de764761
+      Path: Events\Default Work Unit\Cutscene Events\c4t sound event\c4tNegativeSound
+      maxAttenuation: 0
+      maxDuration: 0.226021
+      minDuration: 0.226021
+    - name: c4tWarningSound
+      guid: 67f1e9073558cf4b913149cde43cfab7
+      id: 692707813
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Cutscene Events
+        ObjectType: 4
+        guid: 078a331c2e5a7545aab8385e22eb789a
+      - ElementName: c4t sound event
+        ObjectType: 4
+        guid: 5d8ea507d6cb5b47970ee90768e94cc5
+      - ElementName: c4tWarningSound
+        ObjectType: 3
+        guid: 67f1e9073558cf4b913149cde43cfab7
+      Path: Events\Default Work Unit\Cutscene Events\c4t sound event\c4tWarningSound
+      maxAttenuation: 0
+      maxDuration: 0.475792
+      minDuration: 0.475792
     - name: chorusVoices
       guid: 6818d89efb516e4a98e7338107d0e4a6
       id: 2162101802
@@ -551,8 +746,8 @@ MonoBehaviour:
         guid: b0e02a15c81ebc4a8a9fe06e59847847
       Path: Events\Default Work Unit\SFX Events\eletricStickEvents\eStrickGuard
       maxAttenuation: 0
-      maxDuration: 5.884785
-      minDuration: 5.884785
+      maxDuration: -1
+      minDuration: -1
     - name: eStrickHit
       guid: ebd81502cf004342a7f291d90a2b41b1
       id: 3941029093
@@ -961,9 +1156,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 14.483396
       minDuration: 14.483396
-    - name: hackEvent
-      guid: 233882d0cdd26e43b35c10c0c9629e85
-      id: 536214842
+    - name: hackGunDraw
+      guid: f2473d3e2f14274eb5f5285feee7efbc
+      id: 1320479830
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -974,10 +1169,33 @@ MonoBehaviour:
       - ElementName: SFX Events
         ObjectType: 4
         guid: 5ce720e0f98e644db1623ef8260aab3c
-      - ElementName: hackEvent
+      - ElementName: hackgunEvents
         ObjectType: 4
         guid: 233882d0cdd26e43b35c10c0c9629e85
-      Path: Events\Default Work Unit\SFX Events\hackEvent
+      - ElementName: hackGunDraw
+        ObjectType: 3
+        guid: f2473d3e2f14274eb5f5285feee7efbc
+      Path: Events\Default Work Unit\SFX Events\hackgunEvents\hackGunDraw
+      maxAttenuation: 0
+      maxDuration: 0.464875
+      minDuration: 0.464875
+    - name: hackgunEvents
+      guid: 233882d0cdd26e43b35c10c0c9629e85
+      id: 3301605275
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: SFX Events
+        ObjectType: 4
+        guid: 5ce720e0f98e644db1623ef8260aab3c
+      - ElementName: hackgunEvents
+        ObjectType: 4
+        guid: 233882d0cdd26e43b35c10c0c9629e85
+      Path: Events\Default Work Unit\SFX Events\hackgunEvents
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -994,13 +1212,13 @@ MonoBehaviour:
       - ElementName: SFX Events
         ObjectType: 4
         guid: 5ce720e0f98e644db1623ef8260aab3c
-      - ElementName: hackEvent
+      - ElementName: hackgunEvents
         ObjectType: 4
         guid: 233882d0cdd26e43b35c10c0c9629e85
       - ElementName: hackGunHit
         ObjectType: 3
         guid: 89bf1176e0750e4999d47103da1b9d80
-      Path: Events\Default Work Unit\SFX Events\hackEvent\hackGunHit
+      Path: Events\Default Work Unit\SFX Events\hackgunEvents\hackGunHit
       maxAttenuation: 0
       maxDuration: 0.028428
       minDuration: 0.028428
@@ -1017,16 +1235,16 @@ MonoBehaviour:
       - ElementName: SFX Events
         ObjectType: 4
         guid: 5ce720e0f98e644db1623ef8260aab3c
-      - ElementName: hackEvent
+      - ElementName: hackgunEvents
         ObjectType: 4
         guid: 233882d0cdd26e43b35c10c0c9629e85
       - ElementName: hackGunShoot
         ObjectType: 3
         guid: 56679e3e32fc274a9ad9de545b184793
-      Path: Events\Default Work Unit\SFX Events\hackEvent\hackGunShoot
+      Path: Events\Default Work Unit\SFX Events\hackgunEvents\hackGunShoot
       maxAttenuation: 0
-      maxDuration: 0.295669
-      minDuration: 0.295669
+      maxDuration: 0.328065
+      minDuration: 0.328065
     - name: HackShock
       guid: 4c2ef0545f46624b995e9ee32d1c541f
       id: 1293937696
@@ -1589,6 +1807,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: waterDroplet
+      guid: 8db45e00571d4045859daaf65ed94d60
+      id: 1182358444
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8707201672ff4b4696a8d320381f6a5a
+      - ElementName: Background Event
+        ObjectType: 4
+        guid: 9cf079b3717d4543901287aba8a588de
+      - ElementName: waterDroplet
+        ObjectType: 3
+        guid: 8db45e00571d4045859daaf65ed94d60
+      Path: Events\Default Work Unit\Background Event\waterDroplet
+      maxAttenuation: 0
+      maxDuration: 1.422458
+      minDuration: 1.422458
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -1601,7 +1839,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: b4d32a08d5d398448a9d266b95a7ce94
     GuidInternal: 
-    m_lastTime: -8584826842436706917
+    m_lastTime: -8584812300827152845
     List:
     - name: ambienceBusController
       guid: 71d28ffc305ffc45ba7b5b4b79060f2a
@@ -1651,6 +1889,20 @@ MonoBehaviour:
         ObjectType: 4
         guid: 3f6aa20d1d2a93439b2ee8ab91b894b7
       Path: Game Parameters\Default Work Unit\awarenessSoundController
+    - name: backgroundSoundControllers
+      guid: 5a00b91101a47d4da0f8e26d2a79d904
+      id: 2932348761
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: backgroundSoundControllers
+        ObjectType: 4
+        guid: 5a00b91101a47d4da0f8e26d2a79d904
+      Path: Game Parameters\Default Work Unit\backgroundSoundControllers
     - name: bus Controllers
       guid: 4aeee1764347f94584fc5e0401b6c134
       id: 3647609546
@@ -2024,6 +2276,23 @@ MonoBehaviour:
         ObjectType: 4
         guid: 198c85e701b5064a99bc9181dd372b44
       Path: Game Parameters\Default Work Unit\voiceController
+    - name: waterdropPitchController
+      guid: e0f9a9087756b5439663de7628b28816
+      id: 3866065665
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b4d32a08d5d398448a9d266b95a7ce94
+      - ElementName: backgroundSoundControllers
+        ObjectType: 4
+        guid: 5a00b91101a47d4da0f8e26d2a79d904
+      - ElementName: waterdropPitchController
+        ObjectType: 13
+        guid: e0f9a9087756b5439663de7628b28816
+      Path: Game Parameters\Default Work Unit\backgroundSoundControllers\waterdropPitchController
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -2231,9 +2500,9 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8584826844650592771
     List: []
-  ExpandedFileSystemItemIds: 
+  ExpandedFileSystemItemIds: 0200000003000000090000006d0000006e0000006f000000700000007300000075000000
   ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
-  currentDataSource: 0
+  currentDataSource: 1
   CurrentPluginConfig: 
