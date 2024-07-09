@@ -3311,7 +3311,7 @@ MonoBehaviour:
     - rid: 763048144849862657
       type: {class: MMF_ImageAlpha, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks.MMTools}
       data:
-        Active: 1
+        Active: 0
         UniqueID: -242357917
         Label: Image Alpha
         ChannelMode: 0
@@ -7000,7 +7000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -49.986023}
+  m_AnchoredPosition: {x: 0, y: -49.985962}
   m_SizeDelta: {x: 0.5410156, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4180727724297283407
@@ -8897,12 +8897,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Controls of Neon Goddess (Demo)\r\n\r\nIF TANK MOVEMENT ON:\nW - Walk
-    to direction where Astrid is turned \r\nA and D - Turn Astrid \r\nS - Back walking
-    \r\nQ - Fast turn (180 degrees) \r\n\nIF TANK MOVEMENT OFF: \nW A S D - Walk\n\r\nESC
-    - Menu (Select with mouse)\r\n\rE - Interaction\r\n\r\nRMB - Aim with equiped
-    weapon (Need to be aiming for attack) \r\nLMB or J - Attack (Attack is only possible
-    aiming) \r\nSPACE BAR - Fast change equiped weapon "
+  m_text: "Controls of Neon Goddess (Demo)\r\n\r\nIF TANK MOVEMENT OFF: \nW A S D
+    - Walk\n\r\nESC - Menu (Select with mouse)\r\n\r\nE - Interaction\r\n\r\nRMB
+    - Aim with equiped weapon (Need to be aiming for attack) \r\n\nLMB or J - Attack
+    (Attack is only possible aiming) \r\n\nSPACE BAR - Fast change equiped weapon\n\nIF
+    TANK MOVEMENT ON:\nW - Walk to direction where Astrid is turned \r\nA and D -
+    Turn Astrid \r\nS - Back walking \r\nQ - Fast turn (180 degrees) "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce4ceb3444a27f540a4b4c6ffd4bb05d, type: 2}
   m_sharedMaterial: {fileID: 1882642492353688880, guid: ce4ceb3444a27f540a4b4c6ffd4bb05d,
@@ -8930,8 +8930,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
