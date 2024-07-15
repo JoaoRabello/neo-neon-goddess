@@ -251,6 +251,8 @@ public class ChatDialogueReader : MonoBehaviour
 
     private void SetDocumentScreen()
     {
+        _dialogueLabel.SetText("");
+        
         _documentContent.SetActive(true);
         _documentLabel.gameObject.SetActive(true);
         _documentLabel.SetText(_currentDialogueNode.Text);
@@ -258,6 +260,7 @@ public class ChatDialogueReader : MonoBehaviour
     
     private void SetCameraScreen()
     {
+        _dialogueLabel.SetText("");
         _documentContent.SetActive(true);
         _doorManager.Unlock();
         CameraManager.Instance.TurnOffRoomCamera();
