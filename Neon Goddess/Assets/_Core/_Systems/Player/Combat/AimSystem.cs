@@ -109,6 +109,8 @@ namespace Combat
                 _animator.SetParameterValue("isAiming", true);
                 _weaponGameObject.SetActive(true);
 
+                AkSoundEngine.PostEvent("hackGunDraw", gameObject);
+                
                 _canHideWeapon = false;
             }
             else
