@@ -1225,6 +1225,13 @@
 						<Folder Name="Character's Voice" ID="{3550BE70-3720-4D06-9E26-4E50BD7F2506}" ShortID="776622725">
 							<ChildrenList>
 								<Sound Name="VoiceAstrid" ID="{945900C6-DEB5-4A42-BD3E-DB75D4ED7FA5}" ShortID="736191229">
+									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>26</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6A55E6E0-8AF4-4475-B6EE-3827B9916048}"/>
@@ -1238,6 +1245,12 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Astrid2" ID="{AE18ED01-CA3F-4C1A-907C-C2017E059EE1}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.00507569800048769"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.00436581016825165"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.0241068411520831"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Character Scribble\Astrid2.wav</AudioFile>
 											<MediaIDList>
