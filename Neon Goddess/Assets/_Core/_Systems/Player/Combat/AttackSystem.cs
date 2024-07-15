@@ -6,6 +6,7 @@ using Inputs;
 using Player;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Combat
 {
@@ -16,6 +17,11 @@ namespace Combat
         [SerializeField] private CharacterAnimator _animator;
         [SerializeField] private Transform _shotsOrigin;
         [SerializeField] private InventoryHolder _inventoryHolder;
+
+        [Header("UI")] 
+        [SerializeField] private Image _hudSlot;
+        [SerializeField] private Sprite _weaponSprite;
+        [SerializeField] private Sprite _stickSprite;
         
         [Header("SFX")]
         [SerializeField] private SFXPlayer _shootingSfxPlayer;
@@ -84,8 +90,9 @@ namespace Combat
             if(!_hasWeapon) return;
             if(PlayerStateObserver.Instance.CurrentState == PlayerStateObserver.PlayerState.Aiming) return;
             if(_aimSystem.IsAiming) return;
-            
+
             _weaponEquipped = !_weaponEquipped;
+            _hudSlot.sprite = _weaponEquipped ? _weaponSprite : _stickSprite;
         }
 
         private void Shoot()
