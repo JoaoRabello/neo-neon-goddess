@@ -271,6 +271,61 @@ MonoBehaviour:
   saturation:
     m_OverrideState: 0
     m_Value: -15
+--- !u!114 &-5426947949620026754
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10fea1c97e07f47e9bd7f60f0e75e2fe, type: 3}
+  m_Name: AnalogTVNoise
+  m_EditorClassIdentifier: 
+  active: 1
+  enable:
+    m_OverrideState: 1
+    m_Value: 0
+  staticNoise:
+    m_OverrideState: 0
+    m_Value: 0
+  Horizontal:
+    m_OverrideState: 0
+    m_Value: 1
+  Fade:
+    m_OverrideState: 0
+    m_Value: 1
+  barWidth:
+    m_OverrideState: 0
+    m_Value: 21
+  tile:
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 1}
+  textureAngle:
+    m_OverrideState: 0
+    m_Value: 1
+  edgeCutOff:
+    m_OverrideState: 0
+    m_Value: 0
+  CutOff:
+    m_OverrideState: 0
+    m_Value: 1
+  barSpeed:
+    m_OverrideState: 0
+    m_Value: 1
+  texture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  mask:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  maskChannel:
+    m_OverrideState: 0
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-2498313683906913111
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -368,10 +423,10 @@ MonoBehaviour:
     m_Value: 0
   width:
     m_OverrideState: 1
-    m_Value: 12.8
+    m_Value: 12.7
   fade:
     m_OverrideState: 1
-    m_Value: 0.034
+    m_Value: 0.035
   mask:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -414,6 +469,8 @@ MonoBehaviour:
   - {fileID: 4075117076666285563}
   - {fileID: -99720176878208917}
   - {fileID: 2360627691604574136}
+  - {fileID: -5426947949620026754}
+  - {fileID: 3521645839950135640}
 --- !u!114 &1561530080543144152
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -488,10 +545,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35616e0a3863174a97701d922d25fda, type: 3}
   m_Name: VHSTapeRewind
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enable:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   intencity:
     m_OverrideState: 1
     m_Value: 0.1
@@ -535,6 +592,58 @@ MonoBehaviour:
   highlightsEnd:
     m_OverrideState: 0
     m_Value: 1
+--- !u!114 &3521645839950135640
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188d5997694590c4e87f20d535a3895f, type: 3}
+  m_Name: VHSScanlines
+  m_EditorClassIdentifier: 
+  active: 1
+  enable:
+    m_OverrideState: 1
+    m_Value: 0
+  scanLinesColor:
+    m_OverrideState: 0
+    m_Value: {r: 0, g: 0, b: 0, a: 0}
+  scanLines:
+    m_OverrideState: 0
+    m_Value: 1.5
+  speed:
+    m_OverrideState: 0
+    m_Value: 0
+  fade:
+    m_OverrideState: 0
+    m_Value: 1
+  horizontal:
+    m_OverrideState: 0
+    m_Value: 1
+  distortion:
+    m_OverrideState: 0
+    m_Value: 0.2
+  distortion1:
+    m_OverrideState: 0
+    m_Value: 0
+  distortion2:
+    m_OverrideState: 0
+    m_Value: 0
+  scale:
+    m_OverrideState: 0
+    m_Value: 1
+  mask:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  maskChannel:
+    m_OverrideState: 0
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &3965245491868380857
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -627,13 +736,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be08dc541b09a4e5b9f25c9c59460eb6, type: 3}
   m_Name: LimitlessGlitch3
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enable:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   speed:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 10.9
   blockSize:
     m_OverrideState: 0
     m_Value: 1
