@@ -2090,12 +2090,12 @@ MonoBehaviour:
   _bodyColliders:
   - {fileID: 1566537157}
   - {fileID: 3902956647141539252}
-  _basemovementSpeed: 4
-  _basebackMovementSpeed: 2
+  _basemovementSpeed: 3
+  _basebackMovementSpeed: 1
   _rotationSpeed: 4
   _walkingRotationSpeed: 5.2
-  _movementSpeed: 4
-  _backMovementSpeed: 2
+  _movementSpeed: 3
+  _backMovementSpeed: 1
 --- !u!114 &6379163129442538972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2114,13 +2114,13 @@ MonoBehaviour:
   _bodyColliders:
   - {fileID: 1566537157}
   - {fileID: 3902956647141539252}
-  _basemovementSpeed: 4
-  _basebackMovementSpeed: 2
+  _basemovementSpeed: 3
+  _basebackMovementSpeed: 1
   _visualRotationLerpStep: 0.4
   _rotationSpeed: 4
   _walkingRotationSpeed: 5.2
-  _movementSpeed: 4
-  _backMovementSpeed: 2
+  _movementSpeed: 3
+  _backMovementSpeed: 1
 --- !u!114 &7821003767246988821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2229,6 +2229,9 @@ MonoBehaviour:
   _animator: {fileID: 7758867608645911423}
   _shotsOrigin: {fileID: 4501916402718172192}
   _inventoryHolder: {fileID: 305961546911803520}
+  _hudSlot: {fileID: 0}
+  _weaponSprite: {fileID: 0}
+  _stickSprite: {fileID: 0}
   _shootingSfxPlayer: {fileID: 7581601950886052213}
   _stickSwing:
     idInternal: 0
