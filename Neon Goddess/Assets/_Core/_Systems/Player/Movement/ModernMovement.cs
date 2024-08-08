@@ -114,6 +114,8 @@ namespace PlayerMovements
             _movementDirection.Normalize();
 
             _wannaMove = true;
+            
+            _lastRelativeCameraTransform = _relativeCameraTransform;
         }
         
         /// <summary>
