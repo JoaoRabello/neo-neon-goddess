@@ -13,16 +13,20 @@ public class ChatDialogueReader : MonoBehaviour
     public static ChatDialogueReader Instance;
     
     [SerializeField] private GameObject _dialogueVisualContent;
-    [SerializeField] private GameObject _documentContent;
     [SerializeField] private GameObject _screenBackground;
     [SerializeField] private GameObject _uiLife;
     [SerializeField] private Image _documentImage;
-    [SerializeField] private TMP_Text _documentLabel;
     [SerializeField] private TMP_Text _dialogueLabel;
     [SerializeField] private List<Button> _optionButtons = new List<Button>();
     [SerializeField] private List<TMP_Text> _dialogueOptionLabels = new List<TMP_Text>();
     [SerializeField] private DoorManager _doorManager;
-    
+    [Header("Document")]
+    [SerializeField] private GameObject _documentContent;
+    [SerializeField] private TMP_Text _documentLabel;
+    [Header("Paper")]
+    [SerializeField] private GameObject _paperContent;
+    [SerializeField] private TMP_Text _paperLabel;
+
     [Header("Properties")]
     [SerializeField] private float _typeWritingCharacterAppearTime;
 
@@ -169,9 +173,7 @@ public class ChatDialogueReader : MonoBehaviour
 
     private void RenderCurrentNode()
     {
-        // ClearDialogueScreen();
-        ClearDocument();
-        ClearCameraScreen();
+        ClearContents();
 
         switch (_currentDialogueNode.Type)
         {
@@ -179,14 +181,24 @@ public class ChatDialogueReader : MonoBehaviour
                 _dialogueVisualContent.SetActive(true);
                 SetDialogueText();
                 break;
-            case DialogueNode.NodeType.Document:
+            case DialogueNode.NodeType.Codex_Screen:
                 SetDocumentScreen();
+                break;
+            case DialogueNode.NodeType.Codex_Paper:
+                SetPaperScreen();
                 break;
             case DialogueNode.NodeType.Camera:
                 if (_dialogueCamera == null) return;
                 SetCameraScreen();
                 break;
         }
+    }
+
+    private void ClearContents()
+    {
+        ClearPaper();
+        ClearDocument();
+        ClearCameraScreen();
     }
 
     private void ShowOptions(DialogueNode[] nodes)
@@ -226,6 +238,11 @@ public class ChatDialogueReader : MonoBehaviour
         _documentContent.SetActive(false);
     }
     
+    private void ClearPaper()
+    {
+        _paperContent.SetActive(false);
+    }
+    
     private void ClearCameraScreen()
     {
         if (_dialogueCamera == null) return;
@@ -251,11 +268,27 @@ public class ChatDialogueReader : MonoBehaviour
 
     private void SetDocumentScreen()
     {
-        _dialogueLabel.SetText("");
+        ClearLabels();
         
         _documentContent.SetActive(true);
         _documentLabel.gameObject.SetActive(true);
         _documentLabel.SetText(_currentDialogueNode.Text);
+    }
+    
+    private void SetPaperScreen()
+    {
+        ClearLabels();
+        
+        _paperContent.SetActive(true);
+        _paperLabel.gameObject.SetActive(true);
+        _paperLabel.SetText(_currentDialogueNode.Text);
+    }
+
+    private void ClearLabels()
+    {
+        _dialogueLabel.SetText("");
+        _documentLabel.SetText("");
+        _paperLabel.SetText("");
     }
     
     private void SetCameraScreen()

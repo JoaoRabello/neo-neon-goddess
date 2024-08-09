@@ -11,8 +11,9 @@ public class DialogueNode : ScriptableObject
     public enum NodeType
     {
         Common,
-        Document,
-        Camera
+        Codex_Screen,
+        Camera,
+        Codex_Paper
     }
     [SerializeField] private string _text;
     [SerializeField] private NodeType _nodeType;
